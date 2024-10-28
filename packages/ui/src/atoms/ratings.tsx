@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { BsStar, BsStarFill } from 'react-icons/bs';
 
 import { cn } from '../lib/utils.js';
@@ -43,7 +43,9 @@ const Ratings = ({ ...props }: RatingsProps) => {
     value,
   } = props;
 
-  const ratings = value;
+  const [hoverValue, setHoverValue] = useState<number | null>(null);
+
+  const ratings = hoverValue === null ? value : hoverValue;
 
   const fullStars = Math.floor(ratings);
   const partialStar =
@@ -59,7 +61,12 @@ const Ratings = ({ ...props }: RatingsProps) => {
     ) : null;
 
   return (
-    <div className={cn('flex items-center gap-2')} {...props}>
+    <div
+      className={cn('flex items-center gap-2')}
+      onMouseEnter={() => setHoverValue(value)}
+      onMouseLeave={() => setHoverValue(null)}
+      {...props}
+    >
       {Array.from({ length: fullStars }).map((_, i) =>
         React.cloneElement(FilledIcon, {
           key: i,
@@ -67,10 +74,11 @@ const Ratings = ({ ...props }: RatingsProps) => {
           className: cn(
             fill ? 'fill-current' : 'fill-transparent',
             ratingVariants[variant].star,
-            asInput ? 'cursor-pointer' : '',
+            asInput ? 'cursor-pointer hover:fill-current' : '',
           ),
           role: props.asInput && 'input',
           onClick: () => onValueChange && onValueChange(i + 1),
+          onMouseEnter: () => setHoverValue(i + 1),
         }),
       )}
       {partialStar}
@@ -82,12 +90,13 @@ const Ratings = ({ ...props }: RatingsProps) => {
           size,
           className: cn(
             ratingVariants[variant].emptyStar,
-            asInput ? 'cursor-pointer' : '',
+            asInput ? 'cursor-pointer hover:fill-current' : '',
           ),
           role: props.asInput && 'input',
           onClick: () =>
             onValueChange &&
             onValueChange(fullStars + i + 1 + (partialStar ? 1 : 0)),
+          onMouseEnter: () => setHoverValue(fullStars + i + 1),
         }),
       )}
     </div>
