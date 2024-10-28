@@ -157,13 +157,19 @@ interface Chapter {
 const extractData = (token: Token, type: string) => {
   if (token.type === 'paragraph' && token.tokens) {
     for (const [index, t] of token.tokens.entries()) {
-      if (
-        t.raw === `<${type}>` &&
-        token.tokens.at(index + 2)?.raw === `</${type}>`
-      ) {
-        const res = token.tokens.at(index + 1)?.raw;
-        if (res) {
-          return res;
+      if (t.raw === `<${type}>`) {
+        let res = token.tokens.at(index + 1)?.raw;
+        let i = 2;
+
+        // Marked separate the result into many tokens when it ends with an "_"
+        while (i < 10) {
+          const currentToken = token.tokens.at(index + i);
+          if (currentToken?.raw === `</${type}>`) {
+            return res ? res : null;
+          } else if (currentToken?.raw === `_`) {
+            res += '_';
+          }
+          i++;
         }
       }
     }
