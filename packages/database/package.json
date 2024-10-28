@@ -27,13 +27,13 @@
     "db:migrate:local": "dotenv -e ../../.env -- tsx ./scripts/migrate.ts"
   },
   "dependencies": {
-    "drizzle-orm": "^0.34.1",
+    "drizzle-orm": "^0.35.3",
     "postgres": "3.4.5"
   },
   "devDependencies": {
     "@blms/eslint-config": "workspace:*",
     "dotenv": "^16.4.5",
-    "drizzle-kit": "^0.25.0",
+    "drizzle-kit": "^0.26.2",
     "pg": "^8.13.1"
   }
 }
