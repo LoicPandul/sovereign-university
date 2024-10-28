@@ -321,6 +321,16 @@
       "hyperinflation": "Studiul hiperinflației",
       "theoreticalLightning": "Curs teoretic avansat despre Lightning Network",
       "colcardAndSparrow": "Coldcard și Sparrow"
+    },
+    "exam": {
+      "dontGiveUpTryAgain": "Nu renunța!\nPoți încerca din nou după 24 de ore.",
+      "availableDashboard": "Va fi disponibil în dashboardul dvs. în aproximativ 10 ore.",
+      "certificateGeneration": "Certificatul tău este în curs de ",
+      "congratulations": "Felicitări, ai ajuns la sfârșitul acestui curs!",
+      "congratulationsPassed": "Felicitări, ai <0>trecut</0> examenul final !",
+      "dontWorry": "Nu vă faceți griji în legătură cu greșelile; acest test ajută la consolidarea învățării dumneavoastră. Dacă nu îl treceți, îl puteți relua după 24 de ore.",
+      "certificateAvailable": "Va fi disponibil aproximativ 8 ore după trimitere.",
+      "examAndDiploma": "Examen & Diplomă"
     }
   },
   "dashboard": {
