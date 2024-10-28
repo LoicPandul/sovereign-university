@@ -128,10 +128,6 @@ export const PaymentQr = ({ paymentData, onBack }: PaymentQrProps) => {
         )}
       </div>
       <div className="text-center uppercase md:text-xs justify-self-end mt-auto  mb-2">
-        <p className="mb-2 text-[8px] md:text-[10px]">
-          {t('payment.feeDistribution')}
-        </p>
-
         <div className="text-[10px] md:text-xs">
           <Trans i18nKey="payment.terms">
             <a
