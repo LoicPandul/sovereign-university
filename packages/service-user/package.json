@@ -32,7 +32,7 @@
     "pdf-lib": "^1.17.1",
     "pdfkit": "^0.15.0",
     "qr-image": "^3.2.0",
-    "uuid": "^10.0.0"
+    "uuid": "^11.0.1"
   },
   "devDependencies": {
     "@blms/eslint-config": "workspace:*",

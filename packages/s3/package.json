@@ -23,6 +23,6 @@
     "@blms/types": "workspace:*"
   },
   "dependencies": {
-    "@aws-sdk/client-s3": "^3.670.0"
+    "@aws-sdk/client-s3": "^3.679.0"
   }
 }

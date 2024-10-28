@@ -34,10 +34,10 @@ export const getProfessorCoursesQuery = ({
   )}`;
 
   return sql<JoinedCourse[]>`
-    SELECT 
-      c.id, 
-      cl.language, 
-      c.level, 
+    SELECT
+      c.id,
+      cl.language,
+      c.level,
       c.hours,
       c.topic,
       c.subtopic,
@@ -53,11 +53,14 @@ export const getProfessorCoursesQuery = ({
       c.contact,
       c.available_seats,
       c.remaining_seats,
-      cl.name, 
+      c.number_of_rating,
+      c.sum_of_all_rating,
+      COALESCE(NULLIF(c.sum_of_all_rating, 0) / NULLIF(c.number_of_rating, 0), 0) AS average_rating,
+      cl.name,
       cl.goal,
-      cl.objectives, 
-      cl.raw_description, 
-      c.last_updated, 
+      cl.objectives,
+      cl.raw_description,
+      c.last_updated,
       c.last_commit,
       COALESCE(cp_agg.professors, ARRAY[]::varchar[20]) as professors
     FROM content.professors p
@@ -80,10 +83,10 @@ export const getProfessorCoursesQuery = ({
 
     ${whereStatement}
 
-    GROUP BY 
-      c.id, 
-      cl.language, 
-      c.level, 
+    GROUP BY
+      c.id,
+      cl.language,
+      c.level,
       c.hours,
       c.topic,
       c.subtopic,
@@ -99,11 +102,13 @@ export const getProfessorCoursesQuery = ({
       c.contact,
       c.available_seats,
       c.remaining_seats,
-      cl.name, 
+      c.number_of_rating,
+      c.sum_of_all_rating,
+      cl.name,
       cl.goal,
-      cl.objectives, 
-      cl.raw_description, 
-      c.last_updated, 
+      cl.objectives,
+      cl.raw_description,
+      c.last_updated,
       c.last_commit,
       cp_agg.professors
   `;
