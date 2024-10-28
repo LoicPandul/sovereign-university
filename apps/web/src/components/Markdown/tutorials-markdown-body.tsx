@@ -4,7 +4,7 @@ import { atomDark } from 'react-syntax-highlighter/dist/esm/styles/prism';
 import rehypeMathjax from 'rehype-mathjax/svg';
 import remarkGfm from 'remark-gfm';
 import remarkMath from 'remark-math';
-import remarkUnwrapImages from 'remark-unwrap-images';
+import rehypeUnwrapImages from 'rehype-unwrap-images';
 
 import type { JoinedTutorialLight } from '@blms/types';
 
@@ -184,7 +184,7 @@ const TutorialsMarkdownBody = ({
       }}
       remarkPlugins={[
         remarkGfm,
-        remarkUnwrapImages,
+        rehypeUnwrapImages,
         [remarkMath, remarkMathOptions],
       ]}
       rehypePlugins={[rehypeMathjax]}

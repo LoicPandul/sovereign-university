@@ -4,7 +4,7 @@ import { atomDark } from 'react-syntax-highlighter/dist/esm/styles/prism';
 import rehypeMathjax from 'rehype-mathjax';
 import remarkGfm from 'remark-gfm';
 import remarkMath from 'remark-math';
-import remarkUnwrapImages from 'remark-unwrap-images';
+import rehypeUnwrapImages from 'rehype-unwrap-images';
 
 import YellowPen from '../../assets/courses/pencil.svg?react';
 import VideoSVG from '../../assets/resources/video.svg?react';
@@ -133,7 +133,7 @@ const GeneralMarkdownBody = ({
           );
         },
       }}
-      remarkPlugins={[remarkGfm, remarkUnwrapImages, remarkMath]}
+      remarkPlugins={[remarkGfm, rehypeUnwrapImages, remarkMath]}
       rehypePlugins={[rehypeMathjax]}
       urlTransform={(src) =>
         src.startsWith('http') ? src : `${assetPrefix}/${src}`

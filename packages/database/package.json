@@ -28,7 +28,7 @@
   },
   "dependencies": {
     "drizzle-orm": "^0.34.1",
-    "postgres": "3.4.4"
+    "postgres": "3.4.5"
   },
   "devDependencies": {
     "@blms/eslint-config": "workspace:*",

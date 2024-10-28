@@ -18,7 +18,7 @@
     "@blms/ui": "workspace:*",
     "@hookform/resolvers": "^3.9.0",
     "@react-hooks-library/core": "^0.6.2",
-    "@tanstack/react-query": "^5.59.8",
+    "@tanstack/react-query": "^5.59.16",
     "@tanstack/react-router": "^1.64.0",
     "@trpc/client": "11.0.0-rc.433",
     "@trpc/react-query": "11.0.0-rc.433",
@@ -53,7 +53,7 @@
     "rehype-mathjax": "6.0.0",
     "remark-gfm": "4.0.0",
     "remark-math": "6.0.0",
-    "remark-unwrap-images": "4.0.0",
+    "rehype-unwrap-images": "1.0.0",
     "superjson": "^2.2.1",
     "zod": "3.23.8"
   },
