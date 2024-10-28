@@ -139,6 +139,25 @@ export const createGetMetadata = (dependencies: Dependencies) => {
     return meta(tutorial.title, tutorial.description, DEFAULT_IMAGE, language);
   };
 
+  const getExamCertificateMetadata = (
+    lang: string,
+    parts: string[],
+    // eslint-disable-next-line unicorn/consistent-function-scoping
+  ): Metadata => {
+    const [examId] = parts;
+
+    if (!examId) {
+      return defaultMeta(lang);
+    }
+
+    return meta(
+      DEFAULT.title,
+      DEFAULT.description,
+      `/api/files/certificates/${examId}.png`,
+      DEFAULT.lang,
+    );
+  };
+
   return async (parts: string[]): Promise<Metadata> => {
     const lang = (parts[0]?.length === 2 && parts.shift()) || 'en';
 
@@ -156,6 +175,9 @@ export const createGetMetadata = (dependencies: Dependencies) => {
       case 'tutorials': {
         return getTutorialMetadata(lang, rest) //
           .catch(defaultOnError(lang));
+      }
+      case 'exam-certificates': {
+        return getExamCertificateMetadata(lang, rest); //
       }
       default: {
         return defaultMeta(lang);

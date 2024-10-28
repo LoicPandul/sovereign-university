@@ -13,6 +13,8 @@ const buttonVariants = cva(
           'bg-primary text-white shadow-button disabled:!bg-darkOrange-1 disabled:!text-darkOrange-3',
         secondary:
           'bg-secondary text-newBlack-1 shadow-button disabled:!bg-newGray-4 disabled:!text-newGray-2',
+        tertiary:
+          'bg-newGray-5 text-newBlack-1 border-newGray-3 shadow-button disabled:!bg-newGray-3 disabled:!text-newGray-2',
         outline:
           'bg-transparent text-primary border border-primary disabled:!text-newGray-3 disabled:!border-newGray-3',
         outlineWhite:

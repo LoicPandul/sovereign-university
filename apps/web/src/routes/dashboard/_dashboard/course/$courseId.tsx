@@ -7,6 +7,7 @@ import {
 import { t } from 'i18next';
 import { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
+import { BsTwitterX } from 'react-icons/bs';
 import { FiDownload } from 'react-icons/fi';
 import { IoIosArrowDown } from 'react-icons/io';
 import { IoReload } from 'react-icons/io5';
@@ -403,7 +404,7 @@ const CourseExams = ({
                               />
                             )}
 
-                            <div className="flex max-md:flex-col md:justify-between w-full mt-7 md:mt-5">
+                            <div className="flex justify-between w-full mt-7 md:mt-5">
                               <a
                                 href={`/api/files/${exam.pdfKey}`}
                                 download
@@ -419,6 +420,26 @@ const CourseExams = ({
                                   <FiDownload className="size-[18px] md:size-6" />
                                 </Button>
                               </a>
+                              <div className="flex items-center gap-4">
+                                <span className="text-xs italic font-light text-black max-md:hidden">
+                                  {t('dashboard.course.shareOnSocials')}
+                                </span>
+                                <div className="flex items-center gap-2.5">
+                                  <Link
+                                    to={`https://twitter.com/intent/tweet?text=${encodeURIComponent(
+                                      t('dashboard.course.tweetText', {
+                                        courseId: courseId.toUpperCase(),
+                                        certificateUrl: `${window.location.origin}/en/exam-certificates/${exam.id}`,
+                                      }),
+                                    )}`}
+                                    target="_blank"
+                                  >
+                                    <Button variant="tertiary" size="s">
+                                      <BsTwitterX size={18} />
+                                    </Button>
+                                  </Link>
+                                </div>
+                              </div>
                             </div>
                           </div>
                         ) : (

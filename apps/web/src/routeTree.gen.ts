@@ -58,6 +58,7 @@ import { Route as ContentMiscValidateEmailTokenImport } from './routes/_content/
 import { Route as ContentMiscResetPasswordTokenImport } from './routes/_content/_misc/reset-password.$token';
 import { Route as ContentMiscPublicCommunicationLegalsImport } from './routes/_content/_misc/public-communication/legals';
 import { Route as ContentMiscProfessorProfessorNameProfessorIdImport } from './routes/_content/_misc/professor.$professorName-$professorId';
+import { Route as ContentMiscExamCertificatesCertificateIdImport } from './routes/_content/_misc/exam-certificates.$certificateId';
 import { Route as ContentMiscPublicCommunicationLegalsIndexImport } from './routes/_content/_misc/public-communication/legals/index';
 import { Route as ContentMiscPublicCommunicationBlogsAndNewsIndexImport } from './routes/_content/_misc/public-communication/blogs-and-news/index';
 import { Route as ContentMiscProfessorsCategoryIndexImport } from './routes/_content/_misc/professors/$category/index';
@@ -334,6 +335,12 @@ const ContentMiscProfessorProfessorNameProfessorIdRoute =
     getParentRoute: () => rootRoute,
   } as any);
 
+const ContentMiscExamCertificatesCertificateIdRoute =
+  ContentMiscExamCertificatesCertificateIdImport.update({
+    path: '/exam-certificates/$certificateId',
+    getParentRoute: () => rootRoute,
+  } as any);
+
 const ContentMiscPublicCommunicationLegalsIndexRoute =
   ContentMiscPublicCommunicationLegalsIndexImport.update({
     path: '/',
@@ -526,6 +533,13 @@ declare module '@tanstack/react-router' {
       path: '/tutorials';
       fullPath: '/tutorials';
       preLoaderRoute: typeof ContentTutorialsIndexImport;
+      parentRoute: typeof rootRoute;
+    };
+    '/_content/_misc/exam-certificates/$certificateId': {
+      id: '/_content/_misc/exam-certificates/$certificateId';
+      path: '/exam-certificates/$certificateId';
+      fullPath: '/exam-certificates/$certificateId';
+      preLoaderRoute: typeof ContentMiscExamCertificatesCertificateIdImport;
       parentRoute: typeof rootRoute;
     };
     '/_content/_misc/professor/$professorName-$professorId': {
@@ -856,6 +870,7 @@ export interface FileRoutesByFullPath {
   '/events': typeof ContentEventsIndexRoute;
   '/resources': typeof ContentResourcesIndexRoute;
   '/tutorials': typeof ContentTutorialsIndexRoute;
+  '/exam-certificates/$certificateId': typeof ContentMiscExamCertificatesCertificateIdRoute;
   '/professor/$professorName-$professorId': typeof ContentMiscProfessorProfessorNameProfessorIdRoute;
   '/public-communication/legals': typeof ContentMiscPublicCommunicationLegalsRouteWithChildren;
   '/reset-password/$token': typeof ContentMiscResetPasswordTokenRoute;
@@ -908,6 +923,7 @@ export interface FileRoutesByTo {
   '/events': typeof ContentEventsIndexRoute;
   '/resources': typeof ContentResourcesIndexRoute;
   '/tutorials': typeof ContentTutorialsIndexRoute;
+  '/exam-certificates/$certificateId': typeof ContentMiscExamCertificatesCertificateIdRoute;
   '/professor/$professorName-$professorId': typeof ContentMiscProfessorProfessorNameProfessorIdRoute;
   '/reset-password/$token': typeof ContentMiscResetPasswordTokenRoute;
   '/validate-email/$token': typeof ContentMiscValidateEmailTokenRoute;
@@ -963,6 +979,7 @@ export interface FileRoutesById {
   '/_content/events/': typeof ContentEventsIndexRoute;
   '/_content/resources/': typeof ContentResourcesIndexRoute;
   '/_content/tutorials/': typeof ContentTutorialsIndexRoute;
+  '/_content/_misc/exam-certificates/$certificateId': typeof ContentMiscExamCertificatesCertificateIdRoute;
   '/_content/_misc/professor/$professorName-$professorId': typeof ContentMiscProfessorProfessorNameProfessorIdRoute;
   '/_content/_misc/public-communication/legals': typeof ContentMiscPublicCommunicationLegalsRouteWithChildren;
   '/_content/_misc/reset-password/$token': typeof ContentMiscResetPasswordTokenRoute;
@@ -1019,6 +1036,7 @@ export interface FileRouteTypes {
     | '/events'
     | '/resources'
     | '/tutorials'
+    | '/exam-certificates/$certificateId'
     | '/professor/$professorName-$professorId'
     | '/public-communication/legals'
     | '/reset-password/$token'
@@ -1070,6 +1088,7 @@ export interface FileRouteTypes {
     | '/events'
     | '/resources'
     | '/tutorials'
+    | '/exam-certificates/$certificateId'
     | '/professor/$professorName-$professorId'
     | '/reset-password/$token'
     | '/validate-email/$token'
@@ -1123,6 +1142,7 @@ export interface FileRouteTypes {
     | '/_content/events/'
     | '/_content/resources/'
     | '/_content/tutorials/'
+    | '/_content/_misc/exam-certificates/$certificateId'
     | '/_content/_misc/professor/$professorName-$professorId'
     | '/_content/_misc/public-communication/legals'
     | '/_content/_misc/reset-password/$token'
@@ -1172,6 +1192,7 @@ export interface RootRouteChildren {
   ContentEventsIndexRoute: typeof ContentEventsIndexRoute;
   ContentResourcesIndexRoute: typeof ContentResourcesIndexRoute;
   ContentTutorialsIndexRoute: typeof ContentTutorialsIndexRoute;
+  ContentMiscExamCertificatesCertificateIdRoute: typeof ContentMiscExamCertificatesCertificateIdRoute;
   ContentMiscProfessorProfessorNameProfessorIdRoute: typeof ContentMiscProfessorProfessorNameProfessorIdRoute;
   ContentMiscPublicCommunicationLegalsRoute: typeof ContentMiscPublicCommunicationLegalsRouteWithChildren;
   ContentMiscResetPasswordTokenRoute: typeof ContentMiscResetPasswordTokenRoute;
@@ -1211,6 +1232,8 @@ const rootRouteChildren: RootRouteChildren = {
   ContentEventsIndexRoute: ContentEventsIndexRoute,
   ContentResourcesIndexRoute: ContentResourcesIndexRoute,
   ContentTutorialsIndexRoute: ContentTutorialsIndexRoute,
+  ContentMiscExamCertificatesCertificateIdRoute:
+    ContentMiscExamCertificatesCertificateIdRoute,
   ContentMiscProfessorProfessorNameProfessorIdRoute:
     ContentMiscProfessorProfessorNameProfessorIdRoute,
   ContentMiscPublicCommunicationLegalsRoute:
@@ -1271,6 +1294,7 @@ export const routeTree = rootRoute
         "/_content/events/",
         "/_content/resources/",
         "/_content/tutorials/",
+        "/_content/_misc/exam-certificates/$certificateId",
         "/_content/_misc/professor/$professorName-$professorId",
         "/_content/_misc/public-communication/legals",
         "/_content/_misc/reset-password/$token",
@@ -1388,6 +1412,9 @@ export const routeTree = rootRoute
     },
     "/_content/tutorials/": {
       "filePath": "_content/tutorials/index.tsx"
+    },
+    "/_content/_misc/exam-certificates/$certificateId": {
+      "filePath": "_content/_misc/exam-certificates.$certificateId.tsx"
     },
     "/_content/_misc/professor/$professorName-$professorId": {
       "filePath": "_content/_misc/professor.$professorName-$professorId.tsx"

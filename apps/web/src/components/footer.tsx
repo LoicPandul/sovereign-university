@@ -125,7 +125,7 @@ const SocialNetworks = ({ variant }: { variant: FooterProps['variant'] }) => {
         <BsTwitterX size={iconSize} className={iconClasses} />{' '}
       </a>
       <a
-        href="https://github.com/DecouvreBitcoin/sovereign-university-data"
+        href="https://github.com/PlanB-Network/bitcoin-educational-content"
         target="_blank"
         rel="noreferrer"
       >
