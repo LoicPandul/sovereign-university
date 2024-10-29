@@ -1,12 +1,11 @@
 import { TRPCError } from '@trpc/server';
 
 import { EmptyResultError, firstRow, rejectOnEmpty } from '@blms/database';
-import type { TokenType } from '@blms/types';
 
 import type { Dependencies } from '#src/dependencies.js';
 
-import { changeEmailQuery } from '../queries/change-email.js';
-import { consumeTokenQuery, createTokenQuery } from '../queries/token.js';
+import { changeEmailWithTokenQuery } from '../queries/change-email.js';
+import { createTokenQuery } from '../queries/token.js';
 
 import { createSendEmail } from './email.js';
 
@@ -18,12 +17,7 @@ import { createSendEmail } from './email.js';
 export const createChangeEmailConfirmation = ({ postgres }: Dependencies) => {
   return (tokenId: string) => {
     return postgres
-      .exec(consumeTokenQuery(tokenId, 'validate_email' satisfies TokenType))
-      .then(firstRow)
-      .then(rejectOnEmpty)
-      .then((token) =>
-        postgres.exec(changeEmailQuery(token.uid, token.data as string)),
-      )
+      .exec(changeEmailWithTokenQuery(tokenId))
       .then(firstRow)
       .then(rejectOnEmpty)
       .catch((error) => {
