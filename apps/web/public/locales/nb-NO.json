@@ -35,7 +35,8 @@
       "usernameRegex": "Brukernavn kan bare inneholde bokstaver, tall, _, . og -.",
       "usernameRequired": "Brukernavn er obligatorisk.",
       "usernameTooShort": "Brukernavnet må inneholde minst 5 tegn.",
-      "displayNameRegex": "Visningsnavn kan bare inneholde bokstaver, tall, _, ., - og mellomrom."
+      "displayNameRegex": "Visningsnavn kan bare inneholde bokstaver, tall, _, ., - og mellomrom.",
+      "invalidCredentials": "Ugyldige legitimasjonsopplysninger"
     },
     "forgottenPassword": "Glemt passordet ditt?",
     "headerAccountCreated": "Konto opprettet",
@@ -65,7 +66,10 @@
     "newPassword": "Nytt passord",
     "passwordMinLength": "Passordet må være minst {{len}} tegn",
     "passwordSuccessfullyChanged": "Passordet ditt er endret. Du kan nå logge inn med ditt nye passord.",
-    "passwordResetSent": "E-post for tilbakestilling av passord er sendt til innboksen din (hvis e-postadressen finnes i databasen vår)."
+    "passwordResetSent": "E-post for tilbakestilling av passord er sendt til innboksen din (hvis e-postadressen finnes i databasen vår).",
+    "confirmation": "Bekreftelse",
+    "displayName": "Visningsnavn",
+    "oldPassword": "Gammelt passord"
   },
   "bCertificate": {
     "checkout": "Sjekk ut ₿-sertifikatet",
@@ -214,7 +218,10 @@
       "access_invoice": "Du kan få tilgang til fakturaen din via dashbordet ditt",
       "payment_details": "Betalingsdetaljer",
       "amount": "Beløp",
-      "invoiceId": "Tx ID"
+      "invoiceId": "Tx ID",
+      "buyInPersonCourse": "Kjøp kurs, fysisk tilstede",
+      "inPersonAccess": "Du må laste ned billetten din for å få tilgang til tilstede klassen.",
+      "buyOnlineCourse": "Kjøp nettbasert kurs"
     },
     "explorer": {
       "buildPath": "Lag din egen sti ned i kaninhullet",
@@ -260,7 +267,11 @@
       "teacher": "Lærer",
       "teachers": "Lærere",
       "time": "Tid",
-      "book_description": "Vennligst gjennomgå detaljene for lokalet som er oppgitt.\nNår bestillingen din er behandlet, vil vi sende deg en bekreftelsesbillett og en QR-kode som skal presenteres på arrangementet."
+      "book_description": "Vennligst gjennomgå detaljene for lokalet som er oppgitt.\nNår bestillingen din er behandlet, vil vi sende deg en bekreftelsesbillett og en QR-kode som skal presenteres på arrangementet.",
+      "onlineCallout": "Du er i ferd med å kjøpe <strong>online</strong> tilgang til dette kurset.",
+      "onlineDescription": "Hver klasseøkt blir strømmet live på plattformen.\nDette kjøpet vil gi deg tilgang til live-strømmer og opptak av videoer.",
+      "inPersonDescription": "Hver klasseøkt finner sted fysisk på de angitte datoene og stedene, og blir også direktesendt på plattformen. \nDette kjøpet vil gi deg tilgang til både personlig tilstede og online klasser.\nIkke glem å reservere plassen din for klasser du ønsker å delta på personlig tilstede.",
+      "inPersonCallout": "Du er i ferd med å kjøpe <strong>personlig tilstede</strong> tilgang til dette kurset."
     },
     "preview": {
       "by": "av {{professor}}",
@@ -304,7 +315,12 @@
       "feedbackDescription": "Vennligst vurder din opplevelse med kurset nedenfor.\nDenne tilbakemeldingen er obligatorisk for å få tilgang til avsluttende eksamen og for å validere kurset.\nMerk at lærere ikke vil ha tilgang til individuelle evalueringer.",
       "quality": "Kvalitet",
       "submitReview": "Send inn anmeldelse",
-      "currentlyLoggedOut": "Du er for øyeblikket utlogget. For å gi oss tilbakemelding på kurset, vennligst <0>logg inn eller registrer deg</0>."
+      "currentlyLoggedOut": "Du er for øyeblikket utlogget. For å gi oss tilbakemelding på kurset, vennligst <0>logg inn eller registrer deg</0>.",
+      "loadMoreComments": "Last inn flere kommentarer",
+      "displayOutOf": "vist ut av",
+      "edit": "Rediger",
+      "ratingsAndReviews": "Vurderinger & anmeldelser",
+      "whatStudentsSay": "Hva studenter sier om dette kurset"
     },
     "unreleased": {
       "colcardAndSparrow": "Coldcard og Sparrow",
@@ -312,6 +328,63 @@
       "financialCrisis": "Analyse av store finanskriser",
       "hyperinflation": "Studie av hyperinflasjon",
       "theoreticalLightning": "Avansert teoretisk kurs om Lightning Network"
+    },
+    "exam": {
+      "certificateAvailable": "Det vil være tilgjengelig omtrent 8 timer etter innsending.",
+      "wishTryAgain": "Hvis du ønsker å prøve igjen, vil eksamen være tilgjengelig om 24 timer.",
+      "answersReview": "Svar gjennomgang",
+      "availableDashboard": "Det vil være tilgjengelig i dashbordet ditt om omtrent 10 timer.",
+      "certificateGeneration": "Ditt sertifikat er under behandling ",
+      "congratulations": "Gratulerer, du har nådd slutten av dette kurset!",
+      "congratulationsPassed": "Gratulerer, du <0>besto</0> den endelige eksamenen !",
+      "dontWorry": "Bekymre deg ikke for feil; denne testen hjelper med å forsterke læringen din. Hvis du ikke består, kan du ta den på nytt etter 24 timer.",
+      "examDetails": "Eksamen har 40 flervalgsspørsmål, hver med ett riktig svar. Du kan endre svarene dine når som helst før du sender inn, så lenge tidtakeren går.",
+      "explanations": "Forklaringer :",
+      "finalExam": "Avsluttende eksamen",
+      "findInformationChapter": "Finn mer informasjon i dette kapittelet :",
+      "futureProof": "Fremtidsklar: Din grad er permanent beskyttet og alltid gyldig.",
+      "getCertificate": "Hent sertifikatet mitt",
+      "globallyRecognized": "Globalt anerkjent: Blockchain-støttede legitimasjoner er betrodd over hele verden.",
+      "planBTimeStamp": "Hos Plan ₿ Network sikrer vi graden din ved hjelp av tidsstemplings teknologi støttet av blockchain.",
+      "goBack": "Gå tilbake",
+      "goodLuck": "Lykke til !",
+      "instantVerification": "Umiddelbar verifisering: Arbeidsgivere kan enkelt verifisere ektheten og utstedelsesdatoen for graden din.",
+      "instructions": "Instruksjoner:",
+      "letsConclude": "Alt er gjort, la oss avslutte",
+      "noGoBack": "Nei, gå tilbake",
+      "notTranslatedYet": "Vi beklager, men funksjonen for sluttprøve er ennå ikke tilgjengelig på ditt valgte språk. Du kan velge å bytte til et annet språk for å fortsette.",
+      "quitWithoutSubmitting": "Oisann, det ser ut til at du forlot siden uten å sende inn svarene dine. Dette avbryter testen.",
+      "oneMinuteLeft": "Du har bare 1 minutt igjen",
+      "oopsFailed": "Oops, det ser ut til at du <0>strøk</0> på slutteksamen.",
+      "passRate": "Beståttprosenten er 80%.",
+      "retakeInstructions": "Du har 20 minutter til å svare på 40 spørsmål, hver med bare ett riktig svar. Du kan navigere mellom spørsmålene og sende inn svarene dine på slutten.",
+      "skipExamDescription": "Du kan også hoppe over eksamen og gå direkte til konklusjonen ved å klikke på knappen nedenfor.",
+      "startExam": "Start eksamen",
+      "submit": "Send inn",
+      "sureSubmit": "Er du sikker på at du vil levere eksamenen din?",
+      "tamperProof": "Manipuleringssikker: Blockchain sikrer at ingen kan endre eller forfalske legitimasjonen din.",
+      "testKnowledge": "Nå som du har fullført dette kurset, la oss teste kunnskapen din.",
+      "testResults": "Testresultater",
+      "timeLeft": "Gjenstående tid",
+      "timeStampBenefits": "Hvorfor det er viktig :",
+      "timeStamped": "tidsstemplet.",
+      "timeStampHow": "Hvordan det fungerer :",
+      "timeStampHowDescription": "Når graden din utstedes, opprettes et unikt digitalt 'fingeravtrykk' og lagres på blokkjeden. Dette gjør posten permanent og beskyttet mot manipulasjon. Ethvert forsøk på å endre graden din vil bryte lenken, noe som avslører endringen.",
+      "timerStart": "Når du klikker på Start, vil en 20-minutters nedtelling begynne.",
+      "tryAgain": "Prøv igjen",
+      "tryOneMoreTime": "La oss prøve en gang til!",
+      "verifyDisplayName": "Før du starter, vennligst bekreft visningsnavnet ditt nedenfor, da det vil bli brukt til å generere vitnemålet ditt.",
+      "whyTimeStamp": "Tidsstempling av graden din:\nHvorfor det er viktig",
+      "yesSubmit": "Ja, send inn",
+      "dontGiveUpTryAgain": "Ikke gi opp!\nDu kan prøve igjen etter 24 timer.",
+      "examAndDiploma": "Eksamen & Diplom",
+      "failed": "Mislyktes",
+      "passed": "Bestått",
+      "retakeExam": "Ta eksamen på nytt",
+      "sameRules": "Du er i ferd med å ta slutteksamen på nytt. Reglene forblir de samme.",
+      "score": "Poeng",
+      "skipExam": "Hopp over eksamen",
+      "skipExamGoConclusion": "Hopp over eksamen, gå til konklusjonen"
     }
   },
   "words": {
@@ -328,7 +401,8 @@
       "wizard": "Tusenkunstner",
       "intermediate": "Mellomliggende",
       "level": "Nivå",
-      "levels": "Nivåer"
+      "levels": "Nivåer",
+      "beginnerFriendly": "Nybegynnervennlig"
     },
     "library": "Bibliotek",
     "movieDocumentary": "Film Dokumentar",
@@ -438,7 +512,28 @@
     "builder": "Bidragsyter",
     "hours": "timer",
     "lectures": "Forelesninger",
-    "communities": "Fellesskap"
+    "communities": "Fellesskap",
+    "writtenByPodcasts": "Skrevet av:",
+    "credentials": "Legitimasjon",
+    "diploma": "Diplom",
+    "location": "Sted",
+    "failed": "Mislyktes",
+    "grade": "Karakter",
+    "id": "ID",
+    "inReview": "Gjennomgås",
+    "filter": "Filter",
+    "overview": "Oversikt",
+    "passed": "Bestått",
+    "status": "Status",
+    "booked": "Bestilt",
+    "bookings": "Bestillinger",
+    "goal": "Mål",
+    "inPerson": "Fysisk tilstede",
+    "progress": "Fremgang",
+    "publicationDate": "Publiseringsdato:",
+    "ratings": "Vurderinger",
+    "teacher": "Lærer",
+    "total": "Totalt"
   },
   "dashboard": {
     "account": "Konto",
@@ -494,7 +589,13 @@
       "seeProgress": "for å se fremgangen din her.",
       "startCourse": "Start eller fullfør et kurs",
       "completedCoursesTitle": "Fullførte kurs",
-      "inprogressCoursesDescription": "Her kan du sjekke fremdriften i kursene du har startet."
+      "inprogressCoursesDescription": "Her kan du sjekke fremdriften i kursene du har startet.",
+      "completedOutOf": "{{completed}} enheter fullført av {{total}} tilgjengelige",
+      "done": "Ferdig",
+      "downloadPdf": "Last ned PDF",
+      "whereYouAre": "La oss se hvor du er!",
+      "viewDetails": "Se detaljer",
+      "yourCertificate": "Ditt sertifikat"
     },
     "profile": {
       "change": "Endre",
@@ -557,7 +658,41 @@
         "teacher": "Lærer",
         "teacherProfile": "Lærerprofil"
       },
-      "menu": "Lærer-meny"
+      "menu": "Lærer-meny",
+      "reviews": {
+        "checkReviews": "Her kan du sjekke karakterene og vurderingene kurset ditt har mottatt.",
+        "noReviewsYet": "Dette kurset har ikke mottatt anmeldelser og karakterer ennå.",
+        "privateComment": "Privat kommentar",
+        "reviews": "Anmeldelser",
+        "viewDetails": "Se detaljer",
+        "writtenFeedbacks": "Skriftlige tilbakemeldinger",
+        "publicComment": "Offentlig kommentar",
+        "review": "Anmeldelse",
+        "reviewsAndGrading": "Anmeldelser & karakterer",
+        "seeStatistics": "Se statistikk",
+        "checkComments": "Her kan du lese kommentarene gitt av studentene. Kommentarene er sortert etter dato."
+      }
+    },
+    "course": {
+      "completionDiploma": "Fullført diplom",
+      "completionExamInfo": "Her kan du finne informasjon relatert til avsluttende eksamen ved slutten av dette kurset.",
+      "feedbacks": "Et kapittel mot slutten av kurset er dedikert til tilbakemeldinger. Hvis du ønsker å gi din tilbakemelding nå, kan du gjøre det her.",
+      "ratingsAndFeedbacks": "Vurderinger & Tilbakemeldinger"
+    },
+    "credentials": {
+      "bCertificate": "₿ Sertifikat",
+      "bCertificateSubtitle": "Her kan du finne detaljene angående dine bestillinger og karakterer fra dine tidligere og fremtidige ₿ Sertifikater.\n₿ Sertifikatet er en tabell-eksamen organisert av Plan ₿ Network for å bekrefte ditt nivå i Bitcoin og relaterte emner.",
+      "courseDiplomas": "Kursdiplomer",
+      "downloadAvailableSoon": "Nedlasting av vitnemål vil være tilgjengelig snart",
+      "globalCertifications": "Globale sertifiseringer",
+      "retakeExam": "Ta eksamen på nytt",
+      "seatBooked": "Din plass på eksamensøkten er reservert",
+      "seeTicket": "Se billett",
+      "takePlaceAt": "Økten vil finne sted på",
+      "yourCertificate": "Ditt sertifikat",
+      "beingGraded": "Eksamen din blir vurdert. Resultatene bør være tilgjengelige om 1 eller 2 uker.",
+      "courseDiplomasSubtitle": "Her kan du finne detaljene om alle eksamenene du har tatt etter å ha fullført et kurs på plattformen.",
+      "completionDiplomas": "Fulført vitnemål"
     }
   },
   "events": {
@@ -663,7 +798,8 @@
       "title": "Bitcoin-utdanning gjort enkelt.",
       "subtitle1": "Vi hjelper deg med å mestre teknologien med mange grundige opplæringsprogrammer!",
       "content1": "Bitcoin utvikler seg stadig, med fremveksten av nye aktører, løsninger, protokoller og teknologiske gjennombrudd. Derfor kan det være utfordrende å opprettholde en nøyaktig og oppdatert database med kvalitetsopplæringer. Her på Plan ₿ har vi oppnådd nettopp det. Enten du er en nybegynner eller en avansert bruker, kan du navigere gjennom hundrevis av opplæringer for å utforske vår industri i henhold til dine behov.",
-      "link": "Se alle veiledninger"
+      "link": "Se alle veiledninger",
+      "link2": "Se alle ressurser"
     },
     "aboutUsSection": {
       "privacyContent": "Vi tror at personvern er en av de mest grunnleggende menneskerettighetene som er essensiell for fremgang",
@@ -685,7 +821,8 @@
       "subtitle": "Alt oversettes til lokale språk",
       "subtitle2": "Vi trenger deg!",
       "content2": "Du kan også starte med å bygge opp ditt eget lokale nettverk i ditt land!",
-      "link": "Hjelp oss med å oversette akademiet"
+      "link": "Hjelp oss med å oversette akademiet",
+      "availableLanguagesVariation": "Tilgjengelige språk: "
     },
     "numbersSection": {
       "networkMember": "Nettverksmedlemmer"
@@ -835,7 +972,12 @@
       "title": "Podcaster"
     },
     "publicGrade": "Offentlig karakter: {{grade}}/5",
-    "searchFilterName": "Søk etter navn"
+    "searchFilterName": "Søk etter navn",
+    "newsletter": {
+      "title": "Nyhetsbrev"
+    },
+    "pageSubtitleBooks": "En annen bok du kanskje vil like:",
+    "pageSubtitlePodcast": "En annen podcast du vil like:"
   },
   "nodeNetwork": {
     "answer1": "En node er et pedagogisk initiativ knyttet til et samfunn et sted i verden. Det kan bestå av en bygning der Bitcoin-utdanning finner sted, men det er ikke begrenset til det. Plan B Network driver knutepunkter, men å etablere dem i hver by over hele verden er urealistisk. Derfor er vi avhengige av et samfunn av bitcoiners for å hjelpe oss med å gjøre dette globale nettverket til virkelighet.",
@@ -851,7 +993,10 @@
     "question2": "Hva tjener jeg på det?",
     "question3": "Hva er kravene?",
     "question4": "Hva er størrelsen på en node?",
-    "question5": "Hva er den hemmelige planen?"
+    "question5": "Hva er den hemmelige planen?",
+    "mobiledescription": "Vi mener at utdanning ikke bare bør foregå på nett, men også i fysiske rom. For å oppnå dette, administrerer Plan B Network et nettverk av knutepunkter rundt om i verden for å ønske tenkere, byggere og pedagoger velkommen til å fremme utviklingen av Bitcoin og frihetsteknologier. Vårt første skritt er å invitere samfunn med fysiske rom, som vi refererer til som \"full nodes\" i vårt nettverk, til å bli med oss. I fremtiden, når nettverket vårt styrkes, vil vi utvide denne invitasjonen til flere initiativer over hele verden. Hvis du deler våre verdier, vennligst ta kontakt med våre representanter for å bli med i nettverket vårt og hjelpe til med å bygge den beste Bitcoin-utdanningen som er mulig.",
+    "descriptionextend": "Vårt første skritt er å invitere samfunn med fysiske rom, som vi refererer til som \"full nodes\" i nettverket vårt, til å bli med oss. I fremtiden, når nettverket vårt styrkes, vil vi utvide denne invitasjonen til flere initiativer over hele verden. Hvis du deler våre verdier, vennligst ta kontakt med våre representanter for å bli med i nettverket vårt og hjelpe til med å bygge den beste Bitcoin-utdanningen som er mulig.",
+    "applyhelp": "*Velg node Plassering"
   },
   "notFound": {
     "pageSubtitle": "Det ser ut som om noen falt for dypt ned i kaninhullet og ble borte. For å komme tilbake til overflaten, klikk",
@@ -985,7 +1130,9 @@
     "github": "GitHub",
     "p1": "En kanin har tumlet ned i et hull. På grunn av dette uventede eventyret, er denne siden under litt konstruksjon for øyeblikket. Vi beklager eventuelle ulemper. Vårt team jobber på høygir for å fullføre denne siden. Hvis du er interessert i å gi en hjelpende hånd, nøl ikke med å sjekke ut vår",
     "p2": "og vurder å bli med i fellesskapet vårt!",
-    "pageTitle": "Oisann."
+    "pageTitle": "Oisann.",
+    "itemNotFound": "{{item}} ikke funnet",
+    "itemNotFoundOrTranslated": "{{item}} ikke funnet, eller ikke oversatt til ditt språk"
   },
   "general": {
     "itemNotFound": "{{item}} ikke funnet",
