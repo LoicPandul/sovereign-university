@@ -51,10 +51,10 @@ export default function QuizzCardQuestion({
         answersColors={answersColors}
       />
       <div className="border-newBlack-1 flex flex-col items-center self-stretch rounded-b-2xl border md:border-2 bg-darkOrange-1 px-2 py-4 md:px-8 md:pb-9 md:pt-6">
-        <div className="mb-6 flex items-start gap-2.5 text-newBlack-1">
+        <div className="mb-6 flex items-start gap-2.5 text-newBlack-1 w-full">
           <FaPlay
             size={window.innerWidth < 768 ? 10 : 24}
-            className="max-md:mt-[5px]"
+            className="max-md:mt-[5px] shrink-0"
           />
           <span className="body-14px md:label-large-20px">{question}</span>
         </div>
