@@ -53,6 +53,10 @@ function Podcast() {
     );
   }
 
+  const filteredSuggestedPodcasts = suggestedPodcasts?.filter(
+    (suggestedPodcast) => suggestedPodcast.id !== Number(podcastId),
+  );
+
   return (
     <ResourceLayout
       title={t('podcasts.pageTitle')}
@@ -136,7 +140,7 @@ function Podcast() {
         <Carousel>
           <CarouselContent>
             {isFetchedSuggested ? (
-              suggestedPodcasts?.map((suggestedPodcast) => {
+              filteredSuggestedPodcasts?.map((suggestedPodcast) => {
                 const isPodcast =
                   'logo' in suggestedPodcast && 'name' in suggestedPodcast;
 
