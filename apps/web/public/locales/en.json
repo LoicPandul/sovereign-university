@@ -749,7 +749,6 @@
   "payment": {
     "proceedToPayment": "Proceed to payment",
     "terms": "See our <0>general terms</0> and conditions for refund details",
-    "feeDistribution": "Fee distribution: Author 99% - Platform 1%",
     "total": "Total"
   },
   "podcast": {
