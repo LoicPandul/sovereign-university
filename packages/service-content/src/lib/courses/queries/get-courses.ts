@@ -3,10 +3,10 @@ import type { JoinedCourse } from '@blms/types';
 
 export const getCoursesQuery = (language?: string) => {
   return sql<JoinedCourse[]>`
-    SELECT 
-      c.id, 
-      cl.language, 
-      c.level, 
+    SELECT
+      c.id,
+      cl.language,
+      c.level,
       c.hours,
       c.topic,
       c.subtopic,
@@ -24,12 +24,12 @@ export const getCoursesQuery = (language?: string) => {
       c.remaining_seats,
       c.number_of_rating,
       c.sum_of_all_rating,
-      COALESCE(NULLIF(c.sum_of_all_rating, 0) / NULLIF(c.number_of_rating, 0), 0) AS average_rating,
-      cl.name, 
+      COALESCE(NULLIF(c.sum_of_all_rating::float, 0) / NULLIF(c.number_of_rating, 0), 0) AS average_rating,
+      cl.name,
       cl.goal,
-      cl.objectives, 
-      cl.raw_description, 
-      c.last_updated, 
+      cl.objectives,
+      cl.raw_description,
+      c.last_updated,
       c.last_commit,
       COALESCE(cp_agg.professors, ARRAY[]::varchar[20]) as professors
     FROM content.courses c
@@ -40,10 +40,10 @@ export const getCoursesQuery = (language?: string) => {
       WHERE cp.course_id = c.id
     ) AS cp_agg ON TRUE
     ${language ? sql`WHERE cl.language = ${language}` : sql``}
-    GROUP BY 
-      c.id, 
-      cl.language, 
-      c.level, 
+    GROUP BY
+      c.id,
+      cl.language,
+      c.level,
       c.hours,
       c.topic,
       c.subtopic,
@@ -61,11 +61,11 @@ export const getCoursesQuery = (language?: string) => {
       c.remaining_seats,
       c.number_of_rating,
       c.sum_of_all_rating,
-      cl.name, 
+      cl.name,
       cl.goal,
-      cl.objectives, 
-      cl.raw_description, 
-      c.last_updated, 
+      cl.objectives,
+      cl.raw_description,
+      c.last_updated,
       c.last_commit,
       cp_agg.professors
   `;
@@ -76,10 +76,10 @@ export const getProfessorCoursesQuery = (
   language?: string,
 ) => {
   return sql<JoinedCourse[]>`
-    SELECT 
-      c.id, 
-      cl.language, 
-      c.level, 
+    SELECT
+      c.id,
+      cl.language,
+      c.level,
       c.hours,
       c.topic,
       c.subtopic,
@@ -95,14 +95,14 @@ export const getProfessorCoursesQuery = (
       c.contact,
       c.available_seats,
       c.remaining_seats,
-      c.number_of_rating,                  
-      c.sum_of_all_rating,                 
-      COALESCE(NULLIF(c.sum_of_all_rating, 0) / NULLIF(c.number_of_rating, 0), 0) AS average_rating, 
-      cl.name, 
+      c.number_of_rating,
+      c.sum_of_all_rating,
+      COALESCE(NULLIF(c.sum_of_all_rating::float, 0) / NULLIF(c.number_of_rating, 0), 0) AS average_rating,
+      cl.name,
       cl.goal,
-      cl.objectives, 
-      cl.raw_description, 
-      c.last_updated, 
+      cl.objectives,
+      cl.raw_description,
+      c.last_updated,
       c.last_commit,
       COALESCE(cp_agg.professors, ARRAY[]::varchar[20]) as professors
     FROM content.courses c
@@ -118,10 +118,10 @@ export const getProfessorCoursesQuery = (
     WHERE c.id = ANY(${courseIds})
     ${language ? sql`AND cl.language = ${language}` : sql``}
 
-    GROUP BY 
-      c.id, 
-      cl.language, 
-      c.level, 
+    GROUP BY
+      c.id,
+      cl.language,
+      c.level,
       c.hours,
       c.topic,
       c.subtopic,
@@ -137,13 +137,13 @@ export const getProfessorCoursesQuery = (
       c.contact,
       c.available_seats,
       c.remaining_seats,
-      c.number_of_rating,                  -- New field
-      c.sum_of_all_rating,                 -- New field
-      cl.name, 
+      c.number_of_rating,
+      c.sum_of_all_rating,
+      cl.name,
       cl.goal,
-      cl.objectives, 
-      cl.raw_description, 
-      c.last_updated, 
+      cl.objectives,
+      cl.raw_description,
+      c.last_updated,
       c.last_commit,
       cp_agg.professors
   `;
