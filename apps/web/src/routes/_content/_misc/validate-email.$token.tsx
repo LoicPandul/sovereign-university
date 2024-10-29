@@ -1,5 +1,6 @@
-import { Link, createFileRoute, useParams } from '@tanstack/react-router';
+import { Link, createFileRoute } from '@tanstack/react-router';
 import { useContext, useEffect, useRef, useState } from 'react';
+import { z } from 'zod';
 
 import { MainLayout } from '#src/components/main-layout.js';
 import { AppContext } from '#src/providers/context.js';
@@ -12,11 +13,19 @@ enum ValidationStatus {
 }
 
 export const Route = createFileRoute('/_content/_misc/validate-email/$token')({
+  params: {
+    parse: (params) => ({
+      token: z.string().parse(params.token),
+    }),
+    stringify: ({ token }) => ({ token: `${token}` }),
+  },
   component: ValidateEmailChangePage,
 });
 
 function ValidateEmailChangePage() {
-  const { token } = useParams({ from: '/validate-email/$token' });
+  const params = Route.useParams();
+  const token = params.token;
+
   const { user, setUser } = useContext(AppContext);
   const [email, setEmail] = useState<string | null>(null);
 

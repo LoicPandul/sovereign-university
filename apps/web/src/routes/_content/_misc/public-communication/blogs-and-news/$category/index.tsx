@@ -1,6 +1,7 @@
-import { Link, createFileRoute, useParams } from '@tanstack/react-router';
+import { Link, createFileRoute } from '@tanstack/react-router';
 import { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
+import { z } from 'zod';
 
 import Layout from '../../-layout.tsx';
 import { BlogList } from '../../../-components/public-communication/blog-list.tsx';
@@ -32,24 +33,28 @@ const blogTabs = [
 export const Route = createFileRoute(
   '/_content/_misc/public-communication/blogs-and-news/$category/',
 )({
+  params: {
+    parse: (params) => ({
+      category: z.string().parse(params.category),
+    }),
+    stringify: ({ category }) => ({ category: `${category}` }),
+  },
   component: BlogsCategory,
 });
 
 function BlogsCategory() {
   const { t } = useTranslation();
-  const { category } = useParams({
-    from: '/public-communication/blogs-and-news/$category/',
-  });
+  const params = Route.useParams();
 
   const [selectedMainTab, setSelectedMainTab] = useState(
-    category || blogTabs[0].id,
+    params.category || blogTabs[0].id,
   );
 
   useEffect(() => {
-    if (category && selectedMainTab !== category) {
-      setSelectedMainTab(category);
+    if (params.category && selectedMainTab !== params.category) {
+      setSelectedMainTab(params.category);
     }
-  }, [category, selectedMainTab]);
+  }, [params.category, selectedMainTab]);
 
   const handleMainTabChange = (id: string) => {
     setSelectedMainTab(id);

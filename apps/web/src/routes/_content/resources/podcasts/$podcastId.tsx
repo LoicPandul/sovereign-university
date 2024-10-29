@@ -1,5 +1,6 @@
-import { Link, createFileRoute, useParams } from '@tanstack/react-router';
+import { Link, createFileRoute } from '@tanstack/react-router';
 import { useTranslation } from 'react-i18next';
+import { z } from 'zod';
 
 import {
   Button,
@@ -21,17 +22,22 @@ import { ResourceLayout } from '../-components/resource-layout.tsx';
 
 export const Route = createFileRoute('/_content/resources/podcasts/$podcastId')(
   {
+    params: {
+      parse: (params) => ({
+        podcastId: z.number().int().parse(Number(params.podcastId)),
+      }),
+      stringify: ({ podcastId }) => ({ podcastId: `${podcastId}` }),
+    },
     component: Podcast,
   },
 );
 
 function Podcast() {
   const { t, i18n } = useTranslation();
-  const { podcastId } = useParams({
-    from: '/resources/podcasts/$podcastId',
-  });
+  const params = Route.useParams();
+
   const { data: podcast, isFetched } = trpc.content.getPodcast.useQuery({
-    id: Number(podcastId),
+    id: params.podcastId,
     language: i18n.language ?? 'en',
   });
 
@@ -54,7 +60,7 @@ function Podcast() {
   }
 
   const filteredSuggestedPodcasts = suggestedPodcasts?.filter(
-    (suggestedPodcast) => suggestedPodcast.id !== Number(podcastId),
+    (suggestedPodcast) => suggestedPodcast.id !== params.podcastId,
   );
 
   return (

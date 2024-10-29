@@ -1,11 +1,7 @@
-import {
-  Link,
-  createFileRoute,
-  useNavigate,
-  useParams,
-} from '@tanstack/react-router';
+import { Link, createFileRoute, useNavigate } from '@tanstack/react-router';
 import { useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
+import { z } from 'zod';
 
 import { Loader } from '@blms/ui';
 
@@ -21,36 +17,50 @@ import { TutorialCard } from '../tutorials/-components/tutorial-card.tsx';
 export const Route = createFileRoute(
   '/_content/_misc/professor/$professorName-$professorId',
 )({
+  params: {
+    parse: (params) => {
+      const professorNameId = params['professorName-$professorId'];
+      const professorId = professorNameId.split('-').pop();
+      const professorName = professorNameId.slice(
+        0,
+        Math.max(0, professorNameId.lastIndexOf('-')),
+      );
+
+      return {
+        'professorName-$professorId': `${professorName}-${professorId}`,
+        professorName: z.string().parse(professorName),
+        professorId: z.number().int().parse(Number(professorId)),
+      };
+    },
+    stringify: ({ professorName, professorId }) => ({
+      'professorName-$professorId': `${professorName}-${professorId}`,
+    }),
+  },
   component: ProfessorDetail,
 });
 
 function ProfessorDetail() {
   const { navigateTo404 } = useNavigateMisc();
   const { t, i18n } = useTranslation();
-  const params = useParams({
-    from: '/professor/$professorName-$professorId',
-  });
+  const params = Route.useParams();
+
   const navigate = useNavigate();
 
-  const professorNameId = params['professorName-$professorId'];
-  const professorId = professorNameId.split('-').pop();
-  const professorName = professorNameId.slice(
-    0,
-    Math.max(0, professorNameId.lastIndexOf('-')),
-  );
-
   const { data: professor, isFetched } = trpc.content.getProfessor.useQuery({
-    professorId: Number(professorId),
+    professorId: Number(params.professorId),
     language: i18n.language,
   });
 
   useEffect(() => {
-    if (professor && professorName !== formatNameForURL(professor.name)) {
+    if (
+      professor &&
+      params.professorName !== formatNameForURL(professor.name)
+    ) {
       navigate({
         to: `/professor/${formatNameForURL(professor.name)}-${professor.id}`,
       });
     }
-  }, [professor, isFetched, navigateTo404, professorName, navigate]);
+  }, [professor, isFetched, navigateTo404, navigate, params.professorName]);
 
   return (
     <PageLayout className="max-w-[980px] mx-auto">

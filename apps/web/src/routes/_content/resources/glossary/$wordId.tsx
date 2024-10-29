@@ -1,6 +1,7 @@
-import { Link, createFileRoute, useParams } from '@tanstack/react-router';
+import { Link, createFileRoute } from '@tanstack/react-router';
 import React, { Suspense, useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
+import { z } from 'zod';
 
 import type { JoinedGlossaryWord } from '@blms/types';
 import { Loader } from '@blms/ui';
@@ -19,15 +20,18 @@ const GlossaryMarkdownBody = React.lazy(
 );
 
 export const Route = createFileRoute('/_content/resources/glossary/$wordId')({
+  params: {
+    parse: (params) => ({
+      wordId: z.string().parse(params.wordId),
+    }),
+    stringify: ({ wordId }) => ({ wordId: `${wordId}` }),
+  },
   component: GlossaryWord,
 });
 
 function GlossaryWord() {
   const { t, i18n } = useTranslation();
-
-  const { wordId } = useParams({
-    from: '/resources/glossary/$wordId',
-  });
+  const params = Route.useParams();
 
   const [relatedWords, setRelatedWords] = useState<JoinedGlossaryWord[]>([]);
 
@@ -36,7 +40,7 @@ function GlossaryWord() {
 
   const { data: glossaryWord, isFetched } =
     trpc.content.getGlossaryWord.useQuery({
-      strId: wordId,
+      strId: params.wordId,
       language: i18n.language ?? 'en',
     });
 

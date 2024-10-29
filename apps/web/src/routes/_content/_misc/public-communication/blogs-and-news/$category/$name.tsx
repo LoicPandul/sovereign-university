@@ -1,7 +1,8 @@
-import { Link, createFileRoute, useParams } from '@tanstack/react-router';
+import { Link, createFileRoute } from '@tanstack/react-router';
 import React, { Suspense } from 'react';
 import { useTranslation } from 'react-i18next';
 import { FaArrowLeftLong } from 'react-icons/fa6';
+import { z } from 'zod';
 
 import { formatDateSimple } from '@blms/api/src/utils/date.ts';
 import { Button, Loader, cn } from '@blms/ui';
@@ -21,15 +22,25 @@ const BlogMarkdownBody = React.lazy(
 export const Route = createFileRoute(
   '/_content/_misc/public-communication/blogs-and-news/$category/$name',
 )({
+  params: {
+    parse: (params) => ({
+      category: z.string().parse(params.category),
+      name: z.string().parse(params.name),
+    }),
+    stringify: ({ category, name }) => ({
+      category: `${category}`,
+      name: `${name}`,
+    }),
+  },
   component: SingleBlogDetail,
 });
 
 function SingleBlogDetail() {
   const { t, i18n } = useTranslation();
 
-  const { category, name } = useParams({
-    from: '/public-communication/blogs-and-news/$category/$name',
-  });
+  const params = Route.useParams();
+  const name = params.name;
+  const category = params.category;
 
   const { data: blog, isFetched } = trpc.content.getBlog.useQuery({
     name,

@@ -1,10 +1,5 @@
 /* eslint-disable @typescript-eslint/no-unsafe-assignment */
-import {
-  Link,
-  createFileRoute,
-  useNavigate,
-  useParams,
-} from '@tanstack/react-router';
+import { Link, createFileRoute, useNavigate } from '@tanstack/react-router';
 import React, { useContext, useEffect, useMemo, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { FaLock } from 'react-icons/fa';
@@ -12,6 +7,7 @@ import { FaArrowRightLong } from 'react-icons/fa6';
 import { FiLoader } from 'react-icons/fi';
 import { IoCheckmark } from 'react-icons/io5';
 import ReactMarkdown from 'react-markdown';
+import { z } from 'zod';
 
 import type { CourseReviewsExtended, JoinedCourseWithAll } from '@blms/types';
 import { Button, Divider, Loader, TextTag, cn } from '@blms/ui';
@@ -35,6 +31,12 @@ import { CourseLayout } from '../-components/course-layout.tsx';
 import { CoursePaymentModal } from '../-components/payment-modal/course-payment-modal.tsx';
 
 export const Route = createFileRoute('/_content/courses/$courseId/')({
+  params: {
+    parse: (params) => ({
+      courseId: z.string().parse(params.courseId),
+    }),
+    stringify: ({ courseId }) => ({ courseId: `${courseId}` }),
+  },
   component: CourseDetails,
 });
 
@@ -53,9 +55,9 @@ function CourseDetails() {
     close: closeAuthModal,
   } = useDisclosure();
 
-  const { courseId } = useParams({
-    from: '/courses/$courseId',
-  });
+  const params = Route.useParams();
+  const courseId = params.courseId;
+
   const { t, i18n } = useTranslation();
   const [isPaymentModalOpen, setIsPaymentModalOpen] = useState(false);
   const [coursePaymentFormat, setCoursePaymentFormat] = useState<

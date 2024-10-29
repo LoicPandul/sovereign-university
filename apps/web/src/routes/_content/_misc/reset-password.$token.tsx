@@ -1,6 +1,7 @@
-import { Link, createFileRoute, useParams } from '@tanstack/react-router';
+import { Link, createFileRoute } from '@tanstack/react-router';
 import { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
+import { z } from 'zod';
 
 import { Button, Input } from '@blms/ui';
 
@@ -19,12 +20,19 @@ enum PageState {
 }
 
 export const Route = createFileRoute('/_content/_misc/reset-password/$token')({
+  params: {
+    parse: (params) => ({
+      token: z.string().parse(params.token),
+    }),
+    stringify: ({ token }) => ({ token: `${token}` }),
+  },
   component: ResetPasswordPage,
 });
 
 function ResetPasswordPage() {
   const { t } = useTranslation();
-  const { token } = useParams({ from: '/reset-password/$token' });
+  const params = Route.useParams();
+  const token = params.token;
 
   const [pageState, setPageState] = useState<PageState>(PageState.CHECKING);
   const [isPasswordValid, setIsPasswordValid] = useState(false);

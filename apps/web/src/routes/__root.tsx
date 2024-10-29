@@ -4,18 +4,19 @@ import {
   createRootRouteWithContext,
 } from '@tanstack/react-router';
 import type { i18n } from 'i18next';
-// import React, { Suspense } from 'react';
 
 import { LANGUAGES } from '../utils/i18n.ts';
 
 const Root = () => {
   // const TanStackRouterDevtools =
   //   process.env.NODE_ENV === 'production'
-  //     ? () => null
-  //     : // eslint-disable-next-line import/no-named-as-default-member
-  //       React.lazy(() =>
+  //     ? () => null // Render nothing in production
+  //     : React.lazy(() =>
+  //         // Lazy load in development
   //         import('@tanstack/router-devtools').then((res) => ({
   //           default: res.TanStackRouterDevtools,
+  //           // For Embedded Mode
+  //           // default: res.TanStackRouterDevtoolsPanel
   //         })),
   //       );
 
@@ -56,4 +57,7 @@ export const Route = createRootRouteWithContext<{
     }
   },
   component: Root,
+  errorComponent: function ErrorComp({ error }) {
+    return <div>An error occured : {error.message}</div>;
+  },
 });

@@ -1,5 +1,6 @@
-import { Link, createFileRoute, useParams } from '@tanstack/react-router';
+import { Link, createFileRoute } from '@tanstack/react-router';
 import { useTranslation } from 'react-i18next';
+import { z } from 'zod';
 
 import {
   Card,
@@ -20,24 +21,29 @@ import { trpc } from '#src/utils/trpc.js';
 import { ResourceLayout } from '../-components/resource-layout.tsx';
 
 export const Route = createFileRoute('/_content/resources/books/$bookId')({
+  params: {
+    parse: (params) => ({
+      bookId: z.number().int().parse(Number(params.bookId)),
+    }),
+    stringify: ({ bookId }) => ({ bookId: `${bookId}` }),
+  },
   component: Book,
 });
 
 function Book() {
   const { t, i18n } = useTranslation();
-  const { bookId } = useParams({
-    from: '/resources/books/$bookId',
-  });
+  const params = Route.useParams();
+
   const isScreenMd = useGreater('sm');
 
   const { data: book, isFetched } = trpc.content.getBook.useQuery({
-    id: Number(bookId),
+    id: params.bookId,
     language: i18n.language ?? 'en',
   });
 
   const { data: proofreading } = trpc.content.getProofreading.useQuery({
     language: i18n.language,
-    resourceId: +bookId,
+    resourceId: params.bookId,
   });
 
   const { data: suggestedBooks, isFetched: isFetchedSuggestedBooks } =
@@ -149,7 +155,7 @@ function Book() {
           <CarouselContent>
             {isFetchedSuggestedBooks ? (
               suggestedBooks
-                ?.filter((suggestedBook) => suggestedBook.id !== Number(bookId))
+                ?.filter((suggestedBook) => suggestedBook.id !== params.bookId)
                 .map((suggestedBook) => {
                   const isBook =
                     'cover' in suggestedBook && 'title' in suggestedBook;
