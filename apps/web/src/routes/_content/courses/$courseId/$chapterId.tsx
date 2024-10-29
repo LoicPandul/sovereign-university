@@ -830,7 +830,7 @@ function CourseChapter() {
                 )}
                 <MarkdownContent chapter={chapter} />
                 {!isSpecialChapter && displayQuizAndNext && (
-                  <>
+                  <div className="md:!mt-12">
                     {questionsArray && questionsArray.length > 0 && (
                       <QuizzCard
                         name={chapter.course.id}
@@ -839,7 +839,7 @@ function CourseChapter() {
                       />
                     )}
                     <BottomButton chapter={chapter} />
-                  </>
+                  </div>
                 )}
               </div>
 
