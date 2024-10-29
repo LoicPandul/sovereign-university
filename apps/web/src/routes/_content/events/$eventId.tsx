@@ -1,4 +1,5 @@
-import { createFileRoute, useParams } from '@tanstack/react-router';
+import { createFileRoute } from '@tanstack/react-router';
+import { z } from 'zod';
 
 import { Loader } from '@blms/ui';
 
@@ -6,16 +7,20 @@ import { MainLayout } from '#src/components/main-layout.js';
 import { trpc } from '#src/utils/trpc.js';
 
 export const Route = createFileRoute('/_content/events/$eventId')({
+  params: {
+    parse: (params) => ({
+      eventId: z.string().parse(params.eventId),
+    }),
+    stringify: ({ eventId }) => ({ eventId: `${eventId}` }),
+  },
   component: EventDetails,
 });
 
 function EventDetails() {
-  const { eventId } = useParams({
-    from: '/events/$eventId',
-  });
+  const params = Route.useParams();
 
   const { data: event, isFetched } = trpc.content.getEvent.useQuery({
-    id: eventId,
+    id: params.eventId,
   });
 
   let videoUrl: string = '';

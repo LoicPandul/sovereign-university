@@ -1,7 +1,8 @@
-import { Link, createFileRoute, useParams } from '@tanstack/react-router';
+import { Link, createFileRoute } from '@tanstack/react-router';
 import { useTranslation } from 'react-i18next';
 import { BsGithub, BsTwitterX } from 'react-icons/bs';
 import { SlGlobe } from 'react-icons/sl';
+import { z } from 'zod';
 
 import { Button, Loader, cn } from '@blms/ui';
 
@@ -17,19 +18,24 @@ import { ResourceLayout } from '../-components/resource-layout.tsx';
 
 export const Route = createFileRoute('/_content/resources/builders/$builderId')(
   {
+    params: {
+      parse: (params) => ({
+        builderId: z.number().int().parse(Number(params.builderId)),
+      }),
+      stringify: ({ builderId }) => ({ builderId: `${builderId}` }),
+    },
     component: Builder,
   },
 );
 
 function Builder() {
   const { t, i18n } = useTranslation();
-  const { builderId } = useParams({
-    from: '/resources/builders/$builderId',
-  });
+  const params = Route.useParams();
+
   const isScreenMd = useGreater('sm');
   const { data: builder, isFetched } = trpc.content.getBuilder.useQuery(
     {
-      id: Number(builderId),
+      id: params.builderId,
       language: i18n.language ?? 'en',
     },
     {
@@ -50,7 +56,7 @@ function Builder() {
 
   const { data: proofreading } = trpc.content.getProofreading.useQuery({
     language: i18n.language,
-    resourceId: +builderId,
+    resourceId: params.builderId,
   });
 
   const filteredCommunities = communities

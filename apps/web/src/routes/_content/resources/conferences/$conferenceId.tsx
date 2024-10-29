@@ -1,9 +1,10 @@
-import { Link, createFileRoute, useParams } from '@tanstack/react-router';
+import { Link, createFileRoute } from '@tanstack/react-router';
 import React, { Suspense, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { BsLink, BsTwitterX } from 'react-icons/bs';
 import { FaArrowLeftLong, FaArrowRightLong } from 'react-icons/fa6';
 import { GrLinkNext, GrLinkPrevious } from 'react-icons/gr';
+import { z } from 'zod';
 
 import type { ConferenceStageVideo } from '@blms/types';
 import { Button, Loader, Tag, cn } from '@blms/ui';
@@ -21,6 +22,12 @@ const ConferencesMarkdownBody = React.lazy(
 export const Route = createFileRoute(
   '/_content/resources/conferences/$conferenceId',
 )({
+  params: {
+    parse: (params) => ({
+      conferenceId: z.number().int().parse(Number(params.conferenceId)),
+    }),
+    stringify: ({ conferenceId }) => ({ conferenceId: `${conferenceId}` }),
+  },
   component: Conference,
 });
 
@@ -60,18 +67,16 @@ function Conference() {
   const [activeVideo, setActiveVideo] = useState(0);
 
   const { t, i18n } = useTranslation();
-  const { conferenceId } = useParams({
-    from: '/resources/conferences/$conferenceId',
-  });
+  const params = Route.useParams();
 
   const { data: conference, isFetched } = trpc.content.getConference.useQuery({
-    id: Number(conferenceId),
+    id: params.conferenceId,
     language: i18n.language ?? 'en',
   });
 
   const { data: proofreading } = trpc.content.getProofreading.useQuery({
     language: i18n.language,
-    resourceId: +conferenceId,
+    resourceId: params.conferenceId,
   });
 
   const handleKeyDownVideo = (

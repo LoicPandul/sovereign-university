@@ -1,8 +1,9 @@
-import { Link, createFileRoute, useParams } from '@tanstack/react-router';
+import { Link, createFileRoute } from '@tanstack/react-router';
 import { t } from 'i18next';
 import { capitalize } from 'lodash-es';
 import React, { Suspense, useContext, useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
+import { z } from 'zod';
 
 import { Loader, cn } from '@blms/ui';
 
@@ -13,6 +14,7 @@ import ThumbUp from '#src/assets/icons/thumb_up.svg';
 import { AuthModal } from '#src/components/AuthModals/auth-modal.js';
 import { AuthModalState } from '#src/components/AuthModals/props.js';
 import PageMeta from '#src/components/Head/PageMeta/index.js';
+import { MainLayout } from '#src/components/main-layout.tsx';
 import { ProfessorCardReduced } from '#src/components/professor-card.tsx';
 import { ProofreadingProgress } from '#src/components/proofreading-progress.js';
 import { TipModal } from '#src/components/tip-modal.js';
@@ -32,6 +34,16 @@ const TutorialsMarkdownBody = React.lazy(
 );
 
 export const Route = createFileRoute('/_content/tutorials/$category/$name')({
+  params: {
+    parse: (params) => ({
+      name: z.string().parse(params.name),
+      category: z.string().parse(params.category),
+    }),
+    stringify: ({ name, category }) => ({
+      name: `${name}`,
+      category: `${category}`,
+    }),
+  },
   component: TutorialDetails,
 });
 
@@ -124,9 +136,9 @@ const AuthorDetails = ({
 
 function TutorialDetails() {
   const { i18n } = useTranslation();
-  const { category, name } = useParams({
-    from: '/tutorials/$category/$name',
-  });
+  const params = Route.useParams();
+  const category = params.category;
+  const name = params.name;
 
   // States
   const [isLiked, setIsLiked] = useState({ liked: false, disliked: false });
@@ -273,116 +285,118 @@ function TutorialDetails() {
   };
 
   return (
-    <TutorialLayout
-      currentCategory={tutorial?.category}
-      currentSubcategory={tutorial?.subcategory}
-      currentTutorialId={tutorial?.id}
-    >
-      <>
-        {!isFetched && <Loader size={'s'} />}
-        {isFetched && !tutorial && (
-          <div className="flex flex-col text-black">
-            {t('underConstruction.itemNotFoundOrTranslated', {
-              item: t('words.tutorial'),
-            })}
-          </div>
-        )}
-        {proofreading ? (
-          <ProofreadingProgress
-            mode="light"
-            proofreadingData={{
-              contributors: proofreading.contributorsId,
-              reward: proofreading.reward,
-            }}
-          />
-        ) : (
-          <></>
-        )}
-        {tutorial && (
-          <>
-            <PageMeta
-              title={`${SITE_NAME} - ${tutorial?.title}`}
-              description={capitalize(tutorial?.description || '')}
-            />
-            <div className="-mt-4 w-full max-w-5xl lg:hidden">
-              <span className="mb-2 w-full text-left text-lg font-normal leading-6 text-darkOrange-5">
-                <Link to="/tutorials">{t('words.tutorials') + ` > `}</Link>
-                <Link
-                  to={'/tutorials/$category'}
-                  params={{ category: tutorial.category }}
-                  className="capitalize"
-                >
-                  {tutorial.category + ` > `}
-                </Link>
-                <span className="capitalize">{tutorial.title}</span>
-              </span>
+    <MainLayout variant="light">
+      <TutorialLayout
+        currentCategory={tutorial?.category}
+        currentSubcategory={tutorial?.subcategory}
+        currentTutorialId={tutorial?.id}
+      >
+        <>
+          {!isFetched && <Loader size={'s'} />}
+          {isFetched && !tutorial && (
+            <div className="flex flex-col text-black">
+              {t('underConstruction.itemNotFoundOrTranslated', {
+                item: t('words.tutorial'),
+              })}
             </div>
-            <div className="flex w-full flex-col items-center justify-center px-2">
-              <div className="w-full flex flex-col gap-6 text-blue-900 md:max-w-3xl">
-                <Header
-                  tutorial={{
-                    ...tutorial,
-                    likeCount: likesCounts.likeCount,
-                    dislikeCount: likesCounts.dislikeCount,
-                  }}
-                />
-                <div className="break-words overflow-hidden w-full space-y-4 md:space-y-6">
-                  <Suspense fallback={<Loader size={'s'} />}>
-                    <TutorialsMarkdownBody
-                      content={tutorial.rawContent}
-                      assetPrefix={computeAssetCdnUrl(
-                        tutorial.lastCommit,
-                        tutorial.path,
-                      )}
-                      tutorials={tutorials || []}
-                    />
-                  </Suspense>
+          )}
+          {proofreading ? (
+            <ProofreadingProgress
+              mode="light"
+              proofreadingData={{
+                contributors: proofreading.contributorsId,
+                reward: proofreading.reward,
+              }}
+            />
+          ) : (
+            <></>
+          )}
+          {tutorial && (
+            <>
+              <PageMeta
+                title={`${SITE_NAME} - ${tutorial?.title}`}
+                description={capitalize(tutorial?.description || '')}
+              />
+              <div className="-mt-4 w-full max-w-5xl lg:hidden">
+                <span className="mb-2 w-full text-left text-lg font-normal leading-6 text-darkOrange-5">
+                  <Link to="/tutorials">{t('words.tutorials') + ` > `}</Link>
+                  <Link
+                    to={'/tutorials/$category'}
+                    params={{ category: tutorial.category }}
+                    className="capitalize"
+                  >
+                    {tutorial.category + ` > `}
+                  </Link>
+                  <span className="capitalize">{tutorial.title}</span>
+                </span>
+              </div>
+              <div className="flex w-full flex-col items-center justify-center px-2">
+                <div className="w-full flex flex-col gap-6 text-blue-900 md:max-w-3xl">
+                  <Header
+                    tutorial={{
+                      ...tutorial,
+                      likeCount: likesCounts.likeCount,
+                      dislikeCount: likesCounts.dislikeCount,
+                    }}
+                  />
+                  <div className="break-words overflow-hidden w-full space-y-4 md:space-y-6">
+                    <Suspense fallback={<Loader size={'s'} />}>
+                      <TutorialsMarkdownBody
+                        content={tutorial.rawContent}
+                        assetPrefix={computeAssetCdnUrl(
+                          tutorial.lastCommit,
+                          tutorial.path,
+                        )}
+                        tutorials={tutorials || []}
+                      />
+                    </Suspense>
+                  </div>
+                  <LikeDislikeButtons />
+                  {tutorial.credits?.link && (
+                    <span className="body-16px text-black mx-auto w-full">
+                      {t('tutorials.details.source')}
+                      <a
+                        href={tutorial.credits.link}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="leading-snug tracking-015px underline text-newBlue-1 break-words"
+                      >
+                        {tutorial.credits.link}
+                      </a>
+                    </span>
+                  )}
                 </div>
-                <LikeDislikeButtons />
-                {tutorial.credits?.link && (
-                  <span className="body-16px text-black mx-auto w-full">
-                    {t('tutorials.details.source')}
-                    <a
-                      href={tutorial.credits.link}
-                      target="_blank"
-                      rel="noreferrer"
-                      className="leading-snug tracking-015px underline text-newBlue-1 break-words"
-                    >
-                      {tutorial.credits.link}
-                    </a>
-                  </span>
+
+                {tutorial.credits?.professor?.id && (
+                  <AuthorDetails
+                    tutorial={tutorial}
+                    openTipModal={openTipModal}
+                  />
                 )}
               </div>
 
-              {tutorial.credits?.professor?.id && (
-                <AuthorDetails
-                  tutorial={tutorial}
-                  openTipModal={openTipModal}
+              {isTipModalOpen && (
+                <TipModal
+                  isOpen={isTipModalOpen}
+                  onClose={closeTipModal}
+                  lightningAddress={
+                    tutorial.credits?.professor?.tips.lightningAddress as string
+                  }
+                  userName={tutorial.credits?.professor?.name as string}
                 />
               )}
-            </div>
 
-            {isTipModalOpen && (
-              <TipModal
-                isOpen={isTipModalOpen}
-                onClose={closeTipModal}
-                lightningAddress={
-                  tutorial.credits?.professor?.tips.lightningAddress as string
-                }
-                userName={tutorial.credits?.professor?.name as string}
-              />
-            )}
-
-            {isAuthModalOpen && (
-              <AuthModal
-                isOpen={isAuthModalOpen}
-                onClose={closeAuthModal}
-                initialState={authMode}
-              />
-            )}
-          </>
-        )}
-      </>
-    </TutorialLayout>
+              {isAuthModalOpen && (
+                <AuthModal
+                  isOpen={isAuthModalOpen}
+                  onClose={closeAuthModal}
+                  initialState={authMode}
+                />
+              )}
+            </>
+          )}
+        </>
+      </TutorialLayout>
+    </MainLayout>
   );
 }

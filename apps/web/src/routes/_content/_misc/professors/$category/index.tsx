@@ -1,5 +1,6 @@
-import { Link, createFileRoute, useParams } from '@tanstack/react-router';
+import { Link, createFileRoute } from '@tanstack/react-router';
 import { useTranslation } from 'react-i18next';
+import { z } from 'zod';
 
 import { Loader } from '@blms/ui';
 
@@ -12,15 +13,21 @@ import { trpc } from '#src/utils/trpc.js';
 import { professorTabs } from '../index.tsx';
 
 export const Route = createFileRoute('/_content/_misc/professors/$category/')({
+  params: {
+    parse: (params) => ({
+      category: z.string().parse(params.category),
+    }),
+    stringify: ({ category }) => ({ category: `${category}` }),
+  },
   component: ProfessorCategoryPage,
 });
 
 export function ProfessorCategoryPage() {
   const { t, i18n } = useTranslation();
-  const { category } = useParams({ from: '/professors/$category/' });
+  const params = Route.useParams();
 
   const activeItem =
-    professorTabs.find((tab) => tab.href.includes(category)) ||
+    professorTabs.find((tab) => tab.href.includes(params.category)) ||
     professorTabs[0];
 
   const dropdownItems = professorTabs.map((tab) => ({
@@ -40,7 +47,7 @@ export function ProfessorCategoryPage() {
   );
 
   const filteredProfessors = professors?.filter((professor) => {
-    switch (category) {
+    switch (params.category) {
       case 'all': {
         return (
           professor.coursesCount > 0 ||

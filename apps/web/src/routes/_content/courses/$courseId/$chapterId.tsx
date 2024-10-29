@@ -1,4 +1,4 @@
-import { Link, createFileRoute, useParams } from '@tanstack/react-router';
+import { Link, createFileRoute } from '@tanstack/react-router';
 import { t } from 'i18next';
 import React, {
   Suspense,
@@ -11,6 +11,7 @@ import { useTranslation } from 'react-i18next';
 import { BiSkipNext, BiSkipPrevious } from 'react-icons/bi';
 import { FaArrowRightLong } from 'react-icons/fa6';
 import { FiLoader } from 'react-icons/fi';
+import { z } from 'zod';
 
 import type { JoinedQuizQuestion } from '@blms/types';
 import { Button, Loader, cn } from '@blms/ui';
@@ -46,6 +47,16 @@ const CoursesMarkdownBody = React.lazy(
 );
 
 export const Route = createFileRoute('/_content/courses/$courseId/$chapterId')({
+  params: {
+    parse: (params) => ({
+      courseId: z.string().parse(params.courseId),
+      chapterId: z.string().parse(params.chapterId),
+    }),
+    stringify: ({ courseId, chapterId }) => ({
+      courseId: `${courseId}`,
+      chapterId: `${chapterId}`,
+    }),
+  },
   component: CourseChapter,
 });
 
@@ -569,33 +580,31 @@ function shuffleArray<T>(array: T[]): T[] {
 
 function CourseChapter() {
   const { i18n } = useTranslation();
-  const { courseId, chapterId } = useParams({
-    from: '/courses/$courseId/$chapterId',
-  });
+  const params = Route.useParams();
 
   const { session } = useContext(AppContext);
   const isLoggedIn = !!session;
   const { user } = useContext(AppContext);
 
   const { data: chapters } = trpc.content.getCourseChapters.useQuery({
-    id: courseId,
+    id: params.courseId,
     language: i18n.language,
   });
 
   const { data: chapter, isFetched } = trpc.content.getCourseChapter.useQuery({
     language: i18n.language,
-    chapterId: chapterId,
+    chapterId: params.chapterId,
   });
 
   const { data: proofreading } = trpc.content.getProofreading.useQuery({
     language: i18n.language,
-    courseId: courseId,
+    courseId: params.courseId,
   });
 
   const { data: quizzArray } =
     trpc.content.getCourseChapterQuizQuestions.useQuery({
       language: i18n.language,
-      chapterId: chapterId,
+      chapterId: params.chapterId,
     });
 
   const ticketAvailable =
@@ -611,10 +620,10 @@ function CourseChapter() {
       payments?.some(
         (coursePayment) =>
           coursePayment.paymentStatus === 'paid' &&
-          coursePayment.courseId === courseId &&
+          coursePayment.courseId === params.courseId &&
           coursePayment.format === 'inperson',
       ),
-    [courseId, payments],
+    [params.courseId, payments],
   );
 
   const questionsArray: Question[] = useMemo(() => {

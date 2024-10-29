@@ -1,5 +1,6 @@
-import { createFileRoute, useParams } from '@tanstack/react-router';
+import { createFileRoute } from '@tanstack/react-router';
 import { useTranslation } from 'react-i18next';
+import { z } from 'zod';
 
 import { trpc } from '#src/utils/trpc.js';
 
@@ -8,15 +9,19 @@ import { LegalMarkdownComponent } from '../../-components/public-communication/l
 export const Route = createFileRoute(
   '/_content/_misc/public-communication/legals/$name',
 )({
+  params: {
+    parse: (params) => ({
+      name: z.string().parse(params.name),
+    }),
+    stringify: ({ name }) => ({ name: `${name}` }),
+  },
   component: LegalInformationTab,
 });
 
 function LegalInformationTab() {
   const { i18n } = useTranslation();
-
-  const { name } = useParams({
-    from: '/public-communication/legals/$name',
-  });
+  const params = Route.useParams();
+  const name = params.name;
 
   const { data: legal, isFetched } = trpc.content.getLegal.useQuery({
     name,

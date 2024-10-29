@@ -1,9 +1,4 @@
-import {
-  Link,
-  createFileRoute,
-  useLocation,
-  useParams,
-} from '@tanstack/react-router';
+import { Link, createFileRoute, useLocation } from '@tanstack/react-router';
 import { t } from 'i18next';
 import { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
@@ -11,6 +6,7 @@ import { BsTwitterX } from 'react-icons/bs';
 import { FiDownload } from 'react-icons/fi';
 import { IoIosArrowDown } from 'react-icons/io';
 import { IoReload } from 'react-icons/io5';
+import { z } from 'zod';
 
 import type { CourseProgressExtended, JoinedCourseWithAll } from '@blms/types';
 import {
@@ -43,18 +39,23 @@ import { trpc } from '#src/utils/trpc.ts';
 import { ProgressBar } from '../-components/courses-progress-list.tsx';
 
 export const Route = createFileRoute('/dashboard/_dashboard/course/$courseId')({
+  params: {
+    parse: (params) => ({
+      courseId: z.string().parse(params.courseId),
+    }),
+    stringify: ({ courseId }) => ({ courseId: `${courseId}` }),
+  },
   component: DashboardStudentCourse,
 });
 
 function DashboardStudentCourse() {
   const { i18n } = useTranslation();
-  const { courseId } = useParams({
-    from: '/dashboard/_dashboard/course/$courseId',
-  });
+  const params = Route.useParams();
+
   const location = useLocation();
   const { data: course, isFetched } = trpc.content.getCourse.useQuery(
     {
-      id: courseId,
+      id: params.courseId,
       language: i18n.language,
     },
     {
@@ -118,8 +119,8 @@ function DashboardStudentCourse() {
 
             <TabsContent value="exam">
               <CourseExams
-                courseId={courseId}
-                examLink={`/courses/${courseId}/${
+                courseId={params.courseId}
+                examLink={`/courses/${params.courseId}/${
                   course.parts
                     .find((part) =>
                       part.chapters.find((chapter) => chapter?.isCourseExam),
