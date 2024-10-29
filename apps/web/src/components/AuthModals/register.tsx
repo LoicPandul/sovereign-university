@@ -32,6 +32,7 @@ interface RegisterFormData {
   username: string;
   password: string;
   confirmation: string;
+  email: string;
 }
 
 interface RegisterProps {
@@ -60,6 +61,13 @@ export const Register = ({ isOpen, onClose, goTo }: RegisterProps) => {
         },
       ),
       confirmation: z.string(),
+      email: z
+        .union([
+          z.literal(''),
+          z.string().email({ message: t('auth.errors.emailInvalid') }),
+        ])
+        .transform((data) => data || null)
+        .nullable(),
     })
     .refine((data) => data.password === data.confirmation, {
       message: t('auth.passwordsDontMatch'),
@@ -72,25 +80,21 @@ export const Register = ({ isOpen, onClose, goTo }: RegisterProps) => {
       username: '',
       password: '',
       confirmation: '',
+      email: '',
     },
   });
 
   const register = trpc.auth.credentials.register.useMutation({
     onSuccess: () => {
       setTimeout(() => {
-        window.location.reload();
-        // TODO log in the user
+        window.location.href = '/dashboard/courses';
       }, 2000);
     },
   });
 
   const handleCreateUserAccount: SubmitHandler<RegisterFormData> = useCallback(
-    (values) => {
-      register.mutate({
-        password: values.password,
-        username: values.username,
-      });
-    },
+    ({ password, username, email }) =>
+      register.mutate({ password, username, email }),
     [register],
   );
 
@@ -139,7 +143,7 @@ export const Register = ({ isOpen, onClose, goTo }: RegisterProps) => {
                       name="username"
                       render={({ field, fieldState }) => (
                         <FormItem className="my-2 w-full">
-                          <FormLabel>
+                          <FormLabel required>
                             {t('dashboard.profile.username')}
                           </FormLabel>
                           <FormControl>
@@ -158,7 +162,7 @@ export const Register = ({ isOpen, onClose, goTo }: RegisterProps) => {
                       name="password"
                       render={({ field, fieldState }) => (
                         <FormItem className="my-2 w-full">
-                          <FormLabel>
+                          <FormLabel required>
                             {t('dashboard.profile.password')}
                           </FormLabel>
                           <FormControl>
@@ -178,11 +182,33 @@ export const Register = ({ isOpen, onClose, goTo }: RegisterProps) => {
                       name="confirmation"
                       render={({ field, fieldState }) => (
                         <FormItem className="my-2 w-full">
-                          <FormLabel>{t('auth.confirmation')}</FormLabel>
+                          <FormLabel required>
+                            {t('auth.confirmation')}
+                          </FormLabel>
                           <FormControl>
                             <Input
                               placeholder="password"
                               type="password"
+                              {...field}
+                              error={fieldState.error?.message || null}
+                            />
+                          </FormControl>
+                        </FormItem>
+                      )}
+                    />
+
+                    <p className="my-4">{t('auth.emailTip')}</p>
+
+                    <FormField
+                      control={methods.control}
+                      name="email"
+                      render={({ field, fieldState }) => (
+                        <FormItem className="my-2 w-full">
+                          <FormLabel>{t('auth.emailAddress')}</FormLabel>
+                          <FormControl>
+                            <Input
+                              placeholder="email"
+                              type="email"
                               {...field}
                               error={fieldState.error?.message || null}
                             />

@@ -1,6 +1,6 @@
 import { hash } from 'argon2';
 
-import { firstRow } from '@blms/database';
+import { firstRow, rejectOnEmpty } from '@blms/database';
 import type { UserDetails } from '@blms/types';
 
 import type { Dependencies } from '../../../dependencies.js';
@@ -13,7 +13,7 @@ interface Options {
   username: string;
   password: string;
   contributorId?: string;
-  email?: string;
+  email: string | null;
 }
 
 export const createNewCredentialsUser = (dependencies: Dependencies) => {
@@ -42,6 +42,7 @@ export const createNewCredentialsUser = (dependencies: Dependencies) => {
           contributorId,
         }),
       )
-      .then(firstRow) as Promise<UserDetails>;
+      .then(firstRow)
+      .then(rejectOnEmpty);
   };
 };

@@ -32,11 +32,13 @@
     "createOne": "Register here!",
     "displayName": "Display Name",
     "emailAddress": "Email address",
+    "emailTip": "You can add a user email to your account if you wish to. I a case of a forgotten password, it can be useful ;)",
     "errors": {
       "displayNameRegex": "Display name can only contain letters, digits, _, ., - and spaces.",
       "displayNameRequired": "Display name is required.",
       "displayNameTooShort": "Display name must contain at least 2 characters.",
       "invalidCredentials": "Invalid credentials",
+      "emailInvalid": "Invalid email",
       "usernameRegex": "Username can only contain letters, digits, _, . and -.",
       "usernameRequired": "Username is required.",
       "usernameTooShort": "Username must contain at least 5 characters."

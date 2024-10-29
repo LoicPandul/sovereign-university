@@ -55,7 +55,7 @@ export const SignIn = ({ isOpen, onClose, goTo }: SignInProps) => {
   const credentialsLogin = trpc.auth.credentials.login.useMutation({
     onSuccess: () => {
       onClose();
-      window.location.reload();
+      window.location.href = '/dashboard/courses';
     },
     onError: () => {
       methods.setError('username', {
