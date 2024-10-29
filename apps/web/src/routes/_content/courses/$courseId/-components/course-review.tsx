@@ -444,22 +444,24 @@ export function CourseReview({
                     : t('courses.review.submitReview')}
                 </Button>
 
-                <Button
-                  variant="outline"
-                  className="w-fit"
-                  size={window.innerWidth >= 768 ? 'l' : 'm'}
-                  onClick={() => {
-                    navigateToNextChapter();
-                  }}
-                >
-                  <span>{t('courses.review.skip')}</span>
-                  <FaArrowRightLong
-                    className={cn(
-                      'opacity-0 max-w-0 inline-flex whitespace-nowrap transition-[max-width_opacity] overflow-hidden ease-in-out duration-150 group-hover:max-w-96 group-hover:opacity-100',
-                      'group-hover:ml-3',
-                    )}
-                  />
-                </Button>
+                {showExplanation && (
+                  <Button
+                    variant="outline"
+                    className="w-fit"
+                    size={window.innerWidth >= 768 ? 'l' : 'm'}
+                    onClick={() => {
+                      navigateToNextChapter();
+                    }}
+                  >
+                    <span>{t('courses.review.skip')}</span>
+                    <FaArrowRightLong
+                      className={cn(
+                        'opacity-0 max-w-0 inline-flex whitespace-nowrap transition-[max-width_opacity] overflow-hidden ease-in-out duration-150 group-hover:max-w-96 group-hover:opacity-100',
+                        'group-hover:ml-3',
+                      )}
+                    />
+                  </Button>
+                )}
               </div>
             </form>
           </Form>
