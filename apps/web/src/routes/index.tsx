@@ -346,7 +346,7 @@ function Home() {
             <img
               src={Map}
               alt=""
-              className="mx-auto lg:mx-0 object-cover w-full lg:w-[1213px] lg:h-[641px] [overflow-clip-margin:_unset] lg:mt-[120px]"
+              className="mx-auto 2xl:self-center lg:mx-0 object-cover w-full lg:w-[1213px] lg:h-[641px] [overflow-clip-margin:_unset] lg:mt-[120px]"
             />
 
             {paymentModalData.eventId &&
@@ -393,7 +393,7 @@ function Home() {
                   }}
                 />
               )}
-            <div className="flex lg:absolute top-0 right-64 mt-2 lg:mt-[160px] lg:pr-[75px] mx-auto lg:mx-0">
+            <div className="flex lg:absolute top-0 right-0 lg:right-80 2xl:right-96 mt-2 lg:mt-[160px] mx-auto lg:mx-0">
               {isFetched && events && (
                 <CurrentEvents
                   events={events}
