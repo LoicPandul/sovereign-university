@@ -59,16 +59,17 @@ const b64enc = (value: string) => btoa(encodeURIComponent(value));
 
 export const createRestRouter = (dependencies: Dependencies): Router => {
   const router = Router();
-  const redis = dependencies.redis;
+
   const syncGithubRepositories = createSyncGithubRepositories(dependencies);
   const getMetadata = createGetMetadata(dependencies);
 
+  let syncLocked = false;
   router.post('/github/sync', async (req, res): Promise<void> => {
-    if (await redis.get('github-sync-locked')) {
+    if (syncLocked) {
       res.status(409).json({ error: 'Already syncing' });
       return;
     } else {
-      await redis.set('github-sync-locked', true);
+      syncLocked = true;
     }
 
     try {
@@ -78,7 +79,7 @@ export const createRestRouter = (dependencies: Dependencies): Router => {
       console.error('Failed to sync GitHub repositories:', error);
       res.status(500).json({ error: 'Internal server error' });
     } finally {
-      void redis.set('github-sync-locked', false);
+      syncLocked = false;
     }
   });
 
