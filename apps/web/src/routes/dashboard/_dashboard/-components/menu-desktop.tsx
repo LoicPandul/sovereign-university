@@ -37,13 +37,17 @@ export const MenuDesktop = ({
 
   // TODO: filter only in progress courses
   const inProgressCourses = courses
-    ?.filter((course) => course.progressPercentage)
+    ?.filter((course) => course.progressPercentage < 100)
     .map((course) => {
       return {
         text: addSpaceToCourseId(course.courseId.toLocaleUpperCase()),
         to: `/dashboard/course/${course.courseId}`,
       };
     });
+
+  const completedCourses = courses?.filter(
+    (course) => course.progressPercentage >= 100,
+  );
 
   const pictureUrl = getPictureUrl(user);
 
@@ -100,8 +104,9 @@ export const MenuDesktop = ({
           }
           dropdown={[
             ...(inProgressCourses ?? []),
-            // TODO: add completed courses
-            // { text: 'Completed', to: coursesPath },
+            ...(completedCourses && completedCourses.length > 0
+              ? [{ text: 'Completed', to: '/dashboard/course/completed' }]
+              : []),
           ]}
         />
         <Link to={calendarPath}>

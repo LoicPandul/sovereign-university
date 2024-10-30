@@ -419,8 +419,10 @@
       "personalCalendar": "Personal calendar"
     },
     "course": {
+      "checkDetailsCompleted": "Here you can check all the details concerning this course you completed.",
       "completionDiploma": "Completion diploma",
       "completionExamInfo": "Here you can find the information related to the completion exam at the end of this course.",
+      "coursesCompleted": "Courses completed",
       "feedbacks": "A chapter at the end of the course is dedicated to feedbacks. If you wish to give your feedback now, you can do it here.",
       "ratingsAndFeedbacks": "Ratings & Feedbacks",
       "shareOnSocials": "Share on socials:",
