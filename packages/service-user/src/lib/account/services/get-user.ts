@@ -1,26 +1,36 @@
 import { firstRow } from '@blms/database';
-import type { UserAccount } from '@blms/types';
+import type { UserAccount, UserDetails } from '@blms/types';
 
 import type { Dependencies } from '../../../dependencies.js';
-import { getUserQuery } from '../queries/get-user.js';
+import {
+  getUserByIdWithDetailsQuery,
+  getUserByLud4PublicKey,
+  getUserByUserNameQuery,
+} from '../queries/get-user.js';
 
-type GetUserOptions =
-  | {
-      uid: string;
-    }
-  | {
-      username: string;
-    }
-  | {
-      lud4PublicKey: string;
-    };
-
-export const createGetUser = ({ postgres }: Dependencies) => {
-  return (options: GetUserOptions): Promise<UserAccount | null> => {
+export const createGetUserDetails = ({ postgres }: Dependencies) => {
+  return ({ uid }: { uid: string }): Promise<UserDetails | null> => {
     return postgres
-      .exec(getUserQuery(options))
+      .exec(getUserByIdWithDetailsQuery(uid))
       .then(firstRow)
-      .then((user) => user ?? null)
-      .then((user) => (console.log(user), user ?? null));
+      .then((user) => user ?? null);
+  };
+};
+
+export const createGetUserByUsername = ({ postgres }: Dependencies) => {
+  return ({ username }: { username: string }): Promise<UserAccount | null> => {
+    return postgres
+      .exec(getUserByUserNameQuery(username))
+      .then(firstRow)
+      .then((user) => user ?? null);
+  };
+};
+
+export const createGetUserByLud4PublicKey = ({ postgres }: Dependencies) => {
+  return ({ key }: { key: string }): Promise<UserAccount | null> => {
+    return postgres
+      .exec(getUserByLud4PublicKey(key))
+      .then(firstRow)
+      .then((user) => user ?? null);
   };
 };

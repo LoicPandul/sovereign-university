@@ -9,12 +9,7 @@ import {
 
 export const userRoleSchema = z.enum(userRoleEnum.enumValues);
 
-export const userAccountSchema = createSelectSchema(usersAccounts).merge(
-  z.object({
-    professorCourses: z.string().array(),
-    professorTutorials: z.number().array(),
-  }),
-);
+export const userAccountSchema = createSelectSchema(usersAccounts);
 
 export const userDetailsSchema = userAccountSchema
   .pick({
@@ -27,8 +22,6 @@ export const userDetailsSchema = userAccountSchema
     certificateName: true,
     professorId: true,
     contributorId: true,
-    professorCourses: true,
-    professorTutorials: true,
   })
   .merge(
     z.object({

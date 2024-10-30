@@ -2,7 +2,10 @@ import { createHmac } from 'node:crypto';
 
 import * as secp256k1 from 'secp256k1';
 
-import { createGetUser, createNewLnurlUser } from '@blms/service-user';
+import {
+  createGetUserByLud4PublicKey,
+  createNewLnurlUser,
+} from '@blms/service-user';
 
 import type { Dependencies } from '../../../dependencies.js';
 
@@ -18,11 +21,11 @@ export const createCallbackLnurlAuth = (dependencies: Dependencies) => {
   return async ({ tag, k1, sig, key, hmac }: Options) => {
     const { events, redis } = dependencies;
 
-    const getUser = createGetUser(dependencies);
+    const getUser = createGetUserByLud4PublicKey(dependencies);
     const newLnurlUser = createNewLnurlUser(dependencies);
 
     const findOrCreateUser = async () => {
-      const user = await getUser({ lud4PublicKey: key });
+      const user = await getUser({ key });
 
       if (!user) {
         return newLnurlUser({ publicKey: key });

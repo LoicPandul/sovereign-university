@@ -1,45 +1,24 @@
 import { sql } from '@blms/database';
-import type { UserAccount } from '@blms/types';
+import type { UserAccount, UserDetails } from '@blms/types';
 
-type GetUserOptions =
-  | {
-      uid: string;
-    }
-  | {
-      username: string;
-    }
-  | {
-      lud4PublicKey: string;
-    };
-
-export const getUserQuery = (options: GetUserOptions) => {
-  const [key, value] = Object.entries(options)[0];
-
-  if (key === 'lud4PublicKey') {
-    return sql<UserAccount[]>`
-      SELECT a.*
-      FROM users.accounts a
-      JOIN users.lud4_public_keys l ON a.uid = l.uid
-      WHERE l.public_key = ${value};
-    `;
-  }
-
-  if (key === 'uid') {
-    return sql<UserAccount[]>`
-      SELECT
-        ua.*,
-        COALESCE(array_agg(DISTINCT cp.course_id) FILTER (WHERE cp.course_id IS NOT NULL), '{}') AS professor_courses,
-        COALESCE(array_agg(DISTINCT tp.tutorial_id) FILTER (WHERE tp.tutorial_id IS NOT NULL), '{}') AS professor_tutorials
-      FROM users.accounts ua
-      LEFT JOIN content.professors p ON ua.professor_id = p.id
-      LEFT JOIN content.course_professors cp ON p.contributor_id = cp.contributor_id
-      LEFT JOIN content.tutorial_credits tp ON p.contributor_id = tp.contributor_id
-      WHERE ua.uid = ${value}
-      GROUP BY ua.uid, p.contributor_id;
-    `;
-  }
-
+export const getUserByLud4PublicKey = (lud4PublicKey: string) => {
   return sql<UserAccount[]>`
+    SELECT a.*
+    FROM users.accounts a
+    JOIN users.lud4_public_keys l ON a.uid = l.uid
+    WHERE l.public_key = ${lud4PublicKey};
+  `;
+};
+
+export const getUserByIdQuery = (uid: string) => {
+  return sql<UserAccount[]>`
+    SELECT * FROM users.accounts
+    WHERE uid = ${uid};
+  `;
+};
+
+export const getUserByIdWithDetailsQuery = (uid: string) => {
+  return sql<UserDetails[]>`
     SELECT
       ua.*,
       COALESCE(array_agg(DISTINCT cp.course_id) FILTER (WHERE cp.course_id IS NOT NULL), '{}') AS professor_courses,
@@ -48,15 +27,15 @@ export const getUserQuery = (options: GetUserOptions) => {
     LEFT JOIN content.professors p ON ua.professor_id = p.id
     LEFT JOIN content.course_professors cp ON p.contributor_id = cp.contributor_id
     LEFT JOIN content.tutorial_credits tp ON p.contributor_id = tp.contributor_id
-    WHERE username ILIKE ${value}
+    WHERE ua.uid = ${uid}
     GROUP BY ua.uid, p.contributor_id;
   `;
 };
 
-export const getUserByIdQuery = (uid: string) => {
+export const getUserByUserNameQuery = (username: string) => {
   return sql<UserAccount[]>`
     SELECT * FROM users.accounts
-    WHERE uid = ${uid};
+    WHERE username LIKE ${username};
   `;
 };
 

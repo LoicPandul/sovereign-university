@@ -4,7 +4,10 @@ import type { Request } from 'express';
 import { z } from 'zod';
 
 import { loginResponseSchema } from '@blms/schemas';
-import { createGetUser, createNewCredentialsUser } from '@blms/service-user';
+import {
+  createGetUserByUsername,
+  createNewCredentialsUser,
+} from '@blms/service-user';
 import type { LoginResponse, UserRole } from '@blms/types';
 
 import type { Parser } from '#src/trpc/types.js';
@@ -46,7 +49,7 @@ export const credentialsAuthRouter = createTRPCRouter({
     .input(registerCredentialsSchema)
     .output<Parser<LoginResponse>>(loginResponseSchema)
     .mutation(async ({ ctx, input }) => {
-      const getUser = createGetUser(ctx.dependencies);
+      const getUser = createGetUserByUsername(ctx.dependencies);
 
       // TODO: move this to service once we have the custom errors
       if (await getUser({ username: input.username })) {
@@ -86,7 +89,7 @@ export const credentialsAuthRouter = createTRPCRouter({
     .input(loginCredentialsSchema)
     .output<Parser<LoginResponse>>(loginResponseSchema)
     .mutation(async ({ ctx, input }) => {
-      const getUser = createGetUser(ctx.dependencies);
+      const getUser = createGetUserByUsername(ctx.dependencies);
 
       // Check if a session exists and if it is valid
       if (ctx.req.session.uid) {

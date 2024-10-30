@@ -23,8 +23,6 @@ export interface UserAccount {
   professorId: number | null;
   createdAt: Date;
   updatedAt: Date;
-  professorCourses: string[];
-  professorTutorials: number[];
 }
 
 export interface UserDetails {
