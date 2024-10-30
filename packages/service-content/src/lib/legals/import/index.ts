@@ -103,14 +103,6 @@ export const createUpdateLegals = ({ postgres }: Dependencies) => {
         for (const file of files) {
           try {
             if (file.kind === 'removed') {
-              console.log('Removing localized content for:', {
-                id,
-                language: file.language,
-              });
-              await transaction`
-                DELETE FROM content.legals_localized
-                WHERE id = ${id} AND language = ${file.language}
-              `;
               continue;
             }
 

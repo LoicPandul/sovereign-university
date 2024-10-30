@@ -123,11 +123,6 @@ export const createUpdateBlogs = ({ postgres }: Dependencies) => {
         for (const file of files) {
           try {
             if (file.kind === 'removed') {
-              await transaction`
-            DELETE FROM content.blogs_localized
-            WHERE blog_id = ${id} AND language = ${file.language}
-          `;
-
               continue;
             }
 
@@ -166,7 +161,7 @@ export const createDeleteBlogs = ({ postgres }: Dependencies) => {
   return async (sync_date: number, errors: string[]) => {
     try {
       await postgres.exec(
-        sql`DELETE FROM content.blogs WHERE last_sync < ${sync_date} 
+        sql`DELETE FROM content.blogs WHERE last_sync < ${sync_date}
       `,
       );
     } catch {

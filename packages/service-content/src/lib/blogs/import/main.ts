@@ -5,7 +5,6 @@ import type { Blog, ChangedFile, ModifiedFile, RenamedFile } from '@blms/types';
 import { yamlToObject } from '../../utils.js';
 
 import type { ChangedBlog } from './index.js';
-import { parseDetailsFromPath } from './index.js';
 
 interface BlogMain {
   date?: string;
@@ -18,36 +17,18 @@ export const createProcessMainFile = (transaction: TransactionSql) => {
     if (!file) return;
 
     if (file.kind === 'removed') {
-      await transaction`
-        DELETE FROM content.blogs WHERE path = ${blog.path}
-      `;
       return;
     }
 
-    if (file.kind === 'renamed') {
-      const { path: previousPath } = parseDetailsFromPath(file.previousPath);
+    const parsedBlog = yamlToObject<BlogMain>(file.data);
 
-      await transaction`
-        UPDATE content.blogs
-        SET path = ${blog.path}
-        WHERE path = ${previousPath}
-      `;
-    }
+    const lastUpdated = blog.files
+      .filter(
+        (file): file is ModifiedFile | RenamedFile => file.kind !== 'removed',
+      )
+      .sort((a, b) => b.time - a.time)[0];
 
-    if (
-      file.kind === 'added' ||
-      file.kind === 'modified' ||
-      file.kind === 'renamed'
-    ) {
-      const parsedBlog = yamlToObject<BlogMain>(file.data);
-
-      const lastUpdated = blog.files
-        .filter(
-          (file): file is ModifiedFile | RenamedFile => file.kind !== 'removed',
-        )
-        .sort((a, b) => b.time - a.time)[0];
-
-      const result = await transaction<Blog[]>`
+    const result = await transaction<Blog[]>`
         INSERT INTO content.blogs (
           path, name, category, author, last_updated, last_commit, last_sync, date
         )
@@ -59,7 +40,7 @@ export const createProcessMainFile = (transaction: TransactionSql) => {
           ${lastUpdated.time},
           ${lastUpdated.commit},
           NOW(),
-          ${parsedBlog.date ? parsedBlog.date : null}  
+          ${parsedBlog.date ? parsedBlog.date : null}
         )
         ON CONFLICT (path) DO UPDATE SET
           name = EXCLUDED.name,
@@ -68,30 +49,29 @@ export const createProcessMainFile = (transaction: TransactionSql) => {
           last_updated = EXCLUDED.last_updated,
           last_commit = EXCLUDED.last_commit,
           last_sync = NOW(),
-          date = EXCLUDED.date 
+          date = EXCLUDED.date
         RETURNING *
       `.then(firstRow);
 
-      if (!result) {
-        throw new Error('Could not insert blog');
-      }
+    if (!result) {
+      throw new Error('Could not insert blog');
+    }
 
-      if (parsedBlog.tags && parsedBlog.tags.length > 0) {
-        await transaction`
+    if (parsedBlog.tags && parsedBlog.tags.length > 0) {
+      await transaction`
           INSERT INTO content.tags ${transaction(
             parsedBlog.tags.map((tag) => ({ name: tag.toLowerCase() })),
           )}
           ON CONFLICT (name) DO NOTHING
         `;
 
-        await transaction`
+      await transaction`
           INSERT INTO content.blog_tags (blog_id, tag_id)
           SELECT
             ${result.id},
             id FROM content.tags WHERE name = ANY(${parsedBlog.tags.map((tag) => tag.toLowerCase())})
           ON CONFLICT DO NOTHING
         `;
-      }
     }
   };
 };
