@@ -17,7 +17,7 @@ export const getUserQuery = (options: GetUserOptions) => {
 
   if (key === 'lud4PublicKey') {
     return sql<UserAccount[]>`
-      SELECT a.* 
+      SELECT a.*
       FROM users.accounts a
       JOIN users.lud4_public_keys l ON a.uid = l.uid
       WHERE l.public_key = ${value};
@@ -25,10 +25,10 @@ export const getUserQuery = (options: GetUserOptions) => {
   }
 
   return sql<UserAccount[]>`
-    SELECT 
-      ua.*, 
-      p.contributor_id, 
-      array_agg(DISTINCT cp.course_id) AS professor_courses, 
+    SELECT
+      ua.*,
+      p.contributor_id,
+      array_agg(DISTINCT cp.course_id) AS professor_courses,
       array_agg(DISTINCT tp.tutorial_id) AS professor_tutorials
     FROM users.accounts ua
     LEFT JOIN content.professors p ON ua.professor_id = p.id

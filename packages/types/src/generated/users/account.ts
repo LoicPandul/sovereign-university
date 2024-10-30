@@ -29,12 +29,16 @@ export interface UserAccount {
 
 export interface UserDetails {
   uid: string;
+  role: UserRole;
+  email: string | null;
+  picture: string | null;
   username: string;
   displayName: string | null;
   certificateName: string | null;
-  picture: string | null;
-  email: string | null;
+  professorId: number | null;
   contributorId: string;
+  professorCourses: string[];
+  professorTutorials: number[];
 }
 
 export interface UserRoles {

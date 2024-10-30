@@ -5,20 +5,14 @@ import { useTranslation } from 'react-i18next';
 import type {
   JoinedBlogLight,
   JoinedTutorialLight,
+  SessionData,
   UserDetails,
-  UserRole,
 } from '@blms/types';
 
 import { trpcClient } from '#src/utils/trpc.js';
 
 interface Session {
-  user: {
-    uid: string;
-    role: UserRole;
-    professorId: number | null;
-    professorCourses: string[];
-    professorTutorials: number[];
-  };
+  user: SessionData;
 }
 
 interface AppContext {
@@ -42,17 +36,19 @@ interface AppContext {
 export const AppContext = createContext<AppContext>({
   // User
   user: null,
-  setUser: () => {},
+  setUser: () => { },
+
   // Session
   session: null,
-  setSession: () => {},
+  setSession: () => { },
+
   // Tutorials
   tutorials: null,
-  setTutorials: () => {},
+  setTutorials: () => { },
 
   // Blog
   blogs: null,
-  setBlogs: () => {},
+  setBlogs: () => { },
 });
 
 export const AppContextProvider = ({ children }: PropsWithChildren) => {
@@ -75,22 +71,9 @@ export const AppContextProvider = ({ children }: PropsWithChildren) => {
     trpcClient.user.getSession
       .query()
       .then((data) => {
-        if (
-          data &&
-          data.user &&
-          data.user.role &&
-          data.user.professorId !== undefined
-        ) {
-          const validSession: Session = {
-            user: {
-              uid: data.user.uid,
-              role: data.user.role,
-              professorId: data.user.professorId,
-              professorCourses: data.user.professorCourses || [],
-              professorTutorials: data.user.professorTutorials || [],
-            },
-          };
-          return setSession(validSession);
+        if (data && data.uid && data.role) {
+          const session: Session = { user: data };
+          return setSession(session);
         } else {
           return setSession(null);
         }
@@ -113,7 +96,7 @@ export const AppContextProvider = ({ children }: PropsWithChildren) => {
         return data ?? null;
       })
       .then(setBlogs)
-      .catch(() => {});
+      .catch(() => { });
   }, [i18n.language]);
 
   const appContext: AppContext = {

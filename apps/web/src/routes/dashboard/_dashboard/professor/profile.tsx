@@ -24,14 +24,16 @@ function DashboardProfessorProfile() {
 
   const { t, i18n } = useTranslation();
 
-  const { session } = useContext(AppContext);
-  if (!session) {
+  const { user } = useContext(AppContext);
+  if (!user) {
     navigate({ to: '/' });
   }
 
   const { data: professor, isFetched } = trpc.content.getProfessor.useQuery({
-    professorId: Number(session?.user.professorId),
+    professorId: user?.professorId ?? 0,
     language: i18n.language,
+  }, {
+    enabled: user ? typeof user.professorId === 'number' : false,
   });
 
   const [currentValue, setCurrentTab] = useState('profile');

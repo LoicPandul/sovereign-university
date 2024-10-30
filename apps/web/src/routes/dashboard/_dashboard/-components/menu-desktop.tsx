@@ -28,7 +28,7 @@ export const MenuDesktop = ({
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   location: ParsedLocation<any>;
 }) => {
-  const { user, session } = useContext(AppContext);
+  const { user } = useContext(AppContext);
   const [pathname, setPathname] = useState('');
 
   const { data: courses } = trpc.user.courses.getProgress.useQuery(undefined, {
@@ -138,8 +138,7 @@ export const MenuDesktop = ({
           />
         </Link>
 
-        {(session?.user.role === 'admin' ||
-          session?.user.role === 'superadmin') && (
+        {user && (user.role === 'admin' || user.role === 'superadmin') && (
           <>
             <Separator />
 
@@ -156,7 +155,7 @@ export const MenuDesktop = ({
           </>
         )}
 
-        {session?.user.role === 'professor' && (
+        {user && user.role === 'professor' && (
           <>
             <Separator />
 
@@ -172,7 +171,7 @@ export const MenuDesktop = ({
               />
             </Link>
 
-            {session.user.professorCourses.length > 0 && (
+            {user.professorCourses?.length && (
               <Link to={professorCoursesPath}>
                 <MenuItem
                   text={t('dashboard.courses')}

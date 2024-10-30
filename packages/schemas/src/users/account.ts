@@ -18,12 +18,16 @@ export const userAccountSchema = createSelectSchema(usersAccounts).merge(
 
 export const userDetailsSchema = userAccountSchema.pick({
   uid: true,
+  role: true,
+  email: true,
+  picture: true,
   username: true,
   displayName: true,
   certificateName: true,
-  picture: true,
-  email: true,
+  professorId: true,
   contributorId: true,
+  professorCourses: true,
+  professorTutorials: true,
 });
 
 export const userRolesSchema = userAccountSchema

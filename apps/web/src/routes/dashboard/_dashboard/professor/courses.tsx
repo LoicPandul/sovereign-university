@@ -43,22 +43,20 @@ function DashboardProfessorCourses() {
   const navigate = useNavigate();
   const { i18n, t } = useTranslation();
 
-  const { session } = useContext(AppContext);
-  if (!session) {
+  const { user } = useContext(AppContext);
+  if (!user || user.role !== 'professor') {
     navigate({ to: '/' });
   }
-
-  const coursesName = session?.user.professorCourses;
 
   const { data: courses, isFetched } =
     trpc.content.getProfessorCourses.useQuery(
       {
-        coursesId: coursesName || [],
-        language: i18n.language,
+        coursesId: user?.professorCourses ?? [],
+        language: i18n.language
       },
       {
         staleTime: 300_000, // 5 minutes
-        enabled: coursesName && coursesName.length > 0,
+        enabled: user?.role === 'professor',
       },
     );
 
