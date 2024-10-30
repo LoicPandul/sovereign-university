@@ -16,19 +16,26 @@ export const userAccountSchema = createSelectSchema(usersAccounts).merge(
   }),
 );
 
-export const userDetailsSchema = userAccountSchema.pick({
-  uid: true,
-  role: true,
-  email: true,
-  picture: true,
-  username: true,
-  displayName: true,
-  certificateName: true,
-  professorId: true,
-  contributorId: true,
-  professorCourses: true,
-  professorTutorials: true,
-});
+export const userDetailsSchema = userAccountSchema
+  .pick({
+    uid: true,
+    role: true,
+    email: true,
+    picture: true,
+    username: true,
+    displayName: true,
+    certificateName: true,
+    professorId: true,
+    contributorId: true,
+    professorCourses: true,
+    professorTutorials: true,
+  })
+  .merge(
+    z.object({
+      professorCourses: z.string().array(),
+      professorTutorials: z.number().array(),
+    }),
+  );;
 
 export const userRolesSchema = userAccountSchema
   .pick({

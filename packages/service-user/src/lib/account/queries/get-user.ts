@@ -24,17 +24,31 @@ export const getUserQuery = (options: GetUserOptions) => {
     `;
   }
 
+  if (key === 'uid') {
+    return sql<UserAccount[]>`
+      SELECT
+        ua.*,
+        COALESCE(array_agg(DISTINCT cp.course_id) FILTER (WHERE cp.course_id IS NOT NULL), '{}') AS professor_courses,
+        COALESCE(array_agg(DISTINCT tp.tutorial_id) FILTER (WHERE tp.tutorial_id IS NOT NULL), '{}') AS professor_tutorials
+      FROM users.accounts ua
+      LEFT JOIN content.professors p ON ua.professor_id = p.id
+      LEFT JOIN content.course_professors cp ON p.contributor_id = cp.contributor_id
+      LEFT JOIN content.tutorial_credits tp ON p.contributor_id = tp.contributor_id
+      WHERE ua.uid = ${value}
+      GROUP BY ua.uid, p.contributor_id;
+    `;
+  }
+
   return sql<UserAccount[]>`
     SELECT
       ua.*,
-      p.contributor_id,
-      array_agg(DISTINCT cp.course_id) AS professor_courses,
-      array_agg(DISTINCT tp.tutorial_id) AS professor_tutorials
+      COALESCE(array_agg(DISTINCT cp.course_id) FILTER (WHERE cp.course_id IS NOT NULL), '{}') AS professor_courses,
+      COALESCE(array_agg(DISTINCT tp.tutorial_id) FILTER (WHERE tp.tutorial_id IS NOT NULL), '{}') AS professor_tutorials
     FROM users.accounts ua
     LEFT JOIN content.professors p ON ua.professor_id = p.id
     LEFT JOIN content.course_professors cp ON p.contributor_id = cp.contributor_id
     LEFT JOIN content.tutorial_credits tp ON p.contributor_id = tp.contributor_id
-    WHERE ${sql(key)} ILIKE ${value}
+    WHERE username ILIKE ${value}
     GROUP BY ua.uid, p.contributor_id;
   `;
 };

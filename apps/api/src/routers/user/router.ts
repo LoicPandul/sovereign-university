@@ -10,7 +10,7 @@ import {
   createChangeRoleToProfessor,
   createEmailValidationToken,
   createGetTokenInfo,
-  createGetUserDetails,
+  createGetUser,
   createGetUsersRoles,
   createPasswordReset,
   createPasswordResetToken,
@@ -50,10 +50,10 @@ export const userRouter = createTRPCRouter({
 
   getDetails: studentProcedure
     .input(z.void())
-    .output<Parser<UserDetails>>(userDetailsSchema)
-    .query(({ ctx }) =>
-      createGetUserDetails(ctx.dependencies)({ uid: ctx.user.uid }),
-    ),
+    .output<Parser<UserDetails | null>>(userDetailsSchema.nullable())
+    .query(({ ctx }) => {
+      return createGetUser(ctx.dependencies)({ uid: ctx.req.session.uid! });
+    }),
 
   getUsersRoles: adminProcedure
     .input(
