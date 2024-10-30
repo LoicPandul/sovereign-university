@@ -1,5 +1,4 @@
 import { sql } from '@blms/database';
-
 import type { UserAccount } from '@blms/types';
 
 export const changeEmailWithTokenQuery = (id: string) => {
@@ -13,18 +12,9 @@ export const changeEmailWithTokenQuery = (id: string) => {
       RETURNING uid, data
     )
     UPDATE users.accounts
-    SET email = token.data
+    SET email = token.data, current_email_checked = TRUE
     FROM token
     WHERE users.accounts.uid = token.uid
-    RETURNING email;
-  `;
-};
-
-export const changeEmailQuery = (uid: string, email: string) => {
-  return sql<Array<Pick<UserAccount, 'email'>>>`
-    UPDATE users.accounts
-    SET email = ${email}
-    WHERE uid = ${uid}
     RETURNING email;
   `;
 };

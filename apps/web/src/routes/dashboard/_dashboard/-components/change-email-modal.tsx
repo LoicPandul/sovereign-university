@@ -29,11 +29,13 @@ const changeEmailSchema = z.object({
 
 type ChangeEmailForm = z.infer<typeof changeEmailSchema>;
 
+interface EmailSentReturn { success?: boolean, error?: string }
+
 interface ChangeEmailModalProps {
   isOpen: boolean;
   onClose: () => void;
   email: string;
-  onEmailSent: () => void;
+  onEmailSent: (data: EmailSentReturn) => void;
 }
 
 export const ChangeEmailModal = ({
@@ -44,9 +46,9 @@ export const ChangeEmailModal = ({
 }: ChangeEmailModalProps) => {
   const { t } = useTranslation();
   const changeEmail = trpc.user.changeEmail.useMutation({
-    onSuccess: () => {
+    onSuccess: (data) => {
       onClose();
-      onEmailSent();
+      onEmailSent(data);
     },
     onError: (error) => {
       console.error('Error changing email:', error.message);

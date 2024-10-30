@@ -1,6 +1,7 @@
 import { TRPCError } from '@trpc/server';
 
-import { EmptyResultError, firstRow, rejectOnEmpty } from '@blms/database';
+import { EmptyResultError, firstRow, rejectOnEmpty, sql } from '@blms/database';
+import type { UserAccount } from '@blms/types';
 
 import type { Dependencies } from '#src/dependencies.js';
 
@@ -41,20 +42,38 @@ export const createChangeEmailConfirmation = ({ postgres }: Dependencies) => {
  * This token is sent to the user's new email address
  */
 export const createEmailValidationToken = (deps: Dependencies) => {
-  const template = deps.config.sendgrid.templates.emailChange;
-  const domain = deps.config.domainUrl;
+  const { postgres, config } = deps;
+  const template = config.sendgrid.templates.emailChange;
+  const domain = config.domainUrl;
 
   if (!template) {
     throw new Error('Missing SendGrid email change template');
   }
 
-  const sendEmail = createSendEmail(deps);
+  const sendEmail = createSendEmail({ config });
 
-  return (uid: string, email: string) => {
-    return deps.postgres
-      .exec(createTokenQuery(uid, 'validate_email', email))
-      .then(firstRow)
-      .then(rejectOnEmpty)
+  return async (uid: string, email: string) => {
+    // Check last email change request
+    const last = await postgres.getOneOrReject(
+      sql<
+        Array<Pick<UserAccount, 'lastEmailChangeRequest'>>
+      >`SELECT last_email_change_request FROM users.accounts WHERE uid = ${uid}`,
+    );
+
+    const minTimestamp = Date.now() - 5 * 60 * 1000; // 5 minutes
+    if (+(last.lastEmailChangeRequest ?? 0) > minTimestamp) {
+      return {
+        error: 'emailChangeRateLimitError',
+      };
+    }
+
+    // Update last email change request timestamp
+    await postgres.exec(
+      sql`UPDATE users.accounts SET last_email_change_request = NOW() WHERE uid = ${uid}`,
+    );
+
+    return postgres
+      .getOneOrReject(createTokenQuery(uid, 'validate_email', email))
       .then((token) =>
         sendEmail({
           email,

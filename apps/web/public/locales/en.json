@@ -471,6 +471,7 @@
       "saving": "Saving...",
       "crop": "Crop",
       "emailChangeConfirmation": "A confirmation email for your email change has been sent, please check your inbox to confirm.",
+      "emailChangeRateLimitError": "Email change request already sent less than 5 minutes ago, please wait before trying again.",
       "preview": "Preview",
       "displayName": "Display Name",
       "email": "Email",

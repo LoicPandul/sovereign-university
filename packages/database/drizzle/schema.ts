@@ -35,6 +35,8 @@ export const usersAccounts = users.table('accounts', (t) => ({
   picture: t.uuid(),
   email: t.varchar({ length: 255 }).unique(),
   role: userRoleEnum().default('student').notNull(),
+  lastEmailChangeRequest: t.timestamp({ withTimezone: true }),
+  currentEmailChecked: t.boolean().default(false).notNull(),
   passwordHash: t.varchar({ length: 255 }),
   contributorId: t.varchar({ length: 20 }).unique().notNull(),
   professorId: t

@@ -4,7 +4,7 @@ import { calculateCourseChapterSeats } from '../queries/calculate-course-chapter
 export const createCalculateCourseChapterSeats = ({
   postgres,
 }: Dependencies) => {
-  return () => {
-    return postgres.exec(calculateCourseChapterSeats());
+  return (): Promise<void> => {
+    return postgres.exec(calculateCourseChapterSeats()).then(() => void 0);
   };
 };

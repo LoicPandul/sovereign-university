@@ -1,10 +1,11 @@
 import { TRPCError } from '@trpc/server';
 import { verify as verifyHash } from 'argon2';
+import type { Request } from 'express';
 import { z } from 'zod';
 
 import { loginResponseSchema } from '@blms/schemas';
 import { createGetUser, createNewCredentialsUser } from '@blms/service-user';
-import type { LoginResponse, UserDetails } from '@blms/types';
+import type { LoginResponse, UserRole } from '@blms/types';
 
 import type { Parser } from '#src/trpc/types.js';
 
@@ -24,12 +25,15 @@ const loginCredentialsSchema = z.object({
   password: z.string(),
 });
 
-type SessionOption = Pick<
-  UserDetails,
-  'uid' | 'role' | 'professorId' | 'professorCourses' | 'professorTutorials'
->;
+interface SessionOption {
+  uid: string;
+  role: UserRole;
+  professorId: number | null;
+  professorCourses: string[];
+  professorTutorials: number[];
+}
 
-const setSession = (req: any, user: SessionOption) => {
+const setSession = (req: Request, user: SessionOption) => {
   req.session.uid = user.uid;
   req.session.role = user.role;
   req.session.professorId = user.professorId;
