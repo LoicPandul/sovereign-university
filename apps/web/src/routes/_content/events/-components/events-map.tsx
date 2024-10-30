@@ -31,7 +31,7 @@ import { Button, cn } from '@blms/ui';
 
 import type { CalendarEvent } from '#src/components/Calendar/calendar-event.js';
 import { customEventGetter } from '#src/components/Calendar/custom-event-getter.js';
-import { CustomEvent } from '#src/components/Calendar/custom-event.js';
+import { CustomEventMonth } from '#src/components/Calendar/custom-event-month.tsx';
 import CustomToolbar from '#src/components/Calendar/custom-toolbar.js';
 import { trpc } from '#src/utils/trpc.ts';
 
@@ -370,40 +370,40 @@ const EventsMap = ({
 
   const weekComponents: Components<CalendarEvent> = {
     toolbar: CustomToolbar,
-    event: CustomEvent,
-    week: {
-      header: ({ label, date }) => (
-        <div className="flex flex-col w-full items-start justify">
-          <div className="text-xs uppercase text-gray-500 font-semibold">
-            {label.slice(3)}
-          </div>
-          <div className="text-xl font-normal">{format(date, 'dd')} </div>
-        </div>
-      ),
-    },
+    event: CustomEventMonth,
   };
 
   const [calendarEvents, setCalendarEvents] = useState<CalendarEvent[]>();
 
-  // Map events to calendar events
+  const getFilteredCalendarEvents = (
+    events: JoinedEvent[],
+    filter: readonly CourseType[],
+  ) => {
+    return events
+      .filter((event) => {
+        return (
+          event.type !== null &&
+          (filter.length === 0 || filter.includes(event.type as CourseType))
+        );
+      })
+      .map<CalendarEvent>((data: JoinedEvent) => ({
+        title: data.name,
+        type: data.type,
+        id: data.id,
+        subId: null,
+        addressLine1: data.addressLine1,
+        organiser: null,
+        start: data.startDate,
+        end: data.endDate,
+        isOnline: false,
+        data,
+      }));
+  };
   useEffect(() => {
     if (events) {
-      setCalendarEvents(
-        events?.map<CalendarEvent>((data: JoinedEvent) => ({
-          title: data.name,
-          type: data.type,
-          id: data.id,
-          subId: null,
-          addressLine1: data.addressLine1,
-          organiser: null,
-          start: data.startDate,
-          end: data.endDate,
-          isOnline: false,
-          data,
-        })),
-      );
+      setCalendarEvents(getFilteredCalendarEvents(events, filter));
     }
-  }, [events]);
+  }, [events, filter]);
 
   const onFilterClick = (course: CourseType) => {
     setFilter((prev) =>
@@ -413,6 +413,7 @@ const EventsMap = ({
     );
     setCalendarCard(null);
   };
+
   useEffect(() => {
     setFilter(courseTypes);
   }, []);
@@ -465,7 +466,7 @@ const EventsMap = ({
 
           <div className="border-b-rounded-xl overflow-hidden">
             <div className="text-gray-500 text-center w-full">
-              <div className="h-96 xl:h-[32rem]">
+              <div className="h-96 xl:h-[32rem] w-[850px]">
                 <Calendar
                   localizer={localizer}
                   events={calendarEvents}
@@ -509,7 +510,7 @@ const EventsMap = ({
 
         {/* MAP */}
         <div className="relative flex-1">
-          <div className="flex items-center h-16 rounded-t-xl border-b px-1 md:px-6 font-semibold text-gray-800">
+          <div className="flex items-center justify-center md:justify-start h-16 rounded-t-xl border-b px-1 md:px-6 font-semibold text-gray-800">
             <div>
               <div className="hidden sm:flex items-center mr-6">
                 <svg
@@ -562,9 +563,9 @@ const EventsMap = ({
             <style>
               {`
       #ol-map .ol-zoom {
-        top: 1rem; 
-        right: 1rem; 
-        left: auto; 
+        top: 1rem;
+        right: 1rem;
+        left: auto;
       }
     `}
             </style>
@@ -586,7 +587,7 @@ const EventsMap = ({
           />
 
           {/* Switch mode */}
-          <div className="absolute top-20 left-2 hidden xl:block">
+          <div className="absolute top-20 left-2 z-10 hidden xl:block">
             <Button
               variant="primary"
               size="s"

@@ -7,7 +7,7 @@ import type { CalendarEvent } from './calendar-event.ts';
 
 type CustomEventProps = EventProps<CalendarEvent>;
 
-export const CustomEvent = ({ event }: CustomEventProps) => {
+export const CustomEventMonth = ({ event }: CustomEventProps) => {
   const [isSelected, setIsSelected] = useState(false);
 
   let cssclasses: string;
@@ -18,7 +18,8 @@ export const CustomEvent = ({ event }: CustomEventProps) => {
       break;
     }
     case 'conference': {
-      cssclasses = 'bg-[#8530001a] text-darkOrange-7';
+      cssclasses =
+        'bg-[#8530001a] hover:bg-darkOrange-7 hover:text-white text-darkOrange-7';
       break;
     }
     case 'exam': {
@@ -40,31 +41,22 @@ export const CustomEvent = ({ event }: CustomEventProps) => {
   }
 
   return (
-    // eslint-disable-next-line jsx-a11y/no-static-element-interactions
     <div
-      className={`${cssclasses} hover:z-20  hover:absolute`}
+      className={`${cssclasses} flex flex-col h-[30px] hover:h-screen hover:z-20 hover:absolute hover:top-0`}
       style={{
         padding: '10px',
         width: '100%',
-        // maxHeight: `${isSelected ? '100%' : ''}`,
-        height: `${isSelected ? 'fit-content' : '100%'}`,
         paddingLeft: 8,
         paddingTop: 8,
         overflow: `${isSelected ? 'visible' : 'hidden'}`,
       }}
-      onPointerEnter={() => {
-        setIsSelected(!isSelected);
-      }}
-      onPointerLeave={() => {
-        setIsSelected(!isSelected);
-      }}
-      onKeyUp={() => {
-        () => {
-          alert('aa');
-        };
-      }}
+      onPointerEnter={() => setIsSelected(!isSelected)}
+      onPointerLeave={() => setIsSelected(!isSelected)}
     >
-      <div className="flex flew-row text-sm pl-1">
+      <div
+        className={`flex flex-row text-sm pl-1 ${isSelected ? 'order-1' : 'order-2'}`}
+      >
+        {' '}
         {`${format(event.start, 'h:mm a')} - ${format(event.end, 'h:mm a')}`}
         {event.isOnline && (
           <FaVideo className="size-6 ml-auto bg-white p-1 rounded-lg" />

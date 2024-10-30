@@ -32,7 +32,7 @@ const ShareModal: React.FC<ShareModalProps> = ({ isOpen, url, onClose }) => {
   };
 
   return (
-    <div className="fixed inset-0 flex items-center justify-center size-full bg-black/30 backdrop-blur-sm overflow-hidden">
+    <div className="fixed inset-0 z-50 flex items-center justify-center size-full bg-black/30 backdrop-blur-sm overflow-hidden">
       <div className="relative bg-black rounded-lg p-6 w-80 shadow-lg max-h-screen">
         <button
           onClick={onClose}

@@ -126,6 +126,10 @@ function DashboardCalendar() {
 
   const monthComponents: Components<CalendarEvent> = {
     toolbar: CustomToolbar,
+    event: CustomEvent,
+    week: {
+      header: CustomWeekHeader,
+    },
   };
 
   const scrollToTime = new Date(1970, 1, 1, 9);
