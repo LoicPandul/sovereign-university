@@ -3,14 +3,13 @@ import { Link, createFileRoute, useNavigate } from '@tanstack/react-router';
 import React, { useContext, useEffect, useMemo, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { FaLock } from 'react-icons/fa';
-import { FaArrowRightLong } from 'react-icons/fa6';
 import { FiLoader } from 'react-icons/fi';
 import { IoCheckmark } from 'react-icons/io5';
 import ReactMarkdown from 'react-markdown';
 import { z } from 'zod';
 
 import type { CourseReviewsExtended, JoinedCourseWithAll } from '@blms/types';
-import { Button, Divider, Loader, TextTag, cn } from '@blms/ui';
+import { Button, Divider, Loader, TextTag } from '@blms/ui';
 
 import { AuthModal } from '#src/components/AuthModals/auth-modal.js';
 import { AuthModalState } from '#src/components/AuthModals/props.js';
@@ -20,6 +19,7 @@ import PageMeta from '#src/components/Head/PageMeta/index.js';
 import { ListItem } from '#src/components/ListItem/list-item.tsx';
 import { StarRating } from '#src/components/Stars/star-rating.tsx';
 import { useDisclosure } from '#src/hooks/use-disclosure.js';
+import { ButtonWithArrow } from '#src/molecules/button-arrow.tsx';
 import { CourseCurriculum } from '#src/organisms/course-curriculum.tsx';
 import { AppContext } from '#src/providers/context.js';
 import { computeAssetCdnUrl } from '#src/utils/index.js';
@@ -244,16 +244,19 @@ function CourseDetails() {
               </React.Fragment>
             ))}
             variant="light"
+            hasIncreasedPadding
           />
           <ListItem
             leftText={t('words.level.level')}
             rightText={t(`words.level.${course.level}`)}
             variant="light"
+            hasIncreasedPadding
           />
           <ListItem
             leftText={t('words.duration')}
             rightText={`${course.hours} ${t('words.hours')}`}
             variant="light"
+            hasIncreasedPadding
           />
           {course.format === 'hybrid' && (
             <ListItem
@@ -279,6 +282,7 @@ function CourseDetails() {
                 )
               }
               variant="light"
+              hasIncreasedPadding
             />
           )}
           {course.format === 'online' && (
@@ -290,6 +294,7 @@ function CourseDetails() {
                   : t('words.free')
               }
               variant="light"
+              hasIncreasedPadding
             />
           )}
           {course.format === 'inperson' && (
@@ -301,12 +306,14 @@ function CourseDetails() {
                   : t('words.free')
               }
               variant="light"
+              hasIncreasedPadding
             />
           )}
           <ListItem
             leftText={t('words.courseId')}
             rightText={course.id.toUpperCase()}
             variant="light"
+            hasIncreasedPadding
           />
           <ListItem
             leftText={t('words.ratings')}
@@ -334,8 +341,9 @@ function CourseDetails() {
             }
             variant="light"
             wrapOnMobile
+            hasIncreasedPadding
           />
-          <div className="max-lg:my-2">
+          <div className="lg:flex lg:w-full justify-end max-lg:my-2 lg:mt-5">
             <BuyCourseButtons />
           </div>
           {displayDownloadTicket && (
@@ -554,16 +562,8 @@ function CourseDetails() {
       </>
     ) : (
       <div className="flex flex-col lg:flex-row">
-        <BuyCourseButton format={'online'}>
-          <>
-            {t('courses.details.startCourse')}
-            <FaArrowRightLong
-              className={cn(
-                'opacity-0 max-w-0 inline-flex whitespace-nowrap transition-[max-width_opacity] overflow-hidden ease-in-out duration-150 group-hover:max-w-96 group-hover:opacity-100',
-                'group-hover:ml-3',
-              )}
-            />
-          </>
+        <BuyCourseButton hasArrow format={'online'}>
+          <span>{t('courses.details.startCourse')}</span>
         </BuyCourseButton>
         {displayDownloadTicket && <DownloadTicketButton course={course} />}
       </div>
@@ -579,7 +579,7 @@ function CourseDetails() {
       <Button
         size="l"
         mode="dark"
-        className="max-lg:my-6 !m-2 lg:mt-5 w-full max-lg:max-w-[290px] md:w-fit self-center lg:self-end"
+        className="max-lg:my-6 max-lg:!m-2 lg:mt-5 w-full max-lg:max-w-[290px] md:w-fit self-center lg:self-end"
         variant="outline"
         onClick={async () => {
           let pdf = downloadedPdf;
@@ -620,10 +620,12 @@ function CourseDetails() {
     children,
     variant = 'primary',
     format,
+    hasArrow,
   }: {
     children: JSX.Element;
     variant?: 'primary' | 'outline';
     format: 'online' | 'inperson';
+    hasArrow?: boolean;
   }) => {
     const onClick =
       course?.requiresPayment && !isCoursePaid
@@ -667,13 +669,24 @@ function CourseDetails() {
             });
           };
 
-    return (
+    return hasArrow ? (
+      <ButtonWithArrow
+        size="l"
+        mode="dark"
+        variant={variant}
+        disabled={isStartOrBuyButtonDisabled}
+        className="max-lg:my-6 max-lg:!m-2 lg:mt-5 w-full max-lg:max-w-[290px] md:w-fit self-center lg:self-end"
+        onClick={onClick}
+      >
+        {children}
+      </ButtonWithArrow>
+    ) : (
       <Button
         size="l"
         mode="dark"
         variant={variant}
         disabled={isStartOrBuyButtonDisabled}
-        className="max-lg:my-6 !m-2 lg:mt-5 w-full max-lg:max-w-[290px] md:w-fit self-center lg:self-end"
+        className="max-lg:my-6 max-lg:!m-2 lg:mt-5 w-full max-lg:max-w-[290px] md:w-fit self-center lg:self-end"
         onClick={onClick}
       >
         {children}
