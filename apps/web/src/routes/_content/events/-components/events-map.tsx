@@ -416,6 +416,7 @@ const EventsMap = ({
 
   useEffect(() => {
     setFilter(courseTypes);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   return (
     <div className="bg-gray-100 rounded-xl">

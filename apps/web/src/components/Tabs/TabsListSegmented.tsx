@@ -20,6 +20,7 @@ const tabsTriggerVariant = cva(
 );
 
 interface TabsListSegmentedProps
+  // eslint-disable-next-line import/no-named-as-default-member
   extends React.HTMLAttributes<HTMLDivElement>,
     VariantProps<typeof tabsTriggerVariant> {
   tabs: Array<{
