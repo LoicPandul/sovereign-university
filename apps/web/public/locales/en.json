@@ -428,7 +428,7 @@
       "feedbacks": "A chapter at the end of the course is dedicated to feedbacks. If you wish to give your feedback now, you can do it here.",
       "ratingsAndFeedbacks": "Ratings & Feedbacks",
       "shareOnSocials": "Share on socials:",
-      "tweetText": "Thrilled to have completed {{courseId}} on Plan ₿ Network and earned my certificate after passing the final exam! @planb_network\n\n{{certificateUrl}}"
+      "tweetText": "Thrilled to have completed {{courseId}} course at @planb_network and earned my certificate with a score of {{score}}/100 on the final exam! {{emoji}}\n\n{{certificateUrl}}"
     },
     "courses": "Courses",
     "logout": "Log out",
