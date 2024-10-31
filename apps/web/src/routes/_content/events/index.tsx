@@ -160,7 +160,7 @@ function Events() {
             }}
           />
         )}
-      <div className="max-w-[1440px] w-full flex flex-col gap-6 px-4 pt-2.5 mx-auto md:gap-[60px] md:px-10 mt-6 md:mt-[60px]">
+      <div className="max-w-[1440px] w-full flex flex-col gap-6 px-3 pt-2.5 mx-auto md:gap-[60px] md:px-10 mt-6 md:mt-[60px]">
         {!isFetched && <Loader size={'s'} />}
         {events && (
           <CurrentEvents

@@ -14,8 +14,8 @@ export const customEventGetter = (event: CalendarEvent) => {
     case 'conference': {
       return {
         style: {
-          backgroundColor: '#AD3F00',
-          color: '#FFD1B7',
+          backgroundColor: '#8530001a',
+          color: '#AD3F00',
         },
       };
       break;
@@ -23,8 +23,8 @@ export const customEventGetter = (event: CalendarEvent) => {
     case 'exam': {
       return {
         style: {
-          backgroundColor: '#FCE5E5',
-          color: '#E00000',
+          backgroundColor: '#FFDAD3',
+          color: '#FF0000',
         },
       };
       break;
