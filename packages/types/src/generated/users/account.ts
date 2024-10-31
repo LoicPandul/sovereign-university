@@ -65,6 +65,6 @@ export interface LoginResponse {
   user: {
     uid: string;
     username: string;
-    email?: string | undefined;
+    email: string | null;
   };
 }

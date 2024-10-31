@@ -55,6 +55,6 @@ export const loginResponseSchema = z.object({
   user: z.object({
     uid: z.string(),
     username: z.string(),
-    email: z.string().optional(),
+    email: z.string().nullable(),
   }),
 });

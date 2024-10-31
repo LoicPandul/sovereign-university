@@ -8,7 +8,7 @@ import {
   createGetUserByUsername,
   createNewCredentialsUser,
 } from '@blms/service-user';
-import type { LoginResponse, UserRole } from '@blms/types';
+import type { LoginResponse, SessionData } from '@blms/types';
 
 import type { Parser } from '#src/trpc/types.js';
 
@@ -28,20 +28,9 @@ const loginCredentialsSchema = z.object({
   password: z.string(),
 });
 
-interface SessionOption {
-  uid: string;
-  role: UserRole;
-  professorId: number | null;
-  professorCourses: string[];
-  professorTutorials: number[];
-}
-
-const setSession = (req: Request, user: SessionOption) => {
+const setSession = (req: Request, user: SessionData) => {
   req.session.uid = user.uid;
   req.session.role = user.role;
-  req.session.professorId = user.professorId;
-  req.session.professorCourses = user.professorCourses;
-  req.session.professorTutorials = user.professorTutorials;
 };
 
 export const credentialsAuthRouter = createTRPCRouter({
@@ -67,13 +56,7 @@ export const credentialsAuthRouter = createTRPCRouter({
         email: input.email ?? null,
       });
 
-      setSession(ctx.req, {
-        uid: user.uid,
-        role: 'student',
-        professorId: null,
-        professorCourses: [],
-        professorTutorials: [],
-      });
+      setSession(ctx.req, user);
 
       return {
         status: 201,
@@ -81,7 +64,7 @@ export const credentialsAuthRouter = createTRPCRouter({
         user: {
           uid: user.uid,
           username: user.username,
-          email: user.email ?? undefined,
+          email: user.email,
         },
       };
     }),
@@ -137,7 +120,7 @@ export const credentialsAuthRouter = createTRPCRouter({
         user: {
           uid: user.uid,
           username: user.username,
-          email: user.email ?? undefined,
+          email: user.email,
         },
       };
     }),
