@@ -2,10 +2,9 @@ import { useContext } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import { VerticalCard } from '#src/molecules/vertical-card.js';
+import { FeaturedCard } from '#src/organisms/featured-card.tsx';
 import { AppContext } from '#src/providers/context.js';
 import { computeAssetCdnUrl } from '#src/utils/index.js';
-
-import { FeaturedCard } from './featured-card.tsx';
 
 interface BlogListProps {
   category: string;
@@ -37,7 +36,7 @@ export const BlogList = ({ category }: BlogListProps) => {
       <h3 className="text-black desktop-h7 mb-4">
         {t('publicCommunication.blogPageStrings.featuredArticleTitleText')}
       </h3>
-      <FeaturedCard category={category} />
+      <FeaturedCard category={category} background="gray" />
 
       {filteredBlogs.length > 1 && (
         <div>

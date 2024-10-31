@@ -6,29 +6,7 @@ import { z } from 'zod';
 import Layout from '../../-layout.tsx';
 import { BlogList } from '../../../-components/public-communication/blog-list.tsx';
 import { DropdownMenu } from '../../../-components/public-communication/dropdown-menu.tsx';
-
-const blogTabs = [
-  {
-    id: 'all',
-    label: 'publicCommunication.blogCategories.all',
-    href: '/public-communication/blogs-and-news/',
-  },
-  {
-    id: 'content',
-    label: 'publicCommunication.blogCategories.content',
-    href: '/public-communication/blogs-and-news/content',
-  },
-  {
-    id: 'feature',
-    label: 'publicCommunication.blogCategories.feature',
-    href: '/public-communication/blogs-and-news/feature',
-  },
-  {
-    id: 'network',
-    label: 'publicCommunication.blogCategories.network',
-    href: '/public-communication/blogs-and-news/network',
-  },
-];
+import { blogTabs } from '../../../-components/utils/public-communication-utils.tsx';
 
 export const Route = createFileRoute(
   '/_content/_misc/public-communication/blogs-and-news/$category/',

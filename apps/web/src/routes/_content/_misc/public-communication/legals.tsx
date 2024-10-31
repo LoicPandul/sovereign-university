@@ -5,6 +5,7 @@ import { useTranslation } from 'react-i18next';
 import { cn } from '@blms/ui';
 
 import { DropdownMenu } from '../-components/public-communication/dropdown-menu.tsx';
+import { legalTabs } from '../-components/utils/public-communication-utils.tsx';
 
 import Layout from './-layout.tsx';
 
@@ -44,29 +45,6 @@ function LegalsLayout() {
     </Layout>
   );
 }
-
-const legalTabs = [
-  {
-    id: 'contact',
-    label: 'publicCommunication.legalSections.contact',
-    href: '/public-communication/legals/contact',
-  },
-  {
-    id: 'legal-notice',
-    label: 'publicCommunication.legalSections.legalNotice',
-    href: '/public-communication/legals/legal-notice',
-  },
-  {
-    id: 'privacy-policy',
-    label: 'publicCommunication.legalSections.privacyPolicy',
-    href: '/public-communication/legals/privacy-policy',
-  },
-  {
-    id: 'terms-of-sale',
-    label: 'publicCommunication.legalSections.termsOfSale',
-    href: '/public-communication/legals/terms-of-sale',
-  },
-];
 
 interface LegalTabsProps {
   activeSubTab: string;
