@@ -4,7 +4,7 @@ import type { Blog, ChangedFile, ModifiedFile, RenamedFile } from '@blms/types';
 
 import { yamlToObject } from '../../utils.js';
 
-import type { ChangedBlog } from './index.js';
+import { type ChangedBlog } from './index.js';
 
 interface BlogMain {
   date?: string;
@@ -19,7 +19,6 @@ export const createProcessMainFile = (transaction: TransactionSql) => {
     if (file.kind === 'removed') {
       return;
     }
-
     const parsedBlog = yamlToObject<BlogMain>(file.data);
 
     const lastUpdated = blog.files
@@ -57,21 +56,26 @@ export const createProcessMainFile = (transaction: TransactionSql) => {
       throw new Error('Could not insert blog');
     }
 
+    const blogId = result.id;
     if (parsedBlog.tags && parsedBlog.tags.length > 0) {
       await transaction`
-          INSERT INTO content.tags ${transaction(
-            parsedBlog.tags.map((tag) => ({ name: tag.toLowerCase() })),
-          )}
-          ON CONFLICT (name) DO NOTHING
-        `;
+        DELETE FROM content.blog_tags WHERE blog_id = ${blogId}
+     `;
 
       await transaction`
-          INSERT INTO content.blog_tags (blog_id, tag_id)
-          SELECT
-            ${result.id},
-            id FROM content.tags WHERE name = ANY(${parsedBlog.tags.map((tag) => tag.toLowerCase())})
-          ON CONFLICT DO NOTHING
-        `;
+        INSERT INTO content.tags ${transaction(
+          parsedBlog.tags.map((tag) => ({ name: tag.toLowerCase() })),
+        )}
+        ON CONFLICT (name) DO NOTHING
+      `;
+
+      await transaction`
+        INSERT INTO content.blog_tags (blog_id, tag_id)
+          SELECT ${blogId}, id
+          FROM content.tags
+          WHERE name = ANY(${parsedBlog.tags.map((tag) => tag.toLowerCase())})
+        ON CONFLICT DO NOTHING
+      `;
     }
   };
 };
