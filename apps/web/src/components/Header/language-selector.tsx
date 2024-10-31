@@ -90,10 +90,10 @@ export const LanguageSelector = ({
           {filteredLanguages.map((language) => (
             <button
               key={language}
-              className="flex gap-4 lg:px-4 lg:py-2 rounded-md lg:hover:bg-white/10 w-fit lg:w-44"
+              className="flex items-center gap-4 lg:px-4 lg:py-2 rounded-md lg:hover:bg-white/10 w-fit lg:w-44"
               onClick={() => changeLanguage(language)}
             >
-              <Flag code={language} size="l" />
+              <Flag code={language} size="l" className="shrink-0" />
               <span className="capitalize leading-normal max-lg:hidden text-left">
                 {LANGUAGES_MAP[language.replaceAll('-', '')] || language}
               </span>

@@ -26,10 +26,8 @@ export const MenuItem = ({
       onClick={dropdown ? () => setIsOpen(!isOpen) : onClick}
       className={cn(
         'lg:w-full rounded-lg lg:rounded-md',
-        active &&
-          !isOpen &&
-          'bg-white/20 lg:bg-darkOrange-9 text-white font-medium',
-        !isOpen &&
+        active && 'bg-white/20 lg:bg-darkOrange-9 text-white font-medium',
+        (!dropdown || !isOpen) &&
           'hover:bg-white/20 lg:hover:bg-darkOrange-9 hover:text-white hover:font-medium',
       )}
     >

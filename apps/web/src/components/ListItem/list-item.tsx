@@ -9,12 +9,13 @@ interface ListItemProps {
   isMobileOnly?: boolean;
   isDesktopOnly?: boolean;
   wrapOnMobile?: boolean;
+  hasIncreasedPadding?: boolean;
   className?: string;
   variant?: 'dark' | 'light';
 }
 
 const listItemVariant = cva(
-  'text-base flex items-center justify-between border-b py-2 md:py-[3px] gap-2',
+  'text-base flex items-center justify-between border-b gap-2',
   {
     variants: {
       variant: {
@@ -33,12 +34,17 @@ const listItemVariant = cva(
         true: 'max-md:flex-wrap',
         false: '',
       },
+      hasIncreasedPadding: {
+        true: 'py-3',
+        false: 'py-2 md:py-[3px]',
+      },
     },
     defaultVariants: {
       variant: 'dark',
       isMobileOnly: false,
       isDesktopOnly: false,
       wrapOnMobile: false,
+      hasIncreasedPadding: false,
     },
   },
 );
@@ -76,6 +82,7 @@ export const ListItem = ({
   isMobileOnly,
   isDesktopOnly,
   wrapOnMobile,
+  hasIncreasedPadding,
   className,
   variant = 'dark',
 }: ListItemProps) => {
@@ -86,6 +93,7 @@ export const ListItem = ({
           isMobileOnly,
           isDesktopOnly,
           wrapOnMobile,
+          hasIncreasedPadding,
           variant,
         }),
         className,
