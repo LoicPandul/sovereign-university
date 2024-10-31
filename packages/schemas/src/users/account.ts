@@ -9,22 +9,26 @@ import {
 
 export const userRoleSchema = z.enum(userRoleEnum.enumValues);
 
-export const userAccountSchema = createSelectSchema(usersAccounts).merge(
-  z.object({
-    professorCourses: z.string().array(),
-    professorTutorials: z.number().array(),
-  }),
-);
+export const userAccountSchema = createSelectSchema(usersAccounts);
 
-export const userDetailsSchema = userAccountSchema.pick({
-  uid: true,
-  username: true,
-  displayName: true,
-  certificateName: true,
-  picture: true,
-  email: true,
-  contributorId: true,
-});
+export const userDetailsSchema = userAccountSchema
+  .pick({
+    uid: true,
+    role: true,
+    email: true,
+    picture: true,
+    username: true,
+    displayName: true,
+    certificateName: true,
+    professorId: true,
+    contributorId: true,
+  })
+  .merge(
+    z.object({
+      professorCourses: z.string().array(),
+      professorTutorials: z.number().array(),
+    }),
+  );;
 
 export const userRolesSchema = userAccountSchema
   .pick({
@@ -51,6 +55,6 @@ export const loginResponseSchema = z.object({
   user: z.object({
     uid: z.string(),
     username: z.string(),
-    email: z.string().optional(),
+    email: z.string().nullable(),
   }),
 });

@@ -1,5 +1,5 @@
 import { sql } from '@blms/database';
-import type { UserDetails } from '@blms/types';
+import type { UserAccount } from '@blms/types';
 
 interface NewCredentialsUserOptions {
   username: string;
@@ -14,7 +14,7 @@ export const newCredentialsUserQuery = ({
   contributorId,
   email,
 }: NewCredentialsUserOptions) => {
-  return sql<UserDetails[]>`
+  return sql<UserAccount[]>`
     INSERT INTO users.accounts (
       username,
       display_name,
@@ -34,8 +34,9 @@ export const newCredentialsUserQuery = ({
       username,
       display_name,
       certificate_name,
+      contributor_id,
       email,
-      contributor_id
+      role
       ;
   `;
 };

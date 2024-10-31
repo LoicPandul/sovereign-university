@@ -1,7 +1,7 @@
 import { hash } from 'argon2';
 
 import { firstRow, rejectOnEmpty } from '@blms/database';
-import type { UserDetails } from '@blms/types';
+import type { UserAccount } from '@blms/types';
 
 import type { Dependencies } from '../../../dependencies.js';
 import { newCredentialsUserQuery } from '../queries/new-credentials-user.js';
@@ -24,7 +24,7 @@ export const createNewCredentialsUser = (dependencies: Dependencies) => {
   const generateUniqueContributorId =
     createGenerateUniqueContributorId(dependencies);
 
-  return async (options: Options): Promise<UserDetails> => {
+  return async (options: Options): Promise<UserAccount> => {
     const contributorId =
       options.contributorId || (await generateUniqueContributorId());
     const passwordHash = await hash(options.password);

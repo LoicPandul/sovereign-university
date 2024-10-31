@@ -6,7 +6,7 @@ import { pathToFileURL } from 'node:url';
 
 import * as dotenv from 'dotenv';
 
-import type { UserRole } from '@blms/types';
+import type { SessionData as ApiSessionDAta } from '@blms/types';
 
 import { startDependencies } from './dependencies.js';
 import { startServer } from './server.js';
@@ -21,13 +21,7 @@ declare global {
 }
 
 declare module 'express-session' {
-  interface SessionData {
-    uid?: string;
-    role: UserRole;
-    professorId?: number | null;
-    professorCourses: string[];
-    professorTutorials: number[];
-  }
+  interface SessionData extends ApiSessionDAta {}
 }
 
 dotenv.config();

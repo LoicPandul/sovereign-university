@@ -23,18 +23,20 @@ export interface UserAccount {
   professorId: number | null;
   createdAt: Date;
   updatedAt: Date;
-  professorCourses: string[];
-  professorTutorials: number[];
 }
 
 export interface UserDetails {
   uid: string;
+  role: UserRole;
+  email: string | null;
+  picture: string | null;
   username: string;
   displayName: string | null;
   certificateName: string | null;
-  picture: string | null;
-  email: string | null;
+  professorId: number | null;
   contributorId: string;
+  professorCourses: string[];
+  professorTutorials: number[];
 }
 
 export interface UserRoles {
@@ -63,6 +65,6 @@ export interface LoginResponse {
   user: {
     uid: string;
     username: string;
-    email?: string | undefined;
+    email: string | null;
   };
 }

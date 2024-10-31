@@ -1,6 +1,6 @@
 import { z } from 'zod';
 
-import { userRolesSchema } from '@blms/schemas';
+import { userDetailsSchema, userRolesSchema } from '@blms/schemas';
 import {
   createChangeCertificateName,
   createChangeDisplayName,
@@ -15,7 +15,7 @@ import {
   createPasswordReset,
   createPasswordResetToken,
 } from '@blms/service-user';
-import type { UserRoles } from '@blms/types';
+import type { SessionData, UserDetails, UserRoles } from '@blms/types';
 
 import type { Parser } from '#src/trpc/types.js';
 
@@ -36,27 +36,26 @@ import { userTutorialsRouter } from './tutorials.js';
 import { paymentWebhooksProcedure } from './webhooks.js';
 
 export const userRouter = createTRPCRouter({
-  getSession: publicProcedure.query(({ ctx }) => {
-    const { req } = ctx;
-    return req.session.uid
-      ? {
-          user: {
-            uid: req.session.uid,
-            role: req.session.role,
-            professorId: req.session.professorId,
-            professorCourses: req.session.professorCourses,
-            professorTutorials: req.session.professorTutorials,
-          },
-        }
-      : null;
+  getSession: publicProcedure.query(({ ctx }): SessionData | null => {
+    const session = ctx.req.session;
+    if (!session || !session.uid || !session.role) {
+      return null;
+    }
+
+    return {
+      uid: session.uid,
+      role: session.role,
+    };
   }),
 
   getDetails: studentProcedure
     .input(z.void())
-
-    .query(({ ctx }) =>
-      createGetUserDetails(ctx.dependencies)({ uid: ctx.user.uid }),
-    ),
+    .output<Parser<UserDetails | null>>(userDetailsSchema.nullable())
+    .query(({ ctx }) => {
+      return createGetUserDetails(ctx.dependencies)({
+        uid: ctx.req.session.uid!,
+      });
+    }),
 
   getUsersRoles: adminProcedure
     .input(
