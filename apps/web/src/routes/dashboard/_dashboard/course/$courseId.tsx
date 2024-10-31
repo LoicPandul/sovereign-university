@@ -8,7 +8,11 @@ import { IoIosArrowDown } from 'react-icons/io';
 import { IoReload } from 'react-icons/io5';
 import { z } from 'zod';
 
-import type { CourseProgressExtended, JoinedCourseWithAll } from '@blms/types';
+import type {
+  CourseExamResults,
+  CourseProgressExtended,
+  JoinedCourseWithAll,
+} from '@blms/types';
 import {
   Button,
   Divider,
@@ -20,7 +24,6 @@ import {
 } from '@blms/ui';
 
 import CertificateLockImage from '#src/assets/courses/course-exam-certificate-lock.webp';
-import CertificateImage from '#src/assets/courses/course-exam-certificate.webp';
 import SandClockGif from '#src/assets/icons/sandClock/sandclock.gif';
 import { AuthorCard } from '#src/components/author-card.tsx';
 import { TabsListUnderlined } from '#src/components/Tabs/TabsListUnderlined.tsx';
@@ -245,19 +248,49 @@ const CourseProgress = ({
   );
 };
 
-const CourseExams = ({
+export const CourseExams = ({
   courseId,
   examLink,
 }: {
   courseId: string;
   examLink: string;
 }) => {
-  const isMobile = useSmaller('md');
-
   const { data: examResults, isFetched: isExamResultsFetched } =
     trpc.user.courses.getAllUserCourseExamResults.useQuery({
       courseId,
     });
+
+  return (
+    <div className="flex flex-col mt-4 md:mt-10 w-full">
+      <h2 className="mobile-h3 md:title-large-sb-24px text-dashboardSectionTitle">
+        {t('dashboard.course.completionDiploma')}
+      </h2>
+      <p className="desktop-typo-1 md:body-16px text-dashboardSectionText/75 mt-4">
+        {t('dashboard.course.completionExamInfo')}
+      </p>
+
+      {!isExamResultsFetched && <Loader />}
+      {isExamResultsFetched && examResults && examResults?.length > 0 && (
+        <CourseExamsTable
+          examResults={examResults}
+          courseId={courseId}
+          examLink={examLink}
+        />
+      )}
+    </div>
+  );
+};
+
+const CourseExamsTable = ({
+  examResults,
+  courseId,
+  examLink,
+}: {
+  examResults: CourseExamResults[];
+  courseId: string;
+  examLink: string;
+}) => {
+  const isMobile = useSmaller('md');
 
   const [collapsedStates, setCollapsedStates] = useState<{
     [key: number]: boolean;
@@ -271,262 +304,233 @@ const CourseExams = ({
   };
 
   return (
-    <div className="flex flex-col mt-4 md:mt-10 w-full">
-      <h2 className="mobile-h3 md:title-large-sb-24px text-dashboardSectionTitle">
-        {t('dashboard.course.completionDiploma')}
-      </h2>
-      <p className="desktop-typo-1 md:body-16px text-dashboardSectionText/75 mt-4">
-        {t('dashboard.course.completionExamInfo')}
-      </p>
+    <div className="max-w-[948px] mt-2.5 md:mt-12">
+      <div className="flex flex-col gap-3">
+        <div className="flex justify-between body-14px-medium md:body-16px-medium text-dashboardSectionTitle mx-2.5">
+          <span className="w-[180px] pl-1 max-md:mr-auto">
+            {t('words.date')}
+          </span>
+          <span className="w-full max-w-[503px] max-md:hidden">
+            {t('words.location')}
+          </span>
+          <span className="w-[70px] md:w-[130px] md:text-center">
+            {t('words.grade')}
+          </span>
+          <span className="max-md:hidden md:w-[138px] pr-1">
+            <span className="max-md:hidden">{t('words.status')}</span>
+          </span>
+        </div>
+        <div className="h-px bg-newGray-1"></div>
+        {[...examResults]
+          .sort(
+            (a, b) =>
+              new Date(a.startedAt).getTime() - new Date(b.startedAt).getTime(),
+          )
+          .map((exam, index) => {
+            const isCollapsed = collapsedStates[index];
 
-      {!isExamResultsFetched && <Loader />}
-      {isExamResultsFetched && examResults && examResults?.length === 0 && (
-        <img
-          src={CertificateImage}
-          alt="Certificate"
-          className="mt-8 md:mt-20"
-        />
-      )}
+            if (isCollapsed === undefined && index === examResults.length - 1) {
+              setCollapsedStates({ [index]: true });
+            }
 
-      {isExamResultsFetched && examResults && examResults?.length > 0 && (
-        <div className="max-w-[948px] mt-2.5 md:mt-12">
-          <div className="flex flex-col gap-3">
-            <div className="flex justify-between body-14px-medium md:body-16px-medium text-dashboardSectionTitle mx-2.5">
-              <span className="w-[180px] pl-1 max-md:mr-auto">
-                {t('words.date')}
-              </span>
-              <span className="w-full max-w-[503px] max-md:hidden">
-                {t('words.location')}
-              </span>
-              <span className="w-[70px] md:w-[130px] md:text-center">
-                {t('words.grade')}
-              </span>
-              <span className="max-md:hidden md:w-[138px] pr-1">
-                <span className="max-md:hidden">{t('words.status')}</span>
-              </span>
-            </div>
-            <div className="h-px bg-newGray-1"></div>
-            {[...examResults]
-              .sort(
-                (a, b) =>
-                  new Date(a.startedAt).getTime() -
-                  new Date(b.startedAt).getTime(),
-              )
-              .map((exam, index) => {
-                const isCollapsed = collapsedStates[index];
-
-                if (
-                  isCollapsed === undefined &&
-                  index === examResults.length - 1
-                ) {
-                  setCollapsedStates({ [index]: true });
-                }
-
-                return (
-                  <div
+            return (
+              <div
+                className={cn(
+                  'flex flex-col py-2.5',
+                  isCollapsed && 'bg-newGray-6 rounded-b-[20px]',
+                )}
+                key={index}
+              >
+                <div
+                  className="cursor-pointer hover:font-medium body-14px md:body-16px text-newBlack-1 flex md:justify-between items-center px-2.5"
+                  onClick={() => toggleCollapse(index)}
+                  role="button"
+                  tabIndex={0}
+                  onKeyDown={(e) => {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                      toggleCollapse(index);
+                    }
+                  }}
+                >
+                  <span className="pl-1 w-[180px] max-md:mr-auto">
+                    {new Date(exam.startedAt).toLocaleDateString(undefined, {
+                      year: 'numeric',
+                      month: 'numeric',
+                      day: 'numeric',
+                    })}
+                  </span>
+                  <span className="max-md:hidden w-full max-w-[503px]">
+                    {t('words.online')}
+                  </span>
+                  <span
                     className={cn(
-                      'flex flex-col py-2.5',
-                      isCollapsed && 'bg-newGray-6 rounded-b-[20px]',
+                      'md:text-center font-medium w-[52px] md:w-[130px]',
+                      exam.succeeded ? 'text-brightGreen-6' : 'text-red-5',
                     )}
-                    key={index}
                   >
-                    <div
-                      className="cursor-pointer hover:font-medium body-14px md:body-16px text-newBlack-1 flex md:justify-between items-center px-2.5"
-                      onClick={() => toggleCollapse(index)}
-                      role="button"
-                      tabIndex={0}
-                      onKeyDown={(e) => {
-                        if (e.key === 'Enter' || e.key === ' ') {
-                          toggleCollapse(index);
-                        }
-                      }}
-                    >
-                      <span className="pl-1 w-[180px] max-md:mr-auto">
-                        {new Date(exam.startedAt).toLocaleDateString(
-                          undefined,
-                          {
-                            year: 'numeric',
-                            month: 'numeric',
-                            day: 'numeric',
-                          },
-                        )}
-                      </span>
-                      <span className="max-md:hidden w-full max-w-[503px]">
-                        {t('words.online')}
-                      </span>
-                      <span
-                        className={cn(
-                          'md:text-center font-medium w-[52px] md:w-[130px]',
-                          exam.succeeded ? 'text-brightGreen-6' : 'text-red-5',
-                        )}
-                      >
-                        {exam.score}%
-                      </span>
-                      <div className="flex items-center justify-between pr-1 w-fit md:w-[138px]">
-                        <span
-                          className={cn(
-                            'max-md:hidden body-16px italic',
-                            exam.succeeded
-                              ? 'text-brightGreen-6'
-                              : 'text-red-5',
-                          )}
-                        >
-                          {exam.succeeded
-                            ? t('courses.exam.passed')
-                            : t('courses.exam.failed')}
-                        </span>
-                        <IoIosArrowDown
-                          className={cn(
-                            'transition-all',
-                            isCollapsed ? '-rotate-180' : '',
-                          )}
-                        />
-                      </div>
-                    </div>
-                    <div
+                    {exam.score}%
+                  </span>
+                  <div className="flex items-center justify-between pr-1 w-fit md:w-[138px]">
+                    <span
                       className={cn(
-                        'flex flex-col max-md:gap-4 w-full items-center',
-                        isCollapsed ? 'w-full' : 'hidden',
+                        'max-md:hidden body-16px italic',
+                        exam.succeeded ? 'text-brightGreen-6' : 'text-red-5',
                       )}
                     >
-                      {/* Succeeded exam */}
-                      {exam.succeeded &&
-                        (exam.isTimestamped ? (
-                          <div className="flex flex-col w-full max-w-[549px] items-center max-md:px-3 max-md:pt-6 max-md:pb-3 pt-5">
-                            <span className="subtitle-small-caps-14px text-newBlack-5">
-                              {t('dashboard.myCourses.yourCertificate')}
-                            </span>
+                      {exam.succeeded
+                        ? t('courses.exam.passed')
+                        : t('courses.exam.failed')}
+                    </span>
+                    <IoIosArrowDown
+                      className={cn(
+                        'transition-all',
+                        isCollapsed ? '-rotate-180' : '',
+                      )}
+                    />
+                  </div>
+                </div>
+                <div
+                  className={cn(
+                    'flex flex-col max-md:gap-4 w-full items-center',
+                    isCollapsed ? 'w-full' : 'hidden',
+                  )}
+                >
+                  {/* Succeeded exam */}
+                  {exam.succeeded &&
+                    (exam.isTimestamped ? (
+                      <div className="flex flex-col w-full max-w-[549px] items-center max-md:px-3 max-md:pt-6 max-md:pb-3 pt-5">
+                        <span className="subtitle-small-caps-14px text-newBlack-5">
+                          {t('dashboard.myCourses.yourCertificate')}
+                        </span>
 
-                            {exam.imgKey && (
-                              <img
-                                src={`/api/files/${exam.imgKey}`}
-                                alt="Certificate"
-                                className="mt-4 md:mt-2.5"
-                              />
-                            )}
-
-                            <div className="flex justify-between w-full mt-7 md:mt-5">
-                              <a
-                                href={`/api/files/${exam.pdfKey}`}
-                                download
-                                target="_blank"
-                                rel="noreferrer"
-                              >
-                                <Button
-                                  size={isMobile ? 's' : 'm'}
-                                  variant="primary"
-                                  className="items-center flex gap-2.5"
-                                >
-                                  {t('dashboard.myCourses.downloadPdf')}
-                                  <FiDownload className="size-[18px] md:size-6" />
-                                </Button>
-                              </a>
-                              <div className="flex items-center gap-4">
-                                <span className="text-xs italic font-light text-black max-md:hidden">
-                                  {t('dashboard.course.shareOnSocials')}
-                                </span>
-                                <div className="flex items-center gap-2.5">
-                                  <Link
-                                    to={`https://twitter.com/intent/tweet?text=${encodeURIComponent(
-                                      t('dashboard.course.tweetText', {
-                                        courseId: courseId.toUpperCase(),
-                                        certificateUrl: `${window.location.origin}/en/exam-certificates/${exam.id}`,
-                                      }),
-                                    )}`}
-                                    target="_blank"
-                                  >
-                                    <Button variant="tertiary" size="s">
-                                      <BsTwitterX size={18} />
-                                    </Button>
-                                  </Link>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        ) : (
-                          <div className="flex max-md:flex-col w-full gap-7 md:gap-10 md:py-5 md:px-2.5 max-md:pt-7">
-                            <img
-                              src={CertificateLockImage}
-                              alt="Certificate"
-                              className="max-md:order-2 max-md:px-3"
-                            />
-                            <div className="flex flex-col items-center justify-center w-full gap-4 md:gap-7 max-md:px-4">
-                              <span className="whitespace-pre-line text-center body-14px-medium md:body-16px-medium text-newBlack-1">
-                                {t('courses.exam.certificateGeneration')}
-                                <TimeStampDialog />{' '}
-                                {t('courses.exam.certificateAvailable')}
-                              </span>
-                              <img src={SandClockGif} alt="Time" />
-                            </div>
-                          </div>
-                        ))}
-
-                      {/* Failed exam */}
-                      {!exam.succeeded && (
-                        <div className="flex max-md:flex-col w-full gap-7 md:gap-10 md:py-5 md:px-2.5 max-md:pt-7">
+                        {exam.imgKey && (
                           <img
-                            src={CertificateLockImage}
+                            src={`/api/files/${exam.imgKey}`}
                             alt="Certificate"
-                            className="max-md:order-2 max-md:px-3"
+                            className="mt-4 md:mt-2.5"
                           />
-                          <div className="flex flex-col items-center justify-center w-full gap-4 md:gap-7 max-md:px-4">
-                            <span className="whitespace-pre-line text-center body-14px-medium md:body-16px-medium text-newBlack-1">
-                              {t('courses.exam.dontGiveUpTryAgain')}
-                            </span>
-                            <img src={SandClockGif} alt="Time" />
-                            <Link
-                              to={examLink}
-                              target="_blank"
-                              className="w-fit"
-                              disabled={
-                                examResults
-                                  ? new Date(exam.startedAt).getTime() +
-                                      oneDayInMs >
-                                    Date.now()
-                                  : true
-                              }
+                        )}
+
+                        <div className="flex justify-between w-full mt-7 md:mt-5">
+                          <a
+                            href={`/api/files/${exam.pdfKey}`}
+                            download
+                            target="_blank"
+                            rel="noreferrer"
+                          >
+                            <Button
+                              size={isMobile ? 's' : 'm'}
+                              variant="primary"
+                              className="items-center flex gap-2.5"
                             >
-                              <Button
-                                className="w-fit flex gap-2.5"
-                                size={isMobile ? 's' : 'm'}
-                                variant="primary"
-                                disabled={
-                                  exam
-                                    ? new Date(exam.startedAt).getTime() +
-                                        oneDayInMs >
-                                      Date.now()
-                                    : true
-                                }
+                              {t('dashboard.myCourses.downloadPdf')}
+                              <FiDownload className="size-[18px] md:size-6" />
+                            </Button>
+                          </a>
+                          <div className="flex items-center gap-4">
+                            <span className="text-xs italic font-light text-black max-md:hidden">
+                              {t('dashboard.course.shareOnSocials')}
+                            </span>
+                            <div className="flex items-center gap-2.5">
+                              <Link
+                                to={`https://twitter.com/intent/tweet?text=${encodeURIComponent(
+                                  t('dashboard.course.tweetText', {
+                                    courseId: courseId.toUpperCase(),
+                                    certificateUrl: `${window.location.origin}/en/exam-certificates/${exam.id}`,
+                                  }),
+                                )}`}
+                                target="_blank"
                               >
-                                {t('courses.exam.retakeExam')}
-                                <IoReload size={isMobile ? 18 : 24} />
-                              </Button>
-                            </Link>
+                                <Button variant="tertiary" size="s">
+                                  <BsTwitterX size={18} />
+                                </Button>
+                              </Link>
+                            </div>
                           </div>
                         </div>
-                      )}
-
-                      <section className="flex flex-col max-md:gap-4 w-full md:py-5">
-                        <span className="subtitle-small-caps-14px text-newBlack-1 md:text-newBlack-5 px-1.5 md:px-5">
-                          {t('courses.exam.answersReview')}
-                        </span>
-                        <AnswersReviewPanel
-                          examResults={exam}
-                          className="px-2.5 md:px-5"
+                      </div>
+                    ) : (
+                      <div className="flex max-md:flex-col w-full gap-7 md:gap-10 md:py-5 md:px-2.5 max-md:pt-7">
+                        <img
+                          src={CertificateLockImage}
+                          alt="Certificate"
+                          className="max-md:order-2 max-md:px-3"
                         />
-                      </section>
+                        <div className="flex flex-col items-center justify-center w-full gap-4 md:gap-7 max-md:px-4">
+                          <span className="whitespace-pre-line text-center body-14px-medium md:body-16px-medium text-newBlack-1">
+                            {t('courses.exam.certificateGeneration')}
+                            <TimeStampDialog />{' '}
+                            {t('courses.exam.certificateAvailable')}
+                          </span>
+                          <img src={SandClockGif} alt="Time" />
+                        </div>
+                      </div>
+                    ))}
+
+                  {/* Failed exam */}
+                  {!exam.succeeded && (
+                    <div className="flex max-md:flex-col w-full gap-7 md:gap-10 md:py-5 md:px-2.5 max-md:pt-7">
+                      <img
+                        src={CertificateLockImage}
+                        alt="Certificate"
+                        className="max-md:order-2 max-md:px-3"
+                      />
+                      <div className="flex flex-col items-center justify-center w-full gap-4 md:gap-7 max-md:px-4">
+                        <span className="whitespace-pre-line text-center body-14px-medium md:body-16px-medium text-newBlack-1">
+                          {t('courses.exam.dontGiveUpTryAgain')}
+                        </span>
+                        <img src={SandClockGif} alt="Time" />
+                        <Link
+                          to={examLink}
+                          target="_blank"
+                          className="w-fit"
+                          disabled={
+                            examResults
+                              ? new Date(exam.startedAt).getTime() +
+                                  oneDayInMs >
+                                Date.now()
+                              : true
+                          }
+                        >
+                          <Button
+                            className="w-fit flex gap-2.5"
+                            size={isMobile ? 's' : 'm'}
+                            variant="primary"
+                            disabled={
+                              exam
+                                ? new Date(exam.startedAt).getTime() +
+                                    oneDayInMs >
+                                  Date.now()
+                                : true
+                            }
+                          >
+                            {t('courses.exam.retakeExam')}
+                            <IoReload size={isMobile ? 18 : 24} />
+                          </Button>
+                        </Link>
+                      </div>
                     </div>
-                  </div>
-                );
-              })}
-          </div>
-        </div>
-      )}
+                  )}
+
+                  <section className="flex flex-col max-md:gap-4 w-full md:py-5">
+                    <span className="subtitle-small-caps-14px text-newBlack-1 md:text-newBlack-5 px-1.5 md:px-5">
+                      {t('courses.exam.answersReview')}
+                    </span>
+                    <AnswersReviewPanel
+                      examResults={exam}
+                      className="px-2.5 md:px-5"
+                    />
+                  </section>
+                </div>
+              </div>
+            );
+          })}
+      </div>
     </div>
   );
 };
 
-const CourseRatings = ({ courseId }: { courseId: string }) => {
+export const CourseRatings = ({ courseId }: { courseId: string }) => {
   return (
     <section className="flex flex-col mt-4 md:mt-10 w-full">
       <h2 className="mobile-h3 md:title-large-sb-24px text-dashboardSectionTitle">
