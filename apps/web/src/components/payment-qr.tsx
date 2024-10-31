@@ -66,7 +66,7 @@ export const PaymentQr = ({ paymentData, onBack }: PaymentQrProps) => {
           </span>
           <div
             className={cn(
-              `flex flex-row items-center justify-center px-4 py-3 w-full mb-8 bg-[#E9E9E9]`,
+              `flex flex-row items-center justify-center px-4 py-3 w-full mb-8 bg-commentTextBackground`,
               borderClassName,
             )}
           >
@@ -86,7 +86,7 @@ export const PaymentQr = ({ paymentData, onBack }: PaymentQrProps) => {
           </span>
           <div
             className={cn(
-              `flex flex-row items-center justify-center px-4 py-3 w-full mb-8 bg-[#E9E9E9]`,
+              `flex flex-row items-center justify-center px-4 py-3 w-full mb-8 bg-commentTextBackground`,
               borderClassName,
             )}
           >
@@ -106,7 +106,7 @@ export const PaymentQr = ({ paymentData, onBack }: PaymentQrProps) => {
           </span>
           <div
             className={cn(
-              `flex flex-row items-center justify-center px-4 py-3 w-full bg-[#E9E9E9]`,
+              `flex flex-row items-center justify-center px-4 py-3 w-full bg-commentTextBackground`,
               borderClassName,
             )}
           >
