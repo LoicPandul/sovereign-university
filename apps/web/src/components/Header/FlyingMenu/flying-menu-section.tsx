@@ -123,7 +123,7 @@ export const FlyingMenuSection = ({ section, variant }: FlyingMenuProps) => {
       <PopoverContent
         className={cn(
           'flex absolute z-10 mt-8 -left-16',
-          hasMultipleSubSection ? '-left-20 xl:-left-80' : '',
+          hasMultipleSubSection ? '-left-40 xl:-left-80 2xl:-left-96' : '',
         )}
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}

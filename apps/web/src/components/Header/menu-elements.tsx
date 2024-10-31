@@ -55,7 +55,7 @@ export const MenuElement = ({
                 'truncate desktop-typo1 ',
                 variant === 'light' ? 'text-darkOrange-8' : 'text-newGray-2',
                 isMultipleSubSectionChildren
-                  ? 'max-w-40 xl:max-w-[346px]'
+                  ? 'max-w-40 xl:max-w-[240px] 2xl:max-w-[346px]'
                   : 'max-w-72 xl:max-w-[346px]',
               )}
             >
