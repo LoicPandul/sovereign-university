@@ -3,9 +3,10 @@ import type {
   TransactionSql as OriginalTransactionSql,
   PendingQuery,
   Row,
-  RowList,
   Sql,
 } from 'postgres';
+
+import { firstRow, rejectOnEmpty } from './helpers.js';
 
 export interface PostgresClientConfig {
   host: string;
@@ -47,7 +48,17 @@ export interface PostgresClient extends SqlHelper {
   /**
    * Dummy wrapper around query
    */
-  exec: <T extends Row[]>(q: PendingQuery<T>) => Promise<RowList<T>>;
+  exec: <T extends Row>(q: PendingQuery<T[]>) => Promise<T[]>;
+
+  /**
+   * Get the first row from the query result
+   */
+  getOne: <T extends Row>(q: PendingQuery<T[]>) => Promise<T | undefined>;
+
+  /**
+   * Get the first row from the query result or reject if the result is empty
+   */
+  getOneOrReject: <T extends Row>(q: PendingQuery<T[]>) => Promise<T>;
 }
 
 export const createPostgresClient = (
@@ -103,8 +114,14 @@ export const createPostgresClient = (
     disconnect() {
       return sql.end();
     },
-    exec<T extends Row[]>(query: PendingQuery<T>) {
+    exec<T extends Row>(query: PendingQuery<T[]>) {
       return query;
+    },
+    getOne<T extends Row>(query: PendingQuery<T[]>): Promise<T | undefined> {
+      return this.exec(query).then(firstRow);
+    },
+    getOneOrReject<T extends Row>(query: PendingQuery<T[]>): Promise<T> {
+      return this.exec(query).then(firstRow).then(rejectOnEmpty);
     },
   });
 };

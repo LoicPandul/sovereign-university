@@ -62,6 +62,7 @@ function DashboardProfile() {
 
   const changeEmailModal = useDisclosure();
   const [emailSent, setEmailSent] = useState(false);
+  const [emailError, setEmailError] = useState<string | null>(null);
 
   const [currentTab, setCurrentTab] = useState('info');
 
@@ -163,6 +164,11 @@ function DashboardProfile() {
                     {t('dashboard.profile.emailChangeConfirmation')}
                   </div>
                 )}
+                {emailError && (
+                  <div className="mt-6 text-red-5">
+                    {t('dashboard.profile.' + emailError)}
+                  </div>
+                )}
               </div>
             </div>
 
@@ -240,7 +246,14 @@ function DashboardProfile() {
       <ChangeEmailModal
         isOpen={changeEmailModal.isOpen}
         onClose={changeEmailModal.close}
-        onEmailSent={() => setEmailSent(true)}
+        onEmailSent={(data) => {
+          if (data.success) {
+            setEmailSent(true);
+          } else {
+            setEmailSent(false);
+            setEmailError(data.error ?? "An error occurred");
+          }
+        }}
         email={user?.email || ''}
       />
     </div>

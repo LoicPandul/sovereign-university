@@ -16,6 +16,8 @@ export interface UserAccount {
   picture: string | null;
   email: string | null;
   role: UserRole;
+  lastEmailChangeRequest: Date | null;
+  currentEmailChecked: boolean;
   passwordHash: string | null;
   contributorId: string;
   professorId: number | null;

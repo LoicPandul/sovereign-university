@@ -9,7 +9,7 @@ interface SendEmailOptions {
   data: Record<string, string>;
 }
 
-export const createSendEmail = ({ config }: Dependencies) => {
+export const createSendEmail = ({ config }: Pick<Dependencies, 'config'>) => {
   return async ({ email, subject, ...options }: SendEmailOptions) => {
     if (!config.sendgrid.enable) {
       console.log('Email sending disabled');
