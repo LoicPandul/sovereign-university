@@ -14,7 +14,6 @@ import { ButtonWithArrow } from '#src/molecules/button-arrow.tsx';
 import { AppContext } from '#src/providers/context.tsx';
 import { ChangeDisplayNameModal } from '#src/routes/dashboard/_dashboard/-components/change-display-name-modal.tsx';
 import { goToChapterParameters } from '#src/utils/courses.ts';
-
 import { trpc } from '#src/utils/trpc.js';
 
 export const ExamPresentation = ({
