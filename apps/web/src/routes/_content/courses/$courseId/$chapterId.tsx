@@ -13,7 +13,7 @@ import { FaArrowRightLong } from 'react-icons/fa6';
 import { FiLoader } from 'react-icons/fi';
 import { z } from 'zod';
 
-import type { JoinedQuizQuestion } from '@blms/types';
+import type { CourseChapterResponse, JoinedQuizQuestion } from '@blms/types';
 import { Button, Loader, cn } from '@blms/ui';
 
 import OrangePill from '#src/assets/icons/orange_pill_color.svg';
@@ -29,7 +29,6 @@ import {
 import { compose, computeAssetCdnUrl, trpc } from '#src/utils/index.js';
 import { SITE_NAME } from '#src/utils/meta.js';
 import { capitalizeFirstWord, joinWords } from '#src/utils/string.js';
-import type { TRPCRouterOutput } from '#src/utils/trpc.js';
 
 import { ClassDetails } from '../-components/class-details.tsx';
 import { CourseLayout } from '../-components/course-layout.tsx';
@@ -60,9 +59,7 @@ export const Route = createFileRoute('/_content/courses/$courseId/$chapterId')({
   component: CourseChapter,
 });
 
-type Chapter = NonNullable<TRPCRouterOutput['content']['getCourseChapter']>;
-
-const NextLessonBanner = ({ chapter }: { chapter: Chapter }) => {
+const NextLessonBanner = ({ chapter }: { chapter: CourseChapterResponse }) => {
   const courseParts = chapter.course.parts;
   const currentDate = new Date();
 
@@ -120,7 +117,7 @@ const NextLessonBanner = ({ chapter }: { chapter: Chapter }) => {
   );
 };
 
-const TimelineSmall = ({ chapter }: { chapter: Chapter }) => {
+const TimelineSmall = ({ chapter }: { chapter: CourseChapterResponse }) => {
   const { t } = useTranslation();
 
   return (
@@ -206,7 +203,7 @@ const TimelineBig = ({
   chapter,
   professor,
 }: {
-  chapter: Chapter;
+  chapter: CourseChapterResponse;
   professor: string;
 }) => {
   const { t } = useTranslation();
@@ -391,7 +388,7 @@ const Header = ({
   chapter,
   sections,
 }: {
-  chapter: Chapter;
+  chapter: CourseChapterResponse;
   sections: string[];
 }) => {
   const { t } = useTranslation();
@@ -467,7 +464,7 @@ const Header = ({
   );
 };
 
-const BottomButton = ({ chapter }: { chapter: Chapter }) => {
+const BottomButton = ({ chapter }: { chapter: CourseChapterResponse }) => {
   const { t } = useTranslation();
 
   const completeChapterMutation =
@@ -517,7 +514,7 @@ const BottomButton = ({ chapter }: { chapter: Chapter }) => {
   );
 };
 
-const MarkdownContent = ({ chapter }: { chapter: Chapter }) => {
+const MarkdownContent = ({ chapter }: { chapter: CourseChapterResponse }) => {
   const { tutorials } = useContext(AppContext);
   const isFetchedTutorials = tutorials && tutorials.length > 0;
 

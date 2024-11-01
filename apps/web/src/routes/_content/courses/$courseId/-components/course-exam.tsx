@@ -1,8 +1,7 @@
 import { useState } from 'react';
 
-import type { PartialExamQuestion } from '@blms/types';
+import type { CourseChapterResponse, PartialExamQuestion } from '@blms/types';
 
-import type { TRPCRouterOutput } from '#src/utils/trpc.ts';
 import { trpc } from '#src/utils/trpc.ts';
 
 import { ExamNotTranslated } from './exam-not-translated.tsx';
@@ -10,9 +9,8 @@ import { ExamPresentation } from './exam-presentation.tsx';
 import { ExamResults } from './exam-results.tsx';
 import { FinalExam } from './final-exam.tsx';
 
-type Chapter = NonNullable<TRPCRouterOutput['content']['getCourseChapter']>;
 interface CourseExamProps {
-  chapter: Chapter;
+  chapter: CourseChapterResponse;
   disabled?: boolean;
 }
 

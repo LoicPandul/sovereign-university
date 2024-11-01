@@ -19,16 +19,16 @@ export const getCourseChapterQuery = (chapterId: string, language?: string) => {
       is_course_review,
       is_course_exam,
       is_course_conclusion,
-      start_date,
-      end_date,
+      cl.start_date,
+      cl.end_date,
       timezone,
       address_line_1,
       address_line_2,
       address_line_3,
       live_url,
       chat_url,
-      c.available_seats,
-      c.remaining_seats,
+      cl.available_seats,
+      cl.remaining_seats,
       live_language,
       c.last_updated,
       c.last_commit,
@@ -42,7 +42,7 @@ export const getCourseChapterQuery = (chapterId: string, language?: string) => {
     LEFT JOIN LATERAL (
       SELECT ARRAY_AGG(cp.contributor_id) AS professors
       FROM content.course_chapters_localized_professors cp
-      WHERE 
+      WHERE
         cp.chapter_id = ${chapterId}
         AND cp.language = ${language ? language : 'language'} -- Fallback to the chapter's language if none provided
     ) AS cp_agg ON TRUE

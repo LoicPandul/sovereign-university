@@ -1,15 +1,17 @@
 import { Link } from '@tanstack/react-router';
 import { t } from 'i18next';
 
+import type { CourseChapterResponse } from '@blms/types';
 import { Divider } from '@blms/ui';
 
 import { ButtonWithArrow } from '#src/molecules/button-arrow.tsx';
 import { goToChapterParameters } from '#src/utils/courses.ts';
-import type { TRPCRouterOutput } from '#src/utils/trpc.ts';
 
-type Chapter = NonNullable<TRPCRouterOutput['content']['getCourseChapter']>;
-
-export const ExamNotTranslated = ({ chapter }: { chapter: Chapter }) => {
+export const ExamNotTranslated = ({
+  chapter,
+}: {
+  chapter: CourseChapterResponse;
+}) => {
   const isLastChapter =
     chapter.chapterIndex === chapter.part.chapters.length &&
     chapter.part.partIndex === chapter.course.parts.length;

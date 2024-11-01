@@ -4,7 +4,7 @@ import { useContext, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { MdOutlineModeEdit } from 'react-icons/md';
 
-import type { PartialExamQuestion } from '@blms/types';
+import type { CourseChapterResponse, PartialExamQuestion } from '@blms/types';
 import { Button, Divider } from '@blms/ui';
 
 import { AuthModal } from '#src/components/AuthModals/auth-modal.tsx';
@@ -14,10 +14,8 @@ import { ButtonWithArrow } from '#src/molecules/button-arrow.tsx';
 import { AppContext } from '#src/providers/context.tsx';
 import { ChangeDisplayNameModal } from '#src/routes/dashboard/_dashboard/-components/change-display-name-modal.tsx';
 import { goToChapterParameters } from '#src/utils/courses.ts';
-import type { TRPCRouterOutput } from '#src/utils/trpc.ts';
-import { trpc } from '#src/utils/trpc.ts';
 
-type Chapter = NonNullable<TRPCRouterOutput['content']['getCourseChapter']>;
+import { trpc } from '#src/utils/trpc.js';
 
 export const ExamPresentation = ({
   disabled,
@@ -26,7 +24,7 @@ export const ExamPresentation = ({
   setPartialExamQuestions,
 }: {
   disabled?: boolean;
-  chapter: Chapter;
+  chapter: CourseChapterResponse;
   setIsExamStarted: (value: boolean) => void;
   setPartialExamQuestions: (value: PartialExamQuestion[]) => void;
 }) => {

@@ -3,7 +3,11 @@ import { t } from 'i18next';
 import { useEffect, useState } from 'react';
 import { Trans, useTranslation } from 'react-i18next';
 
-import type { CourseExamResults, PartialExamQuestion } from '@blms/types';
+import type {
+  CourseChapterResponse,
+  CourseExamResults,
+  PartialExamQuestion,
+} from '@blms/types';
 import {
   Button,
   Dialog,
@@ -26,18 +30,15 @@ import { ButtonWithArrow } from '#src/molecules/button-arrow.tsx';
 import { goToChapterParameters } from '#src/utils/courses.ts';
 import { oneDayInMs } from '#src/utils/date.ts';
 import { trpc } from '#src/utils/trpc.ts';
-import type { TRPCRouterOutput } from '#src/utils/trpc.ts';
 
 import { CompletedExamAnswer } from '../../-components/quizz/completed-exam-answer.tsx';
-
-type Chapter = NonNullable<TRPCRouterOutput['content']['getCourseChapter']>;
 
 export const ExamResults = ({
   chapter,
   setIsExamStarted,
   setPartialExamQuestions,
 }: {
-  chapter: Chapter;
+  chapter: CourseChapterResponse;
   setIsExamStarted: (value: boolean) => void;
   setPartialExamQuestions: (value: PartialExamQuestion[]) => void;
 }) => {
@@ -427,7 +428,7 @@ export const AnswersReviewPanel = ({
   );
 };
 
-const ConcludeButton = ({ chapter }: { chapter: Chapter }) => {
+const ConcludeButton = ({ chapter }: { chapter: CourseChapterResponse }) => {
   const completeChapterMutation =
     trpc.user.courses.completeChapter.useMutation();
 

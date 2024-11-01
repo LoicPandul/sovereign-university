@@ -1,13 +1,12 @@
 import { capitalize } from 'lodash-es';
 import { useTranslation } from 'react-i18next';
 
-import type { JoinedCourseWithAll } from '@blms/types';
+import type { CourseChapterResponse, JoinedCourseWithAll } from '@blms/types';
 import { cn } from '@blms/ui';
 
 import leftBackgroundImg from '#src/assets/courses/left-background.webp';
 import { PaymentRow } from '#src/components/payment-row.js';
 import { getDateString, getTimeString } from '#src/utils/date.js';
-import type { TRPCRouterOutput } from '#src/utils/trpc.js';
 
 const borderClassName = 'border border-gray-400/25 rounded-xl overflow-hidden';
 
@@ -15,7 +14,7 @@ interface ModalBookSummaryProps {
   courseName: string;
   professorNames: string;
   course: JoinedCourseWithAll;
-  chapter: NonNullable<TRPCRouterOutput['content']['getCourseChapter']>;
+  chapter: CourseChapterResponse;
   mobileDisplay: boolean;
 }
 

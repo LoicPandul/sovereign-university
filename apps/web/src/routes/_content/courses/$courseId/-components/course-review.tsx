@@ -7,6 +7,7 @@ import { useTranslation } from 'react-i18next';
 import { FaArrowRightLong } from 'react-icons/fa6';
 import { z } from 'zod';
 
+import type { CourseChapterResponse } from '@blms/types';
 import {
   Button,
   Form,
@@ -26,10 +27,7 @@ import { AuthModal } from '#src/components/AuthModals/auth-modal.tsx';
 import { AuthModalState } from '#src/components/AuthModals/props.ts';
 import { useDisclosure } from '#src/hooks/use-disclosure.ts';
 import { goToChapterParameters } from '#src/utils/courses.js';
-import type { TRPCRouterOutput } from '#src/utils/trpc.js';
 import { trpc } from '#src/utils/trpc.js';
-
-type Chapter = NonNullable<TRPCRouterOutput['content']['getCourseChapter']>;
 
 const formDivClass = 'mb-6';
 
@@ -163,7 +161,7 @@ export function CourseReview({
   showExplanation,
   addMarginToForm,
 }: {
-  chapter?: Chapter;
+  chapter?: CourseChapterResponse;
   courseId?: string;
   formDisabled?: boolean;
   showExplanation?: boolean;

@@ -1,7 +1,7 @@
 import { useCallback, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
-import type { JoinedCourseWithAll } from '@blms/types';
+import type { CourseChapterResponse, JoinedCourseWithAll } from '@blms/types';
 import {
   Dialog,
   DialogContent,
@@ -10,7 +10,7 @@ import {
 } from '@blms/ui';
 
 import { addSpaceToCourseId } from '#src/utils/courses.js';
-import { type TRPCRouterOutput, trpc } from '#src/utils/trpc.js';
+import { trpc } from '#src/utils/trpc.js';
 
 import { ModalBookDescription } from './modal-book-description.tsx';
 import { ModalBookSuccess } from './modal-book-success.tsx';
@@ -18,7 +18,7 @@ import { ModalBookSummary } from './modal-book-summary.tsx';
 
 interface CourseBookModalProps {
   course: JoinedCourseWithAll;
-  chapter: NonNullable<TRPCRouterOutput['content']['getCourseChapter']>;
+  chapter: CourseChapterResponse;
   professorNames: string;
   isOpen: boolean;
   onClose: (isPaid?: boolean) => void;

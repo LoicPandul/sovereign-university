@@ -1,4 +1,4 @@
-import type { TRPCRouterOutput } from './trpc.ts';
+import type { CourseChapterResponse } from '@blms/types';
 
 export function addSpaceToCourseId(courseId?: string) {
   if (!courseId) return '';
@@ -8,10 +8,8 @@ export function addSpaceToCourseId(courseId?: string) {
   }`;
 }
 
-type Chapter = NonNullable<TRPCRouterOutput['content']['getCourseChapter']>;
-
 export const goToChapterParameters = (
-  chapter: Chapter,
+  chapter: CourseChapterResponse,
   type: 'previous' | 'next',
 ) => {
   const allChapters = chapter.course.parts.flatMap((part) => part.chapters);

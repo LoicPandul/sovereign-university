@@ -2,19 +2,19 @@ import { useCallback, useContext, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { FiLoader } from 'react-icons/fi';
 
-import type { JoinedCourseWithAll } from '@blms/types';
+import type { CourseChapterResponse, JoinedCourseWithAll } from '@blms/types';
 import { Button, Card } from '@blms/ui';
 
 import { AppContext } from '#src/providers/context.js';
 import { formatDate, formatTime } from '#src/utils/date.js';
 import { isDevelopmentEnvironment } from '#src/utils/misc.js';
-import { type TRPCRouterOutput, trpc } from '#src/utils/trpc.js';
+import { trpc } from '#src/utils/trpc.js';
 
 import { CourseBookModal } from './book-modal/course-book-modal.tsx';
 
 interface ClassDetailsProps {
   course: JoinedCourseWithAll;
-  chapter: NonNullable<TRPCRouterOutput['content']['getCourseChapter']>;
+  chapter: CourseChapterResponse;
   professor: string;
 }
 
@@ -66,9 +66,23 @@ export const ClassDetails = ({
   }, [chapter, course.id, refetchUserChapter, saveUserChapterRequest]);
 
   const timezone = chapter.timezone ? chapter.timezone : undefined;
+
+  // const test = new Intl.DateTimeFormat(undefined, {
+  //   month: 'short',
+  //   day: 'numeric',
+  //   year: 'numeric',
+  //   hour: 'numeric',
+  //   minute: 'numeric',
+  //   hour12: true,
+  //   timeZoneName: 'short',
+  // }).format(new Date(chapter.endDate as Date));
+
+  console.log(chapter);
   const formattedStartDate = chapter.startDate
     ? formatDate(chapter.startDate)
     : '';
+  ///////////////////////
+
   const formattedTime =
     chapter.startDate && chapter.endDate
       ? `${formatTime(chapter.startDate, timezone)} ${t('words.to')} ${formatTime(chapter.endDate, timezone)}`

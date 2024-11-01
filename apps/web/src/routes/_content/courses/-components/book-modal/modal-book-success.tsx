@@ -1,16 +1,16 @@
 import { t } from 'i18next';
 import { FiLoader } from 'react-icons/fi';
 
-import type { JoinedCourseWithAll } from '@blms/types';
+import type { CourseChapterResponse, JoinedCourseWithAll } from '@blms/types';
 import { Button } from '@blms/ui';
 
 import PlanBLogo from '#src/assets/logo/planb_logo_horizontal_black.svg?react';
 import { formatDate, formatTime } from '#src/utils/date.js';
-import { type TRPCRouterOutput, trpc } from '#src/utils/trpc.js';
+import { trpc } from '#src/utils/trpc.js';
 
 interface ModalBookSuccessProps {
   course: JoinedCourseWithAll;
-  chapter: NonNullable<TRPCRouterOutput['content']['getCourseChapter']>;
+  chapter: CourseChapterResponse;
   onClose: (isPaid?: boolean) => void;
 }
 
