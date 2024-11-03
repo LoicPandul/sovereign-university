@@ -22,9 +22,14 @@ export const createGetCourse = ({ postgres }: Dependencies) => {
     const chapters = await postgres.exec(
       getCourseChaptersQuery({ courseId: id, language }),
     );
+
     const professors = await postgres.exec(
       getProfessorsQuery({ contributorIds: course.professors, language }),
     );
+
+    const sortedProfessors = course.professors
+      .map((professor) => professors.find((p) => p.contributorId === professor))
+      .filter((p) => p !== undefined);
 
     const partsWithChapters = parts.map((part) => ({
       ...part,
@@ -33,7 +38,7 @@ export const createGetCourse = ({ postgres }: Dependencies) => {
 
     return {
       ...course,
-      professors: professors.map((element) => formatProfessor(element)),
+      professors: sortedProfessors.map((element) => formatProfessor(element)),
       parts: partsWithChapters,
       partsCount: parts.length,
       chaptersCount: chapters.length,

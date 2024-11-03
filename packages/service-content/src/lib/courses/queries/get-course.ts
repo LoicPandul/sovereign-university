@@ -2,7 +2,9 @@ import { sql } from '@blms/database';
 import type { JoinedCourseWithAll } from '@blms/types';
 
 export const getCourseQuery = (id: string, language?: string) => {
-  return sql<JoinedCourseWithAll[]>`
+  return sql<
+    Array<Omit<JoinedCourseWithAll, 'professors'> & { professors: string[] }>
+  >`
     SELECT
       c.id,
       cl.language,
