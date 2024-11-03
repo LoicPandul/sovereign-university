@@ -23,8 +23,7 @@ interface ProfessorCardProps extends React.HTMLProps<HTMLDivElement> {
 
 const CourseAndTutorials = ({ professor }: ProfessorCardProps) => {
   const { t } = useTranslation();
-  const showLectures =
-    professor.coursesCount === 0 && professor.tutorialsCount === 0;
+
   return (
     <section className="flex content-center items-center gap-2 lg:gap-x-6 text-white">
       {professor.coursesCount > 0 && (
@@ -47,7 +46,7 @@ const CourseAndTutorials = ({ professor }: ProfessorCardProps) => {
           </span>
         </div>
       )}
-      {showLectures && professor.lecturesCount > 0 && (
+      {professor.lecturesCount > 0 && (
         <div className="flex flex-col items-center gap-2">
           <span className="font-normal text-2xl lg:text-6xl">
             {professor.lecturesCount}
