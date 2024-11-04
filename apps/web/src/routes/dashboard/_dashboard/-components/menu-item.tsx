@@ -22,16 +22,23 @@ export const MenuItem = ({
   const location = useLocation();
 
   return (
-    <button
-      onClick={dropdown ? () => setIsOpen(!isOpen) : onClick}
-      className={cn(
-        'lg:w-full rounded-lg lg:rounded-md',
-        active && 'bg-white/20 lg:bg-darkOrange-9 text-white font-medium',
-        (!dropdown || !isOpen) &&
-          'hover:bg-white/20 lg:hover:bg-darkOrange-9 hover:text-white hover:font-medium',
-      )}
-    >
-      <div className="flex w-full cursor-pointer flex-col lg:flex-row items-center justify-center gap-1 lg:gap-3 py-1 px-1.5 lg:p-2 lg:justify-start">
+    <button className="lg:w-full">
+      <div
+        onClick={dropdown ? () => setIsOpen(!isOpen) : onClick}
+        role="button"
+        tabIndex={0}
+        onKeyDown={(e) => {
+          if (e.key === 'Enter' || e.key === ' ') {
+            dropdown ? setIsOpen(!isOpen) : onClick?.();
+          }
+        }}
+        className={cn(
+          'flex w-full cursor-pointer flex-col lg:flex-row items-center justify-center gap-1 lg:gap-3 py-1 px-1.5 lg:p-2 lg:justify-start rounded-lg lg:rounded-md',
+          active && 'bg-white/20 lg:bg-darkOrange-9 text-white font-medium',
+          (!dropdown || !isOpen) &&
+            'hover:bg-white/20 lg:hover:bg-darkOrange-9 hover:text-white hover:font-medium',
+        )}
+      >
         <div className="min-w-5">{icon}</div>
         <div className="max-lg:text-[10px] max-lg:text-white max-lg:leading-normal lg:leading-relaxed">
           {text}
@@ -47,7 +54,7 @@ export const MenuItem = ({
         )}
       </div>
       {dropdown && dropdown.length > 0 && isOpen && (
-        <div className="flex flex-col w-full pl-9 gap-1">
+        <div className="flex flex-col w-full pl-9 gap-1 pt-1">
           {dropdown.map((item, index) => (
             <Link
               key={index}
