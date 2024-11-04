@@ -437,6 +437,11 @@ const CourseExamsTable = ({
                                   t('dashboard.course.tweetText', {
                                     courseId: courseId.toUpperCase(),
                                     certificateUrl: `${window.location.origin}/en/exam-certificates/${exam.id}`,
+                                    score: `${exam.score}`,
+                                    emoji:
+                                      exam.score && exam.score >= 90
+                                        ? '🏆'
+                                        : '💪',
                                   }),
                                 )}`}
                                 target="_blank"
