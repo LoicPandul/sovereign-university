@@ -1,16 +1,33 @@
 import { Link } from '@tanstack/react-router';
+import { cva } from 'class-variance-authority';
 import { useContext } from 'react';
 
 import { formatDateSimple } from '@blms/api/src/utils/date.ts';
+import { TextTag } from '@blms/ui';
 
 import { AppContext } from '#src/providers/context.js';
 import { computeAssetCdnUrl } from '#src/utils/index.js';
 
 interface FeaturedCardProps {
   category: string;
+  background?: 'gray';
 }
 
-export const FeaturedCard = ({ category }: FeaturedCardProps) => {
+const cardStyles = cva(
+  'mb-[47px] text-start flex flex-col mx-auto md:flex-row justify-center px-[8px] py-[10px] lg:p-[30px] w-full max-w-[290px] md:max-w-[1120px] rounded-sm md:rounded-[30px] items-center',
+  {
+    variants: {
+      background: {
+        gray: 'bg-newGray-6',
+      },
+    },
+    defaultVariants: {
+      background: 'gray',
+    },
+  },
+);
+
+export const FeaturedCard = ({ category, background }: FeaturedCardProps) => {
   const { blogs } = useContext(AppContext);
 
   if (!blogs || blogs.length === 0) {
@@ -35,7 +52,7 @@ export const FeaturedCard = ({ category }: FeaturedCardProps) => {
   }
 
   return (
-    <div className="mb-[47px] text-start flex flex-col mx-auto md:flex-row justify-center bg-newGray-6 px-[8px] py-[10px] lg:p-[30px] w-full max-w-[290px] md:max-w-[1120px] rounded-sm md:rounded-[30px] items-center">
+    <div className={cardStyles({ background })}>
       <div
         key={latestBlog.id}
         className="flex-1 w-full max-w-[530px] order-2 md:order-1"
@@ -57,14 +74,16 @@ export const FeaturedCard = ({ category }: FeaturedCardProps) => {
             </span>
           </div>
           {latestBlog.tags && (
-            <div className="flex flex-row space-x-4 mb-2 lg:mb-5">
+            <div className="flex flex-row space-x-2 md:space-x-4 mb-2 lg:mb-5">
               {latestBlog.tags.map((tag, index) => (
-                <span
-                  className="text-black bg-newGray-4 py-0.5 px-2 lg:p-3.5 font-medium text-base lg:text-lg rounded-xl"
+                <TextTag
                   key={index}
+                  size="featuredCard"
+                  variant="newGrayBlogs"
+                  className="capitalize"
                 >
                   {tag}
-                </span>
+                </TextTag>
               ))}
             </div>
           )}

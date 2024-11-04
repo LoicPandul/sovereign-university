@@ -60,7 +60,7 @@ const CategoryItem: React.FC<CategoryItemProps> = ({
       <div
         className={cn(
           itemStyles({ unreleased: category.unreleased }),
-          'size-[135px] flex-none', // Fixed size and prevents shrinking
+          'size-[135px] flex-none',
         )}
       >
         <CategoryIcon
@@ -79,7 +79,7 @@ const CategoryItem: React.FC<CategoryItemProps> = ({
 const CategoryItemList: React.FC<CategoryItemListProps> = ({
   baseUrl,
   categoryType,
-  title, // Destructure the dynamic title function
+  title,
 }) => {
   const categories: readonly Category[] =
     categoryType === 'tutorials' ? TUTORIALS_CATEGORIES : RESOURCES_CATEGORIES;

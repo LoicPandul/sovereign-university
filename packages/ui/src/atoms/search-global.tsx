@@ -47,7 +47,7 @@ export const SearchBar: React.FC<SearchBarProps> = ({
 
   const handleTabChange = (tab: string) => {
     setActiveTab(tab);
-    setSelectedFilters([]); // Resetuj filtere kad se promeni tab
+    setSelectedFilters([]);
   };
 
   return (

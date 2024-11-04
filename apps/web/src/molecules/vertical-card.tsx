@@ -111,13 +111,16 @@ export const VerticalCard = ({
       )}
     >
       <div
-        className={cn('relative w-full overflow-hidden mx-auto', imgClassName)}
+        className={cn(
+          'relative w-full overflow-hidden mx-auto shrink-0',
+          imgClassName,
+        )}
       >
         <img
           src={imageSrc}
           alt={title}
           className={cn(
-            'w-[137px] h-[105px] md:w-[320px] md:h-[241px] object-cover [overflow-clip-margin:_unset] !rounded-b-0 rounded-t-[10px] lg:rounded-[10px] lg:mb-[17px]',
+            'w-full h-[105px] md:h-[241px] object-cover [overflow-clip-margin:_unset] !rounded-b-0 rounded-t-[10px] lg:rounded-[10px] lg:mb-[17px]',
             imgClassName,
           )}
         />
@@ -132,7 +135,7 @@ export const VerticalCard = ({
       <div className={cn('grow flex flex-col justify-between', bodyClassName)}>
         <div className="flex flex-col">
           {tags && tags.length > 0 && (
-            <div className="flex flex-wrap md:hidden gap-1">
+            <div className="flex flex-wrap md:hidden gap-1 mt-1">
               {tags.slice(0, isScreenMd ? tags.length : 1).map((tag, index) => (
                 <span
                   key={index}
@@ -162,7 +165,7 @@ export const VerticalCard = ({
             {title}
           </h4>
           {excerpt && (
-            <span className="max-md:hidden md:desktop-body1 text-newGray-1 line-clamp-3">
+            <span className="max-md:hidden md:desktop-body1 text-newGray-1 line-clamp-3 mb-2.5">
               {excerpt}
             </span>
           )}

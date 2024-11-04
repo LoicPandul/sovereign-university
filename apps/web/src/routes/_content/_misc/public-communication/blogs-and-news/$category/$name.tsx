@@ -5,7 +5,7 @@ import { FaArrowLeftLong } from 'react-icons/fa6';
 import { z } from 'zod';
 
 import { formatDateSimple } from '@blms/api/src/utils/date.ts';
-import { Button, Loader, cn } from '@blms/ui';
+import { Button, Loader, TextTag, cn } from '@blms/ui';
 
 import { PageLayout } from '#src/components/page-layout.js';
 import { computeAssetCdnUrl } from '#src/utils/index.js';
@@ -77,14 +77,16 @@ function SingleBlogDetail() {
                   </span>
                 </div>
                 {blog.tags && (
-                  <div className="flex flex-row">
+                  <div className="flex flex-row gap-[15px]">
                     {blog.tags.map((tag, index) => (
-                      <span
+                      <TextTag
                         key={index}
-                        className="text-newBlack-3 bg-[#cccccc80] py-0.5 px-2 lg:p-3.5 font-medium text-base lg:text-lg rounded-xl mr-2.5 lg:mr-4"
+                        size="featuredCard"
+                        variant="newGrayBlogs"
+                        className="capitalize"
                       >
                         {tag}
-                      </span>
+                      </TextTag>
                     ))}
                   </div>
                 )}
