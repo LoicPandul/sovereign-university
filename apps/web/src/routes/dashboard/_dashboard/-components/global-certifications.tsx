@@ -350,7 +350,7 @@ const ExamTicket = ({
           link.remove();
         }}
       >
-        {t('dashboard.credentials.seeTicket')}
+        {t('dashboard.credentials.downloadTicket')}
         {isPending ? (
           <span className="ml-3">
             <FiLoader />
