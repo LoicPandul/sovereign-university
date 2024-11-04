@@ -34,7 +34,13 @@ export const CourseCurriculum = ({
       {children}
       <section className="flex flex-col gap-5">
         {course.parts?.map((part, partIndex) => (
-          <details key={partIndex} className="group">
+          <details
+            key={partIndex}
+            open={part.chapters.some(
+              (chapter) => chapter?.chapterId === nextChapter,
+            )}
+            className="group"
+          >
             <summary className="cursor-pointer w-full flex gap-2">
               <span className="inline group-open:hidden subtitle-large-caps-22px max-lg:text-lg">
                 +

@@ -159,23 +159,26 @@ const CompletedCourseDetails = ({
             </h4>
           </CourseCurriculum>
 
-          <Divider
-            className="max-md:hidden mt-10"
-            width="w-full"
-            mode="light"
-          />
-
           {isExamResultsFetched && examResults && examResults.length > 0 && (
-            <CourseExams
-              courseId={courseId}
-              examLink={`/courses/${courseId}/${
-                course.parts
-                  .find((part) =>
-                    part.chapters.find((chapter) => chapter?.isCourseExam),
-                  )
-                  ?.chapters.find((chapter) => chapter?.isCourseExam)?.chapterId
-              }`}
-            />
+            <>
+              <Divider
+                className="max-md:hidden mt-10"
+                width="w-full"
+                mode="light"
+              />
+              <CourseExams
+                courseId={courseId}
+                examLink={`/courses/${courseId}/${
+                  course.parts
+                    .find((part) =>
+                      part.chapters.find((chapter) => chapter?.isCourseExam),
+                    )
+                    ?.chapters.find((chapter) => chapter?.isCourseExam)
+                    ?.chapterId
+                }`}
+                openLastExam={false}
+              />
+            </>
           )}
 
           <Divider
