@@ -302,10 +302,18 @@ const CourseExamsTable = ({
   }>({});
 
   const toggleCollapse = (index: number) => {
-    setCollapsedStates((prevState) => ({
-      ...prevState,
-      [index]: !prevState[index],
-    }));
+    setCollapsedStates((prevState) => {
+      const newState: { [key: number]: boolean } = {};
+
+      for (const key in prevState) {
+        newState[Number(key)] = false;
+      }
+
+      return {
+        ...newState,
+        [index]: !prevState[index],
+      };
+    });
   };
 
   return (
