@@ -28,8 +28,8 @@ import { computeAssetCdnUrl } from '#src/utils/index.ts';
 import { trpc } from '#src/utils/trpc.ts';
 
 import Map from '../../src/assets/home/map.webp';
+import SponsorMobile from '../../src/assets/home/mobile-logos.webp';
 import Sponsor from '../../src/assets/home/sponsor-images.webp';
-import SponsorMobile from '../../src/assets/home/sponsorsmobile.png';
 import { MainLayout } from '../components/main-layout.tsx';
 import { NotFound } from '../components/not-found.tsx';
 import { AboutUs } from '../molecules/about-us.tsx';
@@ -743,7 +743,7 @@ function Home() {
               loading="lazy"
             />
             <img
-              className="mt-9 flex lg:hidden object-cover [overflow-clip-margin:_unset] mx-auto"
+              className="mt-9 flex lg:hidden min-w-[290px] w-full h-auto object-cover [overflow-clip-margin:_unset] mx-auto"
               src={SponsorMobile}
               alt={t('')}
               loading="lazy"
