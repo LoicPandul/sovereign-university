@@ -251,9 +251,11 @@ const CourseProgress = ({
 export const CourseExams = ({
   courseId,
   examLink,
+  openLastExam = true,
 }: {
   courseId: string;
   examLink: string;
+  openLastExam?: boolean;
 }) => {
   const { data: examResults, isFetched: isExamResultsFetched } =
     trpc.user.courses.getAllUserCourseExamResults.useQuery({
@@ -275,6 +277,7 @@ export const CourseExams = ({
           examResults={examResults}
           courseId={courseId}
           examLink={examLink}
+          openLastExam={openLastExam}
         />
       )}
     </div>
@@ -285,10 +288,12 @@ const CourseExamsTable = ({
   examResults,
   courseId,
   examLink,
+  openLastExam,
 }: {
   examResults: CourseExamResults[];
   courseId: string;
   examLink: string;
+  openLastExam?: boolean;
 }) => {
   const isMobile = useSmaller('md');
 
@@ -329,7 +334,11 @@ const CourseExamsTable = ({
           .map((exam, index) => {
             const isCollapsed = collapsedStates[index];
 
-            if (isCollapsed === undefined && index === examResults.length - 1) {
+            if (
+              openLastExam &&
+              isCollapsed === undefined &&
+              index === examResults.length - 1
+            ) {
               setCollapsedStates({ [index]: true });
             }
 
