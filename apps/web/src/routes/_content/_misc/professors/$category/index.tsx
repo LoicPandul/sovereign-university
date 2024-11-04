@@ -62,11 +62,7 @@ export function ProfessorCategoryPage() {
         return professor.tutorialsCount && professor.tutorialsCount > 0;
       }
       case 'lecturers': {
-        return (
-          professor.coursesCount === 0 &&
-          professor.tutorialsCount === 0 &&
-          professor.lecturesCount > 0
-        );
+        return professor.lecturesCount > 0;
       }
       default: {
         return false;

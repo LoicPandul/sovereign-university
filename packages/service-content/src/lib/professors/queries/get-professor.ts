@@ -3,14 +3,14 @@ import type { JoinedProfessor } from '@blms/types';
 
 export const getProfessorQuery = (id: number, language?: string) => {
   return sql<JoinedProfessor[]>`
-    SELECT 
-      p.*, 
-      pl.bio, 
+    SELECT
+      p.*,
+      pl.bio,
       pl.short_bio,
       pl.language,
       COALESCE(ca.courses_count, 0) AS courses_count,
       COALESCE(tca.tutorials_count, 0) AS tutorials_count,
-      COALESCE(lca.lectures_count, 0) AS lectures_count, 
+      COALESCE(lca.lectures_count, 0) AS lectures_count,
       COALESCE(ta.tags, ARRAY[]::text[]) AS tags
     FROM content.professors p
     JOIN content.professors_localized pl ON pl.professor_id = p.id
@@ -39,10 +39,12 @@ export const getProfessorQuery = (id: number, language?: string) => {
 
     -- Lateral join for lectures
     LEFT JOIN LATERAL (
-      SELECT COUNT(DISTINCT clp.chapter_id) AS lectures_count
+      SELECT COUNT(clp.chapter_id) AS lectures_count
       FROM content.course_chapters_localized_professors clp
       WHERE clp.contributor_id = p.contributor_id
+       AND clp.language = ${language}
     ) lca ON TRUE
+
 
     WHERE p.id = ${id}
     ${language ? sql`AND pl.language = ${language}` : sql``}

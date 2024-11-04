@@ -11,12 +11,12 @@ export const getProfessorsQuery = ({
   language?: string;
 }) => {
   return sql<JoinedProfessor[]>`
-  SELECT 
-      p.*, 
+  SELECT
+      p.*,
       pl.language,
-      pl.bio, 
-      pl.short_bio, 
-      COALESCE(ca.courses_count, 0) AS courses_count, 
+      pl.bio,
+      pl.short_bio,
+      COALESCE(ca.courses_count, 0) AS courses_count,
       COALESCE(tca.tutorials_count, 0) AS tutorials_count,
       COALESCE(lca.lectures_count, 0) AS lectures_count,
       COALESCE(ta.tags, ARRAY[]::text[]) AS tags
@@ -47,9 +47,10 @@ export const getProfessorsQuery = ({
 
     -- Lateral join for lectures with unique chapter count
     LEFT JOIN LATERAL (
-      SELECT COUNT(DISTINCT clp.chapter_id) AS lectures_count
+      SELECT COUNT(clp.chapter_id) AS lectures_count
       FROM content.course_chapters_localized_professors clp
       WHERE clp.contributor_id = p.contributor_id
+       AND clp.language = ${language}
     ) lca ON TRUE
 
     ${language ? sql`WHERE pl.language = ${language}` : sql``}
@@ -60,7 +61,7 @@ export const getProfessorsQuery = ({
           : sql`WHERE p.contributor_id = ANY(${contributorIds})`
         : sql``
     }
-    
+
     GROUP BY p.id, pl.language, pl.bio, pl.short_bio, ca.courses_count, tca.tutorials_count, lca.lectures_count, ta.tags
   `;
 };
