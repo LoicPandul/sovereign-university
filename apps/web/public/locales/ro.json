@@ -330,7 +330,16 @@
       "congratulationsPassed": "Felicitări, ai <0>trecut</0> examenul final !",
       "dontWorry": "Nu vă faceți griji în legătură cu greșelile; acest test ajută la consolidarea învățării dumneavoastră. Dacă nu îl treceți, îl puteți relua după 24 de ore.",
       "certificateAvailable": "Va fi disponibil aproximativ 8 ore după trimitere.",
-      "examAndDiploma": "Examen & Diplomă"
+      "examAndDiploma": "Examen & Diplomă",
+      "examDetails": "Examenul are 40 de întrebări cu variante multiple de răspuns, fiecare cu un singur răspuns corect. Îți poți schimba răspunsurile oricând înainte de a le trimite, atâta timp cât cronometrul este în funcțiune.",
+      "answersReview": "Revizuirea răspunsurilor",
+      "explanations": "Explicații :",
+      "failed": "Eșuat",
+      "finalExam": "Examen final",
+      "findInformationChapter": "Găsiți mai multe informații în acest capitol :",
+      "futureProof": "Rezistent în timp: Diploma ta este permanent protejată și întotdeauna validă.",
+      "getCertificate": "Obțineți certificatul",
+      "goBack": "Întoarce-te"
     }
   },
   "dashboard": {

@@ -37,7 +37,8 @@
       "displayNameRequired": "Un nom d'affichage est requis.",
       "invalidCredentials": "Identifiants invalides",
       "displayNameRegex": "Le nom d'affichage ne peut contenir que des lettres, des chiffres, _, ., - et des espaces.",
-      "displayNameTooShort": "Le nom d'affichage doit contenir au moins 2 charactères."
+      "displayNameTooShort": "Le nom d'affichage doit contenir au moins 2 charactères.",
+      "emailInvalid": "Mail invalide"
     },
     "forgottenPassword": "Mot de passe oublié ?",
     "headerAccountCreated": "Compte créé",
@@ -69,7 +70,8 @@
     "signIn": "Se connecter",
     "displayName": "Nom d'affichage",
     "oldPassword": "Ancien mot de passe",
-    "confirmation": "Confirmation"
+    "confirmation": "Confirmation",
+    "emailTip": "Vous pouvez ajouter une adresse mail à votre compte si vous le souhaitez. Dans le cas où vous oubliez votre mot de passe, cela peut être utile ;)"
   },
   "bet": {
     "contribute": "Ce toolkit est ouvert à la contribution. Il utilise Figma, pour que n'importe qui puisse ajouter, modifier et traduire. Pour collaborer, ajouter une catégorie ou discuter, n'hésitez pas à rejoindre notre discord.",
@@ -356,7 +358,8 @@
       "commentAdmin": "Commentaire à l'équipe d'administration (privé)",
       "displayOutOf": "affiché hors de",
       "length": "Longueur",
-      "edit": "Éditer"
+      "edit": "Éditer",
+      "skip": "Passez la revue"
     }
   },
   "dashboard": {
@@ -492,7 +495,9 @@
       "completionDiploma": "Diplôme final",
       "completionExamInfo": "Ici vous pouvez trouver les informations relatives à l'examen final à la fin de ce cours.",
       "feedbacks": "Un chapitre à la fin du cours est consacré aux retours. Si vous souhaitez donner votre avis maintenant, vous pouvez le faire ici.",
-      "ratingsAndFeedbacks": "Évaluations et commentaires"
+      "ratingsAndFeedbacks": "Évaluations et commentaires",
+      "coursesCompleted": "Parcous complété",
+      "checkDetailsCompleted": "Ici vous pouvez vérifier tous les détails concernant le parcours que vous avez complété."
     },
     "credentials": {
       "bCertificate": "Certificat ₿",

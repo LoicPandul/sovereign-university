@@ -30,7 +30,9 @@
       "displayNameRequired": "顯示名稱是必要的。",
       "displayNameTooShort": "顯示名稱必須至少包含2個字符。",
       "usernameRegex": "使用者名稱只能包含字母、數字、_、. 和 -。",
-      "usernameRequired": "使用者名稱必填。"
+      "usernameRequired": "使用者名稱必填。",
+      "emailInvalid": "無效的電子郵件",
+      "invalidCredentials": "無效的憑證"
     },
     "forgottenPassword": "忘記您的密碼嗎？",
     "headerAccountCreated": "帳號已創建",
@@ -65,7 +67,11 @@
     "createAccount": "註冊",
     "createOne": "在此註冊！",
     "emailAddress": "電子郵件地址",
-    "lnurlAuthDescription": "使用您的Lightning錢包掃描此QR碼登入！"
+    "lnurlAuthDescription": "使用您的Lightning錢包掃描此QR碼登入！",
+    "emailTip": "如果你願意，可以將使用者電子郵件添加到你的帳戶中。在忘記密碼的情況下，這會很有用 ;)",
+    "confirmation": "確認",
+    "displayName": "顯示名稱",
+    "oldPassword": "舊密碼"
   },
   "bCertificate": {
     "bCertificateDescription": "比特幣 ₿ 證書是一項國際公認的考試，用來評估您在比特幣及其相關主題上的知識水平。該證書能夠證明您在比特幣行業中的技能和知識，並為您進入該行業的公司和職位提供機會。",
@@ -296,7 +302,9 @@
       "whatStudentsSay": "學生對本課程的評價",
       "writeThoughts": "在這裡你可以寫下你的想法",
       "yesOfCourse": "是的，當然可以",
-      "yesVeryMuch": "是的，非常滿意"
+      "yesVeryMuch": "是的，非常滿意",
+      "skip": "跳過回顧",
+      "edit": "編輯"
     },
     "part": {
       "count": "第 {{count}} 部分"
@@ -321,6 +329,63 @@
       "financialCrisis": "重大金融危機分析",
       "hyperinflation": "惡性通貨膨脹研究",
       "theoreticalLightning": "閃電網路高階理論課程"
+    },
+    "exam": {
+      "quitWithoutSubmitting": "哎呀，看起來你在沒有提交答案的情況下離開了頁面。這將取消測驗。",
+      "sameRules": "你即將重新參加期末考，規則仍然不變。",
+      "certificateAvailable": "它將在提交後大約8小時可用。",
+      "dontWorry": "不要擔心犯錯；這個測試有助於鞏固你的學習。如果你沒有通過，你可以在24小時後重新考試。",
+      "explanations": "說明：",
+      "certificateGeneration": "你的證書正在處理中 ",
+      "congratulations": "恭喜，你已經完成了這門課程！",
+      "congratulationsPassed": "恭喜，你<0>通過了</0>期末考試！",
+      "letsConclude": "一切都完成了，讓我們來總結",
+      "noGoBack": "不，返回",
+      "oneMinuteLeft": "你只剩下1分鐘了",
+      "passed": "通過",
+      "skipExam": "跳過考試",
+      "skipExamDescription": "您也可以跳過考試，直接點擊下方的按鈕進行結論。",
+      "startExam": "開始考試",
+      "submit": "提交",
+      "sureSubmit": "您確定要提交試卷嗎？",
+      "testKnowledge": "現在你已經完成了這門課程，讓我們來測試你的知識。",
+      "testResults": "測驗結果",
+      "answersReview": "答案回顧",
+      "availableDashboard": "它將在大約10小時後在你的儀表板上可用。",
+      "instantVerification": "即時驗證：雇主可以輕鬆驗證你的學位真實性及發證日期。",
+      "notTranslatedYet": "我們很抱歉，但最終考試功能尚未提供你選擇的語言。你可以選擇切換到其他語言以繼續進行。",
+      "retakeExam": "重新測驗",
+      "skipExamGoConclusion": "跳過考試，直接進入結論",
+      "tamperProof": "防篡改：區塊鏈確保沒有人能夠修改或偽造你的證書。",
+      "tryAgain": "再試一次",
+      "tryOneMoreTime": "讓我們再試一次！",
+      "whyTimeStamp": "為您的學位標上時間戳：\n為何這很重要",
+      "wishTryAgain": "如果您希望再試一次，考試將在24小時後開放。",
+      "examAndDiploma": "考試與文憑",
+      "dontGiveUpTryAgain": "不要放棄！\n你可以在24小時後再試一次。",
+      "examDetails": "考試有40道選擇題，每題只有一個正確答案。在計時器運行的期間，你可以隨時修改你的答案，直到提交為止。",
+      "failed": "失敗",
+      "finalExam": "期末考試",
+      "findInformationChapter": "在這一章節找到更多訊息：",
+      "futureProof": "未來保證：你的學位將永久受保護，並且始終有效。",
+      "getCertificate": "取得我的證書",
+      "globallyRecognized": "全球認可：區塊鏈支持的證書在全球受到信任。",
+      "goBack": "返回",
+      "goodLuck": "祝你好運！",
+      "instructions": "說明：",
+      "retakeInstructions": "你有20分鐘的時間來回答40道問題，每題只有一個正確答案。你可以在問題之間切換，並在最後提交你的答案。",
+      "score": "得分",
+      "timeLeft": "剩餘時間",
+      "timeStampBenefits": "為什麼這很重要：",
+      "timeStamped": "時間戳記。",
+      "timeStampHow": "它是如何運作的：",
+      "timeStampHowDescription": "當你的學位發放時，將會創建一個獨特的數位「指紋」，並儲存在區塊鏈上。這使得紀錄變得永久且防篡改。任何試圖更改學位的行為都會中斷鏈接，顯示出變更的情況。",
+      "timerStart": "一旦你點擊開始，20分鐘的計時器將會開始。",
+      "verifyDisplayName": "在開始之前，請驗證下方的名稱，它將用來產生您的證書。",
+      "yesSubmit": "是的，提交",
+      "oopsFailed": "哎呀，看起來你<0>沒有通過</0>期末考試。",
+      "passRate": "通過率為80%。",
+      "planBTimeStamp": "在 Plan ₿ Network，我們利用區塊鏈支持的時間戳技術來保護你的學位。"
     }
   },
   "dashboard": {
@@ -375,7 +440,8 @@
       "profileInformation": "個人資料",
       "profilePicture": "個人照片",
       "security": "安全",
-      "username": "使用者名稱"
+      "username": "使用者名稱",
+      "emailChangeRateLimitError": "電子郵件變更請求已在不到5分鐘前發送，請稍候再試。"
     },
     "teacher": {
       "courses": {
@@ -453,7 +519,37 @@
       "inprogressCoursesDescription": "您可以在這裡查看您已開始的課程的進度。",
       "resumeLesson": "摘要",
       "seeProgress": "在這裡查看您的進度。",
-      "startCourse": "開始或完成一門課程"
+      "startCourse": "開始或完成一門課程",
+      "done": "完成",
+      "downloadPdf": "下載 PDF",
+      "whereYouAre": "讓我們看看你在哪裡！",
+      "viewDetails": "查看詳情",
+      "yourCertificate": "您的證書",
+      "completedOutOf": "已完成 {{completed}} 單位，共有 {{total}} 單位可用"
+    },
+    "course": {
+      "checkDetailsCompleted": "在這裡，你可以查看有關你完成課程的所有詳細資訊。",
+      "completionDiploma": "結業證書",
+      "coursesCompleted": "已完成的課程",
+      "feedbacks": "課程結束時有一個章節專門用於回饋。如果你現在想要提供回饋，可以在這裡進行。",
+      "ratingsAndFeedbacks": "評分與回饋",
+      "completionExamInfo": "您可以在這裡找到有關課程結業考試的相關資訊。",
+      "shareOnSocials": "在社群媒體上分享：",
+      "tweetText": "很高興在Plan ₿ Network上完成{{courseId}}，並在通過最終考試後獲得我的證書！ @planb_network\n\n{{certificateUrl}}"
+    },
+    "credentials": {
+      "bCertificate": "比特幣 ₿ 證書",
+      "beingGraded": "您的考試正在進行評分。結果應在1到2週內公布。",
+      "courseDiplomas": "課程文憑",
+      "completionDiplomas": "結業證書",
+      "downloadAvailableSoon": "證書很快就能下載",
+      "globalCertifications": "全球認證",
+      "retakeExam": "重新測驗",
+      "seatBooked": "您的考試座位已經預訂好了",
+      "takePlaceAt": "會議將在此地進行",
+      "yourCertificate": "您的證書",
+      "bCertificateSubtitle": "在這裡，你可以找到有關你過去和未來比特幣 ₿ 證書的預約和成績的詳細資訊。\n比特幣 ₿ 證書是由 Plan ₿ Network 組織的表格考試，目標在評估你在比特幣及其相關主題的水平。",
+      "courseDiplomasSubtitle": "在這裡，您可以找到您在平台上完成課程後所參加的所有考試的詳細資訊。"
     }
   },
   "glossary": {
@@ -491,7 +587,8 @@
       "content1": "比特幣不斷在演變，隨著新角色、解決方案、協議和技術突破的出現，維護一個準確且最新的高品質教學資料庫可能會變得具有挑戰性。在 Plan ₿，我們正是做到這一點。無論您是初學者還是進階用戶，都可以根據您的需求瀏覽數百個教學資源，探索我們的產業。",
       "title": "簡單易懂的比特幣教育。",
       "subtitle1": "我們提供大量深入的教程，幫助您精通這項技術！",
-      "link": "查看所有課程"
+      "link": "查看所有課程",
+      "link2": "查看所有資源"
     },
     "aboutUsSection": {
       "content": "Plan ₿ Network 支援全球的比特幣教育。這是一個由熱衷於教育、開源軟體、點對點網路和社群建立的比特幣公司合作組成的聯盟。他們共同啟動了這一倡議，以為比特幣生態系提供成長所需的基本工具。",
@@ -513,7 +610,8 @@
       "subtitle": "所有事物都被翻譯成當地語言！",
       "subtitle2": "我們需要你！",
       "content2": "您也可以開始在您的國家建立自己的本地網絡！",
-      "link": "幫助我們翻譯教材"
+      "link": "幫助我們翻譯教材",
+      "availableLanguagesVariation": "可用語言： "
     },
     "numbersSection": {
       "networkMember": "網路成員"
@@ -732,7 +830,12 @@
       "title": "Podcasts"
     },
     "publicGrade": "公開評分：{{grade}}/5",
-    "searchFilterName": "按名稱搜索"
+    "searchFilterName": "按名稱搜索",
+    "newsletter": {
+      "title": "電子報"
+    },
+    "pageSubtitleBooks": "你可能會喜歡的另一本書：",
+    "pageSubtitlePodcast": "你可能會喜歡的另一個 podcast："
   },
   "tutorials": {
     "details": {
@@ -964,7 +1067,25 @@
     "video": "影片",
     "videos": "影片",
     "view": "檢視",
-    "wallets": "錢包"
+    "wallets": "錢包",
+    "diploma": "文憑",
+    "failed": "失敗",
+    "grade": "等級",
+    "inReview": "審查中",
+    "progress": "進度",
+    "publicationDate": "出版日期:",
+    "writtenByPodcasts": "撰寫者：",
+    "booked": "已預約",
+    "bookings": "訂單",
+    "credentials": "證書",
+    "filter": "篩選器",
+    "id": "身份號碼",
+    "location": "地點",
+    "overview": "總覽",
+    "passed": "通過",
+    "status": "狀態",
+    "teacher": "老師",
+    "total": "總計"
   },
   "notFound": {
     "here": "這裡",
