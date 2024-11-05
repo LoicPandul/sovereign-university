@@ -35,7 +35,7 @@ export const getUserByIdWithDetailsQuery = (uid: string) => {
 export const getUserByUserNameQuery = (username: string) => {
   return sql<UserAccount[]>`
     SELECT * FROM users.accounts
-    WHERE username LIKE ${username};
+    WHERE username = LOWER( ${username} );
   `;
 };
 

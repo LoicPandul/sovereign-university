@@ -40,8 +40,10 @@ export const credentialsAuthRouter = createTRPCRouter({
     .mutation(async ({ ctx, input }) => {
       const getUser = createGetUserByUsername(ctx.dependencies);
 
+      const username = input.username.toLowerCase().trim();
+
       // TODO: move this to service once we have the custom errors
-      if (await getUser({ username: input.username })) {
+      if (await getUser({ username })) {
         throw new TRPCError({
           code: 'BAD_REQUEST',
           message: 'Username already exists',
@@ -50,7 +52,7 @@ export const credentialsAuthRouter = createTRPCRouter({
 
       const newCredentialsUser = createNewCredentialsUser(ctx.dependencies);
       const user = await newCredentialsUser({
-        username: input.username,
+        username,
         password: input.password,
         contributorId: input.contributor_id,
         email: input.email ?? null,
@@ -87,9 +89,9 @@ export const credentialsAuthRouter = createTRPCRouter({
         });
       }
 
-      const user = await getUser({
-        username: input.username,
-      });
+      const username = input.username.toLowerCase().trim();
+
+      const user = await getUser({ username });
 
       if (!user) {
         throw new TRPCError({

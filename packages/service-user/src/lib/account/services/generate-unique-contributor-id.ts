@@ -1,14 +1,10 @@
 import type { Dependencies } from '../../../dependencies.js';
-import { contributorIdExistsQuery } from '../queries/contributor-id-exists.js';
 import { generateRandomContributorId } from '../utils/contribution.js';
 
-export const createGenerateUniqueContributorId = ({
-  postgres,
-}: Dependencies) => {
-  const contributorIdExists = async (id: string) => {
-    const [result] = await postgres.exec(contributorIdExistsQuery(id));
-    return result && result.exists;
-  };
+import { createCheckContributorIdExists } from './check-contributor-id-exists.js';
+
+export const createGenerateUniqueContributorId = (ctx: Dependencies) => {
+  const contributorIdExists = createCheckContributorIdExists(ctx);
 
   return async () => {
     let contributorId: string;
