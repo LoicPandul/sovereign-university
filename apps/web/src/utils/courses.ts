@@ -42,4 +42,4 @@ export const goToChapterParameters = (
   }
 };
 
-export const COURSES_WITH_INLINE_LATEX_SUPPORT = ['btc204'];
+export const COURSES_WITH_INLINE_LATEX_SUPPORT = ['btc204', 'cyp302'];
