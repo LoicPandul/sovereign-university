@@ -13,7 +13,6 @@ import {
   DialogContent,
   DialogDescription,
   DialogHeader,
-  DialogOverlay,
   DialogPortal,
   DialogTitle,
   Form,
@@ -101,14 +100,13 @@ export const Register = ({ isOpen, onClose, goTo }: RegisterProps) => {
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
       <DialogPortal>
-        <DialogOverlay />
         <DialogContent
           showCloseButton
-          className="gap-3 py-2 px-4 sm:gap-6 sm:p-6 w-full max-w-[90%] md:max-w-sm"
+          className="gap-3 py-2 px-4 sm:gap-6 sm:p-6 w-full max-w-[90%] md:max-w-md"
           showAccountHelper
         >
           <DialogHeader>
-            <DialogTitle>
+            <DialogTitle className='mt-8'>
               {register.data
                 ? t('auth.headerAccountCreated')
                 : t('auth.createAccount')}
@@ -197,8 +195,6 @@ export const Register = ({ isOpen, onClose, goTo }: RegisterProps) => {
                       )}
                     />
 
-                    <p className="my-4">{t('auth.emailTip')}</p>
-
                     <FormField
                       control={methods.control}
                       name="email"
@@ -216,6 +212,8 @@ export const Register = ({ isOpen, onClose, goTo }: RegisterProps) => {
                         </FormItem>
                       )}
                     />
+
+                      <p className="mt-4 text-sm text-gray-400">{t('auth.emailTip')}</p>
 
                     {register.error && (
                       <p className="mt-2 text-base font-semibold text-red-300">
