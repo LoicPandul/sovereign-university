@@ -130,7 +130,9 @@ export const CoursesProgressList = ({
                 <Link
                   to={
                     showViewDetails
-                      ? `/dashboard/course/completed#${course.courseId}`
+                      ? completed
+                        ? `/dashboard/course/completed#${course.courseId}`
+                        : `/dashboard/course/${course.courseId}`
                       : '/courses/$courseId/$chapterId'
                   }
                   params={{
