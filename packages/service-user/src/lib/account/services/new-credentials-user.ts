@@ -6,7 +6,6 @@ import type { UserAccount } from '@blms/types';
 import type { Dependencies } from '../../../dependencies.js';
 import { newCredentialsUserQuery } from '../queries/new-credentials-user.js';
 
-import { createCheckContributorIdExists } from './check-contributor-id-exists.js';
 import { createGenerateUniqueContributorId } from './generate-unique-contributor-id.js';
 
 interface Options {
@@ -19,20 +18,11 @@ interface Options {
 export const createNewCredentialsUser = (dependencies: Dependencies) => {
   const { postgres } = dependencies;
 
-  const checkContributorIdExists = createCheckContributorIdExists(dependencies);
-
-  const generateUniqueContributorId =
-    createGenerateUniqueContributorId(dependencies);
+  const genContributorId = createGenerateUniqueContributorId(dependencies);
 
   return async (options: Options): Promise<UserAccount> => {
-    const contributorId =
-      options.contributorId || (await generateUniqueContributorId());
+    const contributorId = options.contributorId || (await genContributorId());
     const passwordHash = await hash(options.password);
-
-    if (await checkContributorIdExists(contributorId)) {
-      // TODO: change this to a custom error that can me remapped to a TRPC error
-      throw new Error('Contributor ID already exists');
-    }
 
     return postgres
       .exec(
