@@ -187,7 +187,7 @@ export interface JoinedCourse {
   professors: FormattedProfessor[];
 }
 
-export interface JoinedCourseWithProfessors {
+export interface JoinedCourseWithProfessorsContributorIds {
   id: string;
   hours: number;
   topic: string;
@@ -216,7 +216,7 @@ export interface JoinedCourseWithProfessors {
   level: Level;
   chaptersCount?: number | undefined;
   averageRating: number;
-  professors: FormattedProfessor[];
+  professors: string[];
 }
 
 export interface JoinedCourseWithAll {

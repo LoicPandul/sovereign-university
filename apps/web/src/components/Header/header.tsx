@@ -2,7 +2,7 @@ import { capitalize } from 'lodash-es';
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
-import type { JoinedCourseWithProfessors } from '@blms/types';
+import type { JoinedCourse } from '@blms/types';
 import { cn } from '@blms/ui';
 
 import { useGreater } from '#src/hooks/use-greater.js';
@@ -24,7 +24,7 @@ import { FlyingMenu } from './FlyingMenu/flying-menu.tsx';
 import { MobileMenu } from './MobileMenu/mobile-menu.tsx';
 import type { NavigationSection } from './props.ts';
 
-type Course = JoinedCourseWithProfessors;
+type Course = JoinedCourse;
 
 interface HeaderProps {
   variant?: 'light' | 'dark';

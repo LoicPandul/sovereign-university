@@ -1,4 +1,4 @@
-import type { JoinedCourseWithProfessors } from '@blms/types';
+import type { JoinedCourse } from '@blms/types';
 
 import type { Dependencies } from '../../dependencies.js';
 import { getProfessorsQuery } from '../../professors/queries/get-professors.js';
@@ -9,7 +9,7 @@ import {
 } from '../queries/get-courses.js';
 
 export const createGetCourses = ({ postgres }: Dependencies) => {
-  return async (language?: string): Promise<JoinedCourseWithProfessors[]> => {
+  return async (language?: string): Promise<JoinedCourse[]> => {
     const courses = await postgres.exec(getCoursesQuery(language));
 
     const professors = await postgres
@@ -23,14 +23,24 @@ export const createGetCourses = ({ postgres }: Dependencies) => {
         professors.map((element) => formatProfessor(element)),
       );
 
-    return courses.map((course) => ({
-      ...course,
-      professors: professors.filter(
-        (professor) =>
-          professor.contributorId !== undefined &&
-          course.professors.some((p) => String(p) === professor.contributorId),
-      ),
-    }));
+    return courses.map((course) => {
+      const sortedProfessors = course.professors
+        .map((professor) =>
+          professors.find((p) => p.contributorId === professor),
+        )
+        .filter((p) => p !== undefined);
+
+      return {
+        ...course,
+        professors: sortedProfessors.filter(
+          (professor) =>
+            professor?.contributorId !== undefined &&
+            course.professors.some(
+              (p) => String(p) === professor.contributorId,
+            ),
+        ),
+      };
+    });
   };
 };
 
@@ -38,7 +48,7 @@ export const createGetProfessorCourses = ({ postgres }: Dependencies) => {
   return async (
     coursesId: string[],
     language?: string,
-  ): Promise<JoinedCourseWithProfessors[]> => {
+  ): Promise<JoinedCourse[]> => {
     const courses = await postgres.exec(
       getProfessorCoursesQuery(coursesId, language),
     );
@@ -54,13 +64,21 @@ export const createGetProfessorCourses = ({ postgres }: Dependencies) => {
         professors.map((element) => formatProfessor(element)),
       );
 
-    return courses.map((course) => ({
-      ...course,
-      professors: professors.filter(
-        (professor) =>
-          professor.contributorId !== undefined &&
-          course.professors.some((p) => String(p) === professor.contributorId),
-      ),
-    }));
+    return courses.map((course) => {
+      const sortedProfessors = course.professors
+        .map((professor) =>
+          professors.find((p) => p.contributorId === professor),
+        )
+        .filter((p) => p !== undefined);
+
+      return {
+        ...course,
+        professors: sortedProfessors.filter(
+          (professor) =>
+            professor?.contributorId !== undefined &&
+            course.professors.includes(professor.contributorId),
+        ),
+      };
+    });
   };
 };

@@ -6,8 +6,8 @@ import ReactMarkdown from 'react-markdown';
 
 import type {
   CourseReviewsExtended,
+  JoinedCourse,
   JoinedCourseWithAll,
-  JoinedCourseWithProfessors,
 } from '@blms/types';
 import {
   Button,
@@ -52,7 +52,7 @@ function DashboardProfessorCourses() {
     trpc.content.getProfessorCourses.useQuery(
       {
         coursesId: user?.professorCourses ?? [],
-        language: i18n.language
+        language: i18n.language,
       },
       {
         staleTime: 300_000, // 5 minutes
@@ -79,7 +79,7 @@ function DashboardProfessorCourses() {
   );
 }
 
-const CourseTabs = ({ courses }: { courses: JoinedCourseWithProfessors[] }) => {
+const CourseTabs = ({ courses }: { courses: JoinedCourse[] }) => {
   const [currentTab, setCurrentTab] = useState(courses?.at(0)?.id);
 
   const onTabChange = (value: string) => {
@@ -151,11 +151,7 @@ const CourseTabs = ({ courses }: { courses: JoinedCourseWithProfessors[] }) => {
   );
 };
 
-const CourseTabContent = ({
-  course,
-}: {
-  course: JoinedCourseWithProfessors;
-}) => {
+const CourseTabContent = ({ course }: { course: JoinedCourse }) => {
   const { t } = useTranslation();
 
   const [currentTab, setCurrentTab] = useState('details');
@@ -218,7 +214,7 @@ const CourseTabContent = ({
   );
 };
 
-const CourseDetails = ({ course }: { course: JoinedCourseWithProfessors }) => {
+const CourseDetails = ({ course }: { course: JoinedCourse }) => {
   const { t, i18n } = useTranslation();
 
   const courseItems = {

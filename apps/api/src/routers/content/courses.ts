@@ -4,8 +4,8 @@ import {
   courseChapterResponseSchema,
   courseReviewsExtendedSchema,
   joinedCourseChapterSchema,
+  joinedCourseSchema,
   joinedCourseWithAllSchema,
-  joinedCourseWithProfessorsSchema,
   joinedQuizQuestionSchema,
 } from '@blms/schemas';
 import {
@@ -22,9 +22,9 @@ import {
 import type {
   CourseChapterResponse,
   CourseReviewsExtended,
+  JoinedCourse,
   JoinedCourseChapter,
   JoinedCourseWithAll,
-  JoinedCourseWithProfessors,
   JoinedQuizQuestion,
 } from '@blms/types';
 
@@ -41,9 +41,7 @@ const getCoursesProcedure = publicProcedure
       })
       .optional(),
   )
-  .output<Parser<JoinedCourseWithProfessors[]>>(
-    joinedCourseWithProfessorsSchema.array(),
-  )
+  .output<Parser<JoinedCourse[]>>(joinedCourseSchema.array())
   .query(({ ctx, input }) => {
     return createGetCourses(ctx.dependencies)(input?.language);
   });
@@ -57,9 +55,7 @@ const getProfessorCoursesProcedure = publicProcedure
       })
       .optional(),
   )
-  .output<Parser<JoinedCourseWithProfessors[]>>(
-    joinedCourseWithProfessorsSchema.array(),
-  )
+  .output<Parser<JoinedCourse[]>>(joinedCourseSchema.array())
   .query(({ ctx, input }) => {
     return createGetProfessorCourses(ctx.dependencies)(
       input?.coursesId || [],

@@ -46,16 +46,22 @@ export const createGetProfessor = ({ postgres }: Dependencies) => {
 
     return {
       ...formatProfessor(professor),
-      courses: courses.map((course) => ({
-        ...course,
-        professors: professors.filter(
-          (professor) =>
-            professor.contributorId !== undefined &&
-            course.professors.some(
-              (p) => String(p) === professor.contributorId,
-            ),
-        ),
-      })),
+      courses: courses.map((course) => {
+        const sortedProfessors = course.professors
+          .map((professor) =>
+            professors.find((p) => p.contributorId === professor),
+          )
+          .filter((p) => p !== undefined);
+
+        return {
+          ...course,
+          professors: sortedProfessors.filter(
+            (professor) =>
+              professor.contributorId !== undefined &&
+              course.professors.includes(professor.contributorId),
+          ),
+        };
+      }),
       tutorials,
     };
   };

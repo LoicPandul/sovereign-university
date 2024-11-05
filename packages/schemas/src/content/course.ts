@@ -143,12 +143,15 @@ export const joinedCourseSchema = minimalJoinedCourseSchema.merge(
   }),
 );
 
-export const joinedCourseWithProfessorsSchema = minimalJoinedCourseSchema.merge(
-  z.object({
-    professors: formattedProfessorSchema.array(),
-    averageRating: z.number(),
-  }),
-);
+export const joinedCourseWithProfessorsContributorIdsSchema = joinedCourseSchema
+  .omit({
+    professors: true,
+  })
+  .merge(
+    z.object({
+      professors: z.string().array(),
+    }),
+  );
 
 export const joinedCourseWithAllSchema = minimalJoinedCourseSchema.merge(
   z.object({

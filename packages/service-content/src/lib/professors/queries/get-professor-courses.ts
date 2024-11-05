@@ -1,5 +1,5 @@
 import { sql } from '@blms/database';
-import type { JoinedCourse } from '@blms/types';
+import type { JoinedCourseWithProfessorsContributorIds } from '@blms/types';
 
 export const getProfessorCoursesQuery = ({
   id,
@@ -33,7 +33,7 @@ export const getProfessorCoursesQuery = ({
     (acc, clause) => sql`${acc} AND ${clause}`,
   )}`;
 
-  return sql<JoinedCourse[]>`
+  return sql<JoinedCourseWithProfessorsContributorIds[]>`
     SELECT
       c.id,
       cl.language,
