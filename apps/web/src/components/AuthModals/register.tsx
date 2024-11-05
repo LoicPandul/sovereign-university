@@ -37,10 +37,11 @@ interface RegisterFormData {
 interface RegisterProps {
   isOpen: boolean;
   onClose: () => void;
+  redirectTo?: string | null;
   goTo: (newState: AuthModalState) => void;
 }
 
-export const Register = ({ isOpen, onClose, goTo }: RegisterProps) => {
+export const Register = ({ isOpen, onClose, goTo, redirectTo }: RegisterProps) => {
   const { t } = useTranslation();
   const password = new PasswordValidator().is().min(10);
 
@@ -86,7 +87,11 @@ export const Register = ({ isOpen, onClose, goTo }: RegisterProps) => {
   const register = trpc.auth.credentials.register.useMutation({
     onSuccess: () => {
       setTimeout(() => {
-        window.location.href = '/dashboard/courses';
+        if (redirectTo) {
+          window.location.href = redirectTo;
+        } else {
+          window.location.reload();
+        }
       }, 2000);
     },
   });

@@ -31,10 +31,11 @@ interface SignInFormData {
 interface SignInProps {
   isOpen: boolean;
   onClose: () => void;
+  redirectTo?: string | null;
   goTo: (newState: AuthModalState) => void;
 }
 
-export const SignIn = ({ isOpen, onClose, goTo }: SignInProps) => {
+export const SignIn = ({ isOpen, onClose, goTo, redirectTo }: SignInProps) => {
   const { t } = useTranslation();
   const usernameRequired = t('auth.errors.usernameRequired');
   const passwordRequired = t('auth.passwordRequired');
@@ -55,7 +56,11 @@ export const SignIn = ({ isOpen, onClose, goTo }: SignInProps) => {
   const credentialsLogin = trpc.auth.credentials.login.useMutation({
     onSuccess: () => {
       onClose();
-      window.location.reload();
+      if (redirectTo) {
+        window.location.href = redirectTo;
+      } else {
+        window.location.reload();
+      }
     },
     onError: () => {
       methods.setError('username', {

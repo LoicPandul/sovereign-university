@@ -9,12 +9,14 @@ interface LoginModalProps {
   isOpen: boolean;
   onClose: () => void;
   initialState?: AuthModalState;
+  redirectTo?: string | null; // Redirect to this URL after successful login/signup
 }
 
 export const AuthModal = ({
   isOpen,
   onClose,
   initialState = AuthModalState.SignIn,
+  redirectTo = null,
 }: LoginModalProps) => {
   const [currentState, setCurrentState] = useState<AuthModalState | null>(
     initialState,
@@ -22,10 +24,7 @@ export const AuthModal = ({
 
   const goTo = (newState: AuthModalState) => {
     setCurrentState(null);
-
-    setTimeout(() => {
-      setCurrentState(newState);
-    }, 300);
+    setTimeout(() => setCurrentState(newState), 300);
   };
 
   useEffect(() => {
@@ -40,6 +39,7 @@ export const AuthModal = ({
       <SignIn
         isOpen={isOpen && currentState === AuthModalState.SignIn}
         onClose={onClose}
+        redirectTo={redirectTo}
         goTo={goTo}
       />
 
@@ -47,6 +47,7 @@ export const AuthModal = ({
       <Register
         isOpen={isOpen && currentState === AuthModalState.Register}
         onClose={onClose}
+        redirectTo={redirectTo}
         goTo={goTo}
       />
 

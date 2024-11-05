@@ -294,6 +294,7 @@ export const Header = ({ variant = 'dark' }: HeaderProps) => {
           isOpen={isAuthModalOpen}
           onClose={closeAuthModal}
           initialState={authMode}
+          redirectTo={'/dashboard/courses'}
         />
       )}
     </header>
