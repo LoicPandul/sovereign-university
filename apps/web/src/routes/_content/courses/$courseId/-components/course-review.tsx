@@ -193,7 +193,10 @@ export function CourseReview({
   const authMode = AuthModalState.SignIn;
 
   const FormSchema = z.object({
-    general: z.number().min(0).max(5),
+    general: z
+      .number()
+      .min(1, { message: t('courses.review.fieldRequired') })
+      .max(5),
     length: z.number().min(-5).max(5),
     difficulty: z.number().min(-5).max(5),
     quality: z.number().min(-5).max(5),
@@ -280,7 +283,10 @@ export function CourseReview({
   }
 
   return (
-    <div className={cn('flex flex-col', addMarginToForm && 'mt-16')}>
+    <div
+      className={cn('flex flex-col', addMarginToForm && 'mt-16')}
+      id="reviewForm"
+    >
       {isReviewFetched || formDisabled ? (
         <>
           {showExplanation && (
@@ -300,7 +306,7 @@ export function CourseReview({
           )}
           <Form {...form}>
             <form
-              onSubmit={form.handleSubmit(onSubmit)}
+              onSubmit={form.handleSubmit(onSubmit, scrollToForm)}
               className={cn(
                 'flex flex-col gap-5',
                 addMarginToForm && 'mt-12 mx-4 md:mx-32',
@@ -340,7 +346,7 @@ export function CourseReview({
                         />
                       </div>
                     </FormControl>
-                    <FormMessage />
+                    <FormMessage className="w-full text-center" />
                   </FormItem>
                 )}
               />
@@ -477,3 +483,7 @@ export function CourseReview({
     </div>
   );
 }
+
+const scrollToForm = () => {
+  document.querySelector('#reviewForm')?.scrollIntoView({ behavior: 'smooth' });
+};
