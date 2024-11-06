@@ -23,6 +23,17 @@ export interface BCertificateResults {
   lastSync: Date;
 }
 
+export interface BCertificateTimestamps {
+  uid: string;
+  bCertificateExam: string;
+  pdfKey: string | null;
+  imgKey: string | null;
+  txtKey: string | null;
+  txtOtsKey: string | null;
+  createdAt: Date;
+  lastSync: Date;
+}
+
 export interface JoinedBCertificateResults {
   id: string;
   date: Date;
@@ -32,6 +43,10 @@ export interface JoinedBCertificateResults {
   path: string;
   lastUpdated: Date;
   lastCommit: string;
+  pdfKey: string | null;
+  imgKey: string | null;
+  txtKey: string | null;
+  txtOtsKey: string | null;
   results: {
     category: string;
     score: number;

@@ -10,7 +10,10 @@ import {
 } from '../../utils.js';
 
 import { createProcessMainFile } from './main.js';
-import { createProcessResultFile } from './result.js';
+import {
+  createProcessResultFile,
+  createProcessTimestampFile,
+} from './result.js';
 
 interface BCertificateExamDetails {
   path: string;
@@ -70,7 +73,10 @@ export const groupByBCertificateExam = (
   return [...groupedBCertificateExams.values()];
 };
 
-export const createUpdateBCertificateExams = ({ postgres }: Dependencies) => {
+export const createUpdateBCertificateExams = ({
+  postgres,
+  s3,
+}: Dependencies) => {
   return async (
     bCertificateExam: ChangedBCertificateExam,
     errors: string[],
@@ -79,12 +85,40 @@ export const createUpdateBCertificateExams = ({ postgres }: Dependencies) => {
     // eslint-disable-next-line prefer-const
     let { main, files } = separateContentFiles(bCertificateExam, 'bcert.yml');
 
-    files = files.filter((file) => !file.path.includes('exam/'));
+    // bcert/editions/2024-btc-prague/bcert.yml
+    const bcertEdition = bCertificateExam.fullPath
+      .split('/')
+      .slice(2, 3)
+      .join('/');
+
+    const resultFiles = files.filter((file) =>
+      file.path.includes('result.yml'),
+    );
+
+    const otsFiles = files.filter(
+      (file) =>
+        file.path
+          .split('/')
+          .slice(-1)
+          .includes('bitcoin_certificate-signed.pdf') ||
+        file.path
+          .split('/')
+          .slice(-1)
+          .includes('bitcoin_certificate-signed.txt') ||
+        file.path
+          .split('/')
+          .slice(-1)
+          .includes('bitcoin_certificate-signed.txt.ots'),
+    );
 
     return postgres
       .begin(async (transaction) => {
         const processMainFile = createProcessMainFile(transaction);
         const processResultFile = createProcessResultFile(transaction);
+        const processTimestampFile = createProcessTimestampFile(
+          transaction,
+          s3,
+        );
 
         try {
           await processMainFile(bCertificateExam, main);
@@ -94,21 +128,21 @@ export const createUpdateBCertificateExams = ({ postgres }: Dependencies) => {
           );
         }
 
-        const id = await transaction<BCertificateExam[]>`
+        const bcertId = await transaction<BCertificateExam[]>`
           SELECT id FROM content.b_certificate_exam WHERE path = ${bCertificateExam.path}
         `
           .then(firstRow)
           .then((row) => row?.id);
 
-        if (!id) {
+        if (!bcertId) {
           throw new Error(
             `B Certificate Exam not found for path ${bCertificateExam.path}`,
           );
         }
 
-        for (const file of files) {
+        for (const file of resultFiles) {
           try {
-            await processResultFile(id, file);
+            await processResultFile(bcertId, file);
           } catch (error) {
             if (error instanceof Error) {
               if (error.message.includes('uid not found')) {
@@ -127,6 +161,16 @@ export const createUpdateBCertificateExams = ({ postgres }: Dependencies) => {
             }
           }
         }
+
+        for (const file of otsFiles) {
+          try {
+            await processTimestampFile(file, bcertEdition, bcertId);
+          } catch (error) {
+            errors.push(
+              `Error processing file(B Certificate OTS file) ${file?.path}: ${error}`,
+            );
+          }
+        }
       })
       .catch(() => {
         return;
@@ -138,12 +182,12 @@ export const createDeleteBCertificateExams = ({ postgres }: Dependencies) => {
   return async (sync_date: number, errors: string[]) => {
     try {
       await postgres.exec(
-        sql`DELETE FROM content.b_certificate_exam WHERE last_sync < ${sync_date} 
+        sql`DELETE FROM content.b_certificate_exam WHERE last_sync < ${sync_date}
       `,
       );
 
       await postgres.exec(
-        sql`DELETE FROM users.b_certificate_results WHERE last_sync < ${sync_date} 
+        sql`DELETE FROM users.b_certificate_results WHERE last_sync < ${sync_date}
       `,
       );
     } catch {

@@ -10,7 +10,7 @@ interface ModifiedBaseFile {
   /** Commit timestamp */
   time: number;
   /** Raw data */
-  data: string;
+  data: Buffer;
 }
 
 export interface RenamedFile extends ModifiedBaseFile {
@@ -30,8 +30,6 @@ export interface ModifiedFile extends ModifiedBaseFile {
 export interface RemovedFile {
   /** Path to the file */
   path: string;
-  /** Full path to the file */
-  fullPath?: string;
   /** Change kind */
   kind: Extract<ChangeKind, 'removed'>;
 }
