@@ -158,6 +158,25 @@ export const createGetMetadata = (dependencies: Dependencies) => {
     );
   };
 
+  const getBcertCertificateMetadata = (
+    lang: string,
+    parts: string[],
+    // eslint-disable-next-line unicorn/consistent-function-scoping
+  ): Metadata => {
+    const [examUrl] = parts;
+
+    if (!examUrl) {
+      return defaultMeta(lang);
+    }
+
+    return meta(
+      DEFAULT.title,
+      DEFAULT.description,
+      `/api/files/exam-certificates/${examUrl}.png`,
+      DEFAULT.lang,
+    );
+  };
+
   return async (parts: string[]): Promise<Metadata> => {
     const lang = (parts[0]?.length === 2 && parts.shift()) || 'en';
 
@@ -178,6 +197,9 @@ export const createGetMetadata = (dependencies: Dependencies) => {
       }
       case 'exam-certificates': {
         return getExamCertificateMetadata(lang, rest); //
+      }
+      case 'bcert-certificates': {
+        return getBcertCertificateMetadata(lang, rest); //
       }
       default: {
         return defaultMeta(lang);

@@ -271,8 +271,7 @@ const ExamResult = ({
                         <div className="flex items-center gap-2.5">
                           <Link
                             to={`https://twitter.com/intent/tweet?text=${encodeURIComponent(
-                              t('dashboard.course.tweetText', {
-                                courseId: 'btcxxx'.toUpperCase(),
+                              t('bCertificate.tweetText', {
                                 certificateUrl: `${window.location.origin}/en/bcert-certificates/${encodeURIComponent(exam.imgKey ? exam.imgKey.split('.').slice(0, 1).join('.') : '')}`,
                                 score: `${exam.score}`,
                                 emoji:
@@ -336,8 +335,7 @@ const ExamResult = ({
                         <div className="flex items-center gap-2.5">
                           <Link
                             to={`https://twitter.com/intent/tweet?text=${encodeURIComponent(
-                              t('dashboard.course.tweetText', {
-                                courseId: 'btcxxx'.toUpperCase(),
+                              t('bCertificate.tweetText', {
                                 certificateUrl: `${window.location.origin}/en/bcert-certificates/${encodeURIComponent(exam.imgKey ? exam.imgKey.split('.').slice(0, 1).join('.') : '')}`,
                                 score: `${exam.score}`,
                                 emoji:

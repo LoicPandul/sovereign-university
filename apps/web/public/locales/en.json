@@ -89,7 +89,7 @@
     "pageSubtitle": "Mass adoption through centralized open-source education",
     "pageTitle": "Pass the ₿ Certificate",
     "readChart": "Read the charter",
-    "tweetText": "Thrilled to have passed the B-Certificate at @planb_network with a score of {{score}}/100 on the final exam! {{emoji}}\n\n{{certificateUrl}}"
+    "tweetText": "Thrilled to have passed the B-Certificate at @planb_network with a score of {{score}}/100! {{emoji}}\n\n{{certificateUrl}}"
   },
   "bet": {
     "contribute": "This toolkit is open to contribution. It uses Figma, so anyone can add, modify and translate. To collaborate, add a category or discuss, don't hesitate to join our discord.",
