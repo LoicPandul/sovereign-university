@@ -273,7 +273,7 @@ const ExamResult = ({
                             to={`https://twitter.com/intent/tweet?text=${encodeURIComponent(
                               t('dashboard.course.tweetText', {
                                 courseId: 'btcxxx'.toUpperCase(),
-                                certificateUrl: `${window.location.origin}/en/bcert-certificates/${encodeURIComponent(exam.imgKey ? exam.imgKey : '')}`,
+                                certificateUrl: `${window.location.origin}/en/bcert-certificates/${encodeURIComponent(exam.imgKey ? exam.imgKey.split('.').slice(0, 1).join('.') : '')}`,
                                 score: `${exam.score}`,
                                 emoji:
                                   exam.score && exam.score >= 90 ? '🏆' : '💪',
@@ -338,7 +338,7 @@ const ExamResult = ({
                             to={`https://twitter.com/intent/tweet?text=${encodeURIComponent(
                               t('dashboard.course.tweetText', {
                                 courseId: 'btcxxx'.toUpperCase(),
-                                certificateUrl: `${window.location.origin}/en/bcert-certificates/${encodeURIComponent(exam.imgKey ? exam.imgKey : '')}`,
+                                certificateUrl: `${window.location.origin}/en/bcert-certificates/${encodeURIComponent(exam.imgKey ? exam.imgKey.split('.').slice(0, 1).join('.') : '')}`,
                                 score: `${exam.score}`,
                                 emoji:
                                   exam.score && exam.score >= 90 ? '🏆' : '💪',

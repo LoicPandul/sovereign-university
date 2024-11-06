@@ -28,7 +28,7 @@ function Certificate() {
   return (
     <MainLayout variant="light" footerVariant="light" fillScreen>
       <img
-        src={`/api/files/${decodeURI(params.certificateId)}`}
+        src={`/api/files/${decodeURI(params.certificateId)}.png`}
         alt="Test"
         className="mx-auto mt-10 md:mt-20 px-4"
       />
