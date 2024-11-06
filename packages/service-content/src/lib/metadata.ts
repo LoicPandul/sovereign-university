@@ -172,7 +172,7 @@ export const createGetMetadata = (dependencies: Dependencies) => {
     return meta(
       DEFAULT.title,
       DEFAULT.description,
-      `/api/files/bcertresults/${decodeURI(examUrl)}.png`,
+      `/api/files/${decodeURI(examUrl)}.png`,
       DEFAULT.lang,
     );
   };
