@@ -4,6 +4,7 @@ import { useTranslation } from 'react-i18next';
 
 import type {
   JoinedBlogLight,
+  JoinedCourse,
   JoinedTutorialLight,
   SessionData,
   UserDetails,
@@ -28,6 +29,10 @@ interface AppContext {
   tutorials: JoinedTutorialLight[] | null;
   setTutorials: (tutorials: JoinedTutorialLight[] | null) => void;
 
+  // Courses
+  courses: JoinedCourse[] | null;
+  setCourses: (courses: JoinedCourse[] | null) => void;
+
   // Blog
   blogs: JoinedBlogLight[] | null;
   setBlogs: (blogs: JoinedBlogLight[] | null) => void;
@@ -36,19 +41,23 @@ interface AppContext {
 export const AppContext = createContext<AppContext>({
   // User
   user: null,
-  setUser: () => { },
+  setUser: () => {},
 
   // Session
   session: null,
-  setSession: () => { },
+  setSession: () => {},
 
   // Tutorials
   tutorials: null,
-  setTutorials: () => { },
+  setTutorials: () => {},
+
+  // Courses
+  courses: null,
+  setCourses: () => {},
 
   // Blog
   blogs: null,
-  setBlogs: () => { },
+  setBlogs: () => {},
 });
 
 export const AppContextProvider = ({ children }: PropsWithChildren) => {
@@ -59,6 +68,7 @@ export const AppContextProvider = ({ children }: PropsWithChildren) => {
   const [tutorials, setTutorials] = useState<JoinedTutorialLight[] | null>(
     null,
   );
+  const [courses, setCourses] = useState<JoinedCourse[] | null>(null);
   const [blogs, setBlogs] = useState<JoinedBlogLight[] | null>(null);
 
   useEffect(() => {
@@ -88,6 +98,14 @@ export const AppContextProvider = ({ children }: PropsWithChildren) => {
       .then(setTutorials)
       .catch(() => null);
 
+    trpcClient.content.getCourses
+      .query({
+        language: i18n.language,
+      })
+      .then((data) => data ?? null)
+      .then(setCourses)
+      .catch(() => null);
+
     trpcClient.content.getBlogs
       .query({
         language: i18n.language,
@@ -96,7 +114,7 @@ export const AppContextProvider = ({ children }: PropsWithChildren) => {
         return data ?? null;
       })
       .then(setBlogs)
-      .catch(() => { });
+      .catch(() => {});
   }, [i18n.language]);
 
   const appContext: AppContext = {
@@ -106,6 +124,8 @@ export const AppContextProvider = ({ children }: PropsWithChildren) => {
     setSession,
     tutorials,
     setTutorials,
+    courses,
+    setCourses,
     blogs,
     setBlogs,
   };

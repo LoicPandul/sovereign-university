@@ -6,8 +6,9 @@ import rehypeUnwrapImages from 'rehype-unwrap-images';
 import remarkGfm from 'remark-gfm';
 import remarkMath from 'remark-math';
 
-import type { JoinedTutorialLight } from '@blms/types';
+import type { JoinedCourse, JoinedTutorialLight } from '@blms/types';
 
+import { CourseCard } from '#src/organisms/course-card.tsx';
 import { TutorialCard } from '#src/routes/_content/tutorials/-components/tutorial-card.js';
 
 import VideoSVG from '../../assets/resources/video.svg?react';
@@ -15,31 +16,22 @@ import { CopyButton } from '../copy-button.tsx';
 import { ReactPlayer } from '../react-player.tsx';
 
 import { Blockquote } from './blockquote.tsx';
+import { getCourse, getTutorial } from './utils/link-preview.tsx';
 
 const remarkMathOptions = {
   singleDollarTextMath: false,
-};
-
-const getTutorial = (url: string, tutorials: JoinedTutorialLight[]) => {
-  const pattern = /^https:\/\/planb\.network\/tutorials\/([^/]+)\/([^/]+)$/;
-  const match = url.match(pattern);
-
-  if (match) {
-    const tutorialName = match[2];
-    return tutorials.find((tutorial) => tutorial.name === tutorialName) || null;
-  }
-
-  return null;
 };
 
 const TutorialsMarkdownBody = ({
   content,
   assetPrefix,
   tutorials,
+  courses,
 }: {
   content: string;
   assetPrefix: string;
   tutorials: JoinedTutorialLight[];
+  courses: JoinedCourse[];
 }) => {
   return (
     <ReactMarkdown
@@ -66,6 +58,15 @@ const TutorialsMarkdownBody = ({
           const tutorial = getTutorial(href, tutorials);
           if (tutorial) {
             return <TutorialCard tutorial={tutorial} href={href} />;
+          }
+
+          const course = getCourse(href, courses);
+          if (course) {
+            return (
+              <div className="w-full max-w-[500px] md:max-w-[340px]">
+                <CourseCard course={course} />
+              </div>
+            );
           }
 
           return (
