@@ -3,7 +3,8 @@ import yaml from 'js-yaml';
 import { supportedContentTypes } from './const.js';
 import type { ChangedContent } from './types.js';
 
-export const yamlToObject = <T = unknown>(data: string) => yaml.load(data) as T;
+export const yamlToObject = <T = unknown>(data: Buffer) =>
+  yaml.load(data.toString('utf8')) as T;
 
 export const getContentType = (path: string) => {
   const pathElements = path.split('/');

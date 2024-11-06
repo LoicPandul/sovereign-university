@@ -241,7 +241,7 @@ async function loadRepoContentFiles(
       commit: parentDirectoryLog?.hash ?? 'unknown', // Cannot happen (I think)
       time: new Date(parentDirectoryLog?.date ?? Date.now()).getTime(), // Cannot happen (I think)
       kind: 'added' as const,
-      data: await fs.readFile(filePath, 'utf8'),
+      data: await fs.readFile(filePath),
     };
   });
 

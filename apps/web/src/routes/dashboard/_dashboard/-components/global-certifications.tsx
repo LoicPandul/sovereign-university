@@ -2,7 +2,7 @@ import { Link, useNavigate } from '@tanstack/react-router';
 import { t } from 'i18next';
 import { capitalize } from 'lodash-es';
 import React, { useContext, useEffect, useState } from 'react';
-import { FiLoader } from 'react-icons/fi';
+import { FiDownload, FiLoader } from 'react-icons/fi';
 import { IoIosArrowDown } from 'react-icons/io';
 import { IoReload } from 'react-icons/io5';
 
@@ -236,10 +236,57 @@ const ExamResult = ({
                     <div className="text-newOrange-5 font-medium uppercase mt-8">
                       {t('dashboard.credentials.yourCertificate')}
                     </div>
-                    <div className="italic">
-                      {t('dashboard.credentials.downloadAvailableSoon')}
+
+                    <div>
+                      {exam.imgKey && (
+                        <img
+                          src={`/api/files/${exam.imgKey}`}
+                          alt="BCertificate"
+                          className="mt-4 mx-auto"
+                        />
+                      )}
                     </div>
-                    <div className="h-6"></div>
+                    <div className="flex flex-col items-center italic mt-4 gap-4">
+                      <a
+                        href={`/api/files/${exam.pdfKey}`}
+                        download
+                        target="_blank"
+                        rel="noreferrer"
+                      >
+                        <Button
+                          size={'m'}
+                          variant="primary"
+                          className="items-center flex gap-2.5"
+                        >
+                          {t('dashboard.myCourses.downloadPdf')}
+                          <FiDownload className="size-[18px] md:size-6" />
+                        </Button>
+                      </a>
+
+                      {/* <div className="flex flex-row gap-4 items-center">
+                        <span className="text-xs italic font-light text-black">
+                          {t('dashboard.course.shareOnSocials')}
+                        </span>
+                        <div className="flex items-center gap-2.5">
+                          <Link
+                            to={`https://twitter.com/intent/tweet?text=${encodeURIComponent(
+                              t('dashboard.course.tweetText', {
+                                courseId: 'btcxxx'.toUpperCase(),
+                                certificateUrl: `${window.location.origin}/en/exam-certificates/${exam.pdfKey}`,
+                                score: `${exam.score}`,
+                                emoji:
+                                  exam.score && exam.score >= 90 ? '🏆' : '💪',
+                              }),
+                            )}`}
+                            target="_blank"
+                          >
+                            <Button variant="tertiary" size="s">
+                              <BsTwitterX size={18} />
+                            </Button>
+                          </Link>
+                        </div>
+                      </div> */}
+                    </div>
                   </td>
                 </>
               ) : (
@@ -254,8 +301,56 @@ const ExamResult = ({
                     <div className="text-newOrange-5 font-medium uppercase mt-8">
                       {t('dashboard.credentials.yourCertificate')}
                     </div>
-                    <div className="italic">
-                      {t('dashboard.credentials.downloadAvailableSoon')}
+
+                    <div>
+                      {exam.imgKey && (
+                        <img
+                          src={`/api/files/${exam.imgKey}`}
+                          alt="BCertificate"
+                          className="mt-4 md:mt-2.5"
+                        />
+                      )}
+                    </div>
+                    <div className="flex flex-row justify-between italic mt-4">
+                      <a
+                        href={`/api/files/${exam.pdfKey}`}
+                        download
+                        target="_blank"
+                        rel="noreferrer"
+                      >
+                        <Button
+                          size={isMobile ? 's' : 'm'}
+                          variant="primary"
+                          className="items-center flex gap-2.5"
+                        >
+                          {t('dashboard.myCourses.downloadPdf')}
+                          <FiDownload className="size-[18px] md:size-6" />
+                        </Button>
+                      </a>
+
+                      {/* <div className="flex items-center gap-4">
+                        <span className="text-xs italic font-light text-black max-md:hidden">
+                          {t('dashboard.course.shareOnSocials')}
+                        </span>
+                        <div className="flex items-center gap-2.5">
+                          <Link
+                            to={`https://twitter.com/intent/tweet?text=${encodeURIComponent(
+                              t('dashboard.course.tweetText', {
+                                courseId: 'btcxxx'.toUpperCase(),
+                                certificateUrl: `${window.location.origin}/en/exam-certificates/${exam.id}`,
+                                score: `${exam.score}`,
+                                emoji:
+                                  exam.score && exam.score >= 90 ? '🏆' : '💪',
+                              }),
+                            )}`}
+                            target="_blank"
+                          >
+                            <Button variant="tertiary" size="s">
+                              <BsTwitterX size={18} />
+                            </Button>
+                          </Link>
+                        </div>
+                      </div> */}
                     </div>
                     <div className="h-6"></div>
                   </td>

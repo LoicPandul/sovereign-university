@@ -184,6 +184,36 @@ export const usersBCertificateResults = users.table(
   }),
 );
 
+export const usersBCertificateTimestamps = users.table(
+  'b_certificate_timestamps',
+  (t) => ({
+    uid: t
+      .uuid()
+      .notNull()
+      .references(() => usersAccounts.uid, { onDelete: 'cascade' }),
+    bCertificateExam: t
+      .uuid()
+      .notNull()
+      .references(() => contentBCertificateExam.id, {
+        onDelete: 'cascade',
+        onUpdate: 'cascade',
+      }),
+
+    pdfKey: t.varchar({ length: 255 }),
+    imgKey: t.varchar({ length: 255 }),
+    txtKey: t.varchar({ length: 255 }),
+    txtOtsKey: t.varchar({ length: 255 }),
+
+    createdAt: t.timestamp().defaultNow().notNull(),
+    lastSync: t.timestamp({ withTimezone: true }).defaultNow().notNull(),
+  }),
+  (table) => ({
+    pk: primaryKey({
+      columns: [table.uid, table.bCertificateExam],
+    }),
+  }),
+);
+
 // RESOURCES
 
 export const contentResources = content.table(

@@ -182,17 +182,42 @@ export const createRestRouter = (dependencies: Dependencies): Router => {
     }
   });
 
-  router.get('/files/certificates/:fileName', async (req, res) => {
-    const fileName = req.params.fileName;
+  router.get('/files/certificates/:fileName', async (req, res, next) => {
+    try {
+      const fileName = req.params.fileName;
 
-    const stream = await dependencies.s3.getStream(`certificates/${fileName}`);
+      const stream = await dependencies.s3.getStream(
+        `certificates/${fileName}`,
+      );
 
-    if (!stream) {
-      res.status(404).send('Not found');
-      return;
+      if (!stream) {
+        res.status(404).send('Not found');
+        return;
+      }
+
+      stream.pipe(res);
+    } catch (error) {
+      next(error);
     }
+  });
 
-    stream.pipe(res);
+  router.get('/files/bcertresults/:fileName(*)', async (req, res, next) => {
+    try {
+      const fileName = req.params.fileName;
+
+      const stream = await dependencies.s3.getStream(
+        `bcertresults/${fileName}`,
+      );
+
+      if (!stream) {
+        res.status(404).send('Not found');
+        return;
+      }
+
+      stream.pipe(res);
+    } catch (error) {
+      next(error);
+    }
   });
 
   router.post(

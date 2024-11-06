@@ -4,6 +4,7 @@ import { z } from 'zod';
 import {
   contentBCertificateExam,
   usersBCertificateResults,
+  usersBCertificateTimestamps,
 } from '@blms/database';
 
 export const BCertificateExamSchema = createSelectSchema(
@@ -12,6 +13,10 @@ export const BCertificateExamSchema = createSelectSchema(
 
 export const BCertificateResultsSchema = createSelectSchema(
   usersBCertificateResults,
+);
+
+export const BCertificateTimestampsSchema = createSelectSchema(
+  usersBCertificateTimestamps,
 );
 
 export const JoinedBCertificateResultsSchema = BCertificateExamSchema.pick({
@@ -24,6 +29,14 @@ export const JoinedBCertificateResultsSchema = BCertificateExamSchema.pick({
   lastUpdated: true,
   lastCommit: true,
 })
+  .merge(
+    BCertificateTimestampsSchema.pick({
+      pdfKey: true,
+      imgKey: true,
+      txtKey: true,
+      txtOtsKey: true,
+    }),
+  )
   .merge(
     z.object({
       results: BCertificateResultsSchema.pick({
