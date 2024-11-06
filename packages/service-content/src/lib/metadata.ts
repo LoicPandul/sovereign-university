@@ -163,18 +163,14 @@ export const createGetMetadata = (dependencies: Dependencies) => {
     parts: string[],
     // eslint-disable-next-line unicorn/consistent-function-scoping
   ): Metadata => {
-    const [examUrl] = parts;
+    const examUrl = parts.join('/');
+    const apiUrl = `/api/files/${examUrl}.png`;
 
     if (!examUrl) {
       return defaultMeta(lang);
     }
 
-    return meta(
-      DEFAULT.title,
-      DEFAULT.description,
-      `/api/files/${decodeURI(examUrl)}.png`,
-      DEFAULT.lang,
-    );
+    return meta(DEFAULT.title, DEFAULT.description, apiUrl, DEFAULT.lang);
   };
 
   return async (parts: string[]): Promise<Metadata> => {
