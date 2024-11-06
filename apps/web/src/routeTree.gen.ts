@@ -58,6 +58,7 @@ import { Route as ContentMiscResetPasswordTokenImport } from './routes/_content/
 import { Route as ContentMiscPublicCommunicationLegalsImport } from './routes/_content/_misc/public-communication/legals';
 import { Route as ContentMiscProfessorProfessorNameProfessorIdImport } from './routes/_content/_misc/professor.$professorName-$professorId';
 import { Route as ContentMiscExamCertificatesCertificateIdImport } from './routes/_content/_misc/exam-certificates.$certificateId';
+import { Route as ContentMiscBcertCertificatesCertificateIdImport } from './routes/_content/_misc/bcert-certificates.$certificateId';
 import { Route as ContentMiscPublicCommunicationLegalsIndexImport } from './routes/_content/_misc/public-communication/legals/index';
 import { Route as ContentMiscPublicCommunicationBlogsAndNewsIndexImport } from './routes/_content/_misc/public-communication/blogs-and-news/index';
 import { Route as ContentMiscProfessorsCategoryIndexImport } from './routes/_content/_misc/professors/$category/index';
@@ -381,6 +382,13 @@ const ContentMiscExamCertificatesCertificateIdRoute =
     getParentRoute: () => rootRoute,
   } as any);
 
+const ContentMiscBcertCertificatesCertificateIdRoute =
+  ContentMiscBcertCertificatesCertificateIdImport.update({
+    id: '/_content/_misc/bcert-certificates/$certificateId',
+    path: '/bcert-certificates/$certificateId',
+    getParentRoute: () => rootRoute,
+  } as any);
+
 const ContentMiscPublicCommunicationLegalsIndexRoute =
   ContentMiscPublicCommunicationLegalsIndexImport.update({
     id: '/',
@@ -565,6 +573,13 @@ declare module '@tanstack/react-router' {
       path: '/tutorials';
       fullPath: '/tutorials';
       preLoaderRoute: typeof ContentTutorialsIndexImport;
+      parentRoute: typeof rootRoute;
+    };
+    '/_content/_misc/bcert-certificates/$certificateId': {
+      id: '/_content/_misc/bcert-certificates/$certificateId';
+      path: '/bcert-certificates/$certificateId';
+      fullPath: '/bcert-certificates/$certificateId';
+      preLoaderRoute: typeof ContentMiscBcertCertificatesCertificateIdImport;
       parentRoute: typeof rootRoute;
     };
     '/_content/_misc/exam-certificates/$certificateId': {
@@ -878,6 +893,7 @@ export interface FileRoutesByFullPath {
   '/events': typeof ContentEventsIndexRoute;
   '/resources': typeof ContentResourcesIndexRoute;
   '/tutorials': typeof ContentTutorialsIndexRoute;
+  '/bcert-certificates/$certificateId': typeof ContentMiscBcertCertificatesCertificateIdRoute;
   '/exam-certificates/$certificateId': typeof ContentMiscExamCertificatesCertificateIdRoute;
   '/professor/$professorName-$professorId': typeof ContentMiscProfessorProfessorNameProfessorIdRoute;
   '/public-communication/legals': typeof ContentMiscPublicCommunicationLegalsRouteWithChildren;
@@ -932,6 +948,7 @@ export interface FileRoutesByTo {
   '/events': typeof ContentEventsIndexRoute;
   '/resources': typeof ContentResourcesIndexRoute;
   '/tutorials': typeof ContentTutorialsIndexRoute;
+  '/bcert-certificates/$certificateId': typeof ContentMiscBcertCertificatesCertificateIdRoute;
   '/exam-certificates/$certificateId': typeof ContentMiscExamCertificatesCertificateIdRoute;
   '/professor/$professorName-$professorId': typeof ContentMiscProfessorProfessorNameProfessorIdRoute;
   '/reset-password/$token': typeof ContentMiscResetPasswordTokenRoute;
@@ -987,6 +1004,7 @@ export interface FileRoutesById {
   '/_content/events/': typeof ContentEventsIndexRoute;
   '/_content/resources/': typeof ContentResourcesIndexRoute;
   '/_content/tutorials/': typeof ContentTutorialsIndexRoute;
+  '/_content/_misc/bcert-certificates/$certificateId': typeof ContentMiscBcertCertificatesCertificateIdRoute;
   '/_content/_misc/exam-certificates/$certificateId': typeof ContentMiscExamCertificatesCertificateIdRoute;
   '/_content/_misc/professor/$professorName-$professorId': typeof ContentMiscProfessorProfessorNameProfessorIdRoute;
   '/_content/_misc/public-communication/legals': typeof ContentMiscPublicCommunicationLegalsRouteWithChildren;
@@ -1043,6 +1061,7 @@ export interface FileRouteTypes {
     | '/events'
     | '/resources'
     | '/tutorials'
+    | '/bcert-certificates/$certificateId'
     | '/exam-certificates/$certificateId'
     | '/professor/$professorName-$professorId'
     | '/public-communication/legals'
@@ -1096,6 +1115,7 @@ export interface FileRouteTypes {
     | '/events'
     | '/resources'
     | '/tutorials'
+    | '/bcert-certificates/$certificateId'
     | '/exam-certificates/$certificateId'
     | '/professor/$professorName-$professorId'
     | '/reset-password/$token'
@@ -1149,6 +1169,7 @@ export interface FileRouteTypes {
     | '/_content/events/'
     | '/_content/resources/'
     | '/_content/tutorials/'
+    | '/_content/_misc/bcert-certificates/$certificateId'
     | '/_content/_misc/exam-certificates/$certificateId'
     | '/_content/_misc/professor/$professorName-$professorId'
     | '/_content/_misc/public-communication/legals'
@@ -1198,6 +1219,7 @@ export interface RootRouteChildren {
   ContentEventsIndexRoute: typeof ContentEventsIndexRoute;
   ContentResourcesIndexRoute: typeof ContentResourcesIndexRoute;
   ContentTutorialsIndexRoute: typeof ContentTutorialsIndexRoute;
+  ContentMiscBcertCertificatesCertificateIdRoute: typeof ContentMiscBcertCertificatesCertificateIdRoute;
   ContentMiscExamCertificatesCertificateIdRoute: typeof ContentMiscExamCertificatesCertificateIdRoute;
   ContentMiscProfessorProfessorNameProfessorIdRoute: typeof ContentMiscProfessorProfessorNameProfessorIdRoute;
   ContentMiscPublicCommunicationLegalsRoute: typeof ContentMiscPublicCommunicationLegalsRouteWithChildren;
@@ -1240,6 +1262,8 @@ const rootRouteChildren: RootRouteChildren = {
   ContentEventsIndexRoute: ContentEventsIndexRoute,
   ContentResourcesIndexRoute: ContentResourcesIndexRoute,
   ContentTutorialsIndexRoute: ContentTutorialsIndexRoute,
+  ContentMiscBcertCertificatesCertificateIdRoute:
+    ContentMiscBcertCertificatesCertificateIdRoute,
   ContentMiscExamCertificatesCertificateIdRoute:
     ContentMiscExamCertificatesCertificateIdRoute,
   ContentMiscProfessorProfessorNameProfessorIdRoute:
@@ -1304,6 +1328,7 @@ export const routeTree = rootRoute
         "/_content/events/",
         "/_content/resources/",
         "/_content/tutorials/",
+        "/_content/_misc/bcert-certificates/$certificateId",
         "/_content/_misc/exam-certificates/$certificateId",
         "/_content/_misc/professor/$professorName-$professorId",
         "/_content/_misc/public-communication/legals",
@@ -1413,6 +1438,9 @@ export const routeTree = rootRoute
     },
     "/_content/tutorials/": {
       "filePath": "_content/tutorials/index.tsx"
+    },
+    "/_content/_misc/bcert-certificates/$certificateId": {
+      "filePath": "_content/_misc/bcert-certificates.$certificateId.tsx"
     },
     "/_content/_misc/exam-certificates/$certificateId": {
       "filePath": "_content/_misc/exam-certificates.$certificateId.tsx"

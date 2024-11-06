@@ -2,6 +2,7 @@ import { Link, useNavigate } from '@tanstack/react-router';
 import { t } from 'i18next';
 import { capitalize } from 'lodash-es';
 import React, { useContext, useEffect, useState } from 'react';
+import { BsTwitterX } from 'react-icons/bs';
 import { FiDownload, FiLoader } from 'react-icons/fi';
 import { IoIosArrowDown } from 'react-icons/io';
 import { IoReload } from 'react-icons/io5';
@@ -263,7 +264,7 @@ const ExamResult = ({
                         </Button>
                       </a>
 
-                      {/* <div className="flex flex-row gap-4 items-center">
+                      <div className="flex flex-row gap-4 items-center">
                         <span className="text-xs italic font-light text-black">
                           {t('dashboard.course.shareOnSocials')}
                         </span>
@@ -272,7 +273,7 @@ const ExamResult = ({
                             to={`https://twitter.com/intent/tweet?text=${encodeURIComponent(
                               t('dashboard.course.tweetText', {
                                 courseId: 'btcxxx'.toUpperCase(),
-                                certificateUrl: `${window.location.origin}/en/exam-certificates/${exam.pdfKey}`,
+                                certificateUrl: `${window.location.origin}/en/bcert-certificates/${encodeURIComponent(exam.imgKey ? exam.imgKey : '')}`,
                                 score: `${exam.score}`,
                                 emoji:
                                   exam.score && exam.score >= 90 ? '🏆' : '💪',
@@ -285,7 +286,7 @@ const ExamResult = ({
                             </Button>
                           </Link>
                         </div>
-                      </div> */}
+                      </div>
                     </div>
                   </td>
                 </>
@@ -328,7 +329,7 @@ const ExamResult = ({
                         </Button>
                       </a>
 
-                      {/* <div className="flex items-center gap-4">
+                      <div className="flex items-center gap-4">
                         <span className="text-xs italic font-light text-black max-md:hidden">
                           {t('dashboard.course.shareOnSocials')}
                         </span>
@@ -337,7 +338,7 @@ const ExamResult = ({
                             to={`https://twitter.com/intent/tweet?text=${encodeURIComponent(
                               t('dashboard.course.tweetText', {
                                 courseId: 'btcxxx'.toUpperCase(),
-                                certificateUrl: `${window.location.origin}/en/exam-certificates/${exam.id}`,
+                                certificateUrl: `${window.location.origin}/en/bcert-certificates/${encodeURIComponent(exam.imgKey ? exam.imgKey : '')}`,
                                 score: `${exam.score}`,
                                 emoji:
                                   exam.score && exam.score >= 90 ? '🏆' : '💪',
@@ -350,7 +351,7 @@ const ExamResult = ({
                             </Button>
                           </Link>
                         </div>
-                      </div> */}
+                      </div>
                     </div>
                     <div className="h-6"></div>
                   </td>
