@@ -207,12 +207,15 @@ export const joinedCourseChapterWithContentSchema = courseChapterLocalizedSchema
     }),
   )
   .merge(
-    courseSchema
-      .pick({
-        lastUpdated: true,
-        lastCommit: true,
-      })
-      .merge(z.object({ professors: formattedProfessorSchema.array() })),
+    courseSchema.pick({
+      lastUpdated: true,
+      lastCommit: true,
+    }),
+  )
+  .merge(
+    z.object({
+      professors: z.string().array(),
+    }),
   );
 
 export const partWithChaptersSchema = joinedCoursePartLocalizedSchema.merge(

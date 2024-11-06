@@ -1,8 +1,10 @@
 import type { JoinedCourse } from '@blms/types';
 
+
 import type { Dependencies } from '../../dependencies.js';
 import { getProfessorsQuery } from '../../professors/queries/get-professors.js';
 import { formatProfessor } from '../../professors/services/utils.js';
+import { indexBy } from '../../utils.js';
 import {
   getCoursesQuery,
   getProfessorCoursesQuery,
@@ -23,11 +25,11 @@ export const createGetCourses = ({ postgres }: Dependencies) => {
         professors.map((element) => formatProfessor(element)),
       );
 
+    const professorsMap = indexBy(professors, 'contributorId');
+
     return courses.map((course) => {
       const sortedProfessors = course.professors
-        .map((professor) =>
-          professors.find((p) => p.contributorId === professor),
-        )
+        .map((contributorId) => professorsMap.get(contributorId))
         .filter((p) => p !== undefined);
 
       return {
@@ -64,11 +66,11 @@ export const createGetProfessorCourses = ({ postgres }: Dependencies) => {
         professors.map((element) => formatProfessor(element)),
       );
 
+    const professorsMap = indexBy(professors, 'contributorId');
+
     return courses.map((course) => {
       const sortedProfessors = course.professors
-        .map((professor) =>
-          professors.find((p) => p.contributorId === professor),
-        )
+        .map((contributorId) => professorsMap.get(contributorId))
         .filter((p) => p !== undefined);
 
       return {

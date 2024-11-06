@@ -1,9 +1,11 @@
 import { firstRow } from '@blms/database';
 import type { CourseResponse } from '@blms/types';
 
+
 import type { Dependencies } from '../../dependencies.js';
 import { getProfessorsQuery } from '../../professors/queries/get-professors.js';
 import { formatProfessor } from '../../professors/services/utils.js';
+import { indexBy } from '../../utils.js';
 import { getCourseChaptersQuery } from '../queries/get-course-chapters.js';
 import { getCoursePartsQuery } from '../queries/get-course-parts.js';
 import { getCourseQuery } from '../queries/get-course.js';
@@ -27,8 +29,10 @@ export const createGetCourse = ({ postgres }: Dependencies) => {
       getProfessorsQuery({ contributorIds: course.professors, language }),
     );
 
+    const professorsMap = indexBy(professors, 'contributorId');
+
     const sortedProfessors = course.professors
-      .map((professor) => professors.find((p) => p.contributorId === professor))
+      .map((contributorId) => professorsMap.get(contributorId))
       .filter((p) => p !== undefined);
 
     const partsWithChapters = parts.map((part) => ({

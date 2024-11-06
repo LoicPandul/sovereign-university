@@ -287,7 +287,7 @@ export interface JoinedCourseChapterWithContent {
   partIndex: number;
   lastUpdated: Date;
   lastCommit: string;
-  professors: FormattedProfessor[];
+  professors: string[];
 }
 
 export interface PartWithChapters {

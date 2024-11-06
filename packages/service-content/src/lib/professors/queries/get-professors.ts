@@ -5,9 +5,7 @@ export const getProfessorsQuery = ({
   contributorIds,
   language,
 }: {
-  // TODO validation fix this
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  contributorIds?: any[];
+  contributorIds?: string[];
   language?: string;
 }) => {
   return sql<JoinedProfessor[]>`
