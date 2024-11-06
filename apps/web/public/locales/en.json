@@ -212,6 +212,7 @@
       "numberOfChapters": "Number of chapters: {{number}}",
       "objectives": "Objectives",
       "objectivesTitle": "What you will learn:",
+      "paidCourse": "Paid",
       "price": "Price: {{price}} sats",
       "professor": "Professor",
       "startCourse": "Start the course",

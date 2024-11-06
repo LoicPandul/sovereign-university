@@ -188,7 +188,9 @@ function CourseDetails() {
             variant="orange"
             className="uppercase"
           >
-            {course.requiresPayment ? t('words.paid') : t('words.free')}
+            {course.requiresPayment
+              ? t('courses.details.paidCourse')
+              : t('words.free')}
           </TextTag>
           <TextTag
             size={isMobile ? 'verySmall' : 'large'}
