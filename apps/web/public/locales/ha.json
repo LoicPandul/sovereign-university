@@ -36,7 +36,9 @@
       "displayNameTooShort": "Dole suna yazama yana da haruffa sama da biyu.",
       "usernameRegex": "Lakabi zai dauki haruffa, dakikoki, _, .da -.",
       "usernameRequired": "Dole ashigar da lakabi.",
-      "usernameTooShort": "Sunan mai amfani dole ne ya ƙunshi aƙalla haruffa 5."
+      "usernameTooShort": "Sunan mai amfani dole ne ya ƙunshi aƙalla haruffa 5.",
+      "invalidCredentials": "Bayanan da aka shigar ba daidai ba ne",
+      "emailInvalid": "Imel ɗin ba daidai ba ne"
     },
     "forgottenPassword": "Ka manta kalmar sirri?",
     "headerAccountCreated": "Asusun ka ya kammala",
@@ -65,7 +67,11 @@
     "tryAgain": "Asake gwada wa",
     "signIn": "Shiga ciki",
     "checkingTokenExplain": "Muna bincike idan tokin dai-dai ne...",
-    "passwordResetSent": "An turo imel adireshi na canza kalmar sirri(idan akwai imel aderishin ka acikin kushin baya nan mu)."
+    "passwordResetSent": "An turo imel adireshi na canza kalmar sirri(idan akwai imel aderishin ka acikin kushin baya nan mu).",
+    "confirmation": "Tabbatarwa",
+    "displayName": "Suna",
+    "oldPassword": "Tsohuwar kalmar sirri",
+    "emailTip": "Amfani da imel ba dole ba ne, amma zai iya amfani idan an manta kalmar sirri :)"
   },
   "bCertificate": {
     "bookExam": "Kama gurbin yin jarabawa",
@@ -82,7 +88,8 @@
     "organizeDescription": "Babu matsala! Idan al'ummarka tana cikin Cibiyar, za ku iya shirya zama na jarrabawa a cibiyarku. Da fatan za ku karanta tsarin dokoki don tabbatar da cewa kuna bin sharuddan da ake buƙata don karɓar jarrabawa. Idan za ku iya cika waɗannan sharuddan, za ku iya tsara zamanku sannan ku ƙara shi a dandalin.",
     "pageSubtitle": "Samun karbuwa ilimi ta hanyar cibiya bai daya na bayani mai ginshiki",
     "pageTitle": "Tsallake Takardar ₿",
-    "readChart": "Karanta al'amuran"
+    "readChart": "Karanta al'amuran",
+    "tweetText": "Muna taya murna bisa samun nasarara da takardar shaidar B (B-Certificate) a @planb_network da maki {{score}}/100 a jarrabawar ƙarshe! {{emoji}}\n\n{{certificateUrl}}"
   },
   "bet": {
     "contributeButton": "Ka taimaka ka bada gudun mowa",
@@ -204,7 +211,10 @@
       "amount": "Adadi",
       "invoiceId": "ID ɗin Tx",
       "teachers": "Malamai: {{teachers}}",
-      "access_invoice": "Za ka iya samun takardar biyan kudi ta hanyar duba dashbord ɗinka"
+      "access_invoice": "Za ka iya samun takardar biyan kudi ta hanyar duba dashbord ɗinka",
+      "buyInPersonCourse": "Sayi kwas ɗin koyo na gani-gaka",
+      "buyOnlineCourse": "Sayi kwas ɗin online",
+      "inPersonAccess": "Dole ne ka sauke tikitinka don samun damar shiga ajin gani-gaka."
     },
     "preview": {
       "letsgo": "Mu je",
@@ -312,6 +322,45 @@
     },
     "part": {
       "count": "Rukuni {{count}}"
+    },
+    "exam": {
+      "answersReview": "Bitar amsoshi",
+      "availableDashboard": "Zai kasance a cikin dashboard ɗinku cikin ƙasa da awowi 10.",
+      "certificateGeneration": "Ana yin takardar shaidarka/ki. ",
+      "congratulations": "Muna taya murna, ka/kin kai ƙarshen wannan kwas!",
+      "certificateAvailable": "Zai kasancewa nan da kusan awowi 8 bayan aika shi.",
+      "instantVerification": "Tabbaci na nan take: Ma’aikata za su iya sauƙin tabbatar da ingancin digirinka da ranar bayarwa.",
+      "instructions": "Umarni:",
+      "letsConclude": "An gama, bari mu ƙarƙare",
+      "noGoBack": "A'a, koma baya",
+      "notTranslatedYet": "Muna bada hakuri, amma fasalin jarrabawar ƙarshe bai samu ba a yaren da ka zaɓa. Za ka iya zaɓar canza harshe don ci gaba.",
+      "oneMinuteLeft": "Ragowar lokaci: minti ɗaya kacal",
+      "oopsFailed": "Kash, alamu sun nuna cewa baka/ki ci jarrabawar ƙarshe ba.",
+      "passed": "An yi nasara",
+      "passRate": "Yiyuwar cin nasara shine kashi 80% na maki.",
+      "planBTimeStamp": "A Plan ₿ Network, muna tabbatar da shaidar digirin ku ta hanyar fasahar saka lokaci da goyon bayan blockchain.",
+      "quitWithoutSubmitting": "Kash, alamu sun nuna cewa ka/kin bar shafin ba tare da ajiye amsoshinka/ki ba. Yin hakan ya soke gwajin.",
+      "retakeExam": "Sake yin jarrabawar",
+      "retakeInstructions": "Ka/kina da minti 20 don amsa tambayoyi 40, kowacce tambaya tana da amsa guda ɗaya daidai. Za ka/ki iya zagayawa tsakanin tambayoyin kuma ka/ki aika da amsoshinka/ki a ƙarshe.",
+      "sameRules": "Kuna shirin kara ɗaukar jarrabawar ƙarshe. Dokokin jarabawar suna nan kamar yadda aka saba.",
+      "score": "Maki",
+      "skipExam": "Tsallake jarrabawa",
+      "skipExamGoConclusion": "Tsallake jarrabawa, je ga karshe",
+      "skipExamDescription": "Hakanan zaka/ki iya wuce jarrabawar kuma ka/ki ci gaba kai tsaye zuwa kammalawa ta hanyar danna maɓallin da ke ƙasa.",
+      "startExam": "Fara jarrabawa",
+      "submit": "Aika",
+      "sureSubmit": "Ka/kin tabbatar da cewa za ka/ki aika jarrabawarka/ki?",
+      "tamperProof": "Tabbatarwa Mai Tsauri: Blockchain yana tabbatar da cewa ba wanda zai iya canza ko bogin takardun shaidarka/ki.",
+      "testKnowledge": "Yanzu da ka/kika kammala wannan kwas, bari mu gwada iliminka/ki.",
+      "testResults": "Sakamakon jarrabawa",
+      "timeLeft": "Lokacin da ya rage",
+      "timeStampBenefits": "Me yasa yake da muhimmanci :",
+      "timeStamped": "lokacin-da-aka-sanya.",
+      "timeStampHow": "Yadda yake aiki :",
+      "timeStampHowDescription": "Lokacin da aka samar da digirinka, ana ƙirƙirar \"fingernail\" na dijital na musamman wanda aka adana a kan blockchain. Wannan yana sa adana shi ya zama dindindin kuma ba za a iya canza shi ba. Kowanne yunkuri na canza digirinka zai karya haɗin, wanda zai bayyana canjin.",
+      "timerStart": "Da zarar ka/kin danna Start, agogon lokaci na minti 20 zai fara.",
+      "tryAgain": "Asake gwadawa",
+      "tryOneMoreTime": "Bari mu kara gwadawa a sabon karo !"
     }
   },
   "dashboard": {

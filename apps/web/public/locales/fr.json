@@ -186,7 +186,8 @@
       "terms4": "Fee distribution: Author 99 % - Plateform 1 %",
       "buyOnlineCourse": "Acheter un cours en ligne",
       "inPersonAccess": "Vous devez télécharger votre billet pour accéder au cours en personne.",
-      "buyInPersonCourse": "Acheter un cours en personne"
+      "buyInPersonCourse": "Acheter un cours en personne",
+      "paidCourse": "Payé"
     },
     "explorer": {
       "footerTitle": "Nos professeurs sont là pour vous !",
@@ -253,7 +254,7 @@
     "proceedToPayment": "Proceed to payment",
     "quizz": {
       "clickOnPie": "Cliquez sur le camembert pour vérifiez vos erreurs et obtenir les explications",
-      "quizz": "Quiz",
+      "quizz": "Questionnaire",
       "quizzResults": "Résultats des quiz",
       "quizzReview": "Revue du quiz",
       "resultCongrats": "Félicitations, vous avez bien réussi !",
@@ -359,7 +360,8 @@
       "displayOutOf": "affiché hors de",
       "length": "Longueur",
       "edit": "Éditer",
-      "skip": "Passez la revue"
+      "skip": "Passez la revue",
+      "fieldRequired": "Ce champ est requis"
     }
   },
   "dashboard": {
@@ -432,7 +434,8 @@
       "edit": "Éditer",
       "change": "Changer",
       "emailChangeConfirmation": "Un email de confirmation pour le changement de votre email a été envoyé, veuillez vérifier votre boîte de réception pour confirmer.",
-      "crop": "Recadrer"
+      "crop": "Recadrer",
+      "emailChangeRateLimitError": "La demande de modification du courriel a déjà été envoyée il y a moins de 5 minutes, merci de patienter avant de réessayer."
     },
     "teacher": {
       "courses": {
@@ -497,7 +500,9 @@
       "feedbacks": "Un chapitre à la fin du cours est consacré aux retours. Si vous souhaitez donner votre avis maintenant, vous pouvez le faire ici.",
       "ratingsAndFeedbacks": "Évaluations et commentaires",
       "coursesCompleted": "Parcous complété",
-      "checkDetailsCompleted": "Ici vous pouvez vérifier tous les détails concernant le parcours que vous avez complété."
+      "checkDetailsCompleted": "Ici vous pouvez vérifier tous les détails concernant le parcours que vous avez complété.",
+      "tweetText": "Fier d'avoir terminé le cours {{courseId}} chez @planb_network et d'avoir obtenu mon certificat avec un score de {{score}}/100 à l'examen final ! {{emoji}}\n\n{{certificateUrl}}",
+      "shareOnSocials": "Partager sur les réseaux :"
     },
     "credentials": {
       "bCertificate": "Certificat ₿",
@@ -512,7 +517,8 @@
       "seeTicket": "Voir le billet",
       "yourCertificate": "Votre certificat",
       "bCertificateSubtitle": "Ici vous pouvez trouver les détails concernant vos réservations et les notes de vos certificats ₿ passés et futurs.\nLe certificat ₿ est un examen sur table organisé par le réseau Plan ₿ pour affirmer votre niveau en Bitcoin et ses sujets connexes.",
-      "takePlaceAt": "La session aura lieu à"
+      "takePlaceAt": "La session aura lieu à",
+      "downloadTicket": "Télécharger le billet"
     }
   },
   "events": {
@@ -552,7 +558,7 @@
       "subtitle": "Orangepill un milliard de personnes n'est pas facile",
       "title": "Voulez-vous ajouter votre événement ?"
     },
-    "pageDescription": "Vous souhaitez parler de Bitcoin en temps réel ? Retrouvez ici tous les événements soutenus par les communautés du réseau Plan B. Que vous souhaitiez écouter une conférence, discuter de Bitcoin autour d'un verre ou passer un examen pour évaluer vos connaissances, vous trouverez ici l'événement qui vous convient via le réseau Plan B.",
+    "pageDescription": "Vous souhaitez parler de Bitcoin en temps réel ? Retrouvez ici tous les événements soutenus par les communautés du réseau Plan ₿. Que vous souhaitiez écouter une conférence, discuter de Bitcoin autour d'un verre ou passer un examen pour évaluer vos connaissances, vous trouverez ici l'événement qui vous convient via le réseau Plan ₿.",
     "pageSubtitle": "Adoption ascendante améliorée par un réseau solide",
     "pageTitle": "Vous cherchez un événement Bitcoin auquel assister ?",
     "payment": {
@@ -585,7 +591,7 @@
   },
   "home": {
     "header": {
-      "content": "La plateforme PlanB vise à fournir les meilleurs outils et le meilleur contenu éducatif dans le monde pour aider les gens à retrouver leur souveraineté. De personnes à communautés, nous sommes là pour vous aider tout au long de votre voyage Bitcoin.",
+      "content": "La plateforme Plan₿ vise à fournir les meilleurs outils et le meilleur contenu éducatif au monde pour aider les gens à retrouver leur souveraineté. De personnes à communautés, nous sommes là pour vous aider tout au long de votre voyage à travers Bitcoin.",
       "forEducators": "Pour les éducateurs et les créateurs",
       "globalNetwork": "Réseau mondial Bitcoin",
       "welcome": "Bienvenue sur le Réseau Plan ₿",
@@ -683,7 +689,7 @@
     "exchangesDescription": "Achetez et vendez des bitcoins sur des échanges et apprenez-en plus sur P2P",
     "libraryDescription": "Découvrez beaucoup de livres pour améliorer vos connaissances",
     "lightningDescription": "Gérez votre nœud lightning et utilisez le réseau lightning",
-    "manifestoDescription": "Lire le manifeste de Plan B",
+    "manifestoDescription": "Lire le manifeste de Plan ₿",
     "merchantsDescription": "Acceptez les paiements bitcoin et découvrez des outils pour les marchands",
     "miningDescription": "Minez vos propres bitcoins et apprenez-en plus sur l'industrie minière",
     "nodeDescription": "Apprenez à devenir auto-souverain avec votre propre nœud Bitcoin",
@@ -842,7 +848,7 @@
       "description": "Les nœuds sont comme vos serveurs personnels. En Bitcoin, c'est le logiciel qui vous permet de rejoindre le réseau, d'archiver les transactions, de vérifier les règles, et d'être vraiment souverain. Dans notre écosystème, il existe différents nœuds, de Bitcoin Core, aux implémentations Lightning, RGB, et d'autres solutions de confidentialité plus avancées.",
       "lightning-network": {
         "description": "Un nœud Lightning vous permet de participer au protocole de couche 2 de Bitcoin appelé Lightning. Vous pourrez ouvrir des canaux, gérer leur liquidité, faire partie du graphe et devenir non-custodial concernant votre portefeuille Lightning.",
-        "name": "Lightning Network"
+        "name": "Réseau Lightning"
       },
       "rgb": {
         "description": "RGB est un système de contrats intelligents confidentiel et de mise à l'échelle pour Bitcoin et le réseau Lightning. C'est une couche de programmabilité pour Bitcoin, avec des concepts de propriété privée et mutuelle, d'abstraction et de séparation des préoccupations et qui représente le \"post-blockchain\"."
@@ -936,7 +942,7 @@
     "economy": "Économie",
     "education": "Éducation",
     "email": "Courriel",
-    "events": "Events",
+    "events": "Événements",
     "exchanges": "Échanges",
     "followUs": "Suivez-nous",
     "helpUs": "Aidez-nous",
@@ -1052,7 +1058,8 @@
     "progress": "Progrès",
     "teacher": "Professeur",
     "view": "Vue",
-    "writtenByPodcasts": "Écrit par :"
+    "writtenByPodcasts": "Écrit par :",
+    "required": "Requis"
   },
   "conferences": {
     "addConferences": "N'hésitez pas à ajouter toute conférence manquante via ce dépôt <0>Github</0>.",
@@ -1085,7 +1092,7 @@
     "total": "Total"
   },
   "bCertificate": {
-    "bCertificateDescription": "Le certificat B est un examen reconnu internationalement pour évaluer votre niveau sur Bitcoin et ses sujets connexes. Ce certificat vous permettra de prouver vos compétences et vos connaissances au sein de l'industrie Bitcoin, vous donnant accès à des entreprises et à des postes dans cette industrie.",
+    "bCertificateDescription": "Le certificat ₿ est un examen reconnu internationalement pour évaluer votre niveau sur Bitcoin et ses sujets connexes. Ce certificat vous permettra de prouver vos compétences et vos connaissances au sein de l'industrie Bitcoin, vous donnant ainsi accès à des entreprises et à des postes dans cette industrie.",
     "noBookExam": "Il n'y a pas encore de session d'examen prévue.",
     "organizeDescription": "Pas de problème ! Si votre communauté fait partie du PlanB Network, il est possible d'organiser une session d'examen dans votre hub. Veuillez lire la charte pour vous assurer que vous pouvez respecter les conditions obligatoires pour accueillir un examen. Si vous remplissez ces conditions, vous pouvez planifier votre session et l'ajouter sur la plateforme.",
     "bookExam": "Réservez une session d'examen",
@@ -1099,7 +1106,8 @@
     "organizeTitle": "Voulez-vous organiser un examen du certificat ₿ dans votre Hub ?",
     "readChart": "Lire la charte",
     "pageSubtitle": "Adoption de masse grâce à une éducation centralisé open-source",
-    "pageTitle": "Passer le certificat ₿"
+    "pageTitle": "Passer le certificat ₿",
+    "tweetText": "Fier d'avoir réussi le certificat B au @planb_network avec un score de {{score}}/100 ! {{emoji}}\n\n{{certificateUrl}}"
   },
   "publicCommunication": {
     "blogPageStrings": {
