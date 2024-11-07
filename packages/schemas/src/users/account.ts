@@ -28,14 +28,13 @@ export const userDetailsSchema = userAccountSchema
       professorCourses: z.string().array(),
       professorTutorials: z.number().array(),
     }),
-  );;
+  );
 
 export const userRolesSchema = userAccountSchema
   .pick({
     uid: true,
     username: true,
     displayName: true,
-    certificateName: true,
     email: true,
     contributorId: true,
     role: true,

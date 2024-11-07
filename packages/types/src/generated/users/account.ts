@@ -43,7 +43,6 @@ export interface UserRoles {
   uid: string;
   username: string;
   displayName: string | null;
-  certificateName: string | null;
   email: string | null;
   contributorId: string;
   role: UserRole;
