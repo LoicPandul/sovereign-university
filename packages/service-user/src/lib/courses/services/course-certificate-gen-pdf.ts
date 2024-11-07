@@ -1,23 +1,14 @@
-import * as fs from 'node:fs';
-import { join } from 'node:path';
-
-import fontkit from '@pdf-lib/fontkit';
 import type { PDFPage, PDFPageDrawTextOptions } from 'pdf-lib';
-import { PDFDocument, rgb } from 'pdf-lib';
+import { rgb } from 'pdf-lib';
 
-const dir = import.meta.dirname;
+import {
+  breakLine,
+  loadPdfTemplate,
+  newDocumentFromTemplate,
+} from '../../pdf/utils.js';
 
 // Load template
-const pdfTemplateBytes = fs.readFileSync(
-  join(dir, './pdf/templates/course-certificate-template.pdf'),
-);
-
-// Load custom fonts
-const fontsBytes = {
-  mono: fs.readFileSync(join(dir, './pdf/fonts/JetBrainsMono.ttf')),
-  rubik: fs.readFileSync(join(dir, './pdf/fonts/Rubik.ttf')),
-  styleScript: fs.readFileSync(join(dir, './pdf/fonts/StyleScript.otf')),
-};
+const pdfTemplateBytes = loadPdfTemplate('course-certificate-template');
 
 const white = rgb(1, 1, 1); // ffffff
 const orange = rgb(1, 0.361, 0); // ff5c00
@@ -58,17 +49,6 @@ function textCenter(page: PDFPage, text: string, options: TextOptions) {
   page.drawText(text, { ...options, x });
 }
 
-// Split text in two lines, second line is greater than first line
-const breakLine = (text: string) => {
-  const courseNameArray = text.split(' ');
-  const mid = Math.floor(courseNameArray.length / 2);
-
-  const courseNameOne = courseNameArray.slice(0, mid).join(' ');
-  const courseNameTwo = courseNameArray.slice(mid).join(' ');
-
-  return [courseNameOne, courseNameTwo];
-};
-
 // group hex string by 4 characters
 const formatHash = (text: string) => {
   const parts = text.match(/.{1,4}/g)!;
@@ -78,15 +58,7 @@ const formatHash = (text: string) => {
 };
 
 export async function createPdf(options: PdfCertificateOptions) {
-  const pdfDoc = await PDFDocument.load(pdfTemplateBytes);
-  pdfDoc.registerFontkit(fontkit);
-
-  // Fonts
-  const fonts = {
-    style: await pdfDoc.embedFont(fontsBytes.styleScript),
-    rubik: await pdfDoc.embedFont(fontsBytes.rubik),
-    mono: await pdfDoc.embedFont(fontsBytes.mono),
-  };
+  const { doc, fonts } = await newDocumentFromTemplate(pdfTemplateBytes);
 
   // Common options
   const conf = {
@@ -97,12 +69,12 @@ export async function createPdf(options: PdfCertificateOptions) {
     },
     rubikWhite: {
       size: 16,
-      font: fonts.rubik,
+      font: fonts.rubikRegular,
       color: white,
     },
     courseName: {
       size: 50,
-      font: fonts.rubik,
+      font: fonts.rubikRegular,
       color: white,
     },
     userName: {
@@ -113,10 +85,10 @@ export async function createPdf(options: PdfCertificateOptions) {
   } satisfies Record<string, MandatoryTextOptions>;
 
   // Access the first page of the template
-  const pages = pdfDoc.getPages();
+  const pages = doc.getPages();
   const page = pages[0];
 
-  // Display dimensions of the first page
+  // Get dimensions of the first page
   const width = page.getWidth();
   const margin = 25;
 
@@ -151,7 +123,7 @@ export async function createPdf(options: PdfCertificateOptions) {
 
   // Course Name
   {
-    const font = fonts.rubik;
+    const font = fonts.rubikRegular;
     const text = options.courseName;
     const { size } = conf.courseName;
     const width = font.widthOfTextAtSize(text, size);
@@ -160,7 +132,7 @@ export async function createPdf(options: PdfCertificateOptions) {
     if (oneLine) {
       textCenter(page, options.courseName, { ...conf.courseName, y: 395 });
     } else {
-      const [line1, line2] = breakLine(options.courseName);
+      const [line1, line2] = breakLine(options.courseName, font, size, false);
       textCenter(page, line1, { ...conf.courseName, y: 425, size: 48 });
       textCenter(page, line2, { ...conf.courseName, y: 370, size: 48 });
     }
@@ -176,7 +148,7 @@ export async function createPdf(options: PdfCertificateOptions) {
     if (oneLine) {
       textCenter(page, options.fullName, { y: 210, ...conf.userName });
     } else {
-      const [line1, line2] = breakLine(options.fullName);
+      const [line1, line2] = breakLine(options.fullName, font, size, false);
       textCenter(page, line1, { y: 225, ...conf.userName, size: 60 });
       textCenter(page, line2, { y: 165, ...conf.userName, size: 60 });
     }
@@ -184,11 +156,11 @@ export async function createPdf(options: PdfCertificateOptions) {
 
   // Date
   {
-    const font = fonts.rubik;
+    const font = fonts.rubikRegular;
     const x = width - margin - font.widthOfTextAtSize(options.date, 16);
     textLeft(page, options.date, { x, y: 525, ...conf.rubikWhite });
   }
 
   // Save the modified PDF
-  return Buffer.from(await pdfDoc.save());
+  return Buffer.from(await doc.save());
 }

@@ -309,7 +309,13 @@ const downloadChapterTicketProcedure = studentProcedure
     }),
   )
   .output<Parser<string>>(z.string())
-  .mutation(({ input }) => generateChapterTicket(input));
+  .mutation(({ input }) => {
+    return generateChapterTicket({
+      ...input,
+      title: input.title || '',
+      addressLine1: input.addressLine1 || '',
+    }).then((buffer) => buffer.toString('base64'));
+  });
 
 export const userCoursesRouter = createTRPCRouter({
   completeChapter: completeChapterProcedure,

@@ -1,6 +1,3 @@
-import fs from 'node:fs';
-import { join } from 'node:path';
-
 import { firstRow, rejectOnEmpty, sql } from '@blms/database';
 import {
   createTimestamp,
@@ -14,6 +11,8 @@ import type { UserExamTimestamp } from '@blms/types';
 
 import type { Dependencies } from '#src/dependencies.js';
 
+import { loadTxtTemplate } from '../../pdf/utils.js';
+
 import { createPdf } from './course-certificate-gen-pdf.js';
 import { createPngFromFirstPage } from './course-certificate-gen-png.js';
 
@@ -26,10 +25,7 @@ interface VerifyReturn {
   timestamp: number;
 }
 
-const textTemplate = fs.readFileSync(
-  join(import.meta.dirname, './pdf/templates/course-certificate-template.txt'),
-  'utf8',
-);
+const textTemplate = loadTxtTemplate('course-certificate-template');
 
 interface CourseCertificateOptions {
   userName: string;
