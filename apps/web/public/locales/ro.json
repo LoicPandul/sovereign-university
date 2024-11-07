@@ -37,7 +37,8 @@
       "usernameRegex": "Username-ul poate conține doar litere, cifre, _, . și -.",
       "usernameRequired": "Username-ul este necesar.",
       "usernameTooShort": "Username-ul trebuie să conțină cel puțin 5 caractere.",
-      "invalidCredentials": "Credențiale invalide"
+      "invalidCredentials": "Credențiale invalide",
+      "emailInvalid": "Email invalid"
     },
     "forgottenPassword": "Ți-ai uitat parola?",
     "headerAccountCreated": "Cont creat",
@@ -69,7 +70,8 @@
     "signIn": "Înregistrează-te",
     "confirmation": "Confirmare",
     "displayName": "Numele afișat",
-    "oldPassword": "Parola veche"
+    "oldPassword": "Parola veche",
+    "emailTip": "E-mailul nu este obligatoriu, dar poate fi util în cazul unei parole uitate :)"
   },
   "bCertificate": {
     "bCertificateDescription": "Certificatul ₿ este un examen recunoscut internațional care evaluează stăpânirea ta asupra Bitcoin și a subiectelor derivate din acesta. Acest certificat îți va permite să îți dovedești abilitățile și cunoștințele în industria Bitcoin, oferindu-ți acces la cele mai bune companii și poziții de muncă excelente.",
@@ -86,7 +88,8 @@
     "organizeTitle": "Doriți să organizați un examen pentru certificatul ₿ la hub-ul dvs?",
     "pageSubtitle": "Adoptare în masă prin educație open-source centralizată",
     "pageTitle": "Treceți Certificatul ₿",
-    "readChart": "Citește statutul"
+    "readChart": "Citește statutul",
+    "tweetText": "Bucuros că ai obținut Certificatul B @planb_network cu un scor de {{score}}/100 la examenul final! {{emoji}}\n\n{{certificateUrl}}"
   },
   "bet": {
     "contribute": "Acest toolkit este deschis la contribuții. Folosește Figma, deci oricine poate adăuga, modifica și traduce. Pentru a colabora, a adăuga o categorie sau a discuta, nu ezitați să vă alăturați discordului nostru.",
@@ -197,7 +200,9 @@
       "payment_details": "Detalii de plată",
       "amount": "Cantitate",
       "invoiceId": "ID-ul tranzacției",
-      "buyOnlineCourse": "Cumpărați cursul online"
+      "buyOnlineCourse": "Cumpărați cursul online",
+      "buyInPersonCourse": "Cumpărați cursul în persoană",
+      "inPersonAccess": "Trebuie să vă descărcați biletul pentru a avea acces la cursul în persoană."
     },
     "chapter": {
       "thanksTip": "Doriți să vă arătați aprecierea?\nPuteți susține autorul cu un bacșiș.",
@@ -262,7 +267,11 @@
       "teacher": "Profesor",
       "teachers": "Profesori",
       "time": "Timp",
-      "description": "Această achiziție vă oferă acces la cursuri online pe platformă, precum și la cursuri față în față, cu condiția să vă rezervați locul. Fiecare sesiune de curs are loc în persoană la datele și locațiile specificate, înainte de a fi înregistrată și transmisă online pe platformă."
+      "description": "Această achiziție vă oferă acces la cursuri online pe platformă, precum și la cursuri față în față, cu condiția să vă rezervați locul. Fiecare sesiune de curs are loc în persoană la datele și locațiile specificate, înainte de a fi înregistrată și transmisă online pe platformă.",
+      "inPersonCallout": "Sunteți pe cale să achiziționați acces <strong>în persoană</strong> la acest curs.",
+      "inPersonDescription": "Fiecare sesiune de clasă are loc în persoană în datele și locațiile specificate și este de asemenea transmisă în direct pe platformă.\nAceastă achiziție îți va oferi acces atât la clasele în persoană, cât și la cele online.\nNu uita să îți rezervi locul pentru clasele la care vrei să participi în persoană.",
+      "onlineCallout": "Sunteți pe cale să achiziționați accesul <strong>online</strong> la acest curs.",
+      "onlineDescription": "Fiecare sesiune este transmisă în direct pe platformă.\nAceastă achiziție îți va oferi acces la transmisiunile în direct și la reluările video."
     },
     "part": {
       "count": "Partea {{count}}"
@@ -313,7 +322,10 @@
       "whatStudentsSay": "Ce spun studenții despre acest curs",
       "displayOutOf": "afisat din",
       "loadMoreComments": "Încarcă mai multe comentarii",
-      "ratingsAndReviews": "Evaluări și recenzii"
+      "ratingsAndReviews": "Evaluări și recenzii",
+      "fieldRequired": "Acest câmp este obligatoriu",
+      "skip": "Sari peste recenzie",
+      "edit": "Editează"
     },
     "unreleased": {
       "financeIntroduction": "Introducere în finanțe",
@@ -339,7 +351,45 @@
       "findInformationChapter": "Găsiți mai multe informații în acest capitol :",
       "futureProof": "Rezistent în timp: Diploma ta este permanent protejată și întotdeauna validă.",
       "getCertificate": "Obțineți certificatul",
-      "goBack": "Întoarce-te"
+      "goBack": "Întoarce-te",
+      "globallyRecognized": "Recunoscute la nivel mondial: Certificatele Blockchain sunt apreciate în întreaga lume.",
+      "goodLuck": "Succes!",
+      "instantVerification": "Verificare instantanee: Angajatorii pot verifica cu ușurință autenticitatea și data emiterii diplomei tale.",
+      "instructions": "Instrucțiuni:",
+      "letsConclude": "Totul gata, să încheiem",
+      "notTranslatedYet": "Ne pare rău, dar funcția de examen final nu este încă disponibilă în limba selectată de dvs. Puteți alege să treceți la o altă limbă pentru a continua.",
+      "oneMinuteLeft": "Mai aveți doar 1 minut rămas",
+      "oopsFailed": "Oops, se pare că ai <0>picat</0> examenul final.",
+      "passRate": "Procentul de trecere este de 80%.",
+      "sameRules": "Ești pe punctul de a da din nou examenul final. Regulile rămân neschimbate.",
+      "skipExam": "Sari peste examen",
+      "skipExamGoConclusion": "Sari peste examen, mergi la concluzie",
+      "skipExamDescription": "De asemenea, poți sări peste examen și să treci direct la concluzie, făcând clic pe butonul de mai jos.",
+      "startExam": "Începe examenul",
+      "timeStamped": "marcat cu data și ora.",
+      "timeStampHow": "Cum funcționează :",
+      "timeStampHowDescription": "Când diploma dvs. este emisă, se creează și se stochează pe blockchain o 'amprentă' digitală unică. Acest lucru face ca înregistrarea să fie permanentă și imposibil de falsificat. Orice încercare de a modifica diploma dvs. va rupe legătura, dezvăluind schimbarea.",
+      "timerStart": "Odată ce apăsați Start, un cronometru de 20 de minute va începe.",
+      "passed": "Trecut",
+      "submit": "Trimite",
+      "sureSubmit": "Ești sigur că vrei să îți trimiți examenul?",
+      "tamperProof": "Imposibil de falsificat: Blockchain asigură că nimeni nu poate modifica sau falsifica acreditarea ta.",
+      "score": "Punctaj",
+      "planBTimeStamp": "La Plan ₿ Network, vă securizăm diploma folosind tehnologia de marcare a timpului cu sprijinul blockchainului.",
+      "quitWithoutSubmitting": "Hopa, se pare că ai părăsit pagina fără a trimite răspunsurile tale. Acest lucru anulează testul.",
+      "retakeExam": "Redați examenul",
+      "retakeInstructions": "Aveți 20 de minute pentru a răspunde la 40 de întrebări, fiecare cu un singur răspuns corect. Puteți naviga între întrebări și puteți trimite răspunsurile la sfârșit.",
+      "tryAgain": "Încearcă din nou",
+      "tryOneMoreTime": "Hai să încercăm încă o dată!",
+      "verifyDisplayName": "Înainte de a începe, vă rugăm să verificați numele dvs. de mai jos, deoarece acesta va fi folosit pentru a genera diploma dvs.",
+      "whyTimeStamp": "Marcarea timpului pe diploma ta:\nDe ce este important",
+      "wishTryAgain": "Dacă doriți să încercați din nou, examenul va fi disponibil în 24 de ore.",
+      "yesSubmit": "Da, trimite",
+      "noGoBack": "Nu, întoarce-te înapoi",
+      "testKnowledge": "Acum că ai terminat acest curs, să îți testăm cunoștințele.",
+      "testResults": "Rezultatele testului",
+      "timeLeft": "Timp rămas",
+      "timeStampBenefits": "De ce este important:"
     }
   },
   "dashboard": {
@@ -395,7 +445,13 @@
       "inprogressCoursesDescription": "Aici puteți verifica progresul în cursurile pe care le-ați început.",
       "resumeLesson": "reia lecția",
       "seeProgress": "Aici pentru a vedea progresul tău .",
-      "startCourse": "Începeți sau finalizați un curs"
+      "startCourse": "Începeți sau finalizați un curs",
+      "whereYouAre": "Să vedem unde te afli!",
+      "viewDetails": "Vezi detalii",
+      "yourCertificate": "Certificatul tău",
+      "completedOutOf": "{{completed}} unități finalizate din {{total}} disponibile",
+      "done": "Terminat",
+      "downloadPdf": "Descarcă PDF"
     },
     "bookings": "Rezervări",
     "profile": {
@@ -415,7 +471,8 @@
       "profileInformation": "Informații de profil",
       "profilePicture": "Fotografie de profil",
       "security": "Securitate",
-      "username": "Username"
+      "username": "Username",
+      "emailChangeRateLimitError": "Cererea de schimbare a email-ului a fost deja trimisă cu mai puțin de 5 minute în urmă, vă rugăm să așteptați înainte de a încerca din nou."
     },
     "teacher": {
       "courses": {
@@ -473,6 +530,30 @@
         "viewDetails": "Vezi detalii",
         "writtenFeedbacks": "Feedback-uri scrise"
       }
+    },
+    "course": {
+      "checkDetailsCompleted": "Aici puteți verifica toate detaliile referitoare la acest curs pe care l-ați finalizat.",
+      "coursesCompleted": "Cursuri finalizate",
+      "completionDiploma": "Diplomă de absolvire",
+      "completionExamInfo": "Aici puteți găsi informații referitoare la examenul de absolvire de la sfârșitul acestui curs.",
+      "feedbacks": "Un capitol la sfârșitul cursului este dedicat feedback-urilor. Dacă doriți să vă dați feedback-ul acum, puteți să o faceți aici.",
+      "ratingsAndFeedbacks": "Evaluări și feedback-uri",
+      "shareOnSocials": "Share pe rețelele sociale:",
+      "tweetText": "Bucuros că am finalizat cursul {{courseId}} la @planb_network și mi-am obținut certificatul cu un scor de {{score}}/100 la examenul final! {{emoji}}\n\n{{certificateUrl}}"
+    },
+    "credentials": {
+      "bCertificateSubtitle": "Aici puteți găsi detalii referitoare la rezervările și notele dumneavoastră pentru Certificatele ₿ trecute și viitoare.\nCertificatul ₿ este un examen organizat de Plan ₿ Network pentru a confirma cunoștințele dumneavoastră în Bitcoin și subiectele sale conexe.",
+      "bCertificate": "Certificatul ₿",
+      "courseDiplomas": "Diplome de curs",
+      "courseDiplomasSubtitle": "Aici puteți găsi detalii referitoare la toate examenele pe care le-ați dat după finalizarea unui curs pe platformă.",
+      "downloadTicket": "Descărcați biletul dvs",
+      "completionDiplomas": "Diplome de absolvire",
+      "globalCertifications": "Certificări globale",
+      "retakeExam": "Redați examenul",
+      "beingGraded": "Examenul tău este în curs de corectare. Rezultatele ar trebui să fie disponibile în 1 sau 2 săptămâni.",
+      "seatBooked": "Locul tău la sesiunea de examen este rezervat",
+      "takePlaceAt": "Sesiunea va avea loc la",
+      "yourCertificate": "Certificatul tău"
     }
   },
   "events": {
@@ -562,7 +643,8 @@
       "content1": "Bitcoin este în continuă evoluție, cu apariția unor noi actori, soluții, protocoale și progrese tehnologice. Astfel, poate fi dificil să menții o bază de date precisă și actualizată cu tutoriale de calitate. Aici, la Plan ₿, am reușit exact asta. Indiferent dacă ești un începător sau un utilizator avansat, poți naviga prin sute de tutoriale pentru a explora industria noastră în funcție de nevoile tale.",
       "title": "Educația Bitcoin făcută simplă.",
       "subtitle1": "Vă ajutăm să stăpâniți tehnologia cu numeroase tutoriale detaliate!",
-      "link": "Vezi toate tutorialele"
+      "link": "Vezi toate tutorialele",
+      "link2": "Vedeți toate resursele"
     },
     "aboutUsSection": {
       "content": "Plan ₿ Network susține educația Bitcoin la nivel mondial. Reprezintă o colaborare a companiilor pasionate de Bitcoin concentrate pe educație, software open-source, rețele peer-to-peer și construcția comunității. Împreună, au lansat această inițiativă pentru a furniza ecosistemului Bitcoin instrumentele esențiale pentru creștere.",
@@ -587,7 +669,8 @@
       "subtitle": "Totul este tradus în limbile locale!",
       "content2": "Și tu poți forma propria ta rețea locală în țara ta!",
       "link": "Ajuta-ne să traducem academia",
-      "content1": "La PlanB, credem că Bitcoin este o revoluție internațională care afectează pe toată lumea. Dorim să împuternicim miliarde de oameni, așa că proiectăm această platformă pentru a fi multilingvă și accesibilă tuturor, adăugând în fiecare lună tot mai multe limbi. Pentru a atinge acest obiectiv, ne bazăm pe o combinație de AI și pasiunea Bitcoinerilor din întreaga lume."
+      "content1": "La PlanB, credem că Bitcoin este o revoluție internațională care afectează pe toată lumea. Dorim să împuternicim miliarde de oameni, așa că proiectăm această platformă pentru a fi multilingvă și accesibilă tuturor, adăugând în fiecare lună tot mai multe limbi. Pentru a atinge acest obiectiv, ne bazăm pe o combinație de AI și pasiunea Bitcoinerilor din întreaga lume.",
+      "availableLanguagesVariation": "Limbi disponibile: "
     },
     "patreonSection": {
       "title": "Să lucrăm împreună pentru a îmbunătăți educația Bitcoin!",
@@ -727,7 +810,12 @@
     "headerSignature": "Rogzy",
     "pageTitle": "Bine ați venit la Portalul de Resurse",
     "publicGrade": "Notă publică: {{grade}}/5",
-    "searchFilterName": "Căutare după nume"
+    "searchFilterName": "Căutare după nume",
+    "newsletter": {
+      "title": "newsletter"
+    },
+    "pageSubtitleBooks": "O altă carte care s-ar putea să îți placă:",
+    "pageSubtitlePodcast": "Un alt podcast care ți-ar plăcea:"
   },
   "tutorials": {
     "backTutorials": "Înapoi la toate tutorialele",
@@ -845,7 +933,10 @@
     "question2": "Ce vei câștiga?",
     "question3": "Care sunt cerințele?",
     "question4": "Care este dimensiunea unui nod?",
-    "question5": "Care este planul secret?"
+    "question5": "Care este planul secret?",
+    "mobiledescription": "Credem că educația nu ar trebui să aibă loc doar online, ci și în spații fizice. Pentru a realiza acest lucru, Plan B Network gestionează o rețea de hub-uri în întreaga lume pentru a întâmpina gânditori, constructori și educatori care promovează avansarea Bitcoin și a tehnologiilor libertății. Primul nostru pas este să invităm să se alăture nouă comunitățile cu spații fizice, pe care le numim \"nodurile complete\" ale rețelei noastre. În viitor, pe măsură ce rețeaua noastră se întărește, vom extinde această invitație la mai multe inițiative la nivel mondial. Dacă împărtășiți valorile noastre, vă rugăm să luați legătura cu reprezentanții noștri pentru a vă alătura rețelei noastre și a ajuta la construirea celei mai bune educații Bitcoin posibile.",
+    "descriptionextend": "Primul nostru pas este să invităm să se alăture nouă comunitățile cu spații fizice, pe care le numim \"nodurile complete\" ale rețelei noastre. În viitor, pe măsură ce rețeaua noastră se întărește, vom extinde această invitație către mai multe inițiative la nivel mondial. Dacă împărtășiți valorile noastre, vă rugăm să luați legătura cu reprezentanții noștri pentru a vă alătura rețelei noastre și a ajuta la construirea celei mai bune educații posibile despre Bitcoin.",
+    "applyhelp": "*Selectați locația nodului"
   },
   "payment": {
     "terms": "Consultați <0>termenii și condițiile</0> noastre generale pentru detalii despre rambursare",
@@ -1028,7 +1119,26 @@
     "resume": "Reluați",
     "goal": "Obiectiv",
     "inPerson": "În persoană",
-    "ratings": "Evaluări"
+    "ratings": "Evaluări",
+    "diploma": "Diplomă",
+    "filter": "Filtru",
+    "failed": "Eșuat",
+    "grade": "Nota",
+    "id": "ID",
+    "inReview": "În revizuire",
+    "location": "Locație",
+    "passed": "Trecut",
+    "booked": "Rezervat",
+    "bookings": "Rezervări",
+    "credentials": "Acreditări",
+    "progress": "Progres",
+    "publicationDate": "Data publicării:",
+    "overview": "Prezentare generală",
+    "required": "Necesar",
+    "status": "Status",
+    "teacher": "Profesor",
+    "total": "Total",
+    "writtenByPodcasts": "Scris de:"
   },
   "underConstruction": {
     "p1": "Un iepure a căzut într-o groapă. Din cauza acestei aventuri neașteptate, această pagină este într-o oarecare construcție în acest moment. Ne cerem scuze pentru orice inconvenient. Echipa noastră lucrează din greu pentru a finaliza această pagină. Dacă sunteți interesat să dați o mână de ajutor, nu ezitați să verificați",
