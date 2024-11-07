@@ -22,7 +22,7 @@ export const createProcessResultFile = (transaction: TransactionSql) => {
     const parsed = yamlToObject<BCertificateResult>(file.data);
 
     const uid = await transaction<Array<Pick<UserAccount, 'uid'>>>`
-          SELECT uid FROM users.accounts WHERE username = ${parsed.username}
+          SELECT uid FROM users.accounts WHERE username = LOWER( ${parsed.username} )
         `
       .then(firstRow)
       .then((row) => row?.uid);
@@ -75,7 +75,7 @@ export const createProcessTimestampFile = (
     const filePathWithoutExtension = filePath.split('.').slice(0, 1).join('');
 
     const uid = await transaction<Array<Pick<UserAccount, 'uid'>>>`
-      SELECT uid FROM users.accounts WHERE username = ${userName}
+      SELECT uid FROM users.accounts WHERE username = LOWER( ${userName} )
     `
       .then(firstRow)
       .then((row) => row?.uid);
