@@ -63,7 +63,7 @@ const CoursesMarkdownBody = ({
           const course = getCourse(href, courses);
           if (course) {
             return (
-              <div className="w-full max-w-[500px] md:max-w-[340px]">
+              <div className="w-full max-w-[500px] md:max-w-[340px] mx-auto">
                 <CourseCard course={course} />
               </div>
             );

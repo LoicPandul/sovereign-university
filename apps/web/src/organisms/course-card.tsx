@@ -90,7 +90,7 @@ export const CourseCard = ({
       </div>
       <div className="max-md:hidden relative">
         <div className="flex flex-col transition-opacity opacity-0 md:group-hover:opacity-100 absolute md:group-hover:static duration-0 md:group-hover:duration-150">
-          <span className="font-medium leading-normal tracking-015px mb-2 line-clamp-1">
+          <span className="font-medium leading-normal tracking-015px mb-2 line-clamp-1 text-white">
             {t('words.professor')}:{' '}
             {course.professors.map((professor) => professor.name).join(', ')}
           </span>
