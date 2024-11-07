@@ -515,7 +515,7 @@ const BottomButton = ({ chapter }: { chapter: CourseChapterResponse }) => {
 };
 
 const MarkdownContent = ({ chapter }: { chapter: CourseChapterResponse }) => {
-  const { tutorials } = useContext(AppContext);
+  const { tutorials, courses } = useContext(AppContext);
   const isFetchedTutorials = tutorials && tutorials.length > 0;
 
   if (isFetchedTutorials) {
@@ -528,6 +528,7 @@ const MarkdownContent = ({ chapter }: { chapter: CourseChapterResponse }) => {
             `courses/${chapter.course.id}`,
           )}
           tutorials={tutorials || []}
+          courses={courses || []}
           supportInlineLatex={COURSES_WITH_INLINE_LATEX_SUPPORT.includes(
             chapter.course.id,
           )}

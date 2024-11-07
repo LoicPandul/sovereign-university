@@ -80,7 +80,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
         className={cn(
           buttonVariants({ variant, size, className }),
           ...classes,
-          'flex flex-row items-center justify-center transition-colors duration-150',
+          'flex flex-row items-center justify-center transition-colors duration-150 text-wrap',
           glowing ? 'shadow-md-button' : '',
           'group/arrow',
         )}

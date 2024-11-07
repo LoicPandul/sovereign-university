@@ -162,7 +162,7 @@ function TutorialDetails() {
   } = useDisclosure();
 
   // Access global context
-  const { tutorials, session } = useContext(AppContext);
+  const { tutorials, courses, session } = useContext(AppContext);
   const authMode = AuthModalState.SignIn;
   const isLoggedIn = !!session;
 
@@ -330,7 +330,7 @@ function TutorialDetails() {
                   <span className="capitalize">{tutorial.title}</span>
                 </span>
               </div>
-              <div className="flex w-full flex-col items-center justify-center px-2">
+              <div className="flex w-full flex-col items-center justify-center">
                 <div className="w-full flex flex-col gap-6 text-blue-900 md:max-w-3xl">
                   <Header
                     tutorial={{
@@ -348,6 +348,7 @@ function TutorialDetails() {
                           tutorial.path,
                         )}
                         tutorials={tutorials || []}
+                        courses={courses || []}
                       />
                     </Suspense>
                   </div>
