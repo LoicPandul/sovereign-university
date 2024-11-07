@@ -50,7 +50,7 @@ const downloadEventTicketProcedure = studentProcedure
 
     return generateEventTicket({
       title: event.name ? event.name : '',
-      addressLine1: event.addressLine1,
+      addressLine1: event.addressLine1 ?? '',
       addressLine2: event.addressLine2,
       addressLine3: event.addressLine3,
       formattedStartDate: formattedStartDate,
@@ -59,7 +59,7 @@ const downloadEventTicketProcedure = studentProcedure
       formattedCapacity: formattedCapacity,
       contact: '',
       userName: input.userName,
-    });
+    }).then((buffer) => buffer.toString('base64'));
   });
 
 const getEventPaymentsProcedure = studentProcedure
