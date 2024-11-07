@@ -110,3 +110,10 @@ export const omit = <A extends object, B extends ReadonlyArray<keyof A>>(
 
   return res as Omit<A, B[number]>;
 };
+
+export const indexBy = <T extends object, K extends keyof T>(
+  arr: T[],
+  key: K,
+): Map<T[K], T> => {
+  return new Map<T[K], T>(arr.map((item) => [item[key], item]));
+};

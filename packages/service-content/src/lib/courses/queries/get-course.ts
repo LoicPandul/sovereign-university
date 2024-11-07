@@ -1,8 +1,8 @@
 import { sql } from '@blms/database';
-import type { JoinedCourseWithAll } from '@blms/types';
+import type { JoinedCourseWithProfessorsContributorIds } from '@blms/types';
 
 export const getCourseQuery = (id: string, language?: string) => {
-  return sql<JoinedCourseWithAll[]>`
+  return sql<JoinedCourseWithProfessorsContributorIds[]>`
     SELECT
       c.id,
       cl.language,

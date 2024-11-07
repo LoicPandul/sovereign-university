@@ -39,11 +39,7 @@ export const createGetCourseChapter = (dependencies: Dependencies) => {
 
     return {
       ...chapter,
-      ...(professors
-        ? {
-            professors: professors.map((element) => formatProfessor(element)),
-          }
-        : {}),
+      professors: professors?.map((element) => formatProfessor(element)),
       course,
       part,
     };

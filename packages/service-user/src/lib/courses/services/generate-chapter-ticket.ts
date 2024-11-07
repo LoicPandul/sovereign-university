@@ -4,6 +4,7 @@ import path from 'node:path';
 import PDFDocument from 'pdfkit';
 import qr from 'qr-image';
 
+
 export const generateChapterTicket = async ({
   title,
   addressLine1,

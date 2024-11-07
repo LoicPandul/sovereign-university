@@ -1,7 +1,9 @@
 import { firstRow } from '@blms/database';
 import type { FullProfessor } from '@blms/types';
 
+
 import type { Dependencies } from '../../dependencies.js';
+import { indexBy } from '../../utils.js';
 import { getProfessorCoursesQuery } from '../queries/get-professor-courses.js';
 import { getProfessorTutorialsQuery } from '../queries/get-professor-tutorials.js';
 import { getProfessorQuery } from '../queries/get-professor.js';
@@ -44,18 +46,24 @@ export const createGetProfessor = ({ postgres }: Dependencies) => {
       }),
     );
 
+    const professorsMap = indexBy(professors, 'contributorId');
+
     return {
       ...formatProfessor(professor),
-      courses: courses.map((course) => ({
-        ...course,
-        professors: professors.filter(
-          (professor) =>
-            professor.contributorId !== undefined &&
-            course.professors.some(
-              (p) => String(p) === professor.contributorId,
-            ),
-        ),
-      })),
+      courses: courses.map((course) => {
+        const sortedProfessors = course.professors
+          .map((contributorId) => professorsMap.get(contributorId))
+          .filter((p) => p !== undefined);
+
+        return {
+          ...course,
+          professors: sortedProfessors.filter(
+            (professor) =>
+              professor.contributorId !== undefined &&
+              course.professors.includes(professor.contributorId),
+          ),
+        };
+      }),
       tutorials,
     };
   };
