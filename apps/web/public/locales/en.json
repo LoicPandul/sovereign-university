@@ -448,6 +448,7 @@
       "completedOutOf": "{{completed}} units completed of {{total}} available",
       "details": "Details",
       "done": "Done",
+      "download": "Download",
       "downloadPdf": "Download PDF",
       "inprogress": "In progress",
       "inprogressCoursesTitle": "Courses in progress",
