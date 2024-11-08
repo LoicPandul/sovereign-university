@@ -52,6 +52,7 @@
     "basepath",
     "bcert",
     "bcertificate",
+    "bcertresults",
     "bech32",
     "bitcoiners",
     "blms",
