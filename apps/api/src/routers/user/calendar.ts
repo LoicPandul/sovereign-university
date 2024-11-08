@@ -8,13 +8,13 @@ import { studentProcedure } from '#src/procedures/protected.js';
 import { createTRPCRouter } from '#src/trpc/index.js';
 import type { Parser } from '#src/trpc/types.js';
 
-const calendarInputSchema = z.object({
-  language: z.string(),
-  upcomingEvents: z.boolean().optional(),
-});
-
 const getCalendarEventsProcedure = studentProcedure
-  .input(calendarInputSchema)
+  .input(
+    z.object({
+      language: z.string(),
+      upcomingEvents: z.boolean().optional(),
+    }),
+  )
   .output<Parser<CalendarEvent[]>>(calendarEventSchema.array())
   .query(async ({ ctx, input }) => {
     return createGetCalendarEvents(ctx.dependencies)({

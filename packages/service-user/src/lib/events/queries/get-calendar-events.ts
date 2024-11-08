@@ -25,7 +25,7 @@ export const getCalendarEventsQuery = (
   FROM content.events e
   JOIN users.user_event ue on e.id = ue.event_id
     WHERE uid = ${uid} AND ue.booked = true
-    ${upcomingEvents ? sql`AND e.start_date > NOW()` : sql``}
+    ${upcomingEvents ? sql`AND e.start_date > (NOW() - INTERVAL '1 DAY')` : sql``}
 
   UNION
 
@@ -46,7 +46,7 @@ export const getCalendarEventsQuery = (
   FROM content.events e
   JOIN users.event_payment ep ON e.id = ep.event_id
  WHERE ep.uid = ${uid} AND ep.payment_status = 'paid'
-    ${upcomingEvents ? sql`AND e.start_date > NOW()` : sql``}
+    ${upcomingEvents ? sql`AND e.start_date > (NOW() - INTERVAL '1 DAY')` : sql``}
 
   UNION
 
@@ -73,6 +73,6 @@ export const getCalendarEventsQuery = (
       WHERE cp.course_id = cl.course_id
     ) AS cp_agg ON TRUE
    WHERE cp.uid = ${uid} AND cp.payment_status = 'paid'
-      ${upcomingEvents ? sql`AND cl.start_date > NOW()` : sql``}
+      ${upcomingEvents ? sql`AND cl.start_date > (NOW() - INTERVAL '1 DAY')` : sql``}
   `;
 };
