@@ -249,7 +249,7 @@ const ExamResult = ({
                     </div>
                     <div className="flex flex-col items-center italic mt-4 gap-4">
                       <a
-                        href={`/api/files/${exam.pdfKey}`}
+                        href={`/api/files/zip/bcert/${exam.pdfKey?.split('/').slice(1, 3).join('/')}`}
                         download
                         target="_blank"
                         rel="noreferrer"
@@ -259,7 +259,7 @@ const ExamResult = ({
                           variant="primary"
                           className="items-center flex gap-2.5"
                         >
-                          {t('dashboard.myCourses.downloadPdf')}
+                          {t('bCertificate.download')}
                           <FiDownload className="size-[18px] md:size-6" />
                         </Button>
                       </a>
@@ -313,7 +313,7 @@ const ExamResult = ({
                     </div>
                     <div className="flex flex-row justify-between italic mt-4">
                       <a
-                        href={`/api/files/${exam.pdfKey}`}
+                        href={`/api/files/zip/bcert/${exam.pdfKey?.split('/').slice(1, 3).join('/')}`}
                         download
                         target="_blank"
                         rel="noreferrer"
@@ -323,7 +323,7 @@ const ExamResult = ({
                           variant="primary"
                           className="items-center flex gap-2.5"
                         >
-                          {t('dashboard.myCourses.downloadPdf')}
+                          {t('bCertificate.download')}
                           <FiDownload className="size-[18px] md:size-6" />
                         </Button>
                       </a>
