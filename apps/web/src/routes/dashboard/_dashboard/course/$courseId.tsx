@@ -25,6 +25,7 @@ import {
 
 import CertificateLockImage from '#src/assets/courses/completion-diploma-lock.webp';
 import CertificateSatoshiImage from '#src/assets/courses/completion-diploma-satoshi.webp';
+import ApprovedIcon from '#src/assets/icons/approved.svg?react';
 import LockGif from '#src/assets/icons/lock.gif';
 import SandClockGif from '#src/assets/icons/sandClock/sandclock.gif';
 import { AuthorCard } from '#src/components/author-card.tsx';
@@ -459,6 +460,7 @@ const CourseExamsTable = ({
                               <FiDownload className="size-[18px] md:size-6" />
                             </Button>
                           </a>
+
                           <div className="flex items-center gap-4">
                             <span className="text-xs italic font-light text-black max-md:hidden">
                               {t('dashboard.course.shareOnSocials')}
@@ -485,6 +487,13 @@ const CourseExamsTable = ({
                             </div>
                           </div>
                         </div>
+                        <Link
+                          to={'/tutorials/others'}
+                          className="mt-4 self-start flex flex-row items-center gap-2 text-newBlack-5 hover:text-newOrange-5 hover:underline"
+                        >
+                          <ApprovedIcon className="size-4" />
+                          <span>{t('dashboard.myCourses.verify')}</span>
+                        </Link>
                       </div>
                     ) : (
                       <div className="flex max-md:flex-col w-full gap-7 md:gap-10 md:py-5 md:px-2.5 max-md:pt-7">
