@@ -119,10 +119,7 @@ function GlossaryWord() {
             <Suspense fallback={<Loader size={'s'} />}>
               <GlossaryMarkdownBody
                 content={glossaryWord?.definition || ''}
-                assetPrefix={cdnUrl(
-                  glossaryWord?.lastCommit || '',
-                  glossaryWord?.path || '',
-                )}
+                assetPrefix={cdnUrl(glossaryWord?.lastCommit || '', glossaryWord?.path || '')}
               />
             </Suspense>
 

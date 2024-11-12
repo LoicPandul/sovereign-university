@@ -8,7 +8,7 @@ import { formatDateSimple } from '@blms/api/src/utils/date.ts';
 import { Button, Loader, TextTag, cn } from '@blms/ui';
 
 import { PageLayout } from '#src/components/page-layout.js';
-import { cdnUrl } from '#src/utils/index.js';
+import { assetUrl, cdnUrl } from '#src/utils/index.js';
 import { trpc } from '#src/utils/trpc.js';
 
 import BlogSidebar from '../../../-components/public-communication/blog-sidebar.tsx';
@@ -95,10 +95,7 @@ function SingleBlogDetail() {
             <div className="mb-3 md:mr-5 lg:mr-0 lg:ml-5 lg:mb-0 lg:max-w-[510px] w-full flex-1 mx-auto order-1 md:order-2">
               <div>
                 <img
-                  src={cdnUrl(
-                    blog.lastCommit,
-                    `${blog.path}/assets/thumbnail.webp`,
-                  )}
+                  src={assetUrl(blog.lastCommit, blog.path, 'thumbnail.webp')}
                   alt={blog.title}
                   className="rounded-3xl lg:p-8"
                 />
@@ -111,10 +108,7 @@ function SingleBlogDetail() {
               <Suspense fallback={<Loader variant="black" size={'s'} />}>
                 <BlogMarkdownBody
                   content={blog.rawContent}
-                  assetPrefix={cdnUrl(
-                    blog.lastCommit,
-                    `${blog.path}`,
-                  )}
+                  assetPrefix={cdnUrl(blog.lastCommit, blog.path)}
                   blogs={[]}
                 />
               </Suspense>

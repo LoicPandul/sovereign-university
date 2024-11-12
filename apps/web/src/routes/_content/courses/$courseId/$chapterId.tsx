@@ -26,7 +26,7 @@ import {
   addSpaceToCourseId,
   goToChapterParameters,
 } from '#src/utils/courses.js';
-import { compose, cdnUrl, trpc } from '#src/utils/index.js';
+import { assetUrl, cdnUrl, compose, trpc } from '#src/utils/index.js';
 import { SITE_NAME } from '#src/utils/meta.js';
 import { capitalizeFirstWord, joinWords } from '#src/utils/string.js';
 
@@ -183,7 +183,7 @@ const TimelineSmall = ({ chapter }: { chapter: CourseChapterResponse }) => {
             className="h-6"
             to={
               chapter.part.partIndex === chapter.course.parts.length &&
-              chapter.chapterIndex === chapter.part.chapters.length
+                chapter.chapterIndex === chapter.part.chapters.length
                 ? '/courses/$courseId'
                 : '/courses/$courseId/$chapterId'
             }
@@ -280,7 +280,7 @@ const TimelineBig = ({
                           currentPart.partIndex < chapter.part.partIndex ||
                             (currentPart.partIndex === chapter.part.partIndex &&
                               currentChapter.chapterIndex <
-                                chapter.chapterIndex)
+                            chapter.chapterIndex)
                             ? 'bg-darkOrange-5'
                             : 'bg-newGray-3',
                           firstPart && firstChapter ? 'rounded-l-full' : '',
@@ -422,20 +422,18 @@ const Header = ({
       <div>
         {sections.length > 0 && (
           <div
-            className={`flex flex-col self-stretch rounded-3xl px-6 py-2.5 shadow-course-navigation ${
-              isContentExpanded ? 'bg-white' : 'bg-white h-auto'
-            } ${isContentExpanded ? 'h-auto ' : 'mt-1 h-auto '}`}
+            className={`flex flex-col self-stretch rounded-3xl px-6 py-2.5 shadow-course-navigation ${isContentExpanded ? 'bg-white' : 'bg-white h-auto'
+              } ${isContentExpanded ? 'h-auto ' : 'mt-1 h-auto '}`}
           >
             <button
               className="flex cursor-pointer items-center text-lg font-medium text-black md:text-2xl uppercase"
               onClick={() => setIsContentExpanded(!isContentExpanded)}
             >
               <span
-                className={`mr-3 text-2xl ${
-                  isContentExpanded
+                className={`mr-3 text-2xl ${isContentExpanded
                     ? 'rotate-90 transition-transform'
                     : 'transition-transform'
-                }`}
+                  }`}
               >
                 {'> '}
               </span>
@@ -524,10 +522,7 @@ const MarkdownContent = ({ chapter }: { chapter: CourseChapterResponse }) => {
       <Suspense fallback={<Loader size={'s'} />}>
         <CoursesMarkdownBody
           content={chapter.rawContent}
-          assetPrefix={cdnUrl(
-            chapter.lastCommit,
-            `courses/${chapter.course.id}`,
-          )}
+          assetPrefix={cdnUrl(chapter.lastCommit, `courses/${chapter.course.id}`)}
           tutorials={tutorials || []}
           courses={courses || []}
           supportInlineLatex={COURSES_WITH_INLINE_LATEX_SUPPORT.includes(
@@ -718,14 +713,7 @@ function CourseChapter() {
       <PageMeta
         title={`${SITE_NAME} - ${chapter?.course.name} - ${chapter?.title}`}
         description={chapter?.course.objectives?.join(',')}
-        imageSrc={
-          chapter
-            ? cdnUrl(
-                chapter.course.lastCommit,
-                `courses/${chapter.course.id}/assets/thumbnail.webp`,
-              )
-            : ''
-        }
+        imageSrc={chapter ? assetUrl(chapter.lastCommit, `courses/${chapter.course.id}`, 'thumbnail.webp') : ''}
       />
       {chapter ? <NextLessonBanner chapter={chapter} /> : <></>}
       <div className="text-black">

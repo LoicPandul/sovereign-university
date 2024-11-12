@@ -2,7 +2,7 @@ import { Link } from '@tanstack/react-router';
 
 import type { JoinedTutorialLight } from '@blms/types';
 
-import { cdnUrl } from '../utils/index.ts';
+import { assetUrl } from '../utils/index.ts';
 
 interface TutorialCardProps extends React.HTMLProps<HTMLDivElement> {
   tutorial: JoinedTutorialLight;
@@ -23,17 +23,7 @@ export const TutorialCard = ({ tutorial, ...props }: TutorialCardProps) => {
         <div className="bg-beige-300 hidden flex-row justify-start space-x-4 rounded-2xl border border-blue-800 px-4 py-3 md:flex">
           <img
             className="m-1 size-20 self-center rounded-full"
-            src={
-              tutorial.builder
-                ? cdnUrl(
-                    tutorial.builder.lastCommit,
-                    `${tutorial.builder.path}/assets/logo.webp`,
-                  )
-                : cdnUrl(
-                    tutorial.lastCommit,
-                    `${tutorial.path}/assets/logo.webp`,
-                  )
-            }
+            src={assetUrl((tutorial.builder || tutorial).lastCommit, (tutorial.builder || tutorial).path, 'logo.webp')}
             alt=""
           />
           <div className="flex w-full flex-col self-start">
@@ -62,17 +52,7 @@ export const TutorialCard = ({ tutorial, ...props }: TutorialCardProps) => {
             <div className="flex flex-row self-start">
               <img
                 className="mr-4 size-12 self-center rounded-full"
-                src={
-                  tutorial.builder
-                    ? cdnUrl(
-                        tutorial.builder.lastCommit,
-                        `${tutorial.builder.path}/assets/logo.webp`,
-                      )
-                    : cdnUrl(
-                        tutorial.lastCommit,
-                        `${tutorial.path}/assets/logo.webp`,
-                      )
-                }
+                src={assetUrl((tutorial.builder || tutorial).lastCommit, (tutorial.builder || tutorial).path, 'logo.webp')}
                 alt=""
               />
               <div className="flex flex-col">

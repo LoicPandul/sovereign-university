@@ -7,7 +7,7 @@ import { Button, cn } from '@blms/ui';
 
 import { ListItem } from '#src/components/ListItem/list-item.tsx';
 import { StarRating } from '#src/components/Stars/star-rating.js';
-import { cdnUrl } from '#src/utils/index.js';
+import { assetUrl } from '#src/utils/index.js';
 
 const courseCardStyles = cva(
   'group flex flex-col w-full md:h-[472px] p-2.5 overflow-hidden',
@@ -41,19 +41,13 @@ export const CourseCard = ({
   return (
     <article className={courseCardStyles({ color, borderRadius })}>
       <img
-        src={cdnUrl(
-          course.lastCommit,
-          `courses/${course.id}/assets/thumbnail.webp`,
-        )}
+        src={assetUrl(course.lastCommit, `courses/${course.id}`, 'thumbnail.webp')}
         alt={course.name}
         className="max-md:hidden rounded-md mb-2.5 object-cover [overflow-clip-margin:_unset] object-center max-h-72 group-hover:max-h-44 transition-[max-height] duration-300 ease-linear"
       />
       <div className="flex md:flex-col max-md:gap-2.5 max-md:mb-2.5 md:mb-2">
         <img
-          src={cdnUrl(
-            course.lastCommit,
-            `courses/${course.id}/assets/thumbnail.webp`,
-          )}
+          src={assetUrl(course.lastCommit, `courses/${course.id}`, 'thumbnail.webp')}
           alt={course.name}
           className="md:hidden rounded-md w-[124px] object-cover [overflow-clip-margin:_unset] object-center"
         />

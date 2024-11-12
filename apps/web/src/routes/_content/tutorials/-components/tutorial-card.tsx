@@ -7,7 +7,7 @@ import type { JoinedTutorialLight } from '@blms/types';
 // import ApprovedBadge from '#src/assets/tutorials/approved.svg?react';
 import { cn } from '@blms/ui';
 
-import { cdnUrl } from '#src/utils/index.js';
+import { assetUrl } from '#src/utils/index.js';
 
 export const TutorialCard = ({
   tutorial,
@@ -30,17 +30,7 @@ export const TutorialCard = ({
       )}
     >
       <img
-        src={
-          tutorial.builder
-            ? cdnUrl(
-                tutorial.builder.lastCommit,
-                `${tutorial.builder.path}/assets/logo.webp`,
-              )
-            : cdnUrl(
-                tutorial.lastCommit,
-                `${tutorial.path}/assets/logo.webp`,
-              )
-        }
+        src={assetUrl((tutorial.builder || tutorial).lastCommit, (tutorial.builder || tutorial).path, 'logo.webp')}
         alt={tutorial.name}
         className="size-[60px] md:size-20  rounded-full"
       />
@@ -69,14 +59,14 @@ export const TutorialCard = ({
                 className={cn(
                   'w-[70px] rounded-full h-2 mx-2 max-md:hidden',
                   tutorial.likeCount === 0 &&
-                    tutorial.dislikeCount === 0 &&
-                    'bg-newGray-3',
+                  tutorial.dislikeCount === 0 &&
+                  'bg-newGray-3',
                 )}
                 style={
                   tutorial.likeCount > 0 || tutorial.dislikeCount > 0
                     ? {
-                        background: `linear-gradient(to right, #42a86b ${(tutorial.likeCount / (tutorial.likeCount + tutorial.dislikeCount)) * 100}%, #e00000 ${(tutorial.likeCount / (tutorial.likeCount + tutorial.dislikeCount)) * 100}%)`,
-                      }
+                      background: `linear-gradient(to right, #42a86b ${(tutorial.likeCount / (tutorial.likeCount + tutorial.dislikeCount)) * 100}%, #e00000 ${(tutorial.likeCount / (tutorial.likeCount + tutorial.dislikeCount)) * 100}%)`,
+                    }
                     : {}
                 }
               />
@@ -125,14 +115,14 @@ export const TutorialCard = ({
               className={cn(
                 'w-[70px] rounded-full h-2 mx-2 max-md:hidden',
                 tutorial.likeCount === 0 &&
-                  tutorial.dislikeCount === 0 &&
-                  'bg-newGray-3',
+                tutorial.dislikeCount === 0 &&
+                'bg-newGray-3',
               )}
               style={
                 tutorial.likeCount > 0 || tutorial.dislikeCount > 0
                   ? {
-                      background: `linear-gradient(to right, #42a86b ${(tutorial.likeCount / (tutorial.likeCount + tutorial.dislikeCount)) * 100}%, #e00000 ${(tutorial.likeCount / (tutorial.likeCount + tutorial.dislikeCount)) * 100}%)`,
-                    }
+                    background: `linear-gradient(to right, #42a86b ${(tutorial.likeCount / (tutorial.likeCount + tutorial.dislikeCount)) * 100}%, #e00000 ${(tutorial.likeCount / (tutorial.likeCount + tutorial.dislikeCount)) * 100}%)`,
+                  }
                   : {}
               }
             />
