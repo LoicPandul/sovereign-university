@@ -445,7 +445,7 @@ const CourseExamsTable = ({
 
                         <div className="flex justify-between w-full mt-7 md:mt-5">
                           <a
-                          href={`/api/files/zip/certificates/${exam.id}`}
+                            href={`/api/files/zip/diplomas/${exam.id}`}
                             download
                             target="_blank"
                             rel="noreferrer"
@@ -455,7 +455,7 @@ const CourseExamsTable = ({
                               variant="primary"
                               className="items-center flex gap-2.5"
                             >
-                            {t('dashboard.myCourses.download')}
+                              {t('dashboard.myCourses.download')}
                               <FiDownload className="size-[18px] md:size-6" />
                             </Button>
                           </a>

@@ -208,7 +208,7 @@ export const createRestFilesRoutes = async (
   const timeStampService = await createExamTimestampService(dependencies);
 
   // Get zip for certificates
-  router.get('/files/zip/certificates/:key', async (req, res, next) => {
+  router.get('/files/zip/diplomas/:key', async (req, res, next) => {
     try {
       const { key } = req.params;
 
@@ -225,14 +225,14 @@ export const createRestFilesRoutes = async (
 
       const zip = new JSZip();
 
-      zip.file('certificate.pdf', pdfFile);
-      zip.file('certificate.txt', txtFile);
-      zip.file('certificate.txt.ots', otsFile);
+      zip.file('diploma.pdf', pdfFile);
+      zip.file('diploma.txt', txtFile);
+      zip.file('diploma.txt.ots', otsFile);
 
       res.setHeader('Content-Type', 'application/zip');
       res.setHeader(
         'Content-Disposition',
-        `attachment; filename="certificate.zip"`,
+        `attachment; filename="diploma.zip"`,
       );
 
       zipStream(zip).pipe(res);
