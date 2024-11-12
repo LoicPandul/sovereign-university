@@ -31,7 +31,3 @@ export const joinedPodcastSchema = resourceSchema
       tags: z.array(z.string()),
     }),
   );
-
-export const getPodcastResponseSchema = joinedPodcastSchema.merge(
-  z.object({ logo: z.string() }),
-);

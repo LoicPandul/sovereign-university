@@ -7,7 +7,7 @@ import { Button, cn } from '@blms/ui';
 
 import { ListItem } from '#src/components/ListItem/list-item.tsx';
 import { StarRating } from '#src/components/Stars/star-rating.js';
-import { computeAssetCdnUrl } from '#src/utils/index.js';
+import { cdnUrl } from '#src/utils/index.js';
 
 const courseCardStyles = cva(
   'group flex flex-col w-full md:h-[472px] p-2.5 overflow-hidden',
@@ -41,7 +41,7 @@ export const CourseCard = ({
   return (
     <article className={courseCardStyles({ color, borderRadius })}>
       <img
-        src={computeAssetCdnUrl(
+        src={cdnUrl(
           course.lastCommit,
           `courses/${course.id}/assets/thumbnail.webp`,
         )}
@@ -50,7 +50,7 @@ export const CourseCard = ({
       />
       <div className="flex md:flex-col max-md:gap-2.5 max-md:mb-2.5 md:mb-2">
         <img
-          src={computeAssetCdnUrl(
+          src={cdnUrl(
             course.lastCommit,
             `courses/${course.id}/assets/thumbnail.webp`,
           )}

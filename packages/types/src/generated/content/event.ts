@@ -67,7 +67,6 @@ export interface JoinedEvent {
   lastSync: Date;
   tags: string[];
   languages: string[];
-  picture?: string | undefined;
 }
 
 export interface EventPayment {

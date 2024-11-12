@@ -26,7 +26,7 @@ import {
   addSpaceToCourseId,
   goToChapterParameters,
 } from '#src/utils/courses.js';
-import { compose, computeAssetCdnUrl, trpc } from '#src/utils/index.js';
+import { compose, cdnUrl, trpc } from '#src/utils/index.js';
 import { SITE_NAME } from '#src/utils/meta.js';
 import { capitalizeFirstWord, joinWords } from '#src/utils/string.js';
 
@@ -524,7 +524,7 @@ const MarkdownContent = ({ chapter }: { chapter: CourseChapterResponse }) => {
       <Suspense fallback={<Loader size={'s'} />}>
         <CoursesMarkdownBody
           content={chapter.rawContent}
-          assetPrefix={computeAssetCdnUrl(
+          assetPrefix={cdnUrl(
             chapter.lastCommit,
             `courses/${chapter.course.id}`,
           )}
@@ -720,7 +720,7 @@ function CourseChapter() {
         description={chapter?.course.objectives?.join(',')}
         imageSrc={
           chapter
-            ? computeAssetCdnUrl(
+            ? cdnUrl(
                 chapter.course.lastCommit,
                 `courses/${chapter.course.id}/assets/thumbnail.webp`,
               )

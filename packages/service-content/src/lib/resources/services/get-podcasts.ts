@@ -1,16 +1,10 @@
-import type { GetPodcastResponse } from '@blms/types';
+import type { JoinedPodcast } from '@blms/types';
 
 import type { Dependencies } from '../../dependencies.js';
-import { computeAssetCdnUrl } from '../../utils.js';
 import { getPodcastsQuery } from '../queries/get-podcasts.js';
 
 export const createGetPodcasts = ({ postgres }: Dependencies) => {
-  return async (language?: string): Promise<GetPodcastResponse[]> => {
-    const result = await postgres.exec(getPodcastsQuery(language));
-
-    return result.map((row) => ({
-      ...row,
-      logo: computeAssetCdnUrl(row.lastCommit, row.path, 'logo.webp'),
-    }));
+  return async (language?: string): Promise<JoinedPodcast[]> => {
+    return postgres.exec(getPodcastsQuery(language));
   };
 };

@@ -22,7 +22,7 @@ import { useDisclosure } from '#src/hooks/use-disclosure.js';
 import { ButtonWithArrow } from '#src/molecules/button-arrow.tsx';
 import { CourseCurriculum } from '#src/organisms/course-curriculum.tsx';
 import { AppContext } from '#src/providers/context.js';
-import { computeAssetCdnUrl } from '#src/utils/index.js';
+import { cdnUrl } from '#src/utils/index.js';
 import { SITE_NAME } from '#src/utils/meta.js';
 import { formatNameForURL } from '#src/utils/string.ts';
 import { trpc } from '#src/utils/trpc.js';
@@ -224,7 +224,7 @@ function CourseDetails() {
     return (
       <section className="flex max-lg:flex-col lg:py-2.5 mt-6 lg:mt-7 w-full gap-5 lg:gap-10">
         <img
-          src={computeAssetCdnUrl(
+          src={cdnUrl(
             course.lastCommit,
             `courses/${course.id}/assets/thumbnail.webp`,
           )}
@@ -703,7 +703,7 @@ function CourseDetails() {
         description={course?.goal}
         imageSrc={
           course
-            ? computeAssetCdnUrl(
+            ? cdnUrl(
                 course.lastCommit,
                 `courses/${course.id}/assets/thumbnail.webp`,
               )

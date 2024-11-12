@@ -2,7 +2,7 @@ import { Link } from '@tanstack/react-router';
 
 import type { JoinedTutorialLight } from '@blms/types';
 
-import { computeAssetCdnUrl } from '../utils/index.ts';
+import { cdnUrl } from '../utils/index.ts';
 
 interface TutorialCardProps extends React.HTMLProps<HTMLDivElement> {
   tutorial: JoinedTutorialLight;
@@ -25,11 +25,11 @@ export const TutorialCard = ({ tutorial, ...props }: TutorialCardProps) => {
             className="m-1 size-20 self-center rounded-full"
             src={
               tutorial.builder
-                ? computeAssetCdnUrl(
+                ? cdnUrl(
                     tutorial.builder.lastCommit,
                     `${tutorial.builder.path}/assets/logo.webp`,
                   )
-                : computeAssetCdnUrl(
+                : cdnUrl(
                     tutorial.lastCommit,
                     `${tutorial.path}/assets/logo.webp`,
                   )
@@ -64,11 +64,11 @@ export const TutorialCard = ({ tutorial, ...props }: TutorialCardProps) => {
                 className="mr-4 size-12 self-center rounded-full"
                 src={
                   tutorial.builder
-                    ? computeAssetCdnUrl(
+                    ? cdnUrl(
                         tutorial.builder.lastCommit,
                         `${tutorial.builder.path}/assets/logo.webp`,
                       )
-                    : computeAssetCdnUrl(
+                    : cdnUrl(
                         tutorial.lastCommit,
                         `${tutorial.path}/assets/logo.webp`,
                       )

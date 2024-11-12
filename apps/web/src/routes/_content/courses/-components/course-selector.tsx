@@ -9,7 +9,7 @@ import type { JoinedCourse } from '@blms/types';
 import { Button, cn } from '@blms/ui';
 
 import { DropdownMenu } from '#src/components/Dropdown/dropdown-menu.tsx';
-import { computeAssetCdnUrl } from '#src/utils/index.ts';
+import { cdnUrl } from '#src/utils/index.ts';
 
 import { levels, sortCoursesByLevel } from '../-utils/course-utils.tsx';
 
@@ -130,7 +130,7 @@ export const CourseSelector = ({ courses }: { courses: JoinedCourse[] }) => {
               <h4 className="desktop-h4 mb-6">{activeCourse.name}</h4>
 
               <img
-                src={computeAssetCdnUrl(
+                src={cdnUrl(
                   activeCourse.lastCommit,
                   `courses/${activeCourse.id}/assets/thumbnail.webp`,
                 )}
@@ -205,7 +205,7 @@ export const CourseSelector = ({ courses }: { courses: JoinedCourse[] }) => {
                         </summary>
                         <article className="flex flex-col gap-4 mt-2.5">
                           <img
-                            src={computeAssetCdnUrl(
+                            src={cdnUrl(
                               course.lastCommit,
                               `courses/${course.id}/assets/thumbnail.webp`,
                             )}

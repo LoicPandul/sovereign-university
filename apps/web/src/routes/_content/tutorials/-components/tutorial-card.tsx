@@ -7,7 +7,7 @@ import type { JoinedTutorialLight } from '@blms/types';
 // import ApprovedBadge from '#src/assets/tutorials/approved.svg?react';
 import { cn } from '@blms/ui';
 
-import { computeAssetCdnUrl } from '#src/utils/index.js';
+import { cdnUrl } from '#src/utils/index.js';
 
 export const TutorialCard = ({
   tutorial,
@@ -32,11 +32,11 @@ export const TutorialCard = ({
       <img
         src={
           tutorial.builder
-            ? computeAssetCdnUrl(
+            ? cdnUrl(
                 tutorial.builder.lastCommit,
                 `${tutorial.builder.path}/assets/logo.webp`,
               )
-            : computeAssetCdnUrl(
+            : cdnUrl(
                 tutorial.lastCommit,
                 `${tutorial.path}/assets/logo.webp`,
               )

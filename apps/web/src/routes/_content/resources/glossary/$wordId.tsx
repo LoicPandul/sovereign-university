@@ -7,7 +7,7 @@ import type { JoinedGlossaryWord } from '@blms/types';
 import { Loader } from '@blms/ui';
 
 import { ProofreadingProgress } from '#src/components/proofreading-progress.js';
-import { computeAssetCdnUrl } from '#src/utils/index.js';
+import { cdnUrl } from '#src/utils/index.js';
 import { trpc } from '#src/utils/trpc.js';
 
 import { AlphabetGlossary } from '../-components/alphabet-glossary.tsx';
@@ -119,7 +119,7 @@ function GlossaryWord() {
             <Suspense fallback={<Loader size={'s'} />}>
               <GlossaryMarkdownBody
                 content={glossaryWord?.definition || ''}
-                assetPrefix={computeAssetCdnUrl(
+                assetPrefix={cdnUrl(
                   glossaryWord?.lastCommit || '',
                   glossaryWord?.path || '',
                 )}

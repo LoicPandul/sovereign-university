@@ -31,7 +31,6 @@ export const fullProfessorSchema = joinedProfessorSchema
         silentPayment: joinedProfessorSchema.shape.silentPayment,
         url: joinedProfessorSchema.shape.tipsUrl,
       }),
-      picture: z.string(),
     }),
   )
   .merge(

@@ -1,7 +1,6 @@
 import { firstRow } from '@blms/database';
 
 import type { Dependencies } from '../../dependencies.js';
-import { computeAssetCdnUrl } from '../../utils.js';
 import { getBuilderMetaQuery } from '../queries/get-builder-meta.js';
 
 export const createGetBuilderMeta = ({ postgres }: Dependencies) => {
@@ -14,9 +13,6 @@ export const createGetBuilderMeta = ({ postgres }: Dependencies) => {
       throw new Error('Builder not found');
     }
 
-    return {
-      ...builder,
-      logo: computeAssetCdnUrl(builder.lastCommit, builder.path, 'logo.webp'),
-    };
+    return builder;
   };
 };

@@ -28,7 +28,7 @@ import { TabsListSegmented } from '#src/components/Tabs/TabsListSegmented.js';
 import { TabsListUnderlined } from '#src/components/Tabs/TabsListUnderlined.js';
 import { CourseCurriculum } from '#src/organisms/course-curriculum.js';
 import { AppContext } from '#src/providers/context.js';
-import { computeAssetCdnUrl } from '#src/utils/index.js';
+import { cdnUrl } from '#src/utils/index.js';
 import { trpc } from '#src/utils/trpc.js';
 
 import { MakeModificationBlock } from './-components/make-modification.tsx';
@@ -288,7 +288,7 @@ const CourseDetails = ({ course }: { course: JoinedCourse }) => {
             {/* Course image section */}
             <div className="w-full max-w-[406px] flex justify-center items-center max-lg:-order-1">
               <img
-                src={computeAssetCdnUrl(
+                src={cdnUrl(
                   course.lastCommit,
                   `courses/${course.id}/assets/thumbnail.webp`,
                 )}

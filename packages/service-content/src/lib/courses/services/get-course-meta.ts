@@ -1,7 +1,6 @@
 import { firstRow } from '@blms/database';
 
 import type { Dependencies } from '../../dependencies.js';
-import { computeAssetCdnUrl } from '../../utils.js';
 import { getCourseMetaQuery } from '../queries/get-course-meta.js';
 
 export const createGetCourseMeta = ({ postgres }: Dependencies) => {
@@ -15,13 +14,6 @@ export const createGetCourseMeta = ({ postgres }: Dependencies) => {
       throw new Error(`Course ${id} not found`);
     }
 
-    return {
-      ...course,
-      thumbnail: computeAssetCdnUrl(
-        course.lastCommit,
-        `courses/${course.id}`,
-        'thumbnail.webp',
-      ),
-    };
+    return course;
   };
 };

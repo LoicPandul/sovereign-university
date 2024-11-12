@@ -9,7 +9,7 @@ import { MainLayout } from '#src/components/main-layout.js';
 import { PageHeader } from '#src/components/page-header.js';
 import CategoryContainer from '#src/organisms/category-container.tsx';
 import { AppContext } from '#src/providers/context.js';
-import { computeAssetCdnUrl } from '#src/utils/index.js';
+import { cdnUrl } from '#src/utils/index.js';
 import { SITE_NAME } from '#src/utils/meta.js';
 
 import { TUTORIALS_CATEGORIES } from '../../../services/utils.tsx';
@@ -102,11 +102,11 @@ function TutorialExplorer() {
                             className="size-12 sm:size-14 md:size-16 lg:size-20 rounded-full group-hover/builder:blur-sm group-focus/builder:blur-sm group-focus/builder:brightness-[30%] transition-all bg-white/20"
                             src={
                               tutorial.builder
-                                ? computeAssetCdnUrl(
+                                ? cdnUrl(
                                     tutorial.builder.lastCommit,
                                     `${tutorial.builder.path}/assets/logo.webp`,
                                   )
-                                : computeAssetCdnUrl(
+                                : cdnUrl(
                                     tutorial.lastCommit,
                                     `${tutorial.path}/assets/logo.webp`,
                                   )

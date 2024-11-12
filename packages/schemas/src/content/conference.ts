@@ -48,10 +48,5 @@ export const joinedConferenceSchema = resourceSchema
     z.object({
       stages: joinedConferenceStageSchema.array(),
       tags: z.array(z.string()),
-      thumbnail: z.string(),
     }),
   );
-
-export const getConferenceResponseSchema = joinedConferenceSchema.merge(
-  z.object({ thumbnail: z.string() }),
-);

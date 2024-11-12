@@ -8,7 +8,7 @@ Object.defineProperty(window, 'setCustomCdnUrl', {
   },
 });
 
-export const computeAssetCdnUrl = (commitHash: string, path: string) => {
+export const cdnUrl = (commitHash: string, path: string) => {
   return customCdnUrl
     ? `${customCdnUrl}/${commitHash}/${path}`
     : `/cdn/${commitHash}/${path}`;

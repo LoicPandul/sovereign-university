@@ -6,7 +6,7 @@ import { formatDateSimple } from '@blms/api/src/utils/date.ts';
 import { TextTag } from '@blms/ui';
 
 import { AppContext } from '#src/providers/context.js';
-import { computeAssetCdnUrl } from '#src/utils/index.js';
+import { cdnUrl } from '#src/utils/index.js';
 
 interface FeaturedCardProps {
   category: string;
@@ -101,7 +101,7 @@ export const FeaturedCard = ({ category, background }: FeaturedCardProps) => {
         >
           <img
             className="rounded-sm lg:rounded-3xl"
-            src={computeAssetCdnUrl(
+            src={cdnUrl(
               latestBlog.lastCommit,
               `${latestBlog.path}/assets/thumbnail.webp`,
             )}
