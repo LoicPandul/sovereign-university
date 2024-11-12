@@ -18,49 +18,53 @@ export const getBetsQuery = (language?: string) => {
       WHERE
         ${language ? sql`bl.language IN (${language}, 'en')` : sql`bl.language = 'en'`}
     )
-    SELECT 
-      r.id, 
-      r.path, 
-      pb.language, 
-      pb.name, 
-      pb.description, 
-      b.download_url, 
+    SELECT
+      r.id,
+      r.path,
+      pb.language,
+      pb.name,
+      pb.description,
+      b.download_url,
       b.original_language,
-      b.type, 
-      b.builder, 
-      r.last_updated, 
-      r.last_commit, 
-      json_agg(json_build_object(
-        'betId', bvu.bet_id,
-        'language', bvu.language, 
-        'viewUrl', bvu.view_url
-      )) AS viewurls,
+      b.type,
+      b.builder,
+      r.last_updated,
+      r.last_commit,
+      COALESCE(
+        json_agg(
+            json_build_object(
+              'betId', bvu.bet_id,
+              'language', bvu.language,
+              'viewUrl', bvu.view_url
+            )
+        ) FILTER (WHERE bvu.bet_id IS NOT NULL), '[]'::json
+      ) AS viewurls,
       COALESCE((SELECT ARRAY_AGG(DISTINCT t.name)
         FROM content.resource_tags rt
         JOIN content.tags t ON t.id = rt.tag_id
         WHERE rt.resource_id = r.id), ARRAY[]::text[]) AS tags
-    FROM 
+    FROM
       content.bet b
-    JOIN 
-      content.resources r 
+    JOIN
+      content.resources r
       ON r.id = b.resource_id
-    JOIN 
-      prioritized_bets pb 
+    JOIN
+      prioritized_bets pb
       ON pb.resource_id = b.resource_id AND pb.row_num = 1
     LEFT JOIN
       content.bet_view_url bvu
       ON bvu.bet_id = b.resource_id
-    GROUP BY 
-      r.id, 
-      r.path, 
-      pb.language, 
-      pb.name, 
-      pb.description, 
+    GROUP BY
+      r.id,
+      r.path,
+      pb.language,
+      pb.name,
+      pb.description,
       b.download_url,
       b.original_language,
-      b.type, 
-      b.builder, 
-      r.last_updated, 
+      b.type,
+      b.builder,
+      r.last_updated,
       r.last_commit
   `;
 };
