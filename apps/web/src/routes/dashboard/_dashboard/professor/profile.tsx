@@ -9,7 +9,7 @@ import { Loader, Tabs, TabsContent, TextTag, cn } from '@blms/ui';
 import Nostr from '#src/assets/icons/nostr.svg?react';
 import { TabsListUnderlined } from '#src/components/Tabs/TabsListUnderlined.js';
 import { AppContext } from '#src/providers/context.js';
-import { trpc } from '#src/utils/index.js';
+import { assetUrl, trpc } from '#src/utils/index.ts';
 
 import { MakeModificationBlock } from './-components/make-modification.tsx';
 
@@ -97,7 +97,7 @@ function DashboardProfessorProfile() {
                   {professor.name}
                 </span>
                 <img
-                  src={professor.picture}
+                  src={assetUrl(professor.lastCommit, professor.path, 'profile.webp')}
                   alt={professor.name}
                   className="rounded-full size-[154px]"
                 />

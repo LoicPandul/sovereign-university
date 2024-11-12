@@ -10,7 +10,7 @@ import { Button, Loader, cn } from '@blms/ui';
 import { useGreater } from '#src/hooks/use-greater.js';
 import type { VerticalCardProps } from '#src/molecules/vertical-card.js';
 import { VerticalCard } from '#src/molecules/vertical-card.js';
-import { trpc } from '#src/utils/trpc.js';
+import { assetUrl, trpc } from '#src/utils/index.ts';
 
 import { ResourceLayout } from '../-components/resource-layout.tsx';
 
@@ -62,7 +62,7 @@ const SectionGrid = ({
       {elements.map((item, index) => {
         const currentLanguageViewUrl =
           item.viewurls.find((el) => el.language === language)?.viewUrl ||
-          item.viewurls[0].viewUrl;
+          item.viewurls[0]?.viewUrl;
 
         return (
           <VerticalCard
@@ -76,7 +76,7 @@ const SectionGrid = ({
             buttonIcon={<IoIosSearch size={isScreenMd ? 24 : 16} />}
             buttonVariant="transparent"
             buttonMode="dark"
-            secondaryLink={item.viewurls[0].viewUrl}
+            secondaryLink={item.viewurls[0]?.viewUrl}
             secondaryButtonText={t('words.edit')}
             secondaryButtonIcon={<FiEdit size={isScreenMd ? 24 : 16} />}
             secondaryButtonVariant="secondary"
@@ -143,7 +143,7 @@ function BET() {
                       builder: bet.builder || '',
                       downloadUrl: bet.downloadUrl,
                       viewurls: bet.viewurls,
-                      logo: bet.logo ?? '',
+                      logo: assetUrl(bet.lastCommit, bet.path, 'logo.webp'),
                     };
                   }) || []
               }
@@ -170,7 +170,7 @@ function BET() {
                       builder: bet.builder || '',
                       downloadUrl: bet.downloadUrl,
                       viewurls: bet.viewurls,
-                      logo: bet.logo ?? '',
+                      logo: assetUrl(bet.lastCommit, bet.path, 'logo.webp'),
                     };
                   }) || []
               }

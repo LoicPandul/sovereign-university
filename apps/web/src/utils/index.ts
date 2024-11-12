@@ -14,4 +14,11 @@ export const cdnUrl = (commitHash: string, path: string) => {
     : `/cdn/${commitHash}/${path}`;
 };
 
+/**
+ * Content asset URL
+ */
+export const assetUrl = (commitHash: string, contentPath: string, assetPath: string | null) => {
+  return cdnUrl(commitHash, `${contentPath}/assets/${assetPath}`);
+};
+
 export const compose = (...args: string[]) => args.join(' ');

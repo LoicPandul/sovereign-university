@@ -11,6 +11,7 @@ import { ProofreadingProgress } from '#src/components/proofreading-progress.js';
 import { useGreater } from '#src/hooks/use-greater.js';
 import { BackLink } from '#src/molecules/backlink.tsx';
 import Flag from '#src/molecules/Flag/index.js';
+import { assetUrl } from '#src/utils/index.ts';
 import { trpc } from '#src/utils/trpc.js';
 
 import { BuilderEvents } from '../-components/builder-events.tsx';
@@ -113,7 +114,7 @@ function Builder() {
             <section className="flex p-2 md:p-[30px]">
               <div className="flex flex-col gap-3">
                 <img
-                  src={builder?.logo}
+                  src={assetUrl(builder.lastCommit, builder.path, 'logo.webp')}
                   className="rounded-2xl md:rounded-3xl size-[84px] md:size-[276px] shadow-card-items-dark"
                   alt={t('imagesAlt.sthRepresentingCompany')}
                 />
@@ -252,7 +253,7 @@ function Builder() {
               >
                 <BuilderCard
                   name={community.name}
-                  logo={community.logo}
+                  logo={assetUrl(community.lastCommit, community.path, 'logo.webp')}
                   cardWidth="w-[50px] md:w-[90px]"
                 />
               </Link>

@@ -16,8 +16,8 @@ import {
 import { ProofreadingProgress } from '#src/components/proofreading-progress.js';
 import { useGreater } from '#src/hooks/use-greater.js';
 import { BackLink } from '#src/molecules/backlink.tsx';
+import { assetUrl, trpc } from '#src/utils/index.js';
 import { useSuggestedContent } from '#src/utils/resources-hook.ts';
-import { trpc } from '#src/utils/trpc.js';
 
 import { ResourceLayout } from '../-components/resource-layout.tsx';
 
@@ -104,7 +104,7 @@ function Book() {
                   <img
                     className="md:w-[367px]  max-h-[229px] md:max-h-max mx-auto object-cover [overflow-clip-margin:_unset] rounded-[10px] lg:max-w-[347px] md:mx-0 lg:rounded-[22px]"
                     alt={t('imagesAlt.bookCover')}
-                    src={book?.cover}
+                    src={book.cover ? assetUrl(book.lastCommit, book.path, book.cover) : undefined}
                   />
                 </div>
 
@@ -160,22 +160,21 @@ function Book() {
           <CarouselContent>
             {isFetchedSuggestedBooks ? (
               suggestedBooks
-                ?.filter((suggestedBook) => suggestedBook.id !== params.bookId)
-                .map((suggestedBook) => {
-                  const isBook =
-                    'cover' in suggestedBook && 'title' in suggestedBook;
+                ?.filter((book) => book.id !== params.bookId)
+                .map((book) => {
+                  const isBook = 'title' in book && 'cover' in book && book.cover;
                   if (isBook) {
                     return (
                       <CarouselItem
-                        key={suggestedBook.id}
+                        key={book.id}
                         className="text-white basis-1/2 md:basis-1/2 lg:basis-1/4 relative w-full bg-gradient-to-r max-w-[282px] max-h-[350px] rounded-2xl lg:rounded-[22px]"
                       >
-                        <Link to={`/resources/books/${suggestedBook.id}`}>
+                        <Link to={`/resources/books/${book.id}`}>
                           <div className="relative h-full">
                             <img
                               className="max-h-72 sm:max-h-96 size-full object-cover rounded-[10px]"
-                              alt={suggestedBook.title}
-                              src={suggestedBook.cover}
+                              alt={book.title}
+                              src={assetUrl(book.lastCommit, book.path, book.cover ?? 'unreachable')}
                             />
                             <div
                               className="absolute inset-0 -bottom-px rounded-[10px]"
@@ -190,7 +189,7 @@ function Book() {
                           </div>
 
                           <h3 className="absolute px-2 lg:px-4 body-14px lg:title-large-24px mb-1 lg:mb-5 bottom-px line-clamp-2">
-                            {suggestedBook.title}
+                            {book.title}
                           </h3>
                         </Link>
                       </CarouselItem>

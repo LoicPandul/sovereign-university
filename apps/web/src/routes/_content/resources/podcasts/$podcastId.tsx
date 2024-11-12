@@ -16,8 +16,8 @@ import {
 
 import { useGreater } from '#src/hooks/use-greater.js';
 import { BackLink } from '#src/molecules/backlink.tsx';
+import { assetUrl, trpc } from '#src/utils/index.ts';
 import { useSuggestedContent } from '#src/utils/resources-hook.ts';
-import { trpc } from '#src/utils/trpc.js';
 
 import { ResourceLayout } from '../-components/resource-layout.tsx';
 
@@ -95,7 +95,7 @@ function Podcast() {
                   <img
                     className="max-w-[219px] mx-auto object-cover [overflow-clip-margin:_unset] rounded-[10px] lg:max-w-[347px] md:mx-0 lg:rounded-[22px] mb-8 lg:mb-12"
                     alt={t('imagesAlt.bookCover')}
-                    src={podcast.logo}
+                    src={assetUrl(podcast.lastCommit, podcast.path, 'logo.webp')}
                   />
                   <div className="flex flex-row justify-evenly md:flex-col md:space-y-2 lg:flex-row lg:space-y-0">
                     {podcast?.podcastUrl && (
@@ -154,22 +154,20 @@ function Podcast() {
         <Carousel>
           <CarouselContent>
             {isFetchedSuggested ? (
-              filteredSuggestedPodcasts?.map((suggestedPodcast) => {
-                const isPodcast =
-                  'logo' in suggestedPodcast && 'name' in suggestedPodcast;
-
+              filteredSuggestedPodcasts?.map((podcast) => {
+                const isPodcast = 'name' in podcast;
                 if (isPodcast) {
                   return (
                     <CarouselItem
-                      key={suggestedPodcast.id}
+                      key={podcast.id}
                       className="text-white basis-1/2 md:basis-1/2 lg:basis-1/4 relative bg-gradient-to-r w-full max-w-[282px] max-h-[350px] rounded-[22px]"
                     >
-                      <Link to={`/resources/podcasts/${suggestedPodcast.id}`}>
+                      <Link to={`/resources/podcasts/${podcast.id}`}>
                         <div className="relative h-full">
                           <img
                             className="max-h-72 sm:max-h-96 size-full object-cover rounded-[10px]"
-                            alt={suggestedPodcast.name}
-                            src={suggestedPodcast.logo}
+                            alt={podcast.name}
+                            src={assetUrl(podcast.lastCommit, podcast.path, 'logo.webp')}
                           />
                           <div
                             className="absolute inset-0 -bottom-px rounded-[10px]"
@@ -184,7 +182,7 @@ function Podcast() {
                         </div>
 
                         <h3 className="absolute px-2 lg:px-4 body-14px lg:title-large-24px mb-1 lg:mb-5 bottom-px line-clamp-2">
-                          {suggestedPodcast.name}
+                          {podcast.name}
                         </h3>
                       </Link>
                     </CarouselItem>
