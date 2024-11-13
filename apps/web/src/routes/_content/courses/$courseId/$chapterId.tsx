@@ -474,6 +474,7 @@ const BottomButton = ({ chapter }: { chapter: CourseChapterResponse }) => {
     completeChapterMutation.mutate({
       courseId: chapter.course.id,
       chapterId: chapter.chapterId,
+      language: chapter.language,
     });
   };
 

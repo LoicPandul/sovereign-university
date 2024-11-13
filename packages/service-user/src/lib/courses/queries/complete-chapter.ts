@@ -5,9 +5,10 @@ export const completeChapterQuery = (
   uid: string,
   courseId: string,
   chapterId: string,
+  language: string,
 ) => {
   return sql<CourseProgress[]>`
-    WITH 
+    WITH
     -- Insert into course_user_chapter and return the affected rows
     inserted AS (
         INSERT INTO users.course_user_chapter (uid, course_id, chapter_id, completed_at)
@@ -20,7 +21,7 @@ export const completeChapterQuery = (
 
     -- Calculate the count of completed chapters for the user and course (plus one as the newly completed chapter is not yet in the table)
     chapter_count AS (
-        SELECT COUNT(*) + 1 as completed_count 
+        SELECT COUNT(*) + 1 as completed_count
         FROM users.course_user_chapter
         WHERE
           uid = ${uid}
@@ -30,9 +31,10 @@ export const completeChapterQuery = (
 
     -- Calculate the total number of chapters for the course
     total_chapters AS (
-        SELECT COUNT(*) as total 
-        FROM content.course_chapters_localized 
-        WHERE course_id = ${courseId} AND language = 'en'
+        SELECT COUNT(*) as total
+        FROM content.course_chapters_localized
+        WHERE course_id = ${courseId}
+        ${language ? sql`AND language = ${language}` : sql``}
     )
 
     -- Update the course_progress table with the new data
@@ -42,7 +44,10 @@ export const completeChapterQuery = (
       ${courseId} as course_id,
       chapter_count.completed_count as completed_chapters_count,
       NOW() as last_updated,
-      (chapter_count.completed_count::FLOAT / total_chapters.total) * 100 as progress_percentage
+      CASE
+        WHEN total_chapters.total = 0 THEN 0
+        ELSE (chapter_count.completed_count::FLOAT / total_chapters.total) * 100
+      END as progress_percentage
     FROM chapter_count, total_chapters
     ON CONFLICT (uid, course_id) DO UPDATE
     SET

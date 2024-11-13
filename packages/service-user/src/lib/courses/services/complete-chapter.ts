@@ -7,10 +7,18 @@ interface Options {
   uid: string;
   courseId: string;
   chapterId: string;
+  language: string;
 }
 
 export const createCompleteChapter = ({ postgres }: Dependencies) => {
-  return ({ uid, courseId, chapterId }: Options): Promise<CourseProgress[]> => {
-    return postgres.exec(completeChapterQuery(uid, courseId, chapterId));
+  return ({
+    uid,
+    courseId,
+    chapterId,
+    language,
+  }: Options): Promise<CourseProgress[]> => {
+    return postgres.exec(
+      completeChapterQuery(uid, courseId, chapterId, language),
+    );
   };
 };
