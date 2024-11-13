@@ -138,35 +138,6 @@ export const createRestFilesRoutes = async (
     }
   });
 
-  // Fetch single file from S3
-  router.get('/files/:bucket/:key(*)', async (req, res, next) => {
-    try {
-      const { bucket, key } = req.params;
-
-      const allowedBuckets = ['certificates', 'bcertresults'];
-      if (!allowedBuckets.includes(bucket)) {
-        res.status(401).send('Unauthorized');
-        return;
-      }
-
-      const stream = await dependencies.s3.getStream(`${bucket}/${key}`);
-      if (!stream) {
-        res.status(404).send('Not found');
-        return;
-      }
-
-      stream.pipe(res);
-    } catch (error) {
-      console.log('Error:', error);
-      if (error instanceof NoSuchKey) {
-        res.status(404).send('Not found');
-        return;
-      }
-
-      next(error);
-    }
-  });
-
   // Get all B-Cert files in a zip; typical key will be <exam-id>/<user-id>
   router.get('/files/zip/bcert/:edition/:username', async (req, res, next) => {
     try {
@@ -240,6 +211,35 @@ export const createRestFilesRoutes = async (
       );
 
       zipStream(zip).pipe(res);
+    } catch (error) {
+      console.log('Error:', error);
+      if (error instanceof NoSuchKey) {
+        res.status(404).send('Not found');
+        return;
+      }
+
+      next(error);
+    }
+  });
+
+  // Fetch single file from S3
+  router.get('/files/:bucket/:key(*)', async (req, res, next) => {
+    try {
+      const { bucket, key } = req.params;
+
+      const allowedBuckets = ['certificates', 'bcertresults'];
+      if (!allowedBuckets.includes(bucket)) {
+        res.status(401).send('Unauthorized');
+        return;
+      }
+
+      const stream = await dependencies.s3.getStream(`${bucket}/${key}`);
+      if (!stream) {
+        res.status(404).send('Not found');
+        return;
+      }
+
+      stream.pipe(res);
     } catch (error) {
       console.log('Error:', error);
       if (error instanceof NoSuchKey) {
