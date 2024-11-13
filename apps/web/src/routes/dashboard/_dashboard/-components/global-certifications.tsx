@@ -289,7 +289,8 @@ const ExamResult = ({
                       </div>
 
                       <Link
-                        to={'/tutorials/others'}
+                        to={'/tutorials/other/bcert-verification'}
+                        target="_blank"
                         className="flex flex-row items-center gap-2 text-newBlack-5 hover:text-newOrange-5 hover:underline"
                       >
                         <ApprovedIcon className="size-4" />
@@ -336,7 +337,8 @@ const ExamResult = ({
                           <FiDownload className="size-[18px] md:size-6" />
                         </Button>
                         <Link
-                          to={'/tutorials/others'}
+                          to={'/tutorials/others/bcert-verification'}
+                          target="_blank"
                           className="flex flex-row items-center mt-4 gap-2 text-newBlack-5 hover:text-newOrange-5 hover:underline"
                         >
                           <ApprovedIcon className="size-4" />

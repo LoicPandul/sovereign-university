@@ -488,7 +488,8 @@ const CourseExamsTable = ({
                           </div>
                         </div>
                         <Link
-                          to={'/tutorials/others'}
+                          to={'/tutorials/others/bcert-verification'}
+                          target="_blank"
                           className="mt-4 self-start flex flex-row items-center gap-2 text-newBlack-5 hover:text-newOrange-5 hover:underline"
                         >
                           <ApprovedIcon className="size-4" />
