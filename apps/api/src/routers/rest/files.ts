@@ -97,6 +97,7 @@ export const createRestFilesRoutes = async (
           );
         });
       } catch (error) {
+        console.log('Error:', error);
         reject(error);
       }
     });
@@ -132,6 +133,7 @@ export const createRestFilesRoutes = async (
 
       res.end(file.data);
     } catch (error) {
+      console.log('Error:', error);
       next(error);
     }
   });
@@ -155,6 +157,7 @@ export const createRestFilesRoutes = async (
 
       stream.pipe(res);
     } catch (error) {
+      console.log('Error:', error);
       if (error instanceof NoSuchKey) {
         res.status(404).send('Not found');
         return;
@@ -196,6 +199,7 @@ export const createRestFilesRoutes = async (
 
       zipStream(zip).pipe(res);
     } catch (error) {
+      console.log('Error:', error);
       if (error instanceof NoSuchKey) {
         res.status(404).send('Not found');
         return;
@@ -237,6 +241,7 @@ export const createRestFilesRoutes = async (
 
       zipStream(zip).pipe(res);
     } catch (error) {
+      console.log('Error:', error);
       if (error instanceof NoSuchKey) {
         res.status(404).send('Not found');
         return;
