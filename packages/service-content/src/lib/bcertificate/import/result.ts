@@ -58,8 +58,6 @@ export const createProcessTimestampFile = (
   s3: S3Service,
 ) => {
   return async (file: ChangedFile, bcertEdition: string, bcertId: string) => {
-    const fileBuffer = file.data;
-
     // file.path => results/03f15fce2e/bitcoin_certificate-signed.pdf
     const userName = file.path.split('/').slice(1, 2).join('/');
     const fileName = file.path.split('/').slice(2, 3).join('/');
@@ -98,11 +96,13 @@ export const createProcessTimestampFile = (
       }
     }
 
-    await s3.put(filePath, fileBuffer, mimeType);
+    const fileBufferCopy1 = Buffer.from(file.data);
+    await s3.put(filePath, fileBufferCopy1, mimeType);
     console.log('put on s3', filePath);
 
     if (fileType === 'pdf') {
-      const thumbnail = await createPngFromFirstPage(fileBuffer);
+      const fileBufferCopy2 = Buffer.from(file.data);
+      const thumbnail = await createPngFromFirstPage(fileBufferCopy2);
       if (!thumbnail) {
         console.warn('No thumbnail found for', filePath);
         return null;
