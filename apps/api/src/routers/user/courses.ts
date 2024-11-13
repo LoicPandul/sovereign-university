@@ -55,6 +55,7 @@ const completeChapterProcedure = studentProcedure
     z.object({
       courseId: z.string(),
       chapterId: z.string(),
+      language: z.string(),
     }),
   )
   .output<Parser<CourseProgress[]>>(courseProgressSchema.array())
@@ -63,6 +64,7 @@ const completeChapterProcedure = studentProcedure
       uid: ctx.user.uid,
       courseId: input.courseId,
       chapterId: input.chapterId,
+      language: input?.language,
     }),
   );
 

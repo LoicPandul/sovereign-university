@@ -62,6 +62,7 @@ export const ExamPresentation = ({
     await completeChapterMutation.mutateAsync({
       courseId: chapter.courseId,
       chapterId: chapter.chapterId,
+      language: chapter.language,
     });
 
     if (isLastChapter) {

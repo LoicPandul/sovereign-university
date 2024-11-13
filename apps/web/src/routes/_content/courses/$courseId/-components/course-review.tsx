@@ -266,6 +266,7 @@ export function CourseReview({
       await completeChapterMutation.mutateAsync({
         courseId: chapter.courseId,
         chapterId: chapter.chapterId,
+        language: chapter.language,
       });
     }
 
