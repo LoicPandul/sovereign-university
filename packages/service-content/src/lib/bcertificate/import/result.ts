@@ -100,6 +100,7 @@ export const createProcessTimestampFile = (
     await s3.put(filePath, fileBufferCopy1, mimeType);
     console.log('put on s3', filePath);
 
+    ////
     if (fileType === 'pdf') {
       const fileBufferCopy2 = Buffer.from(file.data);
       const thumbnail = await createPngFromFirstPage(fileBufferCopy2);
