@@ -49,6 +49,23 @@ export const AppProvider = ({ children }: PropsWithChildren) => {
   );
   const [currentLanguage, setCurrentLanguage] = useState(locationLanguage);
 
+  function updateCurrentLanguage(newLanguage: string, path: string) {
+    i18n.changeLanguage(newLanguage);
+    setCurrentLanguage(newLanguage);
+
+    router.update({
+      basepath: newLanguage,
+      context: router.options.context,
+    });
+
+    router.navigate({
+      to: path,
+      replace: true,
+    });
+
+    router.load();
+  }
+
   // Temporary fix: the default language can be en-GB (or equivalent), until it is properly set with the selector
   // and these aren't supported. Fallback to 'en' in that case for now.
   useLayoutEffect(() => {
@@ -61,27 +78,36 @@ export const AppProvider = ({ children }: PropsWithChildren) => {
     }
   }, [i18n]);
 
+  // Handle language change
   useEffect(() => {
     const newLanguage = currentLanguage ? currentLanguage : i18n.language;
 
-    i18n.changeLanguage(newLanguage);
-
     if (!currentLanguage || currentLanguage !== i18n.language) {
-      setCurrentLanguage(newLanguage);
-
-      router.update({
-        basepath: newLanguage,
-        context: router.options.context,
-      });
-
-      router.navigate({
-        to: location.pathname,
-        replace: true,
-      });
-
-      router.load();
+      updateCurrentLanguage(newLanguage, location.pathname);
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [currentLanguage, i18n, i18n.language, locationLanguage]);
+
+  // Handle browser's back() and next()
+  useEffect(() => {
+    const handlePopState = () => {
+      const pathName = location.pathname;
+      const path = pathName.slice(pathName.indexOf('/', 2));
+      const newLanguage = pathName.slice(
+        pathName.indexOf('/') + 1,
+        pathName.indexOf('/', 1),
+      );
+
+      updateCurrentLanguage(newLanguage, path);
+    };
+
+    window.addEventListener('popstate', handlePopState);
+
+    return () => {
+      window.removeEventListener('popstate', handlePopState);
+    };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [currentLanguage]);
 
   return (
     <HelmetProvider>
