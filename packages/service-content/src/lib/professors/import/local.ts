@@ -10,7 +10,7 @@ interface ProfessorLocal {
 
 export const createProcessLocalFile = (transaction: TransactionSql) => {
   return async (id: number, file: ChangedFileWithLanguage) => {
-    const parsed = yamlToObject<ProfessorLocal>(file.data);
+    const parsed = await yamlToObject<ProfessorLocal>(file);
 
     await transaction`
         INSERT INTO content.professors_localized (

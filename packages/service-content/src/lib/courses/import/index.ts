@@ -317,7 +317,7 @@ export const createUpdateCourses = ({ postgres }: Dependencies) => {
               `;
 
           // Only get the tags from the main resource file
-          const parsedCourse = yamlToObject<CourseMain>(main.data);
+          const parsedCourse = await yamlToObject<CourseMain>(main);
           if (parsedCourse.requires_payment === null) {
             parsedCourse.requires_payment = false;
           }
@@ -471,7 +471,7 @@ export const createUpdateCourses = ({ postgres }: Dependencies) => {
               continue;
             }
 
-            const header = matter(file.data, {
+            const header = matter(await file.load(), {
               excerpt: true,
               excerpt_separator: '+++',
             });

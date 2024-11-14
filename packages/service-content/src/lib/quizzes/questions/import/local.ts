@@ -18,7 +18,7 @@ export const createProcessLocalFile = (transaction: TransactionSql) => {
     id: string,
     file: ChangedFileWithLanguage,
   ) => {
-    const parsed = yamlToObject<QuizQuestionLocal>(file.data);
+    const parsed = await yamlToObject<QuizQuestionLocal>(file);
 
     await transaction`
         INSERT INTO content.quiz_questions_localized (

@@ -1,10 +1,15 @@
 import yaml from 'js-yaml';
 
+import type { ChangedFile } from '@blms/types';
+
 import { supportedContentTypes } from './const.js';
 import type { ChangedContent } from './types.js';
 
-export const yamlToObject = <T = unknown>(data: Buffer) =>
-  yaml.load(data.toString('utf8')) as T;
+export const yamlToObject = async <T = unknown>(file: ChangedFile) => {
+  const data = await file.load();
+
+  return yaml.load(data.toString('utf8')) as T;
+};
 
 export const getContentType = (path: string) => {
   const pathElements = path.split('/');

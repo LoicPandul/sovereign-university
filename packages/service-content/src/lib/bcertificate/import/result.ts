@@ -15,7 +15,7 @@ interface BCertificateResult {
 
 export const createProcessResultFile = (transaction: TransactionSql) => {
   return async (bcertId: string, file: ChangedFile) => {
-    const parsed = yamlToObject<BCertificateResult>(file.data);
+    const parsed = await yamlToObject<BCertificateResult>(file);
 
     const uid = await transaction<Array<Pick<UserAccount, 'uid'>>>`
           SELECT uid FROM users.accounts WHERE username = LOWER( ${parsed.username} )
@@ -58,6 +58,8 @@ export const createProcessTimestampFile = (
   s3: S3Service,
 ) => {
   return async (file: ChangedFile, bcertEdition: string, bcertId: string) => {
+    const fileBuffer = await file.load();
+
     // file.path => results/03f15fce2e/bitcoin_certificate-signed.pdf
     const userName = file.path.split('/').slice(1, 2).join('/');
     const fileName = file.path.split('/').slice(2, 3).join('/');

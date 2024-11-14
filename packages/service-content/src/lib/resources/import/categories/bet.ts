@@ -56,7 +56,7 @@ export const createProcessChangedBet = (
 
         let parsedBet: BetMain | null = null;
         try {
-          parsedBet = yamlToObject<BetMain>(main.data);
+          parsedBet = await yamlToObject<BetMain>(main);
 
           const result = await transaction<Bet[]>`
               INSERT INTO content.bet (resource_id, builder, type, download_url, original_language)
@@ -113,7 +113,7 @@ export const createProcessChangedBet = (
 
         for (const file of files) {
           try {
-            const parsed = yamlToObject<BetLocal>(file.data);
+            const parsed = await yamlToObject<BetLocal>(file);
 
             await transaction`
               INSERT INTO content.bet_localized (

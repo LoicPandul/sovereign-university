@@ -37,7 +37,7 @@ export const createProcessMainFile = (transaction: TransactionSql) => {
     if (!file) return;
 
     // Only get the tags from the main tutorial file
-    const parsedEvents = yamlToObject<EventMain[]>(file.data);
+    const parsedEvents = await yamlToObject<EventMain[]>(file);
 
     const lastUpdated = event.files.sort((a, b) => b.time - a.time)[0];
 

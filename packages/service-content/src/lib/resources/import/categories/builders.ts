@@ -62,7 +62,7 @@ export const createProcessChangedBuilder = (
         }
 
         try {
-          const parsedBuilder = yamlToObject<BuilderMain>(main.data);
+          const parsedBuilder = await yamlToObject<BuilderMain>(main);
           // TODO remove when correct data
           if (parsedBuilder.original_language === undefined) {
             parsedBuilder.original_language = '';
@@ -119,7 +119,7 @@ export const createProcessChangedBuilder = (
 
         for (const file of files) {
           try {
-            const parsed = yamlToObject<BuilderLocal>(file.data);
+            const parsed = await yamlToObject<BuilderLocal>(file);
 
             await transaction`
           INSERT INTO content.builders_localized (builder_id, language, description)

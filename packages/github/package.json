@@ -19,7 +19,6 @@
     "clear": "rm -rf ./dist && rm -f *.tsbuildinfo"
   },
   "dependencies": {
-    "async": "^3.2.6",
     "simple-git": "^3.27.0"
   },
   "devDependencies": {

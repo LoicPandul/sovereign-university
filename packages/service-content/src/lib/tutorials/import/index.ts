@@ -125,7 +125,7 @@ export const createUpdateTutorials = ({ postgres }: Dependencies) => {
 
         for (const file of files) {
           try {
-            const header = matter(file.data, { excerpt: false });
+            const header = matter(await file.load(), { excerpt: false });
 
             await transaction`
           INSERT INTO content.tutorials_localized (

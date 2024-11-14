@@ -103,7 +103,7 @@ export const createUpdateLegals = ({ postgres }: Dependencies) => {
         for (const file of files) {
           try {
             if ('data' in file) {
-              const header = matter(file.data, { excerpt: false });
+              const header = matter(await file.load(), { excerpt: false });
 
               await transaction`
                 INSERT INTO content.legals_localized (
