@@ -4,6 +4,7 @@ import { useTranslation } from 'react-i18next';
 
 import { Loader } from '@blms/ui';
 
+import { assetUrl } from '#src/utils/index.ts';
 import { trpc } from '#src/utils/trpc.js';
 
 import { ResourceCard } from '../-components/cards/resource-card.tsx';
@@ -58,7 +59,7 @@ function Podcasts() {
               <ResourceCard
                 name={podcast.name}
                 author={podcast.host}
-                imageSrc={podcast.logo}
+                imageSrc={assetUrl(podcast.lastCommit, podcast.path, 'logo.webp')}
               />
             </Link>
           ))}

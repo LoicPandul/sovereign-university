@@ -45,7 +45,3 @@ export const joinedBookSchema = resourceSchema
       tags: z.array(z.string()),
     }),
   );
-
-export const getBookResponseSchema = joinedBookSchema.merge(
-  z.object({ cover: z.string().optional() }),
-);

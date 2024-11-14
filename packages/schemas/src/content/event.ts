@@ -16,7 +16,6 @@ export const joinedEventSchema = eventSchema.merge(
   z.object({
     tags: z.array(z.string()),
     languages: z.array(z.string()),
-    picture: z.string().optional(),
   }),
 );
 

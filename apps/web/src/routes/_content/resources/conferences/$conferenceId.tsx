@@ -12,7 +12,7 @@ import { Button, Loader, Tag, cn } from '@blms/ui';
 import { DropdownMenu } from '#src/components/Dropdown/dropdown-menu.tsx';
 import { ProofreadingProgress } from '#src/components/proofreading-progress.js';
 import { BackLink } from '#src/molecules/backlink.tsx';
-import { trpc } from '#src/utils/trpc.js';
+import { assetUrl, trpc } from '#src/utils/index.ts';
 
 import { ResourceLayout } from '../-components/resource-layout.tsx';
 // eslint-disable-next-line import/no-named-as-default-member
@@ -138,7 +138,7 @@ function Conference() {
           <div className="flex flex-col lg:flex-row justify-center items-center w-full gap-4 lg:gap-8">
             <div className="lg:order-2 w-full max-w-full">
               <img
-                src={conference.thumbnail}
+                src={assetUrl(conference.lastCommit, conference.path, 'thumbnail.webp')}
                 alt={conference.name}
                 className="w-full object-cover aspect-[915/388] rounded-2xl"
               />

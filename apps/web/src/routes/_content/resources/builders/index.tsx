@@ -6,6 +6,7 @@ import { MdKeyboardArrowDown } from 'react-icons/md';
 
 import { Loader } from '@blms/ui';
 
+import { assetUrl } from '#src/utils/index.ts';
 import { trpc } from '#src/utils/trpc.js';
 
 import { BuilderCard } from '../-components/cards/builder-card.tsx';
@@ -87,7 +88,7 @@ function Builders() {
                     }}
                     key={builder.id}
                   >
-                    <BuilderCard name={builder.name} logo={builder.logo} />
+                    <BuilderCard name={builder.name} logo={assetUrl(builder.lastCommit, builder.path, 'logo.webp')} />
                   </Link>
                 ))}
               </div>

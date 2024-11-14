@@ -44,7 +44,3 @@ export const joinedBetSchema = resourceSchema
       tags: z.array(z.string()),
     }),
   );
-
-export const getBetResponseSchema = joinedBetSchema.merge(
-  z.object({ logo: z.string().optional() }),
-);

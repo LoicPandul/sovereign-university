@@ -25,7 +25,6 @@ export const joinedProfessorSchema = professorSchema
   .merge(
     z.object({
       tags: z.array(z.string()),
-      picture: z.string(),
       coursesCount: z.number(),
       tutorialsCount: z.number(),
       lecturesCount: z.number(),
@@ -59,6 +58,5 @@ export const formattedProfessorSchema = joinedProfessorSchema
         silentPayment: joinedProfessorSchema.shape.silentPayment,
         url: joinedProfessorSchema.shape.tipsUrl,
       }),
-      picture: z.string(),
     }),
   );

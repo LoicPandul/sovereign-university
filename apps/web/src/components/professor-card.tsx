@@ -7,6 +7,7 @@ import { useTranslation } from 'react-i18next';
 import type { FormattedProfessor } from '@blms/types';
 
 import { useDisclosure } from '#src/hooks/use-disclosure.ts';
+import { assetUrl } from '#src/utils/index.js';
 import { formatNameForURL } from '#src/utils/string.ts';
 
 import NostrIcon from '../assets/icons/nostr-primary.svg';
@@ -145,7 +146,7 @@ export const ProfessorCard = ({ professor, ...props }: ProfessorCardProps) => {
               {professor.name}
             </span>
             <img
-              src={professor.picture}
+              src={assetUrl(professor.lastCommit, professor.path, 'profile.webp')}
               alt={professor.name}
               className="size-16 lg:size-32 rounded-full z-10 mt-12 lg:mt-20 object-cover [overflow-clip-margin:_unset]"
             />
@@ -188,7 +189,7 @@ export const ProfessorCardReduced = ({
           {professor.name}
         </span>
         <img
-          src={professor.picture}
+          src={assetUrl(professor.lastCommit, professor.path, 'profile.webp')}
           alt={professor.name}
           className="size-32 rounded-full z-10 object-cover [overflow-clip-margin:_unset]"
         />

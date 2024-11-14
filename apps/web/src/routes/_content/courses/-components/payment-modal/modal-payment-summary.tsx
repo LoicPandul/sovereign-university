@@ -6,7 +6,7 @@ import { cn } from '@blms/ui';
 
 import leftBackgroundImg from '#src/assets/courses/left-background.webp';
 import { PaymentRow } from '#src/components/payment-row.js';
-import { computeAssetCdnUrl } from '#src/utils/index.ts';
+import { assetUrl } from '#src/utils/index.ts';
 
 const getFormattedUnit = (amount: number, unit: string, floating = 2) => {
   let prefix = '';
@@ -91,10 +91,7 @@ export const ModalPaymentSummary = ({
         </span>
         <div className={cn('rounded-2xl w-full mb-5 lg:mb-8', borderClassName)}>
           <img
-            src={computeAssetCdnUrl(
-              course.lastCommit,
-              `courses/${course.id}/assets/thumbnail.webp`,
-            )}
+            src={assetUrl(course.lastCommit, `courses/${course.id}`, 'thumbnail.webp')}
             alt={courseName}
           />
         </div>

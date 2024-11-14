@@ -17,7 +17,6 @@ export interface FullProfessor {
   bio: string | null;
   shortBio: string | null;
   tags: string[];
-  picture: string;
   coursesCount: number;
   tutorialsCount: number;
   lecturesCount: number;

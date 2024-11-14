@@ -20,7 +20,7 @@ import { ProofreadingProgress } from '#src/components/proofreading-progress.js';
 import { TipModal } from '#src/components/tip-modal.js';
 import { useDisclosure } from '#src/hooks/use-disclosure.js';
 import { AppContext } from '#src/providers/context.js';
-import { computeAssetCdnUrl } from '#src/utils/index.js';
+import { cdnUrl } from '#src/utils/index.js';
 import { SITE_NAME } from '#src/utils/meta.js';
 import { formatNameForURL } from '#src/utils/string.js';
 import { type TRPCRouterOutput, trpc } from '#src/utils/trpc.js';
@@ -343,10 +343,7 @@ function TutorialDetails() {
                     <Suspense fallback={<Loader size={'s'} />}>
                       <TutorialsMarkdownBody
                         content={tutorial.rawContent}
-                        assetPrefix={computeAssetCdnUrl(
-                          tutorial.lastCommit,
-                          tutorial.path,
-                        )}
+                        assetPrefix={cdnUrl(tutorial.lastCommit, tutorial.path)}
                         tutorials={tutorials || []}
                         courses={courses || []}
                       />

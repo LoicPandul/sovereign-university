@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next';
 import { Loader } from '@blms/ui';
 
 import { PageLayout } from '#src/components/page-layout.js';
-import { trpc } from '#src/utils/trpc.js';
+import { assetUrl, trpc } from '#src/utils/index.ts';
 
 import { BuilderCard } from '../resources/-components/cards/builder-card.tsx';
 
@@ -92,7 +92,7 @@ function NodeNetwork() {
             >
               <BuilderCard
                 name={community.name}
-                logo={community.logo}
+                logo={assetUrl(community.lastCommit, community.path, 'logo.webp')}
                 cardWidth="size-[70px] sm:size-[90px]"
               />
             </Link>

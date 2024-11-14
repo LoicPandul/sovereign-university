@@ -1,12 +1,12 @@
 import { z } from 'zod';
 
 import {
-  getBetResponseSchema,
-  getBookResponseSchema,
-  getBuilderResponseSchema,
-  getConferenceResponseSchema,
-  getPodcastResponseSchema,
+  joinedBetSchema,
+  joinedBookSchema,
+  joinedBuilderSchema,
+  joinedConferenceSchema,
   joinedGlossaryWordSchema,
+  joinedPodcastSchema,
 } from '@blms/schemas';
 import {
   createGetBets,
@@ -22,12 +22,12 @@ import {
   createGetPodcasts,
 } from '@blms/service-content';
 import type {
-  GetBetResponse,
-  GetBookResponse,
-  GetBuilderResponse,
-  GetConferenceResponse,
-  GetPodcastResponse,
+  JoinedBet,
+  JoinedBook,
+  JoinedBuilder,
+  JoinedConference,
   JoinedGlossaryWord,
+  JoinedPodcast,
 } from '@blms/types';
 
 import type { Parser } from '#src/trpc/types.js';
@@ -56,40 +56,38 @@ const createGetResourceProcedureWithStrId = () => {
 export const resourcesRouter = createTRPCRouter({
   // Bets
   getBets: createGetResourcesProcedure()
-    .output<Parser<GetBetResponse[]>>(getBetResponseSchema.array())
+    .output<Parser<JoinedBet[]>>(joinedBetSchema.array())
     .query(({ ctx, input }) => {
       return createGetBets(ctx.dependencies)(input?.language);
     }),
   // Books
   getBooks: createGetResourcesProcedure()
-    .output<Parser<GetBookResponse[]>>(getBookResponseSchema.array())
+    .output<Parser<JoinedBook[]>>(joinedBookSchema.array())
     .query(({ ctx, input }) => {
       return createGetBooks(ctx.dependencies)(input?.language);
     }),
   getBook: createGetResourceProcedure()
-    .output<Parser<GetBookResponse>>(getBookResponseSchema)
+    .output<Parser<JoinedBook>>(joinedBookSchema)
     .query(({ ctx, input }) => {
       return createGetBook(ctx.dependencies)(input.id, input.language);
     }),
   // Builders
   getBuilders: createGetResourcesProcedure()
-    .output<Parser<GetBuilderResponse[]>>(getBuilderResponseSchema.array())
+    .output<Parser<JoinedBuilder[]>>(joinedBuilderSchema.array())
     .query(({ ctx, input }) => {
       return createGetBuilders(ctx.dependencies)(input?.language);
     }),
   getBuilder: createGetResourceProcedure()
-    .output<Parser<GetBuilderResponse>>(getBuilderResponseSchema)
+    .output<Parser<JoinedBuilder>>(joinedBuilderSchema)
     .query(({ ctx, input }) => {
       return createGetBuilder(ctx.dependencies)(input.id, input.language);
     }),
   // Conferences
   getConferences: createGetResourcesProcedure()
-    .output<Parser<GetConferenceResponse[]>>(
-      getConferenceResponseSchema.array(),
-    )
+    .output<Parser<JoinedConference[]>>(joinedConferenceSchema.array())
     .query(({ ctx }) => createGetConferences(ctx.dependencies)()),
   getConference: createGetResourceProcedure()
-    .output<Parser<GetConferenceResponse>>(getConferenceResponseSchema)
+    .output<Parser<JoinedConference>>(joinedConferenceSchema)
     .query(({ ctx, input }) => createGetConference(ctx.dependencies)(input.id)),
   // Glossary Words
   getGlossaryWords: createGetResourcesProcedure()
@@ -107,12 +105,12 @@ export const resourcesRouter = createTRPCRouter({
     }),
   // Podcasts
   getPodcasts: createGetResourcesProcedure()
-    .output<Parser<GetPodcastResponse[]>>(getPodcastResponseSchema.array())
+    .output<Parser<JoinedPodcast[]>>(joinedPodcastSchema.array())
     .query(({ ctx, input }) => {
       return createGetPodcasts(ctx.dependencies)(input?.language);
     }),
   getPodcast: createGetResourceProcedure()
-    .output<Parser<GetPodcastResponse>>(getPodcastResponseSchema)
+    .output<Parser<JoinedPodcast>>(joinedPodcastSchema)
     .query(({ ctx, input }) => {
       return createGetPodcast(ctx.dependencies)(input.id, input.language);
     }),

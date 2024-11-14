@@ -9,7 +9,7 @@ import { MainLayout } from '#src/components/main-layout.js';
 import { PageHeader } from '#src/components/page-header.js';
 import CategoryContainer from '#src/organisms/category-container.tsx';
 import { AppContext } from '#src/providers/context.js';
-import { computeAssetCdnUrl } from '#src/utils/index.js';
+import { assetUrl } from '#src/utils/index.js';
 import { SITE_NAME } from '#src/utils/meta.js';
 
 import { TUTORIALS_CATEGORIES } from '../../../services/utils.tsx';
@@ -100,17 +100,7 @@ function TutorialExplorer() {
                         >
                           <img
                             className="size-12 sm:size-14 md:size-16 lg:size-20 rounded-full group-hover/builder:blur-sm group-focus/builder:blur-sm group-focus/builder:brightness-[30%] transition-all bg-white/20"
-                            src={
-                              tutorial.builder
-                                ? computeAssetCdnUrl(
-                                    tutorial.builder.lastCommit,
-                                    `${tutorial.builder.path}/assets/logo.webp`,
-                                  )
-                                : computeAssetCdnUrl(
-                                    tutorial.lastCommit,
-                                    `${tutorial.path}/assets/logo.webp`,
-                                  )
-                            }
+                            src={assetUrl((tutorial.builder || tutorial).lastCommit, (tutorial.builder || tutorial).path, 'logo.webp')}
                             alt={tutorial.title}
                           />
                           <p className="absolute flex justify-center items-center size-full p-1 rounded-full text-center text-xs font-bold text-white group-hover/builder:bg-black/60 opacity-0 group-hover/builder:opacity-100 group-focus/builder:opacity-100 transition-all">

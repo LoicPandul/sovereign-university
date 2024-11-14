@@ -12,9 +12,7 @@ interface ShareModalProps {
 const ShareModal: React.FC<ShareModalProps> = ({ isOpen, url, onClose }) => {
   useEffect(() => {
     if (isOpen) {
-      const timer = setTimeout(() => {
-        onClose();
-      }, 4000);
+      const timer = setTimeout(() => onClose(), 4000);
 
       return () => clearTimeout(timer);
     }

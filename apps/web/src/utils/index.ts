@@ -8,10 +8,17 @@ Object.defineProperty(window, 'setCustomCdnUrl', {
   },
 });
 
-export const computeAssetCdnUrl = (commitHash: string, path: string) => {
+export const cdnUrl = (commitHash: string, path: string) => {
   return customCdnUrl
     ? `${customCdnUrl}/${commitHash}/${path}`
     : `/cdn/${commitHash}/${path}`;
+};
+
+/**
+ * Content asset URL
+ */
+export const assetUrl = (commitHash: string, contentPath: string, assetPath: string | null) => {
+  return cdnUrl(commitHash, `${contentPath}/assets/${assetPath}`);
 };
 
 export const compose = (...args: string[]) => args.join(' ');

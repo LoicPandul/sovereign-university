@@ -53,7 +53,3 @@ export const joinedBuilderSchema = resourceSchema
       tags: z.array(z.string()).optional(),
     }),
   );
-
-export const getBuilderResponseSchema = joinedBuilderSchema.merge(
-  z.object({ logo: z.string() }),
-);

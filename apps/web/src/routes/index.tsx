@@ -24,7 +24,7 @@ import { VerticalCard } from '#src/molecules/vertical-card.tsx';
 import CategoryItemList from '#src/organisms/category-item.tsx';
 import { LanguageSelectorHomepage } from '#src/organisms/language-selector-homepage.tsx';
 import { AppContext } from '#src/providers/context.tsx';
-import { computeAssetCdnUrl } from '#src/utils/index.ts';
+import { assetUrl } from '#src/utils/index.ts';
 import { trpc } from '#src/utils/trpc.ts';
 
 import Map from '../../src/assets/home/map.webp';
@@ -803,10 +803,7 @@ function Home() {
                     className="basis 1/2 md:basis-1/3 max-w-[137px] !pl-[10px]"
                   >
                     <VerticalCard
-                      imageSrc={computeAssetCdnUrl(
-                        blog.lastCommit,
-                        `${blog.path}/assets/thumbnail.webp`,
-                      )}
+                      imageSrc={assetUrl(blog.lastCommit, blog.path, 'thumbnail.webp')}
                       title={blog.title}
                       languages={[]}
                       cardColor="lightgrey"
@@ -833,10 +830,7 @@ function Home() {
             {latestBlogsByCategory.map((blog) => (
               <VerticalCard
                 key={blog.id}
-                imageSrc={computeAssetCdnUrl(
-                  blog.lastCommit,
-                  `${blog.path}/assets/thumbnail.webp`,
-                )}
+                imageSrc={assetUrl(blog.lastCommit, blog.path, 'thumbnail.webp')}
                 title={blog.title}
                 languages={[]}
                 cardColor="lightgrey"

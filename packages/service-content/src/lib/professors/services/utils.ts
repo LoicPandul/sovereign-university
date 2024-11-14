@@ -1,6 +1,6 @@
 import type { FormattedProfessor, JoinedProfessor } from '@blms/types';
 
-import { computeAssetCdnUrl, omit } from '../../utils.js';
+import { omit } from '../../utils.js';
 
 export const formatProfessor = (
   professor: JoinedProfessor,
@@ -32,10 +32,5 @@ export const formatProfessor = (
       silentPayment: professor.silentPayment,
       url: professor.tipsUrl,
     },
-    picture: computeAssetCdnUrl(
-      professor.lastCommit,
-      professor.path,
-      'profile.webp',
-    ),
   };
 };

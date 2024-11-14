@@ -8,6 +8,18 @@ import { createGetGlossaryWord } from './resources/services/get-glossary-word.js
 import { createGetPodcast } from './resources/services/get-podcast.js';
 import { createGetTutorialMeta } from './tutorials/services/get-tutorial-meta.js';
 
+const cdn = (
+  commit: string,
+  contentPath: string,
+  assetPath?: string | null,
+) => {
+  if (!assetPath) {
+    return DEFAULT_IMAGE;
+  }
+
+  return `/cdn/${commit}/${contentPath}/assets/${assetPath}`;
+};
+
 interface Metadata {
   title: string;
   description: string;
@@ -74,11 +86,25 @@ export const createGetMetadata = (dependencies: Dependencies) => {
 
     if (chapterId) {
       const chapter = await getChapterMeta(chapterId, lang);
-      return meta(chapter.title, chapter.rawContent, chapter.thumbnail, lang);
+      return meta(
+        chapter.title,
+        chapter.rawContent,
+        cdn(
+          chapter.lastCommit,
+          `courses/${chapter.courseId}`,
+          'thumbnail.webp',
+        ),
+        lang,
+      );
     }
 
     const course = await getCourseMeta(courseId, lang);
-    return meta(course.name, course.goal, course.thumbnail, course.language);
+    return meta(
+      course.name,
+      course.goal,
+      cdn(course.lastCommit, `courses/${course.id}`, 'thumbnail.webp'),
+      course.language,
+    );
   };
 
   const getResourceMetadata = async (
@@ -95,22 +121,36 @@ export const createGetMetadata = (dependencies: Dependencies) => {
     switch (resourceType) {
       case 'books': {
         const book = await getBook(+resourceId, lang);
-        return meta(book.title, book.description, book.cover, lang);
+        return meta(
+          book.title,
+          book.description,
+          cdn(book.lastCommit, book.path, book.cover),
+          lang,
+        );
       }
       case 'podcasts': {
         const podcast = await getPodcast(+resourceId, lang);
-        return meta(podcast.name, podcast.description, podcast.logo, lang);
+        return meta(
+          podcast.name,
+          podcast.description,
+          cdn(podcast.lastCommit, podcast.path, 'logo.webp'),
+          lang,
+        );
       }
       case 'conferences': {
         const conf = await getConferenceMeta(+resourceId);
-        return meta(conf.name, conf.description, conf.thumbnail);
+        return meta(
+          conf.name,
+          conf.description,
+          cdn(conf.lastCommit, conf.path, 'thumbnail.webp'),
+        );
       }
       case 'builders': {
         const builder = await getBuilder(+resourceId, lang);
         return meta(
           builder.name,
           builder.description,
-          builder.logo,
+          cdn(builder.lastCommit, builder.path, 'logo.webp'),
           builder.language,
         );
       }

@@ -5,6 +5,7 @@ import { useTranslation } from 'react-i18next';
 import type { JoinedBook } from '@blms/types';
 import { Loader } from '@blms/ui';
 
+import { assetUrl } from '#src/utils/index.ts';
 import { trpc } from '#src/utils/trpc.js';
 
 import { ResourceCard } from '../-components/cards/resource-card.tsx';
@@ -58,7 +59,7 @@ function Books() {
               <ResourceCard
                 name={book.title}
                 author={book.author}
-                imageSrc={book.cover}
+                imageSrc={book.cover && assetUrl(book.lastCommit, book.path, book.cover)}
                 year={book.publicationYear}
               />
             </Link>
