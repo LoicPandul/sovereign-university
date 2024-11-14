@@ -524,10 +524,7 @@ const MarkdownContent = ({ chapter }: { chapter: CourseChapterResponse }) => {
       <Suspense fallback={<Loader size={'s'} />}>
         <CoursesMarkdownBody
           content={chapter.rawContent}
-          assetPrefix={cdnUrl(
-            chapter.lastCommit,
-            `courses/${chapter.course.id}`,
-          )}
+          assetPrefix={cdnUrl(`courses/${chapter.course.id}`)}
           tutorials={tutorials || []}
           courses={courses || []}
           supportInlineLatex={COURSES_WITH_INLINE_LATEX_SUPPORT.includes(
