@@ -50,7 +50,7 @@ export const LanguageSelector = ({
     });
 
     router.navigate({
-      to: pathName,
+      to: pathName + location.hash,
     });
 
     router.load();

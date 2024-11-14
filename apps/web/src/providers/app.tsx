@@ -83,7 +83,7 @@ export const AppProvider = ({ children }: PropsWithChildren) => {
     const newLanguage = currentLanguage ? currentLanguage : i18n.language;
 
     if (!currentLanguage || currentLanguage !== i18n.language) {
-      updateCurrentLanguage(newLanguage, location.pathname);
+      updateCurrentLanguage(newLanguage, location.pathname + location.hash);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [currentLanguage, i18n, i18n.language, locationLanguage]);
@@ -92,7 +92,7 @@ export const AppProvider = ({ children }: PropsWithChildren) => {
   useEffect(() => {
     const handlePopState = () => {
       const pathName = location.pathname;
-      const path = pathName.slice(pathName.indexOf('/', 2));
+      const path = pathName.slice(pathName.indexOf('/', 2)) + location.hash;
       const newLanguage = pathName.slice(
         pathName.indexOf('/') + 1,
         pathName.indexOf('/', 1),

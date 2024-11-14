@@ -33,7 +33,7 @@ export const LanguageSelectorHomepage = ({
     });
 
     router.navigate({
-      to: pathName,
+      to: pathName + location.hash,
     });
 
     router.load();
