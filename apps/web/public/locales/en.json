@@ -32,7 +32,7 @@
     "createOne": "Register here!",
     "displayName": "Display Name",
     "emailAddress": "Email address",
-    "emailTip": "Email is not mandatory, but it can be useful case of a forgotten password :)",
+    "emailTip": "Email is not mandatory, but it can be useful in case of a forgotten password :)",
     "errors": {
       "displayNameRegex": "Display name can only contain letters, digits, _, ., - and spaces.",
       "displayNameRequired": "Display name is required.",
