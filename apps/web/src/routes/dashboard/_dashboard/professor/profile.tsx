@@ -29,12 +29,15 @@ function DashboardProfessorProfile() {
     navigate({ to: '/' });
   }
 
-  const { data: professor, isFetched } = trpc.content.getProfessor.useQuery({
-    professorId: user?.professorId ?? 0,
-    language: i18n.language,
-  }, {
-    enabled: user ? typeof user.professorId === 'number' : false,
-  });
+  const { data: professor, isFetched } = trpc.content.getProfessor.useQuery(
+    {
+      professorId: user?.professorId ?? 0,
+      language: i18n.language,
+    },
+    {
+      enabled: user ? typeof user.professorId === 'number' : false,
+    },
+  );
 
   const [currentValue, setCurrentTab] = useState('profile');
 
@@ -97,7 +100,7 @@ function DashboardProfessorProfile() {
                   {professor.name}
                 </span>
                 <img
-                  src={assetUrl(professor.lastCommit, professor.path, 'profile.webp')}
+                  src={assetUrl(professor.path, 'profile.webp')}
                   alt={professor.name}
                   className="rounded-full size-[154px]"
                 />

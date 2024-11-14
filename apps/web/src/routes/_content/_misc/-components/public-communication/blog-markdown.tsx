@@ -98,7 +98,7 @@ const BlogMarkdownBody = ({
                 className="flex max-md:flex-col items-center w-full bg-newGray-6 shadow-course-navigation border border-newGray-5 rounded-[20px] p-4 gap-6 max-md:max-w-96"
               >
                 <img
-                  src={assetUrl(blog.lastCommit, blog.path, 'thumbnail.webp')}
+                  src={assetUrl(blog.path, 'thumbnail.webp')}
                   alt={blog.name}
                   className="size-20 rounded-full"
                 />

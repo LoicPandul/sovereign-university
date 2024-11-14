@@ -224,7 +224,7 @@ function CourseDetails() {
     return (
       <section className="flex max-lg:flex-col lg:py-2.5 mt-6 lg:mt-7 w-full gap-5 lg:gap-10">
         <img
-          src={assetUrl(course.lastCommit, `courses/${course.id}`, 'thumbnail.webp')}
+          src={assetUrl(`courses/${course.id}`, 'thumbnail.webp')}
           alt={course.name}
           className="rounded-[20px] w-full lg:max-w-[550px] shrink-1"
         />
@@ -698,7 +698,9 @@ function CourseDetails() {
       <PageMeta
         title={`${SITE_NAME} - ${course?.name}`}
         description={course?.goal}
-        imageSrc={course ? assetUrl(course.lastCommit, `courses/${course.id}`, 'thumbnail.webp') : ''}
+        imageSrc={
+          course ? assetUrl(`courses/${course.id}`, 'thumbnail.webp') : ''
+        }
       />
       <div className="text-newBlack-1">
         {!isFetched && <Loader size={'s'} />}

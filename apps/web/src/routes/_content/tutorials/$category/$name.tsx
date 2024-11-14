@@ -343,7 +343,7 @@ function TutorialDetails() {
                     <Suspense fallback={<Loader size={'s'} />}>
                       <TutorialsMarkdownBody
                         content={tutorial.rawContent}
-                        assetPrefix={cdnUrl(tutorial.lastCommit, tutorial.path)}
+                        assetPrefix={cdnUrl(tutorial.path)}
                         tutorials={tutorials || []}
                         courses={courses || []}
                       />

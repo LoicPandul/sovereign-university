@@ -88,7 +88,10 @@ function Builders() {
                     }}
                     key={builder.id}
                   >
-                    <BuilderCard name={builder.name} logo={assetUrl(builder.lastCommit, builder.path, 'logo.webp')} />
+                    <BuilderCard
+                      name={builder.name}
+                      logo={assetUrl(builder.path, 'logo.webp')}
+                    />
                   </Link>
                 ))}
               </div>

@@ -101,7 +101,7 @@ export const FeaturedCard = ({ category, background }: FeaturedCardProps) => {
         >
           <img
             className="rounded-sm lg:rounded-3xl"
-            src={assetUrl(latestBlog.lastCommit, latestBlog.path, 'thumbnail.webp')}
+            src={assetUrl(latestBlog.path, 'thumbnail.webp')}
             alt={latestBlog.title}
           />
         </Link>

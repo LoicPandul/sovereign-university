@@ -138,7 +138,7 @@ function Conference() {
           <div className="flex flex-col lg:flex-row justify-center items-center w-full gap-4 lg:gap-8">
             <div className="lg:order-2 w-full max-w-full">
               <img
-                src={assetUrl(conference.lastCommit, conference.path, 'thumbnail.webp')}
+                src={assetUrl(conference.path, 'thumbnail.webp')}
                 alt={conference.name}
                 className="w-full object-cover aspect-[915/388] rounded-2xl"
               />

@@ -400,7 +400,7 @@ export const EventCard = ({
           {/* Image */}
           <div className="w-[126px] sm:w-full overflow-hidden sm:rounded-2xl relative sm:mb-2 lg:mb-4 max-sm:shrink-0">
             <img
-              src={assetUrl(event.lastCommit, event.path, 'thumbnail.webp')}
+              src={assetUrl(event.path, 'thumbnail.webp')}
               alt={event.name ? event.name : ''}
               className="object-cover [overflow-clip-margin:_unset] sm:aspect-[432/308] w-full max-sm:h-[113px] sm:rounded-2xl"
             />

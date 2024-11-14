@@ -95,7 +95,7 @@ function SingleBlogDetail() {
             <div className="mb-3 md:mr-5 lg:mr-0 lg:ml-5 lg:mb-0 lg:max-w-[510px] w-full flex-1 mx-auto order-1 md:order-2">
               <div>
                 <img
-                  src={assetUrl(blog.lastCommit, blog.path, 'thumbnail.webp')}
+                  src={assetUrl(blog.path, 'thumbnail.webp')}
                   alt={blog.title}
                   className="rounded-3xl lg:p-8"
                 />
@@ -108,7 +108,7 @@ function SingleBlogDetail() {
               <Suspense fallback={<Loader variant="black" size={'s'} />}>
                 <BlogMarkdownBody
                   content={blog.rawContent}
-                  assetPrefix={cdnUrl(blog.lastCommit, blog.path)}
+                  assetPrefix={cdnUrl(blog.path)}
                   blogs={[]}
                 />
               </Suspense>

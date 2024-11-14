@@ -59,7 +59,7 @@ function Books() {
               <ResourceCard
                 name={book.title}
                 author={book.author}
-                imageSrc={book.cover && assetUrl(book.lastCommit, book.path, book.cover)}
+                imageSrc={book.cover && assetUrl(book.path, book.cover)}
                 year={book.publicationYear}
               />
             </Link>

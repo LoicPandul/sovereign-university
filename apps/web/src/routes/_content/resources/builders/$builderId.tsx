@@ -114,7 +114,7 @@ function Builder() {
             <section className="flex p-2 md:p-[30px]">
               <div className="flex flex-col gap-3">
                 <img
-                  src={assetUrl(builder.lastCommit, builder.path, 'logo.webp')}
+                  src={assetUrl(builder.path, 'logo.webp')}
                   className="rounded-2xl md:rounded-3xl size-[84px] md:size-[276px] shadow-card-items-dark"
                   alt={t('imagesAlt.sthRepresentingCompany')}
                 />
@@ -253,7 +253,7 @@ function Builder() {
               >
                 <BuilderCard
                   name={community.name}
-                  logo={assetUrl(community.lastCommit, community.path, 'logo.webp')}
+                  logo={assetUrl(community.path, 'logo.webp')}
                   cardWidth="w-[50px] md:w-[90px]"
                 />
               </Link>

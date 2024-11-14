@@ -92,7 +92,7 @@ function NodeNetwork() {
             >
               <BuilderCard
                 name={community.name}
-                logo={assetUrl(community.lastCommit, community.path, 'logo.webp')}
+                logo={assetUrl(community.path, 'logo.webp')}
                 cardWidth="size-[70px] sm:size-[90px]"
               />
             </Link>

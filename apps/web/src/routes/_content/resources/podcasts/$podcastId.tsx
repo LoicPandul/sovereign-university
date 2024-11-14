@@ -95,7 +95,7 @@ function Podcast() {
                   <img
                     className="max-w-[219px] mx-auto object-cover [overflow-clip-margin:_unset] rounded-[10px] lg:max-w-[347px] md:mx-0 lg:rounded-[22px] mb-8 lg:mb-12"
                     alt={t('imagesAlt.bookCover')}
-                    src={assetUrl(podcast.lastCommit, podcast.path, 'logo.webp')}
+                    src={assetUrl(podcast.path, 'logo.webp')}
                   />
                   <div className="flex flex-row justify-evenly md:flex-col md:space-y-2 lg:flex-row lg:space-y-0">
                     {podcast?.podcastUrl && (
@@ -167,7 +167,7 @@ function Podcast() {
                           <img
                             className="max-h-72 sm:max-h-96 size-full object-cover rounded-[10px]"
                             alt={podcast.name}
-                            src={assetUrl(podcast.lastCommit, podcast.path, 'logo.webp')}
+                            src={assetUrl(podcast.path, 'logo.webp')}
                           />
                           <div
                             className="absolute inset-0 -bottom-px rounded-[10px]"

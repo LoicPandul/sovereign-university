@@ -47,7 +47,7 @@ export const BlogList = ({ category }: BlogListProps) => {
             {filteredBlogs.slice(1).map((blog, index) => (
               <VerticalCard
                 key={index}
-                imageSrc={assetUrl(blog.lastCommit, blog.path, 'thumbnail.webp')}
+                imageSrc={assetUrl(blog.path, 'thumbnail.webp')}
                 title={blog.title}
                 languages={[]}
                 cardColor="lightgrey"

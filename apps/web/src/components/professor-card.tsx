@@ -146,7 +146,7 @@ export const ProfessorCard = ({ professor, ...props }: ProfessorCardProps) => {
               {professor.name}
             </span>
             <img
-              src={assetUrl(professor.lastCommit, professor.path, 'profile.webp')}
+              src={assetUrl(professor.path, 'profile.webp')}
               alt={professor.name}
               className="size-16 lg:size-32 rounded-full z-10 mt-12 lg:mt-20 object-cover [overflow-clip-margin:_unset]"
             />
@@ -189,7 +189,7 @@ export const ProfessorCardReduced = ({
           {professor.name}
         </span>
         <img
-          src={assetUrl(professor.lastCommit, professor.path, 'profile.webp')}
+          src={assetUrl(professor.path, 'profile.webp')}
           alt={professor.name}
           className="size-32 rounded-full z-10 object-cover [overflow-clip-margin:_unset]"
         />

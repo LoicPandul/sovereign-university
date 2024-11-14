@@ -803,7 +803,7 @@ function Home() {
                     className="basis 1/2 md:basis-1/3 max-w-[137px] !pl-[10px]"
                   >
                     <VerticalCard
-                      imageSrc={assetUrl(blog.lastCommit, blog.path, 'thumbnail.webp')}
+                      imageSrc={assetUrl(blog.path, 'thumbnail.webp')}
                       title={blog.title}
                       languages={[]}
                       cardColor="lightgrey"
@@ -830,7 +830,7 @@ function Home() {
             {latestBlogsByCategory.map((blog) => (
               <VerticalCard
                 key={blog.id}
-                imageSrc={assetUrl(blog.lastCommit, blog.path, 'thumbnail.webp')}
+                imageSrc={assetUrl(blog.path, 'thumbnail.webp')}
                 title={blog.title}
                 languages={[]}
                 cardColor="lightgrey"
