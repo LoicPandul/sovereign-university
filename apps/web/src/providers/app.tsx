@@ -63,8 +63,24 @@ export const AppProvider = ({ children }: PropsWithChildren) => {
 
   useEffect(() => {
     const newLanguage = currentLanguage ? currentLanguage : i18n.language;
+
     i18n.changeLanguage(newLanguage);
-    setCurrentLanguage(newLanguage);
+
+    if (!currentLanguage || currentLanguage !== i18n.language) {
+      setCurrentLanguage(newLanguage);
+
+      router.update({
+        basepath: newLanguage,
+        context: router.options.context,
+      });
+
+      router.navigate({
+        to: location.pathname,
+        replace: true,
+      });
+
+      router.load();
+    }
   }, [currentLanguage, i18n, i18n.language, locationLanguage]);
 
   return (

@@ -6,6 +6,7 @@ import { Button, cn } from '@blms/ui';
 import { useSmaller } from '#src/hooks/use-smaller.js';
 import Flag from '#src/molecules/Flag/index.js';
 import { LangContext } from '#src/providers/app.js';
+import { router } from '#src/routes/-router.js';
 
 import { LANGUAGES, LANGUAGES_MAP } from '../utils/i18n.ts';
 
@@ -24,8 +25,20 @@ export const LanguageSelectorHomepage = ({
   const buttonSize = isMobile ? 'flagsMobile' : 'l';
 
   const changeLanguage = (lang: string) => {
+    const pathName = location.pathname.slice(location.pathname.indexOf('/', 2));
+
+    router.update({
+      basepath: lang,
+      context: router.options.context,
+    });
+
+    router.navigate({
+      to: pathName,
+    });
+
+    router.load();
+
     setCurrentLanguage(lang);
-    i18n.changeLanguage(lang);
   };
 
   const filteredLanguages = useMemo(() => LANGUAGES.sort(), []);

@@ -7,6 +7,7 @@ import { Button, Popover, PopoverContent, PopoverTrigger, cn } from '@blms/ui';
 
 import Flag from '#src/molecules/Flag/index.js';
 import { LangContext } from '#src/providers/app.js';
+import { router } from '#src/routes/-router.js';
 
 import { LANGUAGES, LANGUAGES_MAP } from '../../utils/i18n.ts';
 
@@ -41,8 +42,20 @@ export const LanguageSelector = ({
   const activeLanguage = i18n.language ?? 'en';
 
   const changeLanguage = (lang: string) => {
+    const pathName = location.pathname.slice(location.pathname.indexOf('/', 2));
+
+    router.update({
+      basepath: lang,
+      context: router.options.context,
+    });
+
+    router.navigate({
+      to: pathName,
+    });
+
+    router.load();
+
     setCurrentLanguage(lang);
-    i18n.changeLanguage(lang);
     setTimeout(() => {
       setOpen(false);
     }, 100);

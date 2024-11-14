@@ -45,13 +45,14 @@ export const Route = createRootRouteWithContext<{
     // TODO fix this (remove ?)
     // Parse language as the second element of the pathname
     // (the first one is always the basepath == current language, as the redirection occurs before)
-    const pathLanguage = location.pathname.split('/')[2];
+    const pathLanguage = location.pathname.split('/')[1];
 
     if (
       pathLanguage &&
       LANGUAGES.includes(pathLanguage) &&
       i18n.language !== pathLanguage
     ) {
+      console.log('Before load');
       // Change i18n language if the URL language is different
       await i18n.changeLanguage(pathLanguage);
     }
