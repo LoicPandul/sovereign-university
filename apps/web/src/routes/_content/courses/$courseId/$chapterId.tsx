@@ -298,13 +298,13 @@ const TimelineBig = ({
                   >
                     <div
                       className={compose(
-                        'h-4 w-2/3 bg-darkOrange-5',
+                        'h-4 w-1/2 bg-darkOrange-5',
                         firstPart && firstChapter ? 'rounded-l-full' : '',
                       )}
                     />
                     <div
                       className={compose(
-                        'h-4 w-1/3 bg-newGray-3',
+                        'h-4 w-1/2 bg-newGray-3',
                         lastPart && lastChapter ? 'rounded-r-full' : '',
                       )}
                     />
