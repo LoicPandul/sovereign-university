@@ -407,13 +407,15 @@ export const createUpdateCourses = ({ postgres }: Dependencies) => {
                 ON CONFLICT DO NOTHING
               `;
 
-          await transaction`
-                INSERT INTO content.course_professors (course_id, contributor_id)
-                SELECT
-                  ${result.id},
-                  id FROM content.contributors WHERE id = ANY(${parsedCourse.professors})
-                ON CONFLICT DO NOTHING
-              `;
+          for (const prof of parsedCourse.professors) {
+            await transaction`
+            INSERT INTO content.course_professors (course_id, contributor_id)
+            VALUES(
+              ${result.id},
+              ${prof})
+            ON CONFLICT DO NOTHING
+          `;
+          }
 
           // If the resource has tags, insert them into the tags table and link them to the resource
           if (parsedCourse.tags && parsedCourse.tags?.length > 0) {
