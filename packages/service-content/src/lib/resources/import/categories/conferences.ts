@@ -119,7 +119,7 @@ export const createProcessChangedConference = (
         let parsedConference: ConferenceMain | null = null;
 
         try {
-          parsedConference = yamlToObject<ConferenceMain>(main.data);
+          parsedConference = await yamlToObject<ConferenceMain>(main);
 
           const result = await transaction<Conference[]>`
               INSERT INTO content.conferences (
@@ -173,7 +173,7 @@ export const createProcessChangedConference = (
           file.path.includes('en.md'),
         )) {
           try {
-            const header = matter(file.data, {
+            const header = matter(await file.load(), {
               excerpt: false,
             });
 

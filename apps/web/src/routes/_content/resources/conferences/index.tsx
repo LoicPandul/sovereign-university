@@ -86,7 +86,10 @@ function Conferences() {
             {latestConferences && latestConferences.length > 0 && (
               <>
                 <VerticalCard
-                  imageSrc={assetUrl(latestConferences[0].lastCommit, latestConferences[0].path, 'thumbnail.webp')}
+                  imageSrc={assetUrl(
+                    latestConferences[0].path,
+                    'thumbnail.webp',
+                  )}
                   title={latestConferences[0].name}
                   subtitle={latestConferences[0].location}
                   buttonText={t('events.card.watchReplay')}
@@ -99,7 +102,10 @@ function Conferences() {
                   languages={latestConferences[0].languages}
                 />
                 <VerticalCard
-                  imageSrc={assetUrl(latestConferences[1].lastCommit, latestConferences[1].path, 'thumbnail.webp')}
+                  imageSrc={assetUrl(
+                    latestConferences[1].path,
+                    'thumbnail.webp',
+                  )}
                   title={latestConferences[1].name}
                   subtitle={latestConferences[1].location}
                   buttonText={t('events.card.watchReplay')}
@@ -125,7 +131,10 @@ function Conferences() {
             {latestPlanBConferences && latestPlanBConferences.length > 0 && (
               <>
                 <VerticalCard
-                  imageSrc={assetUrl(latestPlanBConferences[0].lastCommit, latestPlanBConferences[0].path, 'thumbnail.webp')}
+                  imageSrc={assetUrl(
+                    latestPlanBConferences[0].path,
+                    'thumbnail.webp',
+                  )}
                   title={latestPlanBConferences[0].name}
                   subtitle={latestPlanBConferences[0].location}
                   buttonText={t('events.card.watchReplay')}
@@ -138,7 +147,10 @@ function Conferences() {
                   languages={latestPlanBConferences[0].languages}
                 />
                 <VerticalCard
-                  imageSrc={assetUrl(latestPlanBConferences[1].lastCommit, latestPlanBConferences[1].path, 'thumbnail.webp')}
+                  imageSrc={assetUrl(
+                    latestPlanBConferences[1].path,
+                    'thumbnail.webp',
+                  )}
                   title={latestPlanBConferences[1].name}
                   subtitle={latestPlanBConferences[1].location}
                   buttonText={t('events.card.watchReplay')}

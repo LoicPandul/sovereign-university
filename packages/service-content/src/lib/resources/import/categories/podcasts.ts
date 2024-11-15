@@ -53,7 +53,7 @@ export const createProcessChangedPodcast = (
         }
 
         try {
-          const parsed = yamlToObject<PodcastMain>(main.data);
+          const parsed = await yamlToObject<PodcastMain>(main);
 
           await transaction`
               INSERT INTO content.podcasts (

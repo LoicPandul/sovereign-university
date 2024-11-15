@@ -20,9 +20,8 @@ export const createProcessMainFile = (transaction: TransactionSql) => {
   ) => {
     if (!file) return;
 
-    const parsedBCertificateExam = yamlToObject<BCertificateExamMain>(
-      file.data,
-    );
+    const parsedBCertificateExam =
+      await yamlToObject<BCertificateExamMain>(file);
 
     const lastUpdated = bCertificateExam.files.sort(
       (a, b) => b.time - a.time,

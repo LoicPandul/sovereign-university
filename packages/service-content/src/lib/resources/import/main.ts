@@ -11,9 +11,9 @@ export const createProcessMainFile = (transaction: TransactionSql) => {
     if (!file) return;
 
     // Only get the tags from the main resource file
-    const parsedResource = yamlToObject<{
+    const parsedResource = await yamlToObject<{
       tags?: string[];
-    }>(file.data);
+    }>(file);
 
     const lastUpdated = resource.files.sort((a, b) => b.time - a.time)[0];
 

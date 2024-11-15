@@ -59,7 +59,7 @@ function Podcasts() {
               <ResourceCard
                 name={podcast.name}
                 author={podcast.host}
-                imageSrc={assetUrl(podcast.lastCommit, podcast.path, 'logo.webp')}
+                imageSrc={assetUrl(podcast.path, 'logo.webp')}
               />
             </Link>
           ))}

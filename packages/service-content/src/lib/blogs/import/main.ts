@@ -16,7 +16,7 @@ export const createProcessMainFile = (transaction: TransactionSql) => {
   return async (blog: ChangedBlog, file?: ChangedFile) => {
     if (!file) return;
 
-    const parsedBlog = yamlToObject<BlogMain>(file.data);
+    const parsedBlog = await yamlToObject<BlogMain>(file);
 
     const lastUpdated = blog.files.sort((a, b) => b.time - a.time)[0];
 

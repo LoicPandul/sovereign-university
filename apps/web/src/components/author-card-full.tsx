@@ -48,7 +48,7 @@ export const AuthorCardFull = ({
               </span>
 
               <img
-                src={assetUrl(professor.lastCommit, professor.path, 'profile.webp')}
+                src={assetUrl(professor.path, 'profile.webp')}
                 alt={professor?.name}
                 className="size-32 rounded-full z-10  object-cover [overflow-clip-margin:_unset]"
               />

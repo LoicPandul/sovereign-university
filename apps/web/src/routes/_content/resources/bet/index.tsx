@@ -143,7 +143,7 @@ function BET() {
                       builder: bet.builder || '',
                       downloadUrl: bet.downloadUrl,
                       viewurls: bet.viewurls,
-                      logo: assetUrl(bet.lastCommit, bet.path, 'logo.webp'),
+                      logo: assetUrl(bet.path, 'logo.webp'),
                     };
                   }) || []
               }
@@ -170,7 +170,7 @@ function BET() {
                       builder: bet.builder || '',
                       downloadUrl: bet.downloadUrl,
                       viewurls: bet.viewurls,
-                      logo: assetUrl(bet.lastCommit, bet.path, 'logo.webp'),
+                      logo: assetUrl(bet.path, 'logo.webp'),
                     };
                   }) || []
               }

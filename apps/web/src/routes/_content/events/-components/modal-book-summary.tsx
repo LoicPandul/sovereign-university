@@ -50,7 +50,7 @@ export const ModalBookSummary = ({
         )}
       >
         <img
-          src={assetUrl(event.lastCommit, event.path, 'thumbnail.webp')}
+          src={assetUrl(event.path, 'thumbnail.webp')}
           alt={event.name ? event.name : ''}
           className="rounded-2xl mb-4 object-cover aspect-[432/308] w-full"
         />

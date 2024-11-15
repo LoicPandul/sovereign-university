@@ -15,7 +15,7 @@ interface BCertificateResult {
 
 export const createProcessResultFile = (transaction: TransactionSql) => {
   return async (bcertId: string, file: ChangedFile) => {
-    const parsed = yamlToObject<BCertificateResult>(file.data);
+    const parsed = await yamlToObject<BCertificateResult>(file);
 
     const uid = await transaction<Array<Pick<UserAccount, 'uid'>>>`
           SELECT uid FROM users.accounts WHERE username = LOWER( ${parsed.username} )
@@ -58,6 +58,8 @@ export const createProcessTimestampFile = (
   s3: S3Service,
 ) => {
   return async (file: ChangedFile, bcertEdition: string, bcertId: string) => {
+    const fileBuffer = await file.load();
+
     // file.path => results/03f15fce2e/bitcoin_certificate-signed.pdf
     const userName = file.path.split('/').slice(1, 2).join('/');
     const fileName = file.path.split('/').slice(2, 3).join('/');
@@ -96,13 +98,13 @@ export const createProcessTimestampFile = (
       }
     }
 
-    const fileBufferCopy1 = Buffer.from(file.data);
+    const fileBufferCopy1 = Buffer.from(fileBuffer);
     await s3.put(filePath, fileBufferCopy1, mimeType);
     console.log('put on s3', filePath);
 
     ////
     if (fileType === 'pdf') {
-      const fileBufferCopy2 = Buffer.from(file.data);
+      const fileBufferCopy2 = Buffer.from(fileBuffer);
       const thumbnail = await createPngFromFirstPage(fileBufferCopy2);
       if (!thumbnail) {
         console.warn('No thumbnail found for', filePath);

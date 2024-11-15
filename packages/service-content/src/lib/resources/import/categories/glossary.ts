@@ -49,7 +49,7 @@ export const createProcessChangedGlossaryWord = (
         }
 
         try {
-          const parsedWord = yamlToObject<GlossaryWordMain>(main.data);
+          const parsedWord = await yamlToObject<GlossaryWordMain>(main);
           // TODO remove when data fixed
           if (parsedWord.original_language === undefined) {
             parsedWord.original_language = '';
@@ -99,7 +99,7 @@ export const createProcessChangedGlossaryWord = (
 
         for (const file of files) {
           try {
-            const header = matter(file.data, {
+            const header = matter(await file.load(), {
               excerpt: false,
             });
 

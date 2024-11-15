@@ -20,7 +20,7 @@ export const createProcessMainFile = (transaction: TransactionSql) => {
     if (!file) return;
 
     // Only get the tags from the main quiz file
-    const parsedQuizQuestion = yamlToObject<QuizQuestionMain>(file.data);
+    const parsedQuizQuestion = await yamlToObject<QuizQuestionMain>(file);
 
     const lastUpdated = quizQuestion.files.sort((a, b) => b.time - a.time)[0];
 

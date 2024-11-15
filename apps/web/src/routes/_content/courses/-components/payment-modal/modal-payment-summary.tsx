@@ -91,7 +91,7 @@ export const ModalPaymentSummary = ({
         </span>
         <div className={cn('rounded-2xl w-full mb-5 lg:mb-8', borderClassName)}>
           <img
-            src={assetUrl(course.lastCommit, `courses/${course.id}`, 'thumbnail.webp')}
+            src={assetUrl(`courses/${course.id}`, 'thumbnail.webp')}
             alt={courseName}
           />
         </div>
@@ -151,7 +151,6 @@ export const ModalPaymentSummary = ({
         {/* <a
           className="flex items-center justify-center w-full px-4 py-2 text-white text-xs lg:text-sm leading-none lg:leading-relaxed bg-newGray-3 lg:bg-white/25 lg:backdrop-blur-md rounded-lg"
           href={computeAssetCdnUrl(
-            course.lastCommit,
             `courses/${course.id}/assets/curriculum.pdf`,
           )}
           target="_blank"

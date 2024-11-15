@@ -104,7 +104,9 @@ function Book() {
                   <img
                     className="md:w-[367px]  max-h-[229px] md:max-h-max mx-auto object-cover [overflow-clip-margin:_unset] rounded-[10px] lg:max-w-[347px] md:mx-0 lg:rounded-[22px]"
                     alt={t('imagesAlt.bookCover')}
-                    src={book.cover ? assetUrl(book.lastCommit, book.path, book.cover) : undefined}
+                    src={
+                      book.cover ? assetUrl(book.path, book.cover) : undefined
+                    }
                   />
                 </div>
 
@@ -162,7 +164,8 @@ function Book() {
               suggestedBooks
                 ?.filter((book) => book.id !== params.bookId)
                 .map((book) => {
-                  const isBook = 'title' in book && 'cover' in book && book.cover;
+                  const isBook =
+                    'title' in book && 'cover' in book && book.cover;
                   if (isBook) {
                     return (
                       <CarouselItem
@@ -174,7 +177,10 @@ function Book() {
                             <img
                               className="max-h-72 sm:max-h-96 size-full object-cover rounded-[10px]"
                               alt={book.title}
-                              src={assetUrl(book.lastCommit, book.path, book.cover ?? 'unreachable')}
+                              src={assetUrl(
+                                book.path,
+                                book.cover ?? 'unreachable',
+                              )}
                             />
                             <div
                               className="absolute inset-0 -bottom-px rounded-[10px]"

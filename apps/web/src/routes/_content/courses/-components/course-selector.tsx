@@ -130,7 +130,7 @@ export const CourseSelector = ({ courses }: { courses: JoinedCourse[] }) => {
               <h4 className="desktop-h4 mb-6">{activeCourse.name}</h4>
 
               <img
-                src={assetUrl(activeCourse.lastCommit, `courses/${activeCourse.id}`, 'thumbnail.webp')}
+                src={assetUrl(`courses/${activeCourse.id}`, 'thumbnail.webp')}
                 alt={activeCourse.name}
                 className="rounded-md mb-6"
               />
@@ -202,7 +202,10 @@ export const CourseSelector = ({ courses }: { courses: JoinedCourse[] }) => {
                         </summary>
                         <article className="flex flex-col gap-4 mt-2.5">
                           <img
-                            src={assetUrl(course.lastCommit, `courses/${course.id}`, 'thumbnail.webp')}
+                            src={assetUrl(
+                              `courses/${course.id}`,
+                              'thumbnail.webp',
+                            )}
                             alt={course.name}
                             className="rounded-md"
                           />

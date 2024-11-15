@@ -1,3 +1,5 @@
+export type LazyLoader = () => Promise<Buffer>;
+
 /**
  * Changed content in a repository (agnostic to the repository)
  */
@@ -11,5 +13,5 @@ export interface ChangedFile {
   /** Commit timestamp */
   time: number;
   /** Raw data */
-  data: Buffer;
+  load: LazyLoader;
 }

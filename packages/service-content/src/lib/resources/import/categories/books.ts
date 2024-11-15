@@ -71,7 +71,7 @@ export const createProcessChangedBook = (
 
         let parsedBook: BookMain | null = null;
         try {
-          parsedBook = yamlToObject<BookMain>(main.data);
+          parsedBook = await yamlToObject<BookMain>(main);
 
           const result = await transaction<Book[]>`
               INSERT INTO content.books (resource_id, author, level, website_url, original_language)
@@ -113,7 +113,7 @@ export const createProcessChangedBook = (
 
         for (const file of files) {
           try {
-            const parsed = yamlToObject<BookLocal>(file.data);
+            const parsed = await yamlToObject<BookLocal>(file);
 
             await transaction`
               INSERT INTO content.books_localized (
