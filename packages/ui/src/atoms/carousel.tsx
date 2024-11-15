@@ -3,8 +3,8 @@
 import useEmblaCarousel, {
   type UseEmblaCarouselType,
 } from 'embla-carousel-react';
-import { ArrowLeft, ArrowRight } from 'lucide-react';
 import * as React from 'react';
+import { MdKeyboardArrowLeft, MdKeyboardArrowRight } from 'react-icons/md';
 
 import { cn } from '@blms/ui';
 
@@ -198,7 +198,7 @@ CarouselItem.displayName = 'CarouselItem';
 const CarouselPrevious = React.forwardRef<
   HTMLButtonElement,
   React.ComponentProps<typeof Button>
->(({ className, variant = 'primary', size = 's', ...props }, ref) => {
+>(({ className, variant = 'carousel', size = 's', ...props }, ref) => {
   const { orientation, scrollPrev, canScrollPrev } = useCarousel();
   return (
     <Button
@@ -216,7 +216,7 @@ const CarouselPrevious = React.forwardRef<
       onClick={scrollPrev}
       {...props}
     >
-      <ArrowLeft className="size-4" />
+      <MdKeyboardArrowLeft size={20} />
       <span className="sr-only">Previous slide</span>
     </Button>
   );
@@ -226,7 +226,7 @@ CarouselPrevious.displayName = 'CarouselPrevious';
 const CarouselNext = React.forwardRef<
   HTMLButtonElement,
   React.ComponentProps<typeof Button>
->(({ className, variant = 'primary', size = 's', ...props }, ref) => {
+>(({ className, variant = 'carousel', size = 's', ...props }, ref) => {
   const { orientation, scrollNext, canScrollNext } = useCarousel();
 
   return (
@@ -245,7 +245,7 @@ const CarouselNext = React.forwardRef<
       onClick={scrollNext}
       {...props}
     >
-      <ArrowRight className="size-4" />
+      <MdKeyboardArrowRight size={20} />
       <span className="sr-only">Next slide</span>
     </Button>
   );

@@ -6,6 +6,7 @@ import {
   joinedBuilderSchema,
   joinedConferenceSchema,
   joinedGlossaryWordSchema,
+  joinedNewsletterSchema,
   joinedPodcastSchema,
 } from '@blms/schemas';
 import {
@@ -18,6 +19,8 @@ import {
   createGetConferences,
   createGetGlossaryWord,
   createGetGlossaryWords,
+  createGetNewsletter,
+  createGetNewsletters,
   createGetPodcast,
   createGetPodcasts,
 } from '@blms/service-content';
@@ -27,6 +30,7 @@ import type {
   JoinedBuilder,
   JoinedConference,
   JoinedGlossaryWord,
+  JoinedNewsletter,
   JoinedPodcast,
 } from '@blms/types';
 
@@ -102,6 +106,17 @@ export const resourcesRouter = createTRPCRouter({
         input.strId,
         input.language,
       );
+    }),
+  //Newsletters
+  getNewsletters: createGetResourcesProcedure()
+    .output<Parser<JoinedNewsletter[]>>(joinedNewsletterSchema.array())
+    .query(({ ctx, input }) => {
+      return createGetNewsletters(ctx.dependencies)(input?.language ?? 'en');
+    }),
+  getNewsletter: createGetResourceProcedure()
+    .output<Parser<JoinedNewsletter>>(joinedNewsletterSchema)
+    .query(({ ctx, input }) => {
+      return createGetNewsletter(ctx.dependencies)(input.id, input.language);
     }),
   // Podcasts
   getPodcasts: createGetResourcesProcedure()

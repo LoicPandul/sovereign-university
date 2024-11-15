@@ -5,14 +5,7 @@ import { CategoryIcon } from '#src/components/category-icon.js';
 import { capitalizeFirstWord } from '#src/utils/string.js';
 
 interface ResourcesDropdownItemProps {
-  name:
-    | 'books'
-    | 'podcasts'
-    | 'builders'
-    | 'conferences'
-    | 'bet'
-    | 'glossary'
-    | 'newsletter';
+  name: 'books' | 'podcasts' | 'builders' | 'conferences' | 'bet' | 'glossary';
   imageSrc: string;
 }
 

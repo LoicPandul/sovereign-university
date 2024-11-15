@@ -507,6 +507,27 @@ export const contentLegalsLocalized = content.table(
   }),
 );
 
+// NEWSLETTER
+
+export const contentNewsletters = content.table('newsletters', (t) => ({
+  resourceId: t
+    .integer()
+    .primaryKey()
+    .notNull()
+    .references(() => contentResources.id, { onDelete: 'cascade' }),
+
+  id: t.uuid().unique().notNull(),
+  level: t.varchar({ length: 255 }),
+  author: t.text().notNull(),
+  websiteUrl: t.text(),
+  publication_date: t.text(),
+  title: t.text().notNull(),
+  tags: t.text().array(),
+  contributors: t.text().array(),
+  language: t.varchar({ length: 10 }).notNull(),
+  description: t.text(),
+}));
+
 // PODCASTS
 
 export const contentPodcasts = content.table('podcasts', (t) => ({

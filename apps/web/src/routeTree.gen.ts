@@ -34,6 +34,7 @@ import { Route as ContentMiscBCertificateImport } from './routes/_content/_misc/
 import { Route as ContentMiscAboutImport } from './routes/_content/_misc/about';
 import { Route as ContentTutorialsCategoryIndexImport } from './routes/_content/tutorials/$category/index';
 import { Route as ContentResourcesPodcastsIndexImport } from './routes/_content/resources/podcasts/index';
+import { Route as ContentResourcesNewslettersIndexImport } from './routes/_content/resources/newsletters/index';
 import { Route as ContentResourcesGlossaryIndexImport } from './routes/_content/resources/glossary/index';
 import { Route as ContentResourcesConferencesIndexImport } from './routes/_content/resources/conferences/index';
 import { Route as ContentResourcesBuildersIndexImport } from './routes/_content/resources/builders/index';
@@ -48,6 +49,7 @@ import { Route as DashboardDashboardCourseCompletedImport } from './routes/dashb
 import { Route as DashboardDashboardCourseCourseIdImport } from './routes/dashboard/_dashboard/course/$courseId';
 import { Route as ContentTutorialsCategoryNameImport } from './routes/_content/tutorials/$category/$name';
 import { Route as ContentResourcesPodcastsPodcastNamePodcastIdImport } from './routes/_content/resources/podcasts/$podcastName-$podcastId';
+import { Route as ContentResourcesNewslettersNewsletterNameNewsletterIdImport } from './routes/_content/resources/newsletters/$newsletterName-$newsletterId';
 import { Route as ContentResourcesGlossaryWordIdImport } from './routes/_content/resources/glossary/$wordId';
 import { Route as ContentResourcesConferencesConferenceNameConferenceIdImport } from './routes/_content/resources/conferences/$conferenceName-$conferenceId';
 import { Route as ContentResourcesBuildersBuilderNameBuilderIdImport } from './routes/_content/resources/builders/$builderName-$builderId';
@@ -213,6 +215,13 @@ const ContentResourcesPodcastsIndexRoute =
     getParentRoute: () => rootRoute,
   } as any);
 
+const ContentResourcesNewslettersIndexRoute =
+  ContentResourcesNewslettersIndexImport.update({
+    id: '/_content/resources/newsletters/',
+    path: '/resources/newsletters/',
+    getParentRoute: () => rootRoute,
+  } as any);
+
 const ContentResourcesGlossaryIndexRoute =
   ContentResourcesGlossaryIndexImport.update({
     id: '/_content/resources/glossary/',
@@ -309,6 +318,13 @@ const ContentResourcesPodcastsPodcastNamePodcastIdRoute =
   ContentResourcesPodcastsPodcastNamePodcastIdImport.update({
     id: '/_content/resources/podcasts/$podcastName-$podcastId',
     path: '/resources/podcasts/$podcastName-$podcastId',
+    getParentRoute: () => rootRoute,
+  } as any);
+
+const ContentResourcesNewslettersNewsletterNameNewsletterIdRoute =
+  ContentResourcesNewslettersNewsletterNameNewsletterIdImport.update({
+    id: '/_content/resources/newsletters/$newsletterName-$newsletterId',
+    path: '/resources/newsletters/$newsletterName-$newsletterId',
     getParentRoute: () => rootRoute,
   } as any);
 
@@ -652,6 +668,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ContentResourcesGlossaryWordIdImport;
       parentRoute: typeof rootRoute;
     };
+    '/_content/resources/newsletters/$newsletterName-$newsletterId': {
+      id: '/_content/resources/newsletters/$newsletterName-$newsletterId';
+      path: '/resources/newsletters/$newsletterName-$newsletterId';
+      fullPath: '/resources/newsletters/$newsletterName-$newsletterId';
+      preLoaderRoute: typeof ContentResourcesNewslettersNewsletterNameNewsletterIdImport;
+      parentRoute: typeof rootRoute;
+    };
     '/_content/resources/podcasts/$podcastName-$podcastId': {
       id: '/_content/resources/podcasts/$podcastName-$podcastId';
       path: '/resources/podcasts/$podcastName-$podcastId';
@@ -748,6 +771,13 @@ declare module '@tanstack/react-router' {
       path: '/resources/glossary';
       fullPath: '/resources/glossary';
       preLoaderRoute: typeof ContentResourcesGlossaryIndexImport;
+      parentRoute: typeof rootRoute;
+    };
+    '/_content/resources/newsletters/': {
+      id: '/_content/resources/newsletters/';
+      path: '/resources/newsletters';
+      fullPath: '/resources/newsletters';
+      preLoaderRoute: typeof ContentResourcesNewslettersIndexImport;
       parentRoute: typeof rootRoute;
     };
     '/_content/resources/podcasts/': {
@@ -904,6 +934,7 @@ export interface FileRoutesByFullPath {
   '/resources/builders/$builderName-$builderId': typeof ContentResourcesBuildersBuilderNameBuilderIdRoute;
   '/resources/conferences/$conferenceName-$conferenceId': typeof ContentResourcesConferencesConferenceNameConferenceIdRoute;
   '/resources/glossary/$wordId': typeof ContentResourcesGlossaryWordIdRoute;
+  '/resources/newsletters/$newsletterName-$newsletterId': typeof ContentResourcesNewslettersNewsletterNameNewsletterIdRoute;
   '/resources/podcasts/$podcastName-$podcastId': typeof ContentResourcesPodcastsPodcastNamePodcastIdRoute;
   '/tutorials/$category/$name': typeof ContentTutorialsCategoryNameRoute;
   '/dashboard/course/$courseId': typeof DashboardDashboardCourseCourseIdRoute;
@@ -918,6 +949,7 @@ export interface FileRoutesByFullPath {
   '/resources/builders': typeof ContentResourcesBuildersIndexRoute;
   '/resources/conferences': typeof ContentResourcesConferencesIndexRoute;
   '/resources/glossary': typeof ContentResourcesGlossaryIndexRoute;
+  '/resources/newsletters': typeof ContentResourcesNewslettersIndexRoute;
   '/resources/podcasts': typeof ContentResourcesPodcastsIndexRoute;
   '/tutorials/$category': typeof ContentTutorialsCategoryIndexRoute;
   '/public-communication/legals/$name': typeof ContentMiscPublicCommunicationLegalsNameRoute;
@@ -958,6 +990,7 @@ export interface FileRoutesByTo {
   '/resources/builders/$builderName-$builderId': typeof ContentResourcesBuildersBuilderNameBuilderIdRoute;
   '/resources/conferences/$conferenceName-$conferenceId': typeof ContentResourcesConferencesConferenceNameConferenceIdRoute;
   '/resources/glossary/$wordId': typeof ContentResourcesGlossaryWordIdRoute;
+  '/resources/newsletters/$newsletterName-$newsletterId': typeof ContentResourcesNewslettersNewsletterNameNewsletterIdRoute;
   '/resources/podcasts/$podcastName-$podcastId': typeof ContentResourcesPodcastsPodcastNamePodcastIdRoute;
   '/tutorials/$category/$name': typeof ContentTutorialsCategoryNameRoute;
   '/dashboard/course/$courseId': typeof DashboardDashboardCourseCourseIdRoute;
@@ -972,6 +1005,7 @@ export interface FileRoutesByTo {
   '/resources/builders': typeof ContentResourcesBuildersIndexRoute;
   '/resources/conferences': typeof ContentResourcesConferencesIndexRoute;
   '/resources/glossary': typeof ContentResourcesGlossaryIndexRoute;
+  '/resources/newsletters': typeof ContentResourcesNewslettersIndexRoute;
   '/resources/podcasts': typeof ContentResourcesPodcastsIndexRoute;
   '/tutorials/$category': typeof ContentTutorialsCategoryIndexRoute;
   '/public-communication/legals/$name': typeof ContentMiscPublicCommunicationLegalsNameRoute;
@@ -1015,6 +1049,7 @@ export interface FileRoutesById {
   '/_content/resources/builders/$builderName-$builderId': typeof ContentResourcesBuildersBuilderNameBuilderIdRoute;
   '/_content/resources/conferences/$conferenceName-$conferenceId': typeof ContentResourcesConferencesConferenceNameConferenceIdRoute;
   '/_content/resources/glossary/$wordId': typeof ContentResourcesGlossaryWordIdRoute;
+  '/_content/resources/newsletters/$newsletterName-$newsletterId': typeof ContentResourcesNewslettersNewsletterNameNewsletterIdRoute;
   '/_content/resources/podcasts/$podcastName-$podcastId': typeof ContentResourcesPodcastsPodcastNamePodcastIdRoute;
   '/_content/tutorials/$category/$name': typeof ContentTutorialsCategoryNameRoute;
   '/dashboard/_dashboard/course/$courseId': typeof DashboardDashboardCourseCourseIdRoute;
@@ -1029,6 +1064,7 @@ export interface FileRoutesById {
   '/_content/resources/builders/': typeof ContentResourcesBuildersIndexRoute;
   '/_content/resources/conferences/': typeof ContentResourcesConferencesIndexRoute;
   '/_content/resources/glossary/': typeof ContentResourcesGlossaryIndexRoute;
+  '/_content/resources/newsletters/': typeof ContentResourcesNewslettersIndexRoute;
   '/_content/resources/podcasts/': typeof ContentResourcesPodcastsIndexRoute;
   '/_content/tutorials/$category/': typeof ContentTutorialsCategoryIndexRoute;
   '/_content/_misc/public-communication/legals/$name': typeof ContentMiscPublicCommunicationLegalsNameRoute;
@@ -1072,6 +1108,7 @@ export interface FileRouteTypes {
     | '/resources/builders/$builderName-$builderId'
     | '/resources/conferences/$conferenceName-$conferenceId'
     | '/resources/glossary/$wordId'
+    | '/resources/newsletters/$newsletterName-$newsletterId'
     | '/resources/podcasts/$podcastName-$podcastId'
     | '/tutorials/$category/$name'
     | '/dashboard/course/$courseId'
@@ -1086,6 +1123,7 @@ export interface FileRouteTypes {
     | '/resources/builders'
     | '/resources/conferences'
     | '/resources/glossary'
+    | '/resources/newsletters'
     | '/resources/podcasts'
     | '/tutorials/$category'
     | '/public-communication/legals/$name'
@@ -1125,6 +1163,7 @@ export interface FileRouteTypes {
     | '/resources/builders/$builderName-$builderId'
     | '/resources/conferences/$conferenceName-$conferenceId'
     | '/resources/glossary/$wordId'
+    | '/resources/newsletters/$newsletterName-$newsletterId'
     | '/resources/podcasts/$podcastName-$podcastId'
     | '/tutorials/$category/$name'
     | '/dashboard/course/$courseId'
@@ -1139,6 +1178,7 @@ export interface FileRouteTypes {
     | '/resources/builders'
     | '/resources/conferences'
     | '/resources/glossary'
+    | '/resources/newsletters'
     | '/resources/podcasts'
     | '/tutorials/$category'
     | '/public-communication/legals/$name'
@@ -1180,6 +1220,7 @@ export interface FileRouteTypes {
     | '/_content/resources/builders/$builderName-$builderId'
     | '/_content/resources/conferences/$conferenceName-$conferenceId'
     | '/_content/resources/glossary/$wordId'
+    | '/_content/resources/newsletters/$newsletterName-$newsletterId'
     | '/_content/resources/podcasts/$podcastName-$podcastId'
     | '/_content/tutorials/$category/$name'
     | '/dashboard/_dashboard/course/$courseId'
@@ -1194,6 +1235,7 @@ export interface FileRouteTypes {
     | '/_content/resources/builders/'
     | '/_content/resources/conferences/'
     | '/_content/resources/glossary/'
+    | '/_content/resources/newsletters/'
     | '/_content/resources/podcasts/'
     | '/_content/tutorials/$category/'
     | '/_content/_misc/public-communication/legals/$name'
@@ -1230,6 +1272,7 @@ export interface RootRouteChildren {
   ContentResourcesBuildersBuilderNameBuilderIdRoute: typeof ContentResourcesBuildersBuilderNameBuilderIdRoute;
   ContentResourcesConferencesConferenceNameConferenceIdRoute: typeof ContentResourcesConferencesConferenceNameConferenceIdRoute;
   ContentResourcesGlossaryWordIdRoute: typeof ContentResourcesGlossaryWordIdRoute;
+  ContentResourcesNewslettersNewsletterNameNewsletterIdRoute: typeof ContentResourcesNewslettersNewsletterNameNewsletterIdRoute;
   ContentResourcesPodcastsPodcastNamePodcastIdRoute: typeof ContentResourcesPodcastsPodcastNamePodcastIdRoute;
   ContentTutorialsCategoryNameRoute: typeof ContentTutorialsCategoryNameRoute;
   ContentMiscProfessorsIndexRoute: typeof ContentMiscProfessorsIndexRoute;
@@ -1240,6 +1283,7 @@ export interface RootRouteChildren {
   ContentResourcesBuildersIndexRoute: typeof ContentResourcesBuildersIndexRoute;
   ContentResourcesConferencesIndexRoute: typeof ContentResourcesConferencesIndexRoute;
   ContentResourcesGlossaryIndexRoute: typeof ContentResourcesGlossaryIndexRoute;
+  ContentResourcesNewslettersIndexRoute: typeof ContentResourcesNewslettersIndexRoute;
   ContentResourcesPodcastsIndexRoute: typeof ContentResourcesPodcastsIndexRoute;
   ContentTutorialsCategoryIndexRoute: typeof ContentTutorialsCategoryIndexRoute;
   ContentMiscProfessorsCategoryIndexRoute: typeof ContentMiscProfessorsCategoryIndexRoute;
@@ -1280,6 +1324,8 @@ const rootRouteChildren: RootRouteChildren = {
   ContentResourcesConferencesConferenceNameConferenceIdRoute:
     ContentResourcesConferencesConferenceNameConferenceIdRoute,
   ContentResourcesGlossaryWordIdRoute: ContentResourcesGlossaryWordIdRoute,
+  ContentResourcesNewslettersNewsletterNameNewsletterIdRoute:
+    ContentResourcesNewslettersNewsletterNameNewsletterIdRoute,
   ContentResourcesPodcastsPodcastNamePodcastIdRoute:
     ContentResourcesPodcastsPodcastNamePodcastIdRoute,
   ContentTutorialsCategoryNameRoute: ContentTutorialsCategoryNameRoute,
@@ -1292,6 +1338,7 @@ const rootRouteChildren: RootRouteChildren = {
   ContentResourcesBuildersIndexRoute: ContentResourcesBuildersIndexRoute,
   ContentResourcesConferencesIndexRoute: ContentResourcesConferencesIndexRoute,
   ContentResourcesGlossaryIndexRoute: ContentResourcesGlossaryIndexRoute,
+  ContentResourcesNewslettersIndexRoute: ContentResourcesNewslettersIndexRoute,
   ContentResourcesPodcastsIndexRoute: ContentResourcesPodcastsIndexRoute,
   ContentTutorialsCategoryIndexRoute: ContentTutorialsCategoryIndexRoute,
   ContentMiscProfessorsCategoryIndexRoute:
@@ -1338,6 +1385,7 @@ export const routeTree = rootRoute
         "/_content/resources/builders/$builderName-$builderId",
         "/_content/resources/conferences/$conferenceName-$conferenceId",
         "/_content/resources/glossary/$wordId",
+        "/_content/resources/newsletters/$newsletterName-$newsletterId",
         "/_content/resources/podcasts/$podcastName-$podcastId",
         "/_content/tutorials/$category/$name",
         "/_content/_misc/professors/",
@@ -1348,6 +1396,7 @@ export const routeTree = rootRoute
         "/_content/resources/builders/",
         "/_content/resources/conferences/",
         "/_content/resources/glossary/",
+        "/_content/resources/newsletters/",
         "/_content/resources/podcasts/",
         "/_content/tutorials/$category/",
         "/_content/_misc/professors/$category/",
@@ -1475,6 +1524,9 @@ export const routeTree = rootRoute
     "/_content/resources/glossary/$wordId": {
       "filePath": "_content/resources/glossary/$wordId.tsx"
     },
+    "/_content/resources/newsletters/$newsletterName-$newsletterId": {
+      "filePath": "_content/resources/newsletters/$newsletterName-$newsletterId.tsx"
+    },
     "/_content/resources/podcasts/$podcastName-$podcastId": {
       "filePath": "_content/resources/podcasts/$podcastName-$podcastId.tsx"
     },
@@ -1520,6 +1572,9 @@ export const routeTree = rootRoute
     },
     "/_content/resources/glossary/": {
       "filePath": "_content/resources/glossary/index.tsx"
+    },
+    "/_content/resources/newsletters/": {
+      "filePath": "_content/resources/newsletters/index.tsx"
     },
     "/_content/resources/podcasts/": {
       "filePath": "_content/resources/podcasts/index.tsx"
