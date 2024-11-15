@@ -10,3 +10,5 @@ export {
   createRefreshCoursesRatings,
   createRefreshCourseRating,
 } from './refresh-courses-ratings.js';
+export { createCheckCourseAccess } from './check-course-access.js';
+export { createCheckChapterAccess } from './check-chapter-access.js';
