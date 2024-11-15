@@ -163,6 +163,8 @@ function Book() {
             {isFetchedSuggestedBooks ? (
               suggestedBooks
                 ?.filter((book) => book.id !== params.bookId)
+                .sort(() => Math.random() - 0.5)
+                .slice(0, 10)
                 .map((book) => {
                   const isBook =
                     'title' in book && 'cover' in book && book.cover;
