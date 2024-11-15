@@ -154,42 +154,45 @@ function Podcast() {
         <Carousel>
           <CarouselContent>
             {isFetchedSuggested ? (
-              filteredSuggestedPodcasts?.map((podcast) => {
-                const isPodcast = 'name' in podcast;
-                if (isPodcast) {
-                  return (
-                    <CarouselItem
-                      key={podcast.id}
-                      className="text-white basis-1/2 md:basis-1/2 lg:basis-1/4 relative bg-gradient-to-r w-full max-w-[282px] max-h-[350px] rounded-[22px]"
-                    >
-                      <Link to={`/resources/podcasts/${podcast.id}`}>
-                        <div className="relative h-full">
-                          <img
-                            className="max-h-72 sm:max-h-96 size-full object-cover rounded-[10px]"
-                            alt={podcast.name}
-                            src={assetUrl(podcast.path, 'logo.webp')}
-                          />
-                          <div
-                            className="absolute inset-0 -bottom-px rounded-[10px]"
-                            style={{
-                              background: `linear-gradient(360deg, rgba(40, 33, 33, 0.90) 10%, rgba(0, 0, 0, 0.00) 60%),
+              filteredSuggestedPodcasts
+                ?.sort(() => Math.random() - 0.5)
+                .slice(0, 10)
+                .map((podcast) => {
+                  const isPodcast = 'name' in podcast;
+                  if (isPodcast) {
+                    return (
+                      <CarouselItem
+                        key={podcast.id}
+                        className="text-white basis-1/2 md:basis-1/2 lg:basis-1/4 relative bg-gradient-to-r w-full max-w-[282px] max-h-[350px] rounded-[22px]"
+                      >
+                        <Link to={`/resources/podcasts/${podcast.id}`}>
+                          <div className="relative h-full">
+                            <img
+                              className="max-h-72 sm:max-h-96 size-full object-cover rounded-[10px]"
+                              alt={podcast.name}
+                              src={assetUrl(podcast.path, 'logo.webp')}
+                            />
+                            <div
+                              className="absolute inset-0 -bottom-px rounded-[10px]"
+                              style={{
+                                background: `linear-gradient(360deg, rgba(40, 33, 33, 0.90) 10%, rgba(0, 0, 0, 0.00) 60%),
                                 linear-gradient(0deg, rgba(57, 53, 49, 0.20) 0%, rgba(57, 53, 49, 0.20) 100%)`,
-                              backgroundSize: '153.647% 100%',
-                              backgroundPosition: '-5.216px 0px',
-                              backgroundRepeat: 'no-repeat',
-                            }}
-                          />
-                        </div>
+                                backgroundSize: '153.647% 100%',
+                                backgroundPosition: '-5.216px 0px',
+                                backgroundRepeat: 'no-repeat',
+                              }}
+                            />
+                          </div>
 
-                        <h3 className="absolute px-2 lg:px-4 body-14px lg:title-large-24px mb-1 lg:mb-5 bottom-px line-clamp-2">
-                          {podcast.name}
-                        </h3>
-                      </Link>
-                    </CarouselItem>
-                  );
-                }
-                return null;
-              })
+                          <h3 className="absolute px-2 lg:px-4 body-14px lg:title-large-24px mb-1 lg:mb-5 bottom-px line-clamp-2">
+                            {podcast.name}
+                          </h3>
+                        </Link>
+                      </CarouselItem>
+                    );
+                  }
+                  return null;
+                })
             ) : (
               <Loader size={'s'} />
             )}
