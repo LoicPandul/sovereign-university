@@ -56,8 +56,8 @@ export const NavigationPanel: React.FC<Props> = ({
   style,
 }: Props) => {
   return (
-    <div
-      className="bg-white z-10 w-full max-w-[270px] max-h-[80lvh] rounded-b-2xl border border-darkOrange-0 pt-4 pb-7 px-2.5 shadow-course-navigation overflow-y-scroll scrollbar-light"
+    <aside
+      className="bg-white z-10 w-full max-w-[270px] max-h-[80lvh] rounded-b-2xl border border-darkOrange-0 pt-4 pb-7 px-2.5 shadow-course-navigation overflow-y-auto scrollbar-light"
       style={style}
     >
       <Link
@@ -156,6 +156,6 @@ export const NavigationPanel: React.FC<Props> = ({
             ))}
         </ul>
       </div>
-    </div>
+    </aside>
   );
 };
