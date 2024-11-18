@@ -53,6 +53,7 @@ export interface JoinedProfessor {
   shortBio: string | null;
   tags: string[];
   coursesCount: number;
+  coursesIds: string[];
   tutorialsCount: number;
   lecturesCount: number;
 }
@@ -72,6 +73,7 @@ export interface FormattedProfessor {
   shortBio: string | null;
   tags: string[];
   coursesCount: number;
+  coursesIds: string[];
   tutorialsCount: number;
   lecturesCount: number;
   links: {
