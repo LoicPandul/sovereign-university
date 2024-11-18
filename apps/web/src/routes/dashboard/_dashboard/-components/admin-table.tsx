@@ -343,7 +343,7 @@ export const AdminTable = ({ userRole }: { userRole: UserRole }) => {
                   {userRole === 'student' && (
                     <TableCell>
                       <Button
-                        size={isMobile ? 'xs' : 'm'}
+                        size={isMobile ? 'xs' : 's'}
                         onClick={() => {
                           const selectedProfessor =
                             selectedProfessors[user.uid];
