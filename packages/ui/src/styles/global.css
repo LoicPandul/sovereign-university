@@ -248,6 +248,10 @@
     @apply text-xs font-medium leading-[143%] tracking-[0.17px];
   }
 
+  .body-semibold-12px {
+    @apply text-xs font-semibold leading-[143%] tracking-[0.17px];
+  }
+
   .body-14px {
     @apply text-sm font-normal leading-[143%] tracking-[0.17px];
   }

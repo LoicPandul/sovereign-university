@@ -28,12 +28,17 @@ export const CoursesGallery = ({ courses }: { courses: JoinedCourse[] }) => {
 
   const [activeTopics, setActiveTopics] = useState<string[]>(['all']);
   const [activeLevels, setActiveLevels] = useState<string[]>(['all']);
-  const [filteredCourses, setFilteredCourses] = useState(courses);
+  const [filteredCourses, setFilteredCourses] = useState<JoinedCourse[]>([]);
   const [searchQuery, setSearchQuery] = useState('');
-
+  const featuredCourseId = 'btc101';
   useEffect(() => {
+    const reorderedCourses = [
+      ...courses.filter((course) => course.id === featuredCourseId),
+      ...courses.filter((course) => course.id !== featuredCourseId),
+    ];
+
     setFilteredCourses(
-      courses.filter(
+      reorderedCourses.filter(
         (course) =>
           (activeTopics.includes('all') ||
             activeTopics.includes(course.topic)) &&
@@ -51,6 +56,13 @@ export const CoursesGallery = ({ courses }: { courses: JoinedCourse[] }) => {
       toggleSelection(option, activeLevels, setActiveLevels);
     }
   };
+
+  const featuredCourse = filteredCourses.find(
+    (course) => course.id === featuredCourseId,
+  );
+  const otherCourses = filteredCourses.filter(
+    (course) => course.id !== featuredCourseId,
+  );
 
   return (
     <>
@@ -140,17 +152,26 @@ export const CoursesGallery = ({ courses }: { courses: JoinedCourse[] }) => {
       </div>
 
       <section className="flex justify-center gap-5 md:gap-[50px] flex-wrap mt-8 md:mt-12 mb-5 lg:mb-[60px] max-w-[1226px] mx-auto">
-        {filteredCourses.length > 0 &&
-          filteredCourses.map((course) => (
-            <Link
-              key={course.id}
-              to="/courses/$courseId"
-              params={{ courseId: course.id }}
-              className="flex w-full max-md:max-w-[500px] max-md:mx-auto md:w-[340px]"
-            >
-              <CourseCard course={course} />
-            </Link>
-          ))}
+        {featuredCourse && (
+          <Link
+            key={featuredCourse.id}
+            to="/courses/$courseId"
+            params={{ courseId: featuredCourse.id }}
+            className="flex w-full max-md:max-w-[500px] max-md:mx-auto md:w-[340px]"
+          >
+            <CourseCard course={featuredCourse} featured />
+          </Link>
+        )}
+        {otherCourses.map((course) => (
+          <Link
+            key={course.id}
+            to="/courses/$courseId"
+            params={{ courseId: course.id }}
+            className="flex w-full max-md:max-w-[500px] max-md:mx-auto md:w-[340px]"
+          >
+            <CourseCard course={course} />
+          </Link>
+        ))}
       </section>
     </>
   );

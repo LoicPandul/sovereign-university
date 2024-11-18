@@ -9,37 +9,44 @@ import { ListItem } from '#src/components/ListItem/list-item.tsx';
 import { StarRating } from '#src/components/Stars/star-rating.js';
 import { assetUrl } from '#src/utils/index.js';
 
-const courseCardStyles = cva(
-  'group flex flex-col w-full md:h-[472px] p-2.5 overflow-hidden',
-  {
-    variants: {
-      color: {
-        primary: 'bg-tertiary-10',
-      },
-      borderRadius: {
-        courses: 'rounded-[10px] md:rounded-[20px]',
-      },
+const courseCardStyles = cva('group flex flex-col w-full md:h-[472px] p-2.5', {
+  variants: {
+    color: {
+      primary: 'bg-tertiary-10',
+      featured: 'bg-darkOrange-9 border border-darkOrange-5 shadow-sm-section',
     },
-    defaultVariants: {
-      color: 'primary',
-      borderRadius: 'courses',
+    borderRadius: {
+      courses: 'rounded-[10px] md:rounded-[20px]',
     },
   },
-);
+  defaultVariants: {
+    color: 'primary',
+    borderRadius: 'courses',
+  },
+});
 
 export const CourseCard = ({
   course,
-  color,
-  borderRadius,
+  featured = false,
 }: {
   course: JoinedCourse;
-  color?: 'primary';
-  borderRadius?: 'courses';
+  featured?: boolean;
 }) => {
   const maxRating = 5;
 
   return (
-    <article className={courseCardStyles({ color, borderRadius })}>
+    <article
+      className={`${courseCardStyles({
+        color: featured ? 'featured' : 'primary',
+      })} relative`}
+    >
+      {/* Badge for Featured Card */}
+      {featured && (
+        <span className="absolute uppercase -top-px -left-px bg-white border border-white text-black body-semibold-12px md:title-medium-sb-18px rounded-tl-[10px] md:rounded-tl-[20px] rounded-br-[10px] py-[5px] px-2.5 md:py-2.5 md:px-[15px] md:rounded-br-[20px] z-10">
+          {t('words.startHere')}
+        </span>
+      )}
+
       <img
         src={assetUrl(`courses/${course.id}`, 'thumbnail.webp')}
         alt={course.name}
