@@ -70,6 +70,29 @@ export const joinedTutorialCreditSchema = tutorialCreditSchema.merge(
   }),
 );
 
+export const tutorialWithProfessorNameSchema = tutorialSchema
+  .pick({
+    id: true,
+    path: true,
+    name: true,
+    category: true,
+    subcategory: true,
+  })
+  .merge(
+    tutorialLocalizedSchema.pick({
+      language: true,
+      title: true,
+    }),
+  )
+  .merge(
+    z.object({
+      likeCount: z.number(),
+      dislikeCount: z.number(),
+      professorName: z.string().nullable(),
+      professorId: z.number().nullable(),
+    }),
+  );
+
 export const getTutorialResponseSchema = joinedTutorialSchema.merge(
   z.object({
     credits: joinedTutorialCreditSchema

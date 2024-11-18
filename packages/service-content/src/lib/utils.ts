@@ -116,3 +116,7 @@ export const indexBy = <T extends object, K extends keyof T>(
 ): Map<T[K], T> => {
   return new Map<T[K], T>(arr.map((item) => [item[key], item]));
 };
+
+export const camelToSnakeCase = (str: string) => {
+  return str.replaceAll(/([a-z])([A-Z])/g, '$1_$2').toLowerCase();
+};

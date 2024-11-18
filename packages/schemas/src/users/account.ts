@@ -27,7 +27,7 @@ export const userDetailsSchema = userAccountSchema
   .merge(
     z.object({
       professorCourses: z.string().array(),
-      professorTutorials: z.number().array(),
+      professorTutorials: z.string().array(),
     }),
   );
 
