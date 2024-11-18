@@ -230,10 +230,6 @@ function Home() {
           })
       : [];
 
-    if (!filteredCourses || filteredCourses.length === 0) {
-      return <div>No courses found</div>;
-    }
-
     return (
       <section className="max-w-[1080px] mx-auto mt-[30px] lg:mt-[111px] px-4">
         <h2 className="text-white subtitle-large-med-20px lg:display-semibold-40px text-center lg:text-start">
@@ -244,16 +240,18 @@ function Home() {
           stops !
         </p>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-8 justify-center">
-          {filteredCourses.map((course) => (
-            <Link
-              key={course.id}
-              to="/courses/$courseId"
-              params={{ courseId: course.id }}
-              className="flex w-full max-w-[320px] max-md:mx-auto"
-            >
-              <CourseCard key={course.id} course={course} />
-            </Link>
-          ))}
+          {filteredCourses &&
+            filteredCourses.length > 0 &&
+            filteredCourses.map((course) => (
+              <Link
+                key={course.id}
+                to="/courses/$courseId"
+                params={{ courseId: course.id }}
+                className="flex w-full max-w-[320px] max-md:mx-auto"
+              >
+                <CourseCard key={course.id} course={course} />
+              </Link>
+            ))}
         </div>
         <Link to={'/courses'} className="flex justify-center lg:justify-start">
           <Button
