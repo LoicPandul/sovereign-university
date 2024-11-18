@@ -10,7 +10,6 @@ interface MainLayoutProps {
   children: JSX.Element | JSX.Element[];
   variant?: 'light' | 'dark' | 'blue' | 'gray';
   showFooter?: boolean;
-  fillScreen?: boolean;
   headerVariant?: 'light' | 'dark';
   footerVariant?: 'light' | 'dark';
 }
@@ -19,7 +18,6 @@ export const MainLayout = ({
   children,
   variant = 'dark',
   showFooter = true,
-  fillScreen,
   footerVariant,
   headerVariant,
 }: MainLayoutProps) => {
@@ -34,9 +32,8 @@ export const MainLayout = ({
   return (
     <div
       className={cn(
-        'text-white flex flex-col',
+        'text-white flex flex-col min-h-dvh',
         bgColorClasses[variant],
-        fillScreen ? 'min-h-dvh' : '',
       )}
       ref={box}
     >
@@ -44,7 +41,7 @@ export const MainLayout = ({
       <Header variant={headerVariant} />
 
       {/* Content */}
-      <main className="grow">{children}</main>
+      <main className="flex grow flex-col">{children}</main>
 
       {/* Footer */}
       {showFooter && <Footer variant={footerVariant} />}

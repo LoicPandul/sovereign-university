@@ -206,6 +206,9 @@
       "duration": "Duration: {{hours}} hours",
       "goal": "Goal:",
       "inPersonAccess": "You need to download your ticket to access the in-person class.",
+      "premiumContentNeedsLogin": "You need to be logged in to access this course.",
+      "premiumContentNeedsPayment": "This course is part of a paid program.",
+      "premiumContentNeedsPaymentAction": "Go to course homepage",
       "level": "Level: $t(words.level.{{level}})",
       "mobile": {
         "chapters": "{{chapters}} chapters",

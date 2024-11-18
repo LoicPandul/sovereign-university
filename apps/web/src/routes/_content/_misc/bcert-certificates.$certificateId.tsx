@@ -26,7 +26,7 @@ function Certificate() {
   }
 
   return (
-    <MainLayout variant="light" footerVariant="light" fillScreen>
+    <MainLayout variant="light" footerVariant="light">
       <img
         src={`/api/files/${decodeURI(params.certificateId)}.png`}
         alt="Test"

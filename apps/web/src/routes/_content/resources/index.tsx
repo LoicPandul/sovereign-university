@@ -14,7 +14,7 @@ function Resources() {
   const { t } = useTranslation();
 
   return (
-    <MainLayout footerVariant="dark" fillScreen>
+    <MainLayout footerVariant="dark">
       <div className="flex flex-col">
         <PageHeader
           title={t('resources.pageTitle')}

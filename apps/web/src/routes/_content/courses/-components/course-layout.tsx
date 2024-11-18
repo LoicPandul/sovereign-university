@@ -7,7 +7,9 @@ export const CourseLayout = ({
 }) => {
   return (
     <MainLayout variant="light">
-      <div className="w-full bg-white relative">{children}</div>
+      <div className="flex flex-col grow w-full bg-white relative">
+        {children}
+      </div>
     </MainLayout>
   );
 };

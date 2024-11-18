@@ -19,7 +19,7 @@ function Certificate() {
   const params = Route.useParams();
 
   return (
-    <MainLayout variant="light" footerVariant="light" fillScreen>
+    <MainLayout variant="light" footerVariant="light">
       <img
         src={`/api/files/certificates/${params.certificateId}.png`}
         alt="Test"
