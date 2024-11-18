@@ -71,9 +71,9 @@ const getEventPaymentsProcedure = studentProcedure
       .optional(),
   )
   .output<Parser<EventPayment[]>>(eventPaymentSchema.array())
-  .query(async ({ ctx }) =>
-    createGetEventPayments(ctx.dependencies)({ uid: ctx.user.uid }),
-  );
+  .query(({ ctx }) => {
+    return createGetEventPayments(ctx.dependencies)({ uid: ctx.user.uid });
+  });
 
 const getUserEventsProcedure = studentProcedure
   .input(

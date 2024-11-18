@@ -32,7 +32,7 @@ export const enforceAuthenticatedUserMiddleware = (requiredRole: UserRole) => {
       throw new TRPCError({ code: 'UNAUTHORIZED' });
     }
 
-    const { role } = ctx.user;
+    const { role, uid } = ctx.user;
 
     // Super admin case
     if (role === 'superadmin' && role !== 'superadmin') {
@@ -57,7 +57,7 @@ export const enforceAuthenticatedUserMiddleware = (requiredRole: UserRole) => {
       }
     }
 
-    return next({ ctx });
+    return next({ ctx: { user: { role, uid } } });
   });
 };
 
