@@ -174,7 +174,7 @@ export const createExamTimestampService = async (ctx: Dependencies) => {
     return !!ok;
   };
 
-  const upgradeAndValidate = (examAttemptId: string) => {
+  const upgradeExamTimestamp = (examAttemptId: string) => {
     return getExamTimestamp(examAttemptId) //
       .then(({ ots }) => upgrade(ots))
       .then((ots) => {
@@ -190,14 +190,6 @@ export const createExamTimestampService = async (ctx: Dependencies) => {
               WHERE exam_attempt_id = ${examAttemptId}
             `,
         );
-      })
-      .then((ots) => {
-        if (!ots) {
-          return null;
-        }
-
-        // Save the upgraded ots
-        return validateExamTimestamp(examAttemptId);
       });
   };
 
@@ -326,6 +318,16 @@ export const createExamTimestampService = async (ctx: Dependencies) => {
     return ctx.s3.getBlob(fileKey);
   };
 
+  const getAllPendingTimestamps = () => {
+    return ctx.postgres.exec(
+      sql<Array<{ examAttemptId: string }>>`
+          SELECT exam_attempt_id
+          FROM users.exam_timestamps
+          WHERE confirmed = false;
+        `,
+    );
+  };
+
   return {
     //
     getExamTimestamp,
@@ -341,7 +343,8 @@ export const createExamTimestampService = async (ctx: Dependencies) => {
     },
     //
     timestampExamAttempt,
-    upgradeAndValidate,
+    upgradeExamTimestamp,
+    validateExamTimestamp,
     verifyExamTimestamp,
     generatePdfCertificate,
     //
@@ -364,18 +367,21 @@ export const createExamTimestampService = async (ctx: Dependencies) => {
       }
     },
     upgradeAllTimeStamps: async () => {
-      const timestamps = await ctx.postgres.exec(
-        sql<Array<{ examAttemptId: string }>>`
-          SELECT exam_attempt_id
-          FROM users.exam_timestamps
-          WHERE confirmed = false;
-        `,
-      );
+      const timestamps = await getAllPendingTimestamps();
 
       console.log('Upgrade all timestamps', timestamps);
 
       for (const { examAttemptId } of timestamps) {
-        await upgradeAndValidate(examAttemptId);
+        await upgradeExamTimestamp(examAttemptId);
+      }
+    },
+    validateAllTimeStamps: async () => {
+      const timestamps = await getAllPendingTimestamps();
+
+      console.log('Validate all timestamps', timestamps);
+
+      for (const { examAttemptId } of timestamps) {
+        await validateExamTimestamp(examAttemptId);
       }
     },
     generateAllCertificates: async () => {
