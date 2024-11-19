@@ -23,7 +23,6 @@ export const createCheckChapterAccess = ({ postgres }: Dependencies) => {
             c.paid_end_date,
             cp.uid,
             CASE
-                WHEN c.paid_end_date < NOW() THEN true
                 WHEN cp.uid IS NOT NULL AND cp.payment_status = 'paid' THEN true
                 ELSE false
             END AS allowed
