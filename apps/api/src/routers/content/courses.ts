@@ -1,3 +1,4 @@
+import { TRPCError } from '@trpc/server';
 import { z } from 'zod';
 
 import {
@@ -10,6 +11,7 @@ import {
 } from '@blms/schemas';
 import {
   createCalculateCourseChapterSeats,
+  createCheckChapterAccess,
   createGetCourse,
   createGetCourseChapter,
   createGetCourseChapterQuizQuestions,
@@ -119,7 +121,21 @@ const getCourseChapterProcedure = publicProcedure
     }),
   )
   .output<Parser<CourseChapterResponse>>(courseChapterResponseSchema)
-  .query(({ ctx, input }) => {
+  .query(async ({ ctx, input }) => {
+    const uid = ctx.user?.uid || null;
+
+    const status = await createCheckChapterAccess(ctx.dependencies)(
+      input.chapterId,
+      uid,
+    );
+
+    if (!status.allowed) {
+      throw new TRPCError({
+        code: uid ? 'FORBIDDEN' : 'UNAUTHORIZED',
+        cause: 'Payment required to access this chapter',
+      });
+    }
+
     return createGetCourseChapter(ctx.dependencies)(
       input.chapterId,
       input.language,

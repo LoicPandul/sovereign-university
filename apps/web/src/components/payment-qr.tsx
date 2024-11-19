@@ -16,8 +16,12 @@ export const PaymentQr = ({ paymentData, onBack }: PaymentQrProps) => {
   const { t } = useTranslation();
   const borderClassName =
     'border border-[rgba(115,115,115,0.1)] rounded-xl overflow-hidden';
-  const unifiedPayment = `bitcoin:${paymentData.onChainAddr.toUpperCase()}?amount=${paymentData.amount / 100_000_000}&label=PlanBNetwork&lightning=${paymentData.pr}`;
-  const onchainAddress = `${paymentData.onChainAddr.toUpperCase()}`;
+  const unifiedPayment = paymentData.onChainAddr
+    ? `bitcoin:${paymentData.onChainAddr?.toUpperCase()}?amount=${paymentData.amount / 100_000_000}&label=PlanBNetwork&lightning=${paymentData.pr}`
+    : paymentData.pr;
+  const onchainAddress = paymentData.onChainAddr
+    ? `${paymentData.onChainAddr.toUpperCase()}`
+    : '';
   const lightningInvoice = paymentData.pr;
 
   return (
@@ -61,45 +65,53 @@ export const PaymentQr = ({ paymentData, onBack }: PaymentQrProps) => {
         </div>
         <div className="flex flex-col max-w-96 lg:w-96 w-full">
           {/* Unified */}
-          <span className="desktop-h7 text-center mx-auto mb-2">
-            {t('words.unified')}
-          </span>
-          <div
-            className={cn(
-              `flex flex-row items-center justify-center px-4 py-3 w-full mb-8 bg-commentTextBackground`,
-              borderClassName,
-            )}
-          >
-            <span className="desktop-subtitle1 text-newGray-1 flex-1 truncate">
-              {unifiedPayment}
-            </span>
-            <AiOutlineCopy
-              className="h-5 w-auto cursor-pointer"
-              onClick={() => {
-                navigator.clipboard.writeText(unifiedPayment);
-              }}
-            />
-          </div>
+          {onchainAddress && (
+            <>
+              <span className="desktop-h7 text-center mx-auto mb-2">
+                {t('words.unified')}
+              </span>
+              <div
+                className={cn(
+                  `flex flex-row items-center justify-center px-4 py-3 w-full mb-8 bg-commentTextBackground`,
+                  borderClassName,
+                )}
+              >
+                <span className="desktop-subtitle1 text-newGray-1 flex-1 truncate">
+                  {unifiedPayment}
+                </span>
+                <AiOutlineCopy
+                  className="h-5 w-auto cursor-pointer"
+                  onClick={() => {
+                    navigator.clipboard.writeText(unifiedPayment);
+                  }}
+                />
+              </div>
+            </>
+          )}
           {/* On-Chain */}
-          <span className="desktop-h7 text-center mx-auto mb-2">
-            {t('words.onChainAddress')}
-          </span>
-          <div
-            className={cn(
-              `flex flex-row items-center justify-center px-4 py-3 w-full mb-8 bg-commentTextBackground`,
-              borderClassName,
-            )}
-          >
-            <span className="desktop-subtitle1 text-newGray-1 flex-1 truncate">
-              {onchainAddress}
-            </span>
-            <AiOutlineCopy
-              className="h-5 w-auto cursor-pointer"
-              onClick={() => {
-                navigator.clipboard.writeText(onchainAddress);
-              }}
-            />
-          </div>
+          {onchainAddress && (
+            <>
+              <span className="desktop-h7 text-center mx-auto mb-2">
+                {t('words.onChainAddress')}
+              </span>
+              <div
+                className={cn(
+                  `flex flex-row items-center justify-center px-4 py-3 w-full mb-8 bg-commentTextBackground`,
+                  borderClassName,
+                )}
+              >
+                <span className="desktop-subtitle1 text-newGray-1 flex-1 truncate">
+                  {onchainAddress}
+                </span>
+                <AiOutlineCopy
+                  className="h-5 w-auto cursor-pointer"
+                  onClick={() => {
+                    navigator.clipboard.writeText(onchainAddress);
+                  }}
+                />
+              </div>
+            </>
+          )}
           {/* Lightning */}
           <span className="desktop-h7 text-center mx-auto mb-2">
             {t('words.lightningInvoice')}

@@ -10,46 +10,56 @@ import { Unauthorized } from '#src/errors.js';
 import { createMiddleware } from '../trpc/index.js';
 
 /**
+ * TRPC middleware that loads the user context from the session.
+ * Must be used before any other middleware that requires the user context.
+ */
+export const loadContextMiddleware = createMiddleware(({ ctx, next }) => {
+  const { req } = ctx;
+
+  const userRole = req.session.role;
+  const userId = req.session.uid;
+
+  return next({
+    ctx: { user: { uid: userId, role: userRole } },
+  });
+});
+
+/**
  * TRPC middleware that enforces that the user is authenticated.
  */
 export const enforceAuthenticatedUserMiddleware = (requiredRole: UserRole) => {
   return createMiddleware(({ ctx, next }) => {
-    const { req } = ctx;
-
-    const userRole = req.session.role;
-    const userId = req.session.uid;
-
     // For every role, user must be logged in
-    if (!userId) {
+    if (!ctx.user?.uid || !ctx.user?.role) {
       throw new TRPCError({ code: 'UNAUTHORIZED' });
     }
 
+    const { role, uid } = ctx.user;
+
     // Super admin case
-    if (requiredRole === 'superadmin' && userRole !== 'superadmin') {
+    if (requiredRole === 'superadmin' && role !== 'superadmin') {
       throw new TRPCError({ code: 'UNAUTHORIZED' });
     }
 
     // Current user is not an admin
-    if (userRole !== 'superadmin' && userRole !== 'admin') {
+    if (role !== 'superadmin' && role !== 'admin') {
       // Admin case
       if (requiredRole === 'admin') {
         throw new TRPCError({ code: 'UNAUTHORIZED' });
       }
 
       // Professor case
-      if (requiredRole === 'professor' && userRole !== 'professor') {
+      if (requiredRole === 'professor' && role !== 'professor') {
         throw new TRPCError({ code: 'UNAUTHORIZED' });
       }
 
       // Community case
-      if (requiredRole === 'community' && userRole !== 'community') {
+      if (requiredRole === 'community' && role !== 'community') {
         throw new TRPCError({ code: 'UNAUTHORIZED' });
       }
     }
 
-    return next({
-      ctx: { user: { uid: userId, role: userRole } },
-    });
+    return next({ ctx: { user: { role, uid } } });
   });
 };
 

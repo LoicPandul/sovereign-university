@@ -5,6 +5,8 @@ import * as dotenv from 'dotenv';
 import superjson from 'superjson';
 import { ZodError } from 'zod';
 
+import type { UserRole } from '@blms/types';
+
 import type { Dependencies } from '../dependencies.js';
 
 dotenv.config();
@@ -40,6 +42,7 @@ const createContextInner = (opts: CreateInnerContextOptions): InnerContext => {
 interface UserContext {
   user?: {
     uid: string;
+    role: UserRole;
   };
 }
 

@@ -17,12 +17,7 @@ function Dashboard() {
   const location = useLocation();
 
   return isMobile ? (
-    <MainLayout
-      variant="light"
-      showFooter={false}
-      fillScreen={true}
-      headerVariant="light"
-    >
+    <MainLayout variant="light" showFooter={false} headerVariant="light">
       <div>
         <div
           className={cn(

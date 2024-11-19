@@ -17,8 +17,11 @@ import type { CourseChapterResponse, JoinedQuizQuestion } from '@blms/types';
 import { Button, Loader, cn } from '@blms/ui';
 
 import OrangePill from '#src/assets/icons/orange_pill_color.svg';
+import { AuthModal } from '#src/components/AuthModals/auth-modal.tsx';
+import { AuthModalState } from '#src/components/AuthModals/props.ts';
 import PageMeta from '#src/components/Head/PageMeta/index.js';
 import { ProofreadingProgress } from '#src/components/proofreading-progress.js';
+import { useDisclosure } from '#src/hooks/use-disclosure.ts';
 import { useGreater } from '#src/hooks/use-greater.js';
 import { AppContext } from '#src/providers/context.js';
 import {
@@ -582,12 +585,23 @@ function CourseChapter() {
   const isLoggedIn = !!session;
   const { user } = useContext(AppContext);
 
+  const {
+    open: openAuthModal,
+    isOpen: isAuthModalOpen,
+    close: closeAuthModal,
+  } = useDisclosure();
+
   const { data: chapters } = trpc.content.getCourseChapters.useQuery({
     id: params.courseId,
     language: i18n.language,
   });
 
-  const { data: chapter, isFetched } = trpc.content.getCourseChapter.useQuery({
+  const {
+    data: chapter,
+    isFetched,
+    isError,
+    error,
+  } = trpc.content.getCourseChapter.useQuery({
     language: i18n.language,
     chapterId: params.chapterId,
   });
@@ -722,9 +736,46 @@ function CourseChapter() {
         }
       />
       {chapter ? <NextLessonBanner chapter={chapter} /> : <></>}
-      <div className="text-black">
-        {!isFetched && <Loader size={'s'} />}
-        {isFetched && !chapter && (
+      <div className="text-black flex flex-col grow">
+        {!isFetched && (
+          <div className="flex flex-col flex-1 justify-center items-center size-full">
+            <Loader size={'s'} />
+          </div>
+        )}
+
+        {isFetched && isError && error.data?.code === 'UNAUTHORIZED' && (
+          <div className="flex flex-col flex-1 justify-center items-center size-full">
+            <div>{t('courses.details.premiumContentNeedsLogin')}</div>
+            <div>
+              <Button
+                size="l"
+                mode="dark"
+                variant="primary"
+                className='mt-4'
+                onClick={openAuthModal}
+              >
+                {t('auth.signIn')}
+              </Button>
+            </div>
+          </div>
+        )}
+
+        {isFetched && isError && error.data?.code === 'FORBIDDEN' && (
+          <div className="flex flex-col flex-1 justify-center items-center size-full">
+            <div>{t('courses.details.premiumContentNeedsPayment')}</div>
+            <div>
+              <Link
+                to={'/courses/$courseId'}
+                params={{ courseId: params.courseId }}
+                className="text-newOrange-1 hover:underline"
+              >
+                {t('courses.details.premiumContentNeedsPaymentAction')}
+              </Link>
+            </div>
+          </div>
+        )}
+
+        {isFetched && !isError && !chapter && (
           <div className="flex size-full flex-col items-start justify-center px-2 py-6 sm:items-center sm:py-10">
             {t('underConstruction.itemNotFoundOrTranslated', {
               item: t('words.chapter'),
@@ -857,6 +908,14 @@ function CourseChapter() {
               )}
             </div>
           </div>
+        )}
+
+        {isAuthModalOpen && (
+          <AuthModal
+            isOpen={isAuthModalOpen}
+            onClose={closeAuthModal}
+            initialState={AuthModalState.SignIn}
+          />
         )}
       </div>
     </CourseLayout>
