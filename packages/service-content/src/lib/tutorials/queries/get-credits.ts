@@ -13,10 +13,11 @@ export const getCreditsQuery = (id: string, language?: string) => {
         pl.bio,
         pl.short_bio,
         pl.language,
-        COALESCE(ca.courses_count, 0) AS courses_count, 
+        COALESCE(ca.courses_count, 0) AS courses_count,
         COALESCE(tca.tutorials_count, 0) AS tutorials_count,
         COALESCE(lca.lectures_count, 0) AS lectures_count,
-        COALESCE(ta.tags, ARRAY[]::text[]) AS tags
+        COALESCE(ta.tags, ARRAY[]::text[]) AS tags,
+        COALESCE(ca.courses_ids, ARRAY[]::text[]) AS courses_ids
       FROM content.professors p
       JOIN content.professors_localized pl ON pl.professor_id = p.id
 
@@ -30,7 +31,9 @@ export const getCreditsQuery = (id: string, language?: string) => {
 
       -- Lateral join for courses
       LEFT JOIN LATERAL (
-        SELECT COUNT(cp) AS courses_count
+        SELECT
+          COUNT(cp) AS courses_count,
+          ARRAY_AGG(course_id) as courses_ids
         FROM content.course_professors cp
         WHERE cp.contributor_id = p.contributor_id
       ) ca ON TRUE
@@ -57,6 +60,7 @@ export const getCreditsQuery = (id: string, language?: string) => {
         pl.bio,
         pl.short_bio,
         ca.courses_count,
+        ca.courses_ids,
         tca.tutorials_count,
         lca.lectures_count,
         ta.tags
