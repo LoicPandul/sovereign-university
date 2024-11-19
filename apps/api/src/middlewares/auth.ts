@@ -35,7 +35,7 @@ export const enforceAuthenticatedUserMiddleware = (requiredRole: UserRole) => {
     const { role, uid } = ctx.user;
 
     // Super admin case
-    if (role === 'superadmin' && role !== 'superadmin') {
+    if (requiredRole === 'superadmin' && role !== 'superadmin') {
       throw new TRPCError({ code: 'UNAUTHORIZED' });
     }
 
