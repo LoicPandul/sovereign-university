@@ -4,7 +4,7 @@
 export interface CheckoutData {
   id: string;
   pr: string;
-  onChainAddr: string;
+  onChainAddr?: string | undefined;
   amount: number;
   checkoutUrl: string;
 }
