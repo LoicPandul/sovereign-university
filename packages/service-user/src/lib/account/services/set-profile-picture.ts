@@ -1,17 +1,59 @@
-import { firstRow, rejectOnEmpty } from '@blms/database';
+import { firstRow, rejectOnEmpty, sql } from '@blms/database';
+import type { UserDetails } from '@blms/types';
 
 import type { Dependencies } from '#src/dependencies.js';
 
-import { setProfilePictureQuery } from '../queries/set-profile-picture.js';
+const getOldPictureIdQuery = (uid: string) => {
+  return sql<Array<Pick<UserDetails, 'picture'>>>`
+    SELECT picture
+    FROM users.accounts
+    WHERE uid = ${uid};
+  `;
+};
 
-export const createSetProfilePicture = ({ postgres }: Dependencies) => {
-  return (uid: string, fileId: string) =>
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-return, @typescript-eslint/no-unsafe-call
-    postgres
-      // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
-      .exec(setProfilePictureQuery(uid, fileId))
-      // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
+const deleteOldPictureQuery = (oldPictureId: string) => {
+  return sql`
+    DELETE FROM users.files
+    WHERE id = ${oldPictureId};
+  `;
+};
+
+const setProfilePictureQuery = (uid: string, fileId: string) => {
+  return sql<UserDetails[]>`
+    UPDATE users.accounts
+    SET picture = ${fileId}
+    WHERE uid = ${uid}
+    RETURNING
+      uid,
+      username,
+      display_name,
+      certificate_name,
+      email,
+      picture,
+      contributor_id,
+      created_at;
+  `;
+};
+
+export const createSetProfilePicture = ({ postgres, s3 }: Dependencies) => {
+  return async (uid: string, fileId: string) => {
+    const oldPictureId = await postgres
+      .exec(getOldPictureIdQuery(uid))
       .then(firstRow)
-      // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
+      .then((a) => a?.picture ?? null);
+
+    if (oldPictureId) {
+      try {
+        await s3.delete(`user-files/${oldPictureId}`);
+        await postgres.exec(deleteOldPictureQuery(oldPictureId));
+      } catch (error) {
+        console.error('Failed to delete old picture', oldPictureId, error);
+      }
+    }
+
+    return postgres
+      .exec(setProfilePictureQuery(uid, fileId))
+      .then(firstRow)
       .then(rejectOnEmpty);
+  };
 };
