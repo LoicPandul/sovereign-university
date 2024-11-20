@@ -70,7 +70,9 @@ export const CourseCard = ({
                   : t(`words.level.${course.level}`)}
               </span>
               <span className="bg-tertiary-8 text-white rounded-sm p-1 text-xs leading-none uppercase">
-                {course.requiresPayment ? t('words.paid') : t('words.free')}
+                {course.requiresPayment
+                  ? t('courses.details.paidCourse')
+                  : t('words.free')}
               </span>
             </div>
             <div className="flex order-1 md:order-2">

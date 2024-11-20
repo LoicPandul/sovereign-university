@@ -121,7 +121,7 @@ export const CourseSelector = ({ courses }: { courses: JoinedCourse[] }) => {
                   </span>
                   <span className="bg-white/20 rounded-sm p-1 text-xs leading-none uppercase">
                     {activeCourse.requiresPayment
-                      ? t('words.paid')
+                      ? t('courses.details.paidCourse')
                       : t('words.free')}
                   </span>
                 </div>
