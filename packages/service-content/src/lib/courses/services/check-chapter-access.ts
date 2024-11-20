@@ -32,7 +32,7 @@ export const createCheckChapterAccess = ({ postgres }: Dependencies) => {
         LEFT JOIN
             content.courses c ON c.id = ch.course_id
         LEFT JOIN
-            users.course_payment cp ON c.id = cp.course_id AND cp.uid = ${uid}
+            users.course_payment cp ON c.id = cp.course_id AND cp.uid = ${uid} AND cp.payment_status = 'paid'
         WHERE
             ch.chapter_id = ${chapterId};
       `,
