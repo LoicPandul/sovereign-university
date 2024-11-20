@@ -5,6 +5,7 @@ import {
 } from '@tanstack/react-router';
 import type { i18n } from 'i18next';
 
+import PlanBLogoOrange from '../assets/logo/planb_logo_horizontal_white_orangepill_whitetext.svg?react';
 import { LANGUAGES } from '../utils/i18n.ts';
 
 const Root = () => {
@@ -59,6 +60,16 @@ export const Route = createRootRouteWithContext<{
   },
   component: Root,
   errorComponent: function ErrorComp({ error }) {
-    return <div>An error occured : {error.message}</div>;
+    return (
+      <div className="flex flex-col p-4 text-white">
+        <a href="/">
+          <PlanBLogoOrange className="h-auto lg:w-32 xl:w-40" />
+        </a>
+        <span className="mt-6">An error occurred : {error.message} </span>
+        <a className="text-orange-500" href="/">
+          Go back to the main page
+        </a>
+      </div>
+    );
   },
 });
