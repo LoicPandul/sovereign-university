@@ -85,6 +85,8 @@ services:
       - traefik.http.routers.university-web-${ENV}.tls=true
       - traefik.http.routers.university-web-${ENV}.middlewares=university-web-${ENV}-compress
       - traefik.http.middlewares.university-web-${ENV}-compress.compress=true
+    volumes:
+      - ./well-known:/usr/share/nginx/html/.well-known:ro
 
   seed:
     image: ghcr.io/max-lt/pears-cdn:v1.0.4
