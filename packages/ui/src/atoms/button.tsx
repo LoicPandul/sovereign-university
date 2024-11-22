@@ -24,6 +24,8 @@ const buttonVariants = cva(
         transparent: 'bg-white/30 text-white shadow-button',
         fakeDisabled: '!bg-darkOrange-1 !text-darkOrange-3',
         flags: 'bg-[#ffffff4d] text-white !rounded-[16px]',
+        carousel:
+          'bg-primary text-black disabled:text-newGray-1 disabled:bg-darkOrange-8 hover:bg-darkOrange-3 opacity-100',
       },
       size: {
         xs: 'px-2 py-1 text-xs leading-[14px] !font-medium rounded-lg',

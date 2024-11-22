@@ -22,6 +22,7 @@ interface CardProps {
   className?: string;
   withPadding?: boolean;
   color?: 'gray' | 'orange';
+  paddingClass?: string;
 }
 
 export const Card = ({
@@ -30,6 +31,7 @@ export const Card = ({
   className,
   withPadding = true,
   color = 'gray',
+  paddingClass = '',
 }: CardProps) => {
   return (
     <div className={cn(cardStyles({ color }), className ?? '')}>
@@ -43,6 +45,7 @@ export const Card = ({
         className={cn(
           'grow',
           withPadding ? 'px-4 pt-8 pb-11 lg:py-16 lg:px-[50px]' : '',
+          paddingClass,
         )}
       >
         {children}

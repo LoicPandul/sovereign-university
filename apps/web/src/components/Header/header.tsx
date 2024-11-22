@@ -5,15 +5,16 @@ import { useTranslation } from 'react-i18next';
 import type { JoinedCourse } from '@blms/types';
 import { cn } from '@blms/ui';
 
+// import webSvg from '#src/assets/icons/world-pixelated.svg';
+import resourcesSvg from '#src/assets/resources/builder.svg';
+import eventsSvg from '#src/assets/resources/conference.svg';
+import glossarySvg from '#src/assets/resources/glossary.svg';
+import coursesSvg from '#src/assets/resources/library.svg';
+import podcastSvg from '#src/assets/resources/podcast.svg';
+import tutorialsSvg from '#src/assets/resources/toolkit.svg';
+import aboutSvg from '#src/assets/resources/world.svg';
 import { useGreater } from '#src/hooks/use-greater.js';
 
-import resourcesSvg from '../../assets/resources/builder.svg';
-import eventsSvg from '../../assets/resources/conference.svg';
-import glossarySvg from '../../assets/resources/glossary.svg';
-import coursesSvg from '../../assets/resources/library.svg';
-import podcastSvg from '../../assets/resources/podcast.svg';
-import tutorialsSvg from '../../assets/resources/toolkit.svg';
-import aboutSvg from '../../assets/resources/world.svg';
 import { useDisclosure } from '../../hooks/use-disclosure.ts';
 import { trpc } from '../../utils/trpc.ts';
 import { TUTORIALS_CATEGORIES } from '../../utils/tutorials.ts';
@@ -164,6 +165,13 @@ export const Header = ({ variant = 'dark' }: HeaderProps) => {
               path: '/resources/bet',
               icon: tutorialsSvg,
             },
+            // {
+            //   id: 'newsletter',
+            //   title: t('resources.newsletters.title'),
+            //   description: t('menu.newsletterDescription'),
+            //   path: '/resources/newsletters',
+            //   icon: webSvg,
+            // },
           ],
         },
       ],
