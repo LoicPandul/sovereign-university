@@ -2,6 +2,7 @@ import { Link, useNavigate } from '@tanstack/react-router';
 import { t } from 'i18next';
 import { capitalize } from 'lodash-es';
 import React, { useContext, useEffect, useState } from 'react';
+import { Trans } from 'react-i18next';
 import { BsTwitterX } from 'react-icons/bs';
 import { FiDownload, FiLoader } from 'react-icons/fi';
 import { IoIosArrowDown } from 'react-icons/io';
@@ -605,7 +606,14 @@ const NoResults = () => {
         className="text-newBlack-4 whitespace-pre-line text-center pt-6"
         colSpan={6}
       >
-        {t('dashboard.bCertificate.noResults')}
+        <Trans i18nKey="dashboard.bCertificate.noResults">
+          <a
+            href="mailto:contact@planb.network"
+            className="underline underline-offset-2 hover:text-darkOrange-5"
+          >
+            assistance
+          </a>
+        </Trans>
       </td>
     </tr>
   );
