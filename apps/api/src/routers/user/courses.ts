@@ -3,19 +3,19 @@ import { z } from 'zod';
 import {
   checkoutDataSchema,
   courseExamResultsSchema,
-  coursePaymentSchema,
+  coursePaymentLightSchema,
   courseProgressExtendedSchema,
   courseProgressSchema,
   courseReviewSchema,
   courseSuccededExamSchema,
   courseUserChapterSchema,
   partialExamQuestionSchema,
+  stripeSessionSchema,
 } from '@blms/schemas';
 import {
   createCalculateCourseChapterSeats,
   createRefreshCourseRating,
 } from '@blms/service-content';
-import type { GetPaymentOutput } from '@blms/service-user';
 import {
   createCompleteChapter,
   createCompleteExamAttempt,
@@ -24,7 +24,9 @@ import {
   createGetCourseReview,
   createGetLatestExamResults,
   createGetPayment,
+  createGetPayments,
   createGetProgress,
+  createGetStripeSession,
   createGetUserChapter,
   createSaveCourseReview,
   createSaveFreePayment,
@@ -37,12 +39,14 @@ import {
 import type {
   CheckoutData,
   CourseExamResults,
+  CoursePaymentLight,
   CourseProgress,
   CourseProgressExtended,
   CourseReview,
   CourseSuccededExam,
   CourseUserChapter,
   PartialExamQuestion,
+  StripeSession,
 } from '@blms/types';
 
 import type { Parser } from '#src/trpc/types.js';
@@ -77,6 +81,15 @@ const getProgressProcedure = studentProcedure
     createGetProgress(ctx.dependencies)({
       uid: ctx.user.uid,
       courseId: input?.courseId || '',
+    }),
+  );
+
+const getStripeSessionProcedure = studentProcedure
+  .input(z.object({ sessionId: z.string() }))
+  .output<Parser<StripeSession>>(stripeSessionSchema)
+  .query(({ input }) =>
+    createGetStripeSession()({
+      sessionId: input.sessionId,
     }),
   );
 
@@ -189,6 +202,8 @@ const savePaymentProcedure = studentProcedure
       amount: z.number(),
       couponCode: z.string().optional(),
       format: z.string(),
+      method: z.string(),
+      clientSecret: z.string().optional(),
     }),
   )
   .output<Parser<CheckoutData>>(checkoutDataSchema)
@@ -197,6 +212,7 @@ const savePaymentProcedure = studentProcedure
       uid: ctx.user.uid,
       courseId: input.courseId,
       amount: input.amount,
+      method: input.method,
       couponCode: input.couponCode,
       format: input.format,
     }),
@@ -221,21 +237,23 @@ const saveFreePaymentProcedure = studentProcedure
   );
 
 const getPaymentProcedure = studentProcedure
-  .input(z.void())
-  .output<Parser<GetPaymentOutput>>(
-    coursePaymentSchema
-      .pick({
-        courseId: true,
-        paymentStatus: true,
-        format: true,
-        amount: true,
-        paymentId: true,
-        invoiceUrl: true,
-      })
-      .array(),
+  .input(
+    z.object({
+      paymentId: z.string(),
+    }),
   )
+  .output<Parser<CoursePaymentLight>>(coursePaymentLightSchema)
+  .query(({ ctx, input }) =>
+    createGetPayment(ctx.dependencies)({
+      paymentId: input.paymentId,
+    }),
+  );
+
+const getPaymentsProcedure = studentProcedure
+  .input(z.void())
+  .output<Parser<CoursePaymentLight[]>>(coursePaymentLightSchema.array())
   .query(({ ctx }) =>
-    createGetPayment(ctx.dependencies)({ uid: ctx.user.uid }),
+    createGetPayments(ctx.dependencies)({ uid: ctx.user.uid }),
   );
 
 type GetUserChapterOutput = Array<
@@ -328,8 +346,10 @@ export const userCoursesRouter = createTRPCRouter({
   getCourseReview: getCourseReviewProcedure,
   getLatestExamResults: getLatestExamResultsProcedure,
   getProgress: getProgressProcedure,
+  getStripeSession: getStripeSessionProcedure,
   getUserChapter: getUserChapterProcedure,
   getPayment: getPaymentProcedure,
+  getPayments: getPaymentsProcedure,
   saveCourseReview: saveCourseReviewProcedure,
   saveQuizAttempt: saveQuizAttemptProcedure,
   saveUserChapter: saveUserChapterProcedure,

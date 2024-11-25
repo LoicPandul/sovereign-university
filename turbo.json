@@ -40,7 +40,10 @@
     "OTS_PGP_KEY_PASSPHRASE",
     "OTS_RPC_URL",
     "OTS_RPC_USER",
-    "OTS_RPC_PASSWORD"
+    "OTS_RPC_PASSWORD",
+    "VITE_STRIPE_PUBLIC",
+    "STRIPE_SECRET",
+    "STRIPE_ENDPOINT_SECRET"
   ],
   "tasks": {
     "build": {

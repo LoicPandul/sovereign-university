@@ -12,6 +12,7 @@ import { createContext } from './trpc/index.js';
 const routesWithRawBody = new Set([
   '/users/courses/payment/webhooks',
   '/users/events/payment/webhooks',
+  '/api/webhooks/stripe',
 ]);
 
 export const startServer = async (dependencies: Dependencies, port = 3000) => {
@@ -23,7 +24,6 @@ export const startServer = async (dependencies: Dependencies, port = 3000) => {
     json({
       verify: function (req, _res, buf) {
         // @ts-expect-error TODO: fix this?
-        // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
         if (routesWithRawBody.has(req.path) && buf?.length) {
           // @ts-expect-error TODO: fix this?
           req.rawBody = buf;

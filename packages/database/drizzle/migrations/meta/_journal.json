@@ -281,6 +281,13 @@
       "when": 1732535835047,
       "tag": "0039_abandoned_fixer",
       "breakpoints": true
+    },
+    {
+      "idx": 40,
+      "version": "7",
+      "when": 1732551186798,
+      "tag": "0040_illegal_thunderbird",
+      "breakpoints": true
     }
   ]
 }

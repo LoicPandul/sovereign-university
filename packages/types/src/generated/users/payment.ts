@@ -7,4 +7,9 @@ export interface CheckoutData {
   onChainAddr?: string | undefined;
   amount: number;
   checkoutUrl: string;
+  clientSecret?: string | undefined;
+}
+
+export interface StripeSession {
+  status: string;
 }

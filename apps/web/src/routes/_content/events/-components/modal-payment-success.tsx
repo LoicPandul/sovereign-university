@@ -70,12 +70,14 @@ export const ModalPaymentSuccess = ({
             label={t('courses.payment.date')}
             value={formatDate(new Date())}
           />
-          <PaymentRow
-            isBlack
-            isLabelBold
-            label={t('courses.payment.invoiceId')}
-            value={paymentData.id}
-          />
+          {paymentData.id && (
+            <PaymentRow
+              isBlack
+              isLabelBold
+              label={t('courses.payment.invoiceId')}
+              value={paymentData.id}
+            />
+          )}
         </div>
         <div className="flex gap-5">
           <Button

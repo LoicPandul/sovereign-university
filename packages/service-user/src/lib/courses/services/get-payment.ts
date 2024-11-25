@@ -1,15 +1,29 @@
+import { firstRow } from '@blms/database';
+import type { CoursePaymentLight } from '@blms/types';
+
 import type { Dependencies } from '../../../dependencies.js';
-import type { GetPaymentQueryOutput } from '../queries/get-payment.js';
-import { getPaymentQuery } from '../queries/get-payment.js';
-
-export type GetPaymentOutput = GetPaymentQueryOutput;
-
-interface Options {
-  uid: string;
-}
+import { getPaymentQuery, getPaymentsQuery } from '../queries/get-payment.js';
 
 export const createGetPayment = ({ postgres }: Dependencies) => {
-  return ({ uid }: Options): Promise<GetPaymentOutput> => {
-    return postgres.exec(getPaymentQuery(uid));
+  return async ({
+    paymentId,
+  }: {
+    paymentId: string;
+  }): Promise<CoursePaymentLight> => {
+    const payment = await postgres
+      .exec(getPaymentQuery(paymentId))
+      .then(firstRow);
+
+    if (!payment) {
+      throw new Error(`Payment not found`);
+    }
+
+    return payment;
+  };
+};
+
+export const createGetPayments = ({ postgres }: Dependencies) => {
+  return ({ uid }: { uid: string }): Promise<CoursePaymentLight[]> => {
+    return postgres.exec(getPaymentsQuery(uid));
   };
 };

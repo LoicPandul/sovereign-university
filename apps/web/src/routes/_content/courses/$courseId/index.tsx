@@ -82,7 +82,7 @@ function CourseDetails() {
   );
 
   const { data: payments, refetch: refetchPayment } =
-    trpc.user.courses.getPayment.useQuery(undefined, { enabled: isLoggedIn });
+    trpc.user.courses.getPayments.useQuery(undefined, { enabled: isLoggedIn });
 
   const isCoursePaid = useMemo(
     () =>

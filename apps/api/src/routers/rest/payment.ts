@@ -2,14 +2,21 @@
 // import type { IncomingMessage } from 'node:http';
 
 import type { Router } from 'express';
+import Stripe from 'stripe';
 
 import { createCalculateEventSeats } from '@blms/service-content';
 import {
+  createUpdateCoursePaymentStatus,
   createUpdateEventPayment,
   createUpdatePayment,
+  createUpdatePaymentInvoiceId,
 } from '@blms/service-user';
 
 import type { Dependencies } from '#src/dependencies.js';
+
+const stripeSecret = process.env['STRIPE_SECRET'];
+const stripe = new Stripe(stripeSecret ? stripeSecret : '');
+const endpointSecret = process.env['STRIPE_ENDPOINT_SECRET'];
 
 export const createRestPaymentRoutes = (
   dependencies: Dependencies,
@@ -121,6 +128,77 @@ export const createRestPaymentRoutes = (
         });
       } catch (error) {
         console.error('Error in events webhook', error);
+      }
+    },
+  );
+
+  router.post(
+    '/webhooks/stripe',
+    // eslint-disable-next-line import/no-named-as-default-member
+    async (req, res): Promise<void> => {
+      try {
+        let event = req.body;
+
+        await new Promise((resolve) => setTimeout(resolve, 1000));
+
+        if (endpointSecret) {
+          const signature = req.headers['stripe-signature'] as string;
+
+          try {
+            event = stripe.webhooks.constructEvent(
+              // @ts-expect-error TODO: fix this?
+              req.rawBody,
+              signature,
+              endpointSecret,
+            );
+            // eslint-disable-next-line @typescript-eslint/no-explicit-any
+          } catch (error: any) {
+            console.log(
+              `Webhook signature verification failed.`,
+              error.message,
+            );
+            res.sendStatus(400);
+            return;
+          }
+        }
+
+        switch (event.type) {
+          case 'payment_intent.succeeded': {
+            console.log('=== Stripe webhook', event.type);
+            const paymentIntent = event.data.object;
+            const paymentIntentId = paymentIntent.id;
+            const paymentId = paymentIntent.metadata.paymentId;
+
+            await createUpdateCoursePaymentStatus(dependencies)({
+              paymentId,
+              paymentIntentId,
+            });
+
+            break;
+          }
+          case 'invoice.paid': {
+            console.log('=== Stripe webhook', event.type);
+
+            const invoice = event.data.object;
+            const paymentIntent = invoice.payment_intent;
+            const invoiceId = invoice.id;
+            const hostedInvoiceUrl = invoice.hosted_invoice_url;
+
+            await createUpdatePaymentInvoiceId(dependencies)({
+              intentId: paymentIntent,
+              stripeInvoiceId: invoiceId,
+              invoiceUrl: hostedInvoiceUrl,
+            });
+            break;
+          }
+          default: {
+            console.log(`Unhandled event type ${event.type}.`);
+          }
+        }
+
+        res.send();
+      } catch (error) {
+        console.error('Error in stripe webhook', error);
       }
     },
   );
