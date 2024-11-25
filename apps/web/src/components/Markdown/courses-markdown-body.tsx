@@ -50,7 +50,7 @@ const CoursesMarkdownBody = ({
           <h3 className="text-2xl font-medium">{children}</h3>
         ),
         p: ({ children }) => (
-          <p className="text-blue-1000 text-base tracking-wide md:text-justify">
+          <p className="text-blue-1000 text-base tracking-wide md:text-justify has-[>code]:text-left">
             {children}
           </p>
         ),
