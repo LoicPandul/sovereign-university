@@ -1,6 +1,3 @@
-import { createHash } from 'node:crypto';
-import { Writable } from 'node:stream';
-
 import type { Request, Router } from 'express';
 import formidable from 'formidable';
 import JSZip from 'jszip';
@@ -39,18 +36,12 @@ export const createRestFilesRoutes = async (
   const insertFile = createInsertFile(dependencies);
   const receiveImage = (req: Request, resizeOptions = defaultResizeOptions) => {
     return new Promise<Omit<UserFile, 'data'>>((resolve, reject) => {
-      const chunks: Buffer[] = [];
+      const sharpStream = sharp().resize(resizeOptions).webp();
 
       const form = formidable({
         multiples: false,
-        fileWriteStreamHandler() {
-          return new Writable({
-            write(chunk: Buffer, encoding, callback) {
-              chunks.push(chunk);
-              callback();
-            },
-          });
-        },
+        hashAlgorithm: 'sha256',
+        fileWriteStreamHandler: () => sharpStream,
       });
 
       try {
@@ -78,12 +69,8 @@ export const createRestFilesRoutes = async (
             throw new InternalServerError('Missing file name');
           }
 
-          const data = await sharp(Buffer.concat(chunks))
-            .resize(resizeOptions)
-            .webp() // Convert to WebP
-            .toBuffer();
-
-          const checksum = createHash('sha256').update(data).digest('hex');
+          const data = await sharpStream.toBuffer();
+          const checksum = file.hash as string;
 
           resolve(
             insertFile(req.session.uid, {
