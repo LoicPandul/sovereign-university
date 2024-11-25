@@ -71,7 +71,6 @@ export const LnurlAuth = ({ isOpen, onClose }: LnurlAuthModalProps) => {
       open={isOpen}
       // onClose={onClose}
       // headerText={t('words.lnurlAuth')}
-      // showAccountHelper={isMobile ? false : true}
     >
       <div className="flex flex-col items-center justify-center py-4">
         {lnurl && (

@@ -32,57 +32,34 @@ DialogOverlay.displayName = DialogPrimitive.Overlay.displayName;
 interface DialogContentProps
   extends React.ComponentPropsWithoutRef<typeof DialogPrimitive.Content> {
   showCloseButton?: boolean;
-  showAccountHelper?: boolean;
 }
 
 const DialogContent = React.forwardRef<
   React.ElementRef<typeof DialogPrimitive.Content>,
   DialogContentProps
->(
-  (
-    {
-      className,
-      children,
-      showCloseButton = true,
-      showAccountHelper = false,
-      ...props
-    },
-    ref,
-  ) => {
-    return (
-      <DialogPortal>
-        <DialogOverlay />
-        <DialogPrimitive.Content
-          ref={ref}
-          className={cn(
-            'my-2 max-h-[95%] overflow-scroll no-scrollbar fixed left-1/2 top-1/2 z-50 grid -translate-x-1/2 -translate-y-1/2 gap-4 border bg-white py-2 px-4 rounded-[1.5em]',
-            className,
-          )}
-          {...props}
-        >
-          {showCloseButton && (
-            <DialogPrimitive.Close className="absolute top-3 right-3 flex justify-end rounded-sm opacity-70 transition-opacity hover:opacity-100 focus:outline-none disabled:pointer-events-none data-[state=open]:bg-white data-[state=open]:text-muted-foreground">
-              <IoMdClose className="size-6" />
-              <span className="sr-only">Close</span>
-            </DialogPrimitive.Close>
-          )}
-          {children}
-          {showAccountHelper && (
-            <div className="flex flex-col items-center text-center px-0.5 sm:px-5 mx-auto">
-              <div className="h-px bg-darkOrange-5 w-full max-w-40 rounded-3xl mb-2.5" />
-              <span className="max-md:mobile-h3 md:desktop-h7 text-darkOrange-5">
-                Did you know ?
-              </span>
-              <span className="text-darkOrange-5">
-                No need for an account to start learning at Plan B Network !
-              </span>
-            </div>
-          )}
-        </DialogPrimitive.Content>
-      </DialogPortal>
-    );
-  },
-);
+>(({ className, children, showCloseButton = true, ...props }, ref) => {
+  return (
+    <DialogPortal>
+      <DialogOverlay />
+      <DialogPrimitive.Content
+        ref={ref}
+        className={cn(
+          'my-2 max-h-[95%] overflow-scroll no-scrollbar fixed left-1/2 top-1/2 z-50 grid -translate-x-1/2 -translate-y-1/2 gap-4 border bg-white py-2 px-4 rounded-[1.5em]',
+          className,
+        )}
+        {...props}
+      >
+        {showCloseButton && (
+          <DialogPrimitive.Close className="absolute top-3 right-3 flex justify-end rounded-sm opacity-70 transition-opacity hover:opacity-100 focus:outline-none disabled:pointer-events-none data-[state=open]:bg-white data-[state=open]:text-muted-foreground">
+            <IoMdClose className="size-6" />
+            <span className="sr-only">Close</span>
+          </DialogPrimitive.Close>
+        )}
+        {children}
+      </DialogPrimitive.Content>
+    </DialogPortal>
+  );
+});
 DialogContent.displayName = DialogPrimitive.Content.displayName;
 
 const DialogHeader = ({

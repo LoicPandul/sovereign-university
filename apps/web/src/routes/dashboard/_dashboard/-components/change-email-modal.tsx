@@ -29,7 +29,10 @@ const changeEmailSchema = z.object({
 
 type ChangeEmailForm = z.infer<typeof changeEmailSchema>;
 
-interface EmailSentReturn { success?: boolean, error?: string }
+interface EmailSentReturn {
+  success?: boolean;
+  error?: string;
+}
 
 interface ChangeEmailModalProps {
   isOpen: boolean;
@@ -74,7 +77,6 @@ export const ChangeEmailModal = ({
       </DialogTrigger>
       <DialogContent
         showCloseButton={false}
-        showAccountHelper={false}
         className="px-4 py-2 sm:p-6 sm:gap-6 gap-3"
       >
         <DialogHeader>
