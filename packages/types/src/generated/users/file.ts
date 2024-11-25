@@ -4,8 +4,6 @@
 export interface UserFile {
   id: string;
   uid: string;
-  data?: any | null;
-  s3: boolean;
   s3Key: string | null;
   checksum: string;
   filename: string;

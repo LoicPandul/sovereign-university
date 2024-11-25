@@ -207,17 +207,17 @@ export const createRestFilesRoutes = async (
   });
 
   // Fetch single file from S3
-  router.get('/files/:bucket/:key(*)', async (req, res, next) => {
+  router.get('/files/:dir/:key(*)', async (req, res, next) => {
     try {
-      const { bucket, key } = req.params;
+      const { dir, key } = req.params;
 
       const allowedBuckets = ['certificates', 'bcertresults', 'user-files'];
-      if (!allowedBuckets.includes(bucket)) {
+      if (!allowedBuckets.includes(dir)) {
         res.status(401).send('Unauthorized');
         return;
       }
 
-      const stream = await dependencies.s3.getStream(`${bucket}/${key}`);
+      const stream = await dependencies.s3.getStream(`${dir}/${key}`);
       if (!stream) {
         res.status(404).send('Not found');
         return;

@@ -5,10 +5,13 @@ import type { UserFile } from '@blms/types';
 
 import type { Dependencies } from '#src/dependencies.js';
 
-type UserFileInput = Pick<
-  UserFile,
-  'data' | 'filename' | 'mimetype' | 'filesize' | 'checksum'
->;
+interface UserFileInput {
+  filename: string;
+  mimetype: string;
+  filesize: number;
+  checksum: string;
+  data: Buffer;
+}
 
 export const createInsertFile = ({ postgres, s3 }: Dependencies) => {
   return async (
@@ -22,10 +25,10 @@ export const createInsertFile = ({ postgres, s3 }: Dependencies) => {
 
     return postgres //
       .exec(
-        sql<Array<Omit<UserFile, 'data'>>>`
-          INSERT INTO users.files (id, uid, filename, mimetype, filesize, checksum, s3, s3_key)
-          VALUES (${id}, ${uid}, ${input.filename}, ${input.mimetype}, ${input.filesize}, ${input.checksum}, true, ${s3Key})
-          RETURNING id, uid, s3, s3_key, filename, mimetype, filesize, checksum, created_at, updated_at
+        sql<UserFile[]>`
+          INSERT INTO users.files (id, uid, filename, mimetype, filesize, checksum, s3_key)
+          VALUES (${id}, ${uid}, ${input.filename}, ${input.mimetype}, ${input.filesize}, ${input.checksum}, ${s3Key})
+          RETURNING id, uid, s3_key, filename, mimetype, filesize, checksum, created_at, updated_at
           ;
         `,
       )

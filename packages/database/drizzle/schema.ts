@@ -1581,11 +1581,6 @@ export const couponCode = content.table('coupon_code', (t) => ({
 /**
  * Custom drizzle type for bytea columns.
  */
-const bytea = customType<{ data: Buffer; notNull: false; default: false }>({
-  dataType() {
-    return 'bytea';
-  },
-});
 
 export const usersFiles = users.table('files', (t) => ({
   id: t.uuid().primaryKey().defaultRandom(),
@@ -1596,10 +1591,7 @@ export const usersFiles = users.table('files', (t) => ({
     .references(() => usersAccounts.uid, {
       onDelete: 'cascade',
     }),
-  // File raw data
-  data: bytea('data'),
   // S3
-  s3: t.boolean().default(false).notNull(),
   s3Key: t.varchar({ length: 255 }),
   // File metadata
   checksum: t.varchar({ length: 64 }).notNull(),
