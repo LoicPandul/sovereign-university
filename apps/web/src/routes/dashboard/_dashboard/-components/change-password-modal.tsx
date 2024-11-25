@@ -85,7 +85,6 @@ export const ChangePasswordModal = ({
       </DialogTrigger>
       <DialogContent
         showCloseButton={false}
-        showAccountHelper={false}
         className="px-4 py-2 sm:p-6 sm:gap-6 gap-3"
       >
         <DialogHeader>

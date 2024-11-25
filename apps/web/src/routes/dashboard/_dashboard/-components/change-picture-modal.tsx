@@ -70,7 +70,6 @@ export const ChangePictureModal = (props: Props) => {
     <Dialog open={props.isOpen} onOpenChange={props.onClose}>
       <DialogContent
         showCloseButton={false}
-        showAccountHelper={false}
         className="px-4 py-2 sm:p-6 sm:gap-6 gap-3"
       >
         <DialogHeader>
