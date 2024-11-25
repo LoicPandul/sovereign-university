@@ -1,4 +1,4 @@
-import { Link } from '@tanstack/react-router';
+import { Link, useLocation } from '@tanstack/react-router';
 import { t } from 'i18next';
 import { useEffect, useState } from 'react';
 
@@ -11,6 +11,8 @@ import { FilterDropdown } from '#src/organisms/filter-dropdown.tsx';
 import { toggleSelection } from '../-utils/course-utils.tsx';
 
 export const CoursesGallery = ({ courses }: { courses: JoinedCourse[] }) => {
+  const location = useLocation();
+
   const topics = [
     'all',
     ...[...new Set(courses.map((course) => course.topic))].sort(),
@@ -26,11 +28,37 @@ export const CoursesGallery = ({ courses }: { courses: JoinedCourse[] }) => {
     'intermediate',
   ];
 
-  const [activeTopics, setActiveTopics] = useState<string[]>(['all']);
   const [activeLevels, setActiveLevels] = useState<string[]>(['all']);
   const [filteredCourses, setFilteredCourses] = useState<JoinedCourse[]>([]);
   const [searchQuery, setSearchQuery] = useState('');
   const featuredCourseId = 'btc101';
+
+  const getDefaultTopic = () => {
+    const hash = location.hash.replace('#', '').replaceAll('%20', ' ');
+    const validTopics = topics.map((topic) => topic);
+    return validTopics.includes(hash) ? hash : topics[0];
+  };
+
+  const [activeTopics, setActiveTopics] = useState<string[]>([
+    getDefaultTopic(),
+  ]);
+
+  // Sync topic with URL hash changes
+  useEffect(() => {
+    const hash = location.hash.replace('#', '');
+    if (topics.includes(hash)) {
+      setActiveTopics([hash]);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [location.hash]);
+
+  useEffect(() => {
+    window.location.hash =
+      activeTopics.length === 1 && activeTopics[0] !== 'all'
+        ? activeTopics[0]
+        : '';
+  }, [activeTopics]);
+
   useEffect(() => {
     const reorderedCourses = [
       ...courses.filter((course) => course.id === featuredCourseId),
