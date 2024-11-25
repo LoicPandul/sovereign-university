@@ -1,8 +1,11 @@
-import { createGetUpcomingEvent } from 'node_modules/@blms/service-content/src/lib/events/services/get-events.js';
 import { z } from 'zod';
 
 import { joinedEventSchema } from '@blms/schemas';
-import { createGetEvent, createGetRecentEvents } from '@blms/service-content';
+import {
+  createGetEvent,
+  createGetRecentEvents,
+  createGetUpcomingEvent,
+} from '@blms/service-content';
 import type { JoinedEvent } from '@blms/types';
 
 import type { Parser } from '#src/trpc/types.js';
