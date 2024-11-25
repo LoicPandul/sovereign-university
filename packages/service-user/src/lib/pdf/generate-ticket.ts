@@ -200,7 +200,7 @@ export async function generateTicket(options: GenerateTicketOptions) {
 
   // QR code
   {
-    const png = imageSync('https://example.com', {
+    const png = imageSync(options.userName, {
       type: 'png',
       margin: 2,
     });
