@@ -24,6 +24,15 @@ export const courseReviewSchema = createSelectSchema(usersCourseReview);
 export const courseExamAttemptSchema = createSelectSchema(usersExamAttempts);
 export const courseExamQuestionSchema = createSelectSchema(usersExamQuestions);
 
+export const coursePaymentLightSchema = coursePaymentSchema.pick({
+  courseId: true,
+  paymentStatus: true,
+  format: true,
+  amount: true,
+  paymentId: true,
+  invoiceUrl: true,
+});
+
 export const courseProgressExtendedSchema = courseProgressSchema.merge(
   z.object({
     totalChapters: z.number(),

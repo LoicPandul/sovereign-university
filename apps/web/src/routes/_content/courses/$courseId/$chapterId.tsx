@@ -621,7 +621,7 @@ function CourseChapter() {
     (chapter?.course?.availableSeats && chapter.course.availableSeats > 0) ||
     false;
 
-  const { data: payments } = trpc.user.courses.getPayment.useQuery(undefined, {
+  const { data: payments } = trpc.user.courses.getPayments.useQuery(undefined, {
     enabled: isLoggedIn && ticketAvailable,
   });
 
@@ -751,7 +751,7 @@ function CourseChapter() {
                 size="l"
                 mode="dark"
                 variant="primary"
-                className='mt-4'
+                className="mt-4"
                 onClick={openAuthModal}
               >
                 {t('auth.signIn')}

@@ -1,6 +1,9 @@
 import type { Dependencies } from '../../../dependencies.js';
 import { updateCoupon } from '../queries/update-coupon.js';
-import { updatePayment } from '../queries/update-payment.js';
+import {
+  updatePayment,
+  updatePaymentInvoiceId,
+} from '../queries/update-payment.js';
 
 interface Options {
   id: string;
@@ -15,5 +18,17 @@ export const createUpdatePayment = ({ postgres }: Dependencies) => {
     if (options.isPaid) {
       await postgres.exec(updateCoupon({ paymentId: options.id }));
     }
+  };
+};
+
+interface Options2 {
+  intentId: string;
+  stripeInvoiceId: string;
+  invoiceUrl: string;
+}
+
+export const createUpdatePaymentInvoiceId = ({ postgres }: Dependencies) => {
+  return async (options: Options2) => {
+    await postgres.exec(updatePaymentInvoiceId(options));
   };
 };

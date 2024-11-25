@@ -1,3 +1,8 @@
+import {
+  EmbeddedCheckout,
+  EmbeddedCheckoutProvider,
+} from '@stripe/react-stripe-js';
+import { loadStripe } from '@stripe/stripe-js';
 import { useCallback, useEffect, useState } from 'react';
 import { Trans, useTranslation } from 'react-i18next';
 
@@ -6,7 +11,7 @@ import type {
   CouponCode,
   JoinedCourseWithAll,
 } from '@blms/types';
-import { Dialog, DialogContent } from '@blms/ui';
+import { Button, Dialog, DialogContent } from '@blms/ui';
 
 import { PaymentDescription } from '#src/components/payment-description.js';
 import { PaymentQr } from '#src/components/payment-qr.js';
@@ -15,6 +20,9 @@ import { trpc } from '#src/utils/trpc.js';
 
 import { ModalPaymentSuccess } from './modal-payment-success.tsx';
 import { ModalPaymentSummary } from './modal-payment-summary.tsx';
+
+const stripePublic = import.meta.env.VITE_STRIPE_PUBLIC;
+const stripePromise = loadStripe(stripePublic || '');
 
 interface WebSocketMessage {
   status: string;
@@ -45,8 +53,9 @@ export const CoursePaymentModal = ({
   const saveFreePaymentRequest =
     trpc.user.courses.saveFreePayment.useMutation();
 
-  const [paymentData, setPaymentData] = useState<CheckoutData>();
   const [isPaymentSuccess, setIsPaymentSuccess] = useState(false);
+  const [checkoutData, setCheckoutData] = useState<CheckoutData>();
+  const [method, setMethod] = useState<'sbp' | 'stripe' | null>(null);
   const [validatedCoupon, setValidatedCoupon] = useState<CouponCode | null>(
     null,
   );
@@ -54,36 +63,44 @@ export const CoursePaymentModal = ({
     useState(dollarPrice);
   const [satsPriceReduced, setSatsPriceReduced] = useState(satsPrice);
 
-  const initCoursePayment = useCallback(async () => {
-    async function saveFreePayment() {
-      const serverPaymentData = await saveFreePaymentRequest.mutateAsync({
-        courseId: course.id,
-        couponCode: validatedCoupon?.code,
-        format: coursePaymentFormat,
-      });
-      setPaymentData(serverPaymentData);
-      setIsPaymentSuccess(true);
-    }
+  const initCoursePayment = useCallback(
+    async (method: 'sbp' | 'stripe' | null) => {
+      async function saveFreePayment() {
+        const serverCheckoutData = await saveFreePaymentRequest.mutateAsync({
+          courseId: course.id,
+          couponCode: validatedCoupon?.code,
+          format: coursePaymentFormat,
+        });
+        setCheckoutData(serverCheckoutData);
+        setIsPaymentSuccess(true);
+      }
 
-    async function savePayment() {
-      const serverPaymentData = await savePaymentRequest.mutateAsync({
-        courseId: course.id,
-        amount: satsPriceReduced,
-        couponCode: validatedCoupon?.code,
-        format: coursePaymentFormat,
-      });
-      setPaymentData(serverPaymentData);
-    }
+      async function savePayment() {
+        if (method) {
+          const serverCheckoutData = await savePaymentRequest.mutateAsync({
+            courseId: course.id,
+            amount: satsPriceReduced,
+            couponCode: validatedCoupon?.code,
+            format: coursePaymentFormat,
+            method: method,
+          });
+          setCheckoutData(serverCheckoutData);
+        }
+      }
 
-    await (satsPriceReduced === 0 ? saveFreePayment() : savePayment());
-  }, [
-    course.id,
-    coursePaymentFormat,
-    satsPriceReduced,
-    saveFreePaymentRequest,
-    savePaymentRequest,
-    validatedCoupon?.code,
-  ]);
+      setMethod(method);
+
+      await (satsPriceReduced === 0 ? saveFreePayment() : savePayment());
+    },
+    [
+      course.id,
+      coursePaymentFormat,
+      satsPriceReduced,
+      saveFreePaymentRequest,
+      savePaymentRequest,
+      validatedCoupon?.code,
+    ],
+  );
 
   useEffect(() => {
     setSatsPriceReduced(satsPrice);
@@ -94,11 +111,11 @@ export const CoursePaymentModal = ({
   }, [dollarPrice]);
 
   useEffect(() => {
-    if (paymentData && isOpen && satsPrice >= 0) {
+    if (checkoutData && isOpen && satsPrice >= 0) {
       const ws = new WebSocket('wss://api.swiss-bitcoin-pay.ch/invoice');
 
       ws.addEventListener('open', () => {
-        ws.send(JSON.stringify({ id: paymentData.id }));
+        ws.send(JSON.stringify({ id: checkoutData.id }));
       });
 
       const handleMessage = (event: MessageEvent) => {
@@ -117,7 +134,7 @@ export const CoursePaymentModal = ({
         ws.close();
       };
     }
-  }, [paymentData, isOpen, satsPrice]);
+  }, [checkoutData, isOpen, satsPrice]);
 
   function updateCoupon(coupon: CouponCode | null) {
     setValidatedCoupon(coupon);
@@ -145,7 +162,10 @@ export const CoursePaymentModal = ({
     <div className="p-4">
       <Dialog
         open={isOpen}
-        onOpenChange={(open) => onClose(open ? undefined : false)}
+        onOpenChange={(open) => {
+          setCheckoutData(undefined);
+          onClose(open ? undefined : false);
+        }}
       >
         <DialogContent className="max-h-screen w-[90%] lg:w-full max-w-[1440px] h-[90vh] sm:w-[80vw] lg:p-0 sm:h-[85vh] overflow-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 h-full gap-6 lg:gap-0">
@@ -156,17 +176,38 @@ export const CoursePaymentModal = ({
               mobileDisplay={false}
             />
             <div className="flex flex-col items-center justify-center lg:m-6">
-              {paymentData ? (
-                isPaymentSuccess ? (
+              {checkoutData ? (
+                isPaymentSuccess && method === 'sbp' ? (
                   <ModalPaymentSuccess
-                    paymentData={paymentData}
+                    checkoutData={checkoutData}
                     onClose={onClose}
                   />
-                ) : (
+                ) : method === 'sbp' ? (
                   <PaymentQr
-                    paymentData={paymentData}
-                    onBack={() => setPaymentData(undefined)}
+                    checkoutData={checkoutData}
+                    onBack={() => setCheckoutData(undefined)}
                   />
+                ) : (
+                  <div className="flex flex-col">
+                    <EmbeddedCheckoutProvider
+                      stripe={stripePromise}
+                      options={{
+                        clientSecret: checkoutData.clientSecret,
+                      }}
+                    >
+                      <EmbeddedCheckout />
+                    </EmbeddedCheckoutProvider>
+                    <Button
+                      className="mt-4"
+                      variant="outline"
+                      onClick={() => {
+                        setCheckoutData(undefined);
+                        onClose();
+                      }}
+                    >
+                      {t('words.close')}
+                    </Button>
+                  </div>
                 )
               ) : (
                 <PaymentDescription

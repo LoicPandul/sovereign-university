@@ -17,6 +17,9 @@ export interface CoursePayment {
   amount: number;
   paymentId: string;
   invoiceUrl: string | null;
+  stripeInvoiceId: string | null;
+  stripePaymentIntent: string | null;
+  method: 'sbp' | 'stripe' | 'free';
   couponCode: string | null;
   lastUpdated: Date;
 }
@@ -68,6 +71,15 @@ export interface CourseExamQuestion {
   id: string;
   examId: string;
   questionId: string;
+}
+
+export interface CoursePaymentLight {
+  courseId: string;
+  paymentStatus: string;
+  format: 'online' | 'inperson';
+  amount: number;
+  paymentId: string;
+  invoiceUrl: string | null;
 }
 
 export interface CourseProgressExtended {

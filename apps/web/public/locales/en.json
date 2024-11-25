@@ -802,7 +802,8 @@
     "pageTitle": "Oops."
   },
   "payment": {
-    "proceedToPayment": "Proceed to payment",
+    "payWithBitcoin": "Pay with bitcoin",
+    "payWithDollars": "Pay with dollars",
     "terms": "See our <0>general terms</0> and conditions for refund details",
     "total": "Total"
   },
@@ -1062,6 +1063,7 @@
     "category": "Category",
     "certificate": "Certificate",
     "chapter": "Chapter",
+    "close": "Close",
     "communities": "Communities",
     "conference": "Conference",
     "conferences": "Conferences",

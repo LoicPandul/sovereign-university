@@ -817,6 +817,12 @@ export const coursePaymentFormatEnum = pgEnum('course_payment_format', [
   'inperson',
 ]);
 
+export const coursePaymentMethodEnum = pgEnum('course_payment_method', [
+  'sbp',
+  'stripe',
+  'free',
+]);
+
 export const usersCoursePayment = users.table(
   'course_payment',
   (t) => ({
@@ -836,6 +842,9 @@ export const usersCoursePayment = users.table(
     amount: t.integer().notNull(),
     paymentId: t.varchar({ length: 255 }).notNull(),
     invoiceUrl: t.varchar({ length: 255 }),
+    stripeInvoiceId: t.varchar({ length: 255 }),
+    stripePaymentIntent: t.varchar({ length: 255 }),
+    method: coursePaymentMethodEnum('method').notNull(),
     couponCode: t.varchar({ length: 20 }).references(() => couponCode.code),
     lastUpdated: t
       .timestamp({

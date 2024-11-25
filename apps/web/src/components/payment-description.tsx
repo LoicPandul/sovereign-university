@@ -42,7 +42,7 @@ interface PaymentDescriptionProps {
   callout: React.ReactNode;
   description: string;
   itemId: string;
-  initPayment: () => Promise<void>;
+  initPayment: (method: 'sbp' | 'stripe' | null) => Promise<void>;
   updateCoupon?: (coupon: CouponCode | null) => void;
   children?: JSX.Element | JSX.Element[];
 }
@@ -173,10 +173,19 @@ export const PaymentDescription = ({
           variant="primary"
           className="lg:w-full text-xs lg:text-sm"
           onClick={() => {
-            initPayment();
+            initPayment('sbp');
           }}
         >
-          {t('payment.proceedToPayment')}
+          {t('payment.payWithBitcoin')}
+        </Button>
+        <Button
+          variant="primary"
+          className="lg:w-full text-xs lg:text-sm"
+          onClick={() => {
+            initPayment('stripe');
+          }}
+        >
+          {t('payment.payWithDollars')}
         </Button>
       </div>
       <div className="text-center uppercase md:text-xs justify-self-end mt-auto mb-2">

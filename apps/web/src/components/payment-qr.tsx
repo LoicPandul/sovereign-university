@@ -8,21 +8,24 @@ import { Button, cn } from '@blms/ui';
 import PlanBLogo from '../assets/logo/planb_logo_horizontal_black.svg?react';
 
 interface PaymentQrProps extends React.HTMLProps<HTMLDivElement> {
-  paymentData: CheckoutData;
+  checkoutData: CheckoutData;
   onBack?: () => void;
 }
 
-export const PaymentQr = ({ paymentData, onBack }: PaymentQrProps) => {
+export const PaymentQr = ({
+  checkoutData: checkoutData,
+  onBack,
+}: PaymentQrProps) => {
   const { t } = useTranslation();
   const borderClassName =
     'border border-[rgba(115,115,115,0.1)] rounded-xl overflow-hidden';
-  const unifiedPayment = paymentData.onChainAddr
-    ? `bitcoin:${paymentData.onChainAddr?.toUpperCase()}?amount=${paymentData.amount / 100_000_000}&label=PlanBNetwork&lightning=${paymentData.pr}`
-    : paymentData.pr;
-  const onchainAddress = paymentData.onChainAddr
-    ? `${paymentData.onChainAddr.toUpperCase()}`
+  const unifiedPayment = checkoutData.onChainAddr
+    ? `bitcoin:${checkoutData.onChainAddr?.toUpperCase()}?amount=${checkoutData.amount / 100_000_000}&label=PlanBNetwork&lightning=${checkoutData.pr}`
+    : checkoutData.pr;
+  const onchainAddress = checkoutData.onChainAddr
+    ? `${checkoutData.onChainAddr.toUpperCase()}`
     : '';
-  const lightningInvoice = paymentData.pr;
+  const lightningInvoice = checkoutData.pr;
 
   return (
     <>
@@ -43,7 +46,7 @@ export const PaymentQr = ({ paymentData, onBack }: PaymentQrProps) => {
             )}
           >
             <span className="desktop-subtitle1 text-newBlack-3 flex-1 truncate">
-              {(paymentData.amount / 100_000_000).toLocaleString('en-US', {
+              {(checkoutData.amount / 100_000_000).toLocaleString('en-US', {
                 minimumFractionDigits: 8,
                 maximumFractionDigits: 8,
               })}{' '}
@@ -53,7 +56,7 @@ export const PaymentQr = ({ paymentData, onBack }: PaymentQrProps) => {
               className="h-5 w-auto cursor-pointer"
               onClick={() => {
                 navigator.clipboard.writeText(
-                  (paymentData.amount / 100_000_000).toLocaleString('en-US', {
+                  (checkoutData.amount / 100_000_000).toLocaleString('en-US', {
                     minimumFractionDigits: 8,
                     maximumFractionDigits: 8,
                   }),

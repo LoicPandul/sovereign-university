@@ -9,12 +9,12 @@ import { PaymentRow } from '#src/components/payment-row.js';
 import { formatDate } from '#src/utils/date.js';
 
 interface ModalPaymentSuccessProps {
-  paymentData: CheckoutData;
+  checkoutData: CheckoutData;
   onClose: (isPaid?: boolean) => void;
 }
 
 export const ModalPaymentSuccess = ({
-  paymentData,
+  checkoutData: checkoutData,
   onClose,
 }: ModalPaymentSuccessProps) => {
   return (
@@ -37,7 +37,7 @@ export const ModalPaymentSuccess = ({
             isBlack
             isLabelBold
             label={t('courses.payment.amount')}
-            value={`${paymentData.amount} sats`}
+            value={`${checkoutData.amount} sats`}
           />
           <PaymentRow
             isBlack
@@ -45,12 +45,14 @@ export const ModalPaymentSuccess = ({
             label={t('courses.payment.date')}
             value={formatDate(new Date())}
           />
-          <PaymentRow
-            isBlack
-            isLabelBold
-            label={t('courses.payment.invoiceId')}
-            value={paymentData.id}
-          />
+          {checkoutData.id && (
+            <PaymentRow
+              isBlack
+              isLabelBold
+              label={t('courses.payment.invoiceId')}
+              value={checkoutData.id}
+            />
+          )}
         </div>
         <Button
           variant="primary"

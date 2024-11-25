@@ -6,4 +6,9 @@ export const checkoutDataSchema = z.object({
   onChainAddr: z.string().optional(),
   amount: z.number(),
   checkoutUrl: z.string(),
+  clientSecret: z.string().optional(),
+});
+
+export const stripeSessionSchema = z.object({
+  status: z.string(),
 });

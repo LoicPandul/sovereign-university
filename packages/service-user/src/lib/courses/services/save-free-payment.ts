@@ -23,6 +23,7 @@ export const createSaveFreePayment = ({ postgres }: Dependencies) => {
           paymentStatus: 'paid',
           amount: 0,
           paymentId: randomUUID,
+          method: 'free',
           invoiceUrl: '',
           ...opts,
         }),
