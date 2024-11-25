@@ -2,17 +2,20 @@ import { createFileRoute, useNavigate } from '@tanstack/react-router';
 import { useContext } from 'react';
 import { useTranslation } from 'react-i18next';
 
-import { Tabs, TabsContent, TabsList, TabsTrigger } from '@blms/ui';
+import { Tabs, TabsContent, TabsList, TabsTrigger, TextTag } from '@blms/ui';
 
+import { useSmaller } from '#src/hooks/use-smaller.ts';
 import { AppContext } from '#src/providers/context.js';
 
-import { AdminTable } from './-components/admin-table.tsx';
+import { RoleAllocationTable } from '../-components/role-allocation-table.tsx';
 
-export const Route = createFileRoute('/dashboard/_dashboard/administration')({
-  component: DashboardAdministration,
+export const Route = createFileRoute(
+  '/dashboard/_dashboard/administration/role',
+)({
+  component: DashboardAdministrationRole,
 });
 
-function DashboardAdministration() {
+function DashboardAdministrationRole() {
   const { t } = useTranslation();
 
   const navigate = useNavigate();
@@ -27,9 +30,22 @@ function DashboardAdministration() {
     navigate({ to: '/dashboard/courses' });
   }
 
+  const isTablet = useSmaller('lg');
+
   return (
     <div className="flex flex-col gap-4 lg:gap-8">
-      <div className="text-2xl">{t('dashboard.administration')}</div>
+      <div className="flex max-lg:flex-col lg:items-center gap-2 lg:gap-5">
+        <h1 className="display-small-32px">
+          {t('dashboard.adminPanel.userRolesAllocation')}
+        </h1>
+        <TextTag
+          size={isTablet ? 'verySmall' : 'small'}
+          className="uppercase w-fit"
+        >
+          {t('words.admin')}
+        </TextTag>
+      </div>
+
       <Tabs defaultValue="students" className="w-full max-w-[900px]">
         <TabsList>
           <TabsTrigger
@@ -52,13 +68,13 @@ function DashboardAdministration() {
           </TabsTrigger>
         </TabsList>
         <TabsContent value="students">
-          <AdminTable userRole="student" />
+          <RoleAllocationTable userRole="student" />
         </TabsContent>
         <TabsContent value="professors">
-          <AdminTable userRole="professor" />
+          <RoleAllocationTable userRole="professor" />
         </TabsContent>
         <TabsContent value="admins">
-          <AdminTable userRole="admin" />
+          <RoleAllocationTable userRole="admin" />
         </TabsContent>
       </Tabs>
     </div>

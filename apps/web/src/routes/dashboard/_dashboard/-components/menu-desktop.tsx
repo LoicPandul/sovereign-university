@@ -10,7 +10,7 @@ import {
   IoPersonOutline,
   IoTicketOutline,
 } from 'react-icons/io5';
-import { LuShieldAlert } from 'react-icons/lu';
+import { LuPencilRuler, LuShieldAlert } from 'react-icons/lu';
 
 import pill from '#src/assets/icons/orange_pill_color_gradient.svg';
 import SignInIconLight from '#src/assets/icons/profile_log_in_light.svg';
@@ -59,9 +59,11 @@ export const MenuDesktop = ({
   const calendarPath = '/dashboard/calendar';
   const coursesPath = '/dashboard/courses';
   const profilePath = '/dashboard/profile';
-  const administrationPath = '/dashboard/administration';
+  const adminRolePath = '/dashboard/administration/role';
+  const adminTutorialsPath = '/dashboard/administration/tutorials';
   const professorProfilePath = '/dashboard/professor/profile';
   const professorCoursesPath = '/dashboard/professor/courses';
+  const professorTutorialsPath = '/dashboard/professor/tutorials';
 
   useEffect(() => {
     if (location) {
@@ -142,43 +144,63 @@ export const MenuDesktop = ({
           <>
             <Separator />
 
-            <Link to={administrationPath}>
+            <p className="uppercase text-white italic ml-12 text-sm">
+              Admin menu
+            </p>
+
+            <Link to={adminRolePath}>
               <MenuItem
                 text={t('dashboard.adminPanel.userRolesAllocation')}
                 icon={<LuShieldAlert size={24} />}
-                active={pathname.includes(administrationPath)}
+                active={pathname.includes(adminRolePath)}
+              />
+            </Link>
+            <Link to={adminTutorialsPath}>
+              <MenuItem
+                text={t('words.tutorials')}
+                icon={<LuPencilRuler size={24} />}
+                active={pathname.includes(adminTutorialsPath)}
               />
             </Link>
           </>
         )}
 
-        {user && user.role === 'professor' && (
-          <>
-            <Separator />
-
-            <p className="uppercase text-white italic ml-12 text-sm">
-              {t('dashboard.teacher.menu')}
-            </p>
-
-            <Link to={professorProfilePath}>
-              <MenuItem
-                text={t('dashboard.profile.profile')}
-                icon={<IoPersonOutline size={24} />}
-                active={pathname.includes(professorProfilePath)}
-              />
-            </Link>
-
-            {user.professorCourses?.length && (
-              <Link to={professorCoursesPath}>
+        {user &&
+          (user.role === 'professor' ||
+            (['admin', 'superadmin'].includes(user.role) &&
+              user.professorId)) && (
+            <>
+              <Separator />
+              <p className="uppercase text-white italic ml-12 text-sm">
+                {t('dashboard.teacher.menu')}
+              </p>
+              <Link to={professorProfilePath}>
                 <MenuItem
-                  text={t('dashboard.courses')}
-                  icon={<AiOutlineBook size={24} />}
-                  active={pathname.includes(professorCoursesPath)}
+                  text={t('dashboard.profile.profile')}
+                  icon={<IoPersonOutline size={24} />}
+                  active={pathname.includes(professorProfilePath)}
                 />
               </Link>
-            )}
-          </>
-        )}
+              {user.professorCourses?.length > 0 && (
+                <Link to={professorCoursesPath}>
+                  <MenuItem
+                    text={t('dashboard.courses')}
+                    icon={<AiOutlineBook size={24} />}
+                    active={pathname.includes(professorCoursesPath)}
+                  />
+                </Link>
+              )}
+              {user.professorTutorials?.length > 0 && (
+                <Link to={professorTutorialsPath}>
+                  <MenuItem
+                    text={t('words.tutorials')}
+                    icon={<LuPencilRuler size={24} />}
+                    active={pathname.includes(professorTutorialsPath)}
+                  />
+                </Link>
+              )}
+            </>
+          )}
 
         <Separator />
 

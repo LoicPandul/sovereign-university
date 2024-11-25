@@ -111,6 +111,20 @@ export interface JoinedTutorialCredit {
   professor?: JoinedProfessor | undefined;
 }
 
+export interface TutorialWithProfessorName {
+  id: string;
+  path: string;
+  name: string;
+  category: string;
+  subcategory: string | null;
+  language: string;
+  title: string;
+  likeCount: number;
+  dislikeCount: number;
+  professorName: string | null;
+  professorId: number | null;
+}
+
 export interface GetTutorialResponse {
   id: string;
   path: string;

@@ -36,7 +36,7 @@ export interface UserDetails {
   professorId: number | null;
   contributorId: string;
   professorCourses: string[];
-  professorTutorials: number[];
+  professorTutorials: string[];
 }
 
 export interface UserRoles {

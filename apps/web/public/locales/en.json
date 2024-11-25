@@ -407,10 +407,16 @@
     "adminPanel": {
       "confirmRemoval": "Confirm removal",
       "coursesIds": "Courses IDs",
+      "githubLink": "Github link",
       "makeProfessor": "Make professor",
       "professorName": "Professor name",
       "removeTeacherDescription": "Are you sure you want to remove this teacher?",
+      "searchByNameOrCategory": "Search by name or category",
+      "seeOrEdit": "See or edit",
       "selectProfessor": "Select professor",
+      "tutorialAnalytics": "Tutorial analytics",
+      "tutorialAnalyticsDescription": "Here you can check and compare all tutorials on the platform.",
+      "tutorialsManagementPanel": "Tutorials management panel",
       "userRolesAllocation": "User roles allocation"
     },
     "bCertificate": {
@@ -563,6 +569,10 @@
         "seeStatistics": "See statistics",
         "viewDetails": "View details",
         "writtenFeedbacks": "Written feedbacks"
+      },
+      "tutorials": {
+        "tutorialAnalyticsDescription": "Here you can find analytics on the tutorials you’ve created and published on the platform.",
+        "yourTutorials": "Your tutorials"
       }
     }
   },
@@ -922,6 +932,7 @@
       "madeBy": "This tutorial has been made by",
       "source": "Original source : ",
       "tipTooltip": "Like it? Tip.",
+      "tutorialName": "Tutorial name",
       "writtenBy": "This tutorial was written by :"
     },
     "exchange": {
@@ -1035,6 +1046,7 @@
     "article": "Article",
     "articles": "Articles",
     "audioBook": "Audio Book",
+    "author": "Author",
     "back": "Back",
     "bCertificate": "₿ Certificate",
     "beginner": "Beginner",
@@ -1047,6 +1059,7 @@
     "builder": "Builder",
     "builders": "Builders",
     "cancel": "Cancel",
+    "category": "Category",
     "certificate": "Certificate",
     "chapter": "Chapter",
     "communities": "Communities",
@@ -1064,6 +1077,7 @@
     "details": "Details",
     "didYouKnow": "Did you know ?",
     "diploma": "Diploma",
+    "dislikes": "Dislikes",
     "displayName": "Display name",
     "documentaries": "Documentaries",
     "donations": "Donations",
@@ -1105,6 +1119,7 @@
     "library": "Library",
     "lightning": "Lightning",
     "lightningInvoice": "Lightning invoice",
+    "likes": "Likes",
     "lnurlAuth": "LNURL Auth",
     "location": "Location",
     "manifesto": "Manifesto",

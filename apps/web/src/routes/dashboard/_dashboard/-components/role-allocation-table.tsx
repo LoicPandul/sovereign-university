@@ -31,7 +31,7 @@ import { useSmaller } from '#src/hooks/use-smaller.ts';
 import { useDebounce } from '#src/utils/search.ts';
 import { trpc } from '#src/utils/trpc.ts';
 
-export const AdminTable = ({ userRole }: { userRole: UserRole }) => {
+export const RoleAllocationTable = ({ userRole }: { userRole: UserRole }) => {
   const { i18n } = useTranslation();
 
   const [search, setSearch] = useState('');
@@ -243,47 +243,6 @@ export const AdminTable = ({ userRole }: { userRole: UserRole }) => {
 
                   {userRole === 'student' && (
                     <TableCell>
-                      {/* TODO: fix perf of <Select> shadcn component on large data collection -> Tried for hours to make it better performance wise as it was tanking perf, even with react-window (improved perf but not enough), but couldn't get it to be nearly as fast as vanilla select */}
-                      {/* <Select
-                        value={String(selectedProfessors[user.uid] || '')}
-                        onValueChange={(e) =>
-                          handleSelectedProfessor(user.uid, e)
-                        }
-                      >
-                        <SelectTrigger
-                          className={cn(
-                            'w-full md:min-w-[180px] -xl:min-w-[246px]',
-                            selectedProfessors[user.uid]
-                              ? 'text-newBlack-1'
-                              : 'text-newGray-1',
-                          )}
-                        >
-                          <SelectValue placeholder="Select a professor">
-                            {professors?.find(
-                              (p) => p.id === selectedProfessors[user.uid],
-                            )?.name || 'Select a professor'}
-                          </SelectValue>
-                        </SelectTrigger>
-                        <SelectContent>
-                          <FixedSizeList
-                            width={'100%'}
-                            height={350}
-                            itemCount={professors.length}
-                            itemData={professors}
-                            itemSize={30}
-                          >
-                            {({ index, style, data }) => (
-                              <SelectItem
-                                value={data[index].id.toString()}
-                                key={data[index].id}
-                                style={style}
-                              >
-                                {data[index].name}
-                              </SelectItem>
-                            )}
-                          </FixedSizeList>
-                        </SelectContent>
-                      </Select> */}
                       <select
                         value={selectedProfessors[user.uid] || ''}
                         onChange={(e) =>

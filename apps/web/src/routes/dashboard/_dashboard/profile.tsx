@@ -251,7 +251,7 @@ function DashboardProfile() {
             setEmailSent(true);
           } else {
             setEmailSent(false);
-            setEmailError(data.error ?? "An error occurred");
+            setEmailError(data.error ?? 'An error occurred');
           }
         }}
         email={user?.email || ''}

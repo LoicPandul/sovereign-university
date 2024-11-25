@@ -24,7 +24,6 @@ import { Route as DashboardDashboardCredentialsImport } from './routes/dashboard
 import { Route as DashboardDashboardCoursesImport } from './routes/dashboard/_dashboard/courses';
 import { Route as DashboardDashboardCalendarImport } from './routes/dashboard/_dashboard/calendar';
 import { Route as DashboardDashboardBookingsImport } from './routes/dashboard/_dashboard/bookings';
-import { Route as DashboardDashboardAdministrationImport } from './routes/dashboard/_dashboard/administration';
 import { Route as ContentEventsEventIdImport } from './routes/_content/events/$eventId';
 import { Route as ContentMiscUnderConstructionImport } from './routes/_content/_misc/under-construction';
 import { Route as ContentMiscTermsAndConditionsImport } from './routes/_content/_misc/terms-and-conditions';
@@ -43,10 +42,13 @@ import { Route as ContentResourcesBetIndexImport } from './routes/_content/resou
 import { Route as ContentCoursesCourseIdIndexImport } from './routes/_content/courses/$courseId/index';
 import { Route as ContentMiscPublicCommunicationIndexImport } from './routes/_content/_misc/public-communication/index';
 import { Route as ContentMiscProfessorsIndexImport } from './routes/_content/_misc/professors/index';
+import { Route as DashboardDashboardProfessorTutorialsImport } from './routes/dashboard/_dashboard/professor/tutorials';
 import { Route as DashboardDashboardProfessorProfileImport } from './routes/dashboard/_dashboard/professor/profile';
 import { Route as DashboardDashboardProfessorCoursesImport } from './routes/dashboard/_dashboard/professor/courses';
 import { Route as DashboardDashboardCourseCompletedImport } from './routes/dashboard/_dashboard/course/completed';
 import { Route as DashboardDashboardCourseCourseIdImport } from './routes/dashboard/_dashboard/course/$courseId';
+import { Route as DashboardDashboardAdministrationTutorialsImport } from './routes/dashboard/_dashboard/administration/tutorials';
+import { Route as DashboardDashboardAdministrationRoleImport } from './routes/dashboard/_dashboard/administration/role';
 import { Route as ContentTutorialsCategoryNameImport } from './routes/_content/tutorials/$category/$name';
 import { Route as ContentResourcesPodcastsPodcastNamePodcastIdImport } from './routes/_content/resources/podcasts/$podcastName-$podcastId';
 import { Route as ContentResourcesNewslettersNewsletterNameNewsletterIdImport } from './routes/_content/resources/newsletters/$newsletterName-$newsletterId';
@@ -149,13 +151,6 @@ const DashboardDashboardBookingsRoute = DashboardDashboardBookingsImport.update(
     getParentRoute: () => DashboardDashboardRoute,
   } as any,
 );
-
-const DashboardDashboardAdministrationRoute =
-  DashboardDashboardAdministrationImport.update({
-    id: '/administration',
-    path: '/administration',
-    getParentRoute: () => DashboardDashboardRoute,
-  } as any);
 
 const ContentEventsEventIdRoute = ContentEventsEventIdImport.update({
   id: '/_content/events/$eventId',
@@ -279,6 +274,13 @@ const ContentMiscProfessorsIndexRoute = ContentMiscProfessorsIndexImport.update(
   } as any,
 );
 
+const DashboardDashboardProfessorTutorialsRoute =
+  DashboardDashboardProfessorTutorialsImport.update({
+    id: '/professor/tutorials',
+    path: '/professor/tutorials',
+    getParentRoute: () => DashboardDashboardRoute,
+  } as any);
+
 const DashboardDashboardProfessorProfileRoute =
   DashboardDashboardProfessorProfileImport.update({
     id: '/professor/profile',
@@ -304,6 +306,20 @@ const DashboardDashboardCourseCourseIdRoute =
   DashboardDashboardCourseCourseIdImport.update({
     id: '/course/$courseId',
     path: '/course/$courseId',
+    getParentRoute: () => DashboardDashboardRoute,
+  } as any);
+
+const DashboardDashboardAdministrationTutorialsRoute =
+  DashboardDashboardAdministrationTutorialsImport.update({
+    id: '/administration/tutorials',
+    path: '/administration/tutorials',
+    getParentRoute: () => DashboardDashboardRoute,
+  } as any);
+
+const DashboardDashboardAdministrationRoleRoute =
+  DashboardDashboardAdministrationRoleImport.update({
+    id: '/administration/role',
+    path: '/administration/role',
     getParentRoute: () => DashboardDashboardRoute,
   } as any);
 
@@ -521,13 +537,6 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ContentEventsEventIdImport;
       parentRoute: typeof rootRoute;
     };
-    '/dashboard/_dashboard/administration': {
-      id: '/dashboard/_dashboard/administration';
-      path: '/administration';
-      fullPath: '/dashboard/administration';
-      preLoaderRoute: typeof DashboardDashboardAdministrationImport;
-      parentRoute: typeof DashboardDashboardImport;
-    };
     '/dashboard/_dashboard/bookings': {
       id: '/dashboard/_dashboard/bookings';
       path: '/bookings';
@@ -689,6 +698,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ContentTutorialsCategoryNameImport;
       parentRoute: typeof rootRoute;
     };
+    '/dashboard/_dashboard/administration/role': {
+      id: '/dashboard/_dashboard/administration/role';
+      path: '/administration/role';
+      fullPath: '/dashboard/administration/role';
+      preLoaderRoute: typeof DashboardDashboardAdministrationRoleImport;
+      parentRoute: typeof DashboardDashboardImport;
+    };
+    '/dashboard/_dashboard/administration/tutorials': {
+      id: '/dashboard/_dashboard/administration/tutorials';
+      path: '/administration/tutorials';
+      fullPath: '/dashboard/administration/tutorials';
+      preLoaderRoute: typeof DashboardDashboardAdministrationTutorialsImport;
+      parentRoute: typeof DashboardDashboardImport;
+    };
     '/dashboard/_dashboard/course/$courseId': {
       id: '/dashboard/_dashboard/course/$courseId';
       path: '/course/$courseId';
@@ -715,6 +738,13 @@ declare module '@tanstack/react-router' {
       path: '/professor/profile';
       fullPath: '/dashboard/professor/profile';
       preLoaderRoute: typeof DashboardDashboardProfessorProfileImport;
+      parentRoute: typeof DashboardDashboardImport;
+    };
+    '/dashboard/_dashboard/professor/tutorials': {
+      id: '/dashboard/_dashboard/professor/tutorials';
+      path: '/professor/tutorials';
+      fullPath: '/dashboard/professor/tutorials';
+      preLoaderRoute: typeof DashboardDashboardProfessorTutorialsImport;
       parentRoute: typeof DashboardDashboardImport;
     };
     '/_content/_misc/professors/': {
@@ -842,25 +872,30 @@ declare module '@tanstack/react-router' {
 // Create and export the route tree
 
 interface DashboardDashboardRouteChildren {
-  DashboardDashboardAdministrationRoute: typeof DashboardDashboardAdministrationRoute;
   DashboardDashboardBookingsRoute: typeof DashboardDashboardBookingsRoute;
   DashboardDashboardCalendarRoute: typeof DashboardDashboardCalendarRoute;
   DashboardDashboardCoursesRoute: typeof DashboardDashboardCoursesRoute;
   DashboardDashboardCredentialsRoute: typeof DashboardDashboardCredentialsRoute;
   DashboardDashboardProfileRoute: typeof DashboardDashboardProfileRoute;
+  DashboardDashboardAdministrationRoleRoute: typeof DashboardDashboardAdministrationRoleRoute;
+  DashboardDashboardAdministrationTutorialsRoute: typeof DashboardDashboardAdministrationTutorialsRoute;
   DashboardDashboardCourseCourseIdRoute: typeof DashboardDashboardCourseCourseIdRoute;
   DashboardDashboardCourseCompletedRoute: typeof DashboardDashboardCourseCompletedRoute;
   DashboardDashboardProfessorCoursesRoute: typeof DashboardDashboardProfessorCoursesRoute;
   DashboardDashboardProfessorProfileRoute: typeof DashboardDashboardProfessorProfileRoute;
+  DashboardDashboardProfessorTutorialsRoute: typeof DashboardDashboardProfessorTutorialsRoute;
 }
 
 const DashboardDashboardRouteChildren: DashboardDashboardRouteChildren = {
-  DashboardDashboardAdministrationRoute: DashboardDashboardAdministrationRoute,
   DashboardDashboardBookingsRoute: DashboardDashboardBookingsRoute,
   DashboardDashboardCalendarRoute: DashboardDashboardCalendarRoute,
   DashboardDashboardCoursesRoute: DashboardDashboardCoursesRoute,
   DashboardDashboardCredentialsRoute: DashboardDashboardCredentialsRoute,
   DashboardDashboardProfileRoute: DashboardDashboardProfileRoute,
+  DashboardDashboardAdministrationRoleRoute:
+    DashboardDashboardAdministrationRoleRoute,
+  DashboardDashboardAdministrationTutorialsRoute:
+    DashboardDashboardAdministrationTutorialsRoute,
   DashboardDashboardCourseCourseIdRoute: DashboardDashboardCourseCourseIdRoute,
   DashboardDashboardCourseCompletedRoute:
     DashboardDashboardCourseCompletedRoute,
@@ -868,6 +903,8 @@ const DashboardDashboardRouteChildren: DashboardDashboardRouteChildren = {
     DashboardDashboardProfessorCoursesRoute,
   DashboardDashboardProfessorProfileRoute:
     DashboardDashboardProfessorProfileRoute,
+  DashboardDashboardProfessorTutorialsRoute:
+    DashboardDashboardProfessorTutorialsRoute,
 };
 
 const DashboardDashboardRouteWithChildren =
@@ -913,7 +950,6 @@ export interface FileRoutesByFullPath {
   '/terms-and-conditions': typeof ContentMiscTermsAndConditionsRoute;
   '/under-construction': typeof ContentMiscUnderConstructionRoute;
   '/events/$eventId': typeof ContentEventsEventIdRoute;
-  '/dashboard/administration': typeof DashboardDashboardAdministrationRoute;
   '/dashboard/bookings': typeof DashboardDashboardBookingsRoute;
   '/dashboard/calendar': typeof DashboardDashboardCalendarRoute;
   '/dashboard/courses': typeof DashboardDashboardCoursesRoute;
@@ -937,10 +973,13 @@ export interface FileRoutesByFullPath {
   '/resources/newsletters/$newsletterName-$newsletterId': typeof ContentResourcesNewslettersNewsletterNameNewsletterIdRoute;
   '/resources/podcasts/$podcastName-$podcastId': typeof ContentResourcesPodcastsPodcastNamePodcastIdRoute;
   '/tutorials/$category/$name': typeof ContentTutorialsCategoryNameRoute;
+  '/dashboard/administration/role': typeof DashboardDashboardAdministrationRoleRoute;
+  '/dashboard/administration/tutorials': typeof DashboardDashboardAdministrationTutorialsRoute;
   '/dashboard/course/$courseId': typeof DashboardDashboardCourseCourseIdRoute;
   '/dashboard/course/completed': typeof DashboardDashboardCourseCompletedRoute;
   '/dashboard/professor/courses': typeof DashboardDashboardProfessorCoursesRoute;
   '/dashboard/professor/profile': typeof DashboardDashboardProfessorProfileRoute;
+  '/dashboard/professor/tutorials': typeof DashboardDashboardProfessorTutorialsRoute;
   '/professors': typeof ContentMiscProfessorsIndexRoute;
   '/public-communication': typeof ContentMiscPublicCommunicationIndexRoute;
   '/courses/$courseId': typeof ContentCoursesCourseIdIndexRoute;
@@ -970,7 +1009,6 @@ export interface FileRoutesByTo {
   '/terms-and-conditions': typeof ContentMiscTermsAndConditionsRoute;
   '/under-construction': typeof ContentMiscUnderConstructionRoute;
   '/events/$eventId': typeof ContentEventsEventIdRoute;
-  '/dashboard/administration': typeof DashboardDashboardAdministrationRoute;
   '/dashboard/bookings': typeof DashboardDashboardBookingsRoute;
   '/dashboard/calendar': typeof DashboardDashboardCalendarRoute;
   '/dashboard/courses': typeof DashboardDashboardCoursesRoute;
@@ -993,10 +1031,13 @@ export interface FileRoutesByTo {
   '/resources/newsletters/$newsletterName-$newsletterId': typeof ContentResourcesNewslettersNewsletterNameNewsletterIdRoute;
   '/resources/podcasts/$podcastName-$podcastId': typeof ContentResourcesPodcastsPodcastNamePodcastIdRoute;
   '/tutorials/$category/$name': typeof ContentTutorialsCategoryNameRoute;
+  '/dashboard/administration/role': typeof DashboardDashboardAdministrationRoleRoute;
+  '/dashboard/administration/tutorials': typeof DashboardDashboardAdministrationTutorialsRoute;
   '/dashboard/course/$courseId': typeof DashboardDashboardCourseCourseIdRoute;
   '/dashboard/course/completed': typeof DashboardDashboardCourseCompletedRoute;
   '/dashboard/professor/courses': typeof DashboardDashboardProfessorCoursesRoute;
   '/dashboard/professor/profile': typeof DashboardDashboardProfessorProfileRoute;
+  '/dashboard/professor/tutorials': typeof DashboardDashboardProfessorTutorialsRoute;
   '/professors': typeof ContentMiscProfessorsIndexRoute;
   '/public-communication': typeof ContentMiscPublicCommunicationIndexRoute;
   '/courses/$courseId': typeof ContentCoursesCourseIdIndexRoute;
@@ -1028,7 +1069,6 @@ export interface FileRoutesById {
   '/_content/_misc/terms-and-conditions': typeof ContentMiscTermsAndConditionsRoute;
   '/_content/_misc/under-construction': typeof ContentMiscUnderConstructionRoute;
   '/_content/events/$eventId': typeof ContentEventsEventIdRoute;
-  '/dashboard/_dashboard/administration': typeof DashboardDashboardAdministrationRoute;
   '/dashboard/_dashboard/bookings': typeof DashboardDashboardBookingsRoute;
   '/dashboard/_dashboard/calendar': typeof DashboardDashboardCalendarRoute;
   '/dashboard/_dashboard/courses': typeof DashboardDashboardCoursesRoute;
@@ -1052,10 +1092,13 @@ export interface FileRoutesById {
   '/_content/resources/newsletters/$newsletterName-$newsletterId': typeof ContentResourcesNewslettersNewsletterNameNewsletterIdRoute;
   '/_content/resources/podcasts/$podcastName-$podcastId': typeof ContentResourcesPodcastsPodcastNamePodcastIdRoute;
   '/_content/tutorials/$category/$name': typeof ContentTutorialsCategoryNameRoute;
+  '/dashboard/_dashboard/administration/role': typeof DashboardDashboardAdministrationRoleRoute;
+  '/dashboard/_dashboard/administration/tutorials': typeof DashboardDashboardAdministrationTutorialsRoute;
   '/dashboard/_dashboard/course/$courseId': typeof DashboardDashboardCourseCourseIdRoute;
   '/dashboard/_dashboard/course/completed': typeof DashboardDashboardCourseCompletedRoute;
   '/dashboard/_dashboard/professor/courses': typeof DashboardDashboardProfessorCoursesRoute;
   '/dashboard/_dashboard/professor/profile': typeof DashboardDashboardProfessorProfileRoute;
+  '/dashboard/_dashboard/professor/tutorials': typeof DashboardDashboardProfessorTutorialsRoute;
   '/_content/_misc/professors/': typeof ContentMiscProfessorsIndexRoute;
   '/_content/_misc/public-communication/': typeof ContentMiscPublicCommunicationIndexRoute;
   '/_content/courses/$courseId/': typeof ContentCoursesCourseIdIndexRoute;
@@ -1087,7 +1130,6 @@ export interface FileRouteTypes {
     | '/terms-and-conditions'
     | '/under-construction'
     | '/events/$eventId'
-    | '/dashboard/administration'
     | '/dashboard/bookings'
     | '/dashboard/calendar'
     | '/dashboard/courses'
@@ -1111,10 +1153,13 @@ export interface FileRouteTypes {
     | '/resources/newsletters/$newsletterName-$newsletterId'
     | '/resources/podcasts/$podcastName-$podcastId'
     | '/tutorials/$category/$name'
+    | '/dashboard/administration/role'
+    | '/dashboard/administration/tutorials'
     | '/dashboard/course/$courseId'
     | '/dashboard/course/completed'
     | '/dashboard/professor/courses'
     | '/dashboard/professor/profile'
+    | '/dashboard/professor/tutorials'
     | '/professors'
     | '/public-communication'
     | '/courses/$courseId'
@@ -1143,7 +1188,6 @@ export interface FileRouteTypes {
     | '/terms-and-conditions'
     | '/under-construction'
     | '/events/$eventId'
-    | '/dashboard/administration'
     | '/dashboard/bookings'
     | '/dashboard/calendar'
     | '/dashboard/courses'
@@ -1166,10 +1210,13 @@ export interface FileRouteTypes {
     | '/resources/newsletters/$newsletterName-$newsletterId'
     | '/resources/podcasts/$podcastName-$podcastId'
     | '/tutorials/$category/$name'
+    | '/dashboard/administration/role'
+    | '/dashboard/administration/tutorials'
     | '/dashboard/course/$courseId'
     | '/dashboard/course/completed'
     | '/dashboard/professor/courses'
     | '/dashboard/professor/profile'
+    | '/dashboard/professor/tutorials'
     | '/professors'
     | '/public-communication'
     | '/courses/$courseId'
@@ -1199,7 +1246,6 @@ export interface FileRouteTypes {
     | '/_content/_misc/terms-and-conditions'
     | '/_content/_misc/under-construction'
     | '/_content/events/$eventId'
-    | '/dashboard/_dashboard/administration'
     | '/dashboard/_dashboard/bookings'
     | '/dashboard/_dashboard/calendar'
     | '/dashboard/_dashboard/courses'
@@ -1223,10 +1269,13 @@ export interface FileRouteTypes {
     | '/_content/resources/newsletters/$newsletterName-$newsletterId'
     | '/_content/resources/podcasts/$podcastName-$podcastId'
     | '/_content/tutorials/$category/$name'
+    | '/dashboard/_dashboard/administration/role'
+    | '/dashboard/_dashboard/administration/tutorials'
     | '/dashboard/_dashboard/course/$courseId'
     | '/dashboard/_dashboard/course/completed'
     | '/dashboard/_dashboard/professor/courses'
     | '/dashboard/_dashboard/professor/profile'
+    | '/dashboard/_dashboard/professor/tutorials'
     | '/_content/_misc/professors/'
     | '/_content/_misc/public-communication/'
     | '/_content/courses/$courseId/'
@@ -1418,16 +1467,18 @@ export const routeTree = rootRoute
       "filePath": "dashboard/_dashboard.tsx",
       "parent": "/dashboard",
       "children": [
-        "/dashboard/_dashboard/administration",
         "/dashboard/_dashboard/bookings",
         "/dashboard/_dashboard/calendar",
         "/dashboard/_dashboard/courses",
         "/dashboard/_dashboard/credentials",
         "/dashboard/_dashboard/profile",
+        "/dashboard/_dashboard/administration/role",
+        "/dashboard/_dashboard/administration/tutorials",
         "/dashboard/_dashboard/course/$courseId",
         "/dashboard/_dashboard/course/completed",
         "/dashboard/_dashboard/professor/courses",
-        "/dashboard/_dashboard/professor/profile"
+        "/dashboard/_dashboard/professor/profile",
+        "/dashboard/_dashboard/professor/tutorials"
       ]
     },
     "/_content/_misc/about": {
@@ -1450,10 +1501,6 @@ export const routeTree = rootRoute
     },
     "/_content/events/$eventId": {
       "filePath": "_content/events/$eventId.tsx"
-    },
-    "/dashboard/_dashboard/administration": {
-      "filePath": "dashboard/_dashboard/administration.tsx",
-      "parent": "/dashboard/_dashboard"
     },
     "/dashboard/_dashboard/bookings": {
       "filePath": "dashboard/_dashboard/bookings.tsx",
@@ -1533,6 +1580,14 @@ export const routeTree = rootRoute
     "/_content/tutorials/$category/$name": {
       "filePath": "_content/tutorials/$category/$name.tsx"
     },
+    "/dashboard/_dashboard/administration/role": {
+      "filePath": "dashboard/_dashboard/administration/role.tsx",
+      "parent": "/dashboard/_dashboard"
+    },
+    "/dashboard/_dashboard/administration/tutorials": {
+      "filePath": "dashboard/_dashboard/administration/tutorials.tsx",
+      "parent": "/dashboard/_dashboard"
+    },
     "/dashboard/_dashboard/course/$courseId": {
       "filePath": "dashboard/_dashboard/course/$courseId.tsx",
       "parent": "/dashboard/_dashboard"
@@ -1547,6 +1602,10 @@ export const routeTree = rootRoute
     },
     "/dashboard/_dashboard/professor/profile": {
       "filePath": "dashboard/_dashboard/professor/profile.tsx",
+      "parent": "/dashboard/_dashboard"
+    },
+    "/dashboard/_dashboard/professor/tutorials": {
+      "filePath": "dashboard/_dashboard/professor/tutorials.tsx",
       "parent": "/dashboard/_dashboard"
     },
     "/_content/_misc/professors/": {
