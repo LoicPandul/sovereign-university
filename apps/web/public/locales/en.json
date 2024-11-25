@@ -417,7 +417,7 @@
       "bookExam": "Book an exam session",
       "certificate": "Certificate",
       "grade": "Grade",
-      "noResults": "There are no grades or certificates associated with this account yet.\nIf you passed an exam and your results are not available after an extended period, please reach out to us for <0>assistance</0>."
+      "noResults": "There are no grades or certificates associated with this account yet.\nIf you passed an exam and your results are not available after an extended period, please <0>reach out to us</0> for assistance."
     },
     "booking": {
       "accessLive": "Access the live exam",

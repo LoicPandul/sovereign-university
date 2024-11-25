@@ -611,7 +611,7 @@ const NoResults = () => {
             href="mailto:contact@planb.network"
             className="underline underline-offset-2 hover:text-darkOrange-5"
           >
-            assistance
+            reach out to us
           </a>
         </Trans>
       </td>
