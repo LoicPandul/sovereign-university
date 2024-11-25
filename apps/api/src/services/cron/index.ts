@@ -1,8 +1,5 @@
 import { createRefreshCoursesRatings } from '@blms/service-content';
-import {
-  createExamTimestampService,
-  createMigrateUserFiles,
-} from '@blms/service-user';
+import { createExamTimestampService } from '@blms/service-user';
 
 import type { Dependencies } from '#src/dependencies.js';
 
@@ -18,11 +15,5 @@ export const registerCronTasks = async (ctx: Dependencies) => {
     ctx.crons.addTask('5m', () => timestampService.validateAllTimeStamps());
     ctx.crons.addTask('5m', () => timestampService.generateAllCertificates());
     ctx.crons.addTask('5m', () => timestampService.generateAllThumbnails());
-  }
-
-  // Execute once
-  {
-    const migrateUserFiles = createMigrateUserFiles(ctx);
-    queueMicrotask(() => migrateUserFiles());
   }
 };
