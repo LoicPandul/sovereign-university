@@ -1,3 +1,6 @@
+import { randomUUID } from 'node:crypto';
+import type { Readable } from 'node:stream';
+
 import type { Request, Router } from 'express';
 import formidable from 'formidable';
 import JSZip from 'jszip';
@@ -7,10 +10,8 @@ import sharp from 'sharp';
 import { NoSuchKey } from '@blms/s3';
 import {
   createExamTimestampService,
-  createInsertFile,
   createSetProfilePicture,
 } from '@blms/service-user';
-import type { UserFile } from '@blms/types';
 
 import type { Dependencies } from '#src/dependencies.js';
 import { BadRequest, InternalServerError } from '#src/errors.js';
@@ -29,66 +30,53 @@ const zipStream = (zip: JSZip) => {
   });
 };
 
+const receiveImage = (req: Request, resizeOptions = defaultResizeOptions) => {
+  return new Promise<Readable>((resolve, reject) => {
+    const sharpStream = sharp().resize(resizeOptions).webp();
+
+    const form = formidable({
+      multiples: false,
+      fileWriteStreamHandler: () => sharpStream,
+    });
+
+    try {
+      form.parse<never, 'file'>(req, (err, fields, files) => {
+        if (err) {
+          throw new InternalServerError('Failed to parse form data');
+        }
+
+        if (files.file?.length !== 1) {
+          throw new BadRequest('Invalid number of files');
+        }
+
+        const [file] = files.file;
+
+        // Sanity check
+        if (!req.session.uid) {
+          throw new InternalServerError('Missing session uid');
+        }
+
+        if (!file.mimetype) {
+          throw new InternalServerError('Missing file mimetype');
+        }
+
+        if (!file.originalFilename) {
+          throw new InternalServerError('Missing file name');
+        }
+
+        resolve(sharpStream);
+      });
+    } catch (error) {
+      console.log('Error:', error);
+      reject(error);
+    }
+  });
+};
+
 export const createRestFilesRoutes = async (
   dependencies: Dependencies,
   router: Router,
 ) => {
-  const insertFile = createInsertFile(dependencies);
-  const receiveImage = (req: Request, resizeOptions = defaultResizeOptions) => {
-    return new Promise<Omit<UserFile, 'data'>>((resolve, reject) => {
-      const sharpStream = sharp().resize(resizeOptions).webp();
-
-      const form = formidable({
-        multiples: false,
-        hashAlgorithm: 'sha256',
-        fileWriteStreamHandler: () => sharpStream,
-      });
-
-      try {
-        form.parse<never, 'file'>(req, async (err, fields, files) => {
-          if (err) {
-            throw new InternalServerError('Failed to parse form data');
-          }
-
-          if (files.file?.length !== 1) {
-            throw new BadRequest('Invalid number of files');
-          }
-
-          const [file] = files.file;
-
-          // Sanity check
-          if (!req.session.uid) {
-            throw new InternalServerError('Missing session uid');
-          }
-
-          if (!file.mimetype) {
-            throw new InternalServerError('Missing file mimetype');
-          }
-
-          if (!file.originalFilename) {
-            throw new InternalServerError('Missing file name');
-          }
-
-          const data = await sharpStream.toBuffer();
-          const checksum = file.hash as string;
-
-          resolve(
-            insertFile(req.session.uid, {
-              data,
-              filename: file.originalFilename,
-              mimetype: 'image/webp',
-              filesize: data.byteLength,
-              checksum,
-            }),
-          );
-        });
-      } catch (error) {
-        console.log('Error:', error);
-        reject(error);
-      }
-    });
-  };
-
   const setProfilePicture = createSetProfilePicture(dependencies);
   router.post(
     '/user-file/profile-picture',
@@ -102,7 +90,14 @@ export const createRestFilesRoutes = async (
       }
 
       receiveImage(req)
-        .then((file) => setProfilePicture(uid, file.id))
+        .then((stream) => {
+          const id = randomUUID();
+
+          return dependencies.s3
+            .upload(`user-files/${id}`, stream, 'image/webp')
+            .then(() => id);
+        })
+        .then((fileId) => setProfilePicture(uid, fileId))
         .then((result) => res.json(result))
         // eslint-disable-next-line promise/no-callback-in-promise
         .catch(next);

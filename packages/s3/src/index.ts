@@ -8,18 +8,20 @@ import {
   PutObjectCommand,
   S3Client,
 } from '@aws-sdk/client-s3';
+import { Upload } from '@aws-sdk/lib-storage';
 
 import type { S3Config } from '@blms/types';
 
 // Re-export NoSuchKey from the S3 client
 export { NoSuchKey } from '@aws-sdk/client-s3';
 
-type Data = string | Uint8Array | Buffer | Readable;
+type Data = string | Uint8Array | Buffer;
 
 export interface S3Service {
   getBlob(key: string): Promise<Uint8Array | null>;
   getStream(key: string): Promise<Readable | null>;
   put(key: string, body: Data, contentType?: string): Promise<void>;
+  upload(key: string, stream: Readable, contentType?: string): Promise<void>;
   head(key: string): Promise<S3Head>;
   delete(key: string): Promise<void>;
 }
@@ -80,6 +82,22 @@ export const createS3Service = (config: S3Config): S3Service => {
       });
 
       return s3.send(cmd).then(() => void 0);
+    },
+    // Upload a stream to the bucket
+    async upload(key: string, stream: Readable, contentType?: string) {
+      contentType ??= 'application/octet-stream';
+
+      const upload = new Upload({
+        client: s3,
+        params: {
+          Bucket,
+          Key: base(key),
+          ContentType: contentType,
+          Body: stream,
+        },
+      });
+
+      await upload.done();
     },
     // Return the metadata of the requested file
     head(key: string) {
