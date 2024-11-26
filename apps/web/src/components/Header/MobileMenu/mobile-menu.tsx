@@ -65,8 +65,8 @@ const LoggedMenu = ({ onClickLogin }: LoggedMenuProps) => {
       icon: <IoTicketOutline size={24} />,
     },
     {
-      buttonText: t('words.bCertificate'),
-      link: '/dashboard/bcertificate',
+      buttonText: t('words.credentials'),
+      link: '/dashboard/credentials',
       icon: <BsMortarboard size={24} />,
     },
     {

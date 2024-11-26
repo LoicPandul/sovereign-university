@@ -86,7 +86,7 @@ export const createSavePayment = ({ postgres }: Dependencies) => {
         invoice_creation: {
           enabled: true,
         },
-        billing_address_collection: 'required', // A mettre ?
+        billing_address_collection: 'required', // TODO check if needed
         payment_intent_data: {
           metadata: {
             paymentId: paymentId,
