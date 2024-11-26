@@ -11,14 +11,13 @@ export const CustomEvent = ({ event }: CustomEventProps) => {
   const [isSelected, setIsSelected] = useState(false);
 
   let cssclasses: string;
-
   switch (event.type) {
     case 'lecture': {
       cssclasses = 'bg-yellow-6 text-yellow-1';
       break;
     }
     case 'conference': {
-      cssclasses = 'bg-[#8530001a] text-darkOrange-7';
+      cssclasses = 'bg-[#f2eae5] text-darkOrange-7';
       break;
     }
     case 'exam': {
@@ -40,9 +39,8 @@ export const CustomEvent = ({ event }: CustomEventProps) => {
   }
 
   return (
-    // eslint-disable-next-line jsx-a11y/no-static-element-interactions
     <div
-      className={`${cssclasses} hover:z-20  hover:absolute`}
+      className={`${cssclasses}`}
       style={{
         padding: '10px',
         width: '100%',
@@ -58,13 +56,8 @@ export const CustomEvent = ({ event }: CustomEventProps) => {
       onPointerLeave={() => {
         setIsSelected(!isSelected);
       }}
-      onKeyUp={() => {
-        () => {
-          alert('aa');
-        };
-      }}
     >
-      <div className="flex flew-row text-sm pl-1">
+      <div className="flex flex-row text-sm pl-1">
         {`${format(event.start, 'h:mm a')} - ${format(event.end, 'h:mm a')}`}
         {event.isOnline && (
           <FaVideo className="size-6 ml-auto bg-white p-1 rounded-lg" />
