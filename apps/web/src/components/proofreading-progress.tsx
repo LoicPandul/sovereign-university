@@ -202,7 +202,7 @@ export const ProofreadingProgress = ({
       <Dialog>
         <DialogTrigger asChild>
           <button
-            className="button-class absolute right-3 top-3 lg:hidden"
+            className="button-class absolute right-1 top-1 lg:hidden"
             aria-label="Open Proofreading Progress Dialog"
           >
             <SmallProgressImage progress={contributorsLength} />

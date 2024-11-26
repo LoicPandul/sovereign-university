@@ -50,7 +50,7 @@ const CoursesMarkdownBody = ({
           <h3 className="text-2xl font-medium">{children}</h3>
         ),
         p: ({ children }) => (
-          <p className="text-blue-1000 text-base tracking-wide md:text-justify has-[>code]:text-left">
+          <p className="text-blue-1000 text-base tracking-wide text-justify has-[>code]:text-left">
             {children}
           </p>
         ),
@@ -81,17 +81,17 @@ const CoursesMarkdownBody = ({
           );
         },
         ol: ({ children }) => (
-          <ol className="flex list-decimal flex-col pl-10 text-base tracking-wide md:text-justify">
+          <ol className="flex list-decimal flex-col pl-10 text-base tracking-wide text-justify">
             {children}
           </ol>
         ),
         ul: ({ children }) => (
-          <ul className="flex list-disc flex-col pl-10 text-base tracking-wide md:text-justify">
+          <ul className="flex list-disc flex-col pl-10 text-base tracking-wide text-justify">
             {children}
           </ul>
         ),
         li: ({ children }) => (
-          <li className="my-1 text-base tracking-wide last:mb-0 md:text-justify">
+          <li className="my-1 text-base tracking-wide last:mb-0 text-justify">
             {children}
           </li>
         ),
