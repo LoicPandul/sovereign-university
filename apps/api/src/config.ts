@@ -9,6 +9,7 @@ import type {
   OpenTimestampsConfig,
   S3Config,
   SessionConfig,
+  StripeConfig,
 } from '@blms/types';
 
 function getenv<
@@ -100,6 +101,10 @@ export const session: SessionConfig = {
   maxAge: getenv('SESSION_MAX_AGE', 1000 * 60 * 60 * 24 * 7), // 1 week
   secure: production,
   domain: production ? domain : undefined,
+};
+
+export const stripe: StripeConfig = {
+  publicKey: getenv('VITE_STRIPE_PUBLIC', null),
 };
 
 const rpcUrl = getenv('OTS_RPC_URL', null);

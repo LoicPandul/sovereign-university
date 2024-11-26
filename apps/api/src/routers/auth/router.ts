@@ -1,8 +1,11 @@
 import { z } from 'zod';
 
+import { envConfigEndpointResultSchema } from '@blms/schemas';
+import type { EnvConfigEndpointResult } from '@blms/types';
+
 import type { Parser } from '#src/trpc/types.js';
 
-import { studentProcedure } from '../../procedures/index.js';
+import { publicProcedure, studentProcedure } from '../../procedures/index.js';
 import { createTRPCRouter } from '../../trpc/index.js';
 
 import { credentialsAuthRouter } from './credentials.js';
@@ -33,8 +36,18 @@ const logoutProcedure = studentProcedure
     });
   });
 
+const configProcedure = publicProcedure
+  .input(z.void())
+  .output<Parser<EnvConfigEndpointResult>>(envConfigEndpointResultSchema)
+  .query(({ ctx }) => {
+    return {
+      stripePublicKey: ctx.dependencies.config.stripe.publicKey,
+    };
+  });
+
 export const authRouter = createTRPCRouter({
   credentials: credentialsAuthRouter,
   lud4: lud4AuthRouter,
   logout: logoutProcedure,
+  config: configProcedure,
 });

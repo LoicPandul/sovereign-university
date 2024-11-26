@@ -27,6 +27,10 @@ export interface SessionConfig {
   domain: string | undefined;
 }
 
+export interface StripeConfig {
+  publicKey: string;
+}
+
 export interface EnvConfig {
   production: boolean;
   domain: string;
@@ -34,6 +38,7 @@ export interface EnvConfig {
   sendgrid: SendGridConfig;
   sync: GitHubSyncConfig;
   session: SessionConfig;
+  stripe: StripeConfig;
   opentimestamps: OpenTimestampsConfig;
 }
 

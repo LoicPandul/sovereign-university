@@ -21,9 +21,6 @@ import { trpc } from '#src/utils/trpc.js';
 import { ModalPaymentSuccess } from './modal-payment-success.tsx';
 import { ModalPaymentSummary } from './modal-payment-summary.tsx';
 
-const stripePublic = import.meta.env.VITE_STRIPE_PUBLIC;
-const stripePromise = loadStripe(stripePublic || '');
-
 interface WebSocketMessage {
   status: string;
 }
@@ -53,6 +50,8 @@ export const CoursePaymentModal = ({
   const saveFreePaymentRequest =
     trpc.user.courses.saveFreePayment.useMutation();
 
+  const { data: config } = trpc.auth.config.useQuery();
+
   const [isPaymentSuccess, setIsPaymentSuccess] = useState(false);
   const [checkoutData, setCheckoutData] = useState<CheckoutData>();
   const [method, setMethod] = useState<'sbp' | 'stripe' | null>(null);
@@ -62,6 +61,11 @@ export const CoursePaymentModal = ({
   const [coursePriceDollarsReduced, setCoursePriceDollarsReduced] =
     useState(dollarPrice);
   const [satsPriceReduced, setSatsPriceReduced] = useState(satsPrice);
+
+  let stripePromise = null;
+  if (config) {
+    stripePromise = loadStripe(config?.stripePublicKey || '');
+  }
 
   const initCoursePayment = useCallback(
     async (method: 'sbp' | 'stripe' | null) => {
