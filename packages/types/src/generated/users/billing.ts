@@ -4,6 +4,9 @@
 export interface Invoice {
   title: string;
   type: string;
+  amount: number;
+  paymentMethod: string;
+  url: string;
   date: Date;
 }
 
