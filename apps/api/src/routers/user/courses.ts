@@ -199,7 +199,8 @@ const savePaymentProcedure = studentProcedure
   .input(
     z.object({
       courseId: z.string(),
-      amount: z.number(),
+      satsPrice: z.number(),
+      dollarPrice: z.number(),
       couponCode: z.string().optional(),
       format: z.string(),
       method: z.string(),
@@ -211,7 +212,8 @@ const savePaymentProcedure = studentProcedure
     createSavePayment(ctx.dependencies)({
       uid: ctx.user.uid,
       courseId: input.courseId,
-      amount: input.amount,
+      satsPrice: input.satsPrice,
+      dollarPrice: input.dollarPrice,
       method: input.method,
       couponCode: input.couponCode,
       format: input.format,

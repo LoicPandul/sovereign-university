@@ -83,7 +83,8 @@ export const CoursePaymentModal = ({
         if (method) {
           const serverCheckoutData = await savePaymentRequest.mutateAsync({
             courseId: course.id,
-            amount: satsPriceReduced,
+            satsPrice: satsPriceReduced,
+            dollarPrice: coursePriceDollarsReduced,
             couponCode: validatedCoupon?.code,
             format: coursePaymentFormat,
             method: method,
@@ -99,6 +100,7 @@ export const CoursePaymentModal = ({
     [
       course.id,
       coursePaymentFormat,
+      coursePriceDollarsReduced,
       satsPriceReduced,
       saveFreePaymentRequest,
       savePaymentRequest,
@@ -181,7 +183,8 @@ export const CoursePaymentModal = ({
             />
             <div className="flex flex-col items-center justify-center lg:m-6">
               {checkoutData ? (
-                isPaymentSuccess && method === 'sbp' ? (
+                isPaymentSuccess &&
+                (satsPriceReduced === 0 || method === 'sbp') ? (
                   <ModalPaymentSuccess
                     checkoutData={checkoutData}
                     onClose={onClose}

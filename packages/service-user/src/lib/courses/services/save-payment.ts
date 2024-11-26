@@ -13,7 +13,8 @@ const stripe = new Stripe(stripeSecret ? stripeSecret : '');
 interface Options {
   uid: string;
   courseId: string;
-  amount: number;
+  satsPrice: number;
+  dollarPrice: number;
   method: string;
   couponCode?: string;
   format: string;
@@ -23,7 +24,8 @@ export const createSavePayment = ({ postgres }: Dependencies) => {
   return async ({
     uid,
     courseId,
-    amount,
+    satsPrice,
+    dollarPrice,
     method,
     couponCode,
     format,
@@ -31,7 +33,7 @@ export const createSavePayment = ({ postgres }: Dependencies) => {
     if (method === 'sbp') {
       const paymentData = {
         title: courseId,
-        amount: amount,
+        amount: satsPrice,
         unit: 'sat',
         onChain: true,
         webhook: `${process.env['PUBLIC_PROXY_URL']}/users/courses/payment/webhooks`,
@@ -96,7 +98,7 @@ export const createSavePayment = ({ postgres }: Dependencies) => {
           {
             price_data: {
               currency: 'usd',
-              unit_amount: 700,
+              unit_amount: dollarPrice * 100,
               product_data: {
                 name: courseId + ':' + format,
               },
@@ -115,8 +117,8 @@ export const createSavePayment = ({ postgres }: Dependencies) => {
           uid,
           courseId,
           format,
-          amount,
           paymentId,
+          amount: dollarPrice,
           paymentStatus: 'pending',
           invoiceUrl: '',
           method: method,
@@ -128,7 +130,7 @@ export const createSavePayment = ({ postgres }: Dependencies) => {
         id: paymentId,
         pr: '',
         onChainAddr: undefined,
-        amount: amount,
+        amount: dollarPrice,
         checkoutUrl: session.id,
         clientSecret: session.client_secret as string,
       };
