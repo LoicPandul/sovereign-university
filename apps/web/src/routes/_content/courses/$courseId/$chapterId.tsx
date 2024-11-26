@@ -844,7 +844,7 @@ function CourseChapter() {
             </div>
 
             <div className="flex w-full flex-col items-center justify-center lg:max-w-[1102px] lg:flex-row lg:items-stretch lg:justify-stretch">
-              <div className="text-blue-1000 w-full space-y-4 break-words px-4 md:px-2 md:mt-8 md:grow md:space-y-6 md:overflow-hidden pb-2">
+              <div className="text-blue-1000 w-full space-y-4 break-words px-[15px] md:px-2 md:mt-8 md:grow md:space-y-6 md:overflow-hidden pb-2">
                 {!chapter.isCourseExam && (
                   <Header chapter={chapter} sections={sections} />
                 )}
