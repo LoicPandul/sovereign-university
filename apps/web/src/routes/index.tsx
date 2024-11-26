@@ -242,14 +242,7 @@ function Home() {
           {filteredCourses &&
             filteredCourses.length > 0 &&
             filteredCourses.map((course) => (
-              <Link
-                key={course.id}
-                to="/courses/$courseId"
-                params={{ courseId: course.id }}
-                className="flex w-full max-w-[320px] max-md:mx-auto"
-              >
-                <CourseCard key={course.id} course={course} />
-              </Link>
+              <CourseCard key={course.id} course={course} />
             ))}
         </div>
         <Link to={'/courses'} className="flex justify-center lg:justify-start">
