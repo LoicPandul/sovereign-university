@@ -1,7 +1,7 @@
 import { useTranslation } from 'react-i18next';
 
 import type { Invoice } from '@blms/types';
-import { Button, Card } from '@blms/ui';
+import { Card } from '@blms/ui';
 
 import { formatDate } from '#src/utils/date.js';
 
@@ -32,57 +32,86 @@ export const BillingSection = ({ invoices }: { invoices: Invoice[] }) => {
                     {t('dashboard.booking.invoiceTitle')}
                   </span>
                   <span className="w-[100px] flex-none ml-auto">
+                    {t('words.price')}
+                  </span>
+                  <span className="w-[100px] flex-none ml-auto">
                     {t('words.invoice')}
                   </span>
                 </div>
-                {invoices.map((invoice, index) => (
-                  <div key={index}>
-                    <div className="hidden md:flex flex-row gap-4">
-                      <span className="w-[150px] flex-none">
-                        {formatDate(invoice.date)}
-                      </span>
-                      <span className="w-[100px] flex-none capitalize">
-                        {invoice.type}
-                      </span>
-                      <div className="min-w-[100px] grow h-fit">
-                        <span className="w-fit bg-newGray-5 pl-4 pr-2 py-1 rounded-full text-black font-medium">
-                          {invoice.title}
-                        </span>
-                      </div>
-                      <span className="w-[100px] flex-none ml-auto">
-                        <Button
-                          variant="primary"
-                          size="s"
-                          mode="light"
-                          disabled
-                        >
-                          {t('words.download')}
-                        </Button>
-                      </span>
-                    </div>
+                {invoices.map((invoice, index) => {
+                  function DlInvoice({ invoice }: { invoice: Invoice }) {
+                    switch (invoice.paymentMethod) {
+                      case 'free': {
+                        return <span>{t('words.unavailable')}</span>;
+                        break;
+                      }
+                      case 'sbp': {
+                        return <span>{t('words.unavailable')}</span>;
+                        break;
+                      }
+                      case 'stripe': {
+                        return (
+                          <a
+                            className="underline underline-offset-2 hover:text-darkOrange-5"
+                            href={invoice.url}
+                            target="_blank"
+                            rel="noreferrer"
+                          >
+                            {t('words.access')}
+                          </a>
+                        );
+                        break;
+                      }
+                    }
+                  }
 
-                    <Card
-                      withPadding={false}
-                      className="flex md:hidden p-3"
-                      color="gray"
-                    >
-                      <div className="flex flex-col gap-1">
-                        <span className="text-newBlack-1 font-medium">
-                          {invoice.title}
+                  return (
+                    <div key={index}>
+                      <div className="hidden md:flex flex-row gap-4">
+                        <span className="w-[150px] flex-none">
+                          {formatDate(invoice.date)}
                         </span>
-                        <span className="flex-none  text-sm">
-                          {formatDate(invoice.date)} -
-                          <span className="capitalize"> {invoice.type}</span>
+                        <span className="w-[100px] flex-none capitalize">
+                          {invoice.type}
                         </span>
-                        <span className="">
-                          <Button variant="primary" size="xs" disabled>
-                            {t('dashboard.booking.downloadInvoice')}
-                          </Button>
+                        <div className="min-w-[100px] grow h-fit">
+                          <span className="w-fit bg-newGray-5 pl-4 pr-2 py-1 rounded-full text-black font-medium">
+                            {invoice.title}
+                          </span>
+                        </div>
+                        <span className="w-[100px] flex-none ml-auto">
+                          {invoice.paymentMethod === 'stripe' &&
+                            `${invoice.amount} $`}
+                          {invoice.paymentMethod === 'sbp' &&
+                            `${invoice.amount} sats`}
+                          {invoice.paymentMethod === 'free' && t('words.free')}
+                        </span>
+                        <span className="w-[100px] flex-none ml-auto">
+                          <DlInvoice invoice={invoice} />
                         </span>
                       </div>
-                    </Card>
-                  </div>
-                ))}
+
+                      <Card
+                        withPadding={false}
+                        className="flex md:hidden p-3"
+                        color="gray"
+                      >
+                        <div className="flex flex-col gap-1">
+                          <span className="text-newBlack-1 font-medium">
+                            {invoice.title}
+                          </span>
+                          <span className="flex-none  text-sm">
+                            {formatDate(invoice.date)} -
+                            <span className="capitalize"> {invoice.type}</span>
+                          </span>
+                          <span className="">
+                            <DlInvoice invoice={invoice} />
+                          </span>
+                        </div>
+                      </Card>
+                    </div>
+                  );
+                })}
               </>
             ) : (
               <p className="mt-4">{t('dashboard.booking.noInvoice')}</p>

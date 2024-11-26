@@ -3,6 +3,9 @@ import { z } from 'zod';
 export const invoiceSchema = z.object({
   title: z.string(),
   type: z.string(),
+  amount: z.number(),
+  paymentMethod: z.string(),
+  url: z.string(),
   date: z.date(),
 });
 

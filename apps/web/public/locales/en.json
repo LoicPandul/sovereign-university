@@ -1054,6 +1054,7 @@
   "words": {
     "about": "About",
     "about-us": "About Us",
+    "access": "Access",
     "account": "Account",
     "action": "Action",
     "additionalCriteria": "Additional criteria",
@@ -1210,6 +1211,7 @@
     "topics": "Topics",
     "tutorial": "Tutorial",
     "tutorials": "Tutorials",
+    "unavailable": "Unavailable",
     "unified": "Unified",
     "update": "Update",
     "user": "User",
