@@ -313,14 +313,14 @@ export function CourseReview({
             <>
               <h1
                 className={cn(
-                  'text-center text-sm md:text-2xl mb-4',
-                  !formDisabled && 'text-newOrange-1',
+                  'text-center subtitle-large-med-20px md:text-2xl mb-4 text-newOrange-1',
                 )}
               >
                 {t('courses.review.feedbackSessionTitle')}
               </h1>
-              <div className="text-center gap-1 leading-7 whitespace-pre-line">
-                <p>{t('courses.review.feedbackDescription')}</p>
+              <div className="text-center max-md:body-14px md:whitespace-pre-line text-dashboardSectionText/75">
+                <p>{t('courses.review.feedbackDescription1')}</p>
+                <p>{t('courses.review.feedbackDescription2')}</p>
               </div>
             </>
           )}
