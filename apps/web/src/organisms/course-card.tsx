@@ -1,3 +1,4 @@
+import { Link } from '@tanstack/react-router';
 import { cva } from 'class-variance-authority';
 import { t } from 'i18next';
 import { FaArrowRightLong } from 'react-icons/fa6';
@@ -35,101 +36,110 @@ export const CourseCard = ({
   const maxRating = 5;
 
   return (
-    <article
-      className={`${courseCardStyles({
-        color: featured ? 'featured' : 'primary',
-      })} relative`}
+    <Link
+      key={course.id}
+      to="/courses/$courseId"
+      params={{ courseId: course.id }}
+      className="flex w-full max-md:max-w-[500px] max-md:mx-auto md:w-[340px] overflow-hidden"
     >
-      {/* Badge for Featured Card */}
-      {featured && (
-        <span className="absolute uppercase -top-px -left-px bg-white border border-white text-black body-semibold-12px md:title-medium-sb-18px rounded-tl-[10px] md:rounded-tl-[20px] rounded-br-[10px] py-[5px] px-2.5 md:py-2.5 md:px-[15px] md:rounded-br-[20px] z-10">
-          {t('words.startHere')}
-        </span>
-      )}
+      <article
+        className={`${courseCardStyles({
+          color: featured ? 'featured' : 'primary',
+        })} relative`}
+      >
+        {/* Badge for Featured Card */}
+        {featured && (
+          <span className="absolute uppercase -top-px -left-px bg-white border border-white text-black body-semibold-12px md:title-medium-sb-18px rounded-tl-[10px] md:rounded-tl-[20px] rounded-br-[10px] py-[5px] px-2.5 md:py-2.5 md:px-[15px] md:rounded-br-[20px] z-10">
+            {t('words.startHere')}
+          </span>
+        )}
 
-      <img
-        src={assetUrl(`courses/${course.id}`, 'thumbnail.webp')}
-        alt={course.name}
-        className="max-md:hidden rounded-md mb-2.5 object-cover [overflow-clip-margin:_unset] object-center max-h-72 group-hover:max-h-44 transition-[max-height] duration-300 ease-linear"
-      />
-      <div className="flex md:flex-col max-md:gap-2.5 max-md:mb-2.5 md:mb-2">
         <img
           src={assetUrl(`courses/${course.id}`, 'thumbnail.webp')}
           alt={course.name}
-          className="md:hidden rounded-md w-[124px] object-cover [overflow-clip-margin:_unset] object-center"
+          className="max-md:hidden rounded-md mb-2.5 object-cover [overflow-clip-margin:_unset] object-center max-h-72 group-hover:max-h-44 transition-[max-height] duration-300 ease-linear"
         />
-        <div className="flex flex-col md:gap-2">
-          <span className="max-md:flex flex-col md:mb-2 !line-clamp-2 font-medium leading-[120%] tracking-015px md:desktop-h6 text-white md:align-top mb-2 lg:mb-0">
-            {course.name}
-          </span>
-          <div className="flex md:items-center flex-col md:flex-row flex-wrap gap-2 md:gap-5 md:mt-auto">
-            <div className="flex md:items-center gap-1.5 md:gap-2 order-2 md:order-1">
-              <span className="bg-tertiary-8 text-white rounded-sm p-1 text-xs leading-none uppercase">
-                {course.id === 'btc101'
-                  ? t('words.start')
-                  : t(`words.level.${course.level}`)}
-              </span>
-              <span className="bg-tertiary-8 text-white rounded-sm p-1 text-xs leading-none uppercase">
-                {course.requiresPayment
-                  ? t('courses.details.paidCourse')
-                  : t('words.free')}
-              </span>
-            </div>
-            <div className="flex order-1 md:order-2">
-              <StarRating
-                rating={course.averageRating}
-                totalStars={maxRating}
-                starSize={20}
-                className="gap-2"
-              />
+        <div className="flex md:flex-col max-md:gap-2.5 max-md:mb-2.5 md:mb-2">
+          <img
+            src={assetUrl(`courses/${course.id}`, 'thumbnail.webp')}
+            alt={course.name}
+            className="md:hidden rounded-md w-[124px] object-cover [overflow-clip-margin:_unset] object-center"
+          />
+          <div className="flex flex-col md:gap-2">
+            <span className="max-md:flex flex-col md:mb-2 !line-clamp-2 font-medium leading-[120%] tracking-015px md:desktop-h6 text-white md:align-top mb-2 lg:mb-0">
+              {course.name}
+            </span>
+            <div className="flex md:items-center flex-col md:flex-row flex-wrap gap-2 md:gap-5 md:mt-auto">
+              <div className="flex md:items-center gap-1.5 md:gap-2 order-2 md:order-1">
+                <span className="bg-tertiary-8 text-white rounded-sm p-1 text-xs leading-none uppercase">
+                  {course.id === 'btc101'
+                    ? t('words.start')
+                    : t(`words.level.${course.level}`)}
+                </span>
+                <span className="bg-tertiary-8 text-white rounded-sm p-1 text-xs leading-none uppercase">
+                  {course.requiresPayment
+                    ? t('courses.details.paidCourse')
+                    : t('words.free')}
+                </span>
+              </div>
+              <div className="flex order-1 md:order-2">
+                <StarRating
+                  rating={course.averageRating}
+                  totalStars={maxRating}
+                  starSize={20}
+                  className="gap-2"
+                />
+              </div>
             </div>
           </div>
         </div>
-      </div>
-      <div className="relative">
-        <p className="text-tertiary-4 md:leading-relaxed md:tracking-[0.08px] line-clamp-3 md:line-clamp-4 transition-opacity opacity-100 md:group-hover:opacity-0 md:group-hover:absolute duration-300">
-          {course.goal}
-        </p>
-      </div>
-      <div className="max-md:hidden relative">
-        <div className="flex flex-col transition-opacity opacity-0 md:group-hover:opacity-100 absolute md:group-hover:static duration-0 md:group-hover:duration-150">
-          <span className="font-medium leading-normal tracking-015px mb-2 line-clamp-1 text-white">
-            {t('words.professor')}:{' '}
-            {course.professors.map((professor) => professor.name).join(', ')}
-          </span>
-          <ListItem
-            leftText={t('words.duration')}
-            rightText={course.hours + ' hours'}
-            className="border-t"
-          />
-          <ListItem
-            leftText={t('words.price')}
-            rightText={
-              course.requiresPayment
-                ? course.onlinePriceDollars === null
-                  ? `${course.inpersonPriceDollars}$`
-                  : `${course.onlinePriceDollars}$`
-                : t('words.free')
-            }
-            className="border-none"
-          />
+        <div className="relative">
+          <p className="text-tertiary-4 md:leading-relaxed md:tracking-[0.08px] line-clamp-3 md:line-clamp-4 transition-opacity opacity-100 md:group-hover:opacity-0 md:group-hover:absolute duration-300">
+            {course.goal}
+          </p>
         </div>
-      </div>
-      <div className="max-md:hidden relative mt-auto">
-        <Button
-          variant="primary"
-          size="m"
-          className="w-full absolute md:group-hover:static transition-opacity opacity-0 md:group-hover:opacity-100 duration-0 md:group-hover:duration-300"
-        >
-          {t('courses.explorer.seeCourse')}
-          <FaArrowRightLong
-            className={cn(
-              'opacity-0 max-w-0 inline-flex whitespace-nowrap transition-[max-width_opacity] overflow-hidden ease-in-out duration-150 group-hover:max-w-96 group-hover:opacity-100',
-              'group-hover:ml-3',
-            )}
-          />
-        </Button>
-      </div>
-    </article>
+        <div className="max-md:hidden relative">
+          <div className="flex flex-col transition-opacity opacity-0 md:group-hover:opacity-100 absolute md:group-hover:static duration-0 md:group-hover:duration-150">
+            <span className="font-medium leading-normal tracking-015px mb-2 line-clamp-1 text-white">
+              {t('words.professor')}:{' '}
+              {course.professors.map((professor) => professor.name).join(', ')}
+            </span>
+            <ListItem
+              leftText={t('words.duration')}
+              rightText={course.hours + ' hours'}
+              className="border-t"
+            />
+            <ListItem
+              leftText={t('words.price')}
+              rightText={
+                course.requiresPayment
+                  ? course.onlinePriceDollars === null
+                    ? `${course.inpersonPriceDollars}$`
+                    : `${course.onlinePriceDollars}$`
+                  : t('words.free')
+              }
+              className="border-none"
+            />
+          </div>
+        </div>
+        <div className="max-md:hidden relative flex justify-center w-full mt-auto">
+          <div className="absolute w-full bottom-0">
+            <Button
+              variant="primary"
+              size="m"
+              className="w-full absolute md:group-hover:static transition-opacity opacity-0 md:group-hover:opacity-100 duration-0 md:group-hover:duration-300"
+            >
+              {t('courses.explorer.seeCourse')}
+              <FaArrowRightLong
+                className={cn(
+                  'opacity-0 max-w-0 inline-flex whitespace-nowrap transition-[max-width_opacity] overflow-hidden ease-in-out duration-150 group-hover:max-w-96 group-hover:opacity-100',
+                  'group-hover:ml-3',
+                )}
+              />
+            </Button>
+          </div>
+        </div>
+      </article>
+    </Link>
   );
 };

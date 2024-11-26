@@ -1,4 +1,4 @@
-import { Link, createFileRoute, useNavigate } from '@tanstack/react-router';
+import { createFileRoute, useNavigate } from '@tanstack/react-router';
 import { useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { z } from 'zod';
@@ -99,14 +99,7 @@ function ProfessorDetail() {
           {professor.courses.length > 0 && (
             <section className="flex justify-start gap-5 md:gap-10 flex-wrap mt-6">
               {professor.courses.map((course) => (
-                <Link
-                  key={course.id}
-                  to="/courses/$courseId"
-                  params={{ courseId: course.id }}
-                  className="flex w-full max-md:max-w-[500px] md:w-[340px]"
-                >
-                  <CourseCard course={course} />
-                </Link>
+                <CourseCard key={course.id} course={course} />
               ))}
             </section>
           )}

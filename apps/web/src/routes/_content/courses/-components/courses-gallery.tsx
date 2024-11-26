@@ -1,4 +1,4 @@
-import { Link, useLocation } from '@tanstack/react-router';
+import { useLocation } from '@tanstack/react-router';
 import { t } from 'i18next';
 import { useEffect, useState } from 'react';
 
@@ -180,25 +180,9 @@ export const CoursesGallery = ({ courses }: { courses: JoinedCourse[] }) => {
       </div>
 
       <section className="flex justify-center gap-5 md:gap-[50px] flex-wrap mt-8 md:mt-12 mb-5 lg:mb-[60px] max-w-[1226px] mx-auto">
-        {featuredCourse && (
-          <Link
-            key={featuredCourse.id}
-            to="/courses/$courseId"
-            params={{ courseId: featuredCourse.id }}
-            className="flex w-full max-md:max-w-[500px] max-md:mx-auto md:w-[340px]"
-          >
-            <CourseCard course={featuredCourse} featured />
-          </Link>
-        )}
+        {featuredCourse && <CourseCard course={featuredCourse} featured />}
         {otherCourses.map((course) => (
-          <Link
-            key={course.id}
-            to="/courses/$courseId"
-            params={{ courseId: course.id }}
-            className="flex w-full max-md:max-w-[500px] max-md:mx-auto md:w-[340px]"
-          >
-            <CourseCard course={course} />
-          </Link>
+          <CourseCard key={course.id} course={course} />
         ))}
       </section>
     </>
