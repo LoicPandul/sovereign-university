@@ -1,8 +1,6 @@
-import { capitalize } from 'lodash-es';
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
-import type { JoinedCourse } from '@blms/types';
 import { cn } from '@blms/ui';
 
 // import webSvg from '#src/assets/icons/world-pixelated.svg';
@@ -15,8 +13,13 @@ import tutorialsSvg from '#src/assets/resources/toolkit.svg';
 import aboutSvg from '#src/assets/resources/world.svg';
 import { useGreater } from '#src/hooks/use-greater.js';
 
+import bitcoinSvg from '../../assets/icons/bitcoin.svg';
+import businessSvg from '../../assets/icons/business.svg';
+import protocolSvg from '../../assets/icons/protocol.svg';
+import securitySvg from '../../assets/icons/security.svg';
+import socialStudiesSvg from '../../assets/icons/world-pixelated.svg';
+import miningSvg from '../../assets/tutorials/mining.svg';
 import { useDisclosure } from '../../hooks/use-disclosure.ts';
-import { trpc } from '../../utils/trpc.ts';
 import { TUTORIALS_CATEGORIES } from '../../utils/tutorials.ts';
 import { AuthModal } from '../AuthModals/auth-modal.tsx';
 import { AuthModalState } from '../AuthModals/props.ts';
@@ -25,14 +28,12 @@ import { FlyingMenu } from './FlyingMenu/flying-menu.tsx';
 import { MobileMenu } from './MobileMenu/mobile-menu.tsx';
 import type { NavigationSection } from './props.ts';
 
-type Course = JoinedCourse;
-
 interface HeaderProps {
   variant?: 'light' | 'dark';
 }
 
 export const Header = ({ variant = 'dark' }: HeaderProps) => {
-  const { t, i18n } = useTranslation();
+  const { t } = useTranslation();
 
   const {
     open: openAuthModal,
@@ -45,70 +46,66 @@ export const Header = ({ variant = 'dark' }: HeaderProps) => {
     AuthModalState.SignIn,
   );
 
-  const { data: courses } = trpc.content.getCourses.useQuery(
-    {
-      language: i18n.language ?? 'en',
-    },
-    {
-      staleTime: 300_000, // 5 minutes
-    },
-  );
-
-  const coursesByLevel = courses?.reduce(
-    (acc, course) => {
-      const level = course.level.toLocaleLowerCase() as keyof typeof acc;
-
-      if (acc[level]) {
-        acc[level].push(course);
-      }
-
-      return acc;
-    },
-    {
-      beginner: [],
-      intermediate: [],
-      advanced: [],
-      wizard: [],
-    } as {
-      beginner: Course[];
-      intermediate: Course[];
-      advanced: Course[];
-      wizard: Course[];
-    },
-  );
-
-  const coursesItems = Object.entries(coursesByLevel ?? {}).flatMap(
-    ([level, courses]) => {
-      const formatted = courses.map((course) => {
-        const courseId = course.id.toUpperCase();
-        const formattedTitle = courseId.slice(0, 3) + ' ' + courseId.slice(3);
-        return {
-          id: course.id,
-          title: formattedTitle,
-          path: `/courses/${course.id}`,
-          description: course.name,
-        };
-      });
-
-      return formatted.length === 0
-        ? []
-        : [
-            {
-              id: level,
-              title: capitalize(level),
-              items: formatted,
-            },
-          ];
-    },
-  );
-
   // Todo, refactor desktop/mobile duplication
   const desktopSections: NavigationSection[] = [
     {
       id: 'courses',
       title: t('words.courses'),
       path: '/courses',
-      items: coursesItems,
+      items: [
+        {
+          id: 'courses-left',
+          items: [
+            {
+              id: 'courses-bitcoin',
+              title: t('words.bitcoin'),
+              icon: bitcoinSvg,
+              description: t('menu.bitcoinDescription'),
+              path: '/courses#bitcoin',
+            },
+            {
+              id: 'courses-business',
+              title: t('words.business'),
+              icon: businessSvg,
+              description: t('menu.businessDescription'),
+              path: '/courses#business',
+            },
+            {
+              id: 'courses-mining',
+              title: t('words.mining'),
+              icon: miningSvg,
+              description: t('menu.miningCourseDescription'),
+              path: '/courses#mining',
+            },
+          ],
+        },
+        {
+          id: 'courses-right',
+          items: [
+            {
+              id: 'courses-protocol',
+              title: t('words.protocol'),
+              icon: protocolSvg,
+              description: t('menu.protocolDescription'),
+              path: '/courses#protocol',
+            },
+            {
+              id: 'courses-security',
+              title: t('words.security'),
+              icon: securitySvg,
+              description: t('menu.securityDescription'),
+              path: '/courses#security',
+            },
+            {
+              id: 'courses-social-studies',
+              title: t('words.socialStudies'),
+              icon: socialStudiesSvg,
+              description: t('menu.socialStudiesDescription'),
+              path: '/courses#social%20studies',
+            },
+          ],
+        },
+      ],
     },
     {
       id: 'events',

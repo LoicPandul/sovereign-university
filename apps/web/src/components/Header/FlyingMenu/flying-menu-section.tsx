@@ -1,8 +1,12 @@
 import { Link } from '@tanstack/react-router';
 import { useRef, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { MdKeyboardArrowDown } from 'react-icons/md';
 
 import { Popover, PopoverContent, PopoverTrigger, cn } from '@blms/ui';
+
+import { assetUrl } from '#src/utils/index.ts';
+import { trpc } from '#src/utils/trpc.ts';
 
 import { MenuElement } from '../menu-elements.tsx';
 import type { NavigationSection } from '../props.ts';
@@ -70,8 +74,19 @@ const SectionTitle = ({
 };
 
 export const FlyingMenuSection = ({ section, variant }: FlyingMenuProps) => {
+  const { i18n, t } = useTranslation();
   const [open, setOpen] = useState(false);
   const timeoutRef = useRef<number | null>(null);
+
+  const { data: highlightedCourse } = trpc.content.getCourse.useQuery(
+    {
+      language: i18n.language ?? 'en',
+      id: 'btc101',
+    },
+    {
+      staleTime: 300_000, // 5 minutes
+    },
+  );
 
   const handleMouseEnter = () => {
     if (timeoutRef.current) {
@@ -123,7 +138,7 @@ export const FlyingMenuSection = ({ section, variant }: FlyingMenuProps) => {
       <PopoverContent
         className={cn(
           'flex absolute z-10 mt-8 -left-16',
-          hasMultipleSubSection ? '-left-40 xl:-left-80 2xl:-left-96' : '',
+          hasMultipleSubSection ? '-left-40 xl:-left-72' : '',
         )}
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
@@ -134,7 +149,40 @@ export const FlyingMenuSection = ({ section, variant }: FlyingMenuProps) => {
             variant === 'light' ? 'bg-darkOrange-4' : 'bg-newBlack-3',
           )}
         >
-          <div className="flex flex-row">
+          <div className="flex flex-row items-center gap-4 my-5 mx-4">
+            {section.id === 'courses' && highlightedCourse && (
+              <Link
+                to={`/courses/${highlightedCourse.id}`}
+                className="w-[253px] mr-2  relative hover:border bg-tertiary-10 border-darkOrange-5 hover:shadow-sm-section rounded-md overflow-hidden"
+              >
+                <span className="absolute uppercase bg-white border border-white text-black body-semibold-12px rounded-br-[8px] py-[5px] px-2.5 z-10">
+                  {t('words.startHere')}
+                </span>
+                <article className="w-full px-3 py-2 flex flex-col">
+                  <img
+                    src={assetUrl(
+                      `courses/${highlightedCourse.id}`,
+                      'thumbnail.webp',
+                    )}
+                    alt={highlightedCourse.name}
+                    className="rounded-md mb-1 object-cover [overflow-clip-margin:_unset] object-center w-full"
+                  />
+                  <span className="text-white font-medium leading-normal tracking-015px overflow-hidden text-ellipsis line-clamp-1">
+                    {highlightedCourse.name}
+                  </span>
+                  <div className="flex items-center gap-2">
+                    <span className="bg-tertiary-8 text-white rounded-sm p-1 text-xs leading-none capitalize">
+                      {t(`words.level.${highlightedCourse.level}`)}
+                    </span>
+                    <span className="bg-tertiary-8 text-white rounded-sm p-1 text-xs leading-none uppercase">
+                      {highlightedCourse.requiresPayment
+                        ? t('courses.details.paidCourse')
+                        : t('words.free')}
+                    </span>
+                  </div>
+                </article>
+              </Link>
+            )}
             {'items' in section &&
               section.items.map((subSectionOrElement) => {
                 return 'items' in subSectionOrElement ? (

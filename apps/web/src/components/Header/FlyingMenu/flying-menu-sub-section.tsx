@@ -14,7 +14,7 @@ export const FlyingMenuSubSection = ({
   hasMultipleSubSection,
 }: FlyingMenuSubSectionProps) => {
   return (
-    <div className="m-5">
+    <div className="flex flex-col my-2 mx-2.5 gap-2.5">
       {subSection.title && (
         <h3
           className={compose(

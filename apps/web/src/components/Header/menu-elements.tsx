@@ -21,12 +21,12 @@ export const MenuElement = ({
       <div
         key={element.id}
         className={cn(
-          'group flex w-full cursor-pointer gap-5 rounded-md p-2',
+          'group flex w-full cursor-pointer gap-5 rounded-md py-2 px-2.5',
           variant === 'light' ? 'hover:bg-white/20' : 'hover:bg-white/10',
         )}
       >
         {element.icon && (
-          <div className="flex flex-none items-center justify-center w-8">
+          <div className="flex flex-none items-center justify-center">
             <img
               src={element.icon}
               className={cn(
@@ -40,7 +40,7 @@ export const MenuElement = ({
             />
           </div>
         )}
-        <div className="flex flex-col items-start justify-center">
+        <div className="flex flex-col items-start justify-center truncate">
           <h5
             className={cn(
               'text-lg leading-normal tracking-015px',
@@ -52,11 +52,11 @@ export const MenuElement = ({
           {element.description && (
             <p
               className={cn(
-                'truncate desktop-typo1 ',
+                'truncate desktop-typo1 max-w-full',
                 variant === 'light' ? 'text-darkOrange-8' : 'text-newGray-2',
                 isMultipleSubSectionChildren
-                  ? 'max-w-40 xl:max-w-[240px] 2xl:max-w-[346px]'
-                  : 'max-w-72 xl:max-w-[346px]',
+                  ? 'w-40 xl:w-[240px] 2xl:w-[316px]'
+                  : 'w-[316px]',
               )}
             >
               {element.description}
