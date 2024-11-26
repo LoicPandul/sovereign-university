@@ -288,6 +288,13 @@
       "when": 1732551186798,
       "tag": "0040_illegal_thunderbird",
       "breakpoints": true
+    },
+    {
+      "idx": 41,
+      "version": "7",
+      "when": 1732614678174,
+      "tag": "0041_robust_human_torch",
+      "breakpoints": true
     }
   ]
 }
