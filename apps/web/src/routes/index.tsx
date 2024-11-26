@@ -140,7 +140,7 @@ function Home() {
           </div>
           <div className="relative col-span-3 hidden items-start lg:flex">
             <img
-              className="z-10 -ml-16 xl:-ml-20 2xl:-ml-24 md:mt-8 h-fit aspect-auto"
+              className="z-10 -ml-16 xl:-ml-20 2xl:-ml-24 md:mt-8 aspect-auto"
               src={HeaderPill}
               alt={t('imagesAlt.orangePill')}
               loading="lazy"
