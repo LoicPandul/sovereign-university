@@ -196,11 +196,7 @@ function CourseDetails() {
             size={isMobile ? 'verySmall' : 'large'}
             className="uppercase"
           >
-            {course.parts.some((part) =>
-              part.chapters.some((chapter) => chapter?.isInPerson),
-            )
-              ? t('words.inPerson')
-              : t('words.online')}
+            {t(`words.${course.format}`)}
           </TextTag>
           {beginnerFriendlyCourses.includes(course.id) && (
             <TextTag
@@ -266,7 +262,7 @@ function CourseDetails() {
                     <p>
                       ${course.inpersonPriceDollars}{' '}
                       <span className="font-normal lowercase">
-                        ({t('words.inPerson')})
+                        ({t('words.inperson')})
                       </span>
                     </p>
                     <p>
