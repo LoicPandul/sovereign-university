@@ -790,6 +790,7 @@ function Home() {
                   >
                     <VerticalCard
                       imageSrc={assetUrl(blog.path, 'thumbnail.webp')}
+                      imgClassName="w-full"
                       title={blog.title}
                       languages={[]}
                       cardColor="lightgrey"
@@ -803,7 +804,6 @@ function Home() {
                       tags={blog.tags}
                       category={blog.category}
                       excerpt={blog.description ?? ''}
-                      imgClassName=""
                       bodyClassName="p-2.5 lg:p-0"
                     />
                   </CarouselItem>
@@ -817,6 +817,7 @@ function Home() {
               <VerticalCard
                 key={blog.id}
                 imageSrc={assetUrl(blog.path, 'thumbnail.webp')}
+                imgClassName="w-full"
                 title={blog.title}
                 languages={[]}
                 cardColor="lightgrey"
