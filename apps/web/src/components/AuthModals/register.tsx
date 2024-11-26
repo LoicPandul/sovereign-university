@@ -262,7 +262,7 @@ export const Register = ({
               {t('auth.didYouKnow')}
             </span>
             <span className="text-darkOrange-5">
-              {t('auth.accountNotNeeded')}
+              {t('auth.noAccountNeeded')}
             </span>
           </div>
         </DialogContent>

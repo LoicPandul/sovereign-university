@@ -24,7 +24,6 @@
   },
   "auth": {
     "accountCreated": "Your account has been created, {{userName}}!",
-    "accountNotNeeded": "No need for an account to start learning at Plan B Network !",
     "alreadyHaveAccount": "Already have an account?",
     "canSaveProgress": "You can now save your progression on the Bitcoin Academy",
     "confirmation": "Confirmation",
@@ -48,7 +47,7 @@
     "forgottenPassword": "Forgot your password?",
     "headerAccountCreated": "Account created",
     "lnurlAuthDescription": "Scan this QR code with your Lightning wallet in order to login!",
-    "noAccountNeeded": "No need for an account to start learning at Plan B Network!",
+    "noAccountNeeded": "No need for an account to start learning at Plan ₿ Network!",
     "noAccountYet": "Don't have an account?",
     "resetPassword": "Reset your password",
     "newPassword": "New password",
