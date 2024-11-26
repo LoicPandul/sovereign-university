@@ -7,7 +7,6 @@ export * from './calendar.js';
 export * from './config.js';
 export * from './course.js';
 export * from './event.js';
-export * from './file.js';
 export * from './token.js';
 export * from './payment.js';
 export * from './timestamps.js';

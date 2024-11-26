@@ -1591,27 +1591,6 @@ export const couponCode = content.table('coupon_code', (t) => ({
  * Custom drizzle type for bytea columns.
  */
 
-export const usersFiles = users.table('files', (t) => ({
-  id: t.uuid().primaryKey().defaultRandom(),
-  // File owner
-  uid: t
-    .uuid()
-    .notNull()
-    .references(() => usersAccounts.uid, {
-      onDelete: 'cascade',
-    }),
-  // S3
-  s3Key: t.varchar({ length: 255 }),
-  // File metadata
-  checksum: t.varchar({ length: 64 }).notNull(),
-  filename: t.varchar({ length: 255 }).notNull(),
-  mimetype: t.varchar({ length: 255 }).notNull(),
-  filesize: t.integer().notNull(),
-  // Timestamps
-  createdAt: t.timestamp({ withTimezone: true }).defaultNow().notNull(),
-  updatedAt: t.timestamp({ withTimezone: true }).defaultNow().notNull(),
-}));
-
 export const tokenTypeEnum = pgEnum('token_type', [
   'validate_email',
   'reset_password',
