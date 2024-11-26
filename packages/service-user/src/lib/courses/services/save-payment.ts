@@ -54,6 +54,7 @@ export const createSavePayment = ({ postgres }: Dependencies) => {
         );
 
         if (!response.ok) {
+          console.log('Network response was not ok', response);
           throw new Error('Network response was not ok');
         }
 
