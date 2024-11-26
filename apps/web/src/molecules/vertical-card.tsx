@@ -120,8 +120,8 @@ export const VerticalCard = ({
           src={imageSrc}
           alt={title}
           className={cn(
-            'w-full h-[105px] md:h-[241px] object-cover [overflow-clip-margin:_unset] !rounded-b-0 rounded-t-[10px] lg:rounded-[10px] lg:mb-[17px]',
-            imgClassName,
+            'h-[105px] md:h-[241px] object-cover [overflow-clip-margin:_unset] !rounded-b-0 rounded-t-[10px] lg:rounded-[10px] lg:mb-[17px]',
+            imgClassName ? imgClassName : 'w-[137px] md:w-[320px]',
           )}
         />
         {languages && languages.length > 0 && (
