@@ -35,7 +35,6 @@ export default function QuizzCardResults({
         title={t('courses.quizz.quizzResults')}
         name={name}
         chapter={chapter}
-        questionIndex={5}
         answersColors={answersColors}
       />
       <div className="border-newBlack-1 bg-darkOrange-1 flex flex-col items-center self-stretch rounded-b-2xl border-2 p-5 md:px-8 md:py-9">
