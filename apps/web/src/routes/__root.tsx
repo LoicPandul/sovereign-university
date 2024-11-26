@@ -67,7 +67,7 @@ export const Route = createRootRouteWithContext<{
         </a>
         <span className="mt-6">An error occurred : {error.message} </span>
         <a className="text-orange-500" href="/">
-          Go back to the main page
+          Go back Home
         </a>
       </div>
     );
