@@ -75,7 +75,7 @@ export default function QuizzCardQuestion({
                       ? clickedAnswer === correctAnswer
                         ? 'bg-brightGreen-4'
                         : 'bg-red-4'
-                      : 'bg-newGray-5 group-hover:bg-newGray-3',
+                      : 'bg-newGray-5 md:group-hover:bg-newGray-3',
                   )}
                 >
                   {String.fromCodePoint(97 + index)}
@@ -87,7 +87,7 @@ export default function QuizzCardQuestion({
                       ? clickedAnswer === correctAnswer
                         ? 'bg-brightGreen-3 !font-semibold'
                         : 'bg-red-3 !font-semibold'
-                      : 'bg-white group-hover:bg-newGray-5',
+                      : 'bg-white md:group-hover:bg-newGray-5',
                   )}
                 >
                   {question}
