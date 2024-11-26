@@ -4,7 +4,7 @@ interface QuizzHeaderProps {
   title: string;
   name: string;
   chapter: string;
-  questionIndex: number;
+  questionIndex?: number;
   answersColors: string[];
 }
 
@@ -40,9 +40,11 @@ export const QuizzHeader = ({
         </div>
       </div>
       {/* Small device */}
-      <span className="text-white subtitle-medium-caps-18px md:hidden px-2.5">
-        {questionIndex + 1}/5
-      </span>
+      {questionIndex !== undefined && (
+        <span className="text-white subtitle-medium-caps-18px md:hidden px-2.5">
+          {questionIndex + 1}/5
+        </span>
+      )}
     </div>
   );
 };
