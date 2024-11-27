@@ -28,9 +28,9 @@ import {
   createGetProgress,
   createGetStripeSession,
   createGetUserChapter,
+  createSaveCoursePayment,
   createSaveCourseReview,
   createSaveFreePayment,
-  createSavePayment,
   createSaveQuizAttempt,
   createSaveUserChapter,
   createStartExamAttempt,
@@ -195,7 +195,7 @@ const saveCourseReviewProcedure = studentProcedure
     await createRefreshCourseRating(ctx.dependencies)(input.courseId);
   });
 
-const savePaymentProcedure = studentProcedure
+const saveCoursePaymentProcedure = studentProcedure
   .input(
     z.object({
       courseId: z.string(),
@@ -209,7 +209,7 @@ const savePaymentProcedure = studentProcedure
   )
   .output<Parser<CheckoutData>>(checkoutDataSchema)
   .mutation(({ ctx, input }) =>
-    createSavePayment(ctx.dependencies)({
+    createSaveCoursePayment(ctx.dependencies)({
       uid: ctx.user.uid,
       courseId: input.courseId,
       satsPrice: input.satsPrice,
@@ -355,7 +355,7 @@ export const userCoursesRouter = createTRPCRouter({
   saveCourseReview: saveCourseReviewProcedure,
   saveQuizAttempt: saveQuizAttemptProcedure,
   saveUserChapter: saveUserChapterProcedure,
-  savePayment: savePaymentProcedure,
+  saveCoursePayment: saveCoursePaymentProcedure,
   saveFreePayment: saveFreePaymentProcedure,
   startExamAttempt: startExamAttemptProcedure,
 });

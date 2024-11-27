@@ -46,7 +46,7 @@ export const CoursePaymentModal = ({
 }: CoursePaymentModalProps) => {
   const { t } = useTranslation();
 
-  const savePaymentRequest = trpc.user.courses.savePayment.useMutation();
+  const savePaymentRequest = trpc.user.courses.saveCoursePayment.useMutation();
   const saveFreePaymentRequest =
     trpc.user.courses.saveFreePayment.useMutation();
 

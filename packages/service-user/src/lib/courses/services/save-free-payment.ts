@@ -3,7 +3,7 @@ import { v4 as uuidv4 } from 'uuid';
 import type { CheckoutData } from '@blms/types';
 
 import type { Dependencies } from '../../../dependencies.js';
-import { insertPayment } from '../queries/insert-payment.js';
+import { insertCoursePayment } from '../queries/insert-course-payment.js';
 import { updateCoupon } from '../queries/update-coupon.js';
 
 interface Options {
@@ -19,7 +19,7 @@ export const createSaveFreePayment = ({ postgres }: Dependencies) => {
       const randomUUID = uuidv4();
 
       const payment = await postgres.exec(
-        insertPayment({
+        insertCoursePayment({
           paymentStatus: 'paid',
           amount: 0,
           paymentId: randomUUID,

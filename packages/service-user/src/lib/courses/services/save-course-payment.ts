@@ -4,7 +4,7 @@ import { v4 as uuidv4 } from 'uuid';
 import type { CheckoutData, StripeSession } from '@blms/types';
 
 import type { Dependencies } from '../../../dependencies.js';
-import { insertPayment } from '../queries/insert-payment.js';
+import { insertCoursePayment } from '../queries/insert-course-payment.js';
 import { updatePayment } from '../queries/update-payment.js';
 
 const stripeSecret = process.env['STRIPE_SECRET'];
@@ -20,7 +20,7 @@ interface Options {
   format: string;
 }
 
-export const createSavePayment = ({ postgres }: Dependencies) => {
+export const createSaveCoursePayment = ({ postgres }: Dependencies) => {
   return async ({
     uid,
     courseId,
@@ -61,7 +61,7 @@ export const createSavePayment = ({ postgres }: Dependencies) => {
         const checkoutData = (await response.json()) as CheckoutData;
 
         await postgres.exec(
-          insertPayment({
+          insertCoursePayment({
             uid,
             courseId,
             paymentStatus: 'pending',
@@ -114,7 +114,7 @@ export const createSavePayment = ({ postgres }: Dependencies) => {
       console.log('STRIPE SESSION', session);
 
       await postgres.exec(
-        insertPayment({
+        insertCoursePayment({
           uid,
           courseId,
           format,

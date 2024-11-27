@@ -1,7 +1,7 @@
 import { sql } from '@blms/database';
 import type { CoursePayment } from '@blms/types';
 
-export const insertPayment = ({
+export const insertCoursePayment = ({
   uid,
   courseId,
   paymentStatus,
