@@ -3,10 +3,10 @@ import {
   EmbeddedCheckoutProvider,
 } from '@stripe/react-stripe-js';
 import { loadStripe } from '@stripe/stripe-js';
-import { t } from 'i18next';
 import { useCallback, useEffect, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 
-import type { CheckoutData, JoinedEvent } from '@blms/types';
+import type { CheckoutData, CouponCode, JoinedEvent } from '@blms/types';
 import {
   Button,
   Dialog,
@@ -22,6 +22,10 @@ import { trpc } from '#src/utils/trpc.js';
 import { ModalPaymentSuccess } from './modal-payment-success.tsx';
 import { ModalPaymentSummary } from './modal-payment-summary.tsx';
 
+interface WebSocketMessage {
+  status: string;
+}
+
 interface EventPaymentModalProps {
   eventId: string;
   event: JoinedEvent;
@@ -29,11 +33,7 @@ interface EventPaymentModalProps {
   satsPrice: number;
   dollarPrice: number;
   isOpen: boolean;
-  onClose: (isPaid?: boolean) => void;
-}
-
-interface WebSocketMessage {
-  status: string;
+  onClose: () => void;
 }
 
 export const EventPaymentModal = ({
@@ -45,6 +45,8 @@ export const EventPaymentModal = ({
   isOpen,
   onClose,
 }: EventPaymentModalProps) => {
+  const { t } = useTranslation();
+
   const saveEventPaymentRequest =
     trpc.user.events.saveEventPayment.useMutation();
 
@@ -53,15 +55,55 @@ export const EventPaymentModal = ({
   const [isPaymentSuccess, setIsPaymentSuccess] = useState(false);
   const [checkoutData, setCheckoutData] = useState<CheckoutData>();
   const [method, setMethod] = useState<'sbp' | 'stripe' | null>(null);
+  const [validatedCoupon, setValidatedCoupon] = useState<CouponCode | null>(
+    null,
+  );
+  const [dollarPriceReduced, setDollarsPriceReduced] = useState(dollarPrice);
+  const [satsPriceReduced, setSatsPriceReduced] = useState(satsPrice);
 
   let stripePromise = null;
   if (config) {
     stripePromise = loadStripe(config?.stripePublicKey || '');
   }
 
+  const initEventPayment = useCallback(
+    async (method: 'sbp' | 'stripe' | null) => {
+      if (method) {
+        const serverCheckoutData = await saveEventPaymentRequest.mutateAsync({
+          eventId: eventId,
+          satsPrice: satsPriceReduced,
+          dollarPrice: dollarPriceReduced,
+          couponCode: validatedCoupon?.code,
+          withPhysical: accessType === 'physical',
+          method: method,
+        });
+
+        setCheckoutData(serverCheckoutData);
+      }
+
+      setMethod(method);
+    },
+    [
+      saveEventPaymentRequest,
+      eventId,
+      satsPriceReduced,
+      dollarPriceReduced,
+      validatedCoupon?.code,
+      accessType,
+    ],
+  );
+
   useEffect(() => {
-    if (checkoutData && isOpen) {
-      const ws = new WebSocket('wss://api.swiss-bitcoin-pay.ch/invoice/ln');
+    setSatsPriceReduced(satsPrice);
+  }, [satsPrice]);
+
+  useEffect(() => {
+    setDollarsPriceReduced(dollarPrice);
+  }, [dollarPrice]);
+
+  useEffect(() => {
+    if (checkoutData && isOpen && satsPrice >= 0) {
+      const ws = new WebSocket('wss://api.swiss-bitcoin-pay.ch/invoice');
 
       ws.addEventListener('open', () => {
         ws.send(JSON.stringify({ id: checkoutData.id }));
@@ -83,35 +125,34 @@ export const EventPaymentModal = ({
         ws.close();
       };
     }
-  }, [checkoutData, isOpen]);
+  }, [checkoutData, isOpen, satsPrice]);
 
-  const initEventPayment = useCallback(
-    async (method: 'sbp' | 'stripe' | null) => {
-      if (method) {
-        const serverCheckoutData = await saveEventPaymentRequest.mutateAsync({
-          eventId: eventId,
-          satsPrice: satsPrice,
-          dollarPrice: dollarPrice,
-          // couponCode: validatedCoupon?.code,
-          withPhysical: accessType === 'physical',
-          method: method,
-        });
-
-        setCheckoutData(serverCheckoutData);
+  function updateCoupon(coupon: CouponCode | null) {
+    setValidatedCoupon(coupon);
+    if (coupon && coupon.reductionPercentage) {
+      setSatsPriceReduced(
+        Math.ceil((satsPrice * (100 - coupon.reductionPercentage)) / 100),
+      );
+      if (dollarPrice) {
+        setDollarsPriceReduced(
+          Math.ceil((dollarPrice * (100 - coupon.reductionPercentage)) / 100),
+        );
       }
+    }
 
-      setMethod(method);
-    },
-    [saveEventPaymentRequest, eventId, satsPrice, dollarPrice, accessType],
-  );
-
+    if (!coupon) {
+      setSatsPriceReduced(satsPrice);
+      setDollarsPriceReduced(dollarPrice);
+      setValidatedCoupon(null);
+    }
+  }
   return (
     <div className="p-4">
       <Dialog
         open={isOpen}
-        onOpenChange={(open) => {
+        onOpenChange={() => {
           setCheckoutData(undefined);
-          onClose(open ? undefined : false);
+          onClose();
         }}
       >
         <DialogContent className="max-h-screen w-[90%] lg:w-full max-w-[1440px] h-[90vh] sm:w-[80vw] lg:p-0 sm:h-[85vh] overflow-auto">
@@ -128,7 +169,8 @@ export const EventPaymentModal = ({
             />
             <div className="flex flex-col items-center justify-center lg:m-6">
               {checkoutData ? (
-                isPaymentSuccess && (satsPrice === 0 || method === 'sbp') ? (
+                isPaymentSuccess &&
+                (satsPriceReduced === 0 || method === 'sbp') ? (
                   <ModalPaymentSuccess
                     event={event}
                     paymentData={checkoutData}
@@ -163,12 +205,13 @@ export const EventPaymentModal = ({
                 )
               ) : (
                 <PaymentDescription
-                  paidPriceDollars={event.priceDollars}
-                  event={event}
-                  accessType={accessType}
-                  satsPrice={satsPrice}
+                  paidPriceDollars={dollarPriceReduced}
+                  satsPrice={satsPriceReduced}
                   initPayment={initEventPayment}
                   itemId={event.id}
+                  updateCoupon={updateCoupon}
+                  event={event}
+                  accessType={accessType}
                   description={
                     accessType === 'replay'
                       ? ''

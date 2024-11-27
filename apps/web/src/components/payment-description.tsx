@@ -185,7 +185,7 @@ export const PaymentDescription = ({
             initPayment('stripe');
           }}
         >
-          {t('payment.payWithDollars')}
+          {t('payment.payByCard')}
         </Button>
       </div>
       <div className="text-center uppercase md:text-xs justify-self-end mt-auto mb-2">

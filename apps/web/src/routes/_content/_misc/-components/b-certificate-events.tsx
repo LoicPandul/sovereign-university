@@ -113,13 +113,8 @@ export const BCertificateEvents = ({ events }: BCertificateEventsProps) => {
             satsPrice={paymentModalData.satsPrice}
             dollarPrice={paymentModalData.dollarPrice}
             isOpen={isPaymentModalOpen}
-            onClose={(isPaid) => {
-              if (isPaid) {
-                refetchEventPayments();
-                setTimeout(() => {
-                  refetchEventPayments();
-                }, 5000);
-              }
+            onClose={() => {
+              refetchEventPayments();
               setPaymentModalData({
                 eventId: null,
                 satsPrice: null,

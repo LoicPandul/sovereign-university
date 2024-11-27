@@ -38,7 +38,7 @@ interface CoursePaymentModalProps {
   dollarPrice: number;
   isOpen: boolean;
   coursePaymentFormat: 'online' | 'inperson';
-  onClose: (isPaid?: boolean) => void;
+  onClose: () => void;
 }
 
 export const CoursePaymentModal = ({
@@ -53,8 +53,6 @@ export const CoursePaymentModal = ({
   const { t } = useTranslation();
 
   const savePaymentRequest = trpc.user.courses.saveCoursePayment.useMutation();
-  const saveFreePaymentRequest =
-    trpc.user.courses.saveFreePayment.useMutation();
 
   const { data: config } = trpc.auth.config.useQuery();
 
@@ -64,8 +62,7 @@ export const CoursePaymentModal = ({
   const [validatedCoupon, setValidatedCoupon] = useState<CouponCode | null>(
     null,
   );
-  const [coursePriceDollarsReduced, setCoursePriceDollarsReduced] =
-    useState(dollarPrice);
+  const [dollarPriceReduced, setDollarsPriceReduced] = useState(dollarPrice);
   const [satsPriceReduced, setSatsPriceReduced] = useState(satsPrice);
 
   let stripePromise = null;
@@ -75,40 +72,25 @@ export const CoursePaymentModal = ({
 
   const initCoursePayment = useCallback(
     async (method: 'sbp' | 'stripe' | null) => {
-      async function saveFreePayment() {
-        const serverCheckoutData = await saveFreePaymentRequest.mutateAsync({
+      if (method) {
+        const serverCheckoutData = await savePaymentRequest.mutateAsync({
           courseId: course.id,
+          satsPrice: satsPriceReduced,
+          dollarPrice: dollarPriceReduced,
           couponCode: validatedCoupon?.code,
           format: coursePaymentFormat,
+          method: method,
         });
         setCheckoutData(serverCheckoutData);
-        setIsPaymentSuccess(true);
-      }
-
-      async function savePayment() {
-        if (method) {
-          const serverCheckoutData = await savePaymentRequest.mutateAsync({
-            courseId: course.id,
-            satsPrice: satsPriceReduced,
-            dollarPrice: coursePriceDollarsReduced,
-            couponCode: validatedCoupon?.code,
-            format: coursePaymentFormat,
-            method: method,
-          });
-          setCheckoutData(serverCheckoutData);
-        }
       }
 
       setMethod(method);
-
-      await (satsPriceReduced === 0 ? saveFreePayment() : savePayment());
     },
     [
       course.id,
       coursePaymentFormat,
-      coursePriceDollarsReduced,
+      dollarPriceReduced,
       satsPriceReduced,
-      saveFreePaymentRequest,
       savePaymentRequest,
       validatedCoupon?.code,
     ],
@@ -119,7 +101,7 @@ export const CoursePaymentModal = ({
   }, [satsPrice]);
 
   useEffect(() => {
-    setCoursePriceDollarsReduced(dollarPrice);
+    setDollarsPriceReduced(dollarPrice);
   }, [dollarPrice]);
 
   useEffect(() => {
@@ -155,15 +137,15 @@ export const CoursePaymentModal = ({
         Math.ceil((satsPrice * (100 - coupon.reductionPercentage)) / 100),
       );
       if (dollarPrice) {
-        setCoursePriceDollarsReduced(
-          (dollarPrice * (100 - coupon.reductionPercentage)) / 100,
+        setDollarsPriceReduced(
+          Math.ceil((dollarPrice * (100 - coupon.reductionPercentage)) / 100),
         );
       }
     }
 
     if (!coupon) {
       setSatsPriceReduced(satsPrice);
-      setCoursePriceDollarsReduced(dollarPrice);
+      setDollarsPriceReduced(dollarPrice);
       setValidatedCoupon(null);
     }
   }
@@ -174,9 +156,9 @@ export const CoursePaymentModal = ({
     <div className="p-4">
       <Dialog
         open={isOpen}
-        onOpenChange={(open) => {
+        onOpenChange={() => {
           setCheckoutData(undefined);
-          onClose(open ? undefined : false);
+          onClose();
         }}
       >
         <DialogContent className="max-h-screen w-[90%] lg:w-full max-w-[1440px] h-[90vh] sm:w-[80vw] lg:p-0 sm:h-[85vh] overflow-auto">
@@ -227,9 +209,11 @@ export const CoursePaymentModal = ({
                 )
               ) : (
                 <PaymentDescription
-                  paidPriceDollars={coursePriceDollarsReduced}
+                  paidPriceDollars={dollarPriceReduced}
                   satsPrice={satsPriceReduced}
                   initPayment={initCoursePayment}
+                  itemId={course.id}
+                  updateCoupon={updateCoupon}
                   description={
                     coursePaymentFormat === 'inperson'
                       ? t('courses.payment.inPersonDescription')
@@ -248,8 +232,6 @@ export const CoursePaymentModal = ({
                       </Trans>
                     )
                   }
-                  itemId={course.id}
-                  updateCoupon={updateCoupon}
                 ></PaymentDescription>
               )}
             </div>

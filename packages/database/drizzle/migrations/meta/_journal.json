@@ -302,6 +302,13 @@
       "when": 1732699144719,
       "tag": "0042_nebulous_spot",
       "breakpoints": true
+    },
+    {
+      "idx": 43,
+      "version": "7",
+      "when": 1732716892640,
+      "tag": "0043_public_maddog",
+      "breakpoints": true
     }
   ]
 }

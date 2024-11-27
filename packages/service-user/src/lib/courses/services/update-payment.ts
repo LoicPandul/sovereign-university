@@ -1,5 +1,5 @@
 import type { Dependencies } from '../../../dependencies.js';
-import { updateCoupon } from '../queries/update-coupon.js';
+import { updateCourseCoupon } from '../queries/update-course-coupon.js';
 import {
   updatePayment,
   updatePaymentInvoiceId,
@@ -16,7 +16,7 @@ export const createUpdatePayment = ({ postgres }: Dependencies) => {
     await postgres.exec(updatePayment(options));
 
     if (options.isPaid) {
-      await postgres.exec(updateCoupon({ paymentId: options.id }));
+      await postgres.exec(updateCourseCoupon({ paymentId: options.id }));
     }
   };
 };

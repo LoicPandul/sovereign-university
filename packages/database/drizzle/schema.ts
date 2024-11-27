@@ -1086,6 +1086,7 @@ export const usersEventPayment = users.table(
     stripeInvoiceId: t.varchar({ length: 255 }),
     stripePaymentIntent: t.varchar({ length: 255 }),
     method: coursePaymentMethodEnum('method').notNull(),
+    couponCode: t.varchar({ length: 20 }).references(() => couponCode.code),
     paymentStatus: t.varchar({ length: 30 }).notNull(),
     amount: t.integer().notNull(),
     paymentId: t.varchar({ length: 255 }).notNull(),

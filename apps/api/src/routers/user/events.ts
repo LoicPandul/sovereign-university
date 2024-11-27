@@ -101,6 +101,7 @@ const saveEventPaymentProcedure = studentProcedure
       eventId: z.string(),
       satsPrice: z.number(),
       dollarPrice: z.number(),
+      couponCode: z.string().optional(),
       withPhysical: z.boolean(),
       method: z.string(),
     }),
@@ -113,6 +114,7 @@ const saveEventPaymentProcedure = studentProcedure
       satsPrice: input.satsPrice,
       dollarPrice: input.dollarPrice,
       method: input.method,
+      couponCode: input.couponCode,
       withPhysical: input.withPhysical,
     }),
   );

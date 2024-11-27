@@ -76,6 +76,7 @@ export interface EventPayment {
   stripeInvoiceId: string | null;
   stripePaymentIntent: string | null;
   method: 'sbp' | 'stripe' | 'free';
+  couponCode: string | null;
   paymentStatus: string;
   amount: number;
   paymentId: string;
