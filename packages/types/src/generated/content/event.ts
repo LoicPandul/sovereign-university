@@ -73,6 +73,9 @@ export interface EventPayment {
   uid: string;
   eventId: string;
   withPhysical: boolean | null;
+  stripeInvoiceId: string | null;
+  stripePaymentIntent: string | null;
+  method: 'sbp' | 'stripe' | 'free';
   paymentStatus: string;
   amount: number;
   paymentId: string;

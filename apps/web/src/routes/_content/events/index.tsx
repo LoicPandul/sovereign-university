@@ -10,6 +10,7 @@ import { AuthModalState } from '#src/components/AuthModals/props.js';
 import { PageLayout } from '#src/components/page-layout.js';
 import { useDisclosure } from '#src/hooks/use-disclosure.js';
 import { AppContext } from '#src/providers/context.js';
+import type { PaymentModalDataModel } from '#src/services/utils.tsx';
 import { trpc } from '#src/utils/trpc.js';
 
 import { CurrentEvents } from './-components/current-events.tsx';
@@ -53,11 +54,13 @@ function Events() {
       enabled: isLoggedIn,
     });
 
-  const [paymentModalData, setPaymentModalData] = useState<{
-    eventId: string | null;
-    satsPrice: number | null;
-    accessType: 'physical' | 'online' | 'replay' | null;
-  }>({ eventId: null, satsPrice: null, accessType: null });
+  const [paymentModalData, setPaymentModalData] =
+    useState<PaymentModalDataModel>({
+      eventId: null,
+      satsPrice: null,
+      dollarPrice: null,
+      accessType: null,
+    });
   const [isPaymentModalOpen, setIsPaymentModalOpen] = useState(false);
 
   const [conversionRate, setConversionRate] = useState<number | null>(null);
@@ -118,6 +121,7 @@ function Events() {
     >
       {paymentModalData.eventId &&
         paymentModalData.satsPrice &&
+        paymentModalData.dollarPrice &&
         paymentModalData.accessType &&
         paymentModalData.satsPrice > 0 &&
         payingEvent && (
@@ -126,6 +130,7 @@ function Events() {
             event={payingEvent}
             accessType={paymentModalData.accessType}
             satsPrice={paymentModalData.satsPrice}
+            dollarPrice={paymentModalData.dollarPrice}
             isOpen={isPaymentModalOpen}
             onClose={(isPaid) => {
               // TODO trigger add paid booked seat logic
@@ -139,6 +144,7 @@ function Events() {
               setPaymentModalData({
                 eventId: null,
                 satsPrice: null,
+                dollarPrice: null,
                 accessType: null,
               });
               setIsPaymentModalOpen(false);

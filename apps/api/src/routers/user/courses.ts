@@ -204,7 +204,6 @@ const saveCoursePaymentProcedure = studentProcedure
       couponCode: z.string().optional(),
       format: z.string(),
       method: z.string(),
-      clientSecret: z.string().optional(),
     }),
   )
   .output<Parser<CheckoutData>>(checkoutDataSchema)

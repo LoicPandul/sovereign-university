@@ -2,6 +2,8 @@ import { useTranslation } from 'react-i18next';
 
 import type { EventPayment, JoinedEvent, UserEvent } from '@blms/types';
 
+import type { PaymentModalDataModel } from '#src/services/utils.tsx';
+
 import { EventsCarousel } from './events-carousel.tsx';
 
 interface EventsPassedProps {
@@ -12,11 +14,7 @@ interface EventsPassedProps {
   isLoggedIn: boolean;
   setIsPaymentModalOpen: React.Dispatch<React.SetStateAction<boolean>>;
   setPaymentModalData: React.Dispatch<
-    React.SetStateAction<{
-      eventId: string | null;
-      satsPrice: number | null;
-      accessType: 'physical' | 'online' | 'replay' | null;
-    }>
+    React.SetStateAction<PaymentModalDataModel>
   >;
   conversionRate: number | null;
 }

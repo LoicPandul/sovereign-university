@@ -94,3 +94,10 @@ export const extractSubCategories = (tutorials: JoinedTutorialLight[]) => {
     ),
   ] as string[];
 };
+
+export interface PaymentModalDataModel {
+  eventId: string | null;
+  satsPrice: number | null;
+  dollarPrice: number | null;
+  accessType: 'physical' | 'online' | 'replay' | null;
+}

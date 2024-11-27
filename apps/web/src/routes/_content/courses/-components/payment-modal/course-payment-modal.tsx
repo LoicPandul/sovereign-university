@@ -11,7 +11,13 @@ import type {
   CouponCode,
   JoinedCourseWithAll,
 } from '@blms/types';
-import { Button, Dialog, DialogContent } from '@blms/ui';
+import {
+  Button,
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogTitle,
+} from '@blms/ui';
 
 import { PaymentDescription } from '#src/components/payment-description.js';
 import { PaymentQr } from '#src/components/payment-qr.js';
@@ -174,6 +180,10 @@ export const CoursePaymentModal = ({
         }}
       >
         <DialogContent className="max-h-screen w-[90%] lg:w-full max-w-[1440px] h-[90vh] sm:w-[80vw] lg:p-0 sm:h-[85vh] overflow-auto">
+          <DialogTitle className="hidden">Payment Modal</DialogTitle>
+          <DialogDescription className="hidden">
+            Payment Modal
+          </DialogDescription>
           <div className="grid grid-cols-1 lg:grid-cols-2 h-full gap-6 lg:gap-0">
             <ModalPaymentSummary
               course={course}
@@ -209,10 +219,9 @@ export const CoursePaymentModal = ({
                       variant="outline"
                       onClick={() => {
                         setCheckoutData(undefined);
-                        onClose();
                       }}
                     >
-                      {t('words.close')}
+                      {t('words.back')}
                     </Button>
                   </div>
                 )

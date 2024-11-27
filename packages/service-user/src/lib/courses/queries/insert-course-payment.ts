@@ -9,8 +9,8 @@ export const insertCoursePayment = ({
   amount,
   paymentId,
   invoiceUrl,
-  couponCode,
   method,
+  couponCode,
 }: {
   uid: string;
   courseId: string;

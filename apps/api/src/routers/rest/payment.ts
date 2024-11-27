@@ -6,10 +6,12 @@ import Stripe from 'stripe';
 
 import { createCalculateEventSeats } from '@blms/service-content';
 import {
+  createUpdateCoursePaymentInvoiceId,
   createUpdateCoursePaymentStatus,
   createUpdateEventPayment,
+  createUpdateEventPaymentInvoiceId,
+  createUpdateEventPaymentStatus,
   createUpdatePayment,
-  createUpdatePaymentInvoiceId,
 } from '@blms/service-user';
 
 import type { Dependencies } from '#src/dependencies.js';
@@ -168,27 +170,48 @@ export const createRestPaymentRoutes = (
             const paymentIntent = event.data.object;
             const paymentIntentId = paymentIntent.id;
             const paymentId = paymentIntent.metadata.paymentId;
+            const product = paymentIntent.metadata.product;
 
-            await createUpdateCoursePaymentStatus(dependencies)({
-              paymentId,
-              paymentIntentId,
-            });
+            if (product === 'course') {
+              await createUpdateCoursePaymentStatus(dependencies)({
+                paymentId,
+                paymentIntentId,
+              });
+            } else if (product === 'event') {
+              await createUpdateEventPaymentStatus(dependencies)({
+                paymentId,
+                paymentIntentId,
+              });
+            }
 
             break;
           }
           case 'invoice.paid': {
-            console.log('=== Stripe webhook', event.type);
+            console.log('============ Stripe webhook', event.type);
 
             const invoice = event.data.object;
-            const paymentIntent = invoice.payment_intent;
+            const intentId = invoice.payment_intent;
             const invoiceId = invoice.id;
             const hostedInvoiceUrl = invoice.hosted_invoice_url;
 
-            await createUpdatePaymentInvoiceId(dependencies)({
-              intentId: paymentIntent,
-              stripeInvoiceId: invoiceId,
-              invoiceUrl: hostedInvoiceUrl,
-            });
+            const paymentIntent =
+              await stripe.paymentIntents.retrieve(intentId);
+            const product = paymentIntent.metadata.product;
+
+            if (product === 'course') {
+              await createUpdateCoursePaymentInvoiceId(dependencies)({
+                intentId: intentId,
+                stripeInvoiceId: invoiceId,
+                invoiceUrl: hostedInvoiceUrl,
+              });
+            } else if (product === 'event') {
+              await createUpdateEventPaymentInvoiceId(dependencies)({
+                intentId: intentId,
+                stripeInvoiceId: invoiceId,
+                invoiceUrl: hostedInvoiceUrl,
+              });
+            }
+
             break;
           }
           default: {

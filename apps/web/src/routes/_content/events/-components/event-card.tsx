@@ -7,6 +7,7 @@ import { Button, cn } from '@blms/ui';
 
 import { useGreater } from '#src/hooks/use-greater.js';
 import Flag from '#src/molecules/Flag/index.js';
+import type { PaymentModalDataModel } from '#src/services/utils.tsx';
 import { getDateString, getTimeString } from '#src/utils/date.js';
 import { assetUrl } from '#src/utils/index.ts';
 
@@ -20,11 +21,7 @@ interface EventCardProps {
   isLoggedIn: boolean;
   setIsPaymentModalOpen: React.Dispatch<React.SetStateAction<boolean>>;
   setPaymentModalData: React.Dispatch<
-    React.SetStateAction<{
-      eventId: string | null;
-      satsPrice: number | null;
-      accessType: 'physical' | 'online' | 'replay' | null;
-    }>
+    React.SetStateAction<PaymentModalDataModel>
   >;
   conversionRate: number | null;
 }
@@ -43,9 +40,10 @@ export const EventCard = ({
 }: EventCardProps) => {
   const { t } = useTranslation();
 
+  const dollarPrice = event.priceDollars;
   let satsPrice =
-    conversionRate && event.priceDollars !== null
-      ? Math.round((event.priceDollars * 100_000_000) / conversionRate)
+    conversionRate && dollarPrice !== null
+      ? Math.round((dollarPrice * 100_000_000) / conversionRate)
       : -1;
   if (satsPrice > 10 && process.env.NODE_ENV === 'development') {
     satsPrice = 10;
@@ -207,6 +205,7 @@ export const EventCard = ({
                   setPaymentModalData({
                     eventId: event.id,
                     satsPrice: satsPrice,
+                    dollarPrice: dollarPrice,
                     accessType: 'online',
                   });
                   setIsPaymentModalOpen(true);
@@ -252,6 +251,7 @@ export const EventCard = ({
                   setPaymentModalData({
                     eventId: event.id,
                     satsPrice: satsPrice,
+                    dollarPrice: dollarPrice,
                     accessType: 'online',
                   });
                   setIsPaymentModalOpen(true);
@@ -280,6 +280,7 @@ export const EventCard = ({
                     setPaymentModalData({
                       eventId: event.id,
                       satsPrice: satsPrice,
+                      dollarPrice: dollarPrice,
                       accessType: 'physical',
                     });
                     setIsPaymentModalOpen(true);
@@ -353,6 +354,7 @@ export const EventCard = ({
             setPaymentModalData({
               eventId: event.id,
               satsPrice: satsPrice,
+              dollarPrice: dollarPrice,
               accessType: 'replay',
             });
             setIsPaymentModalOpen(true);

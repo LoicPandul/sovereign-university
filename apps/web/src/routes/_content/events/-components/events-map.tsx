@@ -33,6 +33,7 @@ import type { CalendarEvent } from '#src/components/Calendar/calendar-event.js';
 import { customEventGetter } from '#src/components/Calendar/custom-event-getter.js';
 import { CustomEventMonth } from '#src/components/Calendar/custom-event-month.tsx';
 import CustomToolbar from '#src/components/Calendar/custom-toolbar.js';
+import type { PaymentModalDataModel } from '#src/services/utils.tsx';
 import { trpc } from '#src/utils/trpc.ts';
 
 import { EventCard } from './event-card.tsx';
@@ -59,11 +60,7 @@ interface EventsMapProps {
   isLoggedIn: boolean;
   setIsPaymentModalOpen: React.Dispatch<React.SetStateAction<boolean>>;
   setPaymentModalData: React.Dispatch<
-    React.SetStateAction<{
-      eventId: string | null;
-      satsPrice: number | null;
-      accessType: 'physical' | 'online' | 'replay' | null;
-    }>
+    React.SetStateAction<PaymentModalDataModel>
   >;
   conversionRate: number | null;
 }

@@ -24,6 +24,7 @@ import { VerticalCard } from '#src/molecules/vertical-card.tsx';
 import CategoryItemList from '#src/organisms/category-item.tsx';
 import { LanguageSelectorHomepage } from '#src/organisms/language-selector-homepage.tsx';
 import { AppContext } from '#src/providers/context.tsx';
+import type { PaymentModalDataModel } from '#src/services/utils.tsx';
 import { assetUrl } from '#src/utils/index.ts';
 import { trpc } from '#src/utils/trpc.ts';
 
@@ -297,11 +298,13 @@ function Home() {
 
     const authMode = AuthModalState.SignIn;
 
-    const [paymentModalData, setPaymentModalData] = useState<{
-      eventId: string | null;
-      satsPrice: number | null;
-      accessType: 'physical' | 'online' | 'replay' | null;
-    }>({ eventId: null, satsPrice: null, accessType: null });
+    const [paymentModalData, setPaymentModalData] =
+      useState<PaymentModalDataModel>({
+        eventId: null,
+        satsPrice: null,
+        dollarPrice: null,
+        accessType: null,
+      });
 
     const payingEvent =
       event?.id === paymentModalData.eventId ? event : undefined;
@@ -338,6 +341,7 @@ function Home() {
 
             {paymentModalData.eventId &&
               paymentModalData.satsPrice &&
+              paymentModalData.dollarPrice &&
               paymentModalData.accessType &&
               paymentModalData.satsPrice > 0 &&
               payingEvent && (
@@ -346,6 +350,7 @@ function Home() {
                   event={payingEvent}
                   accessType={paymentModalData.accessType}
                   satsPrice={paymentModalData.satsPrice}
+                  dollarPrice={paymentModalData.dollarPrice}
                   isOpen={isPaymentModalOpen}
                   onClose={(isPaid) => {
                     // TODO trigger add paid booked seat logic
@@ -359,6 +364,7 @@ function Home() {
                     setPaymentModalData({
                       eventId: null,
                       satsPrice: null,
+                      dollarPrice: null,
                       accessType: null,
                     });
                     setIsPaymentModalOpen(false);

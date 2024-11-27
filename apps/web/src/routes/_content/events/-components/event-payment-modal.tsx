@@ -1,8 +1,14 @@
+import {
+  EmbeddedCheckout,
+  EmbeddedCheckoutProvider,
+} from '@stripe/react-stripe-js';
+import { loadStripe } from '@stripe/stripe-js';
 import { t } from 'i18next';
 import { useCallback, useEffect, useState } from 'react';
 
 import type { CheckoutData, JoinedEvent } from '@blms/types';
 import {
+  Button,
   Dialog,
   DialogContent,
   DialogDescription,
@@ -21,6 +27,7 @@ interface EventPaymentModalProps {
   event: JoinedEvent;
   accessType: 'physical' | 'online' | 'replay';
   satsPrice: number;
+  dollarPrice: number;
   isOpen: boolean;
   onClose: (isPaid?: boolean) => void;
 }
@@ -34,21 +41,30 @@ export const EventPaymentModal = ({
   event,
   accessType,
   satsPrice,
+  dollarPrice,
   isOpen,
   onClose,
 }: EventPaymentModalProps) => {
   const saveEventPaymentRequest =
     trpc.user.events.saveEventPayment.useMutation();
 
-  const [paymentData, setPaymentData] = useState<CheckoutData>();
+  const { data: config } = trpc.auth.config.useQuery();
+
   const [isPaymentSuccess, setIsPaymentSuccess] = useState(false);
+  const [checkoutData, setCheckoutData] = useState<CheckoutData>();
+  const [method, setMethod] = useState<'sbp' | 'stripe' | null>(null);
+
+  let stripePromise = null;
+  if (config) {
+    stripePromise = loadStripe(config?.stripePublicKey || '');
+  }
 
   useEffect(() => {
-    if (paymentData && isOpen) {
+    if (checkoutData && isOpen) {
       const ws = new WebSocket('wss://api.swiss-bitcoin-pay.ch/invoice/ln');
 
       ws.addEventListener('open', () => {
-        ws.send(JSON.stringify({ id: paymentData.id }));
+        ws.send(JSON.stringify({ id: checkoutData.id }));
       });
 
       const handleMessage = (event: MessageEvent) => {
@@ -67,22 +83,36 @@ export const EventPaymentModal = ({
         ws.close();
       };
     }
-  }, [paymentData, isOpen]);
+  }, [checkoutData, isOpen]);
 
-  const initEventPayment = useCallback(async () => {
-    const serverPaymentData = await saveEventPaymentRequest.mutateAsync({
-      eventId: eventId,
-      amount: satsPrice,
-      withPhysical: accessType === 'physical',
-    });
-    setPaymentData(serverPaymentData);
-  }, [saveEventPaymentRequest, eventId, satsPrice, accessType]);
+  const initEventPayment = useCallback(
+    async (method: 'sbp' | 'stripe' | null) => {
+      if (method) {
+        const serverCheckoutData = await saveEventPaymentRequest.mutateAsync({
+          eventId: eventId,
+          satsPrice: satsPrice,
+          dollarPrice: dollarPrice,
+          // couponCode: validatedCoupon?.code,
+          withPhysical: accessType === 'physical',
+          method: method,
+        });
+
+        setCheckoutData(serverCheckoutData);
+      }
+
+      setMethod(method);
+    },
+    [saveEventPaymentRequest, eventId, satsPrice, dollarPrice, accessType],
+  );
 
   return (
     <div className="p-4">
       <Dialog
         open={isOpen}
-        onOpenChange={(open) => onClose(open ? undefined : false)}
+        onOpenChange={(open) => {
+          setCheckoutData(undefined);
+          onClose(open ? undefined : false);
+        }}
       >
         <DialogContent className="max-h-screen w-[90%] lg:w-full max-w-[1440px] h-[90vh] sm:w-[80vw] lg:p-0 sm:h-[85vh] overflow-auto">
           <DialogTitle className="hidden">Payment Modal</DialogTitle>
@@ -97,19 +127,39 @@ export const EventPaymentModal = ({
               mobileDisplay={false}
             />
             <div className="flex flex-col items-center justify-center lg:m-6">
-              {paymentData ? (
-                isPaymentSuccess ? (
+              {checkoutData ? (
+                isPaymentSuccess && (satsPrice === 0 || method === 'sbp') ? (
                   <ModalPaymentSuccess
                     event={event}
-                    paymentData={paymentData}
+                    paymentData={checkoutData}
                     accessType={accessType}
                     onClose={onClose}
                   />
-                ) : (
+                ) : method === 'sbp' ? (
                   <PaymentQr
-                    checkoutData={paymentData}
-                    onBack={() => setPaymentData(undefined)}
+                    checkoutData={checkoutData}
+                    onBack={() => setCheckoutData(undefined)}
                   />
+                ) : (
+                  <div className="flex flex-col">
+                    <EmbeddedCheckoutProvider
+                      stripe={stripePromise}
+                      options={{
+                        clientSecret: checkoutData.clientSecret,
+                      }}
+                    >
+                      <EmbeddedCheckout />
+                    </EmbeddedCheckoutProvider>
+                    <Button
+                      className="mt-4"
+                      variant="outline"
+                      onClick={() => {
+                        setCheckoutData(undefined);
+                      }}
+                    >
+                      {t('words.back')}
+                    </Button>
+                  </div>
                 )
               ) : (
                 <PaymentDescription

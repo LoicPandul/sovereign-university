@@ -99,8 +99,10 @@ const saveEventPaymentProcedure = studentProcedure
   .input(
     z.object({
       eventId: z.string(),
-      amount: z.number(),
+      satsPrice: z.number(),
+      dollarPrice: z.number(),
       withPhysical: z.boolean(),
+      method: z.string(),
     }),
   )
   .output<Parser<CheckoutData>>(checkoutDataSchema)
@@ -108,7 +110,9 @@ const saveEventPaymentProcedure = studentProcedure
     createSaveEventPayment(ctx.dependencies)({
       uid: ctx.user.uid,
       eventId: input.eventId,
-      amount: input.amount,
+      satsPrice: input.satsPrice,
+      dollarPrice: input.dollarPrice,
+      method: input.method,
       withPhysical: input.withPhysical,
     }),
   );

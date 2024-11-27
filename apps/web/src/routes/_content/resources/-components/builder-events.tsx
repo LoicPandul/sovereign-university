@@ -7,6 +7,7 @@ import { AuthModal } from '#src/components/AuthModals/auth-modal.js';
 import { AuthModalState } from '#src/components/AuthModals/props.js';
 import { useDisclosure } from '#src/hooks/use-disclosure.js';
 import { AppContext } from '#src/providers/context.js';
+import type { PaymentModalDataModel } from '#src/services/utils.tsx';
 import { trpc } from '#src/utils/trpc.js';
 
 import { EventBookModal } from '../../events/-components/event-book-modal.tsx';
@@ -32,11 +33,13 @@ export const BuilderEvents = ({ events }: BuilderEventsProps) => {
       enabled: isLoggedIn,
     });
 
-  const [paymentModalData, setPaymentModalData] = useState<{
-    eventId: string | null;
-    satsPrice: number | null;
-    accessType: 'physical' | 'online' | 'replay' | null;
-  }>({ eventId: null, satsPrice: null, accessType: null });
+  const [paymentModalData, setPaymentModalData] =
+    useState<PaymentModalDataModel>({
+      eventId: null,
+      satsPrice: null,
+      dollarPrice: null,
+      accessType: null,
+    });
   const [isPaymentModalOpen, setIsPaymentModalOpen] = useState(false);
 
   const [conversionRate, setConversionRate] = useState<number | null>(null);
@@ -100,6 +103,7 @@ export const BuilderEvents = ({ events }: BuilderEventsProps) => {
     <div className="text-white mb-7 md:mb-32">
       {paymentModalData.eventId &&
         paymentModalData.satsPrice &&
+        paymentModalData.dollarPrice &&
         paymentModalData.accessType &&
         paymentModalData.satsPrice > 0 &&
         payingEvent && (
@@ -108,6 +112,7 @@ export const BuilderEvents = ({ events }: BuilderEventsProps) => {
             event={payingEvent}
             accessType={paymentModalData.accessType}
             satsPrice={paymentModalData.satsPrice}
+            dollarPrice={paymentModalData.dollarPrice}
             isOpen={isPaymentModalOpen}
             onClose={(isPaid) => {
               // TODO trigger add paid booked seat logic
@@ -121,6 +126,7 @@ export const BuilderEvents = ({ events }: BuilderEventsProps) => {
               setPaymentModalData({
                 eventId: null,
                 satsPrice: null,
+                dollarPrice: null,
                 accessType: null,
               });
               setIsPaymentModalOpen(false);

@@ -27,7 +27,9 @@ interface Options2 {
   invoiceUrl: string;
 }
 
-export const createUpdatePaymentInvoiceId = ({ postgres }: Dependencies) => {
+export const createUpdateCoursePaymentInvoiceId = ({
+  postgres,
+}: Dependencies) => {
   return async (options: Options2) => {
     await postgres.exec(updatePaymentInvoiceId(options));
   };

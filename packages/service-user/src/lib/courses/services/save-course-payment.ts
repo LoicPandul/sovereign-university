@@ -89,10 +89,14 @@ export const createSaveCoursePayment = ({ postgres }: Dependencies) => {
         invoice_creation: {
           enabled: true,
         },
-        billing_address_collection: 'required', // TODO check if needed
+        billing_address_collection: 'required',
+        metadata: {
+          product: 'course',
+        },
         payment_intent_data: {
           metadata: {
             paymentId: paymentId,
+            product: 'course',
           },
         },
         line_items: [
@@ -101,7 +105,7 @@ export const createSaveCoursePayment = ({ postgres }: Dependencies) => {
               currency: 'usd',
               unit_amount: dollarPrice * 100,
               product_data: {
-                name: courseId + ':' + format,
+                name: `${courseId}: ${format} course`,
               },
             },
             quantity: 1,
@@ -110,8 +114,6 @@ export const createSaveCoursePayment = ({ postgres }: Dependencies) => {
         redirect_on_completion: 'never',
         automatic_tax: { enabled: true },
       });
-
-      console.log('STRIPE SESSION', session);
 
       await postgres.exec(
         insertCoursePayment({
