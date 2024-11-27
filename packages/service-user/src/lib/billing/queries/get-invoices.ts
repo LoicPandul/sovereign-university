@@ -8,8 +8,8 @@ export const getInvoicesQuery = (uid: string, language?: string) => {
       ce.name as title,
       ce.type::text as type,
       ep.amount as amount,
-      'sbp' as payment_method,
-      '' as url
+      ep.method as payment_method,
+      ep.invoice_url as url
     FROM  users.event_payment ep
     JOIN content.events ce ON ep.event_id = ce.id
     WHERE ep.uid = ${uid}
