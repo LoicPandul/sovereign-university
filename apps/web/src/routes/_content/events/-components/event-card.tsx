@@ -163,7 +163,7 @@ export const EventCard = ({
       (userEvent !== undefined && userEvent.withPhysical === true);
 
     return (
-      <div className="flex items-center gap-2.5 sm:gap-4">
+      <>
         {isFreeOnlineLiveEvent && (
           <Link
             to={'/events/$eventId'}
@@ -305,7 +305,7 @@ export const EventCard = ({
           )}
 
         {isPassed && event.type !== 'conference' && <ReplayButtons />}
-      </div>
+      </>
     );
   };
 
@@ -420,14 +420,30 @@ export const EventCard = ({
           </div>
           <div className="flex flex-col sm:hidden p-1">
             <GeneralInfos />
-            {!event.websiteUrl && (
-              <div className="flex sm:flex-col gap-2.5 justify-between mt-auto sm:py-1">
-                <PriceInfos />
-                <EventButtons />
-              </div>
-            )}
+            <div className="flex sm:flex-col gap-2.5 justify-between mt-auto sm:py-1">
+              {!event.websiteUrl && <PriceInfos />}
+            </div>
+            <div className="flex items-center gap-2.5 sm:gap-4">
+              <EventButtons />
+              {isPassed && event.type === 'conference' && (
+                <div className="mt-2.5">
+                  <ReplayButtons />
+                </div>
+              )}
+              {(!isPassed || (isPassed && event.type !== 'conference')) && (
+                <VisitWebsiteButton />
+              )}
+            </div>
+          </div>
+        </div>
+        <div className="max-sm:hidden mt-auto">
+          <div className="flex sm:flex-col gap-2.5 justify-between mt-1 sm:mt-auto sm:py-1">
+            {!event.websiteUrl && <PriceInfos />}
+          </div>
+          <div className="flex items-center gap-2.5 sm:gap-4">
+            <EventButtons />
             {isPassed && event.type === 'conference' && (
-              <div className="mt-2.5">
+              <div className="mt-1 sm:mt-auto sm:py-1">
                 <ReplayButtons />
               </div>
             )}
@@ -435,22 +451,6 @@ export const EventCard = ({
               <VisitWebsiteButton />
             )}
           </div>
-        </div>
-        <div className="max-sm:hidden mt-auto">
-          {!event.websiteUrl && (
-            <div className="flex sm:flex-col gap-2.5 justify-between mt-1 sm:mt-auto sm:py-1">
-              <PriceInfos />
-              <EventButtons />
-            </div>
-          )}
-          {isPassed && event.type === 'conference' && (
-            <div className="mt-1 sm:mt-auto sm:py-1">
-              <ReplayButtons />
-            </div>
-          )}
-          {(!isPassed || (isPassed && event.type !== 'conference')) && (
-            <VisitWebsiteButton />
-          )}
         </div>
       </article>
     </>
