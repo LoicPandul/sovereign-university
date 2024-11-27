@@ -8,7 +8,7 @@ import React, {
   useState,
 } from 'react';
 import { useTranslation } from 'react-i18next';
-import { BiSkipNext, BiSkipPrevious } from 'react-icons/bi';
+import { BiChevronLeft, BiChevronRight } from 'react-icons/bi';
 import { FaArrowRightLong } from 'react-icons/fa6';
 import { FiLoader } from 'react-icons/fi';
 import { z } from 'zod';
@@ -26,7 +26,6 @@ import { useGreater } from '#src/hooks/use-greater.js';
 import { AppContext } from '#src/providers/context.js';
 import {
   COURSES_WITH_INLINE_LATEX_SUPPORT,
-  addSpaceToCourseId,
   goToChapterParameters,
 } from '#src/utils/courses.js';
 import { assetUrl, cdnUrl, compose, trpc } from '#src/utils/index.js';
@@ -120,70 +119,65 @@ const NextLessonBanner = ({ chapter }: { chapter: CourseChapterResponse }) => {
   );
 };
 
-const TimelineSmall = ({ chapter }: { chapter: CourseChapterResponse }) => {
+const TimelineSmall = ({
+  chapter,
+  professor,
+}: {
+  chapter: CourseChapterResponse;
+  professor: string;
+}) => {
   const { t } = useTranslation();
 
   return (
     <div className="mb-0 w-full max-w-5xl px-5 md:px-0 sm:hidden mt-5">
-      <h1
-        className={`mb-5 w-full text-left text-4xl font-bold text-white md:text-5xl`}
+      <Link
+        to={'/courses/$courseId'}
+        params={{ courseId: chapter.course.id }}
+        className="w-full flex justify-center items-center mb-4"
       >
-        <div className="flex md:flex-wrap items-center justify-center gap-4 md:gap-2">
-          <Link
-            to={'/courses/$courseId'}
-            params={{ courseId: chapter.course.id }}
-            className="px-2 py-1 text-xl bg-newGray-5 text-newGray-2 font-normal rounded-lg leading-tight hover:text-darkOrange-5 hover:bg-darkOrange-0 shrink-0 uppercase"
-          >
-            {addSpaceToCourseId(chapter.course.id)}
-          </Link>
-          <Link
-            to={'/courses/$courseId'}
-            params={{ courseId: chapter.course.id }}
-          >
-            <h1 className="mb-1 md:mr-2 text-xl font-semibold text-black max-md:text-center">
-              {chapter.course.name}
-            </h1>
-          </Link>
-        </div>
-      </h1>
-      <div className="flex flex-col  ">
-        <div className="flex items-center justify-center p-1 font-normal text-black tracking-015px">
-          <div className="h-0 grow border-t border-gray-300"></div>
-          <span className="px-3">
+        <h1 className="px-[22px] title-medium-sb-18px text-black max-md:text-center">
+          {chapter.course.name}
+        </h1>
+      </Link>
+      <div className="flex flex-col">
+        <div className="flex items-center justify-center gap-3">
+          <div className="h-0 grow border-t border-gray-300 min-w-8"></div>
+          <span className="body-medium-12px text-newBlack-1 text-center">
             {t('courses.part.count', {
               count: chapter.part.partIndex,
               total: chapter.course.parts?.length,
-            })}
-            <span className={`ml-1.5 lowercase`}>
-              {t('courses.chapter.count', {
-                count: chapter.chapterIndex,
-              })}
-            </span>
+            })}{' '}
+            : {chapter.part.title}
           </span>
 
-          <div className="h-0 grow border-t border-gray-300"></div>
+          <div className="h-0 grow border-t border-gray-300 min-w-8"></div>
         </div>
 
-        <div className="flex flex-row items-center justify-between text-lg ">
+        <span className="body-12px text-newBlack-1 text-center mt-[3px]">
+          {professor}
+        </span>
+
+        <div
+          className={cn(
+            'flex items-center justify-between rounded-lg bg-newGray-6 px-2.5 py-[5px] shadow-course-navigation-sm mt-2.5 mb-3 gap-4',
+          )}
+        >
           <Link
-            className="h-6"
             to={
               chapter.part.partIndex === 1 && chapter.chapterIndex === 1
                 ? '/courses/$courseId'
                 : '/courses/$courseId/$chapterId'
             }
             params={goToChapterParameters(chapter, 'previous')}
+            className="flex size-6 items-center justify-center rounded-full bg-darkOrange-5/60 shrink-0"
           >
-            <div className="flex size-6 items-center justify-center rounded-full bg-newGray-3 text-white hover:bg-darkOrange-5">
-              <BiSkipPrevious className="size-6" />
-            </div>
+            <BiChevronLeft className="size-4 text-white" />
           </Link>
+          <h2 className="text-center title-small-med-16px text-headerDark">
+            {chapter.part.partIndex}.{chapter.chapterIndex}. {chapter.title}
+          </h2>
 
-          <div className="p-1 font-semibold text-blue-900 text-center">
-            {chapter?.title}
-          </div>
           <Link
-            className="h-6"
             to={
               chapter.part.partIndex === chapter.course.parts.length &&
               chapter.chapterIndex === chapter.part.chapters.length
@@ -191,10 +185,9 @@ const TimelineSmall = ({ chapter }: { chapter: CourseChapterResponse }) => {
                 : '/courses/$courseId/$chapterId'
             }
             params={goToChapterParameters(chapter, 'next')}
+            className="flex size-6 items-center justify-center rounded-full bg-darkOrange-5/60 shrink-0"
           >
-            <div className="flex size-6 items-center justify-center rounded-full bg-newGray-3 text-white hover:bg-darkOrange-5">
-              <BiSkipNext className="size-6" />
-            </div>
+            <BiChevronRight className="size-4 text-white" />
           </Link>
         </div>
       </div>
@@ -219,15 +212,8 @@ const TimelineBig = ({
     chapter.part.partIndex === chapter.course.parts.length;
 
   return (
-    <div className="mb-0 w-full max-w-[1102px] max-sm:hidden mt-7 px-5 md:px-2">
+    <div className="mb-0 w-full max-w-[1102px] max-sm:hidden mt-10 lg:mt-20 px-5 md:px-2">
       <h1 className="flex items-center mb-5 mt-2 text-2xl md:text-4xl text-orange-800 lg:text-5xl gap-7">
-        <Link
-          to={'/courses/$courseId'}
-          params={{ courseId: chapter.course.id }}
-          className="px-4 py-2 bg-newGray-5 text-newGray-2 rounded-2xl leading-tight hover:text-darkOrange-5 hover:bg-darkOrange-0 shrink-0"
-        >
-          {addSpaceToCourseId(chapter.course.id.toUpperCase())}
-        </Link>
         <Link
           to={'/courses/$courseId'}
           params={{ courseId: chapter.course.id }}
@@ -237,17 +223,13 @@ const TimelineBig = ({
         </Link>
       </h1>
       <div className="font-body flex flex-row justify-between text-xl text-black leading-relaxed tracking-015px mt-7">
-        <div>
+        <span className="subtitle-large-med-20px text-newBlack-1">
           {t('courses.part.count', {
             count: chapter.part.partIndex,
             total: chapter.course.parts.length,
-          })}
-          <span className={`ml-2.5 lowercase`}>
-            {t('courses.chapter.count', {
-              count: chapter.chapterIndex,
-            })}
-          </span>
-        </div>
+          })}{' '}
+          : {chapter.part.title}
+        </span>
         <div>{professor}</div>
       </div>
       <div className="mt-5 flex h-4 flex-row justify-between space-x-3 rounded-full">
@@ -353,7 +335,9 @@ const TimelineBig = ({
               <span>&lt;</span>
             </Link>
           )}
-          <span>{chapter.title}</span>
+          <span>
+            {chapter.part.partIndex}.{chapter.chapterIndex}. {chapter.title}
+          </span>
           {!isLastChapter && (
             <Link
               to={
@@ -387,81 +371,14 @@ const TimelineBig = ({
   );
 };
 
-const Header = ({
-  chapter,
-  sections,
-}: {
-  chapter: CourseChapterResponse;
-  sections: string[];
-}) => {
-  const { t } = useTranslation();
-
-  const isScreenSm = useGreater('sm');
-
-  const [isContentExpanded, setIsContentExpanded] = useState(true);
-
-  useEffect(() => {
-    setIsContentExpanded(isScreenSm ? isScreenSm : false);
-  }, [isScreenSm]);
-
+const Header = ({ chapter }: { chapter: CourseChapterResponse }) => {
   return (
     <>
       <div>
-        {!chapter.isCourseReview && (
-          <h2 className="text-black desktop-h5 max-sm:hidden capitalize">
-            {t('courses.part.count', {
-              count: chapter.part.partIndex,
-              total: chapter.course.parts.length,
-            })}{' '}
-            : {chapter?.part.title.toLowerCase()}
-          </h2>
-        )}
         <h2 className="mt-2.5 text-black desktop-h4 max-sm:hidden">
           {chapter.part.partIndex}.{chapter.chapterIndex}. {chapter.title}
         </h2>
-        <div className="h-px bg-newGray-4 mt-2.5" />
-      </div>
-
-      <div>
-        {sections.length > 0 && (
-          <div
-            className={`flex flex-col self-stretch rounded-3xl px-6 py-2.5 shadow-course-navigation ${
-              isContentExpanded ? 'bg-white' : 'bg-white h-auto'
-            } ${isContentExpanded ? 'h-auto ' : 'mt-1 h-auto '}`}
-          >
-            <button
-              className="flex cursor-pointer items-center text-lg font-medium text-black md:text-2xl uppercase"
-              onClick={() => setIsContentExpanded(!isContentExpanded)}
-            >
-              <span
-                className={`mr-3 text-2xl ${
-                  isContentExpanded
-                    ? 'rotate-90 transition-transform'
-                    : 'transition-transform'
-                }`}
-              >
-                {'> '}
-              </span>
-              <span>{t('courses.details.objectivesTitle')}</span>
-            </button>
-            {isContentExpanded && (
-              <div className="mt-3 px-5 text-sm md:text-base">
-                <ul className="flex flex-col gap-1.5">
-                  {sections.map((goal: string, index: number) => (
-                    <li className="flex items-center" key={index}>
-                      <span className="mr-3 text-newGray-3 text-sm">
-                        {'▶'}
-                      </span>
-                      <span className="text-black">
-                        {capitalizeFirstWord(goal)}
-                      </span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            )}
-          </div>
-        )}
+        <div className="h-px bg-newGray-4 mt-2.5 max-sm:hidden" />
       </div>
     </>
   );
@@ -578,12 +495,14 @@ function shuffleArray<T>(array: T[]): T[] {
 }
 
 function CourseChapter() {
-  const { i18n } = useTranslation();
+  const { i18n, t } = useTranslation();
   const params = Route.useParams();
 
   const { session } = useContext(AppContext);
   const isLoggedIn = !!session;
   const { user } = useContext(AppContext);
+
+  const [isContentExpanded, setIsContentExpanded] = useState(true);
 
   const {
     open: openAuthModal,
@@ -712,6 +631,12 @@ function CourseChapter() {
     }
   }
 
+  const isScreenSm = useGreater('sm');
+
+  useEffect(() => {
+    setIsContentExpanded(isScreenSm ? isScreenSm : false);
+  }, [isScreenSm]);
+
   return (
     <CourseLayout>
       {proofreading ? (
@@ -787,7 +712,7 @@ function CourseChapter() {
             {/* Desktop */}
             <TimelineBig chapter={chapter} professor={computerProfessor} />
             {/* Mobile */}
-            <TimelineSmall chapter={chapter} />
+            <TimelineSmall chapter={chapter} professor={computerProfessor} />
 
             <div className="flex w-full flex-col items-center justify-center md:flex md:max-w-[1102px] md:flex-row md:items-stretch md:justify-stretch">
               {displayClassDetails && (
@@ -843,69 +768,119 @@ function CourseChapter() {
               )}
             </div>
 
-            <div className="flex w-full flex-col items-center justify-center lg:max-w-[1102px] lg:flex-row lg:items-stretch lg:justify-stretch">
+            <div className="flex w-full flex-col items-center justify-center lg:max-w-[1102px] lg:items-stretch lg:justify-stretch">
               <div className="text-blue-1000 w-full space-y-4 break-words px-[15px] md:px-2 md:mt-8 md:grow md:space-y-6 md:overflow-hidden pb-2">
-                {!chapter.isCourseExam && (
-                  <Header chapter={chapter} sections={sections} />
-                )}
-
-                {chapter.isCourseReview && (
-                  <>
-                    {isLoggedIn ? (
-                      <CourseReview
-                        chapter={chapter}
-                        addMarginToForm
-                      ></CourseReview>
-                    ) : (
-                      <>
+                {!chapter.isCourseExam && <Header chapter={chapter} />}
+              </div>
+              <div className="flex w-full max-lg:flex-col items-center justify-center lg:max-w-[1102px] lg:items-stretch lg:justify-stretch">
+                <div className="text-blue-1000 w-full space-y-4 break-words px-[15px] md:px-2 md:mt-8 md:grow md:space-y-6 md:overflow-hidden pb-2">
+                  {!chapter.isCourseExam && (
+                    <div>
+                      {sections.length > 0 && (
+                        <div
+                          className={cn(
+                            'flex flex-col self-stretch rounded-3xl px-6 py-2.5 shadow-course-navigation max-lg:mb-1',
+                            isContentExpanded ? 'bg-white' : 'bg-white h-auto',
+                            isContentExpanded ? 'h-auto ' : 'mt-1 h-auto ',
+                          )}
+                        >
+                          <button
+                            className="flex cursor-pointer items-center subtitle-small-med-14px md:font-medium text-black md:text-2xl uppercase"
+                            onClick={() =>
+                              setIsContentExpanded(!isContentExpanded)
+                            }
+                          >
+                            <span
+                              className={`mr-3 text-2xl ${
+                                isContentExpanded
+                                  ? 'rotate-90 transition-transform'
+                                  : 'transition-transform'
+                              }`}
+                            >
+                              {'> '}
+                            </span>
+                            <span>{t('courses.details.objectivesTitle')}</span>
+                          </button>
+                          {isContentExpanded && (
+                            <div className="mt-3 px-5 text-sm md:text-base">
+                              <ul className="flex flex-col gap-1.5">
+                                {sections.map((goal: string, index: number) => (
+                                  <li className="flex items-center" key={index}>
+                                    <span className="mr-3 text-newGray-3 text-sm">
+                                      {'▶'}
+                                    </span>
+                                    <span className="text-black">
+                                      {capitalizeFirstWord(goal)}
+                                    </span>
+                                  </li>
+                                ))}
+                              </ul>
+                            </div>
+                          )}
+                        </div>
+                      )}
+                    </div>
+                  )}
+                  {chapter.isCourseReview && (
+                    <>
+                      {isLoggedIn ? (
                         <CourseReview
                           chapter={chapter}
-                          formDisabled={true}
                           addMarginToForm
                         ></CourseReview>
-                      </>
-                    )}
-                  </>
-                )}
+                      ) : (
+                        <>
+                          <CourseReview
+                            chapter={chapter}
+                            formDisabled={true}
+                            addMarginToForm
+                          ></CourseReview>
+                        </>
+                      )}
+                    </>
+                  )}
 
-                {chapter.isCourseExam && (
-                  <CourseExam chapter={chapter} disabled={!isLoggedIn} />
-                )}
+                  {chapter.isCourseExam && (
+                    <CourseExam chapter={chapter} disabled={!isLoggedIn} />
+                  )}
 
-                {displayLiveSection && chapter.liveUrl && chapter.startDate && (
-                  <LiveVideo
-                    url={chapter.liveUrl}
-                    chatUrl={chapter.chatUrl}
-                    displayVideo={displayLiveVideo}
-                  />
-                )}
-                <MarkdownContent chapter={chapter} />
-                {!isSpecialChapter && displayQuizAndNext && (
-                  <div className="md:!mt-12">
-                    {questionsArray && questionsArray.length > 0 && (
-                      <QuizzCard
-                        name={chapter.course.id}
-                        chapter={`${chapter.part.partIndex.toString()}.${chapter.chapterIndex.toString()}`}
-                        questions={questionsArray}
+                  {displayLiveSection &&
+                    chapter.liveUrl &&
+                    chapter.startDate && (
+                      <LiveVideo
+                        url={chapter.liveUrl}
+                        chatUrl={chapter.chatUrl}
+                        displayVideo={displayLiveVideo}
                       />
                     )}
-                    <BottomButton chapter={chapter} />
+                  <MarkdownContent chapter={chapter} />
+                  {!isSpecialChapter && displayQuizAndNext && (
+                    <div className="md:!mt-12">
+                      {questionsArray && questionsArray.length > 0 && (
+                        <QuizzCard
+                          name={chapter.course.id}
+                          chapter={`${chapter.part.partIndex.toString()}.${chapter.chapterIndex.toString()}`}
+                          questions={questionsArray}
+                        />
+                      )}
+                      <BottomButton chapter={chapter} />
+                    </div>
+                  )}
+                </div>
+
+                {!chapter.isCourseExam && (
+                  <div className="ml-10 mt-7 hidden shrink-0 lg:block">
+                    {chapters && (
+                      <NavigationPanel
+                        course={chapter.course}
+                        chapters={chapters}
+                        currentChapter={chapter}
+                        style={{ position: 'sticky', top: '6.5rem' }}
+                      />
+                    )}
                   </div>
                 )}
               </div>
-
-              {!chapter.isCourseExam && (
-                <div className="3xl:block ml-10 mt-7 hidden shrink-0 lg:block xl:block 2xl:block">
-                  {chapters && (
-                    <NavigationPanel
-                      course={chapter.course}
-                      chapters={chapters}
-                      currentChapter={chapter}
-                      style={{ position: 'sticky', top: '6.5rem' }}
-                    />
-                  )}
-                </div>
-              )}
             </div>
           </div>
         )}

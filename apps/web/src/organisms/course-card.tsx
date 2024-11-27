@@ -40,7 +40,7 @@ export const CourseCard = ({
       key={course.id}
       to="/courses/$courseId"
       params={{ courseId: course.id }}
-      className="flex w-full max-md:max-w-[500px] max-md:mx-auto md:w-[340px] overflow-hidden"
+      className="flex w-full max-md:max-w-[500px] max-md:mx-auto md:w-[340px]"
     >
       <article
         className={`${courseCardStyles({
