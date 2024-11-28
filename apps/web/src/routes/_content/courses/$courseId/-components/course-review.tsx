@@ -181,10 +181,6 @@ export function CourseReview({
   const { t } = useTranslation();
   const navigate = useNavigate();
 
-  const [isEditable, setIsEditable] = useState(
-    !isDashboardReview && !formDisabled,
-  );
-
   const { data: fetchedCourseReview, isFetched: isReviewFetched } =
     trpc.user.courses.getCourseReview.useQuery(
       {
@@ -196,6 +192,10 @@ export function CourseReview({
     );
 
   const previousCourseReview = existingReview || fetchedCourseReview;
+
+  const [isEditable, setIsEditable] = useState(
+    !previousCourseReview && !formDisabled,
+  );
 
   const saveCourseReview = trpc.user.courses.saveCourseReview.useMutation();
   const completeChapterMutation =
@@ -271,7 +271,9 @@ export function CourseReview({
       courseId: chapter?.courseId || courseId || '',
     });
 
-    navigateToNextChapter();
+    if (!previousCourseReview) {
+      navigateToNextChapter();
+    }
   }
 
   async function navigateToNextChapter() {
@@ -485,14 +487,23 @@ export function CourseReview({
                   {!isDashboardReview && (
                     <div className="flex flex-wrap items-center justify-center gap-4 mx-auto mt-6 lg:mt-4">
                       <Button
-                        type="submit"
                         className="w-fit"
                         variant="primary"
                         size={window.innerWidth >= 768 ? 'l' : 'm'}
-                        disabled={!isEditable}
+                        onClick={async () => {
+                          if (isEditable) {
+                            await onSubmit();
+                            setIsEditable(false);
+                          } else {
+                            setIsEditable(true);
+                          }
+                        }}
+                        disabled={formDisabled}
                       >
                         {previousCourseReview
-                          ? t('courses.review.edit')
+                          ? isEditable
+                            ? t('courses.review.saveReview')
+                            : t('courses.review.editReview')
                           : t('courses.review.submitReview')}
                       </Button>
 
