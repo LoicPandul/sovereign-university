@@ -1,58 +1,37 @@
-// import crypto from 'node:crypto';
-// import type { IncomingMessage } from 'node:http';
-
 import type { Router } from 'express';
-import Stripe from 'stripe';
 
 import { createCalculateEventSeats } from '@blms/service-content';
 import {
+  createUpdateCoursePayment,
   createUpdateCoursePaymentInvoiceId,
   createUpdateCoursePaymentStatus,
   createUpdateEventPayment,
   createUpdateEventPaymentInvoiceId,
   createUpdateEventPaymentStatus,
-  createUpdatePayment,
 } from '@blms/service-user';
+import type { SwissBitcoinPayCheckout } from '@blms/types';
 
 import type { Dependencies } from '#src/dependencies.js';
-
-const stripeSecret = process.env['STRIPE_SECRET'];
-const stripe = new Stripe(stripeSecret ? stripeSecret : '');
-const endpointSecret = process.env['STRIPE_ENDPOINT_SECRET'];
 
 export const createRestPaymentRoutes = (
   dependencies: Dependencies,
   router: Router,
 ) => {
+  const { stripe, config } = dependencies;
+
+  const updateCoursePayment = createUpdateCoursePayment(dependencies);
   router.post(
     '/users/courses/payment/webhooks',
     async (req, res): Promise<void> => {
       try {
-        interface PaymentWebhookRequest {
-          id: string;
-          isPaid: boolean;
-          isExpired: boolean;
-        }
+        const status = req.body as SwissBitcoinPayCheckout;
 
-        // if (!validateHmacSignature(req)) {
-        //   console.error('Hmac validation error!');
-
-        //   res.statusCode = 403;
-        //   res.json({
-        //     message: 'hmac validation error',
-        //   });
-        //   res.end();
-        //   return;
-        // }
-
-        const { id, isPaid, isExpired } = req.body as PaymentWebhookRequest;
-
-        if (!id || typeof id !== 'string') {
+        if (typeof status.id !== 'string') {
           res.status(400).json({ message: 'Invalid or missing id' });
           return;
         }
 
-        if (isPaid === null || isExpired === null) {
+        if (status.isPaid === null || status.isExpired === null) {
           res.status(400).json({
             message:
               'Invalid isPaid or isExpired values. Must be true or false.',
@@ -60,11 +39,7 @@ export const createRestPaymentRoutes = (
           return;
         }
 
-        const result = await createUpdatePayment(dependencies)({
-          id: id,
-          isPaid: isPaid,
-          isExpired: isExpired,
-        });
+        const result = await updateCoursePayment(status);
 
         res.json({
           message: 'success',
@@ -76,37 +51,20 @@ export const createRestPaymentRoutes = (
     },
   );
 
+  const updateEventPayment = createUpdateEventPayment(dependencies);
+  const calculateEventSeats = createCalculateEventSeats(dependencies);
   router.post(
     '/users/events/payment/webhooks',
     async (req, res): Promise<void> => {
       try {
-        interface PaymentWebhookRequest {
-          id: string;
-          isPaid: boolean;
-          isExpired: boolean;
-        }
+        const status = req.body as SwissBitcoinPayCheckout;
 
-        // if (!validateHmacSignature(req)) {
-        //   console.error('Hmac validation error!');
-
-        //   res.statusCode = 403;
-        //   res.json({
-        //     message: 'hmac validation error',
-        //   });
-        //   res.end();
-        //   return;
-        // }
-
-        console.log(req.body);
-
-        const { id, isPaid, isExpired } = req.body as PaymentWebhookRequest;
-
-        if (!id || typeof id !== 'string') {
+        if (typeof status.id !== 'string') {
           res.status(400).json({ message: 'Invalid or missing id' });
           return;
         }
 
-        if (isPaid === null || isExpired === null) {
+        if (status.isPaid === null || status.isExpired === null) {
           res.status(400).json({
             message:
               'Invalid isPaid or isExpired values. Must be true or false.',
@@ -114,14 +72,10 @@ export const createRestPaymentRoutes = (
           return;
         }
 
-        const result = await createUpdateEventPayment(dependencies)({
-          id: id,
-          isPaid: isPaid,
-          isExpired: isExpired,
-        });
+        const result = await updateEventPayment(status);
 
-        if (isPaid === true) {
-          await createCalculateEventSeats(dependencies)();
+        if (status.isPaid === true) {
+          await calculateEventSeats();
         }
 
         res.json({
@@ -143,7 +97,7 @@ export const createRestPaymentRoutes = (
 
         await new Promise((resolve) => setTimeout(resolve, 1000));
 
-        if (endpointSecret) {
+        if (config.stripe.endpointSecret) {
           const signature = req.headers['stripe-signature'] as string;
 
           try {
@@ -151,7 +105,7 @@ export const createRestPaymentRoutes = (
               // @ts-expect-error TODO: fix this?
               req.rawBody,
               signature,
-              endpointSecret,
+              config.stripe.endpointSecret,
             );
             // eslint-disable-next-line @typescript-eslint/no-explicit-any
           } catch (error: any) {

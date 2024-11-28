@@ -5,13 +5,13 @@ import type { CouponCode, Event } from '@blms/types';
 
 import type { Dependencies } from '../../../dependencies.js';
 import {
-  CheckSatsPrice,
-  SbpPayment,
-  StripePayment,
+  checkSatsPrice,
+  createSbpPayment,
+  createStripePayment,
 } from '../../payments/services/payment-service.js';
 import { insertEventPayment } from '../queries/insert-event-payment.js';
 import { updateEventCoupon } from '../queries/update-event-coupon.js';
-import { updateEventPayment } from '../queries/update-event-payment.js';
+import { updateEventPaymentQuery } from '../queries/update-event-payment.js';
 
 interface Options {
   uid: string;
@@ -23,7 +23,12 @@ interface Options {
   withPhysical: boolean;
 }
 
-export const createSaveEventPayment = ({ postgres }: Dependencies) => {
+export const createSaveEventPayment = (dependencies: Dependencies) => {
+  const { postgres, config, stripe } = dependencies;
+
+  const sbpPayment = createSbpPayment(config.swissBitcoinPay);
+  const stripePayment = createStripePayment({ stripe });
+
   return async ({
     uid,
     eventId,
@@ -94,15 +99,11 @@ export const createSaveEventPayment = ({ postgres }: Dependencies) => {
     }
 
     if (method === 'sbp') {
-      await CheckSatsPrice(dollarPrice, satsPrice);
+      await checkSatsPrice(dollarPrice, satsPrice);
     }
 
     if (method === 'sbp') {
-      const checkoutData = await SbpPayment(
-        eventId,
-        satsPrice,
-        `${process.env['PUBLIC_PROXY_URL']}/users/events/payment/webhooks`,
-      );
+      const checkoutData = await sbpPayment(eventId, satsPrice);
 
       await postgres.exec(
         insertEventPayment({
@@ -112,15 +113,15 @@ export const createSaveEventPayment = ({ postgres }: Dependencies) => {
           amount: checkoutData.amount,
           paymentId: checkoutData.id,
           invoiceUrl: checkoutData.checkoutUrl,
-          method: method,
-          withPhysical: withPhysical,
+          method,
+          withPhysical,
         }),
       );
 
       return checkoutData;
     } else if (method === 'stripe') {
       const paymentId = uuidv4();
-      const session = await StripePayment(
+      const session = await stripePayment(
         `${event.name}: ${withPhysical ? 'inperson' : 'online'} event`,
         'event',
         dollarPrice,
@@ -136,8 +137,8 @@ export const createSaveEventPayment = ({ postgres }: Dependencies) => {
           amount: dollarPrice,
           paymentStatus: 'pending',
           invoiceUrl: '',
-          method: method,
-          couponCode: couponCode,
+          method,
+          couponCode,
         }),
       );
 
@@ -164,7 +165,7 @@ export const createUpdateEventPaymentStatus = ({ postgres }: Dependencies) => {
     paymentIntentId: string;
   }) => {
     await postgres.exec(
-      updateEventPayment({
+      updateEventPaymentQuery({
         id: paymentId,
         intentId: paymentIntentId,
         isPaid: true,

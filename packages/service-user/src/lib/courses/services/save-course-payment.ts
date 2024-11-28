@@ -5,13 +5,13 @@ import type { CouponCode, Course } from '@blms/types';
 
 import type { Dependencies } from '../../../dependencies.js';
 import {
-  CheckSatsPrice,
-  SbpPayment,
-  StripePayment,
+  checkSatsPrice,
+  createSbpPayment,
+  createStripePayment,
 } from '../../payments/services/payment-service.js';
 import { insertCoursePayment } from '../queries/insert-course-payment.js';
 import { updateCourseCoupon } from '../queries/update-course-coupon.js';
-import { updatePayment } from '../queries/update-payment.js';
+import { updateCoursePaymentQuery } from '../queries/update-payment.js';
 
 interface Options {
   uid: string;
@@ -23,7 +23,12 @@ interface Options {
   format: string;
 }
 
-export const createSaveCoursePayment = ({ postgres }: Dependencies) => {
+export const createSaveCoursePayment = (dependencies: Dependencies) => {
+  const { postgres, config, stripe } = dependencies;
+
+  const sbpPayment = createSbpPayment(config.swissBitcoinPay);
+  const stripePayment = createStripePayment({ stripe });
+
   return async ({
     uid,
     courseId,
@@ -102,15 +107,11 @@ export const createSaveCoursePayment = ({ postgres }: Dependencies) => {
     }
 
     if (method === 'sbp') {
-      await CheckSatsPrice(coursePriceInDollars, satsPrice);
+      await checkSatsPrice(coursePriceInDollars, satsPrice);
     }
 
     if (method === 'sbp') {
-      const checkoutData = await SbpPayment(
-        courseId,
-        satsPrice,
-        `${process.env['PUBLIC_PROXY_URL']}/users/courses/payment/webhooks`,
-      );
+      const checkoutData = await sbpPayment(courseId, satsPrice);
 
       await postgres.exec(
         insertCoursePayment({
@@ -129,7 +130,7 @@ export const createSaveCoursePayment = ({ postgres }: Dependencies) => {
       return checkoutData;
     } else if (method === 'stripe') {
       const paymentId = uuidv4();
-      const session = await StripePayment(
+      const session = await stripePayment(
         `${courseId}: ${format} course`,
         'course',
         dollarPrice,
@@ -173,7 +174,7 @@ export const createUpdateCoursePaymentStatus = ({ postgres }: Dependencies) => {
     paymentIntentId: string;
   }) => {
     await postgres.exec(
-      updatePayment({
+      updateCoursePaymentQuery({
         id: paymentId,
         intentId: paymentIntentId,
         isPaid: true,

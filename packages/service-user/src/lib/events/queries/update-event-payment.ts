@@ -1,19 +1,22 @@
 import { sql } from '@blms/database';
 import type { EventPayment } from '@blms/types';
 
-export const updateEventPayment = ({
+type UpdateEventPayment = (
+  | { isPaid: true; isExpired: false }
+  | { isPaid: false; isExpired: true }
+) & {
+  id: string;
+  intentId?: string;
+  stripeInvoiceId?: string;
+};
+
+export const updateEventPaymentQuery = ({
   id,
   isPaid,
   isExpired,
   intentId,
   stripeInvoiceId,
-}: {
-  id: string;
-  isPaid: boolean;
-  isExpired: boolean;
-  intentId?: string;
-  stripeInvoiceId?: string;
-}) => {
+}: UpdateEventPayment) => {
   if (isExpired) {
     return sql<EventPayment[]>`
       UPDATE users.event_payment
@@ -23,7 +26,9 @@ export const updateEventPayment = ({
       WHERE payment_id = ${id}
     ;
     `;
-  } else if (isPaid) {
+  }
+
+  if (isPaid) {
     return sql<EventPayment[]>`
       UPDATE users.event_payment
         SET payment_status = 'paid'
@@ -32,9 +37,9 @@ export const updateEventPayment = ({
         WHERE payment_id = ${id}
       ;
     `;
-  } else {
-    throw new Error('Should have isPaid or isExpired = true');
   }
+
+  throw new Error('Should have isPaid or isExpired = true');
 };
 
 export const updateEventPaymentInvoiceId = ({
