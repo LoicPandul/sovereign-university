@@ -11,13 +11,6 @@ const getOldPictureIdQuery = (uid: string) => {
   `;
 };
 
-const deleteOldPictureQuery = (oldPictureId: string) => {
-  return sql`
-    DELETE FROM users.files
-    WHERE id = ${oldPictureId};
-  `;
-};
-
 const setProfilePictureQuery = (uid: string, fileId: string) => {
   return sql<UserDetails[]>`
     UPDATE users.accounts
@@ -45,7 +38,6 @@ export const createSetProfilePicture = ({ postgres, s3 }: Dependencies) => {
     if (oldPictureId) {
       try {
         await s3.delete(`user-files/${oldPictureId}`);
-        await postgres.exec(deleteOldPictureQuery(oldPictureId));
       } catch (error) {
         console.error('Failed to delete old picture', oldPictureId, error);
       }
