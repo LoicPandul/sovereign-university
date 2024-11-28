@@ -155,19 +155,19 @@ export const EventPaymentModal = ({
           onClose();
         }}
       >
-        <DialogContent className="max-h-screen w-[90%] lg:w-full max-w-[1440px] h-[90vh] sm:w-[80vw] lg:p-0 sm:h-[85vh] overflow-auto">
+        <DialogContent className="max-h-screen w-[90%] lg:w-full max-w-[1640px] h-[90vh] sm:w-[80vw] lg:p-0 sm:h-[85vh] overflow-auto">
           <DialogTitle className="hidden">Payment Modal</DialogTitle>
           <DialogDescription className="hidden">
             Payment Modal
           </DialogDescription>
-          <div className="grid grid-cols-1 lg:grid-cols-2 h-full gap-6 lg:gap-0">
+          <div className="grid grid-cols-1 lg:grid-cols-[auto_1fr] h-full gap-6 lg:gap-0">
             <ModalPaymentSummary
               event={event}
               accessType={accessType}
               satsPrice={satsPrice}
               mobileDisplay={false}
             />
-            <div className="flex flex-col items-center justify-center lg:m-6">
+            <div className="flex flex-col w-full items-center justify-center lg:m-6">
               {checkoutData ? (
                 isPaymentSuccess &&
                 (satsPriceReduced === 0 || method === 'sbp') ? (
@@ -183,7 +183,7 @@ export const EventPaymentModal = ({
                     onBack={() => setCheckoutData(undefined)}
                   />
                 ) : (
-                  <div className="flex flex-col">
+                  <div className="flex flex-col lg:w-full md:w-72">
                     <EmbeddedCheckoutProvider
                       stripe={stripePromise}
                       options={{
@@ -192,15 +192,18 @@ export const EventPaymentModal = ({
                     >
                       <EmbeddedCheckout />
                     </EmbeddedCheckoutProvider>
-                    <Button
-                      className="mt-4"
-                      variant="outline"
-                      onClick={() => {
-                        setCheckoutData(undefined);
-                      }}
-                    >
-                      {t('words.back')}
-                    </Button>
+                    <div className="self-center">
+                      <Button
+                        className="mt-4"
+                        variant="outline"
+                        onClick={() => {
+                          setCheckoutData(undefined);
+                          onClose();
+                        }}
+                      >
+                        {t('events.payment.back_events')}
+                      </Button>
+                    </div>
                   </div>
                 )
               ) : (

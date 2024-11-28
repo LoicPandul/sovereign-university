@@ -114,7 +114,7 @@ export const PaymentDescription = ({
 
   return (
     <>
-      <div className="items-center justify-center w-full max-w-96 lg:w-96 flex flex-col gap-6 max-lg:pb-6 max-lg:pt-8 mt-auto">
+      <div className="items-center justify-center w-full max-w-96 lg:w-96 md:w-72 flex flex-col gap-6 max-lg:pb-6 max-lg:pt-8 mt-auto pr-4">
         <PlanBLogo className="h-auto max-lg:hidden" width={240} />
         <PaymentCallout description={callout} />
         <div className="w-full flex flex-col">
@@ -126,7 +126,7 @@ export const PaymentDescription = ({
             ))}
         </div>
         <div className="place-self-start flex flex-row place-items-center">
-          <span>Have a reduction code ?</span>
+          <span className="max-md:text-sm">Have a reduction code ?</span>
 
           <input
             id="emailId"
@@ -171,7 +171,7 @@ export const PaymentDescription = ({
         {children}
         <Button
           variant="primary"
-          className="lg:w-full text-xs lg:text-sm"
+          className="w-full text-xs lg:text-sm"
           onClick={() => {
             initPayment('sbp');
           }}
@@ -180,7 +180,7 @@ export const PaymentDescription = ({
         </Button>
         <Button
           variant="primary"
-          className="lg:w-full text-xs lg:text-sm"
+          className="w-full text-xs lg:text-sm"
           onClick={() => {
             initPayment('stripe');
           }}
