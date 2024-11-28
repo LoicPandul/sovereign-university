@@ -19,30 +19,37 @@ export const TUTORIALS_CATEGORIES = [
   {
     name: 'wallet',
     image: walletSvg,
+    subcategories: ['mobile', 'desktop', 'hardware', 'backup'],
   },
   {
     name: 'node',
     image: nodeSvg,
+    subcategories: ['bitcoin', 'lightning-network', 'rgb'],
   },
   {
     name: 'mining',
     image: miningSvg,
+    subcategories: ['hardware', 'pools'],
   },
   {
     name: 'merchant',
     image: merchantSvg,
+    subcategories: ['merchant'],
   },
   {
     name: 'exchange',
     image: exchangeSvg,
+    subcategories: ['centralized', 'peer-to-peer'],
   },
   {
     name: 'privacy',
     image: privacySvg,
+    subcategories: ['on-chain', 'analysis'],
   },
   {
     name: 'others',
     image: otherSvg,
+    subcategories: ['general', 'contribution', 'other'],
   },
 ] as const;
 
@@ -85,14 +92,32 @@ export const RESOURCES_CATEGORIES = [
 ] as const;
 
 export const extractSubCategories = (tutorials: JoinedTutorialLight[]) => {
-  return [
+  const extractedSubCategories = [
     ...new Set(
-      tutorials
-        .filter(Boolean)
-        .map((t) => t.subcategory)
-        .filter((sub): sub is string => sub !== null && sub !== undefined),
+      tutorials.map((t) => t.subcategory).filter((sub): sub is string => !!sub),
     ),
-  ] as string[];
+  ];
+
+  const allSubcategoriesInOrder = TUTORIALS_CATEGORIES.flatMap(
+    (category) => category.subcategories,
+  );
+
+  extractedSubCategories.sort((a, b) => {
+    // Find the index of each subcategory in the predefined order
+    const indexA = allSubcategoriesInOrder.indexOf(
+      a as (typeof allSubcategoriesInOrder)[number],
+    );
+    const indexB = allSubcategoriesInOrder.indexOf(
+      b as (typeof allSubcategoriesInOrder)[number],
+    );
+    return (
+      // Sort by index in allSubcategoriesInOrder -> Hack with max safe integer so that if it's not found it goes to the end
+      (indexA === -1 ? Number.MAX_SAFE_INTEGER : indexA) -
+      (indexB === -1 ? Number.MAX_SAFE_INTEGER : indexB)
+    );
+  });
+
+  return extractedSubCategories;
 };
 
 export interface PaymentModalDataModel {
