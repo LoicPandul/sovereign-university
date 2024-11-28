@@ -64,6 +64,7 @@
     "fontkit",
     "getenv",
     "Giacomo",
+    "inperson",
     "lnurl",
     "Nakamoto",
     "nostr",
@@ -71,6 +72,7 @@
     "opentimestamps",
     "paynym",
     "planb",
+    "postbuild",
     "psql",
     "resave",
     "Rogzy",
@@ -85,6 +87,7 @@
     "trpc",
     "tsbuildinfo",
     "txid",
+    "uuidv",
     "webp",
     "zoomable"
   ]

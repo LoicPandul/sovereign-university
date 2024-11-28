@@ -352,15 +352,8 @@ function Home() {
                   satsPrice={paymentModalData.satsPrice}
                   dollarPrice={paymentModalData.dollarPrice}
                   isOpen={isPaymentModalOpen}
-                  onClose={(isPaid) => {
-                    // TODO trigger add paid booked seat logic
-
-                    if (isPaid) {
-                      refetchEventPayments();
-                      setTimeout(() => {
-                        refetchEventPayments();
-                      }, 5000);
-                    }
+                  onClose={() => {
+                    refetchEventPayments();
                     setPaymentModalData({
                       eventId: null,
                       satsPrice: null,

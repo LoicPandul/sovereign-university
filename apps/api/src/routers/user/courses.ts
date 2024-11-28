@@ -10,7 +10,6 @@ import {
   courseSuccededExamSchema,
   courseUserChapterSchema,
   partialExamQuestionSchema,
-  stripeSessionSchema,
 } from '@blms/schemas';
 import {
   createCalculateCourseChapterSeats,
@@ -26,11 +25,9 @@ import {
   createGetPayment,
   createGetPayments,
   createGetProgress,
-  createGetStripeSession,
   createGetUserChapter,
   createSaveCoursePayment,
   createSaveCourseReview,
-  createSaveFreePayment,
   createSaveQuizAttempt,
   createSaveUserChapter,
   createStartExamAttempt,
@@ -46,7 +43,6 @@ import type {
   CourseSuccededExam,
   CourseUserChapter,
   PartialExamQuestion,
-  StripeSession,
 } from '@blms/types';
 
 import type { Parser } from '#src/trpc/types.js';
@@ -81,15 +77,6 @@ const getProgressProcedure = studentProcedure
     createGetProgress(ctx.dependencies)({
       uid: ctx.user.uid,
       courseId: input?.courseId || '',
-    }),
-  );
-
-const getStripeSessionProcedure = studentProcedure
-  .input(z.object({ sessionId: z.string() }))
-  .output<Parser<StripeSession>>(stripeSessionSchema)
-  .query(({ input }) =>
-    createGetStripeSession()({
-      sessionId: input.sessionId,
     }),
   );
 
@@ -219,24 +206,6 @@ const saveCoursePaymentProcedure = studentProcedure
     }),
   );
 
-const saveFreePaymentProcedure = studentProcedure
-  .input(
-    z.object({
-      courseId: z.string(),
-      couponCode: z.string().optional(),
-      format: z.string(),
-    }),
-  )
-  .output<Parser<CheckoutData>>(checkoutDataSchema)
-  .mutation(({ ctx, input }) =>
-    createSaveFreePayment(ctx.dependencies)({
-      uid: ctx.user.uid,
-      courseId: input.courseId,
-      couponCode: input.couponCode,
-      format: input.format,
-    }),
-  );
-
 const getPaymentProcedure = studentProcedure
   .input(
     z.object({
@@ -347,7 +316,6 @@ export const userCoursesRouter = createTRPCRouter({
   getCourseReview: getCourseReviewProcedure,
   getLatestExamResults: getLatestExamResultsProcedure,
   getProgress: getProgressProcedure,
-  getStripeSession: getStripeSessionProcedure,
   getUserChapter: getUserChapterProcedure,
   getPayment: getPaymentProcedure,
   getPayments: getPaymentsProcedure,
@@ -355,6 +323,5 @@ export const userCoursesRouter = createTRPCRouter({
   saveQuizAttempt: saveQuizAttemptProcedure,
   saveUserChapter: saveUserChapterProcedure,
   saveCoursePayment: saveCoursePaymentProcedure,
-  saveFreePayment: saveFreePaymentProcedure,
   startExamAttempt: startExamAttemptProcedure,
 });

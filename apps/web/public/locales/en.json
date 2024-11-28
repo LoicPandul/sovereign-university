@@ -821,8 +821,8 @@
     "pageTitle": "Oops."
   },
   "payment": {
-    "payWithBitcoin": "Pay with bitcoin",
-    "payWithDollars": "Pay with dollars",
+    "payWithBitcoin": "Pay with Bitcoin",
+    "payByCard": "Pay by Card",
     "terms": "See our <0>general terms</0> and conditions for refund details",
     "total": "Total"
   },
