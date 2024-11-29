@@ -488,7 +488,7 @@ const CourseExamsTable = ({
                           </div>
                         </div>
                         <Link
-                          to={'/tutorials/others/bcert-verification'}
+                          to={'/tutorials/others/pbn-certificate-timestamping'}
                           target="_blank"
                           className="mt-4 self-start flex flex-row items-center gap-2 text-newBlack-5 hover:text-newOrange-5 hover:underline"
                         >

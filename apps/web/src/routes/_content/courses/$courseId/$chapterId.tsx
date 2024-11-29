@@ -737,8 +737,8 @@ function CourseChapter() {
                           addressLine1: 'Lugano, Switzerland',
                           addressLine2: '',
                           addressLine3: '',
-                          formattedStartDate: 'Start date: October 22nd 2024',
-                          formattedTime: 'End date : October 23rd 2024',
+                          formattedStartDate: 'Start date: October 22nd 2024', // TODO start date
+                          formattedTime: 'End date : October 23rd 2024', // TODO start date
                           liveLanguage: '',
                           formattedCapacity: '',
                           contact: 'contact@planb.network',

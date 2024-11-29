@@ -146,7 +146,7 @@ const ExamResult = ({
   handleExamOpen: (index: number) => void;
   isExamOpen: boolean[];
 }) => {
-  const hasPassed = exam.score !== undefined && exam.score >= exam.minScore;
+  const hasPassed = exam.score !== undefined && exam.score > exam.minScore;
   const examScore = exam.results.reduce(
     (total, result) => total + result.score,
     0,
@@ -290,7 +290,7 @@ const ExamResult = ({
                       </div>
 
                       <Link
-                        to={'/tutorials/other/bcert-verification'}
+                        to={'/tutorials/other/pbn-certificate-timestamping'}
                         target="_blank"
                         className="flex flex-row items-center gap-2 text-newBlack-5 hover:text-newOrange-5 hover:underline"
                       >
@@ -338,7 +338,7 @@ const ExamResult = ({
                           <FiDownload className="size-[18px] md:size-6" />
                         </Button>
                         <Link
-                          to={'/tutorials/others/bcert-verification'}
+                          to={'/tutorials/others/pbn-certificate-timestamping'}
                           target="_blank"
                           className="flex flex-row items-center mt-4 gap-2 text-newBlack-5 hover:text-newOrange-5 hover:underline"
                         >
