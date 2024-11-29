@@ -270,7 +270,7 @@ export const Header = ({ variant = 'dark' }: HeaderProps) => {
         variant === 'light' ? 'bg-darkOrange-5' : 'bg-headerDark',
       )}
     >
-      {isScreenLg ? (
+      {isScreenLg === null ? null : isScreenLg ? (
         <FlyingMenu
           onClickLogin={() => {
             setAuthMode(AuthModalState.SignIn);
