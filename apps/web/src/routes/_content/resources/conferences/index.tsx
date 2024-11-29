@@ -91,6 +91,7 @@ function Conferences() {
                     latestConferences[0].path,
                     'thumbnail.webp',
                   )}
+                  imgClassName="w-full mb-1"
                   title={latestConferences[0].name}
                   subtitle={latestConferences[0].location}
                   buttonText={t('events.card.watchReplay')}
@@ -107,6 +108,7 @@ function Conferences() {
                     latestConferences[1].path,
                     'thumbnail.webp',
                   )}
+                  imgClassName="w-full mb-1"
                   title={latestConferences[1].name}
                   subtitle={latestConferences[1].location}
                   buttonText={t('events.card.watchReplay')}
@@ -136,6 +138,7 @@ function Conferences() {
                     latestPlanBConferences[0].path,
                     'thumbnail.webp',
                   )}
+                  imgClassName="w-full mb-1"
                   title={latestPlanBConferences[0].name}
                   subtitle={latestPlanBConferences[0].location}
                   buttonText={t('events.card.watchReplay')}
@@ -152,6 +155,7 @@ function Conferences() {
                     latestPlanBConferences[1].path,
                     'thumbnail.webp',
                   )}
+                  imgClassName="w-full mb-1"
                   title={latestPlanBConferences[1].name}
                   subtitle={latestPlanBConferences[1].location}
                   buttonText={t('events.card.watchReplay')}
