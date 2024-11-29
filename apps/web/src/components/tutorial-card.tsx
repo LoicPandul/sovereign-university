@@ -1,4 +1,5 @@
 import { Link } from '@tanstack/react-router';
+import { useState } from 'react';
 
 import type { JoinedTutorialLight } from '@blms/types';
 
@@ -9,6 +10,10 @@ interface TutorialCardProps extends React.HTMLProps<HTMLDivElement> {
 }
 
 export const TutorialCard = ({ tutorial, ...props }: TutorialCardProps) => {
+  const [logoSrc, setLogoSrc] = useState(assetUrl(tutorial.path, 'logo.webp'));
+
+  const fallbackSrc = assetUrl(tutorial.builder?.path ?? '', 'logo.webp');
+
   return (
     <div {...props}>
       <Link
@@ -23,8 +28,9 @@ export const TutorialCard = ({ tutorial, ...props }: TutorialCardProps) => {
         <div className="bg-beige-300 hidden flex-row justify-start space-x-4 rounded-2xl border border-blue-800 px-4 py-3 md:flex">
           <img
             className="m-1 size-20 self-center rounded-full"
-            src={assetUrl((tutorial.builder || tutorial).path, 'logo.webp')}
-            alt=""
+            src={logoSrc}
+            alt={tutorial.name}
+            onError={() => setLogoSrc(fallbackSrc)}
           />
           <div className="flex w-full flex-col self-start">
             <h2 className="text-xl font-semibold uppercase text-orange-500">
@@ -52,8 +58,9 @@ export const TutorialCard = ({ tutorial, ...props }: TutorialCardProps) => {
             <div className="flex flex-row self-start">
               <img
                 className="mr-4 size-12 self-center rounded-full"
-                src={assetUrl((tutorial.builder || tutorial).path, 'logo.webp')}
-                alt=""
+                src={logoSrc}
+                alt={tutorial.name}
+                onError={() => setLogoSrc(fallbackSrc)}
               />
               <div className="flex flex-col">
                 <h2 className="text-xl font-semibold uppercase text-orange-500">
