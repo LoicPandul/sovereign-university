@@ -4,7 +4,7 @@ import useEmblaCarousel, {
   type UseEmblaCarouselType,
 } from 'embla-carousel-react';
 import * as React from 'react';
-import { MdKeyboardArrowLeft, MdKeyboardArrowRight } from 'react-icons/md';
+import { RiArrowLeftSLine, RiArrowRightSLine } from 'react-icons/ri';
 
 import { cn } from '@blms/ui';
 
@@ -138,7 +138,7 @@ const Carousel = React.forwardRef<
         <div
           ref={ref}
           onKeyDownCapture={handleKeyDown}
-          className={cn('relative', className)}
+          className={cn('relative max-w-[1216px]', className)}
           role="region"
           aria-roledescription="carousel"
           {...props}
@@ -198,58 +198,68 @@ CarouselItem.displayName = 'CarouselItem';
 const CarouselPrevious = React.forwardRef<
   HTMLButtonElement,
   React.ComponentProps<typeof Button>
->(({ className, variant = 'carousel', size = 's', ...props }, ref) => {
-  const { orientation, scrollPrev, canScrollPrev } = useCarousel();
-  return (
-    <Button
-      ref={ref}
-      variant={variant}
-      size={size}
-      className={cn(
-        'absolute  size-8 rounded-full',
-        orientation === 'horizontal'
-          ? '-left-2 top-1/2 -translate-y-1/2 md:-left-9 lg:-left-8'
-          : '-top-12 left-1/2 -translate-x-1/2 rotate-90',
-        className,
-      )}
-      disabled={!canScrollPrev}
-      onClick={scrollPrev}
-      {...props}
-    >
-      <MdKeyboardArrowLeft size={20} />
-      <span className="sr-only">Previous slide</span>
-    </Button>
-  );
-});
+>(
+  (
+    { className, variant = 'carousel', size = 'carouselSize', ...props },
+    ref,
+  ) => {
+    const { orientation, scrollPrev, canScrollPrev } = useCarousel();
+    return (
+      <Button
+        ref={ref}
+        variant={variant}
+        size={size}
+        className={cn(
+          'absolute size-[25px] md:size-10 rounded-full',
+          orientation === 'horizontal'
+            ? 'left-3 top-1/2 -translate-y-1/2 md:-left-4 lg:-left-9 xl:-left-12'
+            : '-top-12 left-1/2 -translate-x-1/2 rotate-90',
+          className,
+        )}
+        disabled={!canScrollPrev}
+        onClick={scrollPrev}
+        {...props}
+      >
+        <RiArrowLeftSLine />
+        <span className="sr-only">Previous slide</span>
+      </Button>
+    );
+  },
+);
 CarouselPrevious.displayName = 'CarouselPrevious';
 
 const CarouselNext = React.forwardRef<
   HTMLButtonElement,
   React.ComponentProps<typeof Button>
->(({ className, variant = 'carousel', size = 's', ...props }, ref) => {
-  const { orientation, scrollNext, canScrollNext } = useCarousel();
+>(
+  (
+    { className, variant = 'carousel', size = 'carouselSize', ...props },
+    ref,
+  ) => {
+    const { orientation, scrollNext, canScrollNext } = useCarousel();
 
-  return (
-    <Button
-      ref={ref}
-      variant={variant}
-      size={size}
-      className={cn(
-        'absolute size-8 rounded-full',
-        orientation === 'horizontal'
-          ? '-right-2 top-1/2 -translate-y-1/2 md:-right-9 lg:-right-9'
-          : '-bottom-12 left-1/2 -translate-x-1/2 rotate-90',
-        className,
-      )}
-      disabled={!canScrollNext}
-      onClick={scrollNext}
-      {...props}
-    >
-      <MdKeyboardArrowRight size={20} />
-      <span className="sr-only">Next slide</span>
-    </Button>
-  );
-});
+    return (
+      <Button
+        ref={ref}
+        variant={variant}
+        size={size}
+        className={cn(
+          'absolute size-[25px] md:size-10 rounded-full',
+          orientation === 'horizontal'
+            ? 'right-3 top-1/2 -translate-y-1/2 md:-right-4 lg:-right-9 xl:-right-12'
+            : '-bottom-12 left-1/2 -translate-x-1/2 rotate-90',
+          className,
+        )}
+        disabled={!canScrollNext}
+        onClick={scrollNext}
+        {...props}
+      >
+        <RiArrowRightSLine />
+        <span className="sr-only">Next slide</span>
+      </Button>
+    );
+  },
+);
 CarouselNext.displayName = 'CarouselNext';
 
 export {
