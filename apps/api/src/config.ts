@@ -53,7 +53,9 @@ export const production = getenv('NODE_ENV') === 'production';
  */
 export const domain = getenv('DOMAIN', 'localhost:8181');
 
-export const docker = getenv('DOCKER', false);
+export const docker: boolean = getenv('DOCKER', false);
+
+export const protectSyncRoute: boolean = getenv('PROTECT_SYNC_ROUTE', true);
 
 /**
  * Real application domain (without trailing slash)

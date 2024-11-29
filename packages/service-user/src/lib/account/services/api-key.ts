@@ -3,7 +3,7 @@ import type { ApiKey } from '@blms/types';
 
 import type { Dependencies } from '../../../dependencies.js';
 
-export const createGetApiKey = ({ postgres }: Dependencies) => {
+export const createGetActiveApiKey = ({ postgres }: Dependencies) => {
   return (key: string): Promise<ApiKey | null> => {
     return postgres
       .exec(

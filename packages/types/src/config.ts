@@ -43,6 +43,7 @@ export interface EnvConfig {
   stripe: StripeConfig;
   opentimestamps: OpenTimestampsConfig;
   swissBitcoinPay: SwissBitcoinPayConfig;
+  protectSyncRoute: boolean;
 }
 
 export interface OpenTimestampsConfig {
