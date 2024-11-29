@@ -146,7 +146,7 @@ const ExamResult = ({
   handleExamOpen: (index: number) => void;
   isExamOpen: boolean[];
 }) => {
-  const hasPassed = exam.score !== undefined && exam.score > exam.minScore;
+  const hasPassed = exam.score !== undefined && exam.score >= exam.minScore;
   const examScore = exam.results.reduce(
     (total, result) => total + result.score,
     0,
