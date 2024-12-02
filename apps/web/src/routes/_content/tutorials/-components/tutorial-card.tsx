@@ -1,6 +1,7 @@
 // import { t } from 'i18next';
 
 import { Link } from '@tanstack/react-router';
+import { useState } from 'react';
 import { MdThumbDown, MdThumbUp } from 'react-icons/md';
 
 import type { JoinedTutorialLight } from '@blms/types';
@@ -18,21 +19,26 @@ export const TutorialCard = ({
   href: string;
   dark?: boolean;
 }) => {
+  const [logoSrc, setLogoSrc] = useState(assetUrl(tutorial.path, 'logo.webp'));
+
+  const fallbackSrc = assetUrl(tutorial.builder?.path ?? '', 'logo.webp');
+
   return (
     <Link
       to={href}
       rel="noreferrer"
       className={cn(
-        'flex items-center w-full rounded-lg md:rounded-[20px] p-1.5 md:p-4 gap-2.5 md:gap-6 max-md:w-[290px]',
+        'flex items-center w-full rounded-lg md:rounded-[20px] p-1.5 my-4 md:p-4 gap-2.5 md:gap-6 max-md:w-[290px]',
         dark
           ? 'bg-darkOrange-10 text-white'
           : 'bg-newGray-6 text-newBlack-3 md:shadow-course-navigation shadow-course-navigation-sm md:border',
       )}
     >
       <img
-        src={assetUrl((tutorial.builder || tutorial).path, 'logo.webp')}
+        src={logoSrc}
         alt={tutorial.name}
-        className="size-[60px] md:size-20  rounded-full"
+        className="size-[60px] md:size-20 rounded-full"
+        onError={() => setLogoSrc(fallbackSrc)}
       />
       <span className="flex flex-col">
         <span className="max-md:mobile-subtitle1 capitalize text-xl font-semibold text-darkOrange-5 md:mb-1">
