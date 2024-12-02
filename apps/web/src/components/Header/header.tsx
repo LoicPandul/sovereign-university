@@ -11,7 +11,6 @@ import coursesSvg from '#src/assets/resources/library.svg';
 import podcastSvg from '#src/assets/resources/podcast.svg';
 import tutorialsSvg from '#src/assets/resources/toolkit.svg';
 import aboutSvg from '#src/assets/resources/world.svg';
-import { useGreater } from '#src/hooks/use-greater.js';
 
 import bitcoinSvg from '../../assets/icons/bitcoin.svg';
 import businessSvg from '../../assets/icons/business.svg';
@@ -261,8 +260,6 @@ export const Header = ({ variant = 'dark' }: HeaderProps) => {
     },
   ];
 
-  const isScreenLg = useGreater('lg');
-
   return (
     <header
       className={cn(
@@ -270,29 +267,27 @@ export const Header = ({ variant = 'dark' }: HeaderProps) => {
         variant === 'light' ? 'bg-darkOrange-5' : 'bg-headerDark',
       )}
     >
-      {isScreenLg === null ? null : isScreenLg ? (
-        <FlyingMenu
-          onClickLogin={() => {
-            setAuthMode(AuthModalState.SignIn);
-            openAuthModal();
-          }}
-          onClickRegister={() => {
-            setAuthMode(AuthModalState.Register);
-            openAuthModal();
-          }}
-          sections={desktopSections}
-          variant={variant}
-        />
-      ) : (
-        <MobileMenu
-          onClickLogin={() => {
-            setAuthMode(AuthModalState.SignIn);
-            openAuthModal();
-          }}
-          sections={[...mobileSections]}
-          variant={variant}
-        />
-      )}
+      <FlyingMenu
+        onClickLogin={() => {
+          setAuthMode(AuthModalState.SignIn);
+          openAuthModal();
+        }}
+        onClickRegister={() => {
+          setAuthMode(AuthModalState.Register);
+          openAuthModal();
+        }}
+        sections={desktopSections}
+        variant={variant}
+      />
+
+      <MobileMenu
+        onClickLogin={() => {
+          setAuthMode(AuthModalState.SignIn);
+          openAuthModal();
+        }}
+        sections={[...mobileSections]}
+        variant={variant}
+      />
 
       {isAuthModalOpen && (
         <AuthModal

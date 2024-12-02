@@ -183,7 +183,7 @@ export const MobileMenu = ({
 
   return (
     <>
-      <div className="flex w-full justify-center items-center sm:px-3">
+      <div className="flex w-full justify-center items-center sm:px-3 lg:hidden">
         <div
           className={cn('min-w-10 mr-auto', isMobileMenuOpen && 'opacity-0')}
         >
@@ -245,7 +245,7 @@ export const MobileMenu = ({
 
       <nav
         className={cn(
-          'flex flex-col fixed top-0 left-0 items-center w-full max-w-[270px] h-dvh pb-5 bg-darkOrange-11 duration-300 rounded-br-sm border-r border-b border-darkOrange-9 overflow-scroll no-scrollbar',
+          'flex flex-col fixed top-0 left-0 items-center w-full max-w-[270px] h-dvh pb-5 bg-darkOrange-11 duration-300 rounded-br-sm border-r border-b border-darkOrange-9 overflow-scroll no-scrollbar lg:hidden',
           isMobileMenuOpen ? 'translate-x-0' : '-translate-x-full',
         )}
         ref={mobileMenuRef}
