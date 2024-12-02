@@ -70,7 +70,7 @@ export const ModalPaymentSummary = ({
   return (
     <div
       className={cn(
-        'flex max-w-[700px] max-lg:max-w-[500px] justify-center items-center lg:p-6 bg-cover bg-center max-lg:!bg-none',
+        'flex max-w-[350px] xl:max-w-[500px] 2xl:max-w-[700px] justify-center items-center lg:p-6 bg-cover bg-center max-lg:!bg-none',
         mobileDisplay ? 'lg:hidden' : 'max-lg:hidden',
       )}
       style={{ backgroundImage: `url(${leftBackgroundImg})` }}
