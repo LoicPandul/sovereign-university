@@ -529,7 +529,7 @@ const ExamTicket = ({
                     <span>{examTicket.addressLine2}</span>
                     <span>{examTicket.addressLine3}</span>
                     <span>
-                      {`${formatDate(examTicket.date)} at ${formatTime(examTicket.date, examTicket.timezone)} (${examTicket.timezone})`}
+                      {`${formatDate(examTicket.date)} at ${formatTime(examTicket.date, examTicket.timezone || 'UTC')} (${examTicket.timezone || 'UTC'})`}
                     </span>
                     <SeeTicket />
                     <img
@@ -577,7 +577,7 @@ const ExamTicket = ({
                     <span>{examTicket.addressLine2}</span>
                     <span>{examTicket.addressLine3}</span>
                     <span>
-                      {`${formatDate(examTicket.date)} at ${formatTime(examTicket.date, examTicket.timezone)} (${examTicket.timezone})`}
+                      {`${formatDate(examTicket.date)} at ${formatTime(examTicket.date, examTicket.timezone || 'UTC')} (${examTicket.timezone || 'UTC'}`}
                     </span>
                     <SeeTicket />
                   </div>

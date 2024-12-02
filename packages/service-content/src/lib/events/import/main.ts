@@ -42,14 +42,6 @@ export const createProcessMainFile = (transaction: TransactionSql) => {
     const lastUpdated = event.files.sort((a, b) => b.time - a.time)[0];
 
     for (const parsedEvent of parsedEvents) {
-      const timezone = parsedEvent.timezone;
-
-      if (!timezone) {
-        console.log(
-          `Event ${parsedEvent.name} is missing timezone. Defaulting to UTC.`,
-        );
-      }
-
       const result = await transaction<Event[]>`
         INSERT INTO content.events
           ( id,
@@ -84,7 +76,7 @@ export const createProcessMainFile = (transaction: TransactionSql) => {
           ${parsedEvent.description},
           ${parsedEvent.start_date},
           ${parsedEvent.end_date},
-          ${timezone || 'UTC'},
+          ${parsedEvent.timezone},
           ${parsedEvent.price_dollars},
           ${parsedEvent.available_seats},
           ${parsedEvent.available_seats},

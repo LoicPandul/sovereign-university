@@ -17,7 +17,7 @@ export interface Ticket {
   addressLine1: string;
   addressLine2: string;
   addressLine3: string;
-  timezone: string;
+  timezone: string | null;
   type: string;
   date: Date;
   isInPerson: boolean;
