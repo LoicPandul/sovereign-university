@@ -16,7 +16,7 @@ export const ticketSchema = z.object({
   addressLine1: z.string(),
   addressLine2: z.string(),
   addressLine3: z.string(),
-  timezone: z.string(),
+  timezone: z.string().nullable(),
   type: z.string(),
   date: z.date(),
   isInPerson: z.boolean(),

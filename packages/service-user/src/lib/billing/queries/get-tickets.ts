@@ -6,7 +6,7 @@ export const getTicketsQuery = (uid: string /*, language: string*/) => {
     SELECT
       ev.id as event_id,
       COALESCE(ev.start_date, current_date + interval '30 days') as date,
-      COALESCE(ev.address_line_3, ev.address_line_2, ev.address_line_1, '') as location, 
+      COALESCE(ev.address_line_3, ev.address_line_2, ev.address_line_1, '') as location,
       COALESCE(ev.address_line_1, '') as address_line_1,
       COALESCE(ev.address_line_2, '') as address_line_2,
       COALESCE(ev.address_line_3, '') as address_line_3,
@@ -16,16 +16,16 @@ export const getTicketsQuery = (uid: string /*, language: string*/) => {
       ep.with_physical as is_in_person,
       ev.book_online as is_online
     FROM users.event_payment ep
-    JOIN content.events ev ON ep.event_id = ev.id 
+    JOIN content.events ev ON ep.event_id = ev.id
     WHERE ep.uid = ${uid}
     AND ep.payment_status = 'paid'
-    
+
     UNION ALL
 
-    SELECT 
+    SELECT
       ev.id as event_id,
       COALESCE(ev.start_date, current_date + interval '30 days') as date,
-      COALESCE(ev.address_line_3, ev.address_line_2, ev.address_line_1, '') as location, 
+      COALESCE(ev.address_line_3, ev.address_line_2, ev.address_line_1, '') as location,
       COALESCE(ev.address_line_1, '') as address_line_1,
       COALESCE(ev.address_line_2, '') as address_line_2,
       COALESCE(ev.address_line_3, '') as address_line_3,
@@ -35,7 +35,7 @@ export const getTicketsQuery = (uid: string /*, language: string*/) => {
       ue.with_physical as is_in_person,
       ev.book_online as is_online
     FROM users.user_event ue
-    JOIN content.events ev ON ue.event_id = ev.id 
+    JOIN content.events ev ON ue.event_id = ev.id
     WHERE ue.uid = ${uid}
 
     UNION ALL
@@ -43,7 +43,7 @@ export const getTicketsQuery = (uid: string /*, language: string*/) => {
     SELECT
       uc.chapter_id::text as event_id,
       COALESCE(cc.start_date, current_date + interval '30 days') as date,
-      COALESCE(cc.address_line_1, '') as location, 
+      COALESCE(cc.address_line_1, '') as location,
       COALESCE(cc.address_line_1, '') as address_line_1,
       COALESCE(cc.address_line_2, '') as address_line_2,
       COALESCE(cc.address_line_3, '') as address_line_3,

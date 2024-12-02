@@ -142,7 +142,7 @@ const Buttons = ({
     formattedCapacity: string;
 
   if (chapter) {
-    timezone = chapter.timezone ? chapter.timezone : '';
+    timezone = chapter.timezone ? chapter.timezone : 'UTC';
     formattedStartDate = chapter.startDate ? formatDate(chapter.startDate) : '';
     formattedTime =
       chapter.startDate && chapter.endDate
