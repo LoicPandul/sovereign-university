@@ -89,7 +89,7 @@ const SectionGrid = ({
             onHoverArrow={false}
             cardColor={cardColor}
             onHoverCardColorChange
-            className="max-w-80"
+            className="max-w-[137px] md:max-w-80"
           />
         );
       })}
@@ -118,7 +118,7 @@ function BET() {
       maxWidth="1360"
       hidePageHeaderMobile
     >
-      <div className="flex flex-col text-newGray-5 mt-8 max-md:mx-2">
+      <div className="flex flex-col text-newGray-5 mt-8">
         <p className="max-w-4xl mx-auto text-center mobile-subtitle2 md:desktop-h7 max-md:mb-6">
           {t('bet.pageDescription')}
         </p>

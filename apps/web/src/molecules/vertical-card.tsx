@@ -120,8 +120,10 @@ export const VerticalCard = ({
           src={imageSrc}
           alt={title}
           className={cn(
-            'h-[105px] md:h-[241px] object-cover [overflow-clip-margin:_unset] !rounded-b-0 rounded-t-[10px] lg:rounded-[10px] lg:mb-[17px]',
-            imgClassName ? imgClassName : 'w-[137px] md:w-[320px]',
+            'h-[105px] md:h-[241px] object-cover [overflow-clip-margin:_unset] lg:mb-[17px]',
+            imgClassName
+              ? imgClassName
+              : 'w-[137px] md:w-[320px] rounded-md md:rounded-2xl mb-2.5',
           )}
         />
         {languages && languages.length > 0 && (
@@ -135,7 +137,7 @@ export const VerticalCard = ({
       <div className={cn('grow flex flex-col justify-between', bodyClassName)}>
         <div className="flex flex-col">
           {tags && tags.length > 0 && (
-            <div className="flex flex-wrap md:hidden gap-1 mt-1">
+            <div className="flex flex-wrap md:hidden gap-1">
               {tags.slice(0, isScreenMd ? tags.length : 1).map((tag, index) => (
                 <span
                   key={index}
@@ -180,7 +182,7 @@ export const VerticalCard = ({
             </span>
           )}
         </div>
-        <div className="flex flex-wrap max-md:flex-col max-md:justify-center items-center w-full mt-auto gap-1.5 md:gap-5">
+        <div className="flex flex-wrap max-md:flex-col max-md:justify-center items-center w-full mt-4 gap-1.5 md:gap-5">
           {buttonText &&
             (buttonLink ? (
               externalLink ? (

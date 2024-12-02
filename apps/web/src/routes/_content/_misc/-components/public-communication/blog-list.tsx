@@ -48,7 +48,7 @@ export const BlogList = ({ category }: BlogListProps) => {
               <VerticalCard
                 key={index}
                 imageSrc={assetUrl(blog.path, 'thumbnail.webp')}
-                imgClassName="w-full"
+                imgClassName="w-full !rounded-b-0 rounded-t-[10px] lg:rounded-[10px] mb-1"
                 title={blog.title}
                 languages={[]}
                 cardColor="lightgrey"
