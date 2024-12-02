@@ -28,7 +28,7 @@ export const TutorialCard = ({
       to={href}
       rel="noreferrer"
       className={cn(
-        'flex items-center w-full rounded-lg md:rounded-[20px] p-1.5 my-4 md:p-4 gap-2.5 md:gap-6 max-md:w-[290px]',
+        'flex items-center w-full rounded-lg md:rounded-[20px] p-1.5 md:p-4 gap-2.5 md:gap-6 max-md:w-[290px]',
         dark
           ? 'bg-darkOrange-10 text-white'
           : 'bg-newGray-6 text-newBlack-3 md:shadow-course-navigation shadow-course-navigation-sm md:border',
