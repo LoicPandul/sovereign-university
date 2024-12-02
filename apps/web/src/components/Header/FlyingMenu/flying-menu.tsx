@@ -23,7 +23,7 @@ export const FlyingMenu = ({
   variant = 'dark',
 }: FlyingMenuProps) => {
   return (
-    <nav className="flex w-full flex-row items-center justify-between">
+    <nav className="flex w-full flex-row items-center justify-between max-lg:hidden">
       <Link to="/" className="mr-auto">
         {variant === 'light' ? (
           <PlanBLogoWhite className="h-auto lg:w-32 xl:w-40" />
