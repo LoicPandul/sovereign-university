@@ -28,6 +28,7 @@ import {
   COURSES_WITH_INLINE_LATEX_SUPPORT,
   goToChapterParameters,
 } from '#src/utils/courses.js';
+import { formatDate } from '#src/utils/date.ts';
 import { assetUrl, cdnUrl, compose, trpc } from '#src/utils/index.js';
 import { SITE_NAME } from '#src/utils/meta.js';
 import { capitalizeFirstWord, joinWords } from '#src/utils/string.js';
@@ -737,8 +738,8 @@ function CourseChapter() {
                           addressLine1: 'Lugano, Switzerland',
                           addressLine2: '',
                           addressLine3: '',
-                          formattedStartDate: 'Start date: October 22nd 2024', // TODO start date
-                          formattedTime: 'End date : October 23rd 2024', // TODO start date
+                          formattedStartDate: `Start date: ${formatDate(chapter.course.startDate)}`,
+                          formattedTime: `End date: ${formatDate(chapter.course.endDate)}`,
                           liveLanguage: '',
                           formattedCapacity: '',
                           contact: 'contact@planb.network',

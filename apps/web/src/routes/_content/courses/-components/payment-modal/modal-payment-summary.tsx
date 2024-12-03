@@ -106,18 +106,6 @@ export const ModalPaymentSummary = ({
           />
           <Separator />
           <PaymentRow
-            label={t('courses.payment.date')}
-            value={t('courses.payment.dates_to', {
-              startDate: course.paidStartDate
-                ? course.paidStartDate.toLocaleDateString()
-                : '',
-              endDate: course.paidEndDate
-                ? course.paidEndDate.toLocaleDateString()
-                : '',
-            })}
-          />
-          <Separator />
-          <PaymentRow
             label={t('courses.payment.numberOfChapters')}
             value={course.chaptersCount?.toString() || '-'}
           />

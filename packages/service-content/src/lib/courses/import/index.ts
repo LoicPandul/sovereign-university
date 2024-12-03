@@ -103,8 +103,8 @@ interface CourseMain {
   inperson_price_dollars?: number;
   paid_description?: string;
   paid_video_link?: string;
-  paid_start_date?: string;
-  paid_end_date?: string;
+  start_date?: string;
+  end_date?: string;
   contact?: string;
   available_seats: number;
   proofreading: ProofreadingEntry[];
@@ -323,9 +323,9 @@ export const createUpdateCourses = ({ postgres }: Dependencies) => {
           }
 
           const startDateTimestamp = convertStringToTimestamp(
-            parsedCourse.paid_start_date
-              ? parsedCourse.paid_start_date.toString()
-              : '20220101',
+            parsedCourse.start_date
+              ? parsedCourse.start_date.toString()
+              : '20000101',
           );
           if (parsedCourse.requires_payment) {
             console.log(
@@ -334,9 +334,9 @@ export const createUpdateCourses = ({ postgres }: Dependencies) => {
             );
           }
           const endDateTimestamp = convertStringToTimestamp(
-            parsedCourse.paid_end_date
-              ? parsedCourse.paid_end_date.toString()
-              : '20220101',
+            parsedCourse.end_date
+              ? parsedCourse.end_date.toString()
+              : '20000101',
           );
 
           const lastUpdated = course.files.sort((a, b) => b.time - a.time)[0];
@@ -347,7 +347,7 @@ export const createUpdateCourses = ({ postgres }: Dependencies) => {
 
           const result = await transaction<Course[]>`
                 INSERT INTO content.courses (id, level, hours, topic, subtopic, original_language, requires_payment, format, online_price_dollars, inperson_price_dollars,
-                  paid_description, paid_video_link, paid_start_date, paid_end_date, contact, available_seats, remaining_seats,
+                  paid_description, paid_video_link, start_date, end_date, contact, available_seats, remaining_seats,
                   last_updated, last_commit, last_sync)
                 VALUES (
                   ${course.id},
@@ -383,8 +383,8 @@ export const createUpdateCourses = ({ postgres }: Dependencies) => {
                   inperson_price_dollars = EXCLUDED.inperson_price_dollars,
                   paid_description = EXCLUDED.paid_description,
                   paid_video_link = EXCLUDED.paid_video_link,
-                  paid_start_date = EXCLUDED.paid_start_date,
-                  paid_end_date = EXCLUDED.paid_end_date,
+                  start_date = EXCLUDED.start_date,
+                  end_date = EXCLUDED.end_date,
                   contact = EXCLUDED.contact,
                   available_seats = EXCLUDED.available_seats,
                   remaining_seats = EXCLUDED.remaining_seats,

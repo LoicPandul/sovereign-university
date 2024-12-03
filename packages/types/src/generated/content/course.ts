@@ -16,8 +16,8 @@ export interface Course {
   inpersonPriceDollars: number | null;
   paidDescription: string | null;
   paidVideoLink: string | null;
-  paidStartDate: Date | null;
-  paidEndDate: Date | null;
+  startDate: Date | null;
+  endDate: Date | null;
   contact: string | null;
   availableSeats: number | null;
   remainingSeats: number | null;
@@ -136,8 +136,8 @@ export interface MinimalJoinedCourse {
   inpersonPriceDollars: number | null;
   paidDescription: string | null;
   paidVideoLink: string | null;
-  paidStartDate: Date | null;
-  paidEndDate: Date | null;
+  startDate: Date | null;
+  endDate: Date | null;
   availableSeats: number | null;
   remainingSeats: number | null;
   contact: string | null;
@@ -167,8 +167,8 @@ export interface JoinedCourse {
   inpersonPriceDollars: number | null;
   paidDescription: string | null;
   paidVideoLink: string | null;
-  paidStartDate: Date | null;
-  paidEndDate: Date | null;
+  startDate: Date | null;
+  endDate: Date | null;
   availableSeats: number | null;
   remainingSeats: number | null;
   contact: string | null;
@@ -199,8 +199,8 @@ export interface JoinedCourseWithProfessorsContributorIds {
   inpersonPriceDollars: number | null;
   paidDescription: string | null;
   paidVideoLink: string | null;
-  paidStartDate: Date | null;
-  paidEndDate: Date | null;
+  startDate: Date | null;
+  endDate: Date | null;
   availableSeats: number | null;
   remainingSeats: number | null;
   contact: string | null;
@@ -231,8 +231,8 @@ export interface JoinedCourseWithAll {
   inpersonPriceDollars: number | null;
   paidDescription: string | null;
   paidVideoLink: string | null;
-  paidStartDate: Date | null;
-  paidEndDate: Date | null;
+  startDate: Date | null;
+  endDate: Date | null;
   availableSeats: number | null;
   remainingSeats: number | null;
   contact: string | null;
@@ -311,8 +311,8 @@ export interface CourseResponse {
   inpersonPriceDollars: number | null;
   paidDescription: string | null;
   paidVideoLink: string | null;
-  paidStartDate: Date | null;
-  paidEndDate: Date | null;
+  startDate: Date | null;
+  endDate: Date | null;
   availableSeats: number | null;
   remainingSeats: number | null;
   contact: string | null;
