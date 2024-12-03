@@ -64,6 +64,7 @@ export const createProcessMainFile = (transaction: TransactionSql) => {
         )
         ON CONFLICT (id) DO UPDATE SET
           path = EXCLUDED.path,
+          name = EXCLUDED.name,
           category = EXCLUDED.category,
           subcategory = EXCLUDED.subcategory,
           original_language = EXCLUDED.original_language,
