@@ -204,20 +204,20 @@ export const FinalExam = ({
                     >
                       <span
                         className={cn(
-                          'label-medium-med-16px md:title-large-24px text-newBlack-1 uppercase px-4 flex items-center bg-newGray-5 group-hover:bg-newGray-3',
+                          'label-medium-med-16px md:title-large-24px text-newBlack-1 uppercase px-4 flex items-center bg-newGray-5 lg:group-hover:bg-newGray-3',
                           selectedAnswers[questionIndex].index ===
                             answerIndex &&
-                            '!bg-darkOrange-4 group-hover:!bg-darkOrange-3',
+                            '!bg-darkOrange-4 lg:group-hover:!bg-darkOrange-3',
                         )}
                       >
                         {String.fromCodePoint(97 + answerIndex)}
                       </span>
                       <p
                         className={cn(
-                          'label-small-12px md:body-16px text-newBlack-1 text-start w-full flex items-center px-[5px] md:px-4 border-l border-newBlack-1 max-md:py-0.5 bg-white group-hover:bg-newGray-4',
+                          'label-small-12px md:body-16px text-newBlack-1 text-start w-full flex items-center px-[5px] md:px-4 border-l border-newBlack-1 max-md:py-0.5 bg-white lg:group-hover:bg-newGray-4',
                           selectedAnswers[questionIndex].index ===
                             answerIndex &&
-                            '!bg-darkOrange-1 group-hover:!bg-darkOrange-0',
+                            '!bg-darkOrange-1 lg:group-hover:!bg-darkOrange-0',
                         )}
                       >
                         {answer.text}
