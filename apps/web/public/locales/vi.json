@@ -1100,10 +1100,6 @@
     "readChart": "Đọc điều lệ",
     "tweetText": ""
   },
-  "general": {
-    "itemNotFoundOrTranslated": "{{item}} không được tìm thấy, hoặc chưa được dịch sang ngôn ngữ của bạn",
-    "itemNotFound": "{{item}} không được tìm thấy"
-  },
   "glossary": {
     "pageSubtitle": "Bạn cần sự hỗ trợ với một định nghĩa kỹ thuật?",
     "keepLooking": "Bạn muốn tiếp tục tìm kiếm?",
