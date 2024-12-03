@@ -43,7 +43,7 @@ export const CourseCard = ({
       className="flex w-full max-md:max-w-[500px] max-md:mx-auto md:w-[340px]"
     >
       <article
-        className={`${courseCardStyles({
+        className={`overflow-hidden ${courseCardStyles({
           color: featured ? 'featured' : 'primary',
         })} relative`}
       >
