@@ -102,10 +102,16 @@ export const createUpdateLegals = ({ postgres }: Dependencies) => {
 
         for (const file of files) {
           try {
-            if ('data' in file) {
-              const header = matter(await file.load(), { excerpt: false });
+            if (!file.language) {
+              console.warn(
+                `Legal file ${file.path} does not have a language, skipping...`,
+              );
+              continue;
+            }
 
-              await transaction`
+            const header = matter(await file.load(), { excerpt: false });
+
+            await transaction`
                 INSERT INTO content.legals_localized (
                   id, language, title, raw_content
                 )
@@ -119,7 +125,6 @@ export const createUpdateLegals = ({ postgres }: Dependencies) => {
                   title = EXCLUDED.title,
                   raw_content = EXCLUDED.raw_content
               `;
-            }
           } catch (error) {
             errors.push(
               `Error processing file(legals 2) ${file?.path} in legal document ${legal.fullPath} : ${error}`,
