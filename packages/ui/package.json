@@ -36,6 +36,7 @@
     "lucide-react": "latest",
     "react": "~18.3.1",
     "react-hook-form": "^7.53.2",
+    "react-toastify": "^10.0.6",
     "recharts": "^2.13.3",
     "tailwind-merge": "^2.5.4",
     "zod": "^3.23.8"

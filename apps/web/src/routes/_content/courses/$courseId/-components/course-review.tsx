@@ -5,6 +5,7 @@ import { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
 import { FaArrowRightLong } from 'react-icons/fa6';
+import { IoCheckmark } from 'react-icons/io5';
 import { z } from 'zod';
 
 import type { CourseChapterResponse, CourseReview } from '@blms/types';
@@ -21,6 +22,7 @@ import {
   Slider,
   Textarea,
   cn,
+  customToast,
 } from '@blms/ui';
 
 import LockGif from '#src/assets/icons/lock.gif';
@@ -193,9 +195,13 @@ export function CourseReview({
 
   const previousCourseReview = existingReview || fetchedCourseReview;
 
-  const [isEditable, setIsEditable] = useState(
-    !previousCourseReview && !formDisabled,
-  );
+  const [isEditable, setIsEditable] = useState(false);
+
+  useEffect(() => {
+    if (isReviewFetched) {
+      setIsEditable(!previousCourseReview && !formDisabled);
+    }
+  }, [isReviewFetched, previousCourseReview, formDisabled]);
 
   const saveCourseReview = trpc.user.courses.saveCourseReview.useMutation();
   const completeChapterMutation =
@@ -494,6 +500,14 @@ export function CourseReview({
                           if (isEditable) {
                             await onSubmit();
                             setIsEditable(false);
+                            customToast(t('courses.review.thankYou'), {
+                              closeOnClick: true,
+                              mode: 'light',
+                              color: 'success',
+                              icon: IoCheckmark,
+                              closeButton: true,
+                              time: 3000,
+                            });
                           } else {
                             setIsEditable(true);
                           }
@@ -538,6 +552,14 @@ export function CourseReview({
                       if (isEditable) {
                         await onSubmit();
                         setIsEditable(false);
+                        customToast(t('courses.review.thankYou'), {
+                          closeOnClick: true,
+                          mode: 'light',
+                          color: 'success',
+                          icon: IoCheckmark,
+                          closeButton: true,
+                          time: 3000,
+                        });
                       } else {
                         setIsEditable(true);
                       }

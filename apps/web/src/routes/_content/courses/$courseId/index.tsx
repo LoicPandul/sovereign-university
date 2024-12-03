@@ -9,8 +9,9 @@ import ReactMarkdown from 'react-markdown';
 import { z } from 'zod';
 
 import type { CourseReviewsExtended, JoinedCourseWithAll } from '@blms/types';
-import { Button, Divider, Loader, TextTag } from '@blms/ui';
+import { Button, Divider, Loader, TextTag, customToast } from '@blms/ui';
 
+import SignInIconLight from '#src/assets/icons/profile_log_in_light.svg';
 import { AuthModal } from '#src/components/AuthModals/auth-modal.js';
 import { AuthModalState } from '#src/components/AuthModals/props.js';
 import { AuthorCard } from '#src/components/author-card.tsx';
@@ -21,6 +22,7 @@ import { StarRating } from '#src/components/Stars/star-rating.tsx';
 import { useDisclosure } from '#src/hooks/use-disclosure.js';
 import { ButtonWithArrow } from '#src/molecules/button-arrow.tsx';
 import { CourseCurriculum } from '#src/organisms/course-curriculum.tsx';
+import { useAuthModal } from '#src/providers/auth.tsx';
 import { AppContext } from '#src/providers/context.js';
 import { formatDate } from '#src/utils/date.ts';
 import { assetUrl } from '#src/utils/index.js';
@@ -42,7 +44,8 @@ export const Route = createFileRoute('/_content/courses/$courseId/')({
 });
 
 function CourseDetails() {
-  const { session } = useContext(AppContext);
+  const { session, hasSeenRegisterToast, setHasSeenRegisterToast } =
+    useContext(AppContext);
   const isLoggedIn = !!session;
 
   // TODO Refactor this auth stuff
@@ -55,6 +58,8 @@ function CourseDetails() {
     isOpen: isAuthModalOpen,
     close: closeAuthModal,
   } = useDisclosure();
+
+  const { openAuthModal: openAuthModalContext } = useAuthModal();
 
   const params = Route.useParams();
   const courseId = params.courseId;
@@ -625,6 +630,22 @@ function CourseDetails() {
             }
           }
         : () => {
+            if (!isLoggedIn && !hasSeenRegisterToast) {
+              customToast(
+                'Create an account or log in to keep track of your progress',
+                {
+                  color: 'secondary',
+                  mode: 'light',
+                  // change icon to person icon
+                  imgSrc: SignInIconLight,
+                  closeButton: true,
+                  onClick: () => {
+                    openAuthModalContext(AuthModalState.SignIn);
+                  },
+                },
+              );
+              setHasSeenRegisterToast(true);
+            }
             navigate({
               to: '/courses/$courseId/$chapterId',
               params: {

@@ -3,9 +3,10 @@ import { t } from 'i18next';
 import { capitalize } from 'lodash-es';
 import React, { Suspense, useContext, useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
+import { IoCheckmark } from 'react-icons/io5';
 import { z } from 'zod';
 
-import { Loader, cn } from '@blms/ui';
+import { Loader, cn, customToast } from '@blms/ui';
 
 import DonateLightning from '#src/assets/icons/donate_lightning.svg?react';
 import ThumbDown from '#src/assets/icons/thumb_down.svg';
@@ -227,7 +228,22 @@ function TutorialDetails() {
   );
 
   // Mutation for liking/disliking a tutorial
-  const likeTutorialMutation = trpc.user.tutorials.likeTutorial.useMutation({});
+  const likeTutorialMutation = trpc.user.tutorials.likeTutorial.useMutation({
+    onSuccess: (_, variables) => {
+      const wasLiked = isLiked.liked;
+      const wasDisliked = isLiked.disliked;
+
+      if ((wasLiked && variables.liked) || (wasDisliked && !variables.liked)) {
+        customToast(t('tutorials.details.ratingSuccess'), {
+          mode: 'light',
+          color: 'success',
+          icon: IoCheckmark,
+          closeButton: true,
+          time: 5000,
+        });
+      }
+    },
+  });
 
   // Update tutorial likes when fetched tutorial change
   useEffect(() => {
@@ -268,7 +284,10 @@ function TutorialDetails() {
     const handleDislike = () => {
       if (!tutorial) return;
 
-      likeTutorialMutation.mutate({ id: tutorial.id, liked: false });
+      likeTutorialMutation.mutate({
+        id: tutorial.id,
+        liked: false,
+      });
       setIsLiked((prev) => ({
         liked: false,
         disliked: !prev.disliked,

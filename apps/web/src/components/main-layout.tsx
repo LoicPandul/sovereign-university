@@ -1,6 +1,9 @@
-import { useRef } from 'react';
+import { t } from 'i18next';
+import { useEffect, useRef } from 'react';
 
-import { cn } from '@blms/ui';
+import { cn, customToast } from '@blms/ui';
+
+import SignInIconLight from '#src/assets/icons/profile_log_in_light.svg';
 
 import { Footer } from './footer.tsx';
 import { Header } from './Header/header.tsx';
@@ -8,7 +11,7 @@ import ScrollToTopButton from './scroll-to-top-button.tsx';
 
 interface MainLayoutProps {
   children: JSX.Element | JSX.Element[];
-  variant?: 'light' | 'dark' | 'blue' | 'gray';
+  variant?: 'light' | 'dark' | 'gray';
   showFooter?: boolean;
   headerVariant?: 'light' | 'dark';
   footerVariant?: 'light' | 'dark';
@@ -29,6 +32,25 @@ export const MainLayout = ({
     blue: 'bg-blue-200',
     gray: 'bg-newGray-6',
   };
+
+  // using session storage to check if user just registered and show toast
+  useEffect(() => {
+    const hasJustRegistered = sessionStorage.getItem('hasJustRegistered');
+
+    if (hasJustRegistered) {
+      customToast(t('auth.dashboardUnlocked'), {
+        mode: variant === 'dark' ? 'dark' : 'light',
+        color: 'secondary',
+        time: 5000,
+        closeButton: true,
+        imgSrc: SignInIconLight,
+      });
+
+      sessionStorage.removeItem('hasJustRegistered');
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
   return (
     <div
       className={cn(

@@ -19,6 +19,7 @@ export * from './atoms/tabs.tsx';
 export * from './atoms/tag.tsx';
 export * from './atoms/text-tag.tsx';
 export * from './atoms/textarea.tsx';
+export * from './atoms/toast.tsx';
 export * from './atoms/tooltip.tsx';
 export * from './lib/utils.ts';
 export * from './atoms/carousel.tsx';
