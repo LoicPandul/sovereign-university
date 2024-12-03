@@ -103,7 +103,7 @@ export const createSaveEventPayment = (dependencies: Dependencies) => {
     }
 
     if (method === 'sbp') {
-      const checkoutData = await sbpPayment(eventId, satsPrice);
+      const checkoutData = await sbpPayment(eventId, satsPrice, 'events');
 
       await postgres.exec(
         insertEventPayment({

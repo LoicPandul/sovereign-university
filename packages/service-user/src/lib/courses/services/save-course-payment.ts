@@ -111,7 +111,7 @@ export const createSaveCoursePayment = (dependencies: Dependencies) => {
     }
 
     if (method === 'sbp') {
-      const checkoutData = await sbpPayment(courseId, satsPrice);
+      const checkoutData = await sbpPayment(courseId, satsPrice, 'courses');
 
       await postgres.exec(
         insertCoursePayment({

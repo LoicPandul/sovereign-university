@@ -32,13 +32,17 @@ export async function checkSatsPrice(dollarPrice: number, satsPrice: number) {
 }
 
 export const createSbpPayment = (config: SwissBitcoinPayConfig) => {
-  return async (elementId: string, satsPrice: number) => {
+  return async (
+    elementId: string,
+    satsPrice: number,
+    type: 'courses' | 'events',
+  ) => {
     const paymentData = {
       title: elementId,
       amount: satsPrice,
       unit: 'sat',
       onChain: true,
-      webhook: `${config.proxyUrl}/users/events/payment/webhooks`,
+      webhook: `${config.proxyUrl}/users/${type}/payment/webhooks`,
     };
 
     const headers = new Headers({
