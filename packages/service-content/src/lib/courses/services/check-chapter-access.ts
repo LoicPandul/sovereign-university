@@ -4,7 +4,7 @@ import type { Course } from '@blms/types';
 import type { Dependencies } from '../../dependencies.js';
 
 interface CourseAccessResponse
-  extends Pick<Course, 'id' | 'paidStartDate' | 'paidEndDate'> {
+  extends Pick<Course, 'id' | 'startDate' | 'endDate'> {
   uid: string | null;
   allowed: string;
 }
@@ -19,8 +19,8 @@ export const createCheckChapterAccess = ({ postgres }: Dependencies) => {
         sql<CourseAccessResponse[]>`
         SELECT
             c.id,
-            c.paid_start_date,
-            c.paid_end_date,
+            c.start_date,
+            c.end_date,
             cp.uid,
             CASE
                 WHEN c.requires_payment = false THEN true

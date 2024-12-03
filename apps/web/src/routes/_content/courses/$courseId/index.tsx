@@ -22,6 +22,7 @@ import { useDisclosure } from '#src/hooks/use-disclosure.js';
 import { ButtonWithArrow } from '#src/molecules/button-arrow.tsx';
 import { CourseCurriculum } from '#src/organisms/course-curriculum.tsx';
 import { AppContext } from '#src/providers/context.js';
+import { formatDate } from '#src/utils/date.ts';
 import { assetUrl } from '#src/utils/index.js';
 import { SITE_NAME } from '#src/utils/meta.js';
 import { formatNameForURL } from '#src/utils/string.ts';
@@ -574,7 +575,7 @@ function CourseDetails() {
       <Button
         size="l"
         mode="dark"
-        className="max-lg:my-6 max-lg:!m-2 lg:mt-5 w-full max-lg:max-w-[290px] md:w-fit self-center lg:self-end"
+        className="max-lg:my-6 max-lg:!m-2 lg:mt-5 w-full max-lg:max-w-[290px] md:w-fit self-center lg:self-end ml-2"
         variant="outline"
         onClick={async () => {
           let pdf = downloadedPdf;
@@ -584,8 +585,8 @@ function CourseDetails() {
               addressLine1: 'Lugano, Switzerland',
               addressLine2: '',
               addressLine3: '',
-              formattedStartDate: 'Start date: October 22nd 2024',
-              formattedTime: 'End date : October 23rd 2024',
+              formattedStartDate: `Start date: ${formatDate(course.startDate)}`,
+              formattedTime: `End date: ${formatDate(course.endDate)}`,
               liveLanguage: '',
               formattedCapacity: '',
               contact: 'contact@planb.network',
