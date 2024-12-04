@@ -233,7 +233,7 @@ function NewsletterDetail() {
                       <img
                         className="size-full min-h-[203px] max-h-[198px] lg:min-h-[400px] md:max-h-[400px] object-cover [overflow-clip-margin:_unset] rounded-[10px]"
                         alt={item.title}
-                        src={assetUrl(newsletter.path, 'thumbnail.webp')}
+                        src={assetUrl(item.path, 'thumbnail.webp')}
                       />
                       <div
                         className="absolute inset-0 -bottom-px rounded-[10px]"
