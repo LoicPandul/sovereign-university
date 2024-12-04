@@ -69,7 +69,7 @@ export const CourseCard = ({
             <span className="max-md:flex flex-col md:mb-2 !line-clamp-2 font-medium leading-[120%] tracking-015px md:desktop-h6 text-white md:align-top mb-2 lg:mb-0">
               {course.name}
             </span>
-            <div className="flex md:items-center flex-col md:flex-row flex-wrap gap-2 md:gap-5 md:mt-auto">
+            <div className="flex flex-col flex-wrap gap-2.5 md:mt-auto">
               <div className="flex md:items-center gap-1.5 md:gap-2 order-2 md:order-1">
                 <span className="bg-tertiary-8 text-white rounded-sm p-1 text-xs leading-none uppercase">
                   {course.id === 'btc101'
@@ -94,31 +94,25 @@ export const CourseCard = ({
           </div>
         </div>
         <div className="relative">
-          <p className="text-tertiary-4 md:leading-relaxed md:tracking-[0.08px] line-clamp-3 md:line-clamp-4 transition-opacity opacity-100 md:group-hover:opacity-0 md:group-hover:absolute duration-300">
+          <p className="text-tertiary-4 md:leading-relaxed md:tracking-[0.08px] line-clamp-3 transition-opacity opacity-100 md:group-hover:opacity-0 md:group-hover:absolute duration-300">
             {course.goal}
           </p>
         </div>
         <div className="max-md:hidden relative">
           <div className="flex flex-col transition-opacity opacity-0 md:group-hover:opacity-100 absolute md:group-hover:static duration-0 md:group-hover:duration-150">
-            <span className="font-medium leading-normal tracking-015px mb-2 line-clamp-1 text-white">
-              {t('words.professor')}:{' '}
-              {course.professors.map((professor) => professor.name).join(', ')}
-            </span>
+            <ListItem
+              leftText={t('words.professor')}
+              rightText={course.professors
+                .map((professor) => professor.name)
+                .join(', ')}
+              className="border-none"
+              rightTextClassName="ml-2-5 line-clamp-1"
+              leftTextClassName="shrink-0"
+            />
             <ListItem
               leftText={t('words.duration')}
               rightText={course.hours + ' hours'}
               className="border-t"
-            />
-            <ListItem
-              leftText={t('words.price')}
-              rightText={
-                course.requiresPayment
-                  ? course.onlinePriceDollars === null
-                    ? `${course.inpersonPriceDollars}$`
-                    : `${course.onlinePriceDollars}$`
-                  : t('words.free')
-              }
-              className="border-none"
             />
           </div>
         </div>
