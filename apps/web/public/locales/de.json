@@ -1132,10 +1132,6 @@
     "pageSubtitle": "Brauchen Sie Hilfe bei einer technischen Definition?",
     "term": "Begriff"
   },
-  "general": {
-    "itemNotFound": "{{item}} nicht gefunden",
-    "itemNotFoundOrTranslated": "{{item}} nicht gefunden oder nicht in Ihre Sprache übersetzt"
-  },
   "proofreading": {
     "completed": "Korrekturlesen abgeschlossen",
     "description": "Der ursprüngliche Inhalt wurde von KI übersetzt, aber eine menschliche Überprüfung ist notwendig, um seine Genauigkeit zu gewährleisten.",

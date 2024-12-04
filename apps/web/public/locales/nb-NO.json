@@ -1146,9 +1146,5 @@
     "pageTitle": "Oisann.",
     "itemNotFound": "{{item}} ikke funnet",
     "itemNotFoundOrTranslated": "{{item}} ikke funnet, eller ikke oversatt til ditt språk"
-  },
-  "general": {
-    "itemNotFound": "{{item}} ikke funnet",
-    "itemNotFoundOrTranslated": "{{item}} ikke funnet, eller ikke oversatt til ditt språk"
   }
 }
