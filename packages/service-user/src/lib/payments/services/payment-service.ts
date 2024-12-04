@@ -37,11 +37,14 @@ export const createSbpPayment = (config: SwissBitcoinPayConfig) => {
     satsPrice: number,
     type: 'courses' | 'events',
   ) => {
+    const ONE_MONTH = 60 * 24 * 30;
+
     const paymentData = {
       title: elementId,
       amount: satsPrice,
       unit: 'sat',
       onChain: true,
+      delay: ONE_MONTH,
       webhook: `${config.proxyUrl}/users/${type}/payment/webhooks`,
     };
 
