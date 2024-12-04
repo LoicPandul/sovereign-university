@@ -11,6 +11,8 @@ interface ListItemProps {
   wrapOnMobile?: boolean;
   hasIncreasedPadding?: boolean;
   className?: string;
+  rightTextClassName?: string;
+  leftTextClassName?: string;
   variant?: 'dark' | 'light';
 }
 
@@ -84,6 +86,8 @@ export const ListItem = ({
   wrapOnMobile,
   hasIncreasedPadding,
   className,
+  rightTextClassName,
+  leftTextClassName,
   variant = 'dark',
 }: ListItemProps) => {
   return (
@@ -99,8 +103,19 @@ export const ListItem = ({
         className,
       )}
     >
-      <span className={leftTextListItemVariant({ variant })}>{leftText}</span>
-      <span className={rightTextListItemVariant({ variant })}>{rightText}</span>
+      <span
+        className={cn(leftTextListItemVariant({ variant }), leftTextClassName)}
+      >
+        {leftText}
+      </span>
+      <span
+        className={cn(
+          rightTextListItemVariant({ variant }),
+          rightTextClassName,
+        )}
+      >
+        {rightText}
+      </span>
     </div>
   );
 };
