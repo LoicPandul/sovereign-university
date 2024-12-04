@@ -121,12 +121,12 @@ export const resourcesRouter = createTRPCRouter({
   // Podcasts
   getPodcasts: createGetResourcesProcedure()
     .output<Parser<JoinedPodcast[]>>(joinedPodcastSchema.array())
-    .query(({ ctx, input }) => {
-      return createGetPodcasts(ctx.dependencies)(input?.language);
+    .query(({ ctx }) => {
+      return createGetPodcasts(ctx.dependencies)();
     }),
   getPodcast: createGetResourceProcedure()
     .output<Parser<JoinedPodcast>>(joinedPodcastSchema)
     .query(({ ctx, input }) => {
-      return createGetPodcast(ctx.dependencies)(input.id, input.language);
+      return createGetPodcast(ctx.dependencies)(input.id);
     }),
 });
