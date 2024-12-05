@@ -71,7 +71,8 @@
     "displayName": "Nom d'affichage",
     "oldPassword": "Ancien mot de passe",
     "confirmation": "Confirmation",
-    "emailTip": "Vous pouvez ajouter une adresse mail à votre compte si vous le souhaitez. Dans le cas où vous oubliez votre mot de passe, cela peut être utile ;)"
+    "emailTip": "Vous pouvez ajouter une adresse mail à votre compte si vous le souhaitez. Dans le cas où vous oubliez votre mot de passe, cela peut être utile ;)",
+    "didYouKnow": "Le saviez vous ?"
   },
   "bet": {
     "contribute": "Cette boîte à outils est ouverte aux contributions. Elle utilise Figma, donc tout le monde peut ajouter, modifier et traduire du contenu. Pour collaborer, ajoutez une catégorie ou une discussion, et n'hésitez pas à rejoindre notre Discord.",
@@ -187,7 +188,10 @@
       "buyOnlineCourse": "Acheter un cours en ligne",
       "inPersonAccess": "Vous devez télécharger votre billet pour accéder au cours en personne.",
       "buyInPersonCourse": "Acheter un cours en personne",
-      "paidCourse": "Payé"
+      "paidCourse": "Payé",
+      "premiumContentNeedsPayment": "Ce cours fait partie d'un programme payant.",
+      "premiumContentNeedsPaymentAction": "Accédez à la page d'accueil du cours",
+      "premiumContentNeedsLogin": "Vous devez être connecté pour accéder à ce cours."
     },
     "explorer": {
       "footerTitle": "Nos professeurs sont là pour vous !",
@@ -361,7 +365,10 @@
       "length": "Longueur",
       "edit": "Éditer",
       "skip": "Passez la revue",
-      "fieldRequired": "Ce champ est requis"
+      "fieldRequired": "Ce champ est requis",
+      "commentPublicMobile": "Commentaire public",
+      "commentTeacherMobile": "Commentaire privé à l'enseignant",
+      "commentAdminMobile": "Commentaire privé à l'équipe d'administration"
     }
   },
   "dashboard": {
@@ -1107,7 +1114,9 @@
     "readChart": "Lire la charte",
     "pageSubtitle": "Adoption de masse grâce à une éducation centralisée open-source",
     "pageTitle": "Passer le ₿-Certificate",
-    "tweetText": "Fier d'avoir réussi le ₿-Certificate au @planb_network avec un score de {{score}}/100 ! {{emoji}}\n\n{{certificateUrl}}"
+    "tweetText": "Fier d'avoir réussi le ₿-Certificate au @planb_network avec un score de {{score}}/100 ! {{emoji}}\n\n{{certificateUrl}}",
+    "download": "Télécharger le certificat",
+    "verify": "Vérifiez l'authenticité de votre certificat"
   },
   "publicCommunication": {
     "blogPageStrings": {
