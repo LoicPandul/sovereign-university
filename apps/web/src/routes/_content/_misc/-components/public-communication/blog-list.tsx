@@ -23,7 +23,13 @@ export const BlogList = ({ category }: BlogListProps) => {
       ? blogs
       : blogs.filter((blog) => blog.category === category);
 
-  if (filteredBlogs.length === 0) {
+  const sortedBlogs = filteredBlogs.sort((a, b) => {
+    const dateA = new Date(a.date);
+    const dateB = new Date(b.date);
+    return dateB.getTime() - dateA.getTime();
+  });
+
+  if (sortedBlogs.length === 0) {
     return (
       <p className="text-black p-14 justify-center text-4xl font-medium mx-auto">
         {t('publicCommunication.blogPageStrings.noArticlesText')}
@@ -38,13 +44,13 @@ export const BlogList = ({ category }: BlogListProps) => {
       </h3>
       <FeaturedCard category={category} background="gray" />
 
-      {filteredBlogs.length > 1 && (
+      {sortedBlogs.length > 1 && (
         <div>
           <h3 className="text-black desktop-h7 mb-4">
             {t('publicCommunication.blogPageStrings.pastArticleSubtitleText')}
           </h3>
           <div className="text-black grid grid-cols-2 lg:grid-cols-3 gap-4">
-            {filteredBlogs.slice(1).map((blog, index) => (
+            {sortedBlogs.slice(1).map((blog, index) => (
               <VerticalCard
                 key={index}
                 imageSrc={assetUrl(blog.path, 'thumbnail.webp')}
