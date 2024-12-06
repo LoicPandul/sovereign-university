@@ -101,7 +101,7 @@ export const SignIn = ({ isOpen, onClose, goTo, redirectTo }: SignInProps) => {
               control={methods.control}
               name="username"
               render={({ field, fieldState }) => (
-                <FormItem className="my-2 w-80 text-center">
+                <FormItem className="my-2 w-full md:w-80 text-center">
                   <FormLabel>{t('dashboard.profile.username')}</FormLabel>
                   <FormControl>
                     <Input
@@ -118,7 +118,7 @@ export const SignIn = ({ isOpen, onClose, goTo, redirectTo }: SignInProps) => {
               control={methods.control}
               name="password"
               render={({ field, fieldState }) => (
-                <FormItem className="my-2 w-80 text-center">
+                <FormItem className="my-2 w-full md:w-80 text-center">
                   <FormLabel>{t('dashboard.profile.password')}</FormLabel>
                   <FormControl>
                     <Input
