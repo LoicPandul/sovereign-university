@@ -78,7 +78,7 @@ function Newsletter() {
             </div>
           )}
 
-          <div className="flex flex-wrap gap-4 md:gap-12">
+          <div className="flex flex-wrap gap-4 md:gap-11">
             {!isFetched && <Loader size="s" />}
             {sortedNewsletters?.length ? (
               sortedNewsletters.map((newsletter) => (
@@ -123,7 +123,7 @@ function Newsletter() {
                   {LANGUAGES_MAP['en']}
                 </span>
               </div>
-              <div className="flex flex-wrap gap-4 md:gap-12">
+              <div className="flex flex-wrap gap-4 md:gap-11">
                 {englishNewsletters.map((newsletter) => (
                   <Link
                     to={`/resources/newsletters/${formatNameForURL(
