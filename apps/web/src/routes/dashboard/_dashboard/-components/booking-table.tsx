@@ -89,7 +89,7 @@ const BookingTable = () => {
   return (
     <div>
       <div className="overflow-x-auto max-md:hidden md:flex">
-        <Table className="!max-w-[910px] max-h-full">
+        <Table className="!max-w-[1085px] max-h-full">
           <TableHeader className="border-b-0 *:text-base *:font-medium *:text-dashboardSectionTitle">
             <TableRow>
               <TableHead className="w-[137px]">
@@ -100,6 +100,9 @@ const BookingTable = () => {
               </TableHead>
               <TableHead className="w-[180px]">
                 {t('dashboard.adminPanel.date')}
+              </TableHead>
+              <TableHead className="w-[150px]">
+                {t('dashboard.adminPanel.participants')}
               </TableHead>
               <TableHead className="flex justify-center w-[180px]">
                 {t('dashboard.adminPanel.listOfParticipants')}
@@ -149,10 +152,11 @@ const EventRow = ({ event, participants }: EventProps) => {
   const startDate = event.startDate || new Date();
 
   return (
-    <TableRow className="*:capitalize">
+    <TableRow className="*:capitalize *:align-top">
       <TableCell>{event.type}</TableCell>
       <TableCell>{event.name}</TableCell>
       <TableCell>{formatDateWithoutTime(startDate)}</TableCell>
+      <TableCell>{participants.length}</TableCell>
       <TableCell>
         <Button
           size="s"
