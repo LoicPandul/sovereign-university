@@ -32,7 +32,7 @@ const SectionTitle = ({
   isOpen,
 }: SectionTitleProps) => {
   const variantMap = {
-    light: 'text-darkOrange-10',
+    light: 'text-black',
     dark: 'text-white',
   };
 
@@ -137,7 +137,7 @@ export const FlyingMenuSection = ({ section, variant }: FlyingMenuProps) => {
       </PopoverTrigger>
       <PopoverContent
         className={cn(
-          'flex absolute z-10 mt-8 -left-16',
+          'flex absolute z-10 mt-8 -left-16 rounded-[20px]',
           hasMultipleSubSection ? '-left-40 xl:-left-72' : '',
         )}
         onMouseEnter={handleMouseEnter}
@@ -146,7 +146,7 @@ export const FlyingMenuSection = ({ section, variant }: FlyingMenuProps) => {
         <div
           className={cn(
             'flex-auto overflow-hidden rounded-[20px]',
-            variant === 'light' ? 'bg-darkOrange-4' : 'bg-newBlack-3',
+            variant === 'light' ? 'bg-darkOrange-2' : 'bg-newBlack-3',
           )}
         >
           <div className="flex flex-row items-center gap-4 my-5 mx-4">

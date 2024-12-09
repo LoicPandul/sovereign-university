@@ -20,7 +20,7 @@ export const FlyingMenuSubSection = ({
           className={compose(
             'text-lg font-primary font-semibold',
             'items' in subSection ? 'mb-4 px-2' : '',
-            variant === 'light' ? 'text-darkOrange-10' : 'text-white',
+            variant === 'light' ? 'text-black' : 'text-white',
           )}
         >
           {subSection.title}

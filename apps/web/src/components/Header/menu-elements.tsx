@@ -22,7 +22,7 @@ export const MenuElement = ({
         key={element.id}
         className={cn(
           'group flex w-full cursor-pointer gap-5 rounded-md py-2 px-2.5',
-          variant === 'light' ? 'hover:bg-white/20' : 'hover:bg-white/10',
+          variant === 'light' ? 'hover:bg-darkOrange-1' : 'hover:bg-white/10',
         )}
       >
         {element.icon && (
@@ -32,7 +32,7 @@ export const MenuElement = ({
               className={cn(
                 'size-[30px]',
                 variant === 'light'
-                  ? 'text-darkOrange-10 brightness-0'
+                  ? 'text-black brightness-0'
                   : 'text-white filter-white',
               )}
               aria-hidden="true"
@@ -44,7 +44,7 @@ export const MenuElement = ({
           <h5
             className={cn(
               'text-lg leading-normal tracking-015px',
-              variant === 'light' ? 'text-darkOrange-10' : 'text-white',
+              variant === 'light' ? 'text-black' : 'text-white',
             )}
           >
             {element.title}
@@ -53,7 +53,7 @@ export const MenuElement = ({
             <p
               className={cn(
                 'truncate desktop-typo1 max-w-full',
-                variant === 'light' ? 'text-darkOrange-8' : 'text-newGray-2',
+                variant === 'light' ? 'text-black' : 'text-newGray-2',
                 isMultipleSubSectionChildren
                   ? 'w-40 xl:w-[240px] 2xl:w-[316px]'
                   : 'w-[316px]',

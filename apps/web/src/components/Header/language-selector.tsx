@@ -18,13 +18,13 @@ interface LanguageSelectorProps {
 }
 
 const variantHeaderBackgroundMap = {
-  light: 'text-white bg-darkOrange-4',
-  dark: 'text-white bg-newBlack-3',
+  light: 'text-white bg-darkOrange-5 lg:hover:bg-darkOrange-2',
+  dark: 'text-white bg-headerDark lg:hover:bg-newBlack-3',
   darkOrange: 'text-white bg-darkOrange-11',
 };
 
 const variantSelectorMap = {
-  light: 'text-darkOrange-10 lg:bg-darkOrange-4',
+  light: 'text-darkOrange-10 lg:bg-darkOrange-2',
   dark: 'text-white lg:bg-newBlack-3',
   darkOrange: 'text-[#909093] lg:bg-[#25262d]',
 };

@@ -35,7 +35,7 @@ export const FlyingMenu = ({
         className={cn(
           'mx-auto flex flex-row items-center gap-2 xl:gap-5 rounded-xl px-3 py-2.5',
           variant === 'light'
-            ? 'bg-darkOrange-4 text-darkOrange-10'
+            ? 'bg-darkOrange-2 text-black'
             : 'bg-newBlack-3 text-white',
         )}
       >
