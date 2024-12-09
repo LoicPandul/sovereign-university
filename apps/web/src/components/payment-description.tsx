@@ -42,6 +42,7 @@ interface PaymentDescriptionProps {
   callout: React.ReactNode;
   description: string;
   itemId: string;
+  checkoutError: string | null;
   initPayment: (method: 'sbp' | 'stripe' | null) => Promise<void>;
   updateCoupon?: (coupon: CouponCode | null) => void;
   children?: JSX.Element | JSX.Element[];
@@ -55,6 +56,7 @@ export const PaymentDescription = ({
   initPayment,
   updateCoupon,
   itemId,
+  checkoutError,
   children,
 }: PaymentDescriptionProps) => {
   const splitDescription = description.split('\n');
@@ -169,6 +171,11 @@ export const PaymentDescription = ({
         </div>
         {/* Todo : a generic component should not reference a specific one */}
         {children}
+        {checkoutError && (
+          <span className="text-red-5 text-center whitespace-pre-line">
+            {checkoutError}
+          </span>
+        )}
         <Button
           variant="primary"
           className="w-full text-xs lg:text-sm"

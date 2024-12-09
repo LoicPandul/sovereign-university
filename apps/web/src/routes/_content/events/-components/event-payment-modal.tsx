@@ -47,8 +47,15 @@ export const EventPaymentModal = ({
 }: EventPaymentModalProps) => {
   const { t } = useTranslation();
 
-  const saveEventPaymentRequest =
-    trpc.user.events.saveEventPayment.useMutation();
+  const [checkoutError, setCheckoutError] = useState<string | null>(null);
+
+  const saveEventPaymentRequest = trpc.user.events.saveEventPayment.useMutation(
+    {
+      onError() {
+        setCheckoutError(t('courses.payment.checkoutError'));
+      },
+    },
+  );
 
   const { data: config } = trpc.auth.config.useQuery();
 
@@ -215,6 +222,7 @@ export const EventPaymentModal = ({
                   updateCoupon={updateCoupon}
                   event={event}
                   accessType={accessType}
+                  checkoutError={checkoutError}
                   description={
                     accessType === 'replay'
                       ? ''

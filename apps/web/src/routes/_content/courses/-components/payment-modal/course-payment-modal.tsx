@@ -52,7 +52,13 @@ export const CoursePaymentModal = ({
 }: CoursePaymentModalProps) => {
   const { t } = useTranslation();
 
-  const savePaymentRequest = trpc.user.courses.saveCoursePayment.useMutation();
+  const [checkoutError, setCheckoutError] = useState<string | null>(null);
+
+  const savePaymentRequest = trpc.user.courses.saveCoursePayment.useMutation({
+    onError() {
+      setCheckoutError(t('courses.payment.checkoutError'));
+    },
+  });
 
   const { data: config } = trpc.auth.config.useQuery();
 
@@ -217,6 +223,7 @@ export const CoursePaymentModal = ({
                   initPayment={initCoursePayment}
                   itemId={course.id}
                   updateCoupon={updateCoupon}
+                  checkoutError={checkoutError}
                   description={
                     coursePaymentFormat === 'inperson'
                       ? t('courses.payment.inPersonDescription')
