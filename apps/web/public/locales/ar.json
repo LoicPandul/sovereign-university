@@ -20,7 +20,7 @@
     "title": "About the planB network",
     "subtitle": "Bitcoin strength is our community. let's gather into a global bitcoin network.",
     "manifesto": "Wir glauben an die dezentralisierte Zukunft, die Bitcoin uns bietet.\n\nUnsere Mission ist es, in einem Jahrzehnt eine Milliarde Menschen an Bitcoin zu bringen. Unsere Werkzeuge: Bildung und Information. \n\nWir unterstützen lokale Gemeinschaften von Bitcoinern, indem wir Open-Source Bildungsinhalte bereitstellen und ein Netzwerk von Bitcoin-Mentoren anbieten.\n\nUnsere Philosophie wird durch das Cypherpunk Manifest inspiriert. Genau wie sie für den Schutz der Privatsphäre kämpfen, verteidigen wir die Bildung. Wir glauben, dass Wissen das Fundament von Freiheit und Veränderung ist.\n\nWir sind Bitcoin-only. \n\nWir stehen zur individuellen Verantwortung und zur Unabhängigkeit bei, die durch den Besitz eigener Schlüssel geboten wird. \n\nWir bitten um Verifizierung und nicht um blindes Vertrauen. \n\nWir glauben, dass wir durch das reparieren des Geldes die Welt reparieren können.\n\nWir sind dezentral und Open-Source und vermeiden somit jeden einzelnen Punkt des Scheiterns. \n\nWir ermutigen die freie Verbreitung unserer Inhalte. \n\nWir streben eine Welt an, die von unten nach oben operiert, in der der Mensch im Zentrum steht.\n\nSchließe dich an unsere Mission an, die Orange-Pille in die Welt zu verteilen.\n",
-    "description": ""
+    "description": "تساعد شبكة Plan B المجتمعات في جميع أنحاء العالم على التنظيم من أجل توفير تعليم أفضل. تعمل المنصة على تطوير الأدوات اللازمة لتحقيق هذا الهدف، من خلال الأكاديمية عبر الإنترنت، وبوابة البرامج التعليمية، ومجموعة أدوات التعليم Bitcoin، وبوابة الموارد."
   },
   "auth": {
     "accountCreated": "Ihr Konto wurde angelegt, {{userName}}!",
@@ -34,11 +34,11 @@
       "usernameRegex": "Der Benutzername darf nur Buchstaben, Ziffern, _, und - enthalten",
       "usernameRequired": "Benutzername erforderlich",
       "usernameTooShort": "Der Benutzername muss mindestens 5 Zeichen enthalten",
-      "emailInvalid": "",
-      "displayNameRequired": "",
-      "displayNameTooShort": "",
-      "invalidCredentials": "",
-      "displayNameRegex": ""
+      "emailInvalid": "بريد الكتروني غير صالح",
+      "displayNameRequired": "اسم العرض مطلوب.",
+      "displayNameTooShort": "يجب أن يحتوي اسم العرض على حرفين على الأقل.",
+      "invalidCredentials": "بيانات اعتماد غير صالحة",
+      "displayNameRegex": "لا يمكن أن يحتوي اسم العرض إلا على أحرف وأرقام وعلامات سفلية (_) ونقاط (.) وشرطات (-) ومسافات."
     },
     "forgottenPassword": "Passwort vergessen ?",
     "headerAccountCreated": "Konto erstellt",
@@ -50,28 +50,29 @@
     "passwordsDontMatch": "Passwörter stimmen nicht überein",
     "sendLink": "Link versenden",
     "signIn": "Einloggen",
-    "confirmation": "",
-    "oldPassword": "",
+    "confirmation": "تأكيد",
+    "oldPassword": "كلمة المرور القديمة",
     "invalidTokenExplain": {
       "invalid": "",
-      "notFound": "",
-      "expired": "",
-      "consumed": ""
+      "notFound": "لم يتم العثور على الرمز",
+      "expired": "انتهت صلاحية الرمز",
+      "consumed": "لقد تم استخدام الرمز بالفعل"
     },
-    "passwordResetError": "",
-    "tryAgain": "",
-    "displayName": "",
-    "backToLogin": "",
-    "backToHome": "",
+    "passwordResetError": "خطأ إعادة تعيين كلمة المرور",
+    "tryAgain": "حاول ثانية",
+    "displayName": "اسم العرض",
+    "backToLogin": "العودة إلى تسجيل الدخول",
+    "backToHome": "العودة إلى المنزل",
     "invalidToken": "",
-    "checkingToken": "",
-    "newPassword": "",
-    "passwordMinLength": "",
-    "passwordChanged": "",
-    "passwordSuccessfullyChanged": "",
-    "emailTip": "",
-    "passwordResetSent": "",
-    "checkingTokenExplain": ""
+    "checkingToken": "رمز التحقق",
+    "newPassword": "كلمة المرور الجديدة",
+    "passwordMinLength": "يجب أن تتكون كلمة المرور من {{len}} حرف على الأقل",
+    "passwordChanged": "تم تغيير كلمة المرور",
+    "passwordSuccessfullyChanged": "لقد تم تغيير كلمة المرور الخاصة بك بنجاح. يمكنك الآن تسجيل الدخول باستخدام كلمة المرور الجديدة.",
+    "emailTip": "البريد الإلكتروني ليس إلزاميًا، لكنه قد يكون مفيدًا في حالة نسيان كلمة المرور :)",
+    "passwordResetSent": "لقد تم إرسال رسالة البريد الإلكتروني لإعادة تعيين كلمة المرور إلى صندوق الوارد الخاص بك (إذا كان عنوان البريد الإلكتروني موجودًا في قاعدة بياناتنا).",
+    "checkingTokenExplain": "نحن نتحقق مما إذا كان الرمز صالحًا…",
+    "didYouKnow": "هل تعلم ؟"
   },
   "bet": {
     "contribute": "Dieses Toolkit ist offen für einen Beitrag. Es verwendet Figma, so dass jeder etwas hinzufügen, verändern und übersetzen kann. Um zusammenzuarbeiten, erstelle eine Kategorie oder starte eine Unterhaltung. Zögere nicht und komme in unseren Discord.",
@@ -1142,20 +1143,20 @@
   "bCertificate": {
     "knowledgeableBitcoin": "",
     "noBookExam": "",
-    "bookExam": "",
+    "bookExam": "احجز جلسة امتحان",
     "organizeSubtitle": "",
     "pageSubtitle": "",
     "organizeExam": "",
-    "checkout": "",
+    "checkout": "تحقق من شهادة ₿",
     "organizeTitle": "",
     "pageTitle": "",
     "tweetText": "",
     "joeNakamotoVideo": "",
-    "bCertificateDescription": "",
+    "bCertificateDescription": "شهادة ₿ هي اختبار معترف به دوليًا لتقييم استعدادك للعملة الرقمية Bitcoin والموضوعات المشتقة منها. ستمكنك هذه الشهادة من إثبات مهاراتك ومعرفتك في صناعة Bitcoin، مما يتيح لك الوصول إلى الشركات والمناصب في هذه الصناعة.",
     "curious": "",
     "readChart": "",
     "organizeDescription": "",
-    "challengeYourself": ""
+    "challengeYourself": "تحدى نفسك وأكد مستواك!"
   },
   "proofreading": {
     "completed": "",

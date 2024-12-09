@@ -7,19 +7,19 @@
     "commitmentTitle": "Our commitments",
     "commitmentContent": "We have the following commitments towards the bitcoin community: \n • Remain open-source \n • Provide high-quality educational content \n • Translate our content in as many languages as possible \n • Support Bitcoin builders in their entrepreneurial journey",
     "coreTeamTitle": "The core team",
-    "coreTeamContent": "Plan ₿ Network is a collective of hundreds of contributors, teachers, community leaders, designers, developers, and organizers. Special thanks go to the numerous people who have made PlanB a reality and continue to do so each day. (Wall of contributors coming soon)",
+    "coreTeamContent": "Plan ₿ Network is a collective of hundreds of contributors, teachers, community leaders, designers, developers, and organizers. Special thanks go to the numerous people who have made Plan ₿ a reality and continue to do so each day. (Wall of contributors coming soon)",
     "coreTeamGiacomoRole": "Director and Co-founder",
     "coreTeamRogzyRole": "Product manager & Co-founder",
     "coreTeamAsioRole": "Educational coordinator",
     "coreTeamAjelexRole": "Node coordinator",
     "corporateTitle": "Corporations behind the project",
-    "corporateContent": "PlanB Network is the joint project of three entities focused on Bitcoin development. In an effort to make the Bitcoin education layers scale, they decided to collaborate to form PlanB Network. Since then,  many other entities have decided to contribute and join forces to help us bring Bitcoin education to the world. For this reason, a huge thank-you is due to them.",
+    "corporateContent": "Plan ₿ Network is the joint project of three entities focused on Bitcoin development. In an effort to make the Bitcoin education layers scale, they decided to collaborate to form Plan ₿ Network. Since then,  many other entities have decided to contribute and join forces to help us bring Bitcoin education to the world. For this reason, a huge thank-you is due to them.",
     "coportateContact": "Contact information:",
     "storyTitle": "Our story",
-    "storyContent": "PlanB network is an initiative that supports Bitcoin education worldwide. It's the crossover of various passionate Bitcoin companies focused on education, open-source software, peer-to-peer networks, and the sense of community. Together, they've decided to build the PlanB network and offer the Bitcoin ecosystem the right tools to grow. Our 2023 release presentation is available here.",
-    "description": "Plan B Network helps communities worldwide to get organized in order to provide better education. The platform develops the  necessary tools towards that goal, through the online academy, the tutorials portal, the Bitcoin educational toolkit and the resource portal.",
-    "subtitle": "Want to orange pill the world? Join the Plan ₿ Network.",
-    "title": "About the Plan B Network",
+    "storyContent": "Plan ₿ Network is an initiative that supports Bitcoin education worldwide. It's the crossover of various passionate Bitcoin companies focused on education, open-source software, peer-to-peer networks, and the sense of community. Together, they've decided to build the Plan ₿ Network and offer the Bitcoin ecosystem the right tools to grow. Our 2023 release presentation is available here.",
+    "description": "Plan ₿ Network helps communities worldwide to get organized in order to provide better education. The platform develops the  necessary tools towards that goal, through the online academy, the tutorials portal, the Bitcoin educational toolkit and the resource portal.",
+    "subtitle": "Want to orange pill the world? Join Plan ₿ Network.",
+    "title": "About Plan ₿ Network",
     "manifesto": "We believe in the decentralized future that Bitcoin offers.\n\nOur mission is to introduce Bitcoin to a billion people by a decade's time. Our tools are education and information. \n\nWe support local communities of Bitcoiners by providing open-source educational content and offering a network of Bitcoin mentors.\n\nOur philosophy is inspired by the cypherpunk manifesto. Just as they championed privacy, we champion education. In fact, we believe that knowledge is the foundation of freedom and change.\n\nWe are Bitcoin-only. \n\nWe advocate for individual responsibility and the independence offered by owning your own keys. \n\nWe urge verification, not blind trust. \n\nWe believe that by fixing the money, we can fix the world.\n\nWe are decentralized and open-source, avoiding any single point of failure. \n\nWe encourage the free dissemination of our content. \n\nWe aspire to a world that operates from the bottom up, where the individual is at the center.\n\nWe simplify, we educate, we share. \n\nJoin us in our mission to orange-pill the world.\n"
   },
   "auth": {
@@ -130,7 +130,7 @@
   "builders": {
     "networkStrength": "The strength of a network lies in its members",
     "noRelatedEvents": "There are no upcoming events related to this builder at the moment.",
-    "otherCommunities": "Explore Plan B Communities",
+    "otherCommunities": "Explore Plan ₿ Communities",
     "pageSubtitle": "This portal is open-source & open to contribution.",
     "pageTitle": "Bitcoin Builders",
     "languages": "Languages",
@@ -157,7 +157,7 @@
     "noConferences": "No conferences added for {{year}} yet.",
     "pageSubtitle": "This portal is open-source & open to contribution.",
     "pageTitle": "Conference replays",
-    "planBConferences": "Plan B conferences",
+    "planBConferences": "Plan ₿ conferences",
     "topics": "Topics"
   },
   "courses": {
@@ -208,7 +208,7 @@
       "goal": "Goal:",
       "inPersonAccess": "You need to download your ticket to access the in-person class.",
       "premiumContentNeedsLogin": "You need to be logged in to access this course.",
-      "premiumContentNeedsPayment": "This course is part of a paid program.",
+      "premiumContentNeedsPayment": "This course is part of a premium program.",
       "premiumContentNeedsPaymentAction": "Go to course homepage",
       "level": "Level: $t(words.level.{{level}})",
       "mobile": {
@@ -218,7 +218,7 @@
       "numberOfChapters": "Number of chapters: {{number}}",
       "objectives": "Objectives",
       "objectivesTitle": "What you will learn:",
-      "paidCourse": "Paid",
+      "paidCourse": "Premium",
       "price": "Price: {{price}} sats",
       "professor": "Professor",
       "startCourse": "Start the course",
@@ -244,7 +244,7 @@
       "dontWorry": "Don't worry about mistakes; this test helps reinforce your learning. If you don't pass, you can retake it after 24 hours.",
       "examAndDiploma": "Exam & Diploma",
       "examDetails": "The exam has 40 multiple-choice questions, each with one correct answer. You can change your answers anytime before submitting, as long as the timer is running.",
-      "explanations": "Explanations :",
+      "explanations": "Explanations:",
       "failed": "Failed",
       "finalExam": "Final exam",
       "findInformationChapter": "Find more information in this chapter :",
@@ -558,7 +558,7 @@
         "chooseTags": "Choose the tags that describe you the best",
         "description": "Your description",
         "descriptionTags": "These tags complete your public profile as they show your specialities as a bitcoiner.",
-        "enterTipsInformations": "Plan ₿ Network encourages users to tip teachers. Please enter your informations so that people can tip you when they wish to.",
+        "enterTipsInformations": "Plan ₿ Network encourages users to tip teachers. Please enter your information so that people can tip you when they wish to.",
         "lightningAddress": "Lightning address",
         "makeModifications": "Need to make modifications ?",
         "noLightningAddress": "No lightning address added yet.",
@@ -625,10 +625,10 @@
     },
     "errors": {
       "premiumContentNeedsLogin": "You need to be logged in to access this event.",
-      "premiumContentNeedsPayment": "This event is part of a paid program.",
+      "premiumContentNeedsPayment": "This event is part of a premium program.",
       "premiumContentNeedsPaymentAction": "Go to events page"
     },
-    "pageDescription": "Want to talk about Bitcoin in real time? Here, you can find all the events supported by the Plan B Network communities. Whether you want to listen to a lecture, discuss Bitcoin over a drink, or take an exam to assess your knowledge, you will find the right event here through the Plan B Network.",
+    "pageDescription": "Want to talk about Bitcoin in real time? Here, you can find all the events supported by the Plan ₿ Network communities. Whether you want to listen to a lecture, discuss Bitcoin over a drink, or take an exam to assess your knowledge, you will find the right event here through the Plan ₿ Network.",
     "pageSubtitle": "Bottom-up adoption enhanced by a strong network",
     "pageTitle": "Looking for a Bitcoin event to attend?",
     "payment": {
@@ -786,7 +786,7 @@
     "lightningDescription": "Manage your lightning node and use the lightning network",
     "login": "Log in",
     "loginRegister": "Log in / Register",
-    "manifestoDescription": "Read Plan B's manifesto",
+    "manifestoDescription": "Read Plan ₿ manifesto",
     "merchantsDescription": "Accept bitcoin payments and discover tools for merchants",
     "miningCourseDescription": "Understand the processes, tools and industry behind the Bitcoin mining.",
     "miningDescription": "Mine your own bitcoins and learn about the mining industry",
@@ -812,16 +812,16 @@
     "answer5": "We wish to offer a safe haven for bitcoiners around the world. We believe that by helping local hubs grow, we will be able to create a network of citadels where they will be welcome to work, create, share, and discuss safely.",
     "apply": "Apply to become a Node",
     "applyhelp": "*Select the node Location",
-    "description1": "We believe that education should not only take place online but also in physical spaces. To achieve this, Plan B Network manages a network of hubs around the world to welcome thinkers, builders and educators fostering the advancement of Bitcoin and freedom technologies.",
+    "description1": "We believe that education should not only take place online but also in physical spaces. To achieve this, Plan ₿ Network manages a network of hubs around the world to welcome thinkers, builders and educators fostering the advancement of Bitcoin and freedom technologies.",
     "descriptionextend": "Our first step is to invite communities with physical spaces, which we refer to as the “full nodes” of our network, to join us. In the future, as our network strengthens, we will extend this invitation to more initiatives worldwide. If you share our values, please reach out to our representatives to join our network and help build the best Bitcoin education possible.",
-    "mobiledescription": "We believe that education should not only take place online but also in physical spaces. To achieve this, Plan B Network manages a network of hubs around the world to welcome thinkers, builders and educators fostering the advancement of Bitcoin and freedom technologies.Our first step is to invite communities with physical spaces, which we refer to as the “full nodes” of our network, to join us. In the future, as our network strengthens, we will extend this invitation to more initiatives worldwide. If you share our values, please reach out to our representatives to join our network and help build the best Bitcoin education possible.",
-    "pageSubtitle": "Want to orange pill the world ? Join the Plan ₿ Network.",
+    "mobiledescription": "We believe that education should not only take place online but also in physical spaces. To achieve this, Plan ₿ Network manages a network of hubs around the world to welcome thinkers, builders and educators fostering the advancement of Bitcoin and freedom technologies.Our first step is to invite communities with physical spaces, which we refer to as the “full nodes” of our network, to join us. In the future, as our network strengthens, we will extend this invitation to more initiatives worldwide. If you share our values, please reach out to our representatives to join our network and help build the best Bitcoin education possible.",
+    "pageSubtitle": "Want to orange pill the world? Join Plan ₿ Network.",
     "pageTitle": "Explore Plan ₿ Node Network",
     "question1": "What's a node ?",
     "question2": "What do I gain ?",
     "question3": "What are the requirements ?",
     "question4": "What size is a node ?",
-    "question5": "What's the secret plan ?"
+    "question5": "What's the secret plan?"
   },
   "notFound": {
     "here": "Here",
@@ -1027,7 +1027,7 @@
         "description": "Explore our tutorials dedicated to the use of open-source tools!"
       },
       "contribution": {
-        "description": "Learn how to contribute to PlanB Network and master the open-source tools we use internally through our detailed tutorials!"
+        "description": "Learn how to contribute to Plan ₿ Network and master the open-source tools we use internally through our detailed tutorials!"
       },
       "general": {
         "description": "Browse our general tutorials to enrich your knowledge in computing and other subjects related to individual sovereignty!"
@@ -1185,7 +1185,7 @@
     "or": "or",
     "ourStory": "Our story",
     "overview": "Overview",
-    "paid": "Paid",
+    "paid": "Premium",
     "part": "Part",
     "passed": "Passed",
     "podcast": "Podcast",
