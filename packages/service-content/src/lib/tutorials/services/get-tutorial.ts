@@ -7,18 +7,15 @@ import { omit } from '../../utils.js';
 import { getCreditsQuery } from '../queries/get-credits.js';
 import { getTutorialQuery } from '../queries/get-tutorial.js';
 
-interface Options {
-  category: string;
-  name: string;
-  language: string;
-}
-
 export const createGetTutorial = ({ postgres }: Dependencies) => {
-  return async (options: Options): Promise<GetTutorialResponse> => {
-    const { category, name, language } = options;
+  return async (options: {
+    id: string;
+    language: string;
+  }): Promise<GetTutorialResponse> => {
+    const { id, language } = options;
 
     const tutorial = await postgres
-      .exec(getTutorialQuery(category, name, language))
+      .exec(getTutorialQuery(id, language))
       .then(firstRow);
 
     if (!tutorial) {
