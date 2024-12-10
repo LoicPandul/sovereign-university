@@ -5,6 +5,7 @@ import { Loader } from '@blms/ui';
 
 import { PageLayout } from '#src/components/page-layout.js';
 import { assetUrl, trpc } from '#src/utils/index.ts';
+import { formatNameForURL } from '#src/utils/string.ts';
 
 import { BuilderCard } from '../resources/-components/cards/builder-card.tsx';
 
@@ -83,9 +84,10 @@ function NodeNetwork() {
           {!isFetched && <Loader size={'s'} />}
           {filteredCommunities.map((community) => (
             <Link
-              to={'/resources/builders/$builderId'}
+              to={'/resources/builders/$builderName-$builderId'}
               params={{
                 builderId: community.id.toString(),
+                builderName: formatNameForURL(community.name),
               }}
               key={community.id}
               className="flex flex-col items-center"

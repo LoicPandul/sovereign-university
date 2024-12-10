@@ -14,6 +14,7 @@ import View from 'ol/View.js';
 import { useEffect } from 'react';
 
 import OrangePillPath from '#src/assets/icons/orange_pill_color.svg';
+import { formatNameForURL } from '#src/utils/string.ts';
 
 interface CommunitiesMapProps {
   communities: Array<{
@@ -61,6 +62,7 @@ export const CommunitiesMap = ({ communities }: CommunitiesMapProps) => {
       const feature = new Feature(new Point(coordinate));
 
       feature.set('communityId', community.id);
+      feature.set('communityName', community.name);
 
       const styles = [
         new Style({
@@ -111,11 +113,13 @@ export const CommunitiesMap = ({ communities }: CommunitiesMapProps) => {
       );
       if (feature) {
         const communityId = feature.get('communityId');
+        const communityName = feature.get('communityName');
         if (communityId) {
           navigate({
-            to: '/resources/builders/$builderId',
+            to: '/resources/builders/$builderName-$builderId',
             params: {
               builderId: communityId.toString(),
+              builderName: formatNameForURL(communityName),
             },
           });
         }
