@@ -42,6 +42,10 @@ export const createProcessMainFile = (transaction: TransactionSql) => {
     const lastUpdated = event.files.sort((a, b) => b.time - a.time)[0];
 
     for (const parsedEvent of parsedEvents) {
+      parsedEvent.book_online = parsedEvent.book_online
+        ? parsedEvent.book_online
+        : false;
+
       const result = await transaction<Event[]>`
         INSERT INTO content.events
           ( id,
