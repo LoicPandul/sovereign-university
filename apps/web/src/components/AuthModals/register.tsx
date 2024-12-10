@@ -91,6 +91,8 @@ export const Register = ({
 
   const register = trpc.auth.credentials.register.useMutation({
     onSuccess: () => {
+      sessionStorage.setItem('hasJustRegistered', 'true');
+
       setTimeout(() => {
         if (redirectTo) {
           window.location.href = redirectTo;

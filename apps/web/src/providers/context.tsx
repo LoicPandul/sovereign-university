@@ -42,6 +42,10 @@ interface AppContext {
   blogs: JoinedBlogLight[] | null;
   setBlogs: (blogs: JoinedBlogLight[] | null) => void;
 
+  // Register Toast
+  hasSeenRegisterToast: boolean;
+  setHasSeenRegisterToast: (value: boolean) => void;
+
   // Conversion rate
   conversionRate: number | null;
   setConversionRate: (rate: number | null) => void;
@@ -67,6 +71,10 @@ export const AppContext = createContext<AppContext>({
   // Blog
   blogs: null,
   setBlogs: () => {},
+
+  // Register Toast
+  hasSeenRegisterToast: false,
+  setHasSeenRegisterToast: () => {},
 
   // Conversion Rate
   conversionRate: null,
@@ -109,6 +117,9 @@ export const AppContextProvider = ({ children }: PropsWithChildren) => {
 
     return () => clearInterval(interval);
   }, []);
+
+  const [hasSeenRegisterToast, setHasSeenRegisterToast] =
+    useState<boolean>(false);
 
   useEffect(() => {
     trpcClient.user.getDetails
@@ -167,6 +178,8 @@ export const AppContextProvider = ({ children }: PropsWithChildren) => {
     setCourses,
     blogs,
     setBlogs,
+    hasSeenRegisterToast,
+    setHasSeenRegisterToast,
     conversionRate,
     setConversionRate,
   };

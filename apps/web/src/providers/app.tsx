@@ -9,6 +9,7 @@ import {
 } from 'react';
 import { HelmetProvider } from 'react-helmet-async';
 import { useTranslation } from 'react-i18next';
+import { ToastContainer } from 'react-toastify';
 
 import PageMeta from '#src/components/Head/PageMeta/index.js';
 import { router } from '#src/routes/-router.js';
@@ -18,6 +19,7 @@ import { useTrpc } from '../hooks/index.ts';
 import { LANGUAGES } from '../utils/i18n.ts';
 import { trpc } from '../utils/trpc.ts';
 
+import { AuthModalProvider } from './auth.tsx';
 import { AppContextProvider } from './context.tsx';
 
 interface LangContext {
@@ -119,18 +121,21 @@ export const AppProvider = ({ children }: PropsWithChildren) => {
         <QueryClientProvider client={trpcQueryClient}>
           <LangContext.Provider value={{ setCurrentLanguage }}>
             <AppContextProvider>
-              <RouterProvider
-                router={router}
-                context={{ i18n }}
-                basepath={currentLanguage}
-              />
-              <PageMeta
-                title={SITE_NAME}
-                description="Let's build together the Bitcoin educational layer"
-                type="website"
-                imageSrc="/share-default.jpg"
-              />
-              {children}
+              <AuthModalProvider>
+                <RouterProvider
+                  router={router}
+                  context={{ i18n }}
+                  basepath={currentLanguage}
+                />
+                <PageMeta
+                  title={SITE_NAME}
+                  description="Let's build together the Bitcoin educational layer"
+                  type="website"
+                  imageSrc="/share-default.jpg"
+                />
+                <ToastContainer autoClose={5000} />
+                {children}
+              </AuthModalProvider>
             </AppContextProvider>
           </LangContext.Provider>
         </QueryClientProvider>
