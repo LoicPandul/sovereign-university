@@ -1,12 +1,13 @@
 import type { JoinedCourse, JoinedTutorialLight } from '@blms/types';
 
 export const getTutorial = (url: string, tutorials: JoinedTutorialLight[]) => {
-  const pattern = /^https:\/\/planb\.network\/tutorials\/([^/]+)\/([^/]+)$/;
+  const pattern =
+    /^https:\/\/planb\.network\/tutorials\/[^/]+\/[^/]+\/([^/]+)$/;
   const match = url.match(pattern);
 
   if (match) {
-    const tutorialName = match[2];
-    return tutorials.find((tutorial) => tutorial.name === tutorialName) || null;
+    const tutorialId = match[1].slice(-36);
+    return tutorials.find((tutorial) => tutorial.id === tutorialId) || null;
   }
 
   return null;
