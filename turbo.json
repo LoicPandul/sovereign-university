@@ -43,7 +43,8 @@
     "OTS_RPC_PASSWORD",
     "VITE_STRIPE_PUBLIC",
     "STRIPE_SECRET",
-    "STRIPE_ENDPOINT_SECRET"
+    "STRIPE_ENDPOINT_SECRET",
+    "PROTECT_SYNC_ROUTE"
   ],
   "tasks": {
     "build": {

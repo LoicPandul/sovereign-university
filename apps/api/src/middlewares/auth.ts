@@ -1,7 +1,7 @@
 import { TRPCError } from '@trpc/server';
 import type { NextFunction, Request, RequestHandler, Response } from 'express';
 
-import { createGetApiKey } from '@blms/service-user';
+import { createGetActiveApiKey } from '@blms/service-user';
 import type { UserRole } from '@blms/types';
 
 import type { Dependencies } from '#src/dependencies.js';
@@ -84,12 +84,12 @@ export const expressAuthMiddleware = (
 export const createApiKeyMiddleware = (ctx: Dependencies): RequestHandler => {
   const headerRegex =
     /^Bearer (?<keyId>[\da-f]{8}(-[\da-f]{4}){3}-[\da-f]{12})$/;
-  const getApiKey = createGetApiKey(ctx);
+  const getActiveApiKey = createGetActiveApiKey(ctx);
 
   return (req: Request, res: Response, next: NextFunction) => {
     const header = req.headers.authorization;
     if (!header) {
-      return void res.status(401).send('Unauthorized)');
+      return void res.status(401).send('Unauthorized');
     }
 
     const keyId = headerRegex.exec(header)?.groups?.keyId;
@@ -97,7 +97,7 @@ export const createApiKeyMiddleware = (ctx: Dependencies): RequestHandler => {
       return void res.status(401).send('Unauthorized (invalid api key)');
     }
 
-    return getApiKey(keyId)
+    return getActiveApiKey(keyId)
       .then((key) =>
         // eslint-disable-next-line promise/no-callback-in-promise
         key ? next() : void res.status(401).send('Unauthorized'),
@@ -105,3 +105,8 @@ export const createApiKeyMiddleware = (ctx: Dependencies): RequestHandler => {
       .catch(() => void res.status(500).send('Internal server error'));
   };
 };
+
+/**
+ * Express middleware that does nothing.
+ */
+export const noopMiddleware: RequestHandler = (_req, _res, next) => next();
