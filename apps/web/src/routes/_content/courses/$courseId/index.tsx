@@ -631,19 +631,16 @@ function CourseDetails() {
           }
         : () => {
             if (!isLoggedIn && !hasSeenRegisterToast) {
-              customToast(
-                'Create an account or log in to keep track of your progress',
-                {
-                  color: 'secondary',
-                  mode: 'light',
-                  // change icon to person icon
-                  imgSrc: SignInIconLight,
-                  closeButton: true,
-                  onClick: () => {
-                    openAuthModalContext(AuthModalState.SignIn);
-                  },
+              customToast(t('auth.trackProgress'), {
+                color: 'secondary',
+                mode: 'light',
+                // change icon to person icon
+                imgSrc: SignInIconLight,
+                closeButton: true,
+                onClick: () => {
+                  openAuthModalContext(AuthModalState.SignIn);
                 },
-              );
+              });
               setHasSeenRegisterToast(true);
             }
             navigate({

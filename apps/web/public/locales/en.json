@@ -72,6 +72,7 @@
     },
     "passwordResetError": "Password reset error",
     "passwordResetSent": "Password reset email has been sent to your inbox (if the email address exists in our database).",
+    "trackProgress": "Create an account or log in to keep track of your progress",
     "tryAgain": "Try again",
     "signIn": "Sign In"
   },
