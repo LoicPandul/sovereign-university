@@ -45,7 +45,7 @@ void i18n
   .use(Backend)
   .use(initReactI18next)
   .init<HttpBackendOptions>({
-    load: 'currentOnly',
+    load: 'all',
     backend: {
       loadPath: '/locales/{{lng}}.json',
       requestOptions: {
