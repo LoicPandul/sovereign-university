@@ -5,7 +5,7 @@
     "missionContent1": "La nostra missione è supportare le comunità Bitcoin locali attraverso l'educazione open-source e la creazione di reti. Raccogliamo, organizziamo e creiamo le risorse necessarie (corsi, libri, manifesti, volantini, video) per far avanzare il settore Bitcoin.",
     "missionContent2": "Centralizziamo la conoscenza per distribuirla meglio attraverso un repository GitHub semplice e multilingue e una piattaforma di e-learning. Assistiamo gli hub Bitcoin locali nel loro sviluppo con gli strumenti giusti per far crescere il loro talento.",
     "commitmentTitle": "I nostri impegni",
-    "commitmentContent": "I nostri impegni nei confronti della comunità bitcoin sono i seguenti: \n • Rimanere open-source \n • Fornire contenuti educativi di alta qualità \n • Tradurre i nostri contenuti in quante più lingue possibili \n • Supportare i \"costruttori\" del mondo Bitcoin nel loro viaggio di imprenditorialità",
+    "commitmentContent": "I nostri impegni nei confronti della comunità bitcoin sono i seguenti: \n • Rimanere open-source \n • Fornire contenuti educativi di alta qualità \n • Tradurre i nostri contenuti in quante più lingue possibili \n • Supportare i \"creators\" del mondo Bitcoin nel loro viaggio di imprenditorialità",
     "coreTeamTitle": "Il team principale",
     "coreTeamContent": "PlanB Network è un collettivo di centinaia di collaboratori, insegnanti, leader della comunità, designer, sviluppatori e organizzatori. Un grazie ringraziamento va alle diverse persone che hanno reso PlanB una realtà e continuano a farlo ogni giorno",
     "coreTeamGiacomoRole": "Direttore e cofondatore",
@@ -108,10 +108,10 @@
   },
   "builders": {
     "pageSubtitle": "Questo portale è open-source e aperto al contributo. Grazie per la classificazione e la condivisione!",
-    "pageTitle": "Il Portale Del Costruttore",
+    "pageTitle": "Il Portale Dei Progetti",
     "networkStrength": "La forza di una rete sta nei suoi membri",
-    "noRelatedEvents": "Non ci sono prossimi eventi correlati per questo costruttore al momento.",
-    "otherCommunities": "Esplora le comunità Plan B",
+    "noRelatedEvents": "Non ci sono prossimi eventi correlati per questo creator al momento.",
+    "otherCommunities": "Esplora le comunità Plan ₿",
     "languages": "Lingue",
     "relatedEvents": "Eventi futuri correlati"
   },
@@ -599,7 +599,7 @@
   "home": {
     "header": {
       "content": "La piattaforma PlanB mira a fornire i migliori strumenti e contenuti educativi in tutto il mondo per aiutare le persone a recuperare la loro sovranità. Da individui a comunità, siamo qui per aiutarvi lungo il vostro viaggio Bitcoin.",
-      "forEducators": "Per educatori e creatori",
+      "forEducators": "Per educatori e creatori di contenuti",
       "globalNetwork": "Rete Globale Bitcoin",
       "welcome": "Benvenuto su PlanB Network",
       "link": "Entrare a far parte della rete",
