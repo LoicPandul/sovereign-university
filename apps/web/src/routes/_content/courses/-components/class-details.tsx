@@ -77,7 +77,6 @@ export const ClassDetails = ({
   //   timeZoneName: 'short',
   // }).format(new Date(chapter.endDate as Date));
 
-  console.log(chapter);
   const formattedStartDate = chapter.startDate
     ? formatDate(chapter.startDate)
     : '';
