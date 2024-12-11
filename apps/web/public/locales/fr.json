@@ -849,7 +849,7 @@
     "headerSignature": "Rogzy",
     "headerText": "Bienvenue dans le trou infini du lapin de Bitcoin ! Dans cette section, nous vous proposerons un tutoriel approfondi sur la plupart des projets bitcoin là-bas. Ces pages sont maintenues par le bienfaiteur et passionné bitcoin qui soutiennent ce projet open source. Si vous payez des frais nous avons fait une erreur, veuillez nous contacter. Pour voir notre attachement financier et la mention du projet, reportez-vous à notre repérage transparent. Merci de votre confiance dans cette université et de profiter de la course.",
     "newsletters": {
-      "title": "Bulletins d'information",
+      "title": "Newsletters",
       "noNewsletters": "Il n'y a actuellement aucune newsletter pour la langue sélectionnée.",
       "abstract": "Résumé",
       "author": "Auteur : ",
@@ -870,8 +870,8 @@
     "publicGrade": "Note publique : {{grade}}/5",
     "github": "Toutes ces données sont gérées via un dépôt <0>Github</0> open-source. N'hésitez pas à contribuer et à ajouter tout contenu manquant.",
     "newsletter": {
-      "title": "Bulletin d'information",
-      "check": "Vérifiez la newsletter"
+      "title": "Newsletter",
+      "check": "Retrouver la newsletter"
     },
     "pageSubtitlePodcast": "<0>Autres podcasts</0> que vous pourriez aimer :",
     "searchFilterName": "Recherche par nom",
@@ -1056,8 +1056,8 @@
     "movieDocumentary": "Film documentaire",
     "network": "Réseau",
     "networkMember": "Membres du réseau",
-    "newsletter": "Bulletin d'information",
-    "newsletters": "Bulletins d'information",
+    "newsletter": "Newsletter",
+    "newsletters": "Newsletters",
     "node": "Noeud",
     "nodeNetwork": "Réseau de Nodes",
     "or": "ou",
