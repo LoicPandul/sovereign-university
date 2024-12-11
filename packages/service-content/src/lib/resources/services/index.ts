@@ -13,6 +13,8 @@ export { createGetBuildersLocations } from './builders-locations.get.js';
 export { createSyncBuildersLocations } from './builders-locations.sync.js';
 export { createGetNewsletters } from './get-newsletters.js';
 export { createGetNewsletter } from './get-newsletter.js';
+export { createGetYoutubeChannel } from './get-youtube-channel.js';
+export { createGetYoutubeChannels } from './get-youtube-channels.js';
 
 // Metadata requests
 export { createGetBuilderMeta } from './get-builder-meta.js';

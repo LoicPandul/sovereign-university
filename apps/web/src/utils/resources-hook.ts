@@ -1,21 +1,51 @@
 import { useTranslation } from 'react-i18next';
 
-import { trpc } from '#src/utils/trpc.js';
+import type {
+  JoinedBook,
+  JoinedNewsletter,
+  JoinedPodcast,
+  JoinedYoutubeChannel,
+} from '@blms/types';
 
-export const useSuggestedContent = (contentType: 'podcasts' | 'books') => {
+type Content =
+  | JoinedBook
+  | JoinedNewsletter
+  | JoinedPodcast
+  | JoinedYoutubeChannel;
+
+export const useShuffleSuggestedContent = (
+  suggestedContentArray: Content[],
+  currentContent?: Content,
+) => {
   const { i18n } = useTranslation();
 
-  if (contentType === 'podcasts') {
-    const { data, isFetched } = trpc.content.getPodcasts.useQuery({
-      language: i18n.language ?? 'en',
-    });
-    return { data, isFetched };
-  } else if (contentType === 'books') {
-    const { data, isFetched } = trpc.content.getBooks.useQuery({
-      language: i18n.language ?? 'en',
-    });
-    return { data, isFetched };
-  }
+  if (suggestedContentArray.length === 0 || !currentContent) return [];
 
-  return { data: null, isFetched: false };
+  // Filter out the current content from the suggestions
+  const filteredContent = suggestedContentArray.filter(
+    (suggestedContent) => suggestedContent.id !== currentContent.id,
+  );
+
+  // Categorize content into prioritized and others
+  // eslint-disable-next-line unicorn/no-array-reduce
+  const categorizedContent = filteredContent.reduce(
+    (acc: { prioritized: Content[]; others: Content[] }, suggestedContent) => {
+      if (
+        suggestedContent.language === currentContent.language ||
+        suggestedContent.language === i18n.language
+      ) {
+        acc.prioritized.push(suggestedContent);
+      } else {
+        acc.others.push(suggestedContent);
+      }
+      return acc;
+    },
+    { prioritized: [], others: [] },
+  );
+
+  // Shuffle and combine prioritized and others
+  return [
+    ...categorizedContent.prioritized.sort(() => Math.random() - 0.5),
+    ...categorizedContent.others.sort(() => Math.random() - 0.5),
+  ];
 };

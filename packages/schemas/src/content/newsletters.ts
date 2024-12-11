@@ -20,15 +20,15 @@ export const joinedNewsletterSchema = resourceSchema
       level: true,
       language: true,
       description: true,
+      title: true,
     }),
   )
   .merge(
     z.object({
-      resourceId: z.number(),
-      id: z.string().optional(),
+      uuid: z.string(),
+      id: z.number(),
       tags: z.array(z.string()),
       contributors: z.array(z.string()),
-      title: z.string(),
       publication_date: z.string().optional(),
     }),
   );

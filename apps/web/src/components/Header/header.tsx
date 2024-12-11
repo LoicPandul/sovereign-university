@@ -10,6 +10,7 @@ import coursesSvg from '#src/assets/resources/library.svg';
 import podcastSvg from '#src/assets/resources/podcast.svg';
 import tutorialsSvg from '#src/assets/resources/toolkit.svg';
 import aboutSvg from '#src/assets/resources/world.svg';
+import youtubeChannelsSvg from '#src/assets/resources/youtube.svg';
 
 import bitcoinSvg from '../../assets/icons/bitcoin.svg';
 import businessSvg from '../../assets/icons/business.svg';
@@ -116,7 +117,7 @@ export const Header = ({ variant = 'dark' }: HeaderProps) => {
       path: '/resources',
       items: [
         {
-          id: 'resources-nested',
+          id: 'resources-left',
           items: [
             {
               id: 'library',
@@ -147,6 +148,18 @@ export const Header = ({ variant = 'dark' }: HeaderProps) => {
               icon: resourcesSvg,
             },
             {
+              id: 'bet',
+              title: t('bet.pageTitle'),
+              description: t('menu.betDescription'),
+              path: '/resources/bet',
+              icon: tutorialsSvg,
+            },
+          ],
+        },
+        {
+          id: 'resources-right',
+          items: [
+            {
               id: 'glossary',
               title: t('words.glossary'),
               description: t('menu.glossaryDescription'),
@@ -154,18 +167,18 @@ export const Header = ({ variant = 'dark' }: HeaderProps) => {
               icon: glossarySvg,
             },
             {
-              id: 'bet',
-              title: t('bet.pageTitle'),
-              description: t('menu.betDescription'),
-              path: '/resources/bet',
-              icon: tutorialsSvg,
-            },
-            {
               id: 'newsletter',
               title: t('resources.newsletters.title'),
               description: t('menu.newsletterDescription'),
               path: '/resources/newsletters',
               icon: socialStudiesSvg,
+            },
+            {
+              id: 'channels',
+              title: t('resources.channels.title'),
+              description: t('menu.channelsDescription'),
+              path: '/resources/channels',
+              icon: youtubeChannelsSvg,
             },
           ],
         },

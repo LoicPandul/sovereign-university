@@ -14,9 +14,13 @@ const remarkMathOptions = {
   singleDollarTextMath: false,
 };
 
-const fixEmbedUrl = (src: string) => {
+export const fixEmbedUrl = (src: string) => {
   if (src.includes('embed')) {
     return src;
+  }
+
+  if (src.includes('youtu')) {
+    src = src.replace('watch?v=', '');
   }
 
   switch (true) {

@@ -1,6 +1,6 @@
 import { Link, createFileRoute, useNavigate } from '@tanstack/react-router';
 import { useEffect } from 'react';
-import { Trans, useTranslation } from 'react-i18next';
+import { useTranslation } from 'react-i18next';
 import { z } from 'zod';
 
 import {
@@ -14,16 +14,16 @@ import {
   TextTag,
 } from '@blms/ui';
 
-import ThumbUp from '#src/assets/icons/thumb-up-pixelated.svg';
 import { ProofreadingProgress } from '#src/components/proofreading-progress.js';
 import { useGreater } from '#src/hooks/use-greater.js';
 import { useNavigateMisc } from '#src/hooks/use-navigate-misc.ts';
 import { BackLink } from '#src/molecules/backlink.tsx';
 import { assetUrl, trpc } from '#src/utils/index.js';
-import { useSuggestedContent } from '#src/utils/resources-hook.ts';
+import { useShuffleSuggestedContent } from '#src/utils/resources-hook.ts';
 import { formatNameForURL } from '#src/utils/string.ts';
 
 import { ResourceLayout } from '../-components/resource-layout.tsx';
+import { SuggestedHeader } from '../-components/suggested-header.tsx';
 
 export const Route = createFileRoute(
   '/_content/resources/books/$bookName-$bookId',
@@ -69,7 +69,7 @@ function Book() {
   });
 
   const { data: suggestedBooks, isFetched: isFetchedSuggestedBooks } =
-    useSuggestedContent('books');
+    trpc.content.getBooks.useQuery({});
 
   useEffect(() => {
     if (book && params.bookName !== formatNameForURL(book.title)) {
@@ -84,7 +84,7 @@ function Book() {
       book?.description && (
         <article>
           <h3 className="mb-4 lg:mb-5 body-16px-medium md:subtitle-large-med-20px text-white md:text-newGray-3">
-            {t('book.abstract')}
+            {t('words.abstract')}
           </h3>
           <p className="line-clamp-[20] max-w-[772px] text-white body-14px lg:body-16px whitespace-pre-line">
             {book?.description}
@@ -93,6 +93,11 @@ function Book() {
       )
     );
   }
+
+  const shuffledSuggestedBooks = useShuffleSuggestedContent(
+    suggestedBooks ?? [],
+    book,
+  );
 
   return (
     <ResourceLayout
@@ -190,70 +195,57 @@ function Book() {
         </div>
       )}
       <section className="mt-8 lg:mt-[100px]">
-        <div className="flex items-center justify-center md:justify-start mb-5 lg:mb-10">
-          <img
-            src={ThumbUp}
-            className="size-[20px] lg:size-[32px] mr-3 my-1"
-            alt=""
-          />
-
-          <h3 className="flex items-center title-small-med-16px md:title-large-24px font-medium leading-none md:leading-[116%] text-white mt-2">
-            <Trans i18nKey="resources.pageSubtitleBooks">
-              <span className="text-darkOrange-5 mr-1 title-small-med-16px md:title-large-24px">
-                Other books{''}
-              </span>
-            </Trans>
-          </h3>
-        </div>
+        <SuggestedHeader
+          text="resources.pageSubtitleBooks"
+          placeholder="Other books"
+        />
         <Carousel>
           <CarouselContent>
             {isFetchedSuggestedBooks ? (
-              suggestedBooks
-                ?.filter((book) => book.id !== params.bookId)
-                .sort(() => Math.random() - 0.5)
-                .slice(0, 10)
-                .map((book) => {
-                  const isBook =
-                    'title' in book && 'cover' in book && book.cover;
-                  if (isBook) {
-                    return (
-                      <CarouselItem
-                        key={book.id}
-                        className="basis-1/2 md:basis-1/4 text-white size-full bg-gradient-to-r min-h-[203px]  max-w-[282px] max-h-[400px] rounded-[10px]"
+              shuffledSuggestedBooks.slice(0, 10).map((suggestedBook) => {
+                const isBook =
+                  'title' in suggestedBook &&
+                  'cover' in suggestedBook &&
+                  suggestedBook.cover;
+                if (isBook) {
+                  return (
+                    <CarouselItem
+                      key={suggestedBook.id}
+                      className="basis-1/2 md:basis-1/4 text-white size-full bg-gradient-to-r min-h-[203px]  max-w-[282px] max-h-[400px] rounded-[10px]"
+                    >
+                      <Link
+                        to={`/resources/books/${formatNameForURL(suggestedBook.title)}-${suggestedBook.id}`}
                       >
-                        <Link
-                          to={`/resources/books/${formatNameForURL(book.title)}-${book.id}`}
-                        >
-                          <div className="relative h-full">
-                            <img
-                              className="size-full h-[203px] max-h-[203px] lg:min-h-[400px] md:max-h-[400px] object-cover [overflow-clip-margin:_unset] rounded-[10px]"
-                              alt={book.title}
-                              src={assetUrl(
-                                book.path,
-                                book.cover ?? 'unreachable',
-                              )}
-                            />
-                            <div
-                              className="absolute inset-0 -bottom-px rounded-[10px]"
-                              style={{
-                                background: `linear-gradient(360deg, rgba(40, 33, 33, 0.90) 10%, rgba(0, 0, 0, 0.00) 60%),
+                        <div className="relative h-full">
+                          <img
+                            className="size-full h-[203px] max-h-[203px] lg:min-h-[400px] md:max-h-[400px] object-cover [overflow-clip-margin:_unset] rounded-[10px]"
+                            alt={suggestedBook.title}
+                            src={assetUrl(
+                              suggestedBook.path,
+                              suggestedBook.cover ?? 'unreachable',
+                            )}
+                          />
+                          <div
+                            className="absolute inset-0 -bottom-px rounded-[10px]"
+                            style={{
+                              background: `linear-gradient(360deg, rgba(40, 33, 33, 0.90) 10%, rgba(0, 0, 0, 0.00) 60%),
                                   linear-gradient(0deg, rgba(57, 53, 49, 0.20) 0%, rgba(57, 53, 49, 0.20) 100%)`,
-                                backgroundSize: '153.647% 100%',
-                                backgroundPosition: '-5.216px 0px',
-                                backgroundRepeat: 'no-repeat',
-                              }}
-                            />
-                          </div>
+                              backgroundSize: '153.647% 100%',
+                              backgroundPosition: '-5.216px 0px',
+                              backgroundRepeat: 'no-repeat',
+                            }}
+                          />
+                        </div>
 
-                          <h3 className="absolute w-full max-w-[140px]  lg:max-w-[220px] lg:w-[220px] px-2 lg:px-4 body-14px lg:title-large-24px mb-1 lg:mb-5 bottom-px line-clamp-2">
-                            {book.title}
-                          </h3>
-                        </Link>
-                      </CarouselItem>
-                    );
-                  }
-                  return null;
-                })
+                        <h3 className="absolute w-full max-w-[140px]  lg:max-w-[220px] lg:w-[220px] px-2 lg:px-4 body-14px lg:title-large-24px mb-1 lg:mb-5 bottom-px line-clamp-2">
+                          {suggestedBook.title}
+                        </h3>
+                      </Link>
+                    </CarouselItem>
+                  );
+                }
+                return null;
+              })
             ) : (
               <Loader size={'s'} />
             )}

@@ -24,10 +24,10 @@ export interface JoinedNewsletter {
   level: string | null;
   language: string;
   description: string | null;
-  resourceId: number;
-  id?: string | undefined;
+  title: string;
+  uuid: string;
+  id: number;
   tags: string[];
   contributors: string[];
-  title: string;
   publication_date?: string | undefined;
 }

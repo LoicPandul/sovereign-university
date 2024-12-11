@@ -782,6 +782,7 @@
     "btc101Description": "Get a better understanding of bitcoin by taking these classes.",
     "buildersDescription": "Learn about the companies and projects that work at improving Bitcoin and increasing its adoption",
     "businessDescription": "Uncover Bitcoin usage in commerce.",
+    "channelsDescription": "Access our exclusive selection of Youtube channels to learn about Bitcoin",
     "conferencesDescription": "Collection of Bitcoin conference replays since the Genesis Block",
     "exchangesDescription": "Buy and sell bitcoins on exchanges and learn about P2P",
     "glossaryDescription": "Understand the language of Bitcoin",
@@ -921,6 +922,10 @@
     "conferences": {
       "title": "Conference replays"
     },
+    "channels": {
+      "title": "Youtube Channels",
+      "noYoutubeChannels": "There are currently no Youtube Channels for selected language."
+    },
     "newsletter": {
       "title": "Newsletter",
       "check": "Check the newsletter"
@@ -938,23 +943,22 @@
       "level": "Level :",
       "noNewsletters": "There are currently no newsletters for selected language.",
       "title": "Newsletters",
-      "subtitle": "<0>Other newsletters</0> you may like: ",
-      "toggleLabelAll": "All",
-      "toggleLabelSelectedLanguage": "Selected language"
+      "subtitle": "<0>Other newsletters</0> you may like: "
     },
     "pageDescription": "Trying to understand Bitcoin is like exploring a maze that keeps growing. To help you in your journey, we've compiled a vast array of resources including books, podcasts, videos and conferences replays. This portal gathers all the information in one Github repository to help you grasp a better understanding of the Bitcoin ecosystem.",
     "pageSubtitle": "Centralize knowledge to better distribute it",
     "pageSubtitleBooks": "<0>Other books</0> you may like:",
+    "pageSubtitleChannels": "<0>Other Youtube Channels</0> you may like:",
     "pageSubtitlePodcast": "<0>Other podcasts</0> you may like:",
     "pageTitle": "Welcome to the Resource Portal",
     "podcasts": {
       "title": "Podcasts",
-      "toggleLabelAll": "All",
-      "toggleLabelSelectedLanguage": "Selected language",
       "noPodcasts": "There are currently no podcasts for selected language."
     },
     "publicGrade": "Public grade: {{grade}}/5",
-    "searchFilterName": "Search by name"
+    "searchFilterName": "Search by name",
+    "toggleLabelAll": "All",
+    "toggleLabelSelectedLanguage": "Selected language"
   },
   "settings": {
     "changeDisplayName": "Change display name",
@@ -1077,6 +1081,7 @@
   "words": {
     "about": "About",
     "about-us": "About Us",
+    "abstract": "Abstract",
     "access": "Access",
     "account": "Account",
     "action": "Action",
@@ -1106,6 +1111,7 @@
     "cancel": "Cancel",
     "category": "Category",
     "certificate": "Certificate",
+    "channel": "Channel",
     "chapter": "Chapter",
     "close": "Close",
     "communities": "Communities",
@@ -1243,7 +1249,13 @@
     "video": "Video",
     "videos": "Videos",
     "view": "View",
+    "viewMore": "View more",
     "wallets": "Wallets",
     "writtenByPodcasts": "Written by:"
+  },
+  "youtubeChannels": {
+    "pageTitle": "Youtube Channels",
+    "view": "View Youtube Channel",
+    "watchTrailer": "Watch the trailer"
   }
 }

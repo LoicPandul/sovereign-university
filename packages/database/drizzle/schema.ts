@@ -585,6 +585,29 @@ export const contentGlossaryWordsLocalized = content.table(
   }),
 );
 
+// YOUTUBE CHANNELS
+
+export const contentYoutubeChannels = content.table(
+  'youtube_channels',
+  (t) => ({
+    resourceId: t
+      .integer()
+      .primaryKey()
+      .notNull()
+      .references(() => contentResources.id, { onDelete: 'cascade' }),
+    id: t.uuid().unique().notNull(),
+
+    language: t.varchar({ length: 10 }).notNull(),
+
+    name: t.text().notNull(),
+    description: t.text(),
+
+    // Links
+    channel: t.text().notNull(),
+    trailer: t.text().notNull(),
+  }),
+);
+
 // COURSES
 
 export const courseFormatEnum = pgEnum('course_format', [

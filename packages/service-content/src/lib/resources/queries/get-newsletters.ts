@@ -4,9 +4,9 @@ import type { JoinedNewsletter } from '@blms/types';
 export const getNewslettersQuery = () => {
   return sql<JoinedNewsletter[]>`
     SELECT
-      r.id AS resource_id,
+      r.id,
       r.path,
-      n.id AS newsletter_id,
+      n.id AS uuid,
       n.language,
       n.level,
       n.author,

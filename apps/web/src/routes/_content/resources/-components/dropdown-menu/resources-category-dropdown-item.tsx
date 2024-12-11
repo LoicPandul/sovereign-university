@@ -12,7 +12,8 @@ interface ResourcesDropdownItemProps {
     | 'conferences'
     | 'bet'
     | 'glossary'
-    | 'newsletters';
+    | 'newsletters'
+    | 'channels';
   imageSrc: string;
 }
 
