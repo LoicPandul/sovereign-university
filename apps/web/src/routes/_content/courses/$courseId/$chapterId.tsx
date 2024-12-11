@@ -601,6 +601,7 @@ function CourseChapter() {
   if (chapter && chapter.startDate && chapter.endDate) {
     // const isMarkdownAvailable = chapter.rawContent && chapter.rawContent.length > 0 ? true : false;
     const now = new Date(Date.now());
+    const chapterStartDate = new Date(chapter.startDate.getTime());
     const chapterEndDate = new Date(chapter.endDate.getTime());
 
     displayClassDetails =
@@ -608,8 +609,7 @@ function CourseChapter() {
       chapterEndDate > now;
     displayLiveSection = chapter.isOnline || false;
     displayLiveVideo =
-      displayLiveSection &&
-      chapter.startDate.setHours(0, 0, 0, 0) <= Date.now();
+      displayLiveSection && chapterStartDate.setHours(0, 0, 0, 0) <= Date.now();
     displayQuizAndNext = false;
   }
 
