@@ -19,7 +19,7 @@
     "clear": "rm -rf ./dist && rm -f *.tsbuildinfo"
   },
   "dependencies": {
-    "cron": "^3.2.1"
+    "cron": "^3.3.0"
   },
   "devDependencies": {
     "@blms/eslint-config": "workspace:*",

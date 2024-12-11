@@ -31,25 +31,25 @@
     "bip39": "^3.1.0",
     "connect-redis": "^7.1.1",
     "eventemitter3": "^5.0.1",
-    "express": "^4.21.1",
+    "express": "^4.21.2",
     "express-session": "^1.18.1",
     "formidable": "^3.5.2",
     "jszip": "^3.10.1",
     "secp256k1": "^5.0.1",
     "sharp": "^0.33.5",
-    "stripe": "^17.3.1",
-    "superjson": "^2.2.1",
+    "stripe": "^17.4.0",
+    "superjson": "^2.2.2",
     "zod": "3.23.8"
   },
   "devDependencies": {
     "@blms/eslint-config": "workspace:*",
     "@blms/types": "workspace:*",
     "@types/express": "^5.0.0",
-    "@types/express-serve-static-core": "^5.0.1",
-    "@types/express-session": "^1.18.0",
+    "@types/express-serve-static-core": "^5.0.2",
+    "@types/express-session": "^1.18.1",
     "@types/formidable": "^3.4.5",
     "@types/qs": "^6.9.17",
     "@types/secp256k1": "^4.0.6",
-    "dotenv": "^16.4.5"
+    "dotenv": "^16.4.7"
   }
 }
