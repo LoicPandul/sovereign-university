@@ -36,17 +36,12 @@ export const ChangeDisplayNameModal = ({
   const { t } = useTranslation();
   const { user, setUser } = useContext(AppContext);
 
-  const displayNameTooShortmsg = t('auth.errors.displayNameTooShort');
-  const displayNameRegex = t('auth.errors.displayNameRegex');
+  const displayNameTooShortMsg = t('auth.errors.displayNameTooShort');
 
   const changeDisplayNameSchema = z.object({
-    displayName: z
-      .string()
-      .min(2, { message: displayNameTooShortmsg })
-      .regex(/^[\w .\\-]+$/, {
-        message: displayNameRegex,
-      }),
+    displayName: z.string().min(2, { message: displayNameTooShortMsg }),
   });
+
   type ChangeDisplayNameForm = z.infer<typeof changeDisplayNameSchema>;
 
   const changeDisplayName = trpc.user.changeDisplayName.useMutation({
