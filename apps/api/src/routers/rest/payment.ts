@@ -2,6 +2,7 @@ import type { Router } from 'express';
 
 import { createCalculateEventSeats } from '@blms/service-content';
 import {
+  createStartCourse,
   createUpdateCoursePayment,
   createUpdateCoursePaymentInvoiceId,
   createUpdateCoursePaymentStatus,
@@ -20,6 +21,8 @@ export const createRestPaymentRoutes = (
   const { stripe, config } = dependencies;
 
   const updateCoursePayment = createUpdateCoursePayment(dependencies);
+  const startCourse = createStartCourse(dependencies);
+
   router.post(
     '/users/courses/payment/webhooks',
     async (req, res): Promise<void> => {
@@ -39,11 +42,18 @@ export const createRestPaymentRoutes = (
           return;
         }
 
-        const result = await updateCoursePayment(status);
+        const coursePayment = await updateCoursePayment(status);
+
+        if (coursePayment) {
+          await startCourse({
+            courseId: coursePayment.courseId,
+            uid: coursePayment.uid,
+          });
+        }
 
         res.json({
           message: 'success',
-          result,
+          coursePayment,
         });
       } catch (error) {
         console.error('Error in courses webhook', error);
@@ -153,11 +163,20 @@ export const createRestPaymentRoutes = (
             const product = paymentIntent.metadata.product;
 
             if (product === 'course') {
-              await createUpdateCoursePaymentInvoiceId(dependencies)({
+              const coursePayment = await createUpdateCoursePaymentInvoiceId(
+                dependencies,
+              )({
                 intentId: intentId,
                 stripeInvoiceId: invoiceId,
                 invoiceUrl: hostedInvoiceUrl,
               });
+
+              if (coursePayment) {
+                await startCourse({
+                  courseId: coursePayment.courseId,
+                  uid: coursePayment.uid,
+                });
+              }
             } else if (product === 'event') {
               await createUpdateEventPaymentInvoiceId(dependencies)({
                 intentId: intentId,
