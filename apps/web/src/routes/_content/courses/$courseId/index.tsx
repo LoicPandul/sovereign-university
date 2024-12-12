@@ -111,6 +111,9 @@ function CourseDetails() {
     [courseId, payments],
   );
 
+  const { mutateAsync: startCourse } =
+    trpc.user.courses.startCourse.useMutation();
+
   const {
     mutateAsync: downloadTicketMutateAsync,
     isPending: downloadTicketisPending,
@@ -629,7 +632,7 @@ function CourseDetails() {
               openAuthModal();
             }
           }
-        : () => {
+        : async () => {
             if (!isLoggedIn && !hasSeenRegisterToast) {
               customToast(t('auth.trackProgress'), {
                 color: 'secondary',
@@ -643,6 +646,9 @@ function CourseDetails() {
               });
               setHasSeenRegisterToast(true);
             }
+
+            await startCourse({ courseId });
+
             navigate({
               to: '/courses/$courseId/$chapterId',
               params: {

@@ -30,6 +30,7 @@ import {
   createSaveCourseReview,
   createSaveQuizAttempt,
   createSaveUserChapter,
+  createStartCourse,
   createStartExamAttempt,
   generateChapterTicket,
 } from '@blms/service-user';
@@ -283,6 +284,20 @@ const saveUserChapterProcedure = studentProcedure
     await createCalculateCourseChapterSeats(ctx.dependencies)();
   });
 
+const startCourseProcedure = studentProcedure
+  .input(
+    z.object({
+      courseId: z.string(),
+    }),
+  )
+  .output<Parser<void>>(z.void())
+  .mutation(async ({ ctx, input }) => {
+    await createStartCourse(ctx.dependencies)({
+      uid: ctx.user.uid,
+      courseId: input.courseId,
+    });
+  });
+
 const downloadChapterTicketProcedure = studentProcedure
   .input(
     z.object({
@@ -323,5 +338,6 @@ export const userCoursesRouter = createTRPCRouter({
   saveQuizAttempt: saveQuizAttemptProcedure,
   saveUserChapter: saveUserChapterProcedure,
   saveCoursePayment: saveCoursePaymentProcedure,
+  startCourse: startCourseProcedure,
   startExamAttempt: startExamAttemptProcedure,
 });

@@ -12,11 +12,17 @@ type Options = { id: string } & (
 
 export const createUpdateCoursePayment = ({ postgres }: Dependencies) => {
   return async (options: Options) => {
-    await postgres.exec(updateCoursePaymentQuery(options));
+    const coursePayment = await postgres.exec(
+      updateCoursePaymentQuery(options),
+    );
 
     if (options.isPaid) {
       await postgres.exec(updateCourseCoupon({ paymentId: options.id }));
     }
+
+    return coursePayment && coursePayment.length === 1
+      ? coursePayment[0]
+      : null;
   };
 };
 
@@ -30,6 +36,9 @@ export const createUpdateCoursePaymentInvoiceId = ({
   postgres,
 }: Dependencies) => {
   return async (options: Options2) => {
-    await postgres.exec(updatePaymentInvoiceId(options));
+    const coursePayments = await postgres.exec(updatePaymentInvoiceId(options));
+    return coursePayments && coursePayments.length === 1
+      ? coursePayments[0]
+      : null;
   };
 };

@@ -21,6 +21,7 @@ export const updateCoursePaymentQuery = ({
       ${intentId ? sql`, stripe_payment_intent = ${intentId}` : sql``}
       ${stripeInvoiceId ? sql`, stripe_invoice_id = ${stripeInvoiceId}` : sql``}
       WHERE payment_id = ${id}
+      RETURNING *
     ;
     `;
   }
@@ -32,6 +33,7 @@ export const updateCoursePaymentQuery = ({
         ${intentId ? sql`, stripe_payment_intent = ${intentId}` : sql``}
         ${stripeInvoiceId ? sql`, stripe_invoice_id = ${stripeInvoiceId}` : sql``}
         WHERE payment_id = ${id}
+        RETURNING *
       ;
     `;
   }
@@ -53,6 +55,7 @@ export const updatePaymentInvoiceId = ({
         SET stripe_invoice_id = ${stripeInvoiceId}
           , invoice_url = ${invoiceUrl}
         WHERE stripe_payment_intent = ${intentId}
+        RETURNING *
       ;
     `;
 };

@@ -1,0 +1,1 @@
+ALTER TABLE "users"."course_progress" ADD COLUMN "start_date" timestamp with time zone DEFAULT now() NOT NULL;

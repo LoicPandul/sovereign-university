@@ -913,7 +913,7 @@ export const usersCourseProgress = users.table(
         onDelete: 'cascade',
         onUpdate: 'cascade',
       }),
-
+    startDate: t.timestamp({ withTimezone: true }).defaultNow().notNull(),
     completedChaptersCount: t.integer().default(0).notNull(),
     lastUpdated: t
       .timestamp({

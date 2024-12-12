@@ -4,6 +4,7 @@
 export interface CourseProgress {
   uid: string;
   courseId: string;
+  startDate: Date;
   completedChaptersCount: number;
   lastUpdated: Date;
   progressPercentage: number;
@@ -85,6 +86,7 @@ export interface CoursePaymentLight {
 export interface CourseProgressExtended {
   uid: string;
   courseId: string;
+  startDate: Date;
   completedChaptersCount: number;
   lastUpdated: Date;
   progressPercentage: number;
