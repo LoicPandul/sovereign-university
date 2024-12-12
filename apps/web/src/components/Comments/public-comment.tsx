@@ -18,7 +18,7 @@ export const PublicComment = ({
       <header className="w-full flex gap-6 items-center shrink-0">
         <img
           className="size-[45px] rounded-full shrink-0"
-          src={avatar ? `/api/file/${avatar}` : SignInIconLight}
+          src={avatar ? `/api/files/user-files/${avatar}` : SignInIconLight}
           alt={`${author}`}
         />
         <div className="flex flex-col gap-0.5 overflow-hidden">
