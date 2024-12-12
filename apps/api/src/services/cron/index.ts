@@ -7,6 +7,7 @@ import {
   createGetPendingCoursePayments,
   createGetPendingEventPayments,
   createGetSbpCheckout,
+  createStartCourse,
   createUpdateCoursePayment,
   createUpdateEventPayment,
 } from '@blms/service-user';
@@ -37,6 +38,8 @@ export const registerCronTasks = async (ctx: Dependencies) => {
     const updateEventPayment = createUpdateEventPayment(ctx);
     const updateCoursePayment = createUpdateCoursePayment(ctx);
     const calculateEventSeats = createCalculateEventSeats(ctx);
+    const startCourse = createStartCourse(ctx);
+
     ctx.crons.addTask('1m', async () => {
       // Events payments
       {
@@ -70,7 +73,14 @@ export const registerCronTasks = async (ctx: Dependencies) => {
             continue;
           }
 
-          await updateCoursePayment(status);
+          const coursePayment = await updateCoursePayment(status);
+
+          if (coursePayment) {
+            await startCourse({
+              courseId: coursePayment.courseId,
+              uid: coursePayment.uid,
+            });
+          }
         }
       }
     });
