@@ -108,7 +108,8 @@ export const LanguageSelector = ({
             >
               <Flag code={language} size="l" className="shrink-0" />
               <span className="capitalize leading-normal max-lg:hidden text-left">
-                {LANGUAGES_MAP[language.replaceAll('-', '')] || language}
+                {LANGUAGES_MAP[language.toLowerCase().replaceAll('-', '')] ||
+                  language}
               </span>
             </button>
           ))}

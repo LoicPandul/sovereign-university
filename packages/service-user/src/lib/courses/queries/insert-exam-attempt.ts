@@ -14,7 +14,7 @@ export const insertExamAttemptQuery = ({
     INSERT INTO users.exam_attempts (
       uid, course_id, language, finalized, succeeded, started_at
     ) VALUES (
-      ${uid}, ${courseId}, ${language}, false, false, NOW()
+      ${uid}, ${courseId}, LOWER(${language}), false, false, NOW()
     )
     RETURNING id;
   `;
@@ -36,7 +36,7 @@ export const insertExamQuestionsQuery = ({
       JOIN content.quiz_questions_localized qql
         ON qq.id = qql.quiz_question_id
       WHERE qq.course_id = ${courseId}
-      AND qql.language = ${language}
+      AND qql.language = LOWER(${language})
       AND qq.difficulty = 'hard'
       AND qq.disabled = false
       ORDER BY RANDOM()
@@ -48,7 +48,7 @@ export const insertExamQuestionsQuery = ({
       JOIN content.quiz_questions_localized qql
         ON qq.id = qql.quiz_question_id
       WHERE qq.course_id = ${courseId}
-      AND qql.language = ${language}
+      AND qql.language = LOWER(${language})
       AND qq.difficulty = 'intermediate'
       AND qq.disabled = false
       ORDER BY RANDOM()
@@ -60,7 +60,7 @@ export const insertExamQuestionsQuery = ({
       JOIN content.quiz_questions_localized qql
         ON qq.id = qql.quiz_question_id
       WHERE qq.course_id = ${courseId}
-      AND qql.language = ${language}
+      AND qql.language = LOWER(${language})
       AND qq.difficulty = 'easy'
       AND qq.disabled = false
       ORDER BY RANDOM()

@@ -26,7 +26,7 @@ export const getProfessorTutorialsQuery = ({
     whereClauses.push(sql`tc.contributor_id = ${contributorId}`);
   }
   if (language !== undefined) {
-    whereClauses.push(sql`tl.language = ${language}`);
+    whereClauses.push(sql`tl.language = LOWER(${language})`);
   }
 
   // eslint-disable-next-line unicorn/no-array-reduce
@@ -36,19 +36,19 @@ export const getProfessorTutorialsQuery = ({
 
   return sql<Array<Omit<JoinedTutorial, 'raw_content'>>>`
     WITH tutorial AS (
-      SELECT 
-        t.id, 
+      SELECT
+        t.id,
         t.path,
         t.name,
         tl.language,
-        t.level, 
-        t.category, 
-        t.subcategory, 
+        t.level,
+        t.category,
+        t.subcategory,
         t.original_language,
-        t.builder, 
-        tl.title, 
-        tl.description, 
-        t.last_updated, 
+        t.builder,
+        tl.title,
+        tl.description,
+        t.last_updated,
         t.last_commit,
         COALESCE(tag_agg.tags, ARRAY[]::text[]) AS tags,
         COALESCE(likes_agg.like_count, 0) AS like_count,
@@ -69,7 +69,7 @@ export const getProfessorTutorialsQuery = ({
 
       -- Lateral join for aggregating likes and dislikes
       LEFT JOIN LATERAL (
-          SELECT 
+          SELECT
               COUNT(*) FILTER (WHERE tld.liked = true) AS like_count,
               COUNT(*) FILTER (WHERE tld.liked = false) AS dislike_count
           FROM content.tutorial_likes_dislikes tld
@@ -78,42 +78,42 @@ export const getProfessorTutorialsQuery = ({
 
       ${whereStatement}
 
-      GROUP BY 
-        t.id, 
-        tl.language, 
-        t.level, 
-        t.category, 
-        t.subcategory, 
+      GROUP BY
+        t.id,
+        tl.language,
+        t.level,
+        t.category,
+        t.subcategory,
         t.original_language,
-        t.builder, 
-        tl.title, 
+        t.builder,
+        tl.title,
         tl.description,
-        t.last_updated, 
+        t.last_updated,
         t.last_commit,
         tag_agg.tags,
         likes_agg.like_count,
         likes_agg.dislike_count
     )
 
-    SELECT 
+    SELECT
       tutorial.*,
-      row_to_json(builders) AS builder 
+      row_to_json(builders) AS builder
     FROM tutorial
 
     -- Lateral join for fetching builder details
     LEFT JOIN LATERAL (
       SELECT
-        r.id, 
-        r.path, 
-        bl.language, 
-        b.name, 
-        b.category, 
-        b.website_url, 
+        r.id,
+        r.path,
+        bl.language,
+        b.name,
+        b.category,
+        b.website_url,
         b.twitter_url,
-        b.github_url, 
-        b.nostr, 
-        bl.description, 
-        r.last_updated, 
+        b.github_url,
+        b.nostr,
+        bl.description,
+        r.last_updated,
         r.last_commit
       FROM content.builders b
       JOIN content.resources r ON r.id = b.resource_id

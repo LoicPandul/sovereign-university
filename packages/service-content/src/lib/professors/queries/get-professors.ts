@@ -51,10 +51,10 @@ export const getProfessorsQuery = ({
       SELECT COUNT(clp.chapter_id) AS lectures_count
       FROM content.course_chapters_localized_professors clp
       WHERE clp.contributor_id = p.contributor_id
-       AND clp.language = ${language}
+       AND clp.language = LOWER(${language})
     ) lca ON TRUE
 
-    ${language ? sql`WHERE pl.language = ${language}` : sql``}
+    ${language ? sql`WHERE pl.language = LOWER(${language})` : sql``}
     ${
       contributorIds
         ? language

@@ -19,10 +19,10 @@ export const getCourseChaptersQuery = ({
       ON c.chapter_id = ch.chapter_id
     LEFT JOIN content.course_parts cp
       ON ch.part_id = cp.part_id
-    LEFT JOIN content.course_parts_localized cl 
+    LEFT JOIN content.course_parts_localized cl
       ON c.course_id = cl.course_id AND c.language = cl.language  AND ch.part_id = cl.part_id
-    WHERE c.course_id = ${courseId} 
-      ${language ? sql`AND c.language = ${language}` : sql``}
+    WHERE c.course_id = ${courseId}
+      ${language ? sql`AND c.language = LOWER(${language})` : sql``}
       ${partId ? sql`AND ch.part_id = ${partId}` : sql``}
     ORDER BY part_index, chapter_index ASC
   `;

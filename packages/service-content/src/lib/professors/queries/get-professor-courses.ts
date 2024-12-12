@@ -26,7 +26,7 @@ export const getProfessorCoursesQuery = ({
     whereClauses.push(sql`p.contributor_id = ${contributorId}`);
   }
   if (language !== undefined) {
-    whereClauses.push(sql`cl.language = ${language}`);
+    whereClauses.push(sql`cl.language = LOWER(${language})`);
   }
   // eslint-disable-next-line unicorn/no-array-reduce
   const whereStatement = sql`WHERE ${whereClauses.reduce(

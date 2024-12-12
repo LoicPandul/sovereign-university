@@ -53,7 +53,7 @@ export const getCreditsQuery = (id: string, language?: string) => {
     ) lca ON TRUE
 
       WHERE tc.contributor_id = p.contributor_id
-      ${language ? sql`AND pl.language = ${language}` : sql``}
+      ${language ? sql`AND pl.language = LOWER(${language})` : sql``}
       GROUP BY
         p.id,
         pl.language,

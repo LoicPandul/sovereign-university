@@ -42,7 +42,7 @@ export const getCoursesQuery = (language?: string) => {
       WHERE cp.course_id = c.id
     ) AS cp_agg ON TRUE
 
-    ${language ? sql`WHERE cl.language = ${language}` : sql``}
+    ${language ? sql`WHERE cl.language = LOWER(${language})` : sql``}
 
     GROUP BY
       c.id,
@@ -120,7 +120,7 @@ export const getProfessorCoursesQuery = (
     ) AS cp_agg ON TRUE
 
     WHERE c.id = ANY(${courseIds})
-    ${language ? sql`AND cl.language = ${language}` : sql``}
+    ${language ? sql`AND cl.language = LOWER(${language})` : sql``}
 
     GROUP BY
       c.id,

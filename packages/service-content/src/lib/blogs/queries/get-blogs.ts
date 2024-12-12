@@ -3,16 +3,16 @@ import type { JoinedBlogLight } from '@blms/types';
 
 export const getBlogsQuery = (language?: string) => {
   return sql<JoinedBlogLight[]>`
-      SELECT 
-          b.id, 
+      SELECT
+          b.id,
           b.path,
           b.name,
-          bl.language, 
-          b.category, 
-          b.author, 
-          bl.title, 
-          bl.description, 
-          b.last_updated, 
+          bl.language,
+          b.category,
+          b.author,
+          bl.title,
+          bl.description,
+          b.last_updated,
           b.last_commit,
           b.date,
           COALESCE(tag_agg.tags, ARRAY[]::text[]) AS tags
@@ -27,16 +27,16 @@ export const getBlogsQuery = (language?: string) => {
           WHERE bt.blog_id = b.id
       ) AS tag_agg ON TRUE
 
-      ${language ? sql`WHERE bl.language = ${language}` : sql``}
-       
-      GROUP BY 
-          b.id, 
-          bl.language, 
-          b.category, 
-          b.author, 
-          bl.title, 
+      ${language ? sql`WHERE bl.language = LOWER(${language})` : sql``}
+
+      GROUP BY
+          b.id,
+          bl.language,
+          b.category,
+          b.author,
+          bl.title,
           bl.description,
-          b.last_updated, 
+          b.last_updated,
           b.last_commit,
           b.date,
           tag_agg.tags

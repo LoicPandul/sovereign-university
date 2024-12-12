@@ -15,11 +15,11 @@ export const LANGUAGES = [
   'id',
   'it',
   'ja',
-  'nb-no',
+  'nb-NO',
   'pt',
   'ru',
   'vi',
-  'zh-hans',
+  'zh-Hans',
 ];
 
 export const LANGUAGES_MAP: { [key: string]: string } = {

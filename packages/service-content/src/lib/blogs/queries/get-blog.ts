@@ -7,17 +7,17 @@ export const getBlogQuery = (
   language?: string,
 ) => {
   return sql<JoinedBlog[]>`
-      SELECT 
-          b.id, 
-          b.path, 
+      SELECT
+          b.id,
+          b.path,
           b.name,
-          bl.language, 
-          b.category, 
-          b.author, 
-          bl.title, 
-          bl.description, 
-          bl.raw_content, 
-          b.last_updated, 
+          bl.language,
+          b.category,
+          b.author,
+          bl.title,
+          bl.description,
+          bl.raw_content,
+          b.last_updated,
           b.last_commit,
           b.date,
           COALESCE(tag_agg.tags, ARRAY[]::text[]) AS tags
@@ -32,17 +32,17 @@ export const getBlogQuery = (
           WHERE bt.blog_id = b.id
       ) AS tag_agg ON TRUE
 
-      WHERE b.category = ${category} AND b.name = ${name} 
-      ${language ? sql`AND bl.language = ${language}` : sql``}
-      GROUP BY 
-          b.id, 
-          bl.language,  
-          b.category, 
-          b.author, 
-          bl.title, 
-          bl.description, 
-          bl.raw_content, 
-          b.last_updated, 
+      WHERE b.category = ${category} AND b.name = ${name}
+      ${language ? sql`AND bl.language = LOWER(${language})` : sql``}
+      GROUP BY
+          b.id,
+          bl.language,
+          b.category,
+          b.author,
+          bl.title,
+          bl.description,
+          bl.raw_content,
+          b.last_updated,
           b.last_commit,
           b.date,
           tag_agg.tags

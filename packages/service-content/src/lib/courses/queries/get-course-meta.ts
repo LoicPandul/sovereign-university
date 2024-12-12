@@ -16,20 +16,20 @@ type CourseMeta = Pick<
 
 export const getCourseMetaQuery = (id: string, language?: string) => {
   return sql<CourseMeta[]>`
-    SELECT 
-      c.id, 
-      cl.language, 
+    SELECT
+      c.id,
+      cl.language,
       c.topic,
       c.subtopic,
       c.contact,
-      cl.name, 
+      cl.name,
       cl.goal,
-      cl.objectives, 
+      cl.objectives,
       c.last_commit
     FROM content.courses c
     JOIN content.courses_localized cl ON c.id = cl.course_id
 
-    WHERE c.id = ${id} 
-    ${language ? sql`AND cl.language = ${language}` : sql``}
+    WHERE c.id = ${id}
+    ${language ? sql`AND cl.language = LOWER(${language})` : sql``}
   `;
 };

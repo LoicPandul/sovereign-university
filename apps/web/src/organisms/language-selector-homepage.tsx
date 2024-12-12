@@ -58,13 +58,15 @@ export const LanguageSelectorHomepage = ({
           className={cn('flex items-center gap-2.5')}
           onClick={() => changeLanguage(language)}
           aria-label={`Change language to ${
-            LANGUAGES_MAP[language.replaceAll('-', '')] || language
+            LANGUAGES_MAP[language.toLowerCase().replaceAll('-', '')] ||
+            language
           }`}
           disabled={language === activeLanguage}
         >
           <Flag code={language} size="l" />
           <span className="capitalize w-[75px] sm:w-auto lg:w-auto truncate">
-            {LANGUAGES_MAP[language.replaceAll('-', '')] || language}
+            {LANGUAGES_MAP[language.toLowerCase().replaceAll('-', '')] ||
+              language}
           </span>
         </Button>
       ))}

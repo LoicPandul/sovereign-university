@@ -27,7 +27,7 @@ export const getBuildersQuery = (language?: string) => {
     JOIN content.builders_localized bl ON bl.builder_id = b.resource_id
     LEFT JOIN content.resource_tags rt ON rt.resource_id = r.id
     LEFT JOIN content.tags t ON t.id = rt.tag_id
-    ${language ? sql`WHERE bl.language = ${language}` : sql``}
+    ${language ? sql`WHERE bl.language = LOWER(${language})` : sql``}
     GROUP BY
       r.id,
       bl.language,

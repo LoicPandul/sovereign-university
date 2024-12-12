@@ -29,7 +29,7 @@ export const getInvoicesQuery = (uid: string, language?: string) => {
     JOIN content.courses_localized cl ON c.id = cl.course_id
     WHERE cp.uid = ${uid}
     AND cp.payment_status = 'paid'
-    ${language ? sql`AND cl.language = ${language}` : sql``}
+    ${language ? sql`AND cl.language = LOWER(${language})` : sql``}
 
     GROUP BY
       c.id,

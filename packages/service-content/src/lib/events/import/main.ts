@@ -153,7 +153,7 @@ export const createProcessMainFile = (transaction: TransactionSql) => {
             INSERT INTO content.event_languages (event_id, language)
             VALUES(
               ${result.id},
-              ${language}
+              LOWER(${language})
             )
             ON CONFLICT DO NOTHING
           `;
