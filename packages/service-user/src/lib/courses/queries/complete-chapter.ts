@@ -34,7 +34,7 @@ export const completeChapterQuery = (
         SELECT COUNT(*) as total
         FROM content.course_chapters_localized
         WHERE course_id = ${courseId}
-        ${language ? sql`AND language = ${language}` : sql``}
+        ${language ? sql`AND language = LOWER(${language})` : sql``}
     )
 
     -- Update the course_progress table with the new data

@@ -12,8 +12,8 @@ export const getCoursePartsQuery = (id: string, language?: string) => {
     FROM content.course_parts_localized cpl
     LEFT JOIN content.course_parts cp
     on cp.part_id = cpl.part_id
-    WHERE cpl.course_id = ${id} 
-    ${language ? sql`AND cpl.language = ${language}` : sql``}
+    WHERE cpl.course_id = ${id}
+    ${language ? sql`AND cpl.language = LOWER(${language})` : sql``}
     ORDER BY cp.part_index ASC
   `;
 };

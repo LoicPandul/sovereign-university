@@ -38,7 +38,7 @@ export const getTutorialQuery = (id: string, language?: string) => {
             WHERE tld.tutorial_id = t.id
         ) AS likes_agg ON TRUE
         WHERE t.id = ${id}
-        ${language ? sql`AND tl.language = ${language}` : sql``}
+        ${language ? sql`AND tl.language = LOWER(${language})` : sql``}
         GROUP BY
             t.id,
             tl.language,

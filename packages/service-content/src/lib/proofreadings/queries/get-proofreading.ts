@@ -28,7 +28,7 @@ export const getProofreadingQuery = ({
     whereClauses.push(sql`p.resource_id = ${resourceId}`);
   }
   if (language !== undefined) {
-    whereClauses.push(sql`p.language = ${language}`);
+    whereClauses.push(sql`p.language = LOWER(${language})`);
   }
   // eslint-disable-next-line unicorn/no-array-reduce
   const whereStatement = sql`WHERE ${whereClauses.reduce(
@@ -36,9 +36,9 @@ export const getProofreadingQuery = ({
   )}`;
 
   return sql<JoinedProofreading[]>`
-    SELECT 
-      p.id, 
-      p.course_id, 
+    SELECT
+      p.id,
+      p.course_id,
       p.tutorial_id,
       p.resource_id,
       p.language,

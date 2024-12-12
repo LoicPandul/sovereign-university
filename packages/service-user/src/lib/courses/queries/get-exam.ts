@@ -34,8 +34,8 @@ export const getPartialExamQuestionsQuery = ({
     LEFT JOIN content.quiz_answers_localized qal ON qa.quiz_question_id = qal.quiz_question_id
       AND qa."order" = qal."order"
     WHERE eq.exam_id = ${examId}
-      AND qql.language = ${language}
-      AND qal.language = ${language}
+      AND qql.language = LOWER(${language})
+      AND qal.language = LOWER(${language})
     GROUP BY eq.id, qql.question
     ORDER BY eq.id;
   `;
@@ -139,7 +139,7 @@ export const getAllUserSuccededExamsQuery = ({
       AND ea.succeeded = true
       AND ea.finalized = true
       ${courseId ? sql`AND ea.course_id = ${courseId}` : sql``}
-      ${language ? sql`AND cl.language = ${language}` : sql``}
+      ${language ? sql`AND cl.language = LOWER(${language})` : sql``}
     GROUP BY
       ea.id, ea.score, ea.finalized, ea.succeeded, ea.started_at, ea.finished_at, cl.name;
   `;

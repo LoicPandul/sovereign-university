@@ -45,12 +45,12 @@ export const getProfessorQuery = (id: number, language?: string) => {
       SELECT COUNT(clp.chapter_id) AS lectures_count
       FROM content.course_chapters_localized_professors clp
       WHERE clp.contributor_id = p.contributor_id
-       AND clp.language = ${language}
+       AND clp.language = LOWER(${language})
     ) lca ON TRUE
 
 
     WHERE p.id = ${id}
-    ${language ? sql`AND pl.language = ${language}` : sql``}
+    ${language ? sql`AND pl.language = LOWER(${language})` : sql``}
     GROUP BY p.id, pl.language, pl.bio, pl.short_bio, ca.courses_count, ca.courses_ids, tca.tutorials_count, lca.lectures_count, ta.tags
   `;
 };

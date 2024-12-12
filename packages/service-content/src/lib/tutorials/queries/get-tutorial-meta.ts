@@ -32,8 +32,8 @@ export const getTutorialMetaQuery = (
           t.last_commit
       FROM content.tutorials t
       JOIN content.tutorials_localized tl ON t.id = tl.tutorial_id
-      WHERE t.category = ${category} 
+      WHERE t.category = ${category}
         AND name = ${name}
-        AND tl.language = ${language} 
+        AND tl.language = LOWER(${language})
   `;
 };

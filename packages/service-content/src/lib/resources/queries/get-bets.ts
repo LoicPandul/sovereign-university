@@ -16,7 +16,7 @@ export const getBetsQuery = (language?: string) => {
         content.bet_localized bl
         ON bl.bet_id = b.resource_id
       WHERE
-        ${language ? sql`bl.language IN (${language}, 'en')` : sql`bl.language = 'en'`}
+        ${language ? sql`bl.language IN (LOWER(${language}), 'en')` : sql`bl.language = 'en'`}
     )
     SELECT
       r.id,

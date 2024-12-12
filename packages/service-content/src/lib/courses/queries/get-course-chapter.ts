@@ -48,6 +48,6 @@ export const getCourseChapterQuery = (chapterId: string, language?: string) => {
     ) AS cp_agg ON TRUE
     WHERE
       cl.chapter_id = ${chapterId}
-    ${language ? sql`AND cl.language = ${language}` : sql``}
+    ${language ? sql`AND cl.language = LOWER(${language})` : sql``}
   `;
 };

@@ -34,6 +34,6 @@ export const getCourseChapterMetaQuery = (
     JOIN content.courses c ON c.id = cl.course_id
     WHERE
       cl.chapter_id = ${chapterId}
-    ${language ? sql`AND cl.language = ${language}` : sql``}
+    ${language ? sql`AND cl.language = LOWER(${language})` : sql``}
   `;
 };

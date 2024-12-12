@@ -55,8 +55,8 @@ export const getTutorialsQuery = (category?: string, language?: string) => {
         ${
           language
             ? category
-              ? sql`AND tl.language = ${language}`
-              : sql`WHERE tl.language = ${language}`
+              ? sql`AND tl.language = LOWER(${language})`
+              : sql`WHERE tl.language = LOWER(${language})`
             : sql``
         }
 
@@ -180,7 +180,7 @@ export const getSortedTutorialsWithProfessorNameQuery = (
       ) AS professor ON TRUE
 
       WHERE
-        tl.language = ${language}
+        tl.language = LOWER(${language})
         AND (t.name ILIKE ${searchPattern}
           OR t.category ILIKE ${searchPattern}
           OR t.subcategory ILIKE ${searchPattern})
