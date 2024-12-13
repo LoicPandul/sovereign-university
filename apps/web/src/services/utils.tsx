@@ -7,6 +7,7 @@ import glossarySvg from '#src/assets/resources/glossary.svg';
 import librarySvg from '#src/assets/resources/library.svg';
 import podcastSvg from '#src/assets/resources/podcast.svg';
 import toolkitSvg from '#src/assets/resources/toolkit.svg';
+import youtubeSvg from '#src/assets/resources/youtube.svg';
 import exchangeSvg from '#src/assets/tutorials/exchange.svg';
 import merchantSvg from '#src/assets/tutorials/merchant.svg';
 import miningSvg from '#src/assets/tutorials/mining.svg';
@@ -87,6 +88,11 @@ export const RESOURCES_CATEGORIES = [
   {
     name: 'newsletters',
     image: webSvg,
+    unreleased: false,
+  },
+  {
+    name: 'channels',
+    image: youtubeSvg,
     unreleased: false,
   },
 ] as const;

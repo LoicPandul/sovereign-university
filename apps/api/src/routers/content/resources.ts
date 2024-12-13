@@ -8,6 +8,7 @@ import {
   joinedGlossaryWordSchema,
   joinedNewsletterSchema,
   joinedPodcastSchema,
+  joinedYoutubeChannelSchema,
 } from '@blms/schemas';
 import {
   createGetBets,
@@ -23,6 +24,8 @@ import {
   createGetNewsletters,
   createGetPodcast,
   createGetPodcasts,
+  createGetYoutubeChannel,
+  createGetYoutubeChannels,
 } from '@blms/service-content';
 import type {
   JoinedBet,
@@ -32,6 +35,7 @@ import type {
   JoinedGlossaryWord,
   JoinedNewsletter,
   JoinedPodcast,
+  JoinedYoutubeChannel,
 } from '@blms/types';
 
 import type { Parser } from '#src/trpc/types.js';
@@ -128,5 +132,17 @@ export const resourcesRouter = createTRPCRouter({
     .output<Parser<JoinedPodcast>>(joinedPodcastSchema)
     .query(({ ctx, input }) => {
       return createGetPodcast(ctx.dependencies)(input.id);
+    }),
+
+  // Youtube Channels
+  getYoutubeChannels: createGetResourcesProcedure()
+    .output<Parser<JoinedYoutubeChannel[]>>(joinedYoutubeChannelSchema.array())
+    .query(({ ctx }) => {
+      return createGetYoutubeChannels(ctx.dependencies)();
+    }),
+  getYoutubeChannel: createGetResourceProcedure()
+    .output<Parser<JoinedYoutubeChannel>>(joinedYoutubeChannelSchema)
+    .query(({ ctx, input }) => {
+      return createGetYoutubeChannel(ctx.dependencies)(input.id);
     }),
 });

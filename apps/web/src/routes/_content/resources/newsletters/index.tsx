@@ -56,11 +56,11 @@ function Newsletter() {
       <div className="flex flex-col gap-4 md:gap-9 mt-4 md:mt-12 mx-auto">
         <div className="flex items-center gap-1 md:gap-2.5 pb-2 md:pb-2.5 border-b border-b-newGray-1">
           <span className="label-small-12px md:label-large-med-20px text-white">
-            {t('resources.newsletters.toggleLabelAll')}
+            {t('resources.toggleLabelAll')}
           </span>
           <Switch onCheckedChange={handleSwitchChange} defaultChecked />
           <span className="label-small-12px md:label-large-med-20px text-white">
-            {t('resources.newsletters.toggleLabelSelectedLanguage')}
+            {t('resources.toggleLabelSelectedLanguage')}
           </span>
         </div>
 
@@ -85,11 +85,11 @@ function Newsletter() {
                 <Link
                   to={`/resources/newsletters/${formatNameForURL(
                     newsletter.title,
-                  )}-${newsletter.resourceId}`}
+                  )}-${newsletter.id}`}
                   params={{
-                    newsletterId: newsletter.resourceId.toString(),
+                    newsletterId: newsletter.id.toString(),
                   }}
-                  key={`${newsletter.id}-${newsletter.resourceId}`}
+                  key={`${newsletter.id}`}
                   className="grow md:grow-0"
                 >
                   <ResourceCard
@@ -128,9 +128,9 @@ function Newsletter() {
                   <Link
                     to={`/resources/newsletters/${formatNameForURL(
                       newsletter.title,
-                    )}-${newsletter.resourceId}`}
+                    )}-${newsletter.id}`}
                     params={{
-                      newsletterId: newsletter.resourceId.toString(),
+                      newsletterId: newsletter.id.toString(),
                     }}
                     key={newsletter.id}
                     className="grow md:grow-0"

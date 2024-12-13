@@ -149,7 +149,7 @@ export const FlyingMenuSection = ({ section, variant }: FlyingMenuProps) => {
             variant === 'light' ? 'bg-darkOrange-2' : 'bg-newBlack-3',
           )}
         >
-          <div className="flex flex-row items-center gap-4 my-5 mx-4">
+          <div className="flex flex-row gap-4 my-5 mx-4">
             {section.id === 'courses' && highlightedCourse && (
               <Link
                 to={`/courses/${highlightedCourse.id}`}

@@ -36,6 +36,7 @@ import { Route as ContentResourcesPodcastsIndexImport } from './routes/_content/
 import { Route as ContentResourcesNewslettersIndexImport } from './routes/_content/resources/newsletters/index';
 import { Route as ContentResourcesGlossaryIndexImport } from './routes/_content/resources/glossary/index';
 import { Route as ContentResourcesConferencesIndexImport } from './routes/_content/resources/conferences/index';
+import { Route as ContentResourcesChannelsIndexImport } from './routes/_content/resources/channels/index';
 import { Route as ContentResourcesBuildersIndexImport } from './routes/_content/resources/builders/index';
 import { Route as ContentResourcesBooksIndexImport } from './routes/_content/resources/books/index';
 import { Route as ContentResourcesBetIndexImport } from './routes/_content/resources/bet/index';
@@ -54,6 +55,7 @@ import { Route as ContentResourcesPodcastsPodcastNamePodcastIdImport } from './r
 import { Route as ContentResourcesNewslettersNewsletterNameNewsletterIdImport } from './routes/_content/resources/newsletters/$newsletterName-$newsletterId';
 import { Route as ContentResourcesGlossaryWordIdImport } from './routes/_content/resources/glossary/$wordId';
 import { Route as ContentResourcesConferencesConferenceNameConferenceIdImport } from './routes/_content/resources/conferences/$conferenceName-$conferenceId';
+import { Route as ContentResourcesChannelsChannelNameChannelIdImport } from './routes/_content/resources/channels/$channelName-$channelId';
 import { Route as ContentResourcesBuildersBuilderNameBuilderIdImport } from './routes/_content/resources/builders/$builderName-$builderId';
 import { Route as ContentResourcesBooksBookNameBookIdImport } from './routes/_content/resources/books/$bookName-$bookId';
 import { Route as ContentCoursesCourseIdChapterIdImport } from './routes/_content/courses/$courseId/$chapterId';
@@ -232,6 +234,13 @@ const ContentResourcesConferencesIndexRoute =
     getParentRoute: () => rootRoute,
   } as any);
 
+const ContentResourcesChannelsIndexRoute =
+  ContentResourcesChannelsIndexImport.update({
+    id: '/_content/resources/channels/',
+    path: '/resources/channels/',
+    getParentRoute: () => rootRoute,
+  } as any);
+
 const ContentResourcesBuildersIndexRoute =
   ContentResourcesBuildersIndexImport.update({
     id: '/_content/resources/builders/',
@@ -356,6 +365,13 @@ const ContentResourcesConferencesConferenceNameConferenceIdRoute =
   ContentResourcesConferencesConferenceNameConferenceIdImport.update({
     id: '/_content/resources/conferences/$conferenceName-$conferenceId',
     path: '/resources/conferences/$conferenceName-$conferenceId',
+    getParentRoute: () => rootRoute,
+  } as any);
+
+const ContentResourcesChannelsChannelNameChannelIdRoute =
+  ContentResourcesChannelsChannelNameChannelIdImport.update({
+    id: '/_content/resources/channels/$channelName-$channelId',
+    path: '/resources/channels/$channelName-$channelId',
     getParentRoute: () => rootRoute,
   } as any);
 
@@ -671,6 +687,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ContentResourcesBuildersBuilderNameBuilderIdImport;
       parentRoute: typeof rootRoute;
     };
+    '/_content/resources/channels/$channelName-$channelId': {
+      id: '/_content/resources/channels/$channelName-$channelId';
+      path: '/resources/channels/$channelName-$channelId';
+      fullPath: '/resources/channels/$channelName-$channelId';
+      preLoaderRoute: typeof ContentResourcesChannelsChannelNameChannelIdImport;
+      parentRoute: typeof rootRoute;
+    };
     '/_content/resources/conferences/$conferenceName-$conferenceId': {
       id: '/_content/resources/conferences/$conferenceName-$conferenceId';
       path: '/resources/conferences/$conferenceName-$conferenceId';
@@ -795,6 +818,13 @@ declare module '@tanstack/react-router' {
       path: '/resources/builders';
       fullPath: '/resources/builders';
       preLoaderRoute: typeof ContentResourcesBuildersIndexImport;
+      parentRoute: typeof rootRoute;
+    };
+    '/_content/resources/channels/': {
+      id: '/_content/resources/channels/';
+      path: '/resources/channels';
+      fullPath: '/resources/channels';
+      preLoaderRoute: typeof ContentResourcesChannelsIndexImport;
       parentRoute: typeof rootRoute;
     };
     '/_content/resources/conferences/': {
@@ -986,6 +1016,7 @@ export interface FileRoutesByFullPath {
   '/courses/$courseId/$chapterId': typeof ContentCoursesCourseIdChapterIdRoute;
   '/resources/books/$bookName-$bookId': typeof ContentResourcesBooksBookNameBookIdRoute;
   '/resources/builders/$builderName-$builderId': typeof ContentResourcesBuildersBuilderNameBuilderIdRoute;
+  '/resources/channels/$channelName-$channelId': typeof ContentResourcesChannelsChannelNameChannelIdRoute;
   '/resources/conferences/$conferenceName-$conferenceId': typeof ContentResourcesConferencesConferenceNameConferenceIdRoute;
   '/resources/glossary/$wordId': typeof ContentResourcesGlossaryWordIdRoute;
   '/resources/newsletters/$newsletterName-$newsletterId': typeof ContentResourcesNewslettersNewsletterNameNewsletterIdRoute;
@@ -1004,6 +1035,7 @@ export interface FileRoutesByFullPath {
   '/resources/bet': typeof ContentResourcesBetIndexRoute;
   '/resources/books': typeof ContentResourcesBooksIndexRoute;
   '/resources/builders': typeof ContentResourcesBuildersIndexRoute;
+  '/resources/channels': typeof ContentResourcesChannelsIndexRoute;
   '/resources/conferences': typeof ContentResourcesConferencesIndexRoute;
   '/resources/glossary': typeof ContentResourcesGlossaryIndexRoute;
   '/resources/newsletters': typeof ContentResourcesNewslettersIndexRoute;
@@ -1045,6 +1077,7 @@ export interface FileRoutesByTo {
   '/courses/$courseId/$chapterId': typeof ContentCoursesCourseIdChapterIdRoute;
   '/resources/books/$bookName-$bookId': typeof ContentResourcesBooksBookNameBookIdRoute;
   '/resources/builders/$builderName-$builderId': typeof ContentResourcesBuildersBuilderNameBuilderIdRoute;
+  '/resources/channels/$channelName-$channelId': typeof ContentResourcesChannelsChannelNameChannelIdRoute;
   '/resources/conferences/$conferenceName-$conferenceId': typeof ContentResourcesConferencesConferenceNameConferenceIdRoute;
   '/resources/glossary/$wordId': typeof ContentResourcesGlossaryWordIdRoute;
   '/resources/newsletters/$newsletterName-$newsletterId': typeof ContentResourcesNewslettersNewsletterNameNewsletterIdRoute;
@@ -1063,6 +1096,7 @@ export interface FileRoutesByTo {
   '/resources/bet': typeof ContentResourcesBetIndexRoute;
   '/resources/books': typeof ContentResourcesBooksIndexRoute;
   '/resources/builders': typeof ContentResourcesBuildersIndexRoute;
+  '/resources/channels': typeof ContentResourcesChannelsIndexRoute;
   '/resources/conferences': typeof ContentResourcesConferencesIndexRoute;
   '/resources/glossary': typeof ContentResourcesGlossaryIndexRoute;
   '/resources/newsletters': typeof ContentResourcesNewslettersIndexRoute;
@@ -1107,6 +1141,7 @@ export interface FileRoutesById {
   '/_content/courses/$courseId/$chapterId': typeof ContentCoursesCourseIdChapterIdRoute;
   '/_content/resources/books/$bookName-$bookId': typeof ContentResourcesBooksBookNameBookIdRoute;
   '/_content/resources/builders/$builderName-$builderId': typeof ContentResourcesBuildersBuilderNameBuilderIdRoute;
+  '/_content/resources/channels/$channelName-$channelId': typeof ContentResourcesChannelsChannelNameChannelIdRoute;
   '/_content/resources/conferences/$conferenceName-$conferenceId': typeof ContentResourcesConferencesConferenceNameConferenceIdRoute;
   '/_content/resources/glossary/$wordId': typeof ContentResourcesGlossaryWordIdRoute;
   '/_content/resources/newsletters/$newsletterName-$newsletterId': typeof ContentResourcesNewslettersNewsletterNameNewsletterIdRoute;
@@ -1125,6 +1160,7 @@ export interface FileRoutesById {
   '/_content/resources/bet/': typeof ContentResourcesBetIndexRoute;
   '/_content/resources/books/': typeof ContentResourcesBooksIndexRoute;
   '/_content/resources/builders/': typeof ContentResourcesBuildersIndexRoute;
+  '/_content/resources/channels/': typeof ContentResourcesChannelsIndexRoute;
   '/_content/resources/conferences/': typeof ContentResourcesConferencesIndexRoute;
   '/_content/resources/glossary/': typeof ContentResourcesGlossaryIndexRoute;
   '/_content/resources/newsletters/': typeof ContentResourcesNewslettersIndexRoute;
@@ -1169,6 +1205,7 @@ export interface FileRouteTypes {
     | '/courses/$courseId/$chapterId'
     | '/resources/books/$bookName-$bookId'
     | '/resources/builders/$builderName-$builderId'
+    | '/resources/channels/$channelName-$channelId'
     | '/resources/conferences/$conferenceName-$conferenceId'
     | '/resources/glossary/$wordId'
     | '/resources/newsletters/$newsletterName-$newsletterId'
@@ -1187,6 +1224,7 @@ export interface FileRouteTypes {
     | '/resources/bet'
     | '/resources/books'
     | '/resources/builders'
+    | '/resources/channels'
     | '/resources/conferences'
     | '/resources/glossary'
     | '/resources/newsletters'
@@ -1227,6 +1265,7 @@ export interface FileRouteTypes {
     | '/courses/$courseId/$chapterId'
     | '/resources/books/$bookName-$bookId'
     | '/resources/builders/$builderName-$builderId'
+    | '/resources/channels/$channelName-$channelId'
     | '/resources/conferences/$conferenceName-$conferenceId'
     | '/resources/glossary/$wordId'
     | '/resources/newsletters/$newsletterName-$newsletterId'
@@ -1245,6 +1284,7 @@ export interface FileRouteTypes {
     | '/resources/bet'
     | '/resources/books'
     | '/resources/builders'
+    | '/resources/channels'
     | '/resources/conferences'
     | '/resources/glossary'
     | '/resources/newsletters'
@@ -1287,6 +1327,7 @@ export interface FileRouteTypes {
     | '/_content/courses/$courseId/$chapterId'
     | '/_content/resources/books/$bookName-$bookId'
     | '/_content/resources/builders/$builderName-$builderId'
+    | '/_content/resources/channels/$channelName-$channelId'
     | '/_content/resources/conferences/$conferenceName-$conferenceId'
     | '/_content/resources/glossary/$wordId'
     | '/_content/resources/newsletters/$newsletterName-$newsletterId'
@@ -1305,6 +1346,7 @@ export interface FileRouteTypes {
     | '/_content/resources/bet/'
     | '/_content/resources/books/'
     | '/_content/resources/builders/'
+    | '/_content/resources/channels/'
     | '/_content/resources/conferences/'
     | '/_content/resources/glossary/'
     | '/_content/resources/newsletters/'
@@ -1343,6 +1385,7 @@ export interface RootRouteChildren {
   ContentCoursesCourseIdChapterIdRoute: typeof ContentCoursesCourseIdChapterIdRoute;
   ContentResourcesBooksBookNameBookIdRoute: typeof ContentResourcesBooksBookNameBookIdRoute;
   ContentResourcesBuildersBuilderNameBuilderIdRoute: typeof ContentResourcesBuildersBuilderNameBuilderIdRoute;
+  ContentResourcesChannelsChannelNameChannelIdRoute: typeof ContentResourcesChannelsChannelNameChannelIdRoute;
   ContentResourcesConferencesConferenceNameConferenceIdRoute: typeof ContentResourcesConferencesConferenceNameConferenceIdRoute;
   ContentResourcesGlossaryWordIdRoute: typeof ContentResourcesGlossaryWordIdRoute;
   ContentResourcesNewslettersNewsletterNameNewsletterIdRoute: typeof ContentResourcesNewslettersNewsletterNameNewsletterIdRoute;
@@ -1353,6 +1396,7 @@ export interface RootRouteChildren {
   ContentResourcesBetIndexRoute: typeof ContentResourcesBetIndexRoute;
   ContentResourcesBooksIndexRoute: typeof ContentResourcesBooksIndexRoute;
   ContentResourcesBuildersIndexRoute: typeof ContentResourcesBuildersIndexRoute;
+  ContentResourcesChannelsIndexRoute: typeof ContentResourcesChannelsIndexRoute;
   ContentResourcesConferencesIndexRoute: typeof ContentResourcesConferencesIndexRoute;
   ContentResourcesGlossaryIndexRoute: typeof ContentResourcesGlossaryIndexRoute;
   ContentResourcesNewslettersIndexRoute: typeof ContentResourcesNewslettersIndexRoute;
@@ -1394,6 +1438,8 @@ const rootRouteChildren: RootRouteChildren = {
     ContentResourcesBooksBookNameBookIdRoute,
   ContentResourcesBuildersBuilderNameBuilderIdRoute:
     ContentResourcesBuildersBuilderNameBuilderIdRoute,
+  ContentResourcesChannelsChannelNameChannelIdRoute:
+    ContentResourcesChannelsChannelNameChannelIdRoute,
   ContentResourcesConferencesConferenceNameConferenceIdRoute:
     ContentResourcesConferencesConferenceNameConferenceIdRoute,
   ContentResourcesGlossaryWordIdRoute: ContentResourcesGlossaryWordIdRoute,
@@ -1408,6 +1454,7 @@ const rootRouteChildren: RootRouteChildren = {
   ContentResourcesBetIndexRoute: ContentResourcesBetIndexRoute,
   ContentResourcesBooksIndexRoute: ContentResourcesBooksIndexRoute,
   ContentResourcesBuildersIndexRoute: ContentResourcesBuildersIndexRoute,
+  ContentResourcesChannelsIndexRoute: ContentResourcesChannelsIndexRoute,
   ContentResourcesConferencesIndexRoute: ContentResourcesConferencesIndexRoute,
   ContentResourcesGlossaryIndexRoute: ContentResourcesGlossaryIndexRoute,
   ContentResourcesNewslettersIndexRoute: ContentResourcesNewslettersIndexRoute,
@@ -1457,6 +1504,7 @@ export const routeTree = rootRoute
         "/_content/courses/$courseId/$chapterId",
         "/_content/resources/books/$bookName-$bookId",
         "/_content/resources/builders/$builderName-$builderId",
+        "/_content/resources/channels/$channelName-$channelId",
         "/_content/resources/conferences/$conferenceName-$conferenceId",
         "/_content/resources/glossary/$wordId",
         "/_content/resources/newsletters/$newsletterName-$newsletterId",
@@ -1467,6 +1515,7 @@ export const routeTree = rootRoute
         "/_content/resources/bet/",
         "/_content/resources/books/",
         "/_content/resources/builders/",
+        "/_content/resources/channels/",
         "/_content/resources/conferences/",
         "/_content/resources/glossary/",
         "/_content/resources/newsletters/",
@@ -1591,6 +1640,9 @@ export const routeTree = rootRoute
     "/_content/resources/builders/$builderName-$builderId": {
       "filePath": "_content/resources/builders/$builderName-$builderId.tsx"
     },
+    "/_content/resources/channels/$channelName-$channelId": {
+      "filePath": "_content/resources/channels/$channelName-$channelId.tsx"
+    },
     "/_content/resources/conferences/$conferenceName-$conferenceId": {
       "filePath": "_content/resources/conferences/$conferenceName-$conferenceId.tsx"
     },
@@ -1652,6 +1704,9 @@ export const routeTree = rootRoute
     },
     "/_content/resources/builders/": {
       "filePath": "_content/resources/builders/index.tsx"
+    },
+    "/_content/resources/channels/": {
+      "filePath": "_content/resources/channels/index.tsx"
     },
     "/_content/resources/conferences/": {
       "filePath": "_content/resources/conferences/index.tsx"

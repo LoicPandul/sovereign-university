@@ -37,6 +37,7 @@ export interface VerticalCardProps {
   className?: string;
   imgClassName?: string;
   bodyClassName?: string;
+  flagsOnMobile?: boolean;
 }
 
 export const VerticalCard = ({
@@ -69,6 +70,7 @@ export const VerticalCard = ({
   className,
   imgClassName,
   bodyClassName,
+  flagsOnMobile,
 }: VerticalCardProps) => {
   const isScreenMd = useGreater('md');
 
@@ -127,7 +129,12 @@ export const VerticalCard = ({
           )}
         />
         {languages && languages.length > 0 && (
-          <div className="absolute top-3 right-4 flex flex-col gap-2.5 p-2 bg-white rounded-md max-md:hidden">
+          <div
+            className={cn(
+              'absolute top-[3px] md:top-3 right-[3px] md:right-4 flex flex-col gap-[3px] md:gap-2.5 p-[3px] md:p-2 bg-white rounded-[3px] md:rounded-md',
+              !flagsOnMobile && 'max-md:hidden',
+            )}
+          >
             {languages.map((language) => (
               <Flag code={language} size="m" key={language} />
             ))}
