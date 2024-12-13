@@ -1,147 +1,30 @@
-import { Link, useNavigate } from '@tanstack/react-router';
-import { useContext, useEffect, useRef, useState } from 'react';
+import { Link, useLocation } from '@tanstack/react-router';
+import { useContext, useEffect, useRef } from 'react';
 import { useTranslation } from 'react-i18next';
-import { AiOutlineBook } from 'react-icons/ai';
-import { BsMortarboard } from 'react-icons/bs';
-import { FaBars, FaRegCalendarCheck } from 'react-icons/fa';
-import { IoPersonOutline, IoTicketOutline } from 'react-icons/io5';
-import { LuLogOut } from 'react-icons/lu';
-import { MdKeyboardArrowDown } from 'react-icons/md';
+import { HiMiniBars3 } from 'react-icons/hi2';
+import { IoMdClose } from 'react-icons/io';
 
 import { cn } from '@blms/ui';
 
 import { AppContext } from '#src/providers/context.js';
+import { MenuDashboard } from '#src/routes/dashboard/_dashboard/-components/menu-dashboard.tsx';
 import { getPictureUrl } from '#src/services/user.js';
-import { logout } from '#src/utils/session-utils.js';
 
 import SignInIconDark from '../../../assets/icons/profile_log_in_dark.svg';
-import SignInIconDarkOrange from '../../../assets/icons/profile_log_in_darkOrange.svg';
 import SignInIconLight from '../../../assets/icons/profile_log_in_light.svg';
 import PlanBLogoOrange from '../../../assets/logo/planb_logo_horizontal_white_orangepill_whitetext.svg?react';
 import PlanBLogoWhite from '../../../assets/logo/planb_logo_horizontal_white_whitepill.svg?react';
 import { useDisclosure } from '../../../hooks/index.ts';
-import { LanguageSelector } from '../language-selector.tsx';
-import type { NavigationSection } from '../props.ts';
+import { LanguageSelectorMobile } from '../language-selector.tsx';
+import type { NavigationSectionMobile } from '../props.ts';
 
 import { MobileMenuSection } from './mobile-menu-section.tsx';
 
 export interface MobileMenuProps {
-  sections: NavigationSection[];
+  sections: NavigationSectionMobile[];
   onClickLogin: () => void;
   variant?: 'light' | 'dark';
 }
-
-interface LoggedMenuProps {
-  onClickLogin: () => void;
-}
-
-const LoggedMenu = ({ onClickLogin }: LoggedMenuProps) => {
-  const { t } = useTranslation();
-  const { user } = useContext(AppContext);
-  const pictureUrl = getPictureUrl(user);
-  const isLoggedIn = user?.uid !== undefined;
-  const [isSubMenuOpen, setIsSubMenuOpen] = useState(true);
-
-  const navigate = useNavigate();
-
-  const toggleSubMenu = () => {
-    setIsSubMenuOpen((prev) => !prev);
-  };
-
-  const menuItems = [
-    {
-      buttonText: t('words.courses'),
-      link: '/dashboard/courses',
-      icon: <AiOutlineBook size={24} />,
-    },
-    {
-      buttonText: t('dashboard.calendar.calendar'),
-      link: '/dashboard/calendar',
-      icon: <FaRegCalendarCheck size={24} />,
-    },
-    {
-      buttonText: t('words.bookings'),
-      link: '/dashboard/bookings',
-      icon: <IoTicketOutline size={24} />,
-    },
-    {
-      buttonText: t('words.credentials'),
-      link: '/dashboard/credentials',
-      icon: <BsMortarboard size={24} />,
-    },
-    {
-      buttonText: t('words.account'),
-      link: '/dashboard/profile',
-      icon: <IoPersonOutline size={24} />,
-    },
-  ];
-
-  return (
-    <div className="w-full px-4 mt-7">
-      {isLoggedIn && (
-        <>
-          <button
-            onClick={toggleSubMenu}
-            className="w-full flex items-center gap-3.5 bg-darkOrange-10 px-1.5 py-1 rounded-lg"
-          >
-            <img
-              src={pictureUrl ?? SignInIconDarkOrange}
-              alt={t('auth.signIn')}
-              className="size-10 shrink-0 rounded-full"
-            />
-            <span className="font-medium">{user?.username}</span>
-            <MdKeyboardArrowDown
-              size={24}
-              className={cn(
-                'ml-auto transition-transform ease-in-out',
-                isSubMenuOpen && 'max-lg:rotate-180',
-              )}
-            />
-          </button>
-          {isSubMenuOpen && (
-            <div className="flex flex-col gap-2.5 pl-[60px] mt-2.5">
-              {menuItems.map((item) => (
-                <Link
-                  to={item.link}
-                  key={item.buttonText}
-                  className="flex items-center gap-4 desktop-body1 py-1.5"
-                >
-                  {item.icon}
-                  {item.buttonText}
-                </Link>
-              ))}
-              <button
-                onClick={async () => {
-                  await logout();
-                  await navigate({ to: '/' });
-                  window.location.reload();
-                }}
-                className="flex items-center gap-4 desktop-body1 py-1.5"
-              >
-                <LuLogOut size={24} />
-                {t('dashboard.logout')}
-              </button>
-            </div>
-          )}
-        </>
-      )}
-
-      {!isLoggedIn && (
-        <button
-          className="cursor-pointer text-white flex items-center gap-2.5 w-full px-1 py-0.5"
-          onClick={onClickLogin}
-        >
-          <img
-            src={SignInIconDarkOrange}
-            alt={t('auth.signIn')}
-            className="size-10"
-          />
-          <span className="italic">{t('menu.loginRegister')}</span>
-        </button>
-      )}
-    </div>
-  );
-};
 
 export const MobileMenu = ({
   sections,
@@ -150,27 +33,39 @@ export const MobileMenu = ({
 }: MobileMenuProps) => {
   const { isOpen: isMobileMenuOpen, toggle: toggleMobileMenu } =
     useDisclosure();
+  const { isOpen: isDashboardMenuOpen, toggle: toggleDashboardMenu } =
+    useDisclosure();
   const { t } = useTranslation();
   const { session, user } = useContext(AppContext);
   const isLoggedIn = !!session;
 
   const mobileMenuRef = useRef<HTMLDivElement>(null);
+  const dashboardMenuRef = useRef<HTMLDivElement>(null);
 
   const pictureUrl = getPictureUrl(user);
 
+  const location = useLocation();
+
   useEffect(() => {
-    document.body.style.overflow = isMobileMenuOpen ? 'hidden' : 'auto';
+    document.body.style.overflow =
+      isMobileMenuOpen || isDashboardMenuOpen ? 'hidden' : 'auto';
 
     const handleClickOutside = (event: MouseEvent) => {
       if (
         mobileMenuRef.current &&
-        !mobileMenuRef.current.contains(event.target as Node)
-      ) {
+        !mobileMenuRef.current.contains(event.target as Node) &&
+        isMobileMenuOpen
+      )
         toggleMobileMenu();
-      }
+      if (
+        dashboardMenuRef.current &&
+        !dashboardMenuRef.current.contains(event.target as Node) &&
+        isDashboardMenuOpen
+      )
+        toggleDashboardMenu();
     };
 
-    if (isMobileMenuOpen) {
+    if (isMobileMenuOpen || isDashboardMenuOpen) {
       document.addEventListener('mousedown', handleClickOutside);
     } else {
       document.removeEventListener('mousedown', handleClickOutside);
@@ -179,15 +74,26 @@ export const MobileMenu = ({
     return () => {
       document.removeEventListener('mousedown', handleClickOutside);
     };
-  }, [isMobileMenuOpen, toggleMobileMenu]);
+  }, [
+    isMobileMenuOpen,
+    isDashboardMenuOpen,
+    toggleMobileMenu,
+    toggleDashboardMenu,
+  ]);
+
+  useEffect(() => {
+    if (isMobileMenuOpen && isDashboardMenuOpen) {
+      toggleDashboardMenu();
+    }
+  }, [isMobileMenuOpen, isDashboardMenuOpen, toggleDashboardMenu]);
 
   return (
     <>
-      <div className="flex w-full justify-center items-center sm:px-3 lg:hidden">
+      <div className="flex w-full justify-center items-center lg:hidden">
         <div
           className={cn('min-w-10 mr-auto', isMobileMenuOpen && 'opacity-0')}
         >
-          <FaBars
+          <HiMiniBars3
             className={cn(
               'cursor-pointer text-white',
               isMobileMenuOpen ? 'rotate-90' : 'rotate-0',
@@ -195,7 +101,7 @@ export const MobileMenu = ({
             style={{
               transition: 'transform 0.4s, color 0.2s',
             }}
-            size={28}
+            size={25}
             color="#fff"
             onClick={toggleMobileMenu}
           />
@@ -203,32 +109,33 @@ export const MobileMenu = ({
 
         <Link to="/" className="mx-auto">
           {variant === 'light' ? (
-            <PlanBLogoWhite className="h-[34px] w-auto" />
+            <PlanBLogoWhite className="h-[25px] w-auto" />
           ) : (
-            <PlanBLogoOrange className="h-[34px] w-auto" />
+            <PlanBLogoOrange className="h-[25px] w-auto" />
           )}
         </Link>
 
         {isLoggedIn ? (
-          <div className="text-sm font-semibold ml-auto min-w-10">
-            <Link to={'/dashboard/courses'}>
-              <button className="cursor-pointer text-white">
-                <img
-                  src={
-                    pictureUrl
-                      ? pictureUrl
-                      : variant === 'light'
-                        ? SignInIconLight
-                        : SignInIconDark
-                  }
-                  alt={t('auth.signIn')}
-                  className="size-10 rounded-full"
-                />
-              </button>
-            </Link>
+          <div className="text-sm font-semibold ml-auto min-w-8">
+            <button
+              className="cursor-pointer text-white"
+              onClick={toggleDashboardMenu}
+            >
+              <img
+                src={
+                  pictureUrl
+                    ? pictureUrl
+                    : variant === 'light'
+                      ? SignInIconLight
+                      : SignInIconDark
+                }
+                alt={t('auth.signIn')}
+                className="size-8 rounded-full"
+              />
+            </button>
           </div>
         ) : (
-          <div className="text-sm font-semibold ml-auto min-w-10">
+          <div className="text-sm font-semibold ml-auto min-w-8">
             <button
               className="cursor-pointer text-white"
               onClick={onClickLogin}
@@ -236,7 +143,7 @@ export const MobileMenu = ({
               <img
                 src={variant === 'light' ? SignInIconLight : SignInIconDark}
                 alt={t('auth.signIn')}
-                className="size-10"
+                className="size-8"
               />
             </button>
           </div>
@@ -245,39 +152,56 @@ export const MobileMenu = ({
 
       <nav
         className={cn(
-          'flex flex-col fixed top-0 left-0 items-center w-full max-w-[270px] h-dvh pb-5 bg-darkOrange-11 duration-300 rounded-br-sm border-r border-b border-darkOrange-9 overflow-scroll no-scrollbar lg:hidden',
+          'flex flex-col fixed top-0 left-0 items-center w-full max-w-[320px] h-dvh pb-5 duration-300 overflow-scroll no-scrollbar lg:hidden bg-darkOrange-2 dark:bg-newBlack-2',
           isMobileMenuOpen ? 'translate-x-0' : '-translate-x-full',
+          variant === 'dark' && 'dark',
         )}
         ref={mobileMenuRef}
       >
-        <div className="flex items-center w-full px-4 py-5 bg-gradient-to-b from-[rgba(255,_92,_0,_0.70)] to-[rgba(153,_55,_0,_0.00)">
-          <FaBars
+        <div className="flex items-center w-full px-4 py-[15px] text-newBlack-1 dark:text-white">
+          <HiMiniBars3
             className={cn(
-              'cursor-pointer text-white',
+              'cursor-pointer',
               isMobileMenuOpen ? 'rotate-90' : 'rotate-0',
             )}
             style={{
               transition: 'transform 0.4s, color 0.2s',
             }}
-            size={28}
-            color="#fff"
+            size={25}
             onClick={toggleMobileMenu}
           />
-          <Link
-            to="/"
-            className="ml-4 text-lg font-medium leading-normal text-white"
-          >
+          <Link to="/" className="ml-5 text-lg font-medium leading-normal">
             {t('words.home')}
           </Link>
-          <LanguageSelector className="ml-auto" variant="darkOrange" />
+          <IoMdClose
+            size={24}
+            className="text-tertiary-7 dark:text-newGray-3 shrink-0 ml-auto cursor-pointer"
+            onClick={toggleMobileMenu}
+          />
         </div>
-        <ul className="list-none w-full px-4 flex flex-col gap-5">
+        <ul className="list-none w-full px-4 flex flex-col gap-2.5 my-[15px]">
           {sections.map((section) => (
             <MobileMenuSection section={section} key={section.id} />
           ))}
         </ul>
-        <LoggedMenu onClickLogin={onClickLogin} />
+        <LanguageSelectorMobile mode={variant} />
       </nav>
+
+      {isLoggedIn && (
+        <nav
+          className={cn(
+            'flex flex-col fixed top-0 right-0 items-center w-full max-w-[320px] h-dvh duration-300 overflow-scroll no-scrollbar lg:hidden',
+            isDashboardMenuOpen ? 'translate-x-0' : 'translate-x-full',
+            variant === 'dark' && 'dark',
+          )}
+          ref={dashboardMenuRef}
+        >
+          <MenuDashboard
+            location={location}
+            toggleMobileMenu={toggleDashboardMenu}
+          />
+        </nav>
+      )}
     </>
   );
 };

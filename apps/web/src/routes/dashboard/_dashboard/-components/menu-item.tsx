@@ -10,19 +10,21 @@ export const MenuItem = ({
   active,
   onClick,
   dropdown,
+  showOnMobileOnly,
 }: {
   text: string;
   icon: React.ReactNode;
   active?: boolean;
   onClick?: () => void;
-  dropdown?: Array<{ text: string; to: string }>;
+  dropdown?: Array<{ text: string; to: string; onClick?: () => void }>;
+  showOnMobileOnly?: boolean;
 }) => {
   const [isOpen, setIsOpen] = useState(true);
 
   const location = useLocation();
 
   return (
-    <button className="lg:w-full">
+    <button className={cn('w-full', showOnMobileOnly && 'lg:hidden')}>
       <div
         onClick={dropdown ? () => setIsOpen(!isOpen) : onClick}
         role="button"
@@ -33,16 +35,15 @@ export const MenuItem = ({
           }
         }}
         className={cn(
-          'flex w-full cursor-pointer flex-col lg:flex-row items-center justify-center gap-1 lg:gap-3 py-1 px-1.5 lg:p-2 lg:justify-start rounded-lg lg:rounded-md',
-          active && 'bg-white/20 lg:bg-darkOrange-9 text-white font-medium',
-          (!dropdown || !isOpen) &&
-            'hover:bg-white/20 lg:hover:bg-darkOrange-9 hover:text-white hover:font-medium',
+          'flex w-full cursor-pointer items-center gap-3 p-2 justify-start rounded-md',
+          active && 'bg-darkOrange-9 text-white font-medium',
+          'lg:hover:bg-darkOrange-9 lg:hover:text-white lg:hover:font-medium',
         )}
       >
-        <div className="min-w-5">{icon}</div>
-        <div className="max-lg:text-[10px] max-lg:text-white max-lg:leading-normal lg:leading-relaxed">
+        <div className="shrink-0">{icon}</div>
+        <span className="leading-normal text-lg font-medium lg:text-[15px] lg:font-normal lg:leading-relaxed truncate">
           {text}
-        </div>
+        </span>
         {dropdown && (
           <MdKeyboardArrowDown
             size={24}
@@ -54,16 +55,17 @@ export const MenuItem = ({
         )}
       </div>
       {dropdown && dropdown.length > 0 && isOpen && (
-        <div className="flex flex-col w-full pl-9 gap-1 pt-1">
+        <div className="flex flex-col w-full pl-8 gap-1 pt-1">
           {dropdown.map((item, index) => (
             <Link
               key={index}
               to={item.to}
               className={cn(
-                'text-left px-2 py-1 hover:bg-white/20 lg:hover:bg-darkOrange-9 hover:text-white hover:font-medium w-full rounded-sm',
+                'text-left body-16px text-white px-2 py-1 lg:hover:bg-darkOrange-9 lg:hover:text-white lg:hover:font-medium w-full rounded-sm truncate',
                 location.pathname.includes(item.to) &&
-                  'bg-white/20 lg:bg-darkOrange-9 text-white font-medium',
+                  'bg-darkOrange-9 font-medium',
               )}
+              onClick={item.onClick}
             >
               {item.text}
             </Link>

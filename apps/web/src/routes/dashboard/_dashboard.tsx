@@ -5,8 +5,7 @@ import { cn } from '@blms/ui';
 import { MainLayout } from '#src/components/main-layout.js';
 import { useSmaller } from '#src/hooks/use-smaller.js';
 
-import { MenuDesktop } from './_dashboard/-components/menu-desktop.tsx';
-import { MenuMobile } from './_dashboard/-components/menu-mobile.tsx';
+import { MenuDashboard } from './_dashboard/-components/menu-dashboard.tsx';
 
 export const Route = createFileRoute('/dashboard/_dashboard')({
   component: Dashboard,
@@ -29,13 +28,12 @@ function Dashboard() {
         >
           <Outlet></Outlet>
         </div>
-        <MenuMobile location={location} />
       </div>
     </MainLayout>
   ) : (
     <MainLayout variant="light" headerVariant="light">
       <div className="flex flex-row text-white min-h-[1012px] mt-3 mx-4">
-        <MenuDesktop location={location} />
+        <MenuDashboard location={location} />
         <div className="bg-white grow rounded-xl ml-3 p-8 text-black">
           <Outlet></Outlet>
         </div>

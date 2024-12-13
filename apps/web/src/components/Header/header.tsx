@@ -1,8 +1,13 @@
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
+import { LuMessageSquareMore } from 'react-icons/lu';
+import { MdOutlineSchool, MdPeopleAlt } from 'react-icons/md';
+import { TbWorld } from 'react-icons/tb';
 
 import { cn } from '@blms/ui';
 
+import profileLogInBlack from '#src/assets/icons/profile_log_in_black.svg';
+import profileLogInWhite from '#src/assets/icons/profile_log_in_white.svg';
 import resourcesSvg from '#src/assets/resources/builder.svg';
 import eventsSvg from '#src/assets/resources/conference.svg';
 import glossarySvg from '#src/assets/resources/glossary.svg';
@@ -25,7 +30,7 @@ import { AuthModalState } from '../AuthModals/props.ts';
 
 import { FlyingMenu } from './FlyingMenu/flying-menu.tsx';
 import { MobileMenu } from './MobileMenu/mobile-menu.tsx';
-import type { NavigationSection } from './props.ts';
+import type { NavigationSection, NavigationSectionMobile } from './props.ts';
 
 interface HeaderProps {
   variant?: 'light' | 'dark';
@@ -239,7 +244,7 @@ export const Header = ({ variant = 'dark' }: HeaderProps) => {
     },
   ];
 
-  const mobileSections: NavigationSection[] = [
+  const mobileSections: NavigationSectionMobile[] = [
     {
       id: 'courses',
       title: t('words.courses'),
@@ -267,15 +272,51 @@ export const Header = ({ variant = 'dark' }: HeaderProps) => {
     {
       id: 'about-us',
       title: t('words.about'),
-      path: '/about',
       mobileIcon: aboutSvg,
+      items: [
+        {
+          id: 'professors',
+          title: t('words.professors'),
+          description: t('menu.teachersDescription'),
+          path: '/professors',
+          icon: <MdPeopleAlt size={20} className="shrink-0" />,
+        },
+        {
+          id: 'node-network',
+          title: t('words.nodeNetwork'),
+          description: t('menu.nodeNetworkDescription'),
+          path: '/node-network',
+          icon: <TbWorld size={20} className="shrink-0" />,
+        },
+        {
+          id: 'b-certificate',
+          title: t('words.bCertificate'),
+          description: t('menu.bCertificateDescription'),
+          path: '/b-certificate',
+          icon: <MdOutlineSchool size={20} className="shrink-0" />,
+        },
+        {
+          id: 'public-release',
+          title: t('words.public'),
+          description: t('menu.publicDescription'),
+          path: '/public-communication',
+          icon: <LuMessageSquareMore size={20} className="shrink-0" />,
+        },
+      ],
+    },
+    {
+      id: 'dashboard',
+      title: t('dashboard.studentDashboard'),
+      path: '/dashboard/courses',
+      mobileIcon: variant === 'light' ? profileLogInBlack : profileLogInWhite,
+      removeFilterOnIcon: true,
     },
   ];
 
   return (
     <header
       className={cn(
-        'sticky left-0 top-0 z-20 flex w-full flex-row justify-between p-3 px-4 lg:min-h-[96px] lg:px-12',
+        'sticky left-0 top-0 z-20 flex w-full flex-row justify-between py-[11px] px-4 lg:min-h-[96px] lg:px-12 lg:py-3',
         variant === 'light' ? 'bg-darkOrange-5' : 'bg-headerDark',
       )}
     >
