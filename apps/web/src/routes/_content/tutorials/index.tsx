@@ -9,11 +9,12 @@ import { MainLayout } from '#src/components/main-layout.js';
 import { PageHeader } from '#src/components/page-header.js';
 import CategoryContainer from '#src/organisms/category-container.tsx';
 import { AppContext } from '#src/providers/context.js';
-import { assetUrl } from '#src/utils/index.js';
 import { SITE_NAME } from '#src/utils/meta.js';
 
 import { TUTORIALS_CATEGORIES } from '../../../services/utils.tsx';
 import { FilterBar } from '../resources/-components/filter-bar.tsx';
+
+import { TutorialTile } from './-components/tutorial-tile.tsx';
 
 export const Route = createFileRoute('/_content/tutorials/')({
   component: TutorialExplorer,
@@ -86,46 +87,7 @@ function TutorialExplorer() {
                     )
                     .sort((a, b) => a.title.localeCompare(b.title))
                     .map((tutorial) => (
-                      <div
-                        key={tutorial.id}
-                        className="flex flex-col gap-2 items-center justify-center w-20 lg:w-24 h-full"
-                      >
-                        <Link
-                          to={'/tutorials/$category/$subcategory/$name-$id'}
-                          params={{
-                            category: tutorial.category,
-                            subcategory: tutorial.subcategory,
-                            name: tutorial.name,
-                            id: tutorial.id,
-                          }}
-                          className="group/builder relative flex flex-col items-center justify-center"
-                        >
-                          <img
-                            className="size-12 sm:size-14 md:size-16 lg:size-20 rounded-full group-hover/builder:blur-sm group-focus/builder:blur-sm group-focus/builder:brightness-[30%] transition-all bg-white/20"
-                            src={assetUrl(
-                              (tutorial.builder || tutorial).path,
-                              'logo.webp',
-                            )}
-                            alt={tutorial.title}
-                          />
-                          <p className="absolute flex justify-center items-center size-full p-1 rounded-full text-center text-xs font-bold text-white group-hover/builder:bg-black/60 opacity-0 group-hover/builder:opacity-100 group-focus/builder:opacity-100 transition-all">
-                            {tutorial.title.slice(0, 18)}
-                          </p>
-                        </Link>
-                        <Link
-                          to={'/tutorials/$category/$subcategory/$name-$id'}
-                          params={{
-                            category: tutorial.category,
-                            subcategory: tutorial.subcategory,
-                            name: tutorial.name,
-                            id: tutorial.id,
-                          }}
-                          key={tutorial.id}
-                          className="text-xs font-bold text-white max-md:hidden text-center line-clamp-2"
-                        >
-                          {tutorial.title}
-                        </Link>
-                      </div>
+                      <TutorialTile key={tutorial.id} tutorial={tutorial} />
                     ))}
                 </div>
               </section>
