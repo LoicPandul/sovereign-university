@@ -85,7 +85,7 @@ export const SignIn = ({ isOpen, onClose, goTo, redirectTo }: SignInProps) => {
     <Dialog open={isOpen} onOpenChange={onClose}>
       <DialogContent
         showCloseButton
-        className="py-2 px-4 sm:p-6 w-full max-w-[90%] md:max-w-sm"
+        className="pb-[30px] pt-[65px] md:pb-[44px] md:pt-[80px] px-4 w-full max-w-[90%] md:max-w-sm"
       >
         <DialogTitle>{t('menu.login')}</DialogTitle>
         <DialogDescription className="hidden">
