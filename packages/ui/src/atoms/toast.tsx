@@ -140,19 +140,21 @@ export const customToast = (
             color={options.color}
           />
         ),
-    closeButton: options.closeButton
-      ? ({
-          closeToast,
-        }: {
-          closeToast: MouseEventHandler<HTMLButtonElement>;
-        }) => (
-          <ToastCloseButton
-            closeToast={closeToast}
-            mode={options.mode}
-            color={options.color}
-          />
-        )
-      : false,
+    closeButton: options.onClick
+      ? false
+      : options.closeButton
+        ? ({
+            closeToast,
+          }: {
+            closeToast: MouseEventHandler<HTMLButtonElement>;
+          }) => (
+            <ToastCloseButton
+              closeToast={closeToast}
+              mode={options.mode}
+              color={options.color}
+            />
+          )
+        : false,
     onClick: options.onClick,
     closeOnClick: closeOnClick,
   });
