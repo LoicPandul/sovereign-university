@@ -647,7 +647,9 @@ function CourseDetails() {
               setHasSeenRegisterToast(true);
             }
 
-            await startCourse({ courseId });
+            if (isLoggedIn) {
+              await startCourse({ courseId });
+            }
 
             navigate({
               to: '/courses/$courseId/$chapterId',
