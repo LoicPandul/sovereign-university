@@ -36,6 +36,7 @@ const buttonVariants = cva(
         xl: 'px-12 py-3 text-xl !font-medium rounded-2xl',
         flagsMobile: 'px-2.5 py-[14px] font-base font-medium rounded-[8px]',
         carouselSize: 'p-0 text-base md:text-xl rounded-full',
+        loginButton: 'py-[14px] px-[18px] subtitle-medium-16px rounded-[16px]',
       },
     },
     defaultVariants: {

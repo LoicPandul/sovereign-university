@@ -76,7 +76,7 @@ export const MetaElements = ({
       {!isLoggedIn && (
         <div className="flex flex-row gap-2 lg:gap-4">
           <Button
-            size={'l'}
+            size={'loginButton'}
             variant={'loginButton'}
             className="cursor-pointer text-white"
             onClick={onClickLogin}
