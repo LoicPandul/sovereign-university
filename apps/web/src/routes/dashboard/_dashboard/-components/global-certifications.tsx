@@ -290,7 +290,9 @@ const ExamResult = ({
                       </div>
 
                       <Link
-                        to={'/tutorials/other/pbn-certificate-timestamping'}
+                        to={
+                          '/tutorials/others/other/pbn-certificate-timestamping-dd16f8c0-00c1-45fd-8792-920612bed18f'
+                        }
                         target="_blank"
                         className="flex flex-row items-center gap-2 text-newBlack-5 hover:text-newOrange-5 hover:underline"
                       >
@@ -338,7 +340,9 @@ const ExamResult = ({
                           <FiDownload className="size-[18px] md:size-6" />
                         </Button>
                         <Link
-                          to={'/tutorials/others/pbn-certificate-timestamping'}
+                          to={
+                            '/tutorials/others/other/pbn-certificate-timestamping-dd16f8c0-00c1-45fd-8792-920612bed18f'
+                          }
                           target="_blank"
                           className="flex flex-row items-center mt-4 gap-2 text-newBlack-5 hover:text-newOrange-5 hover:underline"
                         >
