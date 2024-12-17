@@ -278,11 +278,11 @@ export function CourseReview({
     });
 
     if (!previousCourseReview) {
-      navigateToNextChapter();
+      completeChapter();
     }
   }
 
-  async function navigateToNextChapter() {
+  async function completeChapter() {
     if (!chapter) {
       return;
     }
@@ -293,6 +293,14 @@ export function CourseReview({
         chapterId: chapter.chapterId,
         language: chapter.language,
       });
+    }
+
+    navigateToNextChapter();
+  }
+
+  function navigateToNextChapter() {
+    if (!chapter) {
+      return;
     }
 
     if (isLastChapter) {

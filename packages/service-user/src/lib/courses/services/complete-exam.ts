@@ -42,5 +42,7 @@ export const createCompleteExamAttempt = ({ postgres }: Dependencies) => {
         score: Math.round((correctAnswersCount / questionsCount) * 100),
       }),
     );
+
+    // TODO if succeeded, mark the chapter as done for the user
   };
 };

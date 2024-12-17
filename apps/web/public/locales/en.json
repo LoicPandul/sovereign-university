@@ -176,7 +176,7 @@
     "chapter": {
       "count": "Chapter {{count}}",
       "finishCourse": "Finish the course",
-      "next": "Completed, move on to the next chapter.",
+      "next": "Complete chapter",
       "thanksTip": "Want to show your appreciation?\nYou can support the author with a tip.",
       "detail": {
         "title": "Class details",
@@ -238,7 +238,7 @@
     "exam": {
       "answersReview": "Answers review",
       "availableDashboard": "It will be available in your dashboard in about 10 hours.",
-      "certificateAvailable": "It will be available about 8 hours after submission.",
+      "certificateAvailable": "It will be available about 10 hours after submission.",
       "certificateGeneration": "Your certificate is being ",
       "congratulations": "Congratulations, you’ve reached the end of this course!",
       "congratulationsPassed": "Congratulations, you <0>passed</0> the final exam!",

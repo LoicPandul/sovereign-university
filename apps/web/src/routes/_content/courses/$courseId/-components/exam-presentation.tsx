@@ -51,19 +51,11 @@ export const ExamPresentation = ({
     chapter.part.partIndex === chapter.course.parts.length;
 
   const startExamAttempt = trpc.user.courses.startExamAttempt.useMutation();
-  const completeChapterMutation =
-    trpc.user.courses.completeChapter.useMutation();
 
-  async function navigateToNextChapter() {
+  function navigateToNextChapter() {
     if (!chapter) {
       return;
     }
-
-    await completeChapterMutation.mutateAsync({
-      courseId: chapter.courseId,
-      chapterId: chapter.chapterId,
-      language: chapter.language,
-    });
 
     if (isLastChapter) {
       navigate({

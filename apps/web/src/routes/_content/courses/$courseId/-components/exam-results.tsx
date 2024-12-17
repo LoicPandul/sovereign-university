@@ -187,7 +187,10 @@ export const ExamResults = ({
                 hasBackground
                 className="p-2.5 md:p-5"
               />
-              <ConcludeButton chapter={chapter} />
+              <ConcludeButton
+                chapter={chapter}
+                succeeded={examResults.succeeded}
+              />
             </section>
           )}
         </>
@@ -428,16 +431,24 @@ export const AnswersReviewPanel = ({
   );
 };
 
-const ConcludeButton = ({ chapter }: { chapter: CourseChapterResponse }) => {
+const ConcludeButton = ({
+  chapter,
+  succeeded,
+}: {
+  chapter: CourseChapterResponse;
+  succeeded: boolean;
+}) => {
   const completeChapterMutation =
     trpc.user.courses.completeChapter.useMutation();
 
   const completeChapter = () => {
-    completeChapterMutation.mutate({
-      courseId: chapter.course.id,
-      chapterId: chapter.chapterId,
-      language: chapter.language,
-    });
+    if (succeeded) {
+      completeChapterMutation.mutate({
+        courseId: chapter.course.id,
+        chapterId: chapter.chapterId,
+        language: chapter.language,
+      });
+    }
   };
 
   const isLastChapter =

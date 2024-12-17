@@ -405,7 +405,7 @@ const BottomButton = ({ chapter }: { chapter: CourseChapterResponse }) => {
 
   return (
     <Link
-      className="flex w-fit !mt-8 md:!mt-16 max-md:mx-auto md:ml-auto"
+      className="flex w-fit !mt-8 md:!mt-16 mx-auto md:ml-auto"
       to={
         isLastChapter ? '/courses/$courseId' : '/courses/$courseId/$chapterId'
       }
