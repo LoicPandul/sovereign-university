@@ -433,6 +433,12 @@ function CourseDetails() {
     );
     const maxRating = 5;
 
+    const feedbacksWithComments = reviews.feedbacks.filter(
+      (feedback) => feedback.publicComment,
+    );
+
+    const totalComments = feedbacksWithComments.length;
+
     const [visibleFeedbacks, setVisibleFeedbacks] = useState(12);
 
     const showMoreFeedbacks = () => {
@@ -465,8 +471,7 @@ function CourseDetails() {
           mode="light"
         />
         <section className="w-full max-w-[1016px] mx-auto flex flex-wrap gap-6 justify-center mt-2">
-          {[...reviews.feedbacks]
-            .filter((feedback) => feedback.publicComment)
+          {[...feedbacksWithComments]
             .sort(
               (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime(),
             )
@@ -481,7 +486,7 @@ function CourseDetails() {
               />
             ))}
         </section>
-        {visibleFeedbacks < reviews.feedbacks.length && (
+        {visibleFeedbacks < totalComments && (
           <div className="flex flex-col gap-2 items-center">
             <Button
               variant="outline"
@@ -494,7 +499,7 @@ function CourseDetails() {
             </Button>
             <span className="body-14px">
               {visibleFeedbacks} {t('courses.review.displayOutOf')}{' '}
-              {reviews.feedbacks.length}
+              {totalComments}
             </span>
           </div>
         )}
