@@ -4,8 +4,11 @@ import { useTranslation } from 'react-i18next';
 import type { CourseChapterResponse } from '@blms/types';
 import { Button } from '@blms/ui';
 
+import heartOrange from '#src/assets/icons/heart_orange.svg';
 import { CourseCurriculum } from '#src/organisms/course-curriculum.tsx';
 import { trpc } from '#src/utils/trpc.ts';
+
+import { CourseReview } from './course-review.tsx';
 
 interface CourseConclusionProps {
   chapter: CourseChapterResponse;
@@ -45,6 +48,16 @@ export const CourseConclusion = ({ chapter }: CourseConclusionProps) => {
       },
     });
 
+  const { data: previousCourseReview } =
+    trpc.user.courses.getCourseReview.useQuery(
+      {
+        courseId: course?.id || '',
+      },
+      {
+        enabled: course?.id !== undefined,
+      },
+    );
+
   const completedChapters = courseProgress?.[0].chapters;
   const completedChaptersIds = completedChapters?.map((c) => c.chapterId);
 
@@ -59,8 +72,6 @@ export const CourseConclusion = ({ chapter }: CourseConclusionProps) => {
         !c?.isCourseReview &&
         !completedChaptersIds?.includes(c.chapterId),
     );
-
-  console.log('unfinishedClassicChapters', unfinishedClassicChapters);
 
   return (
     <>
@@ -94,7 +105,41 @@ export const CourseConclusion = ({ chapter }: CourseConclusionProps) => {
       ) : null}
 
       {unfinishedClassicChapters && unfinishedClassicChapters.length === 0 ? (
-        <h1>TODO add course review ONLY if all chapters are done</h1>
+        <>
+          <div className="bg-gray-100 p-4">
+            {previousCourseReview ? (
+              <>
+                <div className="flex flex-col mx-auto items-center">
+                  <img
+                    className="size-12"
+                    src={heartOrange}
+                    alt={t('imagesAlt.contributorHeart')}
+                  />
+                  <div className="mt-4">
+                    {t('courses.review.conclusionFeedback1')}
+                  </div>
+                  <div>{t('courses.review.conclusionFeedback2')}</div>
+                  <div className="mt-4 text-sm">
+                    {t('courses.review.conclusionFeedback3')}
+                  </div>
+                </div>
+                <div className="lg:mx-20 mt-6">
+                  <CourseReview
+                    courseId={course?.id}
+                    existingReview={previousCourseReview}
+                    isConclusionReview
+                  />
+                </div>
+              </>
+            ) : (
+              <>
+                <div className="lg:mx-20 mt-6">
+                  <CourseReview courseId={course?.id} isConclusionReview />
+                </div>
+              </>
+            )}
+          </div>
+        </>
       ) : null}
     </>
   );

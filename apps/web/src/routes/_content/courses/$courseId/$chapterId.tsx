@@ -825,20 +825,12 @@ function CourseChapter() {
                   )}
                   {chapter.isCourseReview && (
                     <>
-                      {isLoggedIn ? (
+                      <div className="mx-4 md:mx-32">
                         <CourseReview
                           chapter={chapter}
-                          addMarginToForm
+                          formDisabled={!isLoggedIn}
                         ></CourseReview>
-                      ) : (
-                        <>
-                          <CourseReview
-                            chapter={chapter}
-                            formDisabled={true}
-                            addMarginToForm
-                          ></CourseReview>
-                        </>
-                      )}
+                      </div>
                     </>
                   )}
 
