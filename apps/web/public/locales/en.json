@@ -481,6 +481,7 @@
     "courses": "Courses",
     "logout": "Log out",
     "myCourses": {
+      "completeAll": "Complete all",
       "completed": "Completed",
       "completedCoursesTitle": "Completed courses",
       "completedCoursesDescription": "Here you can check your completed courses.",
@@ -491,6 +492,7 @@
       "inprogress": "In progress",
       "inprogressCoursesTitle": "Courses in progress",
       "inprogressCoursesDescription": "Here you can check your progress in the courses you have started.",
+      "notValidated": "Not validated",
       "resumeLesson": "Resume",
       "seeProgress": "to see your progress here.",
       "startCourse": "Start or complete a course",

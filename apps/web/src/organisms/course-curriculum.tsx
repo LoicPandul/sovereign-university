@@ -2,6 +2,7 @@ import { Link } from '@tanstack/react-router';
 import { useTranslation } from 'react-i18next';
 import { BsCheck } from 'react-icons/bs';
 import { FaArrowRightLong } from 'react-icons/fa6';
+import { IoMdClose } from 'react-icons/io';
 
 import type { JoinedCourseWithAll } from '@blms/types';
 import { Button, TextTag, cn } from '@blms/ui';
@@ -15,6 +16,8 @@ export const CourseCurriculum = ({
   completedChapters,
   nextChapter,
   hideGithubLink = false,
+  displayNotStarted = false,
+  expandAll = false,
   className,
   children,
 }: {
@@ -23,6 +26,8 @@ export const CourseCurriculum = ({
   completedChapters?: string[];
   nextChapter?: string;
   hideGithubLink?: boolean;
+  displayNotStarted?: boolean;
+  expandAll?: boolean;
   className?: string;
   children?: React.ReactNode;
 }) => {
@@ -37,9 +42,13 @@ export const CourseCurriculum = ({
         {course.parts?.map((part, partIndex) => (
           <details
             key={partIndex}
-            open={part.chapters.some(
-              (chapter) => chapter?.chapterId === nextChapter,
-            )}
+            open={
+              expandAll
+                ? true
+                : part.chapters.some(
+                    (chapter) => chapter?.chapterId === nextChapter,
+                  )
+            }
             className="group"
           >
             <summary className="cursor-pointer w-full flex gap-2">
@@ -58,7 +67,7 @@ export const CourseCurriculum = ({
                   (chapter) =>
                     chapter?.chapterId &&
                     completedChapters?.includes(chapter.chapterId),
-                ) && (
+                ) && !displayNotStarted ? (
                   <TextTag
                     variant="orange"
                     size={isTablet ? 'verySmall' : 'small'}
@@ -69,7 +78,7 @@ export const CourseCurriculum = ({
                     </span>
                     <BsCheck size={18} className="shrink-0" />
                   </TextTag>
-                )}
+                ) : null}
               </div>
             </summary>
             <div className="flex flex-col gap-2.5 lg:gap-4 mt-5">
@@ -131,9 +140,9 @@ export const CourseCurriculum = ({
                         </Link>
                       )}
 
-                      {completedChapters?.includes(chapter.chapterId) && (
+                      {completedChapters?.includes(chapter.chapterId) ? (
                         <TextTag
-                          variant="orange"
+                          variant={displayNotStarted ? 'green' : 'orange'}
                           size={isTablet ? 'verySmall' : 'small'}
                           className="flex gap-2.5 w-fit font-medium shrink-0"
                         >
@@ -142,40 +151,55 @@ export const CourseCurriculum = ({
                           </span>
                           <BsCheck size={18} className="shrink-0" />
                         </TextTag>
-                      )}
-
-                      {nextChapter === chapter.chapterId && (
-                        <Link
-                          to={
-                            courseHasToBePurchased
-                              ? ''
-                              : '/courses/$courseId/$chapterId'
-                          }
-                          params={{
-                            courseId: course.id,
-                            chapterId: chapter.chapterId,
-                          }}
-                          className={cn(
-                            'flex items-center',
-                            courseHasToBePurchased && 'pointer-events-none',
-                          )}
+                      ) : displayNotStarted &&
+                        !chapter.isCourseConclusion &&
+                        !chapter.isCourseExam &&
+                        !chapter.isCourseReview ? (
+                        <TextTag
+                          variant={'orange'}
+                          size={isTablet ? 'verySmall' : 'small'}
+                          className="flex gap-2.5 w-fit font-medium shrink-0"
                         >
-                          <Button
-                            variant="primary"
-                            size="s"
-                            className="lg:hidden"
+                          <span className="max-lg:hidden">
+                            {t('dashboard.myCourses.notValidated')}
+                          </span>
+                          <IoMdClose size={18} className="shrink-0" />
+                        </TextTag>
+                      ) : null}
+
+                      {nextChapter === chapter.chapterId &&
+                        !displayNotStarted && (
+                          <Link
+                            to={
+                              courseHasToBePurchased
+                                ? ''
+                                : '/courses/$courseId/$chapterId'
+                            }
+                            params={{
+                              courseId: course.id,
+                              chapterId: chapter.chapterId,
+                            }}
+                            className={cn(
+                              'flex items-center',
+                              courseHasToBePurchased && 'pointer-events-none',
+                            )}
                           >
-                            <FaArrowRightLong />
-                          </Button>
-                          <ButtonWithArrow
-                            variant="primary"
-                            size="s"
-                            className="max-lg:hidden"
-                          >
-                            {t('dashboard.myCourses.resumeLesson')}
-                          </ButtonWithArrow>
-                        </Link>
-                      )}
+                            <Button
+                              variant="primary"
+                              size="s"
+                              className="lg:hidden"
+                            >
+                              <FaArrowRightLong />
+                            </Button>
+                            <ButtonWithArrow
+                              variant="primary"
+                              size="s"
+                              className="max-lg:hidden"
+                            >
+                              {t('dashboard.myCourses.resumeLesson')}
+                            </ButtonWithArrow>
+                          </Link>
+                        )}
                     </div>
                   )
                 );

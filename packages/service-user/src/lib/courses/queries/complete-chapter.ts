@@ -5,20 +5,43 @@ export const completeChapterQuery = (
   uid: string,
   courseId: string,
   chapterId: string,
+) => {
+  return sql<CourseProgress[]>`
+    INSERT INTO users.course_user_chapter (uid, course_id, chapter_id, completed_at)
+    VALUES (${uid}, ${courseId}, ${chapterId}, 'NOW()')
+    ON CONFLICT (uid, course_id, chapter_id) DO UPDATE
+    SET
+      completed_at = NOW()
+    RETURNING *
+  `;
+};
+
+export const completeAllChaptersQuery = (
+  uid: string,
+  courseId: string,
+  language: string,
+) => {
+  return sql<CourseProgress[]>`
+    INSERT INTO users.course_user_chapter (uid, course_id, chapter_id, completed_at)
+    SELECT ${uid}, ${courseId}, cc.chapter_id, NOW()
+    FROM content.course_chapters_localized cc
+    WHERE cc.course_id = ${courseId}
+      AND cc.language = ${language}
+      AND cc.is_course_review = false
+      AND cc.is_course_exam = false
+      AND cc.is_course_conclusion = false
+    ON CONFLICT (uid, course_id, chapter_id) DO NOTHING
+    RETURNING *
+  `;
+};
+
+export const calculateProgressQuery = (
+  uid: string,
+  courseId: string,
   language: string,
 ) => {
   return sql<CourseProgress[]>`
     WITH
-    -- Insert into course_user_chapter and return the affected rows
-    inserted AS (
-        INSERT INTO users.course_user_chapter (uid, course_id, chapter_id, completed_at)
-        VALUES (${uid}, ${courseId}, ${chapterId}, 'NOW()')
-        ON CONFLICT (uid, course_id, chapter_id) DO UPDATE
-        SET
-          completed_at = NOW()
-        RETURNING *
-    ),
-
     -- Calculate the count of completed chapters for the user and course (plus one as the newly completed chapter is not yet in the table)
     chapter_count AS (
         SELECT COUNT(*) + 1 as completed_count
