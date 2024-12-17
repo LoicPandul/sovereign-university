@@ -169,16 +169,16 @@ export function CourseReview({
   existingReview,
   formDisabled = false,
   isDashboardReview,
+  isConclusionReview,
   isLockedReview,
-  addMarginToForm,
 }: {
   chapter?: CourseChapterResponse;
   courseId?: string;
   existingReview?: CourseReview;
   formDisabled?: boolean;
   isDashboardReview?: boolean;
+  isConclusionReview?: boolean;
   isLockedReview?: boolean;
-  addMarginToForm?: boolean;
 }) {
   const { t } = useTranslation();
   const navigate = useNavigate();
@@ -260,7 +260,8 @@ export function CourseReview({
       );
       form.setValue('adminComment', previousCourseReview.adminComment ?? '');
     }
-  }, [form, previousCourseReview]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [previousCourseReview]);
 
   const isLastChapter =
     chapter &&
@@ -277,9 +278,7 @@ export function CourseReview({
       courseId: chapter?.courseId || courseId || '',
     });
 
-    if (!previousCourseReview) {
-      completeChapter();
-    }
+    await completeChapter();
   }
 
   async function completeChapter() {
@@ -318,14 +317,15 @@ export function CourseReview({
 
   const isMobile = useSmaller('md');
 
+  let displayBottomButtons = true;
+  if (isDashboardReview) displayBottomButtons = false;
+  if (isConclusionReview && previousCourseReview) displayBottomButtons = false;
+
   return (
-    <div
-      className={cn('flex flex-col', addMarginToForm && 'mt-16')}
-      id="reviewForm"
-    >
+    <div className={cn('flex flex-col')} id="reviewForm">
       {isReviewFetched || formDisabled ? (
         <>
-          {!isDashboardReview && !isLockedReview && (
+          {!existingReview && !isLockedReview && (
             <>
               <h1
                 className={cn(
@@ -350,10 +350,24 @@ export function CourseReview({
                 />
               )}
               <form
-                onSubmit={form.handleSubmit(onSubmit, scrollToForm)}
+                onSubmit={form.handleSubmit(async () => {
+                  if (isEditable) {
+                    await onSubmit();
+                    setIsEditable(false);
+                    customToast(t('courses.review.thankYou'), {
+                      closeOnClick: true,
+                      mode: 'light',
+                      color: 'success',
+                      icon: IoCheckmark,
+                      closeButton: true,
+                      time: 3000,
+                    });
+                  } else {
+                    setIsEditable(true);
+                  }
+                }, scrollToForm)}
                 className={cn(
-                  'flex max-lg:flex-col gap-6 lg:gap-10',
-                  addMarginToForm && 'mt-12 mx-4 md:mx-32',
+                  'flex max-lg:flex-col gap-6 lg:gap-10 mt-12',
                   isLockedReview &&
                     'pointer-events-none bg-newGray-6 shadow-course-navigation blur-[1.5px] rounded-lg md:rounded-[20px] py-5 px-2 relative',
                 )}
@@ -460,9 +474,7 @@ export function CourseReview({
                       disabled={!isEditable}
                     />
                   </div>
-
                   <div className="mb-5 w-10/12 mx-auto h-px my-2.5 bg-newGray-1" />
-
                   <div className="flex flex-col gap-6">
                     <FormTextArea
                       id="publicComment"
@@ -498,28 +510,13 @@ export function CourseReview({
                     />
                   </div>
 
-                  {!isDashboardReview && (
+                  {displayBottomButtons && (
                     <div className="flex flex-wrap items-center justify-center gap-4 mx-auto mt-6 lg:mt-4">
                       <Button
                         className="w-fit"
                         variant="primary"
                         size={window.innerWidth >= 768 ? 'l' : 'm'}
-                        onClick={async () => {
-                          if (isEditable) {
-                            await onSubmit();
-                            setIsEditable(false);
-                            customToast(t('courses.review.thankYou'), {
-                              closeOnClick: true,
-                              mode: 'light',
-                              color: 'success',
-                              icon: IoCheckmark,
-                              closeButton: true,
-                              time: 3000,
-                            });
-                          } else {
-                            setIsEditable(true);
-                          }
-                        }}
+                        type="submit"
                         disabled={formDisabled}
                       >
                         {previousCourseReview
@@ -529,9 +526,10 @@ export function CourseReview({
                           : t('courses.review.submitReview')}
                       </Button>
 
-                      {!isLockedReview && (
+                      {!isLockedReview && !isConclusionReview ? (
                         <Button
                           variant="outline"
+                          type="button"
                           className="w-fit"
                           size={window.innerWidth >= 768 ? 'l' : 'm'}
                           onClick={() => {
@@ -546,7 +544,7 @@ export function CourseReview({
                             )}
                           />
                         </Button>
-                      )}
+                      ) : null}
                     </div>
                   )}
                 </div>
@@ -556,22 +554,7 @@ export function CourseReview({
                     className="w-full max-w-[152px] h-fit max-lg:self-center lg:self-end"
                     variant="primary"
                     size={isMobile ? 'm' : 'l'}
-                    onClick={async () => {
-                      if (isEditable) {
-                        await onSubmit();
-                        setIsEditable(false);
-                        customToast(t('courses.review.thankYou'), {
-                          closeOnClick: true,
-                          mode: 'light',
-                          color: 'success',
-                          icon: IoCheckmark,
-                          closeButton: true,
-                          time: 3000,
-                        });
-                      } else {
-                        setIsEditable(true);
-                      }
-                    }}
+                    type="submit"
                   >
                     {isEditable
                       ? t('courses.review.saveReview')

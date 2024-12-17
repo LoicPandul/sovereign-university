@@ -9,10 +9,10 @@ export const getProgressQuery = (uid: string, courseId?: string) => {
       }
     >
   >`
-    SELECT 
+    SELECT
       cp.*,
       (
-        SELECT COUNT(*) 
+        SELECT COUNT(*)
         FROM content.course_chapters cc
         WHERE cc.course_id = cp.course_id
       ) as total_chapters

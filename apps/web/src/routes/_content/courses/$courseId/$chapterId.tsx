@@ -40,6 +40,7 @@ import { NavigationPanel } from '../-components/navigation-panel.tsx';
 import type { Question } from '../-components/quizz/quizz-card.tsx';
 import QuizzCard from '../-components/quizz/quizz-card.tsx';
 
+import { CourseConclusion } from './-components/course-conclusion.tsx';
 import { CourseExam } from './-components/course-exam.tsx';
 import { CourseReview } from './-components/course-review.tsx';
 
@@ -824,25 +825,21 @@ function CourseChapter() {
                   )}
                   {chapter.isCourseReview && (
                     <>
-                      {isLoggedIn ? (
+                      <div className="mx-4 md:mx-32">
                         <CourseReview
                           chapter={chapter}
-                          addMarginToForm
+                          formDisabled={!isLoggedIn}
                         ></CourseReview>
-                      ) : (
-                        <>
-                          <CourseReview
-                            chapter={chapter}
-                            formDisabled={true}
-                            addMarginToForm
-                          ></CourseReview>
-                        </>
-                      )}
+                      </div>
                     </>
                   )}
 
                   {chapter.isCourseExam && (
                     <CourseExam chapter={chapter} disabled={!isLoggedIn} />
+                  )}
+
+                  {chapter.isCourseConclusion && (
+                    <CourseConclusion chapter={chapter} />
                   )}
 
                   {displayLiveSection &&

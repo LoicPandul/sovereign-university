@@ -16,6 +16,7 @@ import {
   createRefreshCourseRating,
 } from '@blms/service-content';
 import {
+  createCompleteAllChapters,
   createCompleteChapter,
   createCompleteExamAttempt,
   createGetAllSuccededUserExams,
@@ -65,6 +66,22 @@ const completeChapterProcedure = studentProcedure
       uid: ctx.user.uid,
       courseId: input.courseId,
       chapterId: input.chapterId,
+      language: input?.language,
+    }),
+  );
+
+const completeAllChaptersProcedure = studentProcedure
+  .input(
+    z.object({
+      courseId: z.string(),
+      language: z.string(),
+    }),
+  )
+  .output<Parser<CourseProgress[]>>(courseProgressSchema.array())
+  .mutation(({ ctx, input }) =>
+    createCompleteAllChapters(ctx.dependencies)({
+      uid: ctx.user.uid,
+      courseId: input.courseId,
       language: input?.language,
     }),
   );
@@ -323,6 +340,7 @@ const downloadChapterTicketProcedure = studentProcedure
   });
 
 export const userCoursesRouter = createTRPCRouter({
+  completeAllChapters: completeAllChaptersProcedure,
   completeChapter: completeChapterProcedure,
   completeExamAttempt: completeExamAttemptProcedure,
   downloadChapterTicket: downloadChapterTicketProcedure,
