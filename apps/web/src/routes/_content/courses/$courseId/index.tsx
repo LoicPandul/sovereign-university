@@ -1,5 +1,6 @@
 /* eslint-disable @typescript-eslint/no-unsafe-assignment */
 import { Link, createFileRoute, useNavigate } from '@tanstack/react-router';
+import { last } from 'lodash-es';
 import React, { useContext, useEffect, useMemo, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { FaLock } from 'react-icons/fa';
@@ -690,7 +691,15 @@ function CourseDetails() {
                   userCourseProgress &&
                   userCourseProgress.length > 0 &&
                   userCourseProgress[0].completedChaptersCount > 0
-                    ? userCourseProgress[0].nextChapter?.chapterId
+                    ? course?.parts.some((part) =>
+                        part.chapters.some(
+                          (chapter) =>
+                            chapter?.chapterId ===
+                            userCourseProgress[0]?.nextChapter?.chapterId,
+                        ),
+                      )
+                      ? userCourseProgress[0]?.nextChapter?.chapterId
+                      : last(course?.parts)?.chapters.at(-1)?.chapterId
                     : course?.parts[0] && course?.parts[0].chapters[0]
                       ? course?.parts[0].chapters[0].chapterId
                       : '',
