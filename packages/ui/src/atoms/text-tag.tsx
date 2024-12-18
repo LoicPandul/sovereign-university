@@ -17,11 +17,11 @@ const textTagVariants = cva(
         withoutFill: 'bg-transparent text-newBlack-5 dark:text-newGray-3',
         grey: 'bg-newGray-5 text-newBlack-4 dark:bg-newBlack-3 dark:text-newGray-4',
         orange:
-          'bg-darkOrange-0 text-darkOrange-6 dark:bg-darkOrange-8 dark:text-darkOrange-2',
+          'bg-darkOrange-0 text-darkOrange-7 dark:bg-darkOrange-8 dark:text-darkOrange-2',
         green:
-          'bg-brightGreen-1 text-brightGreen-6 dark:bg-brightGreen-9 dark:text-brightGreen-2',
+          'bg-brightGreen-1 text-brightGreen-8 dark:bg-brightGreen-9 dark:text-brightGreen-2',
         lightMaroon:
-          'bg-tertiary-1 text-tertiary-7 dark:bg-tertiary-8 dark:text-white',
+          'bg-tertiary-1 text-tertiary-8 dark:bg-tertiary-8 dark:text-white',
         darkMaroon:
           'bg-tertiary-2 text-tertiary-8 dark:bg-tertiary-9 dark:text-white',
       },
