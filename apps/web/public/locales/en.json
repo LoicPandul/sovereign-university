@@ -200,6 +200,7 @@
       "buyCourse": "Buy the course",
       "buyInPersonCourse": "Buy in-person course",
       "buyOnlineCourse": "Buy online course",
+      "courseAddedToDashboard": "This course has been added to your student dashboard",
       "courseId": "Course ID: {{courseId}}",
       "coursePayment": "Course payment",
       "curriculum": "Curriculum",
