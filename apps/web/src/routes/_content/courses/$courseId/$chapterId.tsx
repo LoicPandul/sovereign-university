@@ -11,6 +11,7 @@ import { useTranslation } from 'react-i18next';
 import { BiChevronLeft, BiChevronRight } from 'react-icons/bi';
 import { FaArrowRightLong } from 'react-icons/fa6';
 import { FiLoader } from 'react-icons/fi';
+import { IoCheckmarkOutline } from 'react-icons/io5';
 import { z } from 'zod';
 
 import type { CourseChapterResponse, JoinedQuizQuestion } from '@blms/types';
@@ -224,15 +225,15 @@ const TimelineBig = ({
           {chapter.course.name}
         </Link>
       </h1>
-      <div className="font-body flex flex-row justify-between text-xl text-black leading-relaxed tracking-015px mt-7">
-        <span className="subtitle-large-med-20px text-newBlack-1">
+      <div className="font-body flex flex-col justify-between text-xl text-black leading-relaxed tracking-015px mt-7">
+        <span className="label-medium-med-16px text-newBlack-2">
           {t('courses.part.count', {
             count: chapter.part.partIndex,
             total: chapter.course.parts.length,
           })}{' '}
           : {chapter.part.title}
         </span>
-        <div>{professor}</div>
+        <span className="body-16px text-newBlack-5">{professor}</span>
       </div>
       <div className="mt-5 flex h-4 flex-row justify-between space-x-3 rounded-full">
         {chapter.course.parts.map((currentPart) => {
@@ -781,19 +782,21 @@ function CourseChapter() {
                       {sections.length > 0 && (
                         <div
                           className={cn(
-                            'flex flex-col self-stretch rounded-3xl px-6 py-2.5 shadow-course-navigation max-lg:mb-1',
-                            isContentExpanded ? 'bg-white' : 'bg-white h-auto',
+                            'flex flex-col self-stretch rounded-[10px] px-6 py-2.5 shadow-course-navigation max-lg:mb-1',
+                            isContentExpanded
+                              ? 'bg-newGray-6'
+                              : 'bg-newGray-6 h-auto',
                             isContentExpanded ? 'h-auto ' : 'mt-1 h-auto ',
                           )}
                         >
                           <button
-                            className="flex cursor-pointer items-center subtitle-small-med-14px md:font-medium text-black md:text-2xl uppercase"
+                            className="flex cursor-pointer ml-1 items-center subtitle-small-caps-14px md:subtitle-medium-caps-18px text-darkOrange-5 uppercase"
                             onClick={() =>
                               setIsContentExpanded(!isContentExpanded)
                             }
                           >
                             <span
-                              className={`mr-3 text-2xl ${
+                              className={`mr-3 text-lg md:text-2xl ${
                                 isContentExpanded
                                   ? 'rotate-90 transition-transform'
                                   : 'transition-transform'
@@ -804,14 +807,15 @@ function CourseChapter() {
                             <span>{t('courses.details.objectivesTitle')}</span>
                           </button>
                           {isContentExpanded && (
-                            <div className="mt-3 px-5 text-sm md:text-base">
+                            <div className="mt-3 text-sm md:text-base">
                               <ul className="flex flex-col gap-1.5">
                                 {sections.map((goal: string, index: number) => (
-                                  <li className="flex items-center" key={index}>
-                                    <span className="mr-3 text-newGray-3 text-sm">
-                                      {'▶'}
-                                    </span>
-                                    <span className="text-black">
+                                  <li
+                                    className="flex items-center gap-2.5"
+                                    key={index}
+                                  >
+                                    <IoCheckmarkOutline className="shrink-0 size-[18px]" />
+                                    <span className="text-black body-14px">
                                       {capitalizeFirstWord(goal)}
                                     </span>
                                   </li>
@@ -854,6 +858,9 @@ function CourseChapter() {
                   <MarkdownContent chapter={chapter} />
                   {!isSpecialChapter && displayQuizAndNext && (
                     <div className="md:!mt-12">
+                      <span className="text-darkOrange-5 title-medium-sb-18px md:font-normal md:text-2xl">
+                        Quiz
+                      </span>
                       {questionsArray && questionsArray.length > 0 && (
                         <QuizzCard
                           name={chapter.course.id}
