@@ -87,6 +87,15 @@ function CourseDetails() {
     },
   );
 
+  const { data: userCourseProgress } = trpc.user.courses.getProgress.useQuery(
+    {
+      courseId,
+    },
+    { enabled: isLoggedIn },
+  );
+
+  console.log(userCourseProgress);
+
   const { data: payments, refetch: refetchPayment } =
     trpc.user.courses.getPayments.useQuery(undefined, { enabled: isLoggedIn });
 
@@ -545,7 +554,13 @@ function CourseDetails() {
     ) : (
       <div className="flex flex-col lg:flex-row">
         <BuyCourseButton hasArrow format={'online'}>
-          <span>{t('courses.details.startCourse')}</span>
+          <span>
+            {userCourseProgress &&
+            userCourseProgress.length > 0 &&
+            userCourseProgress[0].completedChaptersCount > 0
+              ? t('dashboard.myCourses.resumeLesson')
+              : t('courses.details.startCourse')}
+          </span>
         </BuyCourseButton>
         {displayDownloadTicket && <DownloadTicketButton course={course} />}
       </div>
@@ -642,9 +657,7 @@ function CourseDetails() {
               customToast(t('auth.trackProgress'), {
                 color: 'secondary',
                 mode: 'light',
-                // change icon to person icon
                 imgSrc: SignInIconLight,
-                closeButton: true,
                 onClick: () => {
                   openAuthModalContext(AuthModalState.SignIn);
                 },
@@ -654,6 +667,19 @@ function CourseDetails() {
 
             if (isLoggedIn) {
               await startCourse({ courseId });
+              if (
+                userCourseProgress &&
+                (userCourseProgress.length === 0 ||
+                  (course?.requiresPayment &&
+                    userCourseProgress[0].completedChaptersCount === 0))
+              ) {
+                customToast(t('courses.details.courseAddedToDashboard'), {
+                  color: 'secondary',
+                  mode: 'light',
+                  imgSrc: SignInIconLight,
+                  closeButton: true,
+                });
+              }
             }
 
             navigate({
@@ -661,9 +687,13 @@ function CourseDetails() {
               params: {
                 courseId,
                 chapterId:
-                  course?.parts[0] && course?.parts[0].chapters[0]
-                    ? course?.parts[0].chapters[0].chapterId
-                    : '',
+                  userCourseProgress &&
+                  userCourseProgress.length > 0 &&
+                  userCourseProgress[0].completedChaptersCount > 0
+                    ? userCourseProgress[0].nextChapter?.chapterId
+                    : course?.parts[0] && course?.parts[0].chapters[0]
+                      ? course?.parts[0].chapters[0].chapterId
+                      : '',
               },
             });
           };
