@@ -86,6 +86,7 @@ services:
       - sync:${SYNC_PATH:-/tmp/sync}
       - ${OTS_PGP_KEY_PATH:-./key.asc}:/tmp/key.asc:ro
     depends_on:
+      - typesense
       - postgres
       - redis
     healthcheck:
