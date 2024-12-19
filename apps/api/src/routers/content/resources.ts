@@ -26,6 +26,7 @@ import {
   createGetPodcasts,
   createGetYoutubeChannel,
   createGetYoutubeChannels,
+  createSearch,
 } from '@blms/service-content';
 import type {
   JoinedBet,
@@ -62,6 +63,18 @@ const createGetResourceProcedureWithStrId = () => {
 };
 
 export const resourcesRouter = createTRPCRouter({
+  // Search
+  search: publicProcedure
+    .input(
+      z.object({
+        query: z.string(),
+        language: z.string(),
+        category: z.string().optional(),
+      }),
+    )
+    .query(({ ctx, input }) => {
+      return createSearch(ctx.dependencies)(input);
+    }),
   // Bets
   getBets: createGetResourcesProcedure()
     .output<Parser<JoinedBet[]>>(joinedBetSchema.array())

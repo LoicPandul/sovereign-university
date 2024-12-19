@@ -16,6 +16,7 @@ import { Route as rootRoute } from './routes/__root';
 import { Route as IndexImport } from './routes/index';
 import { Route as DashboardDashboardImport } from './routes/dashboard/_dashboard';
 import { Route as ContentTutorialsIndexImport } from './routes/_content/tutorials/index';
+import { Route as ContentSearchIndexImport } from './routes/_content/search/index';
 import { Route as ContentResourcesIndexImport } from './routes/_content/resources/index';
 import { Route as ContentEventsIndexImport } from './routes/_content/events/index';
 import { Route as ContentCoursesIndexImport } from './routes/_content/courses/index';
@@ -99,6 +100,12 @@ const DashboardDashboardRoute = DashboardDashboardImport.update({
 const ContentTutorialsIndexRoute = ContentTutorialsIndexImport.update({
   id: '/_content/tutorials/',
   path: '/tutorials/',
+  getParentRoute: () => rootRoute,
+} as any);
+
+const ContentSearchIndexRoute = ContentSearchIndexImport.update({
+  id: '/_content/search/',
+  path: '/search/',
   getParentRoute: () => rootRoute,
 } as any);
 
@@ -617,6 +624,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ContentResourcesIndexImport;
       parentRoute: typeof rootRoute;
     };
+    '/_content/search/': {
+      id: '/_content/search/';
+      path: '/search';
+      fullPath: '/search';
+      preLoaderRoute: typeof ContentSearchIndexImport;
+      parentRoute: typeof rootRoute;
+    };
     '/_content/tutorials/': {
       id: '/_content/tutorials/';
       path: '/tutorials';
@@ -1006,6 +1020,7 @@ export interface FileRoutesByFullPath {
   '/courses': typeof ContentCoursesIndexRoute;
   '/events': typeof ContentEventsIndexRoute;
   '/resources': typeof ContentResourcesIndexRoute;
+  '/search': typeof ContentSearchIndexRoute;
   '/tutorials': typeof ContentTutorialsIndexRoute;
   '/bcert-certificates/$certificateId': typeof ContentMiscBcertCertificatesCertificateIdRoute;
   '/exam-certificates/$certificateId': typeof ContentMiscExamCertificatesCertificateIdRoute;
@@ -1068,6 +1083,7 @@ export interface FileRoutesByTo {
   '/courses': typeof ContentCoursesIndexRoute;
   '/events': typeof ContentEventsIndexRoute;
   '/resources': typeof ContentResourcesIndexRoute;
+  '/search': typeof ContentSearchIndexRoute;
   '/tutorials': typeof ContentTutorialsIndexRoute;
   '/bcert-certificates/$certificateId': typeof ContentMiscBcertCertificatesCertificateIdRoute;
   '/exam-certificates/$certificateId': typeof ContentMiscExamCertificatesCertificateIdRoute;
@@ -1131,6 +1147,7 @@ export interface FileRoutesById {
   '/_content/courses/': typeof ContentCoursesIndexRoute;
   '/_content/events/': typeof ContentEventsIndexRoute;
   '/_content/resources/': typeof ContentResourcesIndexRoute;
+  '/_content/search/': typeof ContentSearchIndexRoute;
   '/_content/tutorials/': typeof ContentTutorialsIndexRoute;
   '/_content/_misc/bcert-certificates/$certificateId': typeof ContentMiscBcertCertificatesCertificateIdRoute;
   '/_content/_misc/exam-certificates/$certificateId': typeof ContentMiscExamCertificatesCertificateIdRoute;
@@ -1195,6 +1212,7 @@ export interface FileRouteTypes {
     | '/courses'
     | '/events'
     | '/resources'
+    | '/search'
     | '/tutorials'
     | '/bcert-certificates/$certificateId'
     | '/exam-certificates/$certificateId'
@@ -1256,6 +1274,7 @@ export interface FileRouteTypes {
     | '/courses'
     | '/events'
     | '/resources'
+    | '/search'
     | '/tutorials'
     | '/bcert-certificates/$certificateId'
     | '/exam-certificates/$certificateId'
@@ -1317,6 +1336,7 @@ export interface FileRouteTypes {
     | '/_content/courses/'
     | '/_content/events/'
     | '/_content/resources/'
+    | '/_content/search/'
     | '/_content/tutorials/'
     | '/_content/_misc/bcert-certificates/$certificateId'
     | '/_content/_misc/exam-certificates/$certificateId'
@@ -1375,6 +1395,7 @@ export interface RootRouteChildren {
   ContentCoursesIndexRoute: typeof ContentCoursesIndexRoute;
   ContentEventsIndexRoute: typeof ContentEventsIndexRoute;
   ContentResourcesIndexRoute: typeof ContentResourcesIndexRoute;
+  ContentSearchIndexRoute: typeof ContentSearchIndexRoute;
   ContentTutorialsIndexRoute: typeof ContentTutorialsIndexRoute;
   ContentMiscBcertCertificatesCertificateIdRoute: typeof ContentMiscBcertCertificatesCertificateIdRoute;
   ContentMiscExamCertificatesCertificateIdRoute: typeof ContentMiscExamCertificatesCertificateIdRoute;
@@ -1422,6 +1443,7 @@ const rootRouteChildren: RootRouteChildren = {
   ContentCoursesIndexRoute: ContentCoursesIndexRoute,
   ContentEventsIndexRoute: ContentEventsIndexRoute,
   ContentResourcesIndexRoute: ContentResourcesIndexRoute,
+  ContentSearchIndexRoute: ContentSearchIndexRoute,
   ContentTutorialsIndexRoute: ContentTutorialsIndexRoute,
   ContentMiscBcertCertificatesCertificateIdRoute:
     ContentMiscBcertCertificatesCertificateIdRoute,
@@ -1494,6 +1516,7 @@ export const routeTree = rootRoute
         "/_content/courses/",
         "/_content/events/",
         "/_content/resources/",
+        "/_content/search/",
         "/_content/tutorials/",
         "/_content/_misc/bcert-certificates/$certificateId",
         "/_content/_misc/exam-certificates/$certificateId",
@@ -1605,6 +1628,9 @@ export const routeTree = rootRoute
     },
     "/_content/resources/": {
       "filePath": "_content/resources/index.tsx"
+    },
+    "/_content/search/": {
+      "filePath": "_content/search/index.tsx"
     },
     "/_content/tutorials/": {
       "filePath": "_content/tutorials/index.tsx"

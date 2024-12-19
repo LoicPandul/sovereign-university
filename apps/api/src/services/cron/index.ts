@@ -1,3 +1,5 @@
+import { createIndexContent } from 'node_modules/@blms/service-content/src/lib/search.js';
+
 import {
   createCalculateEventSeats,
   createRefreshCoursesRatings,
@@ -17,6 +19,12 @@ import type { Dependencies } from '#src/dependencies.js';
 export const registerCronTasks = async (ctx: Dependencies) => {
   const timestampService = await createExamTimestampService(ctx);
   const refreshCoursesRatings = createRefreshCoursesRatings(ctx);
+
+  // One time exec
+  {
+    const indexContent = createIndexContent(ctx);
+    indexContent([]).catch((error) => console.error(error));
+  }
 
   if (timestampService) {
     // Every five minutes

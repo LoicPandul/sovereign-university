@@ -33,6 +33,11 @@ export interface StripeConfig {
   endpointSecret: string;
 }
 
+export interface TypesenseConfig {
+  nodes: Array<{ url: string }>;
+  apiKey: string;
+}
+
 export interface EnvConfig {
   production: boolean;
   domain: string;
@@ -41,6 +46,7 @@ export interface EnvConfig {
   sync: GitHubSyncConfig;
   session: SessionConfig;
   stripe: StripeConfig;
+  typesense: TypesenseConfig;
   opentimestamps: OpenTimestampsConfig;
   swissBitcoinPay: SwissBitcoinPayConfig;
   protectSyncRoute: boolean;

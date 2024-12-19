@@ -64,6 +64,12 @@ You may want to run the project locally to test your changes. Here is how to do 
 npm i -g pnpm dotenv-cli
 ```
 
+##### MacOS only
+
+```bash
+brew install pkg-config cairo pango libpng jpeg giflib librsvg pixman vips
+```
+
 #### Setup your local database
 
 Login to your local PostgreSQL instance (`psql -U postgres`) and run the following commands:

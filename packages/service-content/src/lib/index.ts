@@ -43,11 +43,27 @@ import {
   createUpdateResources,
   groupByResource,
 } from './resources/import/index.js';
+import { createIndexContent } from './search.js';
 import {
   createDeleteTutorials,
   createUpdateTutorials,
   groupByTutorial,
 } from './tutorials/import/index.js';
+
+export const timeLog = (len: number, name: string) => {
+  const key = `-- Sync procedure: Syncing ${len} ${name}${len > 1 ? 's' : ''}`;
+  console.log(key + '...');
+  console.time(key);
+
+  return () => {
+    console.timeEnd(key);
+  };
+};
+
+interface SyncResult {
+  errors: string[];
+  warnings: string[];
+}
 
 /**
  * Updates the database from the content files
@@ -63,76 +79,113 @@ export const createProcessContentFiles = (dependencies: Dependencies) => {
   const updateBCertificates = createUpdateBCertificateExams(dependencies);
   const updateBlogs = createUpdateBlogs(dependencies);
   const updateLegals = createUpdateLegals(dependencies);
+  const indexContent = createIndexContent(dependencies);
 
-  return async (
-    files: ChangedFile[],
-  ): Promise<{ errors: string[]; warnings: string[] }> => {
+  return async (files: ChangedFile[]): Promise<SyncResult> => {
     const filteredFiles = files.filter((file) =>
       supportedContentTypes.some((value) => file.path.startsWith(value)),
     );
     const errors: string[] = [];
     const warnings: string[] = [];
 
-    console.log(`-- Sync procedure: Deleteing proofreadings`);
-    await deleteProofreadings(errors);
-
-    const resources = groupByResource(filteredFiles, errors);
-    console.log(`-- Sync procedure: Syncing ${resources.length} resources`);
-    for (const resource of resources) {
-      await updateResources(resource, errors);
+    // Delete proofreadings
+    {
+      console.log(`-- Sync procedure: Deleting proofreadings`);
+      await deleteProofreadings(errors);
     }
 
-    const courses = groupByCourse(filteredFiles, errors);
-    console.log(`-- Sync procedure: Syncing ${courses.length} courses`);
-    for (const course of courses) {
-      await updateCourses(course, errors);
+    // Sync resources
+    {
+      const resources = groupByResource(filteredFiles, errors);
+      const time = timeLog(resources.length, 'resource');
+      for (const resource of resources) {
+        await updateResources(resource, errors);
+      }
+      time();
     }
 
-    const legals = groupByLegal(filteredFiles, errors);
-    console.log(`-- Sync procedure: Syncing ${legals.length} legals`);
-    for (const legal of legals) {
-      await updateLegals(legal, errors);
+    // Sync courses
+    {
+      const courses = groupByCourse(filteredFiles, errors);
+      const time = timeLog(courses.length, 'course');
+      for (const course of courses) {
+        await updateCourses(course, errors);
+      }
+      time();
     }
 
-    const tutorials = groupByTutorial(filteredFiles, errors);
-    console.log(`-- Sync procedure: Syncing ${tutorials.length} tutorials`);
-    for (const tutorial of tutorials) {
-      await updateTutorials(tutorial, errors);
+    // Sync legals
+    {
+      const legals = groupByLegal(filteredFiles, errors);
+      const time = timeLog(legals.length, 'legal');
+      for (const legal of legals) {
+        await updateLegals(legal, errors);
+      }
+      time();
     }
 
-    const blogs = groupByBlog(filteredFiles, errors);
-    console.log(`-- Sync procedure: Syncing ${blogs.length} blogs`);
-    for (const blog of blogs) {
-      await updateBlogs(blog, errors);
+    // Sync tutorials
+    {
+      const tutorials = groupByTutorial(filteredFiles, errors);
+      const time = timeLog(tutorials.length, 'tutorial');
+      for (const tutorial of tutorials) {
+        await updateTutorials(tutorial, errors);
+      }
+      time();
     }
 
-    const quizQuestions = groupByQuizQuestion(filteredFiles, errors);
-    console.log(
-      `-- Sync procedure: Syncing ${quizQuestions.length} quizQuestions`,
-    );
-    for (const quizQuestion of quizQuestions) {
-      await updateQuizQuestions(quizQuestion, errors);
+    // Sync blogs
+    {
+      const blogs = groupByBlog(filteredFiles, errors);
+      const time = timeLog(blogs.length, 'blog');
+      for (const blog of blogs) {
+        await updateBlogs(blog, errors);
+      }
+      time();
     }
 
-    const professors = groupByProfessor(filteredFiles, errors);
-    console.log(`-- Sync procedure: Syncing ${professors.length} professors`);
-    for (const professor of professors) {
-      await updateProfessors(professor, errors);
+    // Sync quiz questions
+    {
+      const quizQuestions = groupByQuizQuestion(filteredFiles, errors);
+      const time = timeLog(quizQuestions.length, 'quiz question');
+      for (const quizQuestion of quizQuestions) {
+        await updateQuizQuestions(quizQuestion, errors);
+      }
+      time();
     }
 
-    const events = groupByEvent(filteredFiles, errors);
-    console.log(`-- Sync procedure: Syncing ${events.length} events`);
-    for (const event of events) {
-      await updateEvents(event, errors);
+    // Sync professors
+    {
+      const professors = groupByProfessor(filteredFiles, errors);
+      const time = timeLog(professors.length, 'professor');
+      for (const professor of professors) {
+        await updateProfessors(professor, errors);
+      }
+      time();
     }
 
-    const bCertificates = groupByBCertificateExam(filteredFiles, errors);
-    console.log(
-      `-- Sync procedure: Syncing ${bCertificates.length} B Certificates exams`,
-    );
-    for (const bCertificate of bCertificates) {
-      await updateBCertificates(bCertificate, errors);
+    // Sync events
+    {
+      const events = groupByEvent(filteredFiles, errors);
+      const time = timeLog(events.length, 'event');
+      for (const event of events) {
+        await updateEvents(event, errors);
+      }
+      time();
     }
+
+    // Sync B Certificates exams
+    {
+      const bCertificates = groupByBCertificateExam(filteredFiles, errors);
+      const time = timeLog(bCertificates.length, 'B Certificate exam');
+      for (const bCertificate of bCertificates) {
+        await updateBCertificates(bCertificate, errors);
+      }
+      time();
+    }
+
+    // Index content
+    await indexContent(errors);
 
     return { errors, warnings };
   };

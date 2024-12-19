@@ -72,6 +72,7 @@ services:
       HOST: 0.0.0.0
       REDIS_HOST: redis
       POSTGRES_HOST: postgres
+      TYPESENSE_NODES: http://typesense:8108
     volumes:
       - ./apps/api:/home/node/apps/api
       - /home/node/apps/api/node_modules/
@@ -110,7 +111,20 @@ services:
       <<: *healthcheck
       test: ['CMD', 'nc', '-zv', 'localhost', '8181']
 
+  # https://typesense.org
+  typesense:
+    image: typesense/typesense:27.1
+    ports:
+      - 8108:8108
+    container_name: typesense
+    environment:
+      - TYPESENSE_API_KEY=${TYPESENSE_API_KEY:-xyz}
+      - TYPESENSE_DATA_DIR=/usr/share/typesense/data
+    volumes:
+      - typesense:/usr/share/typesense/data
+
 volumes:
+  typesense:
   corestore:
   postgres:
   redis:

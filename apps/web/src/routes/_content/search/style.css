@@ -1,0 +1,3 @@
+.search-results mark {
+  @apply bg-[#ff5991] text-white; /* TODO: Choose a better color? */
+}

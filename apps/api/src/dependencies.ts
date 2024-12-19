@@ -1,5 +1,6 @@
 import { EventEmitter } from 'eventemitter3';
 import Stripe from 'stripe';
+import { Client as TypesenseClient } from 'typesense';
 
 import { type CronService, createCronService } from '@blms/crons';
 import { createPostgresClient } from '@blms/database';
@@ -15,6 +16,7 @@ export interface Dependencies {
   s3: S3Service;
   redis: RedisClient;
   postgres: PostgresClient;
+  typesense: TypesenseClient;
   events: EventEmitter<ApiEvents>;
   config: EnvConfig;
   crons: CronService;
@@ -30,10 +32,17 @@ export const startDependencies = async () => {
   const stripe = new Stripe(config.stripe.secret);
   await postgres.connect();
 
+  const typesense = new TypesenseClient({
+    nodes: config.typesense.nodes,
+    apiKey: config.typesense.apiKey,
+    connectionTimeoutSeconds: 2,
+  });
+
   const dependencies: Dependencies = {
     s3,
     redis,
     postgres,
+    typesense,
     events,
     config,
     crons,
