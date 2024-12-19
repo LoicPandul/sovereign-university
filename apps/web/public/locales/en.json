@@ -482,6 +482,7 @@
       "submitReviewInfo": "You have to submit a review to have access to this feature.",
       "tweetText": "Thrilled to have completed {{courseId}} course at @planb_network and earned my diploma with a score of {{score}}/100 on the final exam! {{emoji}} #PBNDiploma\n\n{{certificateUrl}}"
     },
+    "courseDashboard": "Course dashboard",
     "courses": "Courses",
     "logout": "Log out",
     "myCourses": {
@@ -539,6 +540,7 @@
       "security": "Security",
       "username": "Username"
     },
+    "studentDashboard": "Student dashboard",
     "teacher": {
       "courses": {
         "analytics": "Analytics",
@@ -789,6 +791,7 @@
     "buildersDescription": "Learn about the companies and projects that work at improving Bitcoin and increasing its adoption",
     "businessDescription": "Uncover Bitcoin usage in commerce.",
     "channelsDescription": "Access our exclusive selection of Youtube channels to learn about Bitcoin",
+    "chooseLanguage": "Choose a language",
     "conferencesDescription": "Collection of Bitcoin conference replays since the Genesis Block",
     "exchangesDescription": "Buy and sell bitcoins on exchanges and learn about P2P",
     "glossaryDescription": "Understand the language of Bitcoin",

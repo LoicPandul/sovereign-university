@@ -2,108 +2,86 @@ import { Link } from '@tanstack/react-router';
 import { useMemo } from 'react';
 import { FiChevronDown } from 'react-icons/fi';
 
+import { cn } from '@blms/ui';
+
 import { useDisclosure } from '../../../hooks/use-disclosure.ts';
 import { compose } from '../../../utils/index.ts';
-import { MenuElement } from '../menu-elements.tsx';
-import type { NavigationSection } from '../props.ts';
+import type { NavigationSectionMobile } from '../props.ts';
 
-import { MobileMenuSubSection } from './mobile-menu-sub-section.tsx';
+import { MobileMenuSectionElement } from './mobile-menu-section-elements.tsx';
 
 export interface MobileMenuSectionProps {
-  section: NavigationSection;
+  section: NavigationSectionMobile;
 }
-
-const buttonClasses =
-  'flex flex-row justify-between py-3 px-4 my-2 w-full text-left text-gray-500 rounded-md border border-gray-200 border-solid duration-500 cursor-pointer';
 
 export const MobileMenuSection = ({ section }: MobileMenuSectionProps) => {
   const { toggle, isOpen } = useDisclosure();
-  const currentSection = '/'.concat(
-    window.location.pathname.split('/').slice(2, 3).join(''),
-  );
 
   const sectionTitle = useMemo(() => {
     if ('path' in section) {
-      const currentSectionClasses =
-        currentSection &&
-        currentSection !== '/' &&
-        section.path.includes(currentSection)
-          ? 'bg-darkOrange-9 text-white is-current'
-          : '';
-
       return (
         <Link
-          className={compose(
-            'group flex items-center text-darkOrange-5 text-lg font-medium leading-none rounded-sm p-2 gap-4 hover:bg-darkOrange-9 hover:text-white',
-            currentSectionClasses,
-          )}
-          /* TODO: fix */
-          to={section.path as '/'}
+          className="group flex items-center text-newBlack-1 dark:text-white text-lg font-medium p-2 gap-[15px] w-full"
+          to={section.path}
         >
           {section.mobileIcon && (
             <img
               src={section.mobileIcon}
-              alt=""
-              className="size-6 group-hover:filter-white group-[.is-current]:filter-white"
+              alt={section.title}
+              className={cn(
+                'size-6 shrink-0',
+                section.removeFilterOnIcon
+                  ? ''
+                  : ' filter-black dark:filter-white',
+              )}
             />
           )}
-          {section.title}
+          <span className="truncate">{section.title}</span>
         </Link>
       );
     }
-    if ('action' in section)
-      return (
-        <button
-          className={buttonClasses}
-          onClick={() => {
-            section.action();
-          }}
-        >
-          <span>{section.title}</span>
-        </button>
-      );
 
     return (
-      <button className={buttonClasses} onClick={() => toggle()}>
-        <span>{section.title}</span>
+      <button
+        className="group flex items-center text-newBlack-1 dark:text-white text-lg font-medium p-2 gap-[15px] w-full"
+        onClick={() => toggle()}
+      >
+        {section.mobileIcon && (
+          <img
+            src={section.mobileIcon}
+            alt={section.title}
+            className={cn(
+              'size-6 shrink-0',
+              section.removeFilterOnIcon
+                ? ''
+                : ' filter-black dark:filter-white',
+            )}
+          />
+        )}
+        <span className="truncate">{section.title}</span>
         <FiChevronDown
           className={compose(
-            'p-0 m-0 w-6 h-6 duration-300',
+            'p-0 m-0 w-6 h-6 duration-300 ml-auto',
             isOpen ? 'rotate-180' : 'rotate-0',
           )}
         />
       </button>
     );
-  }, [isOpen, section, currentSection, toggle]);
+  }, [isOpen, section, toggle]);
 
   return (
-    <li key={section.id} className="h-max overflow-hidden">
+    <li key={section.id} className={cn('overflow-hidden')}>
       {sectionTitle}
       {'items' in section && (
-        <div className={compose('overflow-hidden', isOpen ? 'h-max' : 'h-0')}>
-          {section?.items?.map((subSectionOrElements, index) =>
-            Array.isArray(subSectionOrElements) ? (
-              <ul
-                key={`${section.id}-${index}`}
-                className="my-0 flex-1 list-none overflow-auto pl-0"
-              >
-                {subSectionOrElements.map((element) => (
-                  // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-unsafe-member-access
-                  <li className="my-1 ml-0 list-none pl-0" key={element.id}>
-                    {
-                      // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-unsafe-member-access
-                      <MenuElement key={element.id} element={element} />
-                    }
-                  </li>
-                ))}
-              </ul>
-            ) : (
-              <MobileMenuSubSection
-                key={subSectionOrElements.id}
-                subSection={subSectionOrElements}
-              />
-            ),
+        <div
+          className={compose(
+            'overflow-hidden flex flex-col gap-[5px] mt-2.5',
+            isOpen ? '' : 'hidden',
           )}
+        >
+          {section?.items?.map((element) => (
+            <MobileMenuSectionElement key={element.id} element={element} />
+          ))}
         </div>
       )}
     </li>

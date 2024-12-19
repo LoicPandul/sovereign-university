@@ -173,6 +173,7 @@ export const ToastCloseButton = ({
     onClick={closeToast}
     aria-label="Close toast"
     className="shrink-0 self-start"
+    tabIndex={0}
   >
     <IoCloseOutline
       size={24}

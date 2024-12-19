@@ -1,7 +1,7 @@
 import { useContext, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { FaArrowRightLong } from 'react-icons/fa6';
-import { MdKeyboardArrowDown } from 'react-icons/md';
+import { MdKeyboardArrowDown, MdKeyboardArrowUp } from 'react-icons/md';
 
 import { Button, Popover, PopoverContent, PopoverTrigger, cn } from '@blms/ui';
 
@@ -134,6 +134,93 @@ export const LanguageSelector = ({
             />
           </Button>
         </a>
+      </PopoverContent>
+    </Popover>
+  );
+};
+
+export const LanguageSelectorMobile = ({
+  mode = 'dark',
+}: {
+  mode?: 'light' | 'dark';
+}) => {
+  const { t, i18n } = useTranslation();
+  const { setCurrentLanguage } = useContext(LangContext);
+
+  const [open, setOpen] = useState(false);
+
+  const activeLanguage = i18n.language ?? 'en';
+
+  const changeLanguage = (lang: string) => {
+    const pathName = location.pathname.slice(location.pathname.indexOf('/', 2));
+
+    router.update({
+      basepath: lang,
+      context: router.options.context,
+    });
+
+    router.navigate({
+      to: pathName + location.hash,
+    });
+
+    router.load();
+
+    setCurrentLanguage(lang);
+    setOpen(false);
+  };
+
+  return (
+    <Popover open={open} onOpenChange={setOpen}>
+      <PopoverTrigger asChild>
+        <button
+          className={cn(
+            'group flex justify-center items-center gap-[15px] p-2.5 outline-none rounded-lg mt-auto mx-auto w-[280px] bg-[#f39561] dark:bg-[#5f5f5f] text-darkOrange-11 dark:text-white',
+            open && 'rounded-t-none pt-[15px]',
+          )}
+        >
+          <span className="text-lg leading-normal font-medium text-wrap">
+            {t('menu.chooseLanguage')}
+          </span>
+          <Flag code={activeLanguage} size="m" className="shrink-0" />
+          <MdKeyboardArrowUp
+            size={24}
+            className={cn(
+              'transition-transform ease-in-out shrink-0',
+              open && 'rotate-180',
+            )}
+          />
+        </button>
+      </PopoverTrigger>
+      <PopoverContent
+        className={cn(
+          'flex flex-col absolute z-50 bg-[#f39561] dark:bg-[#5f5f5f] rounded-none !rounded-t-lg w-[280px] overflow-scroll no-scrollbar !shadow-none bottom-[51px] left-1/2 -translate-x-1/2 gap-5 px-[14px] pt-[15px]',
+          mode === 'dark' && 'dark',
+        )}
+        style={{
+          height: screen.height - 84 + 'px',
+        }}
+        addAnimation={false}
+        onClick={(e: React.MouseEvent) => e.stopPropagation()}
+      >
+        {LANGUAGES.filter(
+          (language) => language.toLowerCase() !== activeLanguage.toLowerCase(),
+        ).map((language) => (
+          <button
+            key={language}
+            className="flex items-center gap-4 w-full"
+            onClick={() => changeLanguage(language)}
+            aria-label={`Change language to ${
+              LANGUAGES_MAP[language.toLowerCase().replaceAll('-', '')] ||
+              language
+            }`}
+          >
+            <Flag code={language} size="m" className="shrink-0" />
+            <span className="capitalize label-medium-med-16px text-darkOrange-11 dark:text-white">
+              {LANGUAGES_MAP[language.toLowerCase().replaceAll('-', '')] ||
+                language}
+            </span>
+          </button>
+        ))}
       </PopoverContent>
     </Popover>
   );
