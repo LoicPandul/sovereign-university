@@ -193,12 +193,9 @@ export const LanguageSelectorMobile = ({
       </PopoverTrigger>
       <PopoverContent
         className={cn(
-          'flex flex-col absolute z-50 bg-[#f39561] dark:bg-[#5f5f5f] rounded-none !rounded-t-lg w-[280px] overflow-scroll no-scrollbar !shadow-none bottom-[51px] left-1/2 -translate-x-1/2 gap-5 px-[14px] pt-[15px]',
+          'flex flex-col absolute z-50 bg-[#f39561] dark:bg-[#5f5f5f] rounded-none !rounded-t-lg w-[280px] overflow-scroll no-scrollbar !shadow-none bottom-[51px] left-1/2 -translate-x-1/2 gap-5 px-[14px] pt-[15px] max-h-[calc(100dvh-84px)]',
           mode === 'dark' && 'dark',
         )}
-        style={{
-          height: screen.height - 84 + 'px',
-        }}
         addAnimation={false}
         onClick={(e: React.MouseEvent) => e.stopPropagation()}
       >
