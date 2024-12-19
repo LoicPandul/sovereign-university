@@ -122,6 +122,7 @@ export const customToast = (
       className: textVariants({
         mode: options.mode,
       }),
+      onClick: options.onClick,
     }),
     {
       autoClose: options.time || 5000,
@@ -172,10 +173,26 @@ export const customToast = (
 const ToastContent = ({
   message,
   className,
+  onClick,
 }: {
   message: string;
   className: string;
-}) => <span className={className}>{message}</span>;
+  onClick?: () => void;
+}) => (
+  <span
+    className={className}
+    onKeyDown={(e) => {
+      if (onClick && (e.key === 'Enter' || e.key === ' ')) {
+        e.preventDefault();
+        onClick();
+      }
+    }}
+    role={onClick ? 'button' : undefined}
+    tabIndex={onClick ? 0 : undefined}
+  >
+    {message}
+  </span>
+);
 
 const ToastCloseButton = ({
   closeToast,
