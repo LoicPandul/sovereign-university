@@ -40,7 +40,7 @@ export const MainLayout = ({
     if (hasJustRegistered) {
       customToast(t('auth.dashboardUnlocked'), {
         mode: variant === 'dark' ? 'dark' : 'light',
-        color: 'secondary',
+        color: 'primary',
         time: 5000,
         closeButton: true,
         imgSrc: SignInIconLight,

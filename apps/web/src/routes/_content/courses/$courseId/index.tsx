@@ -656,7 +656,7 @@ function CourseDetails() {
         : async () => {
             if (!isLoggedIn && !hasSeenRegisterToast) {
               customToast(t('auth.trackProgress'), {
-                color: 'secondary',
+                color: 'primary',
                 mode: 'light',
                 imgSrc: SignInIconLight,
                 onClick: () => {
@@ -675,7 +675,7 @@ function CourseDetails() {
                     userCourseProgress[0].completedChaptersCount === 0))
               ) {
                 customToast(t('courses.details.courseAddedToDashboard'), {
-                  color: 'secondary',
+                  color: 'primary',
                   mode: 'light',
                   imgSrc: SignInIconLight,
                   closeButton: true,

@@ -681,10 +681,6 @@
   transform: translate3d(0, var(--y), 0) scale(var(--s));
   transition: transform 0.3s;
 }
-.Toastify__toast--stacked[data-collapsed] .Toastify__toast-body,
-.Toastify__toast--stacked[data-collapsed] .Toastify__close-button {
-  transition: opacity 0.1s;
-}
 .Toastify__toast--stacked[data-collapsed='false'] {
   overflow: visible;
 }
@@ -726,21 +722,6 @@
 }
 .Toastify__toast--close-on-click {
   cursor: pointer;
-}
-.Toastify__toast-body {
-  margin: auto 0;
-  -ms-flex: 1 1 auto;
-  flex: 1 1 auto;
-  padding: 6px;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-align: center;
-  align-items: center;
-}
-.Toastify__toast-body > div:last-child {
-  word-break: break-word;
-  -ms-flex: 1;
-  flex: 1;
 }
 .Toastify__toast-icon {
   -webkit-margin-end: 12px;

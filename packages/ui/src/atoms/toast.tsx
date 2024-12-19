@@ -4,18 +4,21 @@ import { IoCloseOutline } from 'react-icons/io5';
 import type { IconType } from 'react-icons/lib';
 import { toast } from 'react-toastify';
 
-const toastVariants = cva('md:!w-[299px]', {
+const toastVariants = cva('md:!w-[299px] focus:ring-1 focus:ring-newGray-2', {
   variants: {
     mode: {
       light: '',
       dark: 'dark',
     },
     color: {
-      primary: '!bg-darkOrange-2 dark:!bg-darkOrange-8',
-      secondary: '!bg-darkOrange-0 dark:!bg-darkOrange-10',
-      warning: '!bg-red-1 dark:!bg-red-7',
-      success: '!bg-brightGreen-1 dark:!bg-brightGreen-9',
-      neutral: '!bg-newBlack-3 dark:!bg-newGray-6',
+      primary:
+        '!bg-darkOrange-0 dark:!bg-darkOrange-10 hover:!bg-darkOrange-1 hover:dark:!bg-darkOrange-9 focus:!bg-darkOrange-1 focus:dark:!bg-darkOrange-9',
+      warning:
+        '!bg-red-1 dark:!bg-red-9 hover:!bg-red-2 hover:dark:!bg-red-8 focus:!bg-red-2 focus:dark:!bg-red-8',
+      success:
+        '!bg-brightGreen-1 dark:!bg-brightGreen-9 hover:!bg-brightGreen-2 hover:dark:!bg-brightGreen-8 focus:!bg-brightGreen-2 focus:dark:!bg-brightGreen-8',
+      neutral:
+        '!bg-newGray-6 dark:!bg-newBlack-3 hover:!bg-newGray-5 hover:dark:!bg-newBlack-4 focus:!bg-newGray-5 focus:dark:!bg-newBlack-4',
     },
   },
   defaultVariants: {
@@ -43,11 +46,10 @@ const iconVariants = cva('shrink-0', {
       dark: 'dark',
     },
     color: {
-      primary: '!text-darkOrange-5',
-      secondary: '!text-darkOrange-3 dark:!text-darkOrange-5',
-      warning: '!text-red-5 dark:!text-red-3',
-      success: '!text-brightGreen-4',
-      neutral: '!text-newGray-3 dark:!text-newGray-4',
+      primary: '!text-darkOrange-4 dark:!text-darkOrange-6',
+      warning: '!text-red-5',
+      success: '!text-brightGreen-4 dark:!text-brightGreen-6',
+      neutral: '!text-newGray-3 dark:!text-newGray-2',
     },
   },
   defaultVariants: {
@@ -64,10 +66,9 @@ const progressBarVariants = cva('', {
     },
     color: {
       primary: '!bg-darkOrange-4 dark:!bg-darkOrange-6',
-      secondary: '!bg-darkOrange-2 dark:!bg-darkOrange-7',
-      warning: '!bg-red-2 dark:!bg-red-4',
-      success: '!bg-brightGreen-3 dark:!bg-brightGreen-5',
-      neutral: '!bg-newGray-4 dark:!bg-newGray-3',
+      warning: '!bg-red-5',
+      success: '!bg-brightGreen-4 dark:!bg-brightGreen-6',
+      neutral: '!bg-newGray-3 dark:!bg-newGray-2',
     },
   },
   defaultVariants: {
@@ -83,10 +84,9 @@ const toastCloseButtonVariants = cva('shrink-0', {
       dark: 'dark hover:!brightness-110',
     },
     color: {
-      primary: '!text-darkOrange-6',
-      secondary: '!text-darkOrange-4 dark:!text-darkOrange-6',
-      warning: '!text-red-4',
-      success: '!text-brightGreen-5 dark:!text-brightGreen-6',
+      primary: '!text-darkOrange-4 dark:!text-darkOrange-6',
+      warning: '!text-red-5',
+      success: '!text-brightGreen-4 dark:!text-brightGreen-6',
       neutral: '!text-newGray-3 dark:!text-newGray-2',
     },
   },
@@ -98,7 +98,7 @@ const toastCloseButtonVariants = cva('shrink-0', {
 
 interface ToastProps {
   mode?: 'light' | 'dark';
-  color?: 'primary' | 'secondary' | 'warning' | 'success' | 'neutral';
+  color?: 'primary' | 'warning' | 'success' | 'neutral';
 }
 
 export const customToast = (
@@ -116,51 +116,85 @@ export const customToast = (
 ) => {
   const { closeOnClick = true } = options;
 
-  return toast(message, {
-    autoClose: options.time || 5000,
-    className: toastVariants({
-      mode: options.mode,
-      color: options.color,
+  return toast(
+    ToastContent({
+      message: message,
+      className: textVariants({
+        mode: options.mode,
+      }),
+      onClick: options.onClick,
     }),
-    bodyClassName: textVariants({
-      mode: options.mode,
-    }),
-    progressClassName: progressBarVariants({
-      mode: options.mode,
-      color: options.color,
-    }),
-    icon: options.imgSrc
-      ? () => (
-          <img src={options.imgSrc} alt={message} className="shrink-0 size-8" />
-        )
-      : options.icon && (
-          <ToastIconWithClasses
-            icon={options.icon}
-            mode={options.mode}
-            color={options.color}
-          />
-        ),
-    closeButton: options.onClick
-      ? false
-      : options.closeButton
-        ? ({
-            closeToast,
-          }: {
-            closeToast: MouseEventHandler<HTMLButtonElement>;
-          }) => (
-            <ToastCloseButton
-              closeToast={closeToast}
+    {
+      autoClose: options.time || 5000,
+      className: toastVariants({
+        mode: options.mode,
+        color: options.color,
+      }),
+      progressClassName: progressBarVariants({
+        mode: options.mode,
+        color: options.color,
+      }),
+      icon: options.imgSrc
+        ? () => (
+            <img
+              src={options.imgSrc}
+              alt={message}
+              className="shrink-0 size-8"
+            />
+          )
+        : options.icon && (
+            <ToastIconWithClasses
+              icon={options.icon}
               mode={options.mode}
               color={options.color}
             />
-          )
-        : false,
-    onClick: options.onClick,
-    closeOnClick: closeOnClick,
-  });
+          ),
+      closeButton: options.onClick
+        ? false
+        : options.closeButton
+          ? ({
+              closeToast,
+            }: {
+              closeToast: MouseEventHandler<HTMLButtonElement>;
+            }) => (
+              <ToastCloseButton
+                closeToast={closeToast}
+                mode={options.mode}
+                color={options.color}
+              />
+            )
+          : false,
+      onClick: options.onClick,
+      closeOnClick: closeOnClick,
+    },
+  );
 };
 
-export const ToastCloseButton = ({
+const ToastContent = ({
+  message,
+  className,
+  onClick,
+}: {
+  message: string;
+  className: string;
+  onClick?: () => void;
+}) => (
+  <span
+    className={className}
+    onKeyDown={(e) => {
+      if (onClick && (e.key === 'Enter' || e.key === ' ')) {
+        e.preventDefault();
+        onClick();
+      }
+    }}
+    role={onClick ? 'button' : undefined}
+    tabIndex={onClick ? 0 : undefined}
+  >
+    {message}
+  </span>
+);
+
+const ToastCloseButton = ({
   closeToast,
   mode,
   color,
@@ -182,7 +216,7 @@ export const ToastCloseButton = ({
   </button>
 );
 
-export const ToastIconWithClasses = ({
+const ToastIconWithClasses = ({
   icon: Icon,
   mode,
   color,
