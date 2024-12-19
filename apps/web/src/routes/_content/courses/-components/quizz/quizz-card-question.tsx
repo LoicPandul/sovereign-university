@@ -82,7 +82,7 @@ export default function QuizzCardQuestion({
                 </span>
                 <span
                   className={cn(
-                    'label-small-12px md:body-16px text-newBlack-1 text-start w-full flex items-center px-[5px] md:px-4 border-l border-newBlack-1 py-[4.5px] md:py-3',
+                    'label-small-12px md:body-16px text-newBlack-1 text-start w-full flex items-center px-[5px] md:px-4 border-l border-newBlack-1 py-[4px] min-h-12 md:py-3',
                     index === clickedAnswer
                       ? clickedAnswer === correctAnswer
                         ? 'bg-brightGreen-3 !font-semibold'
