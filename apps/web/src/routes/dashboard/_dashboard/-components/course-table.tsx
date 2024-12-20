@@ -162,7 +162,7 @@ export const CourseTable = ({
                                   <div
                                     role="button"
                                     tabIndex={0}
-                                    className={`md:w-[50px] md:h-[52px] rounded hover:cursor-fancy ${bgColor} flex items-center justify-center hover:course-navigation-sm`}
+                                    className={`md:w-[50px] md:h-[52px] rounded ${bgColor} flex items-center justify-center hover:course-navigation-sm`}
                                     onClick={() =>
                                       setSelectedCourse(course?.name)
                                     }
