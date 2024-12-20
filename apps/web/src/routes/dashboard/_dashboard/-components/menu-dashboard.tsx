@@ -112,11 +112,6 @@ export const MenuDashboard = ({
       </div>
       <div className="flex flex-col pl-5 pr-2.5 max-lg:pt-[15px] lg:px-4 text-darkOrange-5 gap-2.5 lg:gap-1">
         <MenuItem
-          text={t('dashboard.courseDashboard')}
-          icon={<AiOutlineBook size={24} />}
-          showOnMobileOnly
-        />
-        <MenuItem
           text={t('dashboard.courses')}
           icon={<AiOutlineBook size={24} />}
           dropdown={[

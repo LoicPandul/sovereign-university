@@ -14,7 +14,6 @@ import SignInIconDark from '../../../assets/icons/profile_log_in_dark.svg';
 import SignInIconLight from '../../../assets/icons/profile_log_in_light.svg';
 import PlanBLogoOrange from '../../../assets/logo/planb_logo_horizontal_white_orangepill_whitetext.svg?react';
 import PlanBLogoWhite from '../../../assets/logo/planb_logo_horizontal_white_whitepill.svg?react';
-import { useDisclosure } from '../../../hooks/index.ts';
 import { LanguageSelectorMobile } from '../language-selector.tsx';
 import type { NavigationSectionMobile } from '../props.ts';
 
@@ -24,17 +23,21 @@ export interface MobileMenuProps {
   sections: NavigationSectionMobile[];
   onClickLogin: () => void;
   variant?: 'light' | 'dark';
+  isMobileMenuOpen: boolean;
+  toggleMobileMenu: () => void;
+  isMobileDashboardMenuOpen: boolean;
+  toggleDashboardMenu: () => void;
 }
 
 export const MobileMenu = ({
   sections,
   onClickLogin,
   variant = 'dark',
+  isMobileMenuOpen,
+  toggleMobileMenu,
+  isMobileDashboardMenuOpen,
+  toggleDashboardMenu,
 }: MobileMenuProps) => {
-  const { isOpen: isMobileMenuOpen, toggle: toggleMobileMenu } =
-    useDisclosure();
-  const { isOpen: isDashboardMenuOpen, toggle: toggleDashboardMenu } =
-    useDisclosure();
   const { t } = useTranslation();
   const { session, user } = useContext(AppContext);
   const isLoggedIn = !!session;
@@ -48,7 +51,7 @@ export const MobileMenu = ({
 
   useEffect(() => {
     document.body.style.overflow =
-      isMobileMenuOpen || isDashboardMenuOpen ? 'hidden' : 'auto';
+      isMobileMenuOpen || isMobileDashboardMenuOpen ? 'hidden' : 'auto';
 
     const handleClickOutside = (event: MouseEvent) => {
       if (
@@ -60,12 +63,12 @@ export const MobileMenu = ({
       if (
         dashboardMenuRef.current &&
         !dashboardMenuRef.current.contains(event.target as Node) &&
-        isDashboardMenuOpen
+        isMobileDashboardMenuOpen
       )
         toggleDashboardMenu();
     };
 
-    if (isMobileMenuOpen || isDashboardMenuOpen) {
+    if (isMobileMenuOpen || isMobileDashboardMenuOpen) {
       document.addEventListener('mousedown', handleClickOutside);
     } else {
       document.removeEventListener('mousedown', handleClickOutside);
@@ -76,22 +79,16 @@ export const MobileMenu = ({
     };
   }, [
     isMobileMenuOpen,
-    isDashboardMenuOpen,
+    isMobileDashboardMenuOpen,
     toggleMobileMenu,
     toggleDashboardMenu,
   ]);
 
-  useEffect(() => {
-    if (isMobileMenuOpen && isDashboardMenuOpen) {
-      toggleDashboardMenu();
-    }
-  }, [isMobileMenuOpen, isDashboardMenuOpen, toggleDashboardMenu]);
-
   return (
     <>
-      <div className="flex w-full justify-center items-center lg:hidden">
+      <div className="flex w-full items-center justify-between lg:hidden">
         <div
-          className={cn('min-w-10 mr-auto', isMobileMenuOpen && 'opacity-0')}
+          className={cn('shrink-0 min-w-8', isMobileMenuOpen && 'opacity-0')}
         >
           <HiMiniBars3
             className={cn(
@@ -107,7 +104,7 @@ export const MobileMenu = ({
           />
         </div>
 
-        <Link to="/" className="mx-auto">
+        <Link to="/" className="w-fit">
           {variant === 'light' ? (
             <PlanBLogoWhite className="h-[25px] w-auto" />
           ) : (
@@ -116,7 +113,7 @@ export const MobileMenu = ({
         </Link>
 
         {isLoggedIn ? (
-          <div className="text-sm font-semibold ml-auto min-w-8">
+          <div className="text-sm font-semibold shrink-0 min-w-8">
             <button
               className="cursor-pointer text-white"
               onClick={toggleDashboardMenu}
@@ -135,7 +132,7 @@ export const MobileMenu = ({
             </button>
           </div>
         ) : (
-          <div className="text-sm font-semibold ml-auto min-w-8">
+          <div className="text-sm font-semibold shrink-0 min-w-8">
             <button
               className="cursor-pointer text-white"
               onClick={onClickLogin}
@@ -152,7 +149,7 @@ export const MobileMenu = ({
 
       <nav
         className={cn(
-          'flex flex-col fixed top-0 left-0 items-center w-full max-w-[320px] h-dvh pb-5 duration-300 overflow-scroll no-scrollbar lg:hidden bg-darkOrange-2 dark:bg-newBlack-2',
+          'flex flex-col fixed top-0 left-0 items-center w-full max-w-[440px] h-dvh pb-5 duration-300 overflow-scroll no-scrollbar lg:hidden bg-darkOrange-2 dark:bg-newBlack-2',
           isMobileMenuOpen ? 'translate-x-0' : '-translate-x-full',
           variant === 'dark' && 'dark',
         )}
@@ -190,8 +187,8 @@ export const MobileMenu = ({
       {isLoggedIn && (
         <nav
           className={cn(
-            'flex flex-col fixed top-0 right-0 items-center w-full max-w-[320px] h-dvh duration-300 overflow-scroll no-scrollbar lg:hidden',
-            isDashboardMenuOpen ? 'translate-x-0' : 'translate-x-full',
+            'flex flex-col fixed top-0 right-0 items-center w-full max-w-[440px] h-dvh duration-300 overflow-scroll no-scrollbar lg:hidden',
+            isMobileDashboardMenuOpen ? 'translate-x-0' : 'translate-x-full',
             variant === 'dark' && 'dark',
           )}
           ref={dashboardMenuRef}
