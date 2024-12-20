@@ -834,7 +834,7 @@ function CourseChapter() {
                   )}
                   {chapter.isCourseReview && (
                     <>
-                      <div className="mx-4 md:mx-32">
+                      <div className="mx-4">
                         <CourseReview
                           chapter={chapter}
                           formDisabled={!isLoggedIn}
@@ -878,7 +878,7 @@ function CourseChapter() {
                   )}
                 </div>
 
-                {!chapter.isCourseExam && (
+                {!chapter.isCourseExam && !chapter.isCourseConclusion && (
                   <div className="ml-10 mt-7 hidden shrink-0 lg:block">
                     {chapters && (
                       <NavigationPanel

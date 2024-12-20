@@ -65,6 +65,19 @@
   } */
 }
 
+.start-animation {
+  animation: expandWidth 3s forwards;
+}
+
+@keyframes expandWidth {
+  from {
+    width: 0;
+  }
+  to {
+    width: full;
+  }
+}
+
 @font-face {
   font-family: 'SpaceMono';
   src: url('../assets/fonts/space_mono/SpaceMono-Bold.ttf') format('truetype');

@@ -110,6 +110,7 @@ export const CourseCurriculum = ({
                           className={cn(
                             'label-medium-16px group-hover/link:font-medium group-hover/link:underline',
                             nextChapter === chapter.chapterId &&
+                              !expandAll &&
                               'text-darkOrange-5 font-medium',
                           )}
                         >{`${partIndex + 1}.${chapter.chapterIndex} - ${chapter.title}`}</span>
@@ -141,16 +142,21 @@ export const CourseCurriculum = ({
                       )}
 
                       {completedChapters?.includes(chapter.chapterId) ? (
-                        <TextTag
-                          variant={displayNotStarted ? 'green' : 'orange'}
-                          size={isTablet ? 'verySmall' : 'small'}
-                          className="flex gap-2.5 w-fit font-medium shrink-0"
-                        >
-                          <span className="max-lg:hidden">
-                            {t('dashboard.myCourses.done')}
-                          </span>
-                          <BsCheck size={18} className="shrink-0" />
-                        </TextTag>
+                        displayNotStarted &&
+                        (chapter.isCourseConclusion ||
+                          chapter.isCourseExam ||
+                          chapter.isCourseReview) ? null : (
+                          <TextTag
+                            variant={displayNotStarted ? 'green' : 'orange'}
+                            size={isTablet ? 'verySmall' : 'small'}
+                            className="flex gap-2.5 w-fit font-medium shrink-0"
+                          >
+                            <span className="max-lg:hidden">
+                              {t('dashboard.myCourses.done')}
+                            </span>
+                            <BsCheck size={18} className="shrink-0" />
+                          </TextTag>
+                        )
                       ) : displayNotStarted &&
                         !chapter.isCourseConclusion &&
                         !chapter.isCourseExam &&

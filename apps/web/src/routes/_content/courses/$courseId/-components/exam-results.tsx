@@ -21,9 +21,9 @@ import {
   cn,
 } from '@blms/ui';
 
+import FaceFailed from '#src/assets/icons/face_failed.svg';
 import QuestionBelow from '#src/assets/icons/question_below.svg';
-import ThumbDown from '#src/assets/icons/thumb_down.svg';
-import ThumbUp from '#src/assets/icons/thumb_up.svg';
+import SuccessParty from '#src/assets/icons/success_party.svg?react';
 import TimeStamp from '#src/assets/icons/time_stamp.svg';
 import Warning from '#src/assets/icons/warning.svg';
 import { ButtonWithArrow } from '#src/molecules/button-arrow.tsx';
@@ -101,7 +101,7 @@ export const ExamResults = ({
                     </Trans>
                   </p>
                   <span className="subtitle-medium-caps-18px md:display-large-bold-caps-48px text-newBlack-1">
-                    {t('courses.exam.score')}:{' '}
+                    {t('courses.exam.score')}{' '}
                     <span
                       className={
                         examResults.succeeded
@@ -112,11 +112,16 @@ export const ExamResults = ({
                       {examResults.score}%
                     </span>
                   </span>
-                  <img
-                    src={examResults.succeeded ? ThumbUp : ThumbDown}
-                    alt={examResults.succeeded ? 'Thumb up' : 'Thumb down'}
-                    className="size-7 md:size-20"
-                  />
+                  {examResults.succeeded ? (
+                    <SuccessParty className="size-7 md:size-20 fill-brightGreen-5" />
+                  ) : (
+                    <img
+                      src={FaceFailed}
+                      alt={'Face failed'}
+                      className="size-7 md:size-20"
+                    />
+                  )}
+
                   {examResults.succeeded ? (
                     <>
                       <div className="max-md:text-center md:flex flex-col items-center md:gap-4 body-14px">

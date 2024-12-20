@@ -2,7 +2,7 @@ import { t } from 'i18next';
 import { useCallback, useEffect, useState } from 'react';
 import { MdTimer } from 'react-icons/md';
 
-import type { PartialExamQuestion } from '@blms/types';
+import type { CourseChapterResponse, PartialExamQuestion } from '@blms/types';
 import {
   Button,
   Dialog,
@@ -23,9 +23,11 @@ import { trpc } from '#src/utils/trpc.ts';
 export const FinalExam = ({
   questions,
   setIsExamCompleted,
+  chapter,
 }: {
   questions: PartialExamQuestion[];
   setIsExamCompleted: (value: boolean) => void;
+  chapter: CourseChapterResponse;
 }) => {
   const [selectedAnswers, setSelectedAnswers] = useState(
     Array.from({ length: questions.length }, (_, i) => ({
@@ -51,9 +53,11 @@ export const FinalExam = ({
           questionId: answer.questionId,
           order: answer.order,
         })),
+        chapterId: chapter.chapterId,
+        courseId: chapter.courseId,
       });
     }
-  }, [completeExamAttempt, selectedAnswers, setIsExamCompleted]);
+  }, [chapter, completeExamAttempt, selectedAnswers, setIsExamCompleted]);
 
   const handleAnswerClick = (questionIndex: number, answerIndex: number) => {
     setSelectedAnswers((prev) => {

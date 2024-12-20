@@ -1,11 +1,7 @@
 import { sql } from '@blms/database';
 import type { CourseReview } from '@blms/types';
 
-export const saveCourseReview = ({
-  newReview,
-}: {
-  newReview: CourseReview;
-}) => {
+export const saveCourseReview = (newReview: CourseReview) => {
   return sql<CourseReview[]>`
   INSERT INTO users.course_review ${sql(newReview)}
   ON CONFLICT (uid, course_id) DO UPDATE SET
