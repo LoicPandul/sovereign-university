@@ -41,6 +41,29 @@ export const MobileMenuSection = ({ section }: MobileMenuSectionProps) => {
       );
     }
 
+    if ('action' in section) {
+      return (
+        <button
+          className="group flex items-center text-newBlack-1 dark:text-white text-lg font-medium p-2 gap-[15px] w-full"
+          onClick={section.action}
+        >
+          {section.mobileIcon && (
+            <img
+              src={section.mobileIcon}
+              alt={section.title}
+              className={cn(
+                'size-6 shrink-0',
+                section.removeFilterOnIcon
+                  ? ''
+                  : ' filter-black dark:filter-white',
+              )}
+            />
+          )}
+          <span className="truncate">{section.title}</span>
+        </button>
+      );
+    }
+
     return (
       <button
         className="group flex items-center text-newBlack-1 dark:text-white text-lg font-medium p-2 gap-[15px] w-full"

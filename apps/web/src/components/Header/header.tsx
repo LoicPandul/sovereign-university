@@ -39,6 +39,11 @@ interface HeaderProps {
 export const Header = ({ variant = 'dark' }: HeaderProps) => {
   const { t } = useTranslation();
 
+  const { isOpen: isMobileMenuOpen, toggle: toggleMobileMenu } =
+    useDisclosure();
+  const { isOpen: isMobileDashboardMenuOpen, toggle: toggleDashboardMenu } =
+    useDisclosure();
+
   const {
     open: openAuthModal,
     isOpen: isAuthModalOpen,
@@ -307,7 +312,10 @@ export const Header = ({ variant = 'dark' }: HeaderProps) => {
     {
       id: 'dashboard',
       title: t('dashboard.studentDashboard'),
-      path: '/dashboard/courses',
+      action: () => {
+        toggleDashboardMenu();
+        toggleMobileMenu();
+      },
       mobileIcon: variant === 'light' ? profileLogInBlack : profileLogInWhite,
       removeFilterOnIcon: true,
     },
@@ -340,6 +348,10 @@ export const Header = ({ variant = 'dark' }: HeaderProps) => {
         }}
         sections={[...mobileSections]}
         variant={variant}
+        isMobileMenuOpen={isMobileMenuOpen}
+        toggleMobileMenu={toggleMobileMenu}
+        isMobileDashboardMenuOpen={isMobileDashboardMenuOpen}
+        toggleDashboardMenu={toggleDashboardMenu}
       />
 
       {isAuthModalOpen && (
