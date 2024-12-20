@@ -27,5 +27,5 @@ export const normalizeString = (str: string) => {
 };
 
 export const formatNameForURL = (name: string): string => {
-  return name.toLowerCase().replaceAll(/\s+/g, '-');
+  return name.toLowerCase().replaceAll(/\s+/g, '-').replaceAll('.', '-');
 };
