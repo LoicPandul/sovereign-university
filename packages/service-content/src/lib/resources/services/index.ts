@@ -19,3 +19,6 @@ export { createGetYoutubeChannels } from './get-youtube-channels.js';
 // Metadata requests
 export { createGetBuilderMeta } from './get-builder-meta.js';
 export { createGetConferenceMeta } from './get-conference-meta.js';
+
+// Search
+export { createSearch } from './search.js';

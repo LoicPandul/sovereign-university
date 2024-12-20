@@ -11,6 +11,7 @@ import type {
   SessionConfig,
   StripeConfig,
   SwissBitcoinPayConfig,
+  TypesenseConfig,
 } from '@blms/types';
 
 function getenv<
@@ -136,4 +137,11 @@ export const s3: S3Config = {
   bucket: getenv('S3_BUCKET').trim(),
   accessKey: getenv('S3_ACCESS_KEY').trim(),
   secretKey: getenv('S3_SECRET_KEY').trim(),
+};
+
+export const typesense: TypesenseConfig = {
+  apiKey: getenv('TYPESENSE_API_KEY', 'xyz'),
+  nodes: getenv('TYPESENSE_NODES', 'http://typesense:8108')
+    .split(',')
+    .map((url) => ({ url })),
 };

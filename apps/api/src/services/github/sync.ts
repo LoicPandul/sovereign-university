@@ -17,9 +17,7 @@ import {
 import type { Dependencies } from '#src/dependencies.js';
 
 export function createSyncGithubRepositories(dependencies: Dependencies) {
-  const {
-    config: { sync: config },
-  } = dependencies;
+  const config = dependencies.config.sync;
 
   const getNow = createGetNow(dependencies);
   const syncRepositories = createSyncRepositories(config);
@@ -53,19 +51,25 @@ export function createSyncGithubRepositories(dependencies: Dependencies) {
 
     console.log('-- Sync procedure: UPDATE DATABASE =========================');
 
-    const timeProcessContentFiles = timeLog('Processing content files');
-    const { errors: syncErrors, warnings: syncWarnings } =
-      await processContentFiles(context.files);
+    const syncErrors: string[] = [];
+    const syncWarnings: string[] = [];
 
-    timeProcessContentFiles();
+    // Process content files
+    {
+      const timeProcessContentFiles = timeLog('Processing content files');
+      const { errors, warnings } = await processContentFiles(context.files);
+      syncErrors.push(...errors);
+      syncWarnings.push(...warnings);
+      timeProcessContentFiles();
+    }
 
     console.log('-- Sync procedure: Calculate remaining seats');
     await calculateCourseChapterSeats();
     await calculateEventSeats();
 
-    await syncEventsLocations().catch((error: Error) => console.error(error));
+    await syncEventsLocations().catch((error) => console.error(error));
 
-    await syncBuildersLocations().catch((error: Error) => console.error(error));
+    await syncBuildersLocations().catch((error) => console.error(error));
 
     if (syncErrors.length > 0) {
       console.error(

@@ -44,7 +44,9 @@
     "VITE_STRIPE_PUBLIC",
     "STRIPE_SECRET",
     "STRIPE_ENDPOINT_SECRET",
-    "PROTECT_SYNC_ROUTE"
+    "PROTECT_SYNC_ROUTE",
+    "TYPESENSE_API_KEY",
+    "TYPESENSE_NODES"
   ],
   "tasks": {
     "build": {
