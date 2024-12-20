@@ -1,7 +1,6 @@
-import { createIndexContent } from 'node_modules/@blms/service-content/src/lib/search.js';
-
 import {
   createCalculateEventSeats,
+  createIndexContent,
   createRefreshCoursesRatings,
 } from '@blms/service-content';
 import {

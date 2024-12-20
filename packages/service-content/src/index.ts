@@ -10,5 +10,6 @@ export * from './lib/professors/services/index.js';
 export * from './lib/resources/services/index.js';
 export * from './lib/tutorials/services/index.js';
 export * from './lib/index.js';
+export * from './lib/search.js';
 export * from './lib/legals/services/index.js';
 export { createGetMetadata } from './lib/metadata.js';
