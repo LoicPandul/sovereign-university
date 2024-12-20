@@ -21,7 +21,12 @@ const getCoursesQuery = () => sql<Searchable[]>`
     LOWER(language) as language,
     name as title,
     raw_description as body,
-    CONCAT('/', language, '/courses/', course_id) as link
+    CONCAT(
+      '/',
+      language,
+      '/courses/',
+      course_id
+    ) as link
  FROM content.courses_localized ;
 `;
 
@@ -32,7 +37,14 @@ const getCoursePartsQuery = () => sql<Searchable[]>`
     cp.part_id,
     first_chapter.chapter_id as first_chapter_id,
     LOWER(language) as language,
-    CONCAT('/', language, '/courses/', cp.course_id, '/', first_chapter.chapter_id) as link,
+    CONCAT(
+      '/',
+      language,
+      '/courses/',
+      cp.course_id,
+      '/',
+      first_chapter.chapter_id
+    ) as link,
     cp.title,
     '' as body
   FROM content.course_parts_localized cp
@@ -46,7 +58,14 @@ const getCourseChaptersQuery = () => sql<Searchable[]>`
   SELECT
     'course_chapter' as type,
     LOWER(language) as language,
-    CONCAT('/', language, '/courses/', course_id, '/', chapter_id) as link,
+    CONCAT(
+      '/',
+      language,
+      '/courses/',
+      course_id,
+      '/',
+      chapter_id
+    ) as link,
     title,
     raw_content as body
   FROM content.course_chapters_localized
@@ -81,7 +100,16 @@ const getTutorialsQuery = () => sql<Searchable[]>`
     LOWER(language) as language,
     title,
     COALESCE(description, '') as body,
-    CONCAT('/', language, '/tutorials/', category, '/', subcategory, '/', tutorial_id) as link
+    CONCAT(
+      '/',
+      language,
+      '/tutorials/',
+      category,
+      '/',
+      subcategory,
+      '/',
+      tutorial_id
+    ) as link
   FROM content.tutorials_localized
   JOIN content.tutorials t ON t.id = tutorial_id
 `;
@@ -94,7 +122,12 @@ const getBooksQuery = () => sql<Searchable[]>`
       CONCAT(author, ': ', title) as title,
       original,
       description as body,
-      CONCAT('/', language, '/resources/books/', book_id) as link
+      CONCAT(
+        '/',
+        language,
+        '/resources/books/',
+        book_id
+      ) as link
     FROM content.books_localized
     JOIN content.books b ON b.resource_id = book_id
   `;
@@ -115,6 +148,21 @@ const getPodcastsQuery = () => sql<Searchable[]>`
       ) as link
     FROM content.podcasts
   `;
+
+const getGlossaryQuery = () => sql<Searchable[]>`
+  SELECT
+    'glossary_word' as type,
+    LOWER(language) as language,
+    term as title,
+    definition as body,
+    CONCAT(
+      '/',
+      language,
+      '/resources/glossary/',
+      LOWER(REPLACE(term, ' ', '-'))
+    ) as link
+  FROM content.glossary_words_localized
+`;
 
 const createInitIndexes = (client: TypesenseClient) => () => {
   const searchableSchema: CollectionCreateSchema = {
@@ -178,17 +226,7 @@ export const createIndexContent = ({ postgres, typesense }: Dependencies) => {
       ...(await postgres.exec(getTutorialsQuery())),
       ...(await postgres.exec(getBooksQuery())),
       ...(await postgres.exec(getPodcastsQuery())),
-      // Test data
-      {
-        type: 'course_chapter',
-        course_id: 0,
-        chapter_id: 0,
-        language: 'en' as Language,
-        title: 'Hello world, test the testing search for testing',
-        body: 'Hello world, test the testing search for testing',
-        link: '/en/courses/0',
-        dummy: 'value',
-      },
+      ...(await postgres.exec(getGlossaryQuery())),
     ];
 
     await ingestData(data);
