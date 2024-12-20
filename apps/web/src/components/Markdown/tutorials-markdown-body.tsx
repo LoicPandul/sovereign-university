@@ -50,7 +50,7 @@ const TutorialsMarkdownBody = ({
           <h3 className="text-lg font-medium text-black">{children}</h3>
         ),
         p: ({ children }) => (
-          <p className="text-newBlack-1 body-16px text-justify">{children}</p>
+          <p className="text-newBlack-1 body-16px">{children}</p>
         ),
         a: ({ children, href = '' }) => {
           const tutorial = getTutorial(href, tutorials);
@@ -79,19 +79,17 @@ const TutorialsMarkdownBody = ({
           );
         },
         ol: ({ children }) => (
-          <ol className="flex list-decimal flex-col pl-10 text-base tracking-wide text-justify">
+          <ol className="flex list-decimal flex-col pl-10 text-base tracking-wide">
             {children}
           </ol>
         ),
         ul: ({ children }) => (
-          <ul className="flex list-disc flex-col pl-10 text-base tracking-wide text-justify">
+          <ul className="flex list-disc flex-col pl-10 text-base tracking-wide">
             {children}
           </ul>
         ),
         li: ({ children }) => (
-          <li className="my-1 text-base tracking-wide last:mb-0 text-justify">
-            {children}
-          </li>
+          <li className="my-1 text-base tracking-wide last:mb-0">{children}</li>
         ),
         table: ({ children }) => (
           <table className="w-full table-fixed border-collapse border border-blue-900">

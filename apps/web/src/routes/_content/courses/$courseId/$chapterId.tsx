@@ -11,10 +11,12 @@ import { useTranslation } from 'react-i18next';
 import { BiChevronLeft, BiChevronRight } from 'react-icons/bi';
 import { FaArrowRightLong } from 'react-icons/fa6';
 import { FiLoader } from 'react-icons/fi';
+import { HiCheck } from 'react-icons/hi2';
+import { IoIosArrowForward } from 'react-icons/io';
 import { z } from 'zod';
 
 import type { CourseChapterResponse, JoinedQuizQuestion } from '@blms/types';
-import { Button, Loader, cn } from '@blms/ui';
+import { Button, Loader, TextTag, cn } from '@blms/ui';
 
 import OrangePill from '#src/assets/icons/orange_pill_color.svg';
 import { AuthModal } from '#src/components/AuthModals/auth-modal.tsx';
@@ -26,6 +28,7 @@ import { useGreater } from '#src/hooks/use-greater.js';
 import { AppContext } from '#src/providers/context.js';
 import {
   COURSES_WITH_INLINE_LATEX_SUPPORT,
+  addSpaceToCourseId,
   goToChapterParameters,
 } from '#src/utils/courses.js';
 import { formatDate } from '#src/utils/date.ts';
@@ -123,7 +126,6 @@ const NextLessonBanner = ({ chapter }: { chapter: CourseChapterResponse }) => {
 
 const TimelineSmall = ({
   chapter,
-  professor,
 }: {
   chapter: CourseChapterResponse;
   professor: string;
@@ -131,7 +133,7 @@ const TimelineSmall = ({
   const { t } = useTranslation();
 
   return (
-    <div className="mb-0 w-full max-w-5xl px-5 md:px-0 sm:hidden mt-5">
+    <div className="mb-0 w-full max-w-5xl px-[15px] sm:hidden mt-[15px]">
       <Link
         to={'/courses/$courseId'}
         params={{ courseId: chapter.course.id }}
@@ -144,7 +146,7 @@ const TimelineSmall = ({
       <div className="flex flex-col">
         <div className="flex items-center justify-center gap-3">
           <div className="h-0 grow border-t border-gray-300 min-w-8"></div>
-          <span className="body-medium-12px text-newBlack-1 text-center">
+          <span className="body-12px text-newBlack-1 text-center max-w-[225px]">
             {t('courses.part.count', {
               count: chapter.part.partIndex,
               total: chapter.course.parts?.length,
@@ -154,10 +156,6 @@ const TimelineSmall = ({
 
           <div className="h-0 grow border-t border-gray-300 min-w-8"></div>
         </div>
-
-        <span className="body-12px text-newBlack-1 text-center mt-[3px]">
-          {professor}
-        </span>
 
         <div
           className={cn(
@@ -214,25 +212,28 @@ const TimelineBig = ({
     chapter.part.partIndex === chapter.course.parts.length;
 
   return (
-    <div className="mb-0 w-full max-w-[1102px] max-sm:hidden mt-10 lg:mt-20 px-5 md:px-2">
-      <h1 className="flex items-center mb-5 mt-2 text-2xl md:text-4xl text-orange-800 lg:text-5xl gap-7">
+    <div className="mb-0 w-full max-w-[1102px] max-sm:hidden mt-10 px-5 md:px-2">
+      <h1 className="flex items-center gap-5">
+        <TextTag size="small" variant="grey" mode="light" className="uppercase">
+          {addSpaceToCourseId(chapter.course.id)}
+        </TextTag>
         <Link
           to={'/courses/$courseId'}
           params={{ courseId: chapter.course.id }}
-          className="text-black font-medium leading-tight hover:text-darkOrange-5"
+          className="text-black hover:text-darkOrange-5 display-small-32px"
         >
           {chapter.course.name}
         </Link>
       </h1>
-      <div className="font-body flex flex-row justify-between text-xl text-black leading-relaxed tracking-015px mt-7">
-        <span className="subtitle-large-med-20px text-newBlack-1">
+      <div className="font-body flex flex-col justify-between text-xl text-black leading-relaxed tracking-015px mt-[25px]">
+        <span className="label-medium-med-16px text-newBlack-2">
           {t('courses.part.count', {
             count: chapter.part.partIndex,
             total: chapter.course.parts.length,
           })}{' '}
           : {chapter.part.title}
         </span>
-        <div>{professor}</div>
+        <span className="body-16px text-newBlack-5">{professor}</span>
       </div>
       <div className="mt-5 flex h-4 flex-row justify-between space-x-3 rounded-full">
         {chapter.course.parts.map((currentPart) => {
@@ -291,7 +292,7 @@ const TimelineBig = ({
                     />
                     <div
                       className={compose(
-                        'h-4 w-1/2 bg-newGray-3',
+                        'h-4 w-1/2 bg-newGray-4',
                         lastPart && lastChapter ? 'rounded-r-full' : '',
                       )}
                     />
@@ -300,7 +301,7 @@ const TimelineBig = ({
                       className={compose(
                         'absolute inset-0 bottom-0 left-0 m-auto h-8 w-full',
                       )}
-                      alt=""
+                      alt="Progress pill"
                     />
                   </div>
                 );
@@ -423,7 +424,12 @@ const BottomButton = ({ chapter }: { chapter: CourseChapterResponse }) => {
           />
         </Button>
       ) : (
-        <Button variant="primary" size="l" onClick={completeChapter}>
+        <Button
+          variant="primary"
+          size="l"
+          onClick={completeChapter}
+          className="max-md:min-w-[262px]"
+        >
           <span>{t('courses.chapter.next')}</span>
           <FaArrowRightLong
             className={cn(
@@ -771,47 +777,50 @@ function CourseChapter() {
             </div>
 
             <div className="flex w-full flex-col items-center justify-center lg:max-w-[1102px] lg:items-stretch lg:justify-stretch">
-              <div className="text-blue-1000 w-full space-y-4 break-words px-[15px] md:px-2 md:mt-8 md:grow md:space-y-6 md:overflow-hidden pb-2">
+              <div className="text-blue-1000 w-full space-y-5 break-words px-[15px] md:px-2 md:mt-8 md:grow md:space-y-[18px] md:overflow-hidden pb-2 md:pb-0">
                 {!chapter.isCourseExam && <Header chapter={chapter} />}
               </div>
               <div className="flex w-full max-lg:flex-col items-center justify-center lg:max-w-[1102px] lg:items-stretch lg:justify-stretch">
-                <div className="text-blue-1000 w-full space-y-4 break-words px-[15px] md:px-2 md:mt-8 md:grow md:space-y-6 md:overflow-hidden pb-2">
+                <div className="text-blue-1000 w-full space-y-5 break-words px-[15px] md:px-2 md:mt-8 md:grow md:space-y-[18px] md:overflow-hidden pb-2">
                   {!chapter.isCourseExam && (
                     <div>
                       {sections.length > 0 && (
                         <div
                           className={cn(
-                            'flex flex-col self-stretch rounded-3xl px-6 py-2.5 shadow-course-navigation max-lg:mb-1',
-                            isContentExpanded ? 'bg-white' : 'bg-white h-auto',
-                            isContentExpanded ? 'h-auto ' : 'mt-1 h-auto ',
+                            'flex flex-col self-stretch rounded-[10px] lg:rounded-[20px] p-4 lg:p-5 shadow-course-navigation',
+                            isContentExpanded
+                              ? 'bg-newGray-6'
+                              : 'bg-newGray-6 h-auto',
                           )}
                         >
                           <button
-                            className="flex cursor-pointer items-center subtitle-small-med-14px md:font-medium text-black md:text-2xl uppercase"
+                            className="flex cursor-pointer items-center text-darkOrange-5 gap-2 lg:gap-4"
                             onClick={() =>
                               setIsContentExpanded(!isContentExpanded)
                             }
                           >
-                            <span
-                              className={`mr-3 text-2xl ${
+                            <IoIosArrowForward
+                              className={cn(
+                                'size-4 lg:size-5',
                                 isContentExpanded
                                   ? 'rotate-90 transition-transform'
-                                  : 'transition-transform'
-                              }`}
-                            >
-                              {'> '}
+                                  : 'transition-transform',
+                              )}
+                            />
+                            <span className="subtitle-small-caps-14px lg:subtitle-medium-caps-18px">
+                              {t('courses.details.objectivesTitle')}
                             </span>
-                            <span>{t('courses.details.objectivesTitle')}</span>
                           </button>
                           {isContentExpanded && (
-                            <div className="mt-3 px-5 text-sm md:text-base">
+                            <div className="mt-[15px] lg:mt-4 text-sm md:text-base">
                               <ul className="flex flex-col gap-1.5">
                                 {sections.map((goal: string, index: number) => (
-                                  <li className="flex items-center" key={index}>
-                                    <span className="mr-3 text-newGray-3 text-sm">
-                                      {'▶'}
-                                    </span>
-                                    <span className="text-black">
+                                  <li
+                                    className="flex items-center gap-2.5 text-black "
+                                    key={index}
+                                  >
+                                    <HiCheck className="shrink-0 size-[18px] lg:size-6" />
+                                    <span className="body-14px lg:label-large-20px">
                                       {capitalizeFirstWord(goal)}
                                     </span>
                                   </li>
@@ -853,7 +862,10 @@ function CourseChapter() {
                     )}
                   <MarkdownContent chapter={chapter} />
                   {!isSpecialChapter && displayQuizAndNext && (
-                    <div className="md:!mt-12">
+                    <div className="md:!mt-5">
+                      <span className="text-darkOrange-5 title-medium-sb-18px md:font-normal md:text-2xl">
+                        Quiz
+                      </span>
                       {questionsArray && questionsArray.length > 0 && (
                         <QuizzCard
                           name={chapter.course.id}

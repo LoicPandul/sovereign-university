@@ -11,7 +11,6 @@ import type { JoinedCourse, JoinedTutorialLight } from '@blms/types';
 import { CourseCard } from '#src/organisms/course-card.tsx';
 import { TutorialCard } from '#src/routes/_content/tutorials/-components/tutorial-card.js';
 
-import YellowPen from '../../assets/courses/pencil.svg?react';
 import VideoSVG from '../../assets/resources/video.svg?react';
 import { CopyButton } from '../copy-button.tsx';
 import { ReactPlayer } from '../react-player.tsx';
@@ -36,23 +35,20 @@ const CoursesMarkdownBody = ({
     <ReactMarkdown
       components={{
         h2: ({ children }) => (
-          <h2 className="mt-6 text-3xl font-semibold text-orange-600 sm:mt-10 sm:text-2xl ">
-            <div className="flex w-auto items-center">
-              <YellowPen className="mr-2 size-6 bg-contain sm:hidden " />
-              {children}
-            </div>
+          <h2 className="max-lg:title-large-sb-24px lg:text-3xl leading-snug text-darkOrange-5">
+            <div className="flex w-auto items-center">{children}</div>
           </h2>
         ),
         h3: ({ children }) => (
-          <h3 className="text-3xl font-medium text-orange-500">{children}</h3>
+          <h3 className="max-lg:title-medium-sb-18px lg:text-2xl leading-snug text-darkOrange-5">
+            {children}
+          </h3>
         ),
         h4: ({ children }) => (
           <h3 className="text-2xl font-medium">{children}</h3>
         ),
         p: ({ children }) => (
-          <p className="text-blue-1000 text-base tracking-wide text-justify has-[>code]:text-left">
-            {children}
-          </p>
+          <p className="text-blue-1000 body-16px">{children}</p>
         ),
         a: ({ children, href = '' }) => {
           const tutorial = getTutorial(href, tutorials);
@@ -81,19 +77,17 @@ const CoursesMarkdownBody = ({
           );
         },
         ol: ({ children }) => (
-          <ol className="flex list-decimal flex-col pl-10 text-base tracking-wide text-justify">
+          <ol className="flex list-decimal flex-col pl-10 body-16px">
             {children}
           </ol>
         ),
         ul: ({ children }) => (
-          <ul className="flex list-disc flex-col pl-10 text-base tracking-wide text-justify">
+          <ul className="flex list-disc flex-col pl-10 body-16px">
             {children}
           </ul>
         ),
         li: ({ children }) => (
-          <li className="my-1 text-base tracking-wide last:mb-0 text-justify">
-            {children}
-          </li>
+          <li className="my-1 body-16px last:mb-0">{children}</li>
         ),
         table: ({ children }) => (
           <table className="w-full table-fixed border-collapse border border-blue-900">
@@ -114,8 +108,8 @@ const CoursesMarkdownBody = ({
           src?.includes('youtube.com') ||
           src?.includes('youtu.be') ||
           src?.includes('rumble.com') ? (
-            <div className="mx-auto mb-2 max-w-full rounded-lg py-6">
-              <div className=" flex items-center">
+            <div className="mx-auto mb-2 max-w-full rounded-lg pb-6">
+              <div className="flex items-center">
                 <VideoSVG className="mb-2 ml-4 size-10" />
                 <div className="ml-2">
                   <p className="text-lg font-medium text-blue-900">Video</p>
@@ -147,7 +141,7 @@ const CoursesMarkdownBody = ({
             </div>
           ) : (
             <img
-              className="mx-auto flex justify-center rounded-lg py-6"
+              className="mx-auto flex justify-center rounded-lg pb-6"
               src={src}
               alt={alt}
             />
