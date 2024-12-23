@@ -18,6 +18,7 @@ import {
 import { useGreater } from '#src/hooks/use-greater.js';
 import { useNavigateMisc } from '#src/hooks/use-navigate-misc.ts';
 import { BackLink } from '#src/molecules/backlink.js';
+import Flag from '#src/molecules/Flag/index.tsx';
 import { assetUrl } from '#src/utils/index.js';
 import { useShuffleSuggestedContent } from '#src/utils/resources-hook.ts';
 import { formatNameForURL } from '#src/utils/string.ts';
@@ -148,11 +149,19 @@ function NewsletterDetail() {
           >
             <article className="w-full flex flex-col md:flex-row gap-5 lg:gap-9">
               <div className="flex flex-col">
-                <img
-                  className="md:w-[367px] mx-auto object-cover rounded-[10px] lg:max-w-[347px] md:mx-0 lg:rounded-[22px] mb-5 lg:mb-[30px]"
-                  alt={newsletter.title}
-                  src={assetUrl(newsletter.path, 'thumbnail.webp')}
-                />
+                <div className="relative max-md:max-w-[219px] mx-auto">
+                  <img
+                    className="max-md:max-w-[219px] md:w-[367px] mx-auto object-cover rounded-[10px] lg:max-w-[347px] md:mx-0 lg:rounded-[22px] mb-5 lg:mb-[30px]"
+                    alt={newsletter.title}
+                    src={assetUrl(newsletter.path, 'thumbnail.webp')}
+                  />
+                  <Flag
+                    code={newsletter.language}
+                    size="m"
+                    className="shrink-0 md:hidden absolute top-[13px] right-[12px]"
+                  />
+                </div>
+
                 <div className="flex flex-row justify-evenly md:flex-col md:space-y-2 lg:flex-row lg:space-y-0">
                   {newsletter?.websiteUrl && (
                     <Link to={newsletter.websiteUrl}>
@@ -169,10 +178,16 @@ function NewsletterDetail() {
               </div>
 
               <div className="w-full max-w-2xl flex flex-col md:mt-0">
-                <h2 className="title-large-24px md:display-large-med-48px text-white mb-5 lg:mb-[30px]">
-                  {newsletter.title}
-                </h2>
-
+                <div className="flex justify-between items-center gap-2 w-full mb-5 lg:mb-[30px]">
+                  <h2 className="title-large-24px md:display-large-med-48px text-white">
+                    {newsletter.title}
+                  </h2>
+                  <Flag
+                    code={newsletter.language}
+                    size="xl"
+                    className="shrink-0 max-md:hidden"
+                  />
+                </div>
                 <p className="text-newGray-3 pr-1 subtitle-small-med-14px md:label-large-med-20px">
                   {t('resources.newsletters.author')}
                   <span className="inline text-white subtitle-small-med-14px md:label-large-med-20px">
