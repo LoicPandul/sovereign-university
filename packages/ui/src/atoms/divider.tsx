@@ -21,6 +21,18 @@ const dividerVariant = cva('w-full border-t', {
   },
 });
 
+const dividerSimpleVariant = cva('w-full h-px', {
+  variants: {
+    mode: {
+      dark: 'bg-newGray-1',
+      light: 'bg-newGray-4',
+    },
+  },
+  defaultVariants: {
+    mode: 'dark',
+  },
+});
+
 export const Divider = ({
   children,
   className = 'mx-4',
@@ -44,4 +56,14 @@ export const Divider = ({
       )}
     </div>
   );
+};
+
+export const DividerSimple = ({
+  className,
+  mode = 'dark',
+}: {
+  className?: string;
+  mode?: 'dark' | 'light';
+}) => {
+  return <div className={cn(dividerSimpleVariant({ mode }), className)}></div>;
 };

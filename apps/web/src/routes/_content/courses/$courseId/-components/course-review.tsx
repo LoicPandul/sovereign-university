@@ -166,19 +166,23 @@ function FormTextArea({
 export function CourseReview({
   chapter,
   courseId,
+  chapterId,
   existingReview,
   formDisabled = false,
   isDashboardReview,
   isConclusionReview,
   isLockedReview,
+  onReviewSuccess,
 }: {
   chapter?: CourseChapterResponse;
   courseId?: string;
+  chapterId?: string;
   existingReview?: CourseReview;
   formDisabled?: boolean;
   isDashboardReview?: boolean;
   isConclusionReview?: boolean;
   isLockedReview?: boolean;
+  onReviewSuccess?: () => void;
 }) {
   const { t } = useTranslation();
   const navigate = useNavigate();
@@ -203,7 +207,13 @@ export function CourseReview({
     }
   }, [isReviewFetched, previousCourseReview, formDisabled]);
 
-  const saveCourseReview = trpc.user.courses.saveCourseReview.useMutation();
+  const saveCourseReview = trpc.user.courses.saveCourseReview.useMutation({
+    onSuccess: () => {
+      if (isConclusionReview && onReviewSuccess) {
+        onReviewSuccess();
+      }
+    },
+  });
 
   const {
     open: openAuthModal,
@@ -274,7 +284,7 @@ export function CourseReview({
     await saveCourseReview.mutateAsync({
       ...form.getValues(),
       courseId: chapter?.courseId || courseId || '',
-      chapterId: chapter?.chapterId || '',
+      chapterId: chapter?.chapterId || chapterId || '',
     });
 
     navigateToNextChapter();

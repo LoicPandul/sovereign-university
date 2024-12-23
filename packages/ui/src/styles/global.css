@@ -349,6 +349,10 @@
     @apply text-xl leading-[160%] font-medium tracking-015px;
   }
 
+  .subtitle-large-18px {
+    @apply text-lg leading-[160%] font-normal tracking-015px;
+  }
+
   .subtitle-medium-caps-18px {
     @apply text-base leading-normal font-normal tracking-normal uppercase;
   }

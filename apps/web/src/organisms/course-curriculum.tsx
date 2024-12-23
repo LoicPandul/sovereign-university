@@ -70,6 +70,7 @@ export const CourseCurriculum = ({
                 ) && !displayNotStarted ? (
                   <TextTag
                     variant="orange"
+                    mode="light100"
                     size={isTablet ? 'verySmall' : 'small'}
                     className="flex gap-2.5 w-fit font-medium shrink-0"
                   >
@@ -148,6 +149,7 @@ export const CourseCurriculum = ({
                           chapter.isCourseReview) ? null : (
                           <TextTag
                             variant={displayNotStarted ? 'green' : 'orange'}
+                            mode="light100"
                             size={isTablet ? 'verySmall' : 'small'}
                             className="flex gap-2.5 w-fit font-medium shrink-0"
                           >
@@ -163,6 +165,7 @@ export const CourseCurriculum = ({
                         !chapter.isCourseReview ? (
                         <TextTag
                           variant={'orange'}
+                          mode="light100"
                           size={isTablet ? 'verySmall' : 'small'}
                           className="flex gap-2.5 w-fit font-medium shrink-0"
                         >

@@ -13,8 +13,12 @@ import { assetUrl } from '#src/utils/index.js';
 const courseCardStyles = cva('group flex flex-col w-full md:h-[472px] p-2.5', {
   variants: {
     color: {
-      primary: 'bg-tertiary-10',
+      primary: 'bg-tertiary-2 dark:bg-tertiary-10',
       featured: 'bg-darkOrange-9 border border-darkOrange-5 shadow-sm-section',
+    },
+    mode: {
+      light: '',
+      dark: 'dark',
     },
     borderRadius: {
       courses: 'rounded-[10px] md:rounded-[20px]',
@@ -22,6 +26,7 @@ const courseCardStyles = cva('group flex flex-col w-full md:h-[472px] p-2.5', {
   },
   defaultVariants: {
     color: 'primary',
+    mode: 'dark',
     borderRadius: 'courses',
   },
 });
@@ -29,9 +34,11 @@ const courseCardStyles = cva('group flex flex-col w-full md:h-[472px] p-2.5', {
 export const CourseCard = ({
   course,
   featured = false,
+  mode = 'dark',
 }: {
   course: JoinedCourse;
   featured?: boolean;
+  mode?: 'light' | 'dark';
 }) => {
   const maxRating = 5;
 
@@ -45,6 +52,7 @@ export const CourseCard = ({
       <article
         className={`overflow-hidden ${courseCardStyles({
           color: featured ? 'featured' : 'primary',
+          mode,
         })} relative`}
       >
         {/* Badge for Featured Card */}
@@ -66,7 +74,7 @@ export const CourseCard = ({
             className="md:hidden rounded-md w-[124px] object-cover [overflow-clip-margin:_unset] object-center"
           />
           <div className="flex flex-col md:gap-2">
-            <span className="max-md:flex flex-col md:mb-2 !line-clamp-2 font-medium leading-[120%] tracking-015px md:desktop-h6 text-white md:align-top mb-2 lg:mb-0">
+            <span className="max-md:flex flex-col md:mb-2 !line-clamp-2 font-medium leading-[120%] tracking-015px md:desktop-h6 text-tertiary-11 dark:text-white md:align-top mb-2 lg:mb-0">
               {course.name}
             </span>
             <div className="flex flex-col flex-wrap gap-2.5 md:mt-auto">
@@ -74,7 +82,7 @@ export const CourseCard = ({
                 <TextTag
                   size="verySmall"
                   variant="lightMaroon"
-                  mode="dark"
+                  mode={mode}
                   className="uppercase"
                 >
                   {course.id === 'btc101'
@@ -84,7 +92,7 @@ export const CourseCard = ({
                 <TextTag
                   size="verySmall"
                   variant="lightMaroon"
-                  mode="dark"
+                  mode={mode}
                   className="uppercase"
                 >
                   {course.requiresPayment
@@ -104,7 +112,7 @@ export const CourseCard = ({
           </div>
         </div>
         <div className="relative">
-          <p className="text-tertiary-4 md:leading-relaxed md:tracking-[0.08px] line-clamp-3 transition-opacity opacity-100 md:group-hover:opacity-0 md:group-hover:absolute duration-300">
+          <p className="text-tertiary-8 dark:text-tertiary-4 md:leading-relaxed md:tracking-[0.08px] line-clamp-3 transition-opacity opacity-100 md:group-hover:opacity-0 md:group-hover:absolute duration-300">
             {course.goal}
           </p>
         </div>
@@ -118,11 +126,13 @@ export const CourseCard = ({
               className="border-none"
               rightTextClassName="ml-2-5 line-clamp-1"
               leftTextClassName="shrink-0"
+              variant="lightMaroon"
             />
             <ListItem
               leftText={t('words.duration')}
               rightText={course.hours + ' hours'}
               className="border-t"
+              variant="lightMaroon"
             />
           </div>
         </div>
