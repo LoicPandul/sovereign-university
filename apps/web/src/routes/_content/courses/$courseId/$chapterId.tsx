@@ -270,7 +270,7 @@ const TimelineBig = ({
                               currentChapter.chapterIndex <
                                 chapter.chapterIndex)
                             ? 'bg-darkOrange-5'
-                            : 'bg-newGray-3',
+                            : 'bg-newGray-4',
                           firstPart && firstChapter ? 'rounded-l-full' : '',
                           lastPart && lastChapter ? 'rounded-r-full' : '',
                         )}
