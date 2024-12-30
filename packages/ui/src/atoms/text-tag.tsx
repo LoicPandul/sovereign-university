@@ -45,7 +45,7 @@ const TextTag = React.forwardRef<HTMLDivElement, TextTagProps>(
     { className, size, variant, mode, asChild = false, children, ...props },
     ref,
   ) => {
-    const Comp = asChild ? Slot : 'div';
+    const Comp = asChild ? Slot : 'span';
     return (
       <Comp
         className={cn(className, textTagVariants({ size, variant, mode }))}

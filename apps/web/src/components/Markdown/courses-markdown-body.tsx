@@ -47,9 +47,16 @@ const CoursesMarkdownBody = ({
         h4: ({ children }) => (
           <h3 className="text-2xl font-medium">{children}</h3>
         ),
-        p: ({ children }) => (
-          <p className="text-blue-1000 body-16px">{children}</p>
-        ),
+        p: ({ children }) => {
+          if (
+            Array.isArray(children) &&
+            children.length === 1 &&
+            typeof children[0] === 'string'
+          ) {
+            return <p className="text-blue-1000 body-16px">{children}</p>;
+          }
+          return <div className="text-blue-1000 body-16px">{children}</div>;
+        },
         a: ({ children, href = '' }) => {
           const tutorial = getTutorial(href, tutorials);
           if (tutorial) {
