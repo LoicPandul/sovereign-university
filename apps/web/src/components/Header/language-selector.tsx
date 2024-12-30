@@ -18,8 +18,8 @@ interface LanguageSelectorProps {
 }
 
 const variantHeaderBackgroundMap = {
-  light: 'text-black bg-darkOrange-2 lg:hover:bg-darkOrange-2',
-  dark: 'text-white bg-newBlack-3 lg:hover:bg-newBlack-3',
+  light: 'text-black',
+  dark: 'text-white',
   darkOrange: 'text-white bg-darkOrange-11',
 };
 
