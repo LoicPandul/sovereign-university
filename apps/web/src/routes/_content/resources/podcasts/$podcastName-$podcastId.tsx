@@ -18,6 +18,7 @@ import {
 import { useGreater } from '#src/hooks/use-greater.js';
 import { useNavigateMisc } from '#src/hooks/use-navigate-misc.ts';
 import { BackLink } from '#src/molecules/backlink.tsx';
+import Flag from '#src/molecules/Flag/index.tsx';
 import { assetUrl, trpc } from '#src/utils/index.ts';
 import { useShuffleSuggestedContent } from '#src/utils/resources-hook.ts';
 import { formatNameForURL } from '#src/utils/string.ts';
@@ -125,11 +126,18 @@ function Podcast() {
             >
               <div className="w-full flex flex-col md:flex-row gap-5 lg:gap-16">
                 <div className="flex flex-col items-center justify-center">
-                  <img
-                    className="max-w-[219px] mx-auto object-cover [overflow-clip-margin:_unset] rounded-[10px] lg:max-w-[347px] md:mx-0 lg:rounded-none mb-5 lg:mb-[30px]"
-                    alt={t('imagesAlt.bookCover')}
-                    src={assetUrl(podcast.path, 'logo.webp')}
-                  />
+                  <div className="relative">
+                    <img
+                      className="max-w-[219px] mx-auto object-cover [overflow-clip-margin:_unset] rounded-[10px] lg:max-w-[347px] md:mx-0 lg:rounded-none mb-5 lg:mb-[30px]"
+                      alt={t('imagesAlt.bookCover')}
+                      src={assetUrl(podcast.path, 'logo.webp')}
+                    />
+                    <Flag
+                      code={podcast.language}
+                      size="m"
+                      className="shrink-0 md:hidden absolute top-[13px] right-[12px]"
+                    />
+                  </div>
                   <div className="flex flex-row justify-evenly md:flex-col md:space-y-2 lg:flex-row lg:space-y-0">
                     {podcast?.podcastUrl && (
                       <Link to={podcast.podcastUrl}>
@@ -147,10 +155,16 @@ function Podcast() {
 
                 <div className="w-full max-w-2xl flex flex-col md:mt-0">
                   <div>
-                    <h2 className="title-large-24px md:display-large-med-48px text-white mb-5 lg:mb-[30px]">
-                      {podcast?.name}
-                    </h2>
-
+                    <div className="flex justify-between items-center gap-2 w-full mb-5 lg:mb-[30px]">
+                      <h2 className="title-large-24px md:display-large-med-48px text-white">
+                        {podcast?.name}
+                      </h2>
+                      <Flag
+                        code={podcast.language}
+                        size="xl"
+                        className="shrink-0 max-md:hidden"
+                      />
+                    </div>
                     <div className="flex flex-wrap gap-[10px] mb-5 lg:mb-8">
                       {podcast?.tags.map((tag, i) => (
                         <TextTag
