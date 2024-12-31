@@ -88,7 +88,7 @@ export const CourseConclusion = ({ chapter }: CourseConclusionProps) => {
             hideGithubLink
             displayNotStarted
             expandAll
-            className="self-start w-full mt-5 md:mt-10"
+            className="self-start w-full mt-3 md:mt-10"
           ></CourseCurriculum>
           <Button
             className="ml-auto"
