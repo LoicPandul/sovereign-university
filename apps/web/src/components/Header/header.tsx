@@ -11,6 +11,7 @@ import profileLogInWhite from '#src/assets/icons/profile_log_in_white.svg';
 import resourcesSvg from '#src/assets/resources/builder.svg';
 import eventsSvg from '#src/assets/resources/conference.svg';
 import glossarySvg from '#src/assets/resources/glossary.svg';
+import lecturesSvg from '#src/assets/resources/lecture.svg';
 import coursesSvg from '#src/assets/resources/library.svg';
 import podcastSvg from '#src/assets/resources/podcast.svg';
 import tutorialsSvg from '#src/assets/resources/toolkit.svg';
@@ -189,6 +190,13 @@ export const Header = ({ variant = 'dark' }: HeaderProps) => {
               description: t('menu.channelsDescription'),
               path: '/resources/channels',
               icon: youtubeChannelsSvg,
+            },
+            {
+              id: 'lectures',
+              title: t('resources.lectures.title'),
+              description: t('menu.lecturesDescription'),
+              path: '/resources/lectures',
+              icon: lecturesSvg,
             },
           ],
         },

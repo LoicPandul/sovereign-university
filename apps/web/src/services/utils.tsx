@@ -4,6 +4,7 @@ import webSvg from '#src/assets/icons/world-pixelated.svg';
 import builderSvg from '#src/assets/resources/builder.svg';
 import conferenceSvg from '#src/assets/resources/conference.svg';
 import glossarySvg from '#src/assets/resources/glossary.svg';
+import lectureSvg from '#src/assets/resources/lecture.svg';
 import librarySvg from '#src/assets/resources/library.svg';
 import podcastSvg from '#src/assets/resources/podcast.svg';
 import toolkitSvg from '#src/assets/resources/toolkit.svg';
@@ -93,6 +94,11 @@ export const RESOURCES_CATEGORIES = [
   {
     name: 'channels',
     image: youtubeSvg,
+    unreleased: false,
+  },
+  {
+    name: 'lectures',
+    image: lectureSvg,
     unreleased: false,
   },
 ] as const;

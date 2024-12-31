@@ -2,6 +2,7 @@ import { useTranslation } from 'react-i18next';
 
 import type {
   JoinedBook,
+  JoinedEvent,
   JoinedNewsletter,
   JoinedPodcast,
   JoinedYoutubeChannel,
@@ -11,7 +12,8 @@ type Content =
   | JoinedBook
   | JoinedNewsletter
   | JoinedPodcast
-  | JoinedYoutubeChannel;
+  | JoinedYoutubeChannel
+  | JoinedEvent;
 
 export const useShuffleSuggestedContent = (
   suggestedContentArray: Content[],
@@ -30,8 +32,14 @@ export const useShuffleSuggestedContent = (
   const categorizedContent = filteredContent.reduce(
     (acc: { prioritized: Content[]; others: Content[] }, suggestedContent) => {
       if (
-        suggestedContent.language === currentContent.language ||
-        suggestedContent.language === i18n.language
+        ('language' in suggestedContent &&
+          'language' in currentContent &&
+          (suggestedContent.language === currentContent.language ||
+            suggestedContent.language === i18n.language)) ||
+        ('languages' in suggestedContent &&
+          'languages' in currentContent &&
+          (suggestedContent.languages[0] === currentContent.languages[0] ||
+            suggestedContent.languages[0] === i18n.language))
       ) {
         acc.prioritized.push(suggestedContent);
       } else {

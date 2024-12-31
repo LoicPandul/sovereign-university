@@ -5,6 +5,7 @@ import {
   joinedBookSchema,
   joinedBuilderSchema,
   joinedConferenceSchema,
+  joinedEventSchema,
   joinedGlossaryWordSchema,
   joinedNewsletterSchema,
   joinedPodcastSchema,
@@ -20,6 +21,8 @@ import {
   createGetConferences,
   createGetGlossaryWord,
   createGetGlossaryWords,
+  createGetLecture,
+  createGetLectures,
   createGetNewsletter,
   createGetNewsletters,
   createGetPodcast,
@@ -33,6 +36,7 @@ import type {
   JoinedBook,
   JoinedBuilder,
   JoinedConference,
+  JoinedEvent,
   JoinedGlossaryWord,
   JoinedNewsletter,
   JoinedPodcast,
@@ -122,6 +126,20 @@ export const resourcesRouter = createTRPCRouter({
       return createGetGlossaryWord(ctx.dependencies)(
         input.strId,
         input.language,
+      );
+    }),
+  // Lectures
+  getLectures: createGetResourcesProcedure()
+    .output<Parser<JoinedEvent[]>>(joinedEventSchema.array())
+    .query(({ ctx }) => {
+      return createGetLectures(ctx.dependencies)();
+    }),
+  getLecture: createGetResourceProcedureWithStrId()
+    .output<Parser<JoinedEvent>>(joinedEventSchema)
+    .query(({ ctx, input }) => {
+      return createGetLecture(ctx.dependencies)(
+        input.strId,
+        ctx.user.uid || '',
       );
     }),
   //Newsletters

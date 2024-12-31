@@ -1014,6 +1014,8 @@ export const contentEvents = content.table('events', (t) => ({
   addressLine2: t.text('address_line_2'),
   addressLine3: t.text('address_line_3'),
   builder: t.varchar({ length: 255 }),
+  professor: t.text(),
+  courseRelated: t.text(),
   websiteUrl: t.text(),
   replayUrl: t.text(),
   liveUrl: t.text(),

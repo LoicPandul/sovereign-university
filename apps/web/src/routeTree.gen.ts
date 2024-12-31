@@ -35,6 +35,7 @@ import { Route as ContentMiscAboutImport } from './routes/_content/_misc/about';
 import { Route as ContentTutorialsCategoryIndexImport } from './routes/_content/tutorials/$category/index';
 import { Route as ContentResourcesPodcastsIndexImport } from './routes/_content/resources/podcasts/index';
 import { Route as ContentResourcesNewslettersIndexImport } from './routes/_content/resources/newsletters/index';
+import { Route as ContentResourcesLecturesIndexImport } from './routes/_content/resources/lectures/index';
 import { Route as ContentResourcesGlossaryIndexImport } from './routes/_content/resources/glossary/index';
 import { Route as ContentResourcesConferencesIndexImport } from './routes/_content/resources/conferences/index';
 import { Route as ContentResourcesChannelsIndexImport } from './routes/_content/resources/channels/index';
@@ -54,6 +55,7 @@ import { Route as DashboardDashboardAdministrationRoleImport } from './routes/da
 import { Route as DashboardDashboardAdministrationBookingsImport } from './routes/dashboard/_dashboard/administration/bookings';
 import { Route as ContentResourcesPodcastsPodcastNamePodcastIdImport } from './routes/_content/resources/podcasts/$podcastName-$podcastId';
 import { Route as ContentResourcesNewslettersNewsletterNameNewsletterIdImport } from './routes/_content/resources/newsletters/$newsletterName-$newsletterId';
+import { Route as ContentResourcesLecturesLectureIdImport } from './routes/_content/resources/lectures/$lectureId';
 import { Route as ContentResourcesGlossaryWordIdImport } from './routes/_content/resources/glossary/$wordId';
 import { Route as ContentResourcesConferencesConferenceNameConferenceIdImport } from './routes/_content/resources/conferences/$conferenceName-$conferenceId';
 import { Route as ContentResourcesChannelsChannelNameChannelIdImport } from './routes/_content/resources/channels/$channelName-$channelId';
@@ -227,6 +229,13 @@ const ContentResourcesNewslettersIndexRoute =
     getParentRoute: () => rootRoute,
   } as any);
 
+const ContentResourcesLecturesIndexRoute =
+  ContentResourcesLecturesIndexImport.update({
+    id: '/_content/resources/lectures/',
+    path: '/resources/lectures/',
+    getParentRoute: () => rootRoute,
+  } as any);
+
 const ContentResourcesGlossaryIndexRoute =
   ContentResourcesGlossaryIndexImport.update({
     id: '/_content/resources/glossary/',
@@ -358,6 +367,13 @@ const ContentResourcesNewslettersNewsletterNameNewsletterIdRoute =
   ContentResourcesNewslettersNewsletterNameNewsletterIdImport.update({
     id: '/_content/resources/newsletters/$newsletterName-$newsletterId',
     path: '/resources/newsletters/$newsletterName-$newsletterId',
+    getParentRoute: () => rootRoute,
+  } as any);
+
+const ContentResourcesLecturesLectureIdRoute =
+  ContentResourcesLecturesLectureIdImport.update({
+    id: '/_content/resources/lectures/$lectureId',
+    path: '/resources/lectures/$lectureId',
     getParentRoute: () => rootRoute,
   } as any);
 
@@ -722,6 +738,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ContentResourcesGlossaryWordIdImport;
       parentRoute: typeof rootRoute;
     };
+    '/_content/resources/lectures/$lectureId': {
+      id: '/_content/resources/lectures/$lectureId';
+      path: '/resources/lectures/$lectureId';
+      fullPath: '/resources/lectures/$lectureId';
+      preLoaderRoute: typeof ContentResourcesLecturesLectureIdImport;
+      parentRoute: typeof rootRoute;
+    };
     '/_content/resources/newsletters/$newsletterName-$newsletterId': {
       id: '/_content/resources/newsletters/$newsletterName-$newsletterId';
       path: '/resources/newsletters/$newsletterName-$newsletterId';
@@ -853,6 +876,13 @@ declare module '@tanstack/react-router' {
       path: '/resources/glossary';
       fullPath: '/resources/glossary';
       preLoaderRoute: typeof ContentResourcesGlossaryIndexImport;
+      parentRoute: typeof rootRoute;
+    };
+    '/_content/resources/lectures/': {
+      id: '/_content/resources/lectures/';
+      path: '/resources/lectures';
+      fullPath: '/resources/lectures';
+      preLoaderRoute: typeof ContentResourcesLecturesIndexImport;
       parentRoute: typeof rootRoute;
     };
     '/_content/resources/newsletters/': {
@@ -1034,6 +1064,7 @@ export interface FileRoutesByFullPath {
   '/resources/channels/$channelName-$channelId': typeof ContentResourcesChannelsChannelNameChannelIdRoute;
   '/resources/conferences/$conferenceName-$conferenceId': typeof ContentResourcesConferencesConferenceNameConferenceIdRoute;
   '/resources/glossary/$wordId': typeof ContentResourcesGlossaryWordIdRoute;
+  '/resources/lectures/$lectureId': typeof ContentResourcesLecturesLectureIdRoute;
   '/resources/newsletters/$newsletterName-$newsletterId': typeof ContentResourcesNewslettersNewsletterNameNewsletterIdRoute;
   '/resources/podcasts/$podcastName-$podcastId': typeof ContentResourcesPodcastsPodcastNamePodcastIdRoute;
   '/dashboard/administration/bookings': typeof DashboardDashboardAdministrationBookingsRoute;
@@ -1053,6 +1084,7 @@ export interface FileRoutesByFullPath {
   '/resources/channels': typeof ContentResourcesChannelsIndexRoute;
   '/resources/conferences': typeof ContentResourcesConferencesIndexRoute;
   '/resources/glossary': typeof ContentResourcesGlossaryIndexRoute;
+  '/resources/lectures': typeof ContentResourcesLecturesIndexRoute;
   '/resources/newsletters': typeof ContentResourcesNewslettersIndexRoute;
   '/resources/podcasts': typeof ContentResourcesPodcastsIndexRoute;
   '/tutorials/$category': typeof ContentTutorialsCategoryIndexRoute;
@@ -1096,6 +1128,7 @@ export interface FileRoutesByTo {
   '/resources/channels/$channelName-$channelId': typeof ContentResourcesChannelsChannelNameChannelIdRoute;
   '/resources/conferences/$conferenceName-$conferenceId': typeof ContentResourcesConferencesConferenceNameConferenceIdRoute;
   '/resources/glossary/$wordId': typeof ContentResourcesGlossaryWordIdRoute;
+  '/resources/lectures/$lectureId': typeof ContentResourcesLecturesLectureIdRoute;
   '/resources/newsletters/$newsletterName-$newsletterId': typeof ContentResourcesNewslettersNewsletterNameNewsletterIdRoute;
   '/resources/podcasts/$podcastName-$podcastId': typeof ContentResourcesPodcastsPodcastNamePodcastIdRoute;
   '/dashboard/administration/bookings': typeof DashboardDashboardAdministrationBookingsRoute;
@@ -1115,6 +1148,7 @@ export interface FileRoutesByTo {
   '/resources/channels': typeof ContentResourcesChannelsIndexRoute;
   '/resources/conferences': typeof ContentResourcesConferencesIndexRoute;
   '/resources/glossary': typeof ContentResourcesGlossaryIndexRoute;
+  '/resources/lectures': typeof ContentResourcesLecturesIndexRoute;
   '/resources/newsletters': typeof ContentResourcesNewslettersIndexRoute;
   '/resources/podcasts': typeof ContentResourcesPodcastsIndexRoute;
   '/tutorials/$category': typeof ContentTutorialsCategoryIndexRoute;
@@ -1161,6 +1195,7 @@ export interface FileRoutesById {
   '/_content/resources/channels/$channelName-$channelId': typeof ContentResourcesChannelsChannelNameChannelIdRoute;
   '/_content/resources/conferences/$conferenceName-$conferenceId': typeof ContentResourcesConferencesConferenceNameConferenceIdRoute;
   '/_content/resources/glossary/$wordId': typeof ContentResourcesGlossaryWordIdRoute;
+  '/_content/resources/lectures/$lectureId': typeof ContentResourcesLecturesLectureIdRoute;
   '/_content/resources/newsletters/$newsletterName-$newsletterId': typeof ContentResourcesNewslettersNewsletterNameNewsletterIdRoute;
   '/_content/resources/podcasts/$podcastName-$podcastId': typeof ContentResourcesPodcastsPodcastNamePodcastIdRoute;
   '/dashboard/_dashboard/administration/bookings': typeof DashboardDashboardAdministrationBookingsRoute;
@@ -1180,6 +1215,7 @@ export interface FileRoutesById {
   '/_content/resources/channels/': typeof ContentResourcesChannelsIndexRoute;
   '/_content/resources/conferences/': typeof ContentResourcesConferencesIndexRoute;
   '/_content/resources/glossary/': typeof ContentResourcesGlossaryIndexRoute;
+  '/_content/resources/lectures/': typeof ContentResourcesLecturesIndexRoute;
   '/_content/resources/newsletters/': typeof ContentResourcesNewslettersIndexRoute;
   '/_content/resources/podcasts/': typeof ContentResourcesPodcastsIndexRoute;
   '/_content/tutorials/$category/': typeof ContentTutorialsCategoryIndexRoute;
@@ -1226,6 +1262,7 @@ export interface FileRouteTypes {
     | '/resources/channels/$channelName-$channelId'
     | '/resources/conferences/$conferenceName-$conferenceId'
     | '/resources/glossary/$wordId'
+    | '/resources/lectures/$lectureId'
     | '/resources/newsletters/$newsletterName-$newsletterId'
     | '/resources/podcasts/$podcastName-$podcastId'
     | '/dashboard/administration/bookings'
@@ -1245,6 +1282,7 @@ export interface FileRouteTypes {
     | '/resources/channels'
     | '/resources/conferences'
     | '/resources/glossary'
+    | '/resources/lectures'
     | '/resources/newsletters'
     | '/resources/podcasts'
     | '/tutorials/$category'
@@ -1287,6 +1325,7 @@ export interface FileRouteTypes {
     | '/resources/channels/$channelName-$channelId'
     | '/resources/conferences/$conferenceName-$conferenceId'
     | '/resources/glossary/$wordId'
+    | '/resources/lectures/$lectureId'
     | '/resources/newsletters/$newsletterName-$newsletterId'
     | '/resources/podcasts/$podcastName-$podcastId'
     | '/dashboard/administration/bookings'
@@ -1306,6 +1345,7 @@ export interface FileRouteTypes {
     | '/resources/channels'
     | '/resources/conferences'
     | '/resources/glossary'
+    | '/resources/lectures'
     | '/resources/newsletters'
     | '/resources/podcasts'
     | '/tutorials/$category'
@@ -1350,6 +1390,7 @@ export interface FileRouteTypes {
     | '/_content/resources/channels/$channelName-$channelId'
     | '/_content/resources/conferences/$conferenceName-$conferenceId'
     | '/_content/resources/glossary/$wordId'
+    | '/_content/resources/lectures/$lectureId'
     | '/_content/resources/newsletters/$newsletterName-$newsletterId'
     | '/_content/resources/podcasts/$podcastName-$podcastId'
     | '/dashboard/_dashboard/administration/bookings'
@@ -1369,6 +1410,7 @@ export interface FileRouteTypes {
     | '/_content/resources/channels/'
     | '/_content/resources/conferences/'
     | '/_content/resources/glossary/'
+    | '/_content/resources/lectures/'
     | '/_content/resources/newsletters/'
     | '/_content/resources/podcasts/'
     | '/_content/tutorials/$category/'
@@ -1409,6 +1451,7 @@ export interface RootRouteChildren {
   ContentResourcesChannelsChannelNameChannelIdRoute: typeof ContentResourcesChannelsChannelNameChannelIdRoute;
   ContentResourcesConferencesConferenceNameConferenceIdRoute: typeof ContentResourcesConferencesConferenceNameConferenceIdRoute;
   ContentResourcesGlossaryWordIdRoute: typeof ContentResourcesGlossaryWordIdRoute;
+  ContentResourcesLecturesLectureIdRoute: typeof ContentResourcesLecturesLectureIdRoute;
   ContentResourcesNewslettersNewsletterNameNewsletterIdRoute: typeof ContentResourcesNewslettersNewsletterNameNewsletterIdRoute;
   ContentResourcesPodcastsPodcastNamePodcastIdRoute: typeof ContentResourcesPodcastsPodcastNamePodcastIdRoute;
   ContentMiscProfessorsIndexRoute: typeof ContentMiscProfessorsIndexRoute;
@@ -1420,6 +1463,7 @@ export interface RootRouteChildren {
   ContentResourcesChannelsIndexRoute: typeof ContentResourcesChannelsIndexRoute;
   ContentResourcesConferencesIndexRoute: typeof ContentResourcesConferencesIndexRoute;
   ContentResourcesGlossaryIndexRoute: typeof ContentResourcesGlossaryIndexRoute;
+  ContentResourcesLecturesIndexRoute: typeof ContentResourcesLecturesIndexRoute;
   ContentResourcesNewslettersIndexRoute: typeof ContentResourcesNewslettersIndexRoute;
   ContentResourcesPodcastsIndexRoute: typeof ContentResourcesPodcastsIndexRoute;
   ContentTutorialsCategoryIndexRoute: typeof ContentTutorialsCategoryIndexRoute;
@@ -1465,6 +1509,8 @@ const rootRouteChildren: RootRouteChildren = {
   ContentResourcesConferencesConferenceNameConferenceIdRoute:
     ContentResourcesConferencesConferenceNameConferenceIdRoute,
   ContentResourcesGlossaryWordIdRoute: ContentResourcesGlossaryWordIdRoute,
+  ContentResourcesLecturesLectureIdRoute:
+    ContentResourcesLecturesLectureIdRoute,
   ContentResourcesNewslettersNewsletterNameNewsletterIdRoute:
     ContentResourcesNewslettersNewsletterNameNewsletterIdRoute,
   ContentResourcesPodcastsPodcastNamePodcastIdRoute:
@@ -1479,6 +1525,7 @@ const rootRouteChildren: RootRouteChildren = {
   ContentResourcesChannelsIndexRoute: ContentResourcesChannelsIndexRoute,
   ContentResourcesConferencesIndexRoute: ContentResourcesConferencesIndexRoute,
   ContentResourcesGlossaryIndexRoute: ContentResourcesGlossaryIndexRoute,
+  ContentResourcesLecturesIndexRoute: ContentResourcesLecturesIndexRoute,
   ContentResourcesNewslettersIndexRoute: ContentResourcesNewslettersIndexRoute,
   ContentResourcesPodcastsIndexRoute: ContentResourcesPodcastsIndexRoute,
   ContentTutorialsCategoryIndexRoute: ContentTutorialsCategoryIndexRoute,
@@ -1530,6 +1577,7 @@ export const routeTree = rootRoute
         "/_content/resources/channels/$channelName-$channelId",
         "/_content/resources/conferences/$conferenceName-$conferenceId",
         "/_content/resources/glossary/$wordId",
+        "/_content/resources/lectures/$lectureId",
         "/_content/resources/newsletters/$newsletterName-$newsletterId",
         "/_content/resources/podcasts/$podcastName-$podcastId",
         "/_content/_misc/professors/",
@@ -1541,6 +1589,7 @@ export const routeTree = rootRoute
         "/_content/resources/channels/",
         "/_content/resources/conferences/",
         "/_content/resources/glossary/",
+        "/_content/resources/lectures/",
         "/_content/resources/newsletters/",
         "/_content/resources/podcasts/",
         "/_content/tutorials/$category/",
@@ -1675,6 +1724,9 @@ export const routeTree = rootRoute
     "/_content/resources/glossary/$wordId": {
       "filePath": "_content/resources/glossary/$wordId.tsx"
     },
+    "/_content/resources/lectures/$lectureId": {
+      "filePath": "_content/resources/lectures/$lectureId.tsx"
+    },
     "/_content/resources/newsletters/$newsletterName-$newsletterId": {
       "filePath": "_content/resources/newsletters/$newsletterName-$newsletterId.tsx"
     },
@@ -1739,6 +1791,9 @@ export const routeTree = rootRoute
     },
     "/_content/resources/glossary/": {
       "filePath": "_content/resources/glossary/index.tsx"
+    },
+    "/_content/resources/lectures/": {
+      "filePath": "_content/resources/lectures/index.tsx"
     },
     "/_content/resources/newsletters/": {
       "filePath": "_content/resources/newsletters/index.tsx"
