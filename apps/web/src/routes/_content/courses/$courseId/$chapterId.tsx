@@ -407,7 +407,7 @@ const BottomButton = ({ chapter }: { chapter: CourseChapterResponse }) => {
 
   return (
     <Link
-      className="flex w-fit !mt-8 md:!mt-16 mx-auto md:ml-auto"
+      className="group flex w-fit !mt-8 md:!mt-16 mx-auto md:ml-auto"
       to={
         isLastChapter ? '/courses/$courseId' : '/courses/$courseId/$chapterId'
       }
@@ -418,8 +418,8 @@ const BottomButton = ({ chapter }: { chapter: CourseChapterResponse }) => {
           <span>{t('courses.chapter.finishCourse')}</span>
           <FaArrowRightLong
             className={cn(
-              'opacity-0 max-w-0 inline-flex whitespace-nowrap transition-[max-width_opacity] overflow-hidden ease-in-out duration-150 group-hover:max-w-96 group-hover:opacity-100',
-              'group-hover:ml-3',
+              'opacity-0 max-w-0 inline-flex whitespace-nowrap transition-[max-width_opacity] overflow-hidden ease-in-out duration-150 lg:group-hover:max-w-96 lg:group-hover:opacity-100',
+              'lg:group-hover:ml-3',
             )}
           />
         </Button>
@@ -433,8 +433,8 @@ const BottomButton = ({ chapter }: { chapter: CourseChapterResponse }) => {
           <span>{t('courses.chapter.next')}</span>
           <FaArrowRightLong
             className={cn(
-              'opacity-0 max-w-0 inline-flex whitespace-nowrap transition-[max-width_opacity] overflow-hidden ease-in-out duration-150 group-hover:max-w-96 group-hover:opacity-100',
-              'group-hover:ml-3',
+              'opacity-0 max-w-0 inline-flex whitespace-nowrap transition-[max-width_opacity] overflow-hidden ease-in-out duration-150 lg:group-hover:max-w-96 lg:group-hover:opacity-100',
+              'lg:group-hover:ml-3',
             )}
           />
         </Button>
@@ -819,8 +819,8 @@ function CourseChapter() {
                                     className="flex items-center gap-2.5 text-black "
                                     key={index}
                                   >
-                                    <HiCheck className="shrink-0 size-[18px] lg:size-6" />
-                                    <span className="body-14px lg:label-large-20px">
+                                    <HiCheck className="shrink-0 size-[18px] lg:size-5" />
+                                    <span className="body-14px lg:label-medium-16px">
                                       {capitalizeFirstWord(goal)}
                                     </span>
                                   </li>
