@@ -65,6 +65,19 @@
   } */
 }
 
+.start-animation {
+  animation: expandWidth 3s forwards;
+}
+
+@keyframes expandWidth {
+  from {
+    width: 0;
+  }
+  to {
+    width: full;
+  }
+}
+
 @font-face {
   font-family: 'SpaceMono';
   src: url('../assets/fonts/space_mono/SpaceMono-Bold.ttf') format('truetype');
@@ -334,6 +347,10 @@
 
   .subtitle-large-med-20px {
     @apply text-xl leading-[160%] font-medium tracking-015px;
+  }
+
+  .subtitle-large-18px {
+    @apply text-lg leading-[160%] font-normal tracking-015px;
   }
 
   .subtitle-medium-caps-18px {

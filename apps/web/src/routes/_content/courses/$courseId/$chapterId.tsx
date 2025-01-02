@@ -777,64 +777,63 @@ function CourseChapter() {
             </div>
 
             <div className="flex w-full flex-col items-center justify-center lg:max-w-[1102px] lg:items-stretch lg:justify-stretch">
-              <div className="text-blue-1000 w-full space-y-5 break-words px-[15px] md:px-2 md:mt-8 md:grow md:space-y-[18px] md:overflow-hidden pb-2 md:pb-0">
-                {!chapter.isCourseExam && <Header chapter={chapter} />}
-              </div>
+              {!chapter.isCourseExam && (
+                <div
+                  className="text-blue-1000 w-full space-y-5 break-words px-[15px] md:px-2 md:mt-8 md:grow md:space-y-[18px] md:overflow-hidden pb-2 md:pb-0"
+                  id="headerChapter"
+                >
+                  <Header chapter={chapter} />
+                </div>
+              )}
               <div className="flex w-full max-lg:flex-col items-center justify-center lg:max-w-[1102px] lg:items-stretch lg:justify-stretch">
-                <div className="text-blue-1000 w-full space-y-5 break-words px-[15px] md:px-2 md:mt-8 md:grow md:space-y-[18px] md:overflow-hidden pb-2">
-                  {!chapter.isCourseExam && (
-                    <div>
-                      {sections.length > 0 && (
-                        <div
+                <div className="text-blue-1000 flex flex-col w-full gap-5 break-words px-[15px] md:px-2 md:mt-8 md:grow md:gap-[18px] md:overflow-hidden pb-2">
+                  {!chapter.isCourseExam && sections.length > 0 && (
+                    <div
+                      className={cn(
+                        'flex flex-col self-stretch rounded-[10px] lg:rounded-[20px] p-4 lg:p-5 shadow-course-navigation',
+                        isContentExpanded
+                          ? 'bg-newGray-6'
+                          : 'bg-newGray-6 h-auto',
+                      )}
+                    >
+                      <button
+                        className="flex cursor-pointer items-center text-darkOrange-5 gap-2 lg:gap-4"
+                        onClick={() => setIsContentExpanded(!isContentExpanded)}
+                      >
+                        <IoIosArrowForward
                           className={cn(
-                            'flex flex-col self-stretch rounded-[10px] lg:rounded-[20px] p-4 lg:p-5 shadow-course-navigation',
+                            'size-4 lg:size-5',
                             isContentExpanded
-                              ? 'bg-newGray-6'
-                              : 'bg-newGray-6 h-auto',
+                              ? 'rotate-90 transition-transform'
+                              : 'transition-transform',
                           )}
-                        >
-                          <button
-                            className="flex cursor-pointer items-center text-darkOrange-5 gap-2 lg:gap-4"
-                            onClick={() =>
-                              setIsContentExpanded(!isContentExpanded)
-                            }
-                          >
-                            <IoIosArrowForward
-                              className={cn(
-                                'size-4 lg:size-5',
-                                isContentExpanded
-                                  ? 'rotate-90 transition-transform'
-                                  : 'transition-transform',
-                              )}
-                            />
-                            <span className="subtitle-small-caps-14px lg:subtitle-medium-caps-18px">
-                              {t('courses.details.objectivesTitle')}
-                            </span>
-                          </button>
-                          {isContentExpanded && (
-                            <div className="mt-[15px] lg:mt-4 text-sm md:text-base">
-                              <ul className="flex flex-col gap-1.5">
-                                {sections.map((goal: string, index: number) => (
-                                  <li
-                                    className="flex items-center gap-2.5 text-black "
-                                    key={index}
-                                  >
-                                    <HiCheck className="shrink-0 size-[18px] lg:size-5" />
-                                    <span className="body-14px lg:label-medium-16px">
-                                      {capitalizeFirstWord(goal)}
-                                    </span>
-                                  </li>
-                                ))}
-                              </ul>
-                            </div>
-                          )}
+                        />
+                        <span className="subtitle-small-caps-14px lg:subtitle-medium-caps-18px">
+                          {t('courses.details.objectivesTitle')}
+                        </span>
+                      </button>
+                      {isContentExpanded && (
+                        <div className="mt-[15px] lg:mt-4 text-sm md:text-base">
+                          <ul className="flex flex-col gap-1.5">
+                            {sections.map((goal: string, index: number) => (
+                              <li
+                                className="flex items-center gap-2.5 text-black "
+                                key={index}
+                              >
+                                <HiCheck className="shrink-0 size-[18px] lg:size-6" />
+                                <span className="body-14px lg:label-large-20px">
+                                  {capitalizeFirstWord(goal)}
+                                </span>
+                              </li>
+                            ))}
+                          </ul>
                         </div>
                       )}
                     </div>
                   )}
                   {chapter.isCourseReview && (
                     <>
-                      <div className="mx-4 md:mx-32">
+                      <div className="mx-4">
                         <CourseReview
                           chapter={chapter}
                           formDisabled={!isLoggedIn}
@@ -878,7 +877,7 @@ function CourseChapter() {
                   )}
                 </div>
 
-                {!chapter.isCourseExam && (
+                {!chapter.isCourseExam && !chapter.isCourseConclusion && (
                   <div className="ml-10 mt-7 hidden shrink-0 lg:block">
                     {chapters && (
                       <NavigationPanel

@@ -1,4 +1,5 @@
 import type { Dependencies } from '../../../dependencies.js';
+import { completeChapterQuery } from '../queries/complete-chapter.js';
 import {
   insertExamAttemptAnswersQuery,
   updateExamAttemptQuery,
@@ -11,6 +12,9 @@ import {
 
 interface Options {
   answers: Array<{ questionId: string; order: number }>;
+  uid: string;
+  chapterId: string;
+  courseId: string;
 }
 
 export const createCompleteExamAttempt = ({ postgres }: Dependencies) => {
@@ -35,14 +39,26 @@ export const createCompleteExamAttempt = ({ postgres }: Dependencies) => {
       .exec(getExamQuestionsCountQuery({ examId }))
       .then((result) => result[0].questionsCount);
 
-    await postgres.exec(
-      updateExamAttemptQuery({
-        examId,
-        succeeded: correctAnswersCount >= questionsCount * 0.8,
-        score: Math.round((correctAnswersCount / questionsCount) * 100),
-      }),
-    );
-
-    // TODO if succeeded, mark the chapter as done for the user
+    const succeeded = correctAnswersCount >= questionsCount * 0.8;
+    await postgres
+      .exec(
+        updateExamAttemptQuery({
+          examId,
+          succeeded: succeeded,
+          score: Math.round((correctAnswersCount / questionsCount) * 100),
+        }),
+      )
+      .then(async (result) => {
+        if (succeeded) {
+          await postgres.exec(
+            completeChapterQuery(
+              options.uid,
+              options.courseId,
+              options.chapterId,
+            ),
+          );
+        }
+        return result;
+      });
   };
 };

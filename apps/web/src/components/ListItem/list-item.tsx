@@ -13,16 +13,17 @@ interface ListItemProps {
   className?: string;
   rightTextClassName?: string;
   leftTextClassName?: string;
-  variant?: 'dark' | 'light';
+  variant?: 'dark' | 'light' | 'lightMaroon';
 }
 
 const listItemVariant = cva(
-  'text-base flex items-center justify-between border-b gap-2',
+  'text-base flex items-center justify-between &:not(:last-child):border-b  gap-2',
   {
     variants: {
       variant: {
         light: 'border-newGray-4',
         dark: 'border-white/10',
+        lightMaroon: 'border-black/10',
       },
       isMobileOnly: {
         true: 'md:hidden',
@@ -56,6 +57,7 @@ const leftTextListItemVariant = cva('leading-relaxed tracking-[0.08px]', {
     variant: {
       light: 'text-newBlack-4',
       dark: 'text-white/70',
+      lightMaroon: 'text-tertiary-8',
     },
   },
   defaultVariants: {
@@ -70,6 +72,7 @@ const rightTextListItemVariant = cva(
       variant: {
         light: 'text-newBlack-1',
         dark: 'text-white',
+        lightMaroon: 'text-tertiary-11',
       },
     },
     defaultVariants: {

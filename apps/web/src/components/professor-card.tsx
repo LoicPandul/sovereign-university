@@ -5,6 +5,7 @@ import { t } from 'i18next';
 import { useTranslation } from 'react-i18next';
 
 import type { FormattedProfessor } from '@blms/types';
+import { cn } from '@blms/ui';
 
 import { useDisclosure } from '#src/hooks/use-disclosure.ts';
 import { assetUrl } from '#src/utils/index.js';
@@ -20,6 +21,7 @@ import { TipModal } from './tip-modal.tsx';
 interface ProfessorCardProps extends React.HTMLProps<HTMLDivElement> {
   professor: FormattedProfessor;
   hasDonateButton?: boolean;
+  mobileSize?: 'small' | 'medium';
 }
 
 const CourseAndTutorials = ({ professor }: ProfessorCardProps) => {
@@ -170,6 +172,7 @@ export const ProfessorCard = ({ professor, ...props }: ProfessorCardProps) => {
 export const ProfessorCardReduced = ({
   professor,
   hasDonateButton,
+  mobileSize = 'small',
 }: ProfessorCardProps) => {
   const {
     open: openTipModal,
@@ -177,13 +180,29 @@ export const ProfessorCardReduced = ({
     close: closeTipModal,
   } = useDisclosure();
 
+  const numberCountClass =
+    'text-5xl leading-[116%] text-center text-white' +
+    (mobileSize === 'small' ? ' max-md:title-large-24px' : '');
+  const wordCountClass =
+    'font-semibold leading-[133%] text-center text-white' +
+    (mobileSize === 'small' ? ' max-md:body-12px' : '');
+
   return (
-    <div className="rounded-[20px] p-2 border-2 border-newBlack-1 bg-newGray-6 max-md:mx-auto h-fit flex flex-col">
+    <div
+      className={cn(
+        'rounded-[20px] p-2 border-2 border-newBlack-1 bg-newGray-6 size-fit flex flex-col',
+        mobileSize === 'small' && 'max-md:p-[5px] max-md:border max-md:mx-auto',
+      )}
+    >
       <Link
         to={`/professor/${formatNameForURL(professor.name || '')}-${professor.id}`}
         target="_blank"
         // eslint-disable-next-line tailwindcss/no-contradicting-classname
-        className="rounded-[20px] flex flex-col items-center bg-gradient-to-b from-[#411800] to-[#FF5C00] to-[200px] p-2.5 relative overflow-hidden w-[280px]"
+        className={cn(
+          'rounded-[20px] flex flex-col items-center bg-gradient-to-b from-[#411800] to-[#FF5C00] to-[200px] p-2.5 relative overflow-hidden w-[280px]',
+          mobileSize === 'small' &&
+            'max-md:w-[137px] max-md:px-1 max-md:py-[15px] max-md:to-[100px]',
+        )}
       >
         <span className="mb-2.5 w-full text-center title-large-sb-24px text-white z-10">
           {professor.name}
@@ -191,38 +210,41 @@ export const ProfessorCardReduced = ({
         <img
           src={assetUrl(professor.path, 'profile.webp')}
           alt={professor.name}
-          className="size-32 rounded-full z-10 object-cover [overflow-clip-margin:_unset]"
+          className={cn(
+            'size-32 rounded-full z-10 object-cover [overflow-clip-margin:_unset]',
+            mobileSize === 'small' && 'max-md:size-[69px]',
+          )}
         />
 
         <div className="flex gap-4 items-end mt-2.5 z-10">
           {professor.coursesCount > 0 && (
             <div className="flex flex-col gap">
-              <span className="text-5xl leading-[116%] text-center text-white">
-                {professor.coursesCount}
-              </span>
-              <span className="font-semibold leading-[133%] text-center text-white">
-                {t('words.courses')}
-              </span>
+              <span className={numberCountClass}>{professor.coursesCount}</span>
+              <span className={wordCountClass}>{t('words.courses')}</span>
             </div>
           )}
           {professor.tutorialsCount > 0 && (
             <div className="flex flex-col gap">
-              <span className="text-5xl leading-[116%] text-center text-white">
+              <span className={numberCountClass}>
                 {professor.tutorialsCount}
               </span>
-              <span className="font-semibold leading-[133%] text-center text-white">
-                {t('words.tutorials')}
-              </span>
+              <span className={wordCountClass}>{t('words.tutorials')}</span>
             </div>
           )}
           {professor.lecturesCount > 0 && (
-            <div className="flex flex-col gap">
-              <span className="text-5xl leading-[116%] text-center text-white">
+            <div
+              className={cn(
+                'flex flex-col gap',
+                professor.tutorialsCount > 0 &&
+                  professor.coursesCount > 0 &&
+                  mobileSize === 'small' &&
+                  'max-md:hidden',
+              )}
+            >
+              <span className={numberCountClass}>
                 {professor.lecturesCount}
               </span>
-              <span className="font-semibold leading-[133%] text-center text-white">
-                {t('words.lectures')}
-              </span>
+              <span className={wordCountClass}>{t('words.lectures')}</span>
             </div>
           )}
         </div>
@@ -232,7 +254,12 @@ export const ProfessorCardReduced = ({
       </Link>
 
       {hasDonateButton && (
-        <div className="flex items-center justify-center py-4 lg:py-[18px] px-[18px]">
+        <div
+          className={cn(
+            'flex items-center justify-center py-4 px-[18px]',
+            mobileSize === 'small' && 'max-md:hidden',
+          )}
+        >
           <button
             className="flex items-center overflow-hidden shrink-0"
             onClick={(e) => {
@@ -278,7 +305,7 @@ const BackgroundAuthorCardElement = ({
       preserveAspectRatio="xMidYMid meet"
       className={
         reduced
-          ? 'absolute bottom-0 h-full max-h-[140px]'
+          ? 'absolute bottom-0 h-full max-h-[110px] md:max-h-[140px]'
           : 'absolute bottom-0 h-full max-h-[120px] lg:max-h-[290px]'
       }
     >

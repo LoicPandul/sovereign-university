@@ -113,11 +113,18 @@ const completeExamAttemptProcedure = studentProcedure
   .input(
     z.object({
       answers: z.array(z.object({ questionId: z.string(), order: z.number() })),
+      chapterId: z.string(),
+      courseId: z.string(),
     }),
   )
   .output<Parser<void>>(z.void())
   .mutation(({ ctx, input }) =>
-    createCompleteExamAttempt(ctx.dependencies)({ answers: input.answers }),
+    createCompleteExamAttempt(ctx.dependencies)({
+      answers: input.answers,
+      uid: ctx.user.uid,
+      chapterId: input.chapterId,
+      courseId: input.courseId,
+    }),
   );
 
 const getLatestExamResultsProcedure = studentProcedure
@@ -185,16 +192,20 @@ const saveCourseReviewProcedure = studentProcedure
       teacherComment: z.string(),
       adminComment: z.string(),
       courseId: z.string(),
+      chapterId: z.string(),
     }),
   )
   .output<Parser<void>>(z.void())
   .mutation(async ({ ctx, input }) => {
+    const { chapterId, ...rest } = input;
+
     await createSaveCourseReview(ctx.dependencies)({
       newReview: {
-        ...input,
+        ...rest,
         createdAt: new Date(),
         uid: ctx.user.uid,
       },
+      chapterId: chapterId,
     });
 
     await createRefreshCourseRating(ctx.dependencies)(input.courseId);

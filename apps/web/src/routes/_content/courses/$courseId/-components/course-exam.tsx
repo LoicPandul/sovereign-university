@@ -52,6 +52,7 @@ export const CourseExam = ({ chapter, disabled }: CourseExamProps) => {
         <FinalExam
           questions={partialExamQuestions}
           setIsExamCompleted={setIsExamCompleted}
+          chapter={chapter}
         />
       )}
 

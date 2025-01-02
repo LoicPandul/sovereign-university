@@ -260,10 +260,24 @@ const baseConfig: Config = {
           from: { height: 'var(--radix-accordion-content-height)' },
           to: { height: '0' },
         },
+        bgWipe: {
+          '0%': {
+            background:
+              'linear-gradient(to right, gray 50%, gray 80%, gray 100%)',
+            backgroundSize: '200% 100%',
+            backgroundPosition: 'left',
+          },
+          '100%': {
+            background: 'orange',
+            backgroundSize: '200% 100%',
+            backgroundPosition: 'right',
+          },
+        },
       },
       animation: {
         'accordion-down': 'accordion-down 0.2s ease-out',
         'accordion-up': 'accordion-up 0.2s ease-out',
+        bgWipe: 'bgWipe 20s forwards',
       },
       backgroundImage: {
         'gradient-diagonal':

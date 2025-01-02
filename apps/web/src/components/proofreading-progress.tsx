@@ -84,10 +84,12 @@ const ContributorsNames = ({
   contributors,
   reward,
   mode,
+  standalone,
 }: {
   contributors: string[];
   reward: number;
   mode: 'light' | 'dark';
+  standalone?: boolean;
 }) => {
   const remainingContributors = 3 - contributors.length;
 
@@ -154,7 +156,8 @@ const ContributorsNames = ({
     <>
       <span
         className={cn(
-          'absolute top-7 right-1 lg:top-6 lg:-right-6 rotate-[60deg]',
+          'absolute top-7 right-1 rotate-[60deg]',
+          standalone ? '' : 'lg:top-6 lg:-right-6',
           textClasses,
           getColorClass(0),
         )}
@@ -172,7 +175,8 @@ const ContributorsNames = ({
       </span>
       <span
         className={cn(
-          'absolute top-7 left-1 lg:top-6 lg:-left-6 -rotate-[60deg]',
+          'absolute top-7 left-1 -rotate-[60deg]',
+          standalone ? '' : 'lg:top-6 lg:-left-6',
           textClasses,
           getColorClass(2),
         )}
@@ -309,17 +313,48 @@ export const ProofreadingProgress = ({
           </DialogContent>
         </DialogPortal>
       </Dialog>
-      <div
-        className={cn(
-          'max-lg:hidden group p-2.5 hover:p-5 z-10 rounded-[20px] shadow-course-navigation justify-start items-start gap-2.5 inline-flex absolute right-6 top-4',
-          '', //proofreadingData.isOriginalLanguage ? 'hidden' : 'max-md:hidden',
-          mode === 'dark'
-            ? 'bg-newBlack-3'
-            : contributorsLength > 2
-              ? 'bg-brightGreen-1'
-              : 'bg-darkOrange-0',
-        )}
-      >
+      <ProofreadingDesktop
+        proofreadingData={proofreadingData}
+        mode={mode}
+        className=""
+      />
+    </div>
+  );
+};
+
+export const ProofreadingDesktop = ({
+  proofreadingData,
+  variant = 'horizontal',
+  mode = 'dark',
+  standalone,
+  className,
+}: {
+  proofreadingData: ProofreadingData;
+  variant?: 'horizontal' | 'vertical';
+  mode: 'light' | 'dark';
+  standalone?: boolean;
+  className?: string;
+}) => {
+  const contributorsLength = proofreadingData.contributors.length;
+
+  return (
+    <div
+      className={cn(
+        'group rounded-[20px] shadow-course-navigation gap-2.5',
+        '',
+        variant === 'horizontal' ? 'flex-row' : 'flex-col',
+        mode === 'dark'
+          ? 'bg-newBlack-3'
+          : contributorsLength > 2
+            ? 'bg-brightGreen-1'
+            : 'bg-darkOrange-0',
+        standalone
+          ? 'p-5 w-fit flex'
+          : 'max-lg:hidden p-2.5 hover:p-5 absolute right-6 top-4 justify-start items-start inline-flex',
+        className,
+      )}
+    >
+      {!standalone && (
         <div className="max-lg:hidden group-hover:hidden flex items-center gap-1.5">
           <SmallProgressImage progress={contributorsLength} />
           <span
@@ -333,37 +368,46 @@ export const ProofreadingProgress = ({
               : t('proofreading.inProgress')}
           </span>
         </div>
-        <div className="hidden group-hover:flex max-w-[258px] flex-col gap-4 justify-center">
-          <div className="flex items-center gap-4">
-            <span
-              className={cn(
-                'px-2 py-1 rounded-md shadow-course-navigation-sm title-medium-sb-18px',
-                mode === 'dark'
-                  ? 'bg-white/15 text-newGray-4'
-                  : contributorsLength > 2
-                    ? 'bg-brightGreen-2 text-brightGreen-7'
-                    : 'bg-[#ff5c00]/15 text-darkOrange-6',
-              )}
-            >
-              {contributorsLength}/3
-            </span>
-            <span
-              className={cn(
-                'text-black title-medium-sb-18px',
-                mode === 'dark' ? 'text-white' : 'text-black',
-              )}
-            >
-              {t('proofreading.status')}
-            </span>
-          </div>
-          <p
+      )}
+      <div
+        className={cn(
+          'flex-col gap-4 justify-center',
+          standalone
+            ? 'flex max-w-[282px]'
+            : 'max-w-[258px] hidden group-hover:flex',
+        )}
+      >
+        <div className="flex items-center gap-4">
+          <span
             className={cn(
-              'body-12px',
+              'px-2 py-1 rounded-md shadow-course-navigation-sm title-medium-sb-18px',
+              mode === 'dark'
+                ? 'bg-white/15 text-newGray-4'
+                : contributorsLength > 2
+                  ? 'bg-brightGreen-2 text-brightGreen-7'
+                  : 'bg-[#ff5c00]/15 text-darkOrange-6',
+            )}
+          >
+            {contributorsLength}/3
+          </span>
+          <span
+            className={cn(
+              'text-black title-medium-sb-18px',
               mode === 'dark' ? 'text-white' : 'text-black',
             )}
           >
-            {t('proofreading.description')}
-          </p>
+            {t('proofreading.status')}
+          </span>
+        </div>
+        <p
+          className={cn(
+            'body-12px',
+            mode === 'dark' ? 'text-white' : 'text-black',
+          )}
+        >
+          {t('proofreading.description')}
+        </p>
+        {!standalone && (
           <p
             className={cn(
               'body-12px',
@@ -372,6 +416,8 @@ export const ProofreadingProgress = ({
           >
             {t('proofreading.thanks')}
           </p>
+        )}
+        {!standalone && (
           <a
             href="https://github.com/PlanB-Network/bitcoin-educational-content"
             target="_blank"
@@ -392,15 +438,23 @@ export const ProofreadingProgress = ({
               />
             </Button>
           </a>
-        </div>
-        <div className="hidden group-hover:flex flex-col relative pointer-events-none">
-          <LargeProgressImage progress={contributorsLength} />
-          <ContributorsNames
-            contributors={proofreadingData.contributors}
-            reward={proofreadingData.reward ? proofreadingData.reward : 0}
-            mode={mode}
-          />
-        </div>
+        )}
+      </div>
+      <div
+        className={cn(
+          ' flex-col relative pointer-events-none',
+          standalone
+            ? 'flex max-w-[232px] mx-auto w-full'
+            : 'hidden group-hover:flex',
+        )}
+      >
+        <LargeProgressImage progress={contributorsLength} />
+        <ContributorsNames
+          contributors={proofreadingData.contributors}
+          reward={proofreadingData.reward ? proofreadingData.reward : 0}
+          mode={mode}
+          standalone={standalone}
+        />
       </div>
     </div>
   );

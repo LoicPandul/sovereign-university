@@ -1,11 +1,13 @@
 import type { FormattedProfessor } from '@blms/types';
-import { TextTag } from '@blms/ui';
+import { TextTag, cn } from '@blms/ui';
 
 import { ProfessorCardReduced, SocialLinks } from './professor-card.tsx';
 
 interface AuthorCardProps extends React.HTMLProps<HTMLDivElement> {
   professor: FormattedProfessor;
+  centeredContent?: boolean;
   hasDonateButton?: boolean;
+  mobileSize?: 'small' | 'medium';
 }
 {
   /* eslint-disable tailwindcss/no-contradicting-classname */
@@ -14,6 +16,8 @@ interface AuthorCardProps extends React.HTMLProps<HTMLDivElement> {
 export const AuthorCard = ({
   professor,
   hasDonateButton,
+  centeredContent = true,
+  mobileSize = 'small',
   ...props
 }: AuthorCardProps) => {
   return (
@@ -22,16 +26,22 @@ export const AuthorCard = ({
         <ProfessorCardReduced
           professor={professor}
           hasDonateButton={hasDonateButton}
+          mobileSize={mobileSize}
         />
 
-        <div className="flex flex-col items-center md:items-start">
-          <p className="body-16px text-newBlack-1 md:max-w-[596px] w-full">
+        <div
+          className={cn(
+            'flex flex-col md:items-start',
+            centeredContent && 'items-center',
+          )}
+        >
+          <p className="body-16px text-newBlack-1 md:max-w-[596px] w-full text-justify">
             {professor.bio}
           </p>
           <div className="mt-5 md:mt-4 flex flex-wrap gap-2.5 items-center">
             {professor.tags?.map((tag) => <TextTag key={tag}>{tag}</TextTag>)}
           </div>
-          <div className="mt-1">
+          <div className="mt-1 w-fit">
             <SocialLinks professor={professor} />
           </div>
         </div>
