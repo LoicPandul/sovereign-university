@@ -38,11 +38,11 @@
       "displayNameRequired": "Lo username è obbligatorio.",
       "displayNameTooShort": "Lo username deve contenere almeno due caratteri.",
       "invalidCredentials": "Credenziali non valide",
-      "emailInvalid": ""
+      "emailInvalid": "Email non valida"
     },
     "forgottenPassword": "Hai dimenticato la password?",
     "headerAccountCreated": "Account creato",
-    "lnurlAuthDescription": "Scansiona questo codice QR con il tuo portafoglio Lightning per accedere!",
+    "lnurlAuthDescription": "Scansiona questo codice QR con il tuo wallet Lightning per accedere!",
     "noAccountNeeded": "Non c'è bisogno di un account per iniziare a imparare alla Sovereign University!",
     "noAccountYet": "Non hai un account?",
     "resetPassword": "Réinitilisation de mot de passe",
@@ -71,7 +71,10 @@
     "confirmation": "Conferma",
     "displayName": "Nome visualizzato",
     "oldPassword": "Password precedente",
-    "emailTip": ""
+    "emailTip": "L'email non è obbligatoria, ma può essere utile in caso in cui la password venga dimenticata",
+    "dashboardUnlocked": "La tua bacheca studente è sbloccata!",
+    "trackProgress": "Crea un account o accedi per tenere traccia dei tuoi progressi",
+    "didYouKnow": "Lo sapevi?"
   },
   "bet": {
     "contribute": "Questo toolkit è aperto al contributo. Usa Figma, così chiunque può aggiungere, modificare e tradurre. Per collaborare, aggiungere una categoria o discutere, non esitare a unirti su discord.",
@@ -123,7 +126,7 @@
       "econ": "Economia Austriaca",
       "fin": "Finanza",
       "ln": "Rete Lightning",
-      "min": "Estrazione",
+      "min": "Mining",
       "secu": "Sicurezza & Privacy"
     },
     "chapter": {
@@ -187,7 +190,11 @@
       "buyOnlineCourse": "Acquista corso online",
       "inPersonAccess": "È necessario scaricare il biglietto per accedere alla lezione in presenza.",
       "buyInPersonCourse": "Acquista corso in presenza",
-      "paidCourse": "A pagamento"
+      "paidCourse": "Premium",
+      "courseAddedToDashboard": "Questo corso è stato aggiunto al tuo pannello studente",
+      "premiumContentNeedsLogin": "È necessario accedere per visualizzare questo corso.",
+      "premiumContentNeedsPayment": "Questo corso fa parte di un programma premium.",
+      "premiumContentNeedsPaymentAction": "Vai alla homepage del corso"
     },
     "explorer": {
       "footerTitle": "I nostri professori sono qui per te!",
@@ -202,7 +209,7 @@
       "s2p3": "Tutti i nostri corsi sono gratuiti al 100% quindi niente può fermarti.",
       "s2t1": "L'educazione ai Bitcoin è un viaggio non una destinazione.",
       "s3PickLevel": "Scegli i livelli:",
-      "s3PickTopic": "Scegli gli argomenti :",
+      "s3PickTopic": "Scegli gli argomenti:",
       "s3t1": "Tutti i corsi sono chiamati dopo il loro argomento principale",
       "buildPath": "Costruisci il tuo percorso nella tana del bianconiglio",
       "exploreCourses": "Esplora i corsi Plan B",
@@ -245,7 +252,8 @@
       "inPersonCallout": "Stai per acquistare l'accesso <strong>in presenza</strong> a questo corso.",
       "onlineDescription": "Ogni lezione viene trasmessa in diretta sulla piattaforma.\nQuesto acquisto ti darà accesso alle dirette e ai video di replay.",
       "inPersonDescription": "Ogni lezione si svolge di persona nelle date e nei luoghi specificati, ed è anche trasmessa in diretta sulla piattaforma.\nQuesto acquisto ti darà accesso alle lezioni sia in presenza che online.\nNon dimenticare di prenotare il tuo posto per le lezioni a cui vuoi partecipare di persona.",
-      "onlineCallout": "Stai per acquistare l'accesso <strong>online</strong> a questo corso."
+      "onlineCallout": "Stai per acquistare l'accesso <strong>online</strong> a questo corso.",
+      "checkoutError": "Si è verificato un errore durante il processo di pagamento. Per favore, riprova."
     },
     "preview": {
       "by": "da {{professor}}",
@@ -253,7 +261,7 @@
     },
     "proceedToPayment": "Proceed to payment",
     "quizz": {
-      "clickOnPie": "Clicca sul grafico a torta, controlla i tuoi errori e verifica le spiegazioni",
+      "clickOnPie": "Clicca sul grafico a torta, controlla i tuoi errori e leggi le spiegazioni",
       "quizz": "Quiz",
       "quizzResults": "Risultati del Quiz",
       "quizzReview": "leave as is",
@@ -302,66 +310,78 @@
       "currentlyLoggedOut": "Attualmente sei disconnesso dal sito. Per inviare un feedback sul corso, per favore <0>accedi o registrati</0>.",
       "yesOfCourse": "sì, certo",
       "yesVeryMuch": "sì, molto",
-      "edit": "",
-      "fieldRequired": "",
-      "skip": ""
+      "edit": "Modifica",
+      "fieldRequired": "Questo campo è obbligatorio",
+      "skip": "Salta la recensione",
+      "commentAdminMobile": "Commento privato agli admin",
+      "commentPublicMobile": "Commento pubblico",
+      "commentTeacherMobile": "Commento privato all'insegnante",
+      "conclusionFeedback1": "Grazie per il tuo feedback!",
+      "conclusionFeedback2": "È molto importante per noi e lo apprezziamo davvero.",
+      "conclusionFeedback3": "Di sotto vedrai i tuoi feedback: puoi modificarli in qualsiasi momento nel tuo pannello studente.",
+      "editReview": "Modifica i commenti",
+      "feedback": "Feedback",
+      "feedbackDescription1": "Ti chiediamo gentilmente di valutare qui sotto la tua esperienza con il corso.",
+      "feedbackDescription2": "Ricorda che gli insegnanti non avranno accesso alle valutazioni individuali.",
+      "saveReview": "Salva recensione",
+      "thankYou": "Grazie per la tua recensione! È stata presa in considerazione"
     },
     "exam": {
-      "answersReview": "",
-      "availableDashboard": "",
-      "certificateAvailable": "",
-      "certificateGeneration": "",
-      "congratulations": "",
-      "dontWorry": "",
-      "examAndDiploma": "",
-      "examDetails": "",
-      "explanations": "",
-      "failed": "",
-      "finalExam": "",
-      "findInformationChapter": "",
-      "futureProof": "",
-      "getCertificate": "",
-      "globallyRecognized": "",
-      "goBack": "",
-      "instantVerification": "",
-      "instructions": "",
-      "letsConclude": "",
-      "noGoBack": "",
-      "notTranslatedYet": "",
-      "oneMinuteLeft": "",
-      "oopsFailed": "",
-      "passed": "",
-      "passRate": "",
-      "planBTimeStamp": "",
-      "skipExam": "",
-      "skipExamGoConclusion": "",
-      "skipExamDescription": "",
-      "startExam": "",
-      "submit": "",
-      "sureSubmit": "",
-      "tamperProof": "",
-      "testKnowledge": "",
-      "testResults": "",
-      "timeLeft": "",
-      "timeStampBenefits": "",
-      "timeStamped": "",
-      "timeStampHow": "",
-      "timeStampHowDescription": "",
-      "timerStart": "",
-      "tryAgain": "",
-      "verifyDisplayName": "",
-      "whyTimeStamp": "",
-      "wishTryAgain": "",
-      "yesSubmit": "",
-      "quitWithoutSubmitting": "",
-      "retakeExam": "",
-      "retakeInstructions": "",
-      "sameRules": "",
-      "score": "",
-      "tryOneMoreTime": "",
-      "congratulationsPassed": "",
-      "dontGiveUpTryAgain": "",
-      "goodLuck": ""
+      "answersReview": "Revisione delle risposte",
+      "availableDashboard": "Sarà disponibile nel tuo pannello studente tra circa 10 ore.",
+      "certificateAvailable": "Sarà disponibile circa 10 ore dopo l'invio.",
+      "certificateGeneration": "Il tuo certificato è in corso di ",
+      "congratulations": "Congratulazioni, hai raggiunto la fine di questo corso!",
+      "dontWorry": "Non preoccuparti degli errori; questo test aiuta ad arricchire le tue conoscenze. Se non lo superi, puoi ripeterlo dopo 24 ore.",
+      "examAndDiploma": "Esame & Diploma",
+      "examDetails": "L'esame ha 40 domande a scelta multipla, ognuna con una sola risposta corretta. Puoi cambiare le tue risposte in qualsiasi momento prima di inviare il test, finché il timer è in funzione.",
+      "explanations": "Spiegazioni:",
+      "failed": "Non superato",
+      "finalExam": "Esame finale",
+      "findInformationChapter": "Trova ulteriori informazioni in questo capitolo:",
+      "futureProof": "Future-Proof: il tuo titolo di studio è permanentemente protetto e sempre valido.",
+      "getCertificate": "Ottieni il certificato",
+      "globallyRecognized": "Riconosciuto a livello globale: le credenziali supportate dalla blockchain sono verificabili in tutto il mondo.",
+      "goBack": "Torna indietro",
+      "instantVerification": "Verifica Istantanea: I tuoi datori di lavoro possono facilmente verificare l'autenticità e la data di emissione del tuo diploma.",
+      "instructions": "Istruzioni:",
+      "letsConclude": "Tutto fatto, concludi",
+      "noGoBack": "No, torna indietro",
+      "notTranslatedYet": "Ci dispiace, ma l'esame finale non è ancora disponibile nella lingua da te selezionata. Potresti scegliere un'altra lingua per continuare.",
+      "oneMinuteLeft": "Ti resta solo 1 minuto",
+      "oopsFailed": "Ops, sembra che tu <0>non abbia superato</0> l'esame finale.",
+      "passed": "Superato",
+      "passRate": "La soglia di successo è dell'80%.",
+      "planBTimeStamp": "In Plan ₿ Network, proteggiamo il tuo titolo di studio utilizzando la tecnologia di timestamp supportata dalla blockchain.",
+      "skipExam": "Salta l'esame",
+      "skipExamGoConclusion": "Salta l'esame, vai alla conclusione",
+      "skipExamDescription": "Puoi anche saltare l'esame e procedere direttamente alla conclusione cliccando il pulsante qui sotto.",
+      "startExam": "Inizia l'esame",
+      "submit": "Invia",
+      "sureSubmit": "Sei sicuro di inviare il tuo esame?",
+      "tamperProof": "A prova di manomissione: La blockchain garantisce che nessuno possa alterare o falsificare le tue credenziali.",
+      "testKnowledge": "Ora che hai completato questo corso, perché non testare le tue conoscenze?",
+      "testResults": "Risultati del test",
+      "timeLeft": "Tempo rimasto",
+      "timeStampBenefits": "Perché è importante:",
+      "timeStamped": "provvisto di timestamp.",
+      "timeStampHow": "Come funziona:",
+      "timeStampHowDescription": "Quando viene rilasciato il tuo diploma, viene creato e memorizzato sulla blockchain un 'impronta digitale' unica. Questo rende la registrazione permanente e a prova di manomissione. Qualsiasi tentativo di alterare il tuo diploma spezzerà il collegamento, rivelandone le modifiche.",
+      "timerStart": "Una volta che fai clic su Start, inizierà un timer di 20 minuti.",
+      "tryAgain": "Prova ancora",
+      "verifyDisplayName": "Prima di iniziare, controlla il tuo nome visualizzato di seguito, poiché sarà quello utilizzato per generare il tuo diploma.",
+      "whyTimeStamp": "Datazione del tuo diploma:\nPerché è importante",
+      "wishTryAgain": "Puoi ripetere l'esame dopo 24 ore.",
+      "yesSubmit": "Sì, invia",
+      "quitWithoutSubmitting": "Ops, sembra che tu abbia lasciato la pagina senza inviare le tue risposte. Questo annulla il test.",
+      "retakeExam": "Ripeti l'esame",
+      "retakeInstructions": "Hai 20 minuti per rispondere a 40 domande, ognuna con una sola risposta corretta. Puoi alternare le domande e inviare le tue risposte alla fine.",
+      "sameRules": "Stai per rifare l'esame finale. Le regole rimangono le stesse.",
+      "score": "Il tuo punteggio è",
+      "tryOneMoreTime": "Prova ancora una volta!",
+      "congratulationsPassed": "Congratulazioni, hai <0>superato</0> l'esame finale!",
+      "dontGiveUpTryAgain": "Non arrenderti!\nPuoi riprovare dopo 24 ore.",
+      "goodLuck": "Buona fortuna!"
     }
   },
   "dashboard": {
@@ -372,16 +392,31 @@
       "inprogress": "In svolgimento",
       "inprogressCoursesDescription": "Qui puoi controllare a che punto sei dei corsi che hai iniziato.",
       "completedCoursesTitle": "Corsi completati",
-      "completedCoursesDescription": "Qui puoi controllare i corsi completati.",
+      "completedCoursesDescription": "Qui puoi rivedere i corsi completati.",
       "inprogressCoursesTitle": "Corsi in svolgimento",
       "seeProgress": "per vedere lo stato di avanzamento qui.",
       "startCourse": "Inizia o completa un corso",
-      "completedOutOf": "",
-      "done": "",
+      "completedOutOf": "{{completed}} unità completate su {{total}} disponibili",
+      "done": "Fatto",
       "downloadPdf": "",
-      "viewDetails": "",
-      "yourCertificate": "",
-      "whereYouAre": ""
+      "viewDetails": "Vedi dettagli",
+      "yourCertificate": "Il tuo certificato",
+      "whereYouAre": "Vediamo a che punto sei!",
+      "yourProgress": "I tuoi progressi:",
+      "completeAll": "Completa tutto",
+      "courseDashboard": "Pannello dei corsi",
+      "detailsAndCertificate": "Dettagli & certificato",
+      "duration": "Durata:",
+      "newCourses": "Ogni mese vengono aggiunti nuovi corsi",
+      "noCoursesAvailable": "Nessun corso disponibile.",
+      "notStarted": "Non iniziato",
+      "notValidated": "Non convalidato",
+      "price": "Prezzo:",
+      "professor": "Professori",
+      "seeDetails": "Vedi dettagli",
+      "seeTheCourse": "Vai al corso",
+      "verify": "Verifica l'autenticità del tuo diploma",
+      "download": "Scarica il diploma"
     },
     "account": "Account",
     "courses": "Corsi",
@@ -432,7 +467,7 @@
       "save": "Salva",
       "saving": "Salvataggio in corso…",
       "crop": "Ritaglia",
-      "emailChangeConfirmation": "E' stata inviata una email di conferma del cambio email, controlla la tua posta in arrivo per confermare il cambio.",
+      "emailChangeConfirmation": "E' stata inviata una email di conferma, controlla la tua posta in arrivo per confermare il cambio.",
       "preview": "Anteprima",
       "displayName": "Nome visualizzato",
       "email": "Email",
@@ -443,7 +478,7 @@
       "security": "Sicurezza",
       "username": "Nome utente",
       "profile": "Profilo",
-      "emailChangeRateLimitError": ""
+      "emailChangeRateLimitError": "La richiesta di cambio email è stata inviata meno di 5 minuti fa, si prega di attendere prima di provare di nuovo."
     },
     "administration": "Amministrazione",
     "teacher": {
@@ -465,7 +500,7 @@
         "objectives": "Obiettivi",
         "proposeNewCourse": "Proponi un nuovo corso",
         "quickRecap": "Qui puoi trovare tutte le informazioni riguardanti questo corso.",
-        "reviewInfos": "Qui puoi controllare e rivedere tutte le informazioni relative a ogni corso che hai coordinato."
+        "reviewInfos": "Qui puoi rivedere tutte le informazioni relative a ogni corso che hai coordinato."
       },
       "profile": {
         "teacher": "Insegnante",
@@ -501,32 +536,67 @@
         "viewDetails": "Visualizza dettagli",
         "writtenFeedbacks": "Feedback scritti"
       },
-      "menu": "Menu insegnante"
+      "menu": "Menu insegnante",
+      "tutorials": {
+        "tutorialAnalyticsDescription": "Qui puoi trovare dei dati sui tutorial che hai creato e pubblicato sulla piattaforma.",
+        "yourTutorials": "I tuoi tutorial"
+      }
     },
     "course": {
-      "checkDetailsCompleted": "",
-      "completionDiploma": "",
-      "completionExamInfo": "",
-      "coursesCompleted": "",
-      "feedbacks": "",
-      "ratingsAndFeedbacks": "",
-      "shareOnSocials": "",
-      "tweetText": ""
+      "checkDetailsCompleted": "Qui puoi rivedere tutti i dettagli riguardanti il corso che hai completato.",
+      "completionDiploma": "Diplomi",
+      "completionExamInfo": "Devi completare l'esame per avere accesso a questa funzione.",
+      "coursesCompleted": "Corsi completati",
+      "feedbacks": "Qui puoi rivedere e modificare le valutazioni e i feedback che hai dato a questo corso.",
+      "ratingsAndFeedbacks": "Valutazioni e feedback",
+      "shareOnSocials": "Condividi sui social:",
+      "tweetText": "Felice di aver completato il corso {{courseId}} su @planb_network e aver ottenuto il mio diploma con un punteggio di {{score}}/100 all'esame finale! {{emoji}} #PBNDiploma\n\n{{certificateUrl}}",
+      "conclusionHeadline": "Ecco un riassunto di ciò che hai appreso. Se hai tralasciato alcuni capitoli o non li hai validati correttamente, ora è il momento di farlo. Puoi tornare indietro per rivedere il contenuto, o puoi premere il pulsante di completamento.",
+      "submitReviewInfo": "Devi completare l'esame per avere accesso a questa funzione."
     },
     "credentials": {
-      "bCertificate": "",
-      "bCertificateSubtitle": "",
-      "beingGraded": "",
-      "courseDiplomas": "",
-      "courseDiplomasSubtitle": "",
-      "completionDiplomas": "",
-      "downloadTicket": "",
-      "globalCertifications": "",
-      "retakeExam": "",
-      "seatBooked": "",
-      "takePlaceAt": "",
-      "yourCertificate": ""
-    }
+      "bCertificate": "₿ Certificate",
+      "bCertificateSubtitle": "Qui puoi trovare i dettagli relativi alle tue prenotazioni e ai voti dei tuoi ₿ Certificate passati e futuri.\nIl ₿ Certificate è un esame in presenza organizzato da Plan ₿ Network per attestare il tuo livello di conoscenza su Bitcoin e i relativi argomenti.",
+      "beingGraded": "Il tuo esame è in fase di correzione. I risultati dovrebbero essere disponibili tra 1 o 2 settimane.",
+      "courseDiplomas": "Diplomi dei corsi",
+      "courseDiplomasSubtitle": "Qui puoi trovare i dettagli relativi a tutti gli esami che hai sostenuto dopo aver completato un corso sulla piattaforma.",
+      "completionDiplomas": "Diplomi",
+      "downloadTicket": "Scarica biglietto",
+      "globalCertifications": "Certificazioni di livello globale",
+      "retakeExam": "Ripeti l'esame",
+      "seatBooked": "Il tuo posto alla sessione d'esame è prenotato",
+      "takePlaceAt": "La sessione si svolgerà a",
+      "yourCertificate": "Il tuo certificato"
+    },
+    "adminPanel": {
+      "confirmRemoval": "Conferma rimozione",
+      "githubLink": "Link di Github",
+      "professorName": "Nome del professore",
+      "bookingsPanel": "Pannello prenotazioni",
+      "coursesIds": "ID dei corsi",
+      "date": "Data",
+      "downloadList": "Lista dei download",
+      "listOfParticipants": "Elenco dei partecipanti",
+      "nameOfEvent": "Nome dell'evento",
+      "noUpcomingBookings": "Non ci sono prenotazioni imminenti.",
+      "participants": "Partecipanti",
+      "removeTeacherDescription": "Sei sicuro di voler rimuovere questo insegnante?",
+      "searchByNameOrCategory": "Cerca per nome o categoria",
+      "seeOrEdit": "Vedi o modifica",
+      "selectProfessor": "Seleziona professore",
+      "bookings": "Prenotazioni",
+      "tutorialAnalytics": "Analitiche sui tutorial",
+      "type": "Tipo",
+      "upcomingBookings": "Prenotazioni in arrivo",
+      "upcomingBookingsSubtitle": "Qui puoi scaricare l'elenco dei partecipanti per tutti gli eventi dal vivo.",
+      "upcomingEvents": "Eventi in arrivo",
+      "upcomingEventsSubtitle": "Qui puoi scaricare l'elenco dei partecipanti per tutti gli eventi dal vivo.",
+      "userRolesAllocation": "Assegnazione dei ruoli utente",
+      "tutorialAnalyticsDescription": "Qui puoi vedere e confrontare tutti i tutorial sulla piattaforma.",
+      "tutorialsManagementPanel": "Pannello di gestione dei tutorial"
+    },
+    "courseDashboard": "Pannello dei corsi",
+    "studentDashboard": "Pannello dello studente"
   },
   "events": {
     "introduction": {
@@ -583,9 +653,9 @@
       "callout_replay": "Stai per prenotare un accesso alla registrazione video di questo evento.",
       "date": "Data",
       "dates_to": "{{startDate}}{{endDate}}",
-      "description_online": "Controlla la data e l'ora forniti per questo evento.\nQuando sarà il momento, accedi alla piattaforma e accedi allo streaming dal vivo dalla pagina dell'evento.",
-      "description_physical": "Controlla i dettagli del luogo forniti.\nUna volta che la prenotazione sarà elaborata, ti forniremo un biglietto da presentare all'evento. Questo biglietto di darà anche accesso allo streaming dal vivo e alla registrazione video, se disponibili.",
-      "description_free_physical": "Controlla i dettagli del luogo forniti.\nUna volta che la prenotazione sarà elaborata, ti forniremo un biglietto di conferma e un codice QR da presentare all'evento.",
+      "description_online": "Salva la data e l'ora di questo evento.\nQuando sarà il momento, accedi alla piattaforma e allo streaming dalla pagina dell'evento.",
+      "description_physical": "Salva i dettagli dell'indirizzo.\nUna volta che la prenotazione sarà elaborata, ti forniremo un biglietto da presentare all'evento, che ti darà anche accesso allo streaming live e alla registrazione video (se disponibili).",
+      "description_free_physical": "Salva i dettagli sull'indirizzo.\nUna volta che la prenotazione sarà elaborata, ti forniremo un biglietto di conferma e un codice QR da presentare all'evento.",
       "download_ticket": "Scarica il tuo biglietto",
       "enjoy": "Speriamo che ti piaccia :)",
       "language": "Lingua parlata",
@@ -594,6 +664,11 @@
       "payment_details": "Dettagli del pagamento",
       "payment_successful": "Prenotazione confermata!",
       "time": "Orario"
+    },
+    "errors": {
+      "premiumContentNeedsPayment": "Questo evento fa parte di un programma premium.",
+      "premiumContentNeedsLogin": "È necessario accedere per visualizzare questo corso.",
+      "premiumContentNeedsPaymentAction": "Vai alla pagina degli eventi"
     }
   },
   "home": {
@@ -612,7 +687,7 @@
       "title": "Da principiante ad avanzato",
       "subtitle": "Impara Bitcoin nell'accademia",
       "content1": "Bitcoin non è solo una tecnologia e una forma di denaro, ma anche un modo rivoluzionario di avvicinarsi alla vita. Per riecheggiare questo, i nostri corsi coprono una vasta gamma di settori, consentendo a ogni individuo di eccellere nelle loro aree di interesse e di approfondire la loro comprensione. Dal tuo primo corso Bitcoin a un tuffo profondo nelle specifiche del protocollo, i nostri corsi ti aiuteranno a navigare in modo sicuro la tana del coniglio. Non c'è motivo di esitare. La conoscenza ti aspetta.",
-      "link": "Controlla l'accademia"
+      "link": "Accedi all'accademia"
     },
     "sectionNetwork": {
       "title": "Accedi a una rete di",
@@ -625,7 +700,7 @@
       "subtitle1": "Ti aiutiamo a padroneggiare la tecnologia con numerosi tutorial approfonditi!",
       "content1": "Bitcoin è in continua evoluzione, con nuovi attori, soluzioni, protocolli e innovazioni tecnologiche in arrivo. Spesso è difficile mantenere un unico ed accurato database di buoni tutorial aggiornati. Qui a PlanB, questo è ciò che abbiamo raggiunto. Dai principianti agli utenti avanzati, puoi navigare tra centinaia di tutorial per esplorare il nostro settore in base alle tue esigenze.",
       "link": "Visualizza tutti i tutorial",
-      "link2": ""
+      "link2": "Vedi tutte le risorse"
     },
     "aboutUsSection": {
       "title": "Chi siamo?",
@@ -648,7 +723,7 @@
       "content2": "Anche tu puoi avviare una rete locale nel tuo paese!",
       "link": "Aiutaci a tradurre l'accademia",
       "availableLanguages": "Lingue disponibili",
-      "availableLanguagesVariation": ""
+      "availableLanguagesVariation": "Lingue disponibili: "
     },
     "patreonSection": {
       "title": "Insieme rendiamo migliore l'istruzione di Bitcoin !",
@@ -658,6 +733,20 @@
     "wallOfLoveSection": {
       "title": "Muro dell'amore",
       "subtitle": "Cosa dicono di noi i Bitcoiner"
+    },
+    "courseSection": {
+      "upcomingCourseDescription": "Scopri i corsi più recenti rilasciati sulla piattaforma. L'apprendimento non si ferma mai!",
+      "checkAllCourses": "Esplora tutti i corsi",
+      "upcomingCourseTitle": "Corsi in arrivo e corsi nuovi"
+    },
+    "blogSection": {
+      "blogTitle": "Cosa c'è di nuovo in Plan ₿ Network?",
+      "description": "Stiamo lavorando per migliorare la piattaforma, i contenuti e la rete di Plan ₿- dai un'occhiata!",
+      "seeAll": "Vedi tutto"
+    },
+    "eventSection": {
+      "checkEvents": "Esplora tutti gli eventi",
+      "eventTitle": "Una Rete Globale di Educatori Bitcoin"
     }
   },
   "imagesAlt": {
@@ -698,7 +787,7 @@
     "lightningDescription": "Gestisci il tuo nodo fulmine e utilizza la rete lightning network",
     "manifestoDescription": "Leggi il manifesto del Piano B",
     "merchantsDescription": "Accetta i pagamenti bitcoin e scopri gli strumenti per i commercianti",
-    "miningDescription": "Mina i tuoi bitcoin e scopri il settore minerario",
+    "miningDescription": "Mina i tuoi bitcoin e scopri il settore del mining",
     "nodeDescription": "Impara ad essere sovrano con il tuo nodo bitcoin",
     "nodeNetworkDescription": "Unisciti alla rete globale delle comunità Bitcoin!",
     "ourStoryDescription": "Scopri la storia dell'università",
@@ -709,10 +798,19 @@
     "walletsDescription": "Proteggi e utilizza i tuoi bitcoin",
     "conferencesDescription": "Collezione di registrazioni di conferenze Bitcoin dal Blocco Genesi",
     "login": "Accedi",
-    "bCertificateDescription": "Supera l'esame Certificato ₿ per dimostrare il tuo livello Bitcoin",
+    "bCertificateDescription": "Supera l'esame del ₿ Certificate per dimostrare il tuo livello Bitcoin",
     "glossaryDescription": "Comprendere il linguaggio di Bitcoin",
     "loginRegister": "Accedi / Registrati",
-    "publicDescription": "Esplora gli articoli di comunicazione pubblica"
+    "publicDescription": "Esplora gli articoli di comunicazione pubblica",
+    "miningCourseDescription": "Comprendi i processi, gli strumenti e l'industria dietro il mining di Bitcoin.",
+    "channelsDescription": "Accedi alla nostra selezione esclusiva di canali Youtube per imparare tutto su Bitcoin",
+    "bitcoinDescription": "Studia Bitcoin dalle basi alle applicazioni avanzate.",
+    "businessDescription": "Scopri l'utilizzo di Bitcoin nel commercio.",
+    "chooseLanguage": "Scegli una lingua",
+    "newsletterDescription": "Raccolta di contenuti che puoi utilizzare per i tuoi progetti educativi",
+    "securityDescription": "Padroneggia le tecniche per salvaguardare i tuoi asset in Bitcoin.",
+    "socialStudiesDescription": "Studia l'impatto di Bitcoin sulla società.",
+    "protocolDescription": "Scopri le regole fondamentali che alimentano la rete Bitcoin."
   },
   "nodeNetwork": {
     "answer1": "Un nodo è semplicemente una comunità Bitcoin che vuole progredire al passo successivo e accelerare la propria adozione locale Bitcoin! Non c'è nessuna dimensione minima con cui iniziare.",
@@ -740,7 +838,8 @@
   },
   "podcast": {
     "abstract": "Astratto",
-    "discover": "Scopri questo podcast"
+    "discover": "Scopri questo podcast",
+    "check": "Ascolta il podcast"
   },
   "podcasts": {
     "hostedBy": "Ospitato da {{host}}",
@@ -771,7 +870,8 @@
       "title": "Strumenti Educativi"
     },
     "books": {
-      "title": "Libri"
+      "title": "Libri",
+      "author": "Autore: "
     },
     "builders": {
       "title": "Creatori"
@@ -783,13 +883,19 @@
     "headerSignature": "Rogzy",
     "headerText": "Benvenuto nel foro coniglio infinito di Bitcoin! In questa sezione ti offriremo un tutoriel approfondito sulla maggior parte dei progetti bitcoin là fuori. Queste pagine in mantenere da benevolel e appassionato bitcoin che supportano il progetto open source. Se dovessi pagare abbiamo commesso un errore, ti preghiamo di contattarci. Per vedere il nostro allegato finanziario per la menzione del progetto fai riferimento al nostro repport trasparente. Grazie per la vostra fiducia in questa università e godetevi il viaggio.",
     "newsletters": {
-      "title": "Le Newsletter"
+      "title": "Le Newsletter",
+      "abstract": "Estratto",
+      "author": "Autore: ",
+      "level": "Livello:",
+      "noNewsletters": "Al momento non ci sono newsletter per la lingua selezionata.",
+      "subtitle": "<0>Altre newsletter</0> che potrebbero interessarti: "
     },
-    "pageDescription": "Cercare di capire Bitcoin è come esplorare un labirinto che continua a crescere. Per aiutarvi nel vostro viaggio, abbiamo curato una vasta collezione di risorse affrontando una miriade di argomenti.",
+    "pageDescription": "Cercare di capire Bitcoin è come esplorare un labirinto che continua a crescere. Per aiutarti nel tuo viaggio, abbiamo curato una vasta collezione di risorse affrontando una miriade di argomenti.",
     "pageSubtitle": "Benvenuto nella tana infinita del bianconiglio!",
     "pageTitle": "Risorse",
     "podcasts": {
-      "title": "Podcast"
+      "title": "Podcast",
+      "noPodcasts": "Al momento non ci sono podcast per la lingua selezionata."
     },
     "publicGrade": "Grado pubblico: {{grade}}/5",
     "github": "Tutti questi dati sono gestiti tramite un unico repository open source <0>Github</0>. Non esitare a contribuire e aggiungere eventuali contenuti mancanti.",
@@ -798,10 +904,18 @@
     },
     "searchFilterName": "Cerca per nome",
     "newsletter": {
-      "title": ""
+      "title": "Newsletter",
+      "check": "Leggi la newsletter"
     },
-    "pageSubtitlePodcast": "",
-    "pageSubtitleBooks": ""
+    "pageSubtitlePodcast": "Altri podcast che potrebbero piacerti:",
+    "pageSubtitleBooks": "<0>Altri libri</0> che potrebbero piacerti:",
+    "channels": {
+      "noYoutubeChannels": "Al momento non ci sono canali Youtube per la lingua selezionata.",
+      "title": "Canali Youtube"
+    },
+    "pageSubtitleChannels": "<0>Altri canali Youtube</0> che potrebbero piacerti:",
+    "toggleLabelAll": "Tutti",
+    "toggleLabelSelectedLanguage": "Lingua selezionata"
   },
   "settings": {
     "changePassword": "Cambia password",
@@ -818,18 +932,20 @@
       "tipTooltip": "Ti piace? Dona.",
       "author": "Autore: ",
       "didHelp": "E' stato d'aiuto?",
-      "writtenBy": "Questo tutorial è stato scritto da:"
+      "writtenBy": "Questo tutorial è stato scritto da:",
+      "ratingSuccess": "Grazie per il tuo voto! È stato preso in considerazione",
+      "tutorialName": "Nome del tutorial"
     },
     "exchange": {
       "centralized": {
-        "description": "Gli exchange centralizzati sono solitamente entità regolamentate che agiscono come intermediari tra il sistema bancario e l'ecosistema di bitcoin. Ti permettono di acquistare e vendere grandi quantità di bitcoin e ritirarli nel tuo portafoglio o conto bancario. Di solito richiedono KYC e, pertanto, monitorano la tua attività, segnalandola alle istituzioni di sorveglianza finanziaria per rispettare le leggi locali."
+        "description": "Gli exchange centralizzati sono solitamente entità regolamentate che agiscono come intermediari tra il sistema bancario e l'ecosistema di bitcoin. Ti permettono di acquistare e vendere grandi quantità di bitcoin e ritirarli nel tuo wallet o conto bancario. Di solito richiedono KYC e, pertanto, monitorano la tua attività, segnalandola alle istituzioni di sorveglianza finanziaria per rispettare le leggi locali."
       },
       "description": "I mercati sono una delle porte di entrata ed uscita tra la tua valuta tradizionale (euro, dollari) e il mondo bitcoin. I mercati possono essere regolati e KYC (Conoscere il Tuo Cliente), o peer-to-peer e anonimi. Ciasucno offrirà diverse funzionalità, commissioni, liquidità e supporto clienti. Ogni bitcoiner ne utilizzerà uno diverso in base alle sue esigenze e convinzioni.",
       "peer-to-peer": {
         "description": "I mercati peer-to-peer sono mercati dove gli individui scambiano tra di loro bitcoin per altre valute. Questi mercati potrebbero essere regolamentati o meno e di solito non chiedono molte informazioni (se ne chiedono) su di te. Semplicemente facilitano le interazioni tra gli utenti. Le loro commissioni potrebbero essere più alte rispetto agli scambi tradizionali e la loro liquidità leggermente inferiore. È l'opzione preferita per i bitcoiners che cercano di evitare il KYC."
       },
       "shortDescription": "Soluzioni di compravendita Bitcoin, KYC e non-KYC",
-      "title": "Borsa"
+      "title": "Exchange"
     },
     "explorer": {
       "description": "Tutti questi tutorial sono stati scritti da appassionati e dediti bitcoiner, che desiderano diffondere l'educazione su bitcoin in tutto il mondo. Non dimenticate di mettere un like, fare una recensione, e donare qualche sats!",
@@ -839,14 +955,14 @@
     "headerSignature": "Rogzy",
     "headerText": "Benvenuto nel foro coniglio infinito di Bitcoin! In questa sezione ti offriremo un tutoriel approfondito sulla maggior parte dei progetti bitcoin là fuori. Queste pagine in mantenere da benevolel e appassionato bitcoin che supportano il progetto open source. Se doveste pagare abbiamo commesso un errore, vi preghiamo di contattarlo.Per vedere il nostro allegato finanziario per la menzione del progetto si rimanda alla nostra relazione sulla trasparenza. Grazie per la vostra fiducia in questa università e godetevi il viaggio.",
     "merchant": {
-      "description": "Ti sei mai chiesto come accettare facilmente bitcoin per un'attività? Esplora le nostre diverse soluzioni per diventare un esperto e configurare facilmente una soluzione commerciale per i negozi intorno a te. La soluzione del Punto Vendita (PoS) varia in base alle esigenze del commerciante (fisico o online), al loro volume e alla complessità delle loro operazioni. Una buona indicazione generale è semplicemente iniziare con un portafoglio LN di base, passare a una soluzione facile ed efficiente (come il PoS mobile) e infine esplorare BTC Pay Server per soluzioni avanzate, complesse e professionali.",
+      "description": "Ti sei mai chiesto come accettare facilmente bitcoin per un'attività? Esplora le nostre diverse soluzioni per diventare un esperto e configurare facilmente una soluzione commerciale per i negozi intorno a te. La soluzione del Punto Vendita (PoS) varia in base alle esigenze del commerciante (fisico o online), al loro volume e alla complessità delle loro operazioni. Una buona indicazione generale è semplicemente iniziare con un wallet LN di base, passare a una soluzione facile ed efficiente (come il PoS mobile) e infine esplorare BTC Pay Server per soluzioni avanzate, complesse e professionali.",
       "shortDescription": "Soluzioni per le aziende per accettare Bitcoin",
       "title": "Commerciante"
     },
     "mining": {
-      "description": "L'industria dei miners è un argomento complesso pieno di insidie. Qui, cercheremo di accompagnarti nel tuo viaggio usando hardware e software. Dal modificare un S9 per trasformarlo in un riscaldatore domestico al tentativo di vincere alla lotteria con un nerd miner.",
+      "description": "L'industria del mining è un argomento complesso pieno di approfondimenti da scoprire. Qui, cercheremo di accompagnarti nel tuo viaggio parlando di hardware e software. Dal modificare un S9 per trasformarlo in un riscaldatore domestico, al tentativo di vincere alla lotteria con un nerd miner.",
       "shortDescription": "Soluzioni di mining Bitcoin",
-      "title": "Estrazione"
+      "title": "Mining"
     },
     "node": {
       "bitcoin": {
@@ -854,7 +970,7 @@
       },
       "description": "I nodi sono come i tuoi server personali. In Bitcoin, è il software che consente di partecipare alla rete, raccogliere transazioni, verificarne le regole, ed essere veramente sovrani. All'interno del nostro ecosistema, esistono vari nodi, da Bitcoin Core, alle implementazioni Lightning, RGB, o altre soluzioni più avanzate per la privacy.",
       "lightning-network": {
-        "description": "Un nodo Lightning ti permette di prendere parte al protocollo di secondo livello di Bitcoin chiamato Lightning. Sarai in grado di aprire canali, gestire la loro liquidità, partecipare al grafico, gestendo in maniera non custodial il portafoglio Lightning.",
+        "description": "Un nodo Lightning ti permette di prendere parte al protocollo di secondo livello di Bitcoin chiamato Lightning. Sarai in grado di aprire canali, gestire la loro liquidità, partecipare al grafico, gestendo in maniera non custodial il wallet Lightning.",
         "name": "Lightning Network"
       },
       "rgb": {
@@ -878,21 +994,21 @@
       "title": "Privacy"
     },
     "wallet": {
-      "description": "Un portafoglio Bitcoin è come il tuo portachiavi. Ti permette di spendere e ricevere bitcoin. Ci sono un sacco di diversi tipi di portafogli, tutti con diversi casi di utilizzo, funzioni, costi ed esperienze utente. Ogni bitcoiner userà un dispositivo diverso in base alle proprie necessità, livello di esigenza, ed esperienza.",
+      "description": "Un wallet Bitcoin è come il tuo portachiavi. Ti permette di spendere e ricevere bitcoin. Ci sono un sacco di diversi tipi di wallet, tutti con diversi casi di utilizzo, funzioni, costi ed esperienze utente. Ogni bitcoiner userà un dispositivo diverso in base alle proprie necessità, livello di esigenza, ed esperienza.",
       "desktop": {
-        "description": "I portafogli desktop sono di solito per utenti più avanzati in quanto combinano l'utilizzo di dispositivi hardware con il software del portafoglio desktop. È come avere una nuova interfaccia più personalizzata e ricca in termini di funzionalità per il tuo dispositivo hardware da utilizzare. Tali portafogli offrono opzioni di firma multipla, funzionalità di privacy, meccanismi di integrazione di eredità e altro ancora."
+        "description": "I wallet desktop sono di solito per utenti più avanzati in quanto combinano l'utilizzo di dispositivi hardware con il software del wallet su desktop. È come avere una nuova interfaccia più personalizzata e ricca in termini di funzionalità per il tuo dispositivo hardware da utilizzare. Tali wallet offrono opzioni di firma multipla, funzionalità di privacy, meccanismi di integrazione di eredità e altro ancora."
       },
       "hardware": {
         "description": "Gli hardware wallet vengono solitamente utilizzati per conservare i tuoi risparmi in bitcoin a lungo termine. Sono dispositivi fisici che non sono connessi a internet (spesso chiamati \"cold wallet\") e sono solitamente molto sicuri. Anche se questi dispositivi sono spesso open source per quanto riguarda il loro software, l'hardware ha un costo che varia da 50 a 300 euro. Considera questi dispositivi come un conto bancario per importi di risparmio più elevati che useresti di tanto in tanto."
       },
       "mobile": {
-        "description": "I portafogli mobili vengono solitamente utilizzati per le spese quotidiane. Integrano Lightning Network per transazioni istantanee ed a basso costo. Sono di solito connessi a internet (spesso chiamati \"Hot walet\") e quindi sono meno sicuri rispetto a i portafogli hardware. Dovrebbero essere utilizzati solo per conservare piccole quantità di bitcoin, considerali come il tuo portafoglio quotidiano che tieni in tasca."
+        "description": "I wallet su mobile vengono solitamente utilizzati per le spese quotidiane. Integrano Lightning Network per transazioni istantanee ed a basso costo. Sono di solito connessi a internet (spesso chiamati \"Hot walet\") e quindi sono meno sicuri rispetto a i wallet hardware. Dovrebbero essere utilizzati solo per conservare piccole quantità di bitcoin, considerali come il tuo portafoglio quotidiano che tieni in tasca."
       },
       "shortDescription": "Soluzioni di sicurezza e utilizzo dei tuoi bitcoin",
-      "title": "Portafoglio"
+      "title": "Wallet"
     },
     "others": {
-      "shortDescription": "Esplora i diversi tutorial su argomenti strettamente correlati a Bitcoin",
+      "shortDescription": "Esplora diversi tutorial sugli argomenti strettamente correlati a Bitcoin",
       "title": "Altri",
       "description": "Immergiti in una vasta raccolta di tutorial strettamente legati all'ethos di Bitcoin. Dai tutorial fai-da-te all'open source, scopri nuove aree di conoscenza per diventare ancora più sovrano.",
       "DIY": {
@@ -913,7 +1029,7 @@
   },
   "underConstruction": {
     "github": "GitHub",
-    "p1": "Un coniglio ha abbattuto un buco. A causa di questa avventura inaspettata, questa pagina è sotto un po 'di costruzione al momento. Ci scusiamo per qualsiasi inconveniente. Il nostro team è in pieno equipaggiamento per completare questa pagina. Se siete interessati a prestare una mano, non esitate a controllare il nostro",
+    "p1": "Un coniglio bianco è caduto in un buco. A causa di questa avventura inaspettata, questa pagina è in revisione. Ci scusiamo per qualsiasi inconveniente. Il nostro team sta lavorando al massimo per completare questa pagina. Se siete interessati a dare una mano, non esitate a cliccare qui:",
     "p2": "e considerare di unirsi alla nostra comunità!",
     "pageTitle": "Ooops.",
     "itemNotFoundOrTranslated": "{{item}} non trovato, o non tradotto nella tua lingua",
@@ -933,7 +1049,7 @@
     "bitcoinWhitepaper": "Whitepaper Bitcoin",
     "book": "Libro",
     "books": "Libri",
-    "builders": "Costruttori",
+    "builders": "Progetti",
     "certificate": "Certificato",
     "conference": "Conferenza",
     "conferences": "Conferenze",
@@ -973,7 +1089,7 @@
     "merchandising": "Merchandising",
     "merchants": "Mercanti",
     "members": " Membri",
-    "mining": "Estrazione",
+    "mining": "Mining",
     "more": "Altro",
     "movieDocumentary": "Documentario Del Film",
     "network": "Network",
@@ -1005,7 +1121,7 @@
     "update": "Aggiorna",
     "video": "Video",
     "videos": "Video",
-    "wallets": "Portafogli",
+    "wallets": "Wallet",
     "date": "Data",
     "time": "Orario",
     "to": "a",
@@ -1020,13 +1136,13 @@
     "price": "Prezzo",
     "professor": "Professore",
     "all": "Tutto",
-    "bCertificate": "Certificato ₿",
+    "bCertificate": "₿ Certificate",
     "courseId": "ID corso",
     "duration": "Durata",
     "edit": "Modifica",
     "glossary": "Glossario",
     "onChain": "On chain",
-    "paid": "Pagato",
+    "paid": "Premium",
     "part": "Parte",
     "start": "Inizia",
     "topics": "Argomenti",
@@ -1048,25 +1164,54 @@
     "ratings": "Valutazioni",
     "users": "Utenti",
     "view": "Vista",
-    "booked": "",
-    "bookings": "",
-    "credentials": "",
-    "diploma": "",
+    "booked": "Prenotato",
+    "bookings": "Prenotazioni",
+    "credentials": "Credenziali",
+    "diploma": "Diploma",
     "filter": "",
-    "failed": "",
-    "grade": "",
-    "id": "",
-    "inReview": "",
-    "location": "",
-    "overview": "",
-    "passed": "",
-    "progress": "",
-    "publicationDate": "",
-    "required": "",
-    "teacher": "",
-    "total": "",
+    "failed": "Non superato",
+    "grade": "Voto",
+    "id": "ID",
+    "inReview": "In revisione",
+    "location": "Luogo",
+    "overview": "Panoramica",
+    "passed": "Superato",
+    "progress": "Progresso",
+    "publicationDate": "Data di pubblicazione:",
+    "required": "Richiesto",
+    "teacher": "Insegnante",
+    "total": "Totale",
     "writtenByPodcasts": "",
-    "status": ""
+    "status": "Stato",
+    "abstract": "Estratto",
+    "category": "Categoria",
+    "inperson": "In presenza",
+    "access": "Accedi",
+    "action": "Azione",
+    "admin": "Amministratore",
+    "author": "Autore",
+    "bitcoin": "Bitcoin",
+    "business": "Business",
+    "cancel": "Annulla",
+    "channel": "Canale",
+    "chapters": "Capitoli",
+    "close": "Chiudi",
+    "dislikes": "Non piaciuti",
+    "displayName": "Nome visualizzato",
+    "finish": "Fine",
+    "hybrid": "Ibrido",
+    "likes": "Mi piace",
+    "protocol": "Protocollo",
+    "role": "Ruolo",
+    "search": "Ricerca",
+    "security": "Sicurezza",
+    "socialStudies": "Studi sociali",
+    "startHere": "Inizia qui!",
+    "student": "Studente",
+    "unavailable": "Non disponibile",
+    "user": "Utente",
+    "username": "Nome utente",
+    "viewMore": "Visualizza altro"
   },
   "conferences": {
     "addConferences": "Aggiungi pure qualsiasi conferenza mancante tramite questo repository <0>Github</0>.",
@@ -1096,25 +1241,29 @@
     "proceedToPayment": "Procedi al pagamento",
     "terms": "Leggi le nostre <0>condizioni generali</0> per i dettagli sul rimborso",
     "feeDistribution": "Distribuzione della commissione: Autore 99% - Piattaforma 1%",
-    "total": "Totale"
+    "total": "Totale",
+    "payWithBitcoin": "Paga in Bitcoin",
+    "payByCard": "Paga con carta"
   },
   "bCertificate": {
     "bookExam": "Prenota una sessione di esame",
     "challengeYourself": "Sfida te stesso e dimostra il tuo livello!",
     "curious": "Sei curioso di sapere com'è l'esame?",
     "joeNakamotoVideo": "Che cavolo è un esame Bitcoin? Di Joe Nakamoto",
-    "knowledgeableBitcoin": "Conoscenze in Bitcoin?",
+    "knowledgeableBitcoin": "Quanto sai su Bitcoin?",
     "noBookExam": "Non ci sono ancora sessioni di esame programmate.",
     "organizeDescription": "Nessun problema! Se la tua comunità è parte del Network, è possibile organizzare una sessione di esame presso il tuo hub. Leggi il regolamento per assicurarti che tu possa soddisfare tutte le condizioni obbligatorie per ospitare un esame. Se puoi soddisfare le condizioni, puoi pianificare una sessione e aggiungerla alla piattaforma.",
     "organizeExam": "Organizza un esame",
     "organizeSubtitle": "Orangepillare un miliardo di persone non è facile",
     "pageSubtitle": "Adozione di massa attraverso un'educazione centralizzata open source",
-    "bCertificateDescription": "Il Certificato ₿ è un esame riconosciuto a livello internazionale che valuta il tuo livello su Bitcoin e i suoi argomenti derivati. Questo certificato ti permetterà di dimostrare le tue capacità e la tua conoscenza nel settore Bitcoin, dandoti accesso ad aziende e posizioni in questo settore.",
-    "checkout": "Controlla il Certificato ₿",
-    "organizeTitle": "Vuoi organizzare un esame Certificato ₿ nel tuo hub?",
+    "bCertificateDescription": "Il ₿ Certificate è un esame riconosciuto a livello internazionale che valuta il tuo livello di istruzione su Bitcoin e i relativi argomenti. Questo certificato ti permetterà di dimostrare le tue capacità e la tua conoscenza nel settore Bitcoin, dandoti accesso ad aziende e posizioni in questo settore.",
+    "checkout": "Accedi al ₿ Certificate",
+    "organizeTitle": "Vuoi organizzare un esame ₿ Certificate nel tuo hub?",
     "pageTitle": "Supera il ₿ Certificate",
     "readChart": "Leggi il regolamento",
-    "tweetText": ""
+    "tweetText": "Entusiasta di aver ottenuto il ₿ Certificate su @planb_network con un punteggio di {{score}}/100! {{emoji}} #BCert\n\n{{certificateUrl}}",
+    "download": "Scarica il certificato",
+    "verify": "Verifica l'autenticità del tuo certificato"
   },
   "glossary": {
     "anotherWord": "Cerca un'altra parola",
@@ -1174,5 +1323,10 @@
     "inProgress": "Revisione in corso",
     "reviewEarn": "Fai una revisione e guadagna sats",
     "thanks": "Un grande grazie a tutti i nostri revisori!"
+  },
+  "youtubeChannels": {
+    "pageTitle": "Canali Youtube",
+    "view": "Visualizza il canale Youtube",
+    "watchTrailer": "Guarda il trailer"
   }
 }

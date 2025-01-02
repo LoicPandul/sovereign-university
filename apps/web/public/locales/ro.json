@@ -71,7 +71,10 @@
     "confirmation": "Confirmare",
     "displayName": "Numele afișat",
     "oldPassword": "Parola veche",
-    "emailTip": "E-mailul nu este obligatoriu, dar poate fi util în cazul unei parole uitate :)"
+    "emailTip": "E-mailul nu este obligatoriu, dar poate fi util în cazul unei parole uitate :)",
+    "trackProgress": "Creează un cont sau autentifică-te pentru a urmări progresul tău",
+    "dashboardUnlocked": "Dashboard-ul tău de student este deblocat!",
+    "didYouKnow": "Știai?"
   },
   "bCertificate": {
     "bCertificateDescription": "Certificatul ₿ este un examen recunoscut internațional care evaluează stăpânirea ta asupra Bitcoin și a subiectelor derivate din acesta. Acest certificat îți va permite să îți dovedești abilitățile și cunoștințele în industria Bitcoin, oferindu-ți acces la cele mai bune companii și poziții de muncă excelente.",
@@ -89,7 +92,9 @@
     "pageSubtitle": "Adoptare în masă prin educație open-source centralizată",
     "pageTitle": "Treceți Certificatul ₿",
     "readChart": "Citește statutul",
-    "tweetText": "Bucuros că ai obținut Certificatul B @planb_network cu un scor de {{score}}/100 la examenul final! {{emoji}}\n\n{{certificateUrl}}"
+    "tweetText": "Bucuros că ai obținut Certificatul B @planb_network cu un scor de {{score}}/100 la examenul final! {{emoji}}\n\n{{certificateUrl}}",
+    "download": "Descarcă certificatul",
+    "verify": "Verificați autenticitatea certificatului dvs."
   },
   "bet": {
     "contribute": "Acest toolkit este deschis la contribuții. Folosește Figma, deci oricine poate adăuga, modifica și traduce. Pentru a colabora, a adăuga o categorie sau a discuta, nu ezitați să vă alăturați discordului nostru.",
@@ -203,7 +208,10 @@
       "buyOnlineCourse": "Cumpărați cursul online",
       "buyInPersonCourse": "Cumpărați cursul în persoană",
       "inPersonAccess": "Trebuie să vă descărcați biletul pentru a avea acces la cursul în persoană.",
-      "paidCourse": "Plătit"
+      "paidCourse": "Plătit",
+      "premiumContentNeedsLogin": "Trebuie să fiți autentificat pentru a accesa acest curs.",
+      "premiumContentNeedsPayment": "Acest curs face parte dintr-un program premium.",
+      "premiumContentNeedsPaymentAction": "Mergi la pagina principală a cursului"
     },
     "chapter": {
       "thanksTip": "Doriți să vă arătați aprecierea?\nPuteți susține autorul cu un bacșiș.",
@@ -272,7 +280,8 @@
       "inPersonCallout": "Sunteți pe cale să achiziționați acces <strong>în persoană</strong> la acest curs.",
       "inPersonDescription": "Fiecare sesiune de clasă are loc în persoană în datele și locațiile specificate și este de asemenea transmisă în direct pe platformă.\nAceastă achiziție îți va oferi acces atât la clasele în persoană, cât și la cele online.\nNu uita să îți rezervi locul pentru clasele la care vrei să participi în persoană.",
       "onlineCallout": "Sunteți pe cale să achiziționați accesul <strong>online</strong> la acest curs.",
-      "onlineDescription": "Fiecare sesiune este transmisă în direct pe platformă.\nAceastă achiziție îți va oferi acces la transmisiunile în direct și la reluările video."
+      "onlineDescription": "Fiecare sesiune este transmisă în direct pe platformă.\nAceastă achiziție îți va oferi acces la transmisiunile în direct și la reluările video.",
+      "checkoutError": "A apărut o eroare în timpul procesului de checkout.\nVă rugăm să încercați din nou."
     },
     "part": {
       "count": "Partea {{count}}"
@@ -326,7 +335,15 @@
       "ratingsAndReviews": "Evaluări și recenzii",
       "fieldRequired": "Acest câmp este obligatoriu",
       "skip": "Sari peste recenzie",
-      "edit": "Editează"
+      "edit": "Editează",
+      "commentAdminMobile": "Comentariu privat pentru echipa de administrare",
+      "commentTeacherMobile": "Comentariu privat pentru profesor",
+      "feedbackDescription1": "Vă rugăm să evaluați experiența dumneavoastră cu acest curs..\nAceastă sesiune de feedback este obligatorie pentru a avea acces la examenul final și pentru a valida cursul.",
+      "commentPublicMobile": "Comentariu public",
+      "editReview": "Recenzie de editare",
+      "feedbackDescription2": "Rețineți că profesorii nu vor avea acces la evaluările individuale.",
+      "saveReview": "Salvează recenzia",
+      "thankYou": "Mulțumesc pentru recenzia ta! A fost luată în considerare."
     },
     "unreleased": {
       "financeIntroduction": "Introducere în finanțe",

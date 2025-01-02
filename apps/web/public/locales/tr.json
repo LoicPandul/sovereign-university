@@ -45,10 +45,11 @@
     },
     "passwordResetError": "Parola sıfırlama hatası",
     "tryAgain": "Tekrar deneyin",
-    "confirmation": "",
-    "displayName": "",
-    "emailTip": "",
-    "oldPassword": ""
+    "confirmation": "Parola Tekrarı",
+    "displayName": "Görünen Ad",
+    "emailTip": "E-posta zorunlu değildir ancak şifrenizin unutulması durumunda faydalı olabilir :)",
+    "oldPassword": "",
+    "didYouKnow": "Biliyor Muydunuz?"
   },
   "dashboard": {
     "account": "",
@@ -110,13 +111,13 @@
       "preview": "",
       "displayName": "",
       "email": "",
-      "password": "",
+      "password": "Parola",
       "personalInformation": "",
       "profile": "",
       "profileInformation": "",
       "profilePicture": "",
       "security": "",
-      "username": ""
+      "username": "Kullanıcı Adı"
     },
     "administration": "",
     "calendar": {
@@ -304,7 +305,7 @@
     "toolkits": "",
     "tutorial": "",
     "tutorials": "",
-    "update": "",
+    "update": "Güncelle",
     "video": "",
     "videos": "",
     "wallets": "",
@@ -985,7 +986,7 @@
     "walletsDescription": "",
     "bCertificateDescription": "",
     "glossaryDescription": "",
-    "login": "",
+    "login": "Giriş Yap",
     "loginRegister": "",
     "publicDescription": ""
   },
