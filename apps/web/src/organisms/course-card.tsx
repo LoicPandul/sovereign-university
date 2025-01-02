@@ -126,13 +126,13 @@ export const CourseCard = ({
               className="border-none"
               rightTextClassName="ml-2-5 line-clamp-1"
               leftTextClassName="shrink-0"
-              variant="lightMaroon"
+              variant={mode === 'light' ? 'lightMaroon' : 'dark'}
             />
             <ListItem
               leftText={t('words.duration')}
               rightText={course.hours + ' hours'}
               className="border-t"
-              variant="lightMaroon"
+              variant={mode === 'light' ? 'lightMaroon' : 'dark'}
             />
           </div>
         </div>

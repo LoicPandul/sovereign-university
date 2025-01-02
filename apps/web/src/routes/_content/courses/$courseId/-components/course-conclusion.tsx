@@ -204,7 +204,7 @@ export const CourseConclusion = ({ chapter }: CourseConclusionProps) => {
       </p>
       {session?.user ? (
         <>
-          <p className="text-newBlack-1 body-16px md:mb-3">
+          <p className="text-newBlack-1 body-16px mb-3 max-md:hidden">
             {step >= 5
               ? t('courses.conclusion.finalStep')
               : t('courses.conclusion.stepsToComplete')}
