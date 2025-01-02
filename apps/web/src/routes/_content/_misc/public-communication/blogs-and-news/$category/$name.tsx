@@ -63,7 +63,7 @@ function SingleBlogDetail() {
           <div className="text-start flex flex-col mx-auto lg:mx-0 md:flex-row w-full justify-between md:max-w-[1120px] align-top border-b-2 lg:border-b-0">
             <div className="flex-1 w-full max-w-[530px] order-2 md:order-1">
               <div className="pt-2.5 pb-4 lg:py-8">
-                <h2 className="text-black md:text-darkOrange-5 font-semibold md:font-normal mb-2 lg:mb-6 text-2xl md:text-5xl">
+                <h2 className="text-black md:text-darkOrange-5 font-semibold md:font-normal mb-2 lg:mb-6 text-2xl md:text-5xl break-words">
                   {blog.title}
                 </h2>
                 <div className="flex flex-row md:flex-col mb-2.5 md:mb-6">
