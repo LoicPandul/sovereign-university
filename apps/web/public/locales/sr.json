@@ -71,7 +71,10 @@
     "confirmation": "Potvrda",
     "displayName": "Ime za prikaz",
     "oldPassword": "Stara lozinka",
-    "emailTip": "Dodavanje korisničkog email-a nije obavezno, ali može biti korisno u slučaju zaboravljene lozinke :)"
+    "emailTip": "Dodavanje korisničkog email-a nije obavezno, ali može biti korisno u slučaju zaboravljene lozinke :)",
+    "dashboardUnlocked": "Vaša studentska kontrolna tabla je otključana !",
+    "didYouKnow": "Da li ste znali ?",
+    "trackProgress": "Kreirajte nalog ili se prijavite da biste pratili svoj napredak"
   },
   "bCertificate": {
     "bCertificateDescription": "₿ -sertifikat je međunarodno priznat ispit za procenu Vašeg nivoa znanja o Bitcoinu i tema koje iz njega proizlaze. Ovaj sertifikat će Vam omogućiti da dokažete svoje veštine i znanje u industriji Bitcoina, pružajući Vam pristup kompanijama i pozicijama u toj industriji.",
@@ -89,7 +92,9 @@
     "pageSubtitle": "Masovno širenje kroz centralizovano obrazovanje otvorenog koda",
     "pageTitle": "Položite za ₿ Sertifikat",
     "readChart": "Pročitajte poglavlje",
-    "tweetText": "Oduševljen/a sam što sam položio/la B-sertifikat na @planb_network sa rezultatom {{score}}/100! {{emoji}}\n\n{{certificateUrl}}"
+    "tweetText": "Oduševljen/a sam što sam položio/la B-sertifikat na @planb_network sa rezultatom {{score}}/100! {{emoji}}\n\n{{certificateUrl}}",
+    "verify": "Proverite autentičnost svog sertifikata",
+    "download": "Preuzmite sertifikat"
   },
   "bet": {
     "contribute": "Ovaj alat je otvoren za Vaš doprinos. Koristi Figmu, tako da svako može dodavati, modifikovati i prevoditi sadržaj. Da biste sarađivali, dodali kategoriju ili diskusiju, ne oklevajte da se pridružite našem discordu.",
@@ -190,7 +195,8 @@
       "onlineDescription": "Svaki čas se prenosi uživo na platformu.\nOva kupovina će Vam dati pristup časovima uživo i snimljenim videima.",
       "inPersonDescription": "Svaki čas se održava uživo na unapred određenim datumima i mestima, a takođe se i uživo prenosi na platformi.\nOva kupovina Vam daje pristup online časovima kao i časovima uživo.\nNemojte da zaboravite da rezervišete Vaše mesto na časovima na kojima želite da prisustvujete uživo.",
       "onlineCallout": "Uskoro ćete kupiti <strong>onlajn</strong> pristup ovom kursu.",
-      "inPersonCallout": "Uskoro ćete kupiti <strong>uživo</strong> pristup ovom kursu."
+      "inPersonCallout": "Uskoro ćete kupiti <strong>uživo</strong> pristup ovom kursu.",
+      "checkoutError": "Došlo je do greške tokom procesa plaćanja.\nMolimo Vas, pokušajte ponovo."
     },
     "details": {
       "date": "Datum: {{startDate}} do {{endDate}}",
@@ -227,7 +233,11 @@
       "buyInPersonCourse": "Kupite kurs sa prisustvom uživo",
       "buyOnlineCourse": "Kupite online kurs",
       "inPersonAccess": "Potrebno je da preuzmete Vašu kartu da bi ste prisustvovali kursu lično.",
-      "paidCourse": "Plaćen"
+      "paidCourse": "Plaćen",
+      "courseAddedToDashboard": "Ovaj kurs je dodat na vašu studentsku kontrolnu tablu",
+      "premiumContentNeedsLogin": "Morate biti prijavljeni da biste pristupili ovom kursu.",
+      "premiumContentNeedsPayment": "Ovaj kurs je deo premium programa.",
+      "premiumContentNeedsPaymentAction": "Idite na početnu stranicu kursa"
     },
     "explorer": {
       "findCourses": "Pronađite savršen kurs za Vaše potrebe zahvaljujući alatu za izbor kursa",
@@ -359,7 +369,11 @@
       "loadMoreComments": "Učitaj još komentara",
       "neutral": "neutralno",
       "displayOutOf": "prikazano od",
-      "fieldRequired": "Ovo polje je obavezno"
+      "fieldRequired": "Ovo polje je obavezno",
+      "commentAdminMobile": "Privatni komentar za administrativni tim",
+      "commentPublicMobile": "Javni komentar",
+      "commentTeacherMobile": "Privatni komentar za nastavnika",
+      "conclusionFeedback1": "Hvala na vašim povratnim informacijama !"
     },
     "unreleased": {
       "colcardAndSparrow": "Coldcard i Sparrow",

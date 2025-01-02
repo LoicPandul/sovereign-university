@@ -5,7 +5,7 @@
     "missionContent1": "Our mission is to support local Bitcoin communities through open-source education and networking. In order to do it, we collect, organize, and create the necessary resources (courses, books, posters, flyers, videos) for the Bitcoin industry to advance.",
     "missionContent2": "We centralize knowledge so we can share it in the best possible way, using a simple, multilingual GitHub repository and an E-learning platform. We also assist local Bitcoin hubs in their development by providing the right tools for their talents to grow.",
     "commitmentTitle": "Our commitments",
-    "commitmentContent": "We have the following commitments towards the bitcoin community: \n • Remain open-source \n • Provide high-quality educational content \n • Translate our content in as many languages as possible \n • Support Bitcoin builders in their entrepreneurial journey",
+    "commitmentContent": "We have the following commitments towards the bitcoin community: \n • Remain open-source \n • Provide high-quality educational content \n • Translate our content in as many languages as possible \n • Support Bitcoin entrepreneurs in their journey",
     "coreTeamTitle": "The core team",
     "coreTeamContent": "Plan ₿ Network is a collective of hundreds of contributors, teachers, community leaders, designers, developers, and organizers. Special thanks go to the numerous people who have made Plan ₿ a reality and continue to do so each day. (Wall of contributors coming soon)",
     "coreTeamGiacomoRole": "Director and Co-founder",
@@ -131,10 +131,10 @@
   },
   "builders": {
     "networkStrength": "The strength of a network lies in its members",
-    "noRelatedEvents": "There are no upcoming events related to this builder at the moment.",
+    "noRelatedEvents": "There are no upcoming events related to this educator at the moment.",
     "otherCommunities": "Explore Plan ₿ Communities",
     "pageSubtitle": "This portal is open-source & open to contribution.",
-    "pageTitle": "Bitcoin Builders",
+    "pageTitle": "Bitcoin Projects",
     "languages": "Languages",
     "relatedEvents": "Related upcoming events"
   },
@@ -732,7 +732,7 @@
     },
     "header": {
       "content": "The Plan ₿ Network platform aims to provide the best tools and educational content worldwide, empowering people to regain their sovereignty. From individuals to communities, we are here to help you along your Bitcoin journey.",
-      "forEducators": "For educators and builders",
+      "forEducators": "For educators and entrepreneurs",
       "globalNetwork": "A Global Bitcoin Network",
       "welcome": "Welcome to Plan ₿ Network",
       "link": "Be part of the network",
@@ -817,7 +817,7 @@
     "betDescription": "Collection of content that you can use for your educational projects",
     "bitcoinDescription": "Learn Bitcoin from fundamentals to advanced applications.",
     "btc101Description": "Get a better understanding of bitcoin by taking these classes.",
-    "buildersDescription": "Learn about the companies and projects that work at improving Bitcoin and increasing its adoption",
+    "buildersDescription": "Learn about the companies and projects that contribute to improving Bitcoin and increasing its adoption",
     "businessDescription": "Uncover Bitcoin usage in commerce.",
     "channelsDescription": "Access our exclusive selection of Youtube channels to learn about Bitcoin",
     "chooseLanguage": "Choose a language",
@@ -854,9 +854,9 @@
     "answer5": "We wish to offer a safe haven for bitcoiners around the world. We believe that by helping local hubs grow, we will be able to create a network of citadels where they will be welcome to work, create, share, and discuss safely.",
     "apply": "Apply to become a Node",
     "applyhelp": "*Select the node Location",
-    "description1": "We believe that education should not only take place online but also in physical spaces. To achieve this, Plan ₿ Network manages a network of hubs around the world to welcome thinkers, builders and educators fostering the advancement of Bitcoin and freedom technologies.",
+    "description1": "We believe that education should not only take place online but also in physical spaces. To achieve this, Plan ₿ Network manages a network of hubs around the world to welcome thinkers, entrepreneurs and educators fostering the advancement of Bitcoin and freedom technologies.",
     "descriptionextend": "Our first step is to invite communities with physical spaces, which we refer to as the “full nodes” of our network, to join us. In the future, as our network strengthens, we will extend this invitation to more initiatives worldwide. If you share our values, please reach out to our representatives to join our network and help build the best Bitcoin education possible.",
-    "mobiledescription": "We believe that education should not only take place online but also in physical spaces. To achieve this, Plan ₿ Network manages a network of hubs around the world to welcome thinkers, builders and educators fostering the advancement of Bitcoin and freedom technologies.Our first step is to invite communities with physical spaces, which we refer to as the “full nodes” of our network, to join us. In the future, as our network strengthens, we will extend this invitation to more initiatives worldwide. If you share our values, please reach out to our representatives to join our network and help build the best Bitcoin education possible.",
+    "mobiledescription": "We believe that education should not only take place online but also in physical spaces. For this reason, Plan ₿ Network manages a network of hubs around the world to welcome those thinkers, entrepreneurs and educators who foster the advancement of Bitcoin and freedom technologies. Our first step is to invite communities with physical spaces (the “full nodes” of our network) to join us. In the future, as our network strengthens, we will extend this invitation to more initiatives worldwide. If you share our values, please contact our representatives to join our network and help build the best Bitcoin education system possible.",
     "pageSubtitle": "Want to orange pill the world? Join Plan ₿ Network.",
     "pageTitle": "Explore Plan ₿ Node Network",
     "question1": "What's a node ?",
@@ -955,7 +955,7 @@
       "author": "Author : "
     },
     "builders": {
-      "title": "Builders"
+      "title": "Projects"
     },
     "conferences": {
       "title": "Conference replays"
@@ -1143,8 +1143,8 @@
     "booked": "Booked",
     "bookings": "Bookings",
     "books": "Books",
-    "builder": "Builder",
-    "builders": "Builders",
+    "builder": "Project",
+    "builders": "Projects",
     "business": "Business",
     "cancel": "Cancel",
     "category": "Category",

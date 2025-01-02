@@ -72,7 +72,9 @@
     "oldPassword": "Ancien mot de passe",
     "confirmation": "Confirmation",
     "emailTip": "Vous pouvez ajouter une adresse mail à votre compte si vous le souhaitez. Dans le cas où vous oubliez votre mot de passe, cela peut être utile ;)",
-    "didYouKnow": "Le saviez vous ?"
+    "didYouKnow": "Le saviez vous ?",
+    "dashboardUnlocked": "Votre tableau de bord d'étudiant est déverrouillé !",
+    "trackProgress": "Créez un compte ou connectez-vous pour suivre votre progression"
   },
   "bet": {
     "contribute": "Cette boîte à outils est ouverte aux contributions. Elle utilise Figma, donc tout le monde peut ajouter, modifier et traduire du contenu. Pour collaborer, ajoutez une catégorie ou une discussion, et n'hésitez pas à rejoindre notre Discord.",
@@ -191,7 +193,8 @@
       "paidCourse": "Premium",
       "premiumContentNeedsPayment": "Ce cours fait partie d'un programme premium.",
       "premiumContentNeedsPaymentAction": "Accédez à la page d'accueil du cours",
-      "premiumContentNeedsLogin": "Vous devez être connecté pour accéder à ce cours."
+      "premiumContentNeedsLogin": "Vous devez être connecté pour accéder à ce cours.",
+      "courseAddedToDashboard": "Ce cours a été ajouté à votre tableau de bord étudiant"
     },
     "explorer": {
       "footerTitle": "Nos professeurs sont là pour vous !",
@@ -249,7 +252,8 @@
       "onlineCallout": "Vous êtes sur le point d'acheter un accès <strong>en ligne</strong> à ce cours.",
       "inPersonCallout": "Vous êtes sur le point d'acheter un accès <strong>en personne</strong> à ce cours.",
       "onlineDescription": "Chaque session de cours est diffusée en direct sur la plateforme.\nCet achat vous donnera accès aux diffusions en direct et aux rediffusions.",
-      "inPersonDescription": "Chaque séance de cours a lieu en personne aux dates et lieux spécifiés et est également diffusée en direct sur la plateforme.\nCet achat vous donnera accès aux cours en personne et en ligne.\nN'oubliez pas de réserver votre place pour les cours auxquels vous souhaitez assister en personne."
+      "inPersonDescription": "Chaque séance de cours a lieu en personne aux dates et lieux spécifiés et est également diffusée en direct sur la plateforme.\nCet achat vous donnera accès aux cours en personne et en ligne.\nN'oubliez pas de réserver votre place pour les cours auxquels vous souhaitez assister en personne.",
+      "checkoutError": "Une erreur s'est produite lors du processus de paiement.\nVeuillez réessayer."
     },
     "preview": {
       "by": "par {{professor}}",
@@ -356,7 +360,7 @@
       "submitReview": "Soumettre un avis",
       "tooEasy": "trop facile",
       "commentTeacher": "Commentaire à l'enseignant (privé)",
-      "feedbackSessionTitle": "Session de retour d'information",
+      "feedbackSessionTitle": "Aidez-nous à améliorer nos cours en nous faisant part de vos retours.",
       "soAndSo": "untel et untel",
       "feedbackDescription": "Veuillez évaluer votre expérience avec le cours ci-dessous.\nCette session de retour d'information est obligatoire pour avoir accès à l'examen final et pour valider le cours.\nNotez que les enseignants n'auront pas accès aux évaluations individuelles.",
       "asExpected": "comme prévu",
@@ -372,7 +376,11 @@
       "editReview": "Éditer l'avis",
       "feedbackDescription1": "Veuillez évaluer votre expérience avec le cours ci-dessous.\nCette session de feedback est obligatoire pour avoir accès à l'examen final et pour valider le cours.",
       "feedbackDescription2": "Notez que les enseignants n'auront pas accès aux évaluations individuelles.",
-      "saveReview": "Enregistrer l'avis"
+      "saveReview": "Enregistrer l'avis",
+      "thankYou": "Merci pour votre avis ! Il sera pris en compte",
+      "conclusionFeedback1": "Merci pour vos commentaires !",
+      "conclusionFeedback2": "C'est très important pour nous, donc nous l'apprécions vraiment.",
+      "conclusionFeedback3": "Voici votre commentaire ci-dessous, vous pouvez le modifier à tout moment dans votre tableau de bord."
     }
   },
   "dashboard": {
@@ -394,7 +402,20 @@
       "viewDetails": "Voir les détails",
       "yourCertificate": "Votre certificat",
       "download": "Télécharger le diplôme",
-      "verify": "Vérifiez l'authenticité de votre diplôme"
+      "verify": "Vérifiez l'authenticité de votre diplôme",
+      "detailsAndCertificate": "Détails & certificat",
+      "duration": "Durée :",
+      "newCourses": "De nouveaux cours sont ajoutés chaque mois",
+      "noCoursesAvailable": "Aucun cours disponible.",
+      "notStarted": "Non commencé",
+      "notValidated": "Non validé",
+      "price": "Prix :",
+      "professor": "Professeur :",
+      "seeDetails": "Voir les détails",
+      "seeTheCourse": "Voir le cours",
+      "yourProgress": "Votre progression :",
+      "completeAll": "Complétez tout",
+      "courseDashboard": "Tableau de bord du cours"
     },
     "account": "Compte",
     "courses": "Cours",
@@ -520,7 +541,8 @@
       "checkDetailsCompleted": "Ici vous pouvez vérifier tous les détails concernant le parcours que vous avez complété.",
       "tweetText": "Fier d'avoir terminé le cours {{courseId}} chez @planb_network et d'avoir obtenu mon certificat avec un score de {{score}}/100 à l'examen final ! {{emoji}}\n\n{{certificateUrl}}",
       "shareOnSocials": "Partager sur les réseaux :",
-      "submitReviewInfo": "Vous devez soumettre un avis pour avoir accès à cette fonctionnalité."
+      "submitReviewInfo": "Vous devez soumettre un avis pour avoir accès à cette fonctionnalité.",
+      "conclusionHeadline": "Voici un résumé de ce que vous avez appris. Si certains chapitres sont manquants ou n'ont pas été validés correctement, c'est maintenant le moment de le faire, soit en revenant pour apprendre, soit en appuyant sur le bouton terminer."
     },
     "credentials": {
       "bCertificate": "₿-Certificate",
@@ -563,8 +585,11 @@
       "listOfParticipants": "Liste des participants",
       "makeProfessor": "Faire professeur",
       "nameOfEvent": "Nom de l'événement",
-      "professorName": "Nom du professeur"
-    }
+      "professorName": "Nom du professeur",
+      "participants": "Participants"
+    },
+    "courseDashboard": "Tableau de bord du cours",
+    "studentDashboard": "Tableau de bord de l'étudiant"
   },
   "events": {
     "introduction": {
@@ -776,7 +801,9 @@
     "miningCourseDescription": "Comprenez les processus, les outils et l'industrie derrière le minage de Bitcoin.",
     "protocolDescription": "Découvrez les règles fondamentales qui régissent le réseau Bitcoin.",
     "securityDescription": "Maîtrisez les techniques pour protéger vos actifs Bitcoin.",
-    "socialStudiesDescription": "Étudiez l'impact de Bitcoin sur la société."
+    "socialStudiesDescription": "Étudiez l'impact de Bitcoin sur la société.",
+    "channelsDescription": "Accédez à notre sélection exclusive de chaînes Youtube pour en savoir plus sur Bitcoin",
+    "chooseLanguage": "Choisissez une langue"
   },
   "nodeNetwork": {
     "answer1": "Un Nœud est simplement une communauté Bitcoin qui souhaite passer à l'étape suivante et accélérer l'adoption de Bitcoin au niveau local ! Il n'y a pas de taille minimale pour commencer.",
@@ -878,7 +905,14 @@
     "pageSubtitleBooks": "<0>D'autres livres</0> que vous pourriez aimer :",
     "glossary": {
       "title": "Glossaire"
-    }
+    },
+    "channels": {
+      "title": "Chaînes Youtube",
+      "noYoutubeChannels": "Il n'y a actuellement aucune chaîne Youtube pour la langue sélectionnée."
+    },
+    "pageSubtitleChannels": "<0>Autres chaînes Youtube</0> que vous pourriez aimer :",
+    "toggleLabelAll": "Tout",
+    "toggleLabelSelectedLanguage": "Langue sélectionnée"
   },
   "settings": {
     "changePassword": "Changer le mot de passe",
@@ -896,7 +930,8 @@
       "author": "Auteur : ",
       "didHelp": "Cela a-t-il aidé ?",
       "writtenBy": "Ce tutoriel a été écrit par :",
-      "tutorialName": "Nom du tutoriel"
+      "tutorialName": "Nom du tutoriel",
+      "ratingSuccess": "Merci pour votre avis ! Il sera pris en compte"
     },
     "exchange": {
       "centralized": {
@@ -1168,7 +1203,12 @@
     "student": "Étudiant",
     "unavailable": "Indisponible",
     "user": "Utilisateur",
-    "username": "Nom d'utilisateur"
+    "username": "Nom d'utilisateur",
+    "abstract": "Résumé",
+    "channel": "Chaîne",
+    "chapters": "Chapitres",
+    "finish": "Finir",
+    "viewMore": "Voir plus"
   },
   "conferences": {
     "addConferences": "N'hésitez pas à ajouter toute conférence manquante via ce dépôt <0>Github</0>.",
@@ -1279,5 +1319,10 @@
     "reviewEarn": "Examinez et gagnez des sats",
     "status": "Statut de relecture",
     "thanks": "Un grand merci à nos incroyables examinateurs !"
+  },
+  "youtubeChannels": {
+    "pageTitle": "Chaînes Youtube",
+    "view": "Voir la chaîne Youtube",
+    "watchTrailer": "Regardez la bande-annonce"
   }
 }
