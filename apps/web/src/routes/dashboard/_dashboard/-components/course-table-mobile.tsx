@@ -120,17 +120,19 @@ export const CourseTableMobile = ({
       }
     }
 
-    return (
-      highestProgressCourse?.courseId ||
-      courses.find((course) => course.id === 'btc101')?.id ||
-      null
-    );
+    if (!highestProgressCourse) {
+      return 'btc101';
+    }
+
+    return highestProgressCourse.courseId;
   };
 
-  const defaultCourse = getHighestProgressCourse();
-  const [selectedCourse, setSelectedCourse] = useState<string | null>(
-    defaultCourse,
-  );
+  const [selectedCourse, setSelectedCourse] = useState<string | null>(null);
+
+  useEffect(() => {
+    setSelectedCourse(getHighestProgressCourse());
+  }, [combinedMap]);
+
   const [api, setApi] = useState<CarouselApi | null>(null);
 
   useEffect(() => {
@@ -168,15 +170,15 @@ export const CourseTableMobile = ({
   }, [api, coursesByCategory]);
 
   return (
-    <section className="w-full max-w-[330px] mx-auto md:hidden rounded-[10px]">
-      <div className="h-[277px] overflow-scroll no-scrollbar">
+    <section className="flex flex-col md:hidden max-h-[calc(100dvh-140px)]">
+      <div className="overflow-y-auto no-scrollbar rounded-[10px] w-full max-w-[330px] min-[425px]:max-w-[350px] min-[650px]:max-w-[432px] mx-auto">
         <Table className="size-full bg-newGray-6 rounded-[10px] overflow-hidden">
           <TableHeader className="border-none">
             <TableRow>
               {courseCategoriesDashboard.map((category) => (
                 <TableHead
                   key={category}
-                  className="text-center py-2 w-[35px] px-1 mx-auto"
+                  className="text-center py-2 w-[35px] min-[425px]:w-[50px] px-1 mx-auto"
                 >
                   <div className="w-[30px] max-w-[30px] flex mx-auto">
                     <img
@@ -199,7 +201,7 @@ export const CourseTableMobile = ({
                   key={category}
                   className="align-top text-center px-[2.5px] pb-2 !w-[35px] pt-0"
                 >
-                  <div className="flex flex-col w-[35px] gap-[5px] mx-auto">
+                  <div className="flex flex-col gap-[5px] min-[650px]:gap-2.5">
                     {(coursesByCategory[category.toLowerCase()] || []).map(
                       ({ course, progress }) => {
                         const { bgColor } = getStatusStyles(
@@ -216,7 +218,7 @@ export const CourseTableMobile = ({
                             key={course.id}
                             role="button"
                             tabIndex={0}
-                            className={`rounded-md size-[35px] ${bgColor} ${activeBorder} flex items-center justify-center p-4 mx-auto`}
+                            className={`rounded-md size-[35px] min-[425px]:size-[50px] ${bgColor} ${activeBorder} flex items-center justify-center p-4 mx-auto`}
                             onClick={() => setSelectedCourse(course.id)}
                             onKeyDown={(e) => {
                               if (e.key === 'Enter' || e.key === ' ') {
@@ -242,7 +244,7 @@ export const CourseTableMobile = ({
       </div>
 
       <div className="mt-4">
-        <Carousel setApi={setApi} opts={{ loop: true }} className="w-full">
+        <Carousel setApi={setApi} opts={{ loop: false }} className="w-full">
           <CarouselContent className="ml-0">
             {courseCategoriesDashboard
               .flatMap((category) =>
@@ -251,7 +253,10 @@ export const CourseTableMobile = ({
                 ),
               )
               .map(({ course, progress }) => (
-                <CarouselItem key={course.id} className="w-full px-1">
+                <CarouselItem
+                  key={course.id}
+                  className="w-full px-1 min-[425px]:max-w-[320px]"
+                >
                   <CourseDashboardCard course={course} progress={progress} />
                 </CarouselItem>
               ))}
