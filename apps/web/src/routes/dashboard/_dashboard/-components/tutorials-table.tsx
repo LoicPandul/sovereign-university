@@ -138,9 +138,7 @@ export const DashboardTutorialsTable = ({
         />
       </div>
 
-      <Table
-        maxHeightClass={professorId ? 'md:max-h-[720px]' : 'max-h-[720px]'}
-      >
+      <Table>
         <TableHeader className="sticky top-0 z-10 bg-white">
           <TableRow>
             <TableHead
