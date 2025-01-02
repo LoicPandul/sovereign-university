@@ -295,7 +295,7 @@ export const RoleAllocationTable = ({ userRole }: { userRole: UserRole }) => {
                         user.role === 'superadmin' && 'font-medium',
                       )}
                     >
-                      {user.role}
+                      {user.role === 'superadmin' ? 'Super admin' : user.role}
                     </TableCell>
                   )}
 
