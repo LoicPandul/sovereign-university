@@ -22,7 +22,12 @@ export const AuthorCard = ({
 }: AuthorCardProps) => {
   return (
     <article {...props} className="flex flex-col w-full">
-      <div className="mt-5 md:mt-6 flex max-md:flex-col gap-5 md:gap-7 md:py-5">
+      <div
+        className={cn(
+          'mt-5 md:mt-6 flex max-md:flex-col gap-5 md:gap-7 md:py-5 md:items-start',
+          centeredContent && 'items-center',
+        )}
+      >
         <ProfessorCardReduced
           professor={professor}
           hasDonateButton={hasDonateButton}
@@ -38,10 +43,10 @@ export const AuthorCard = ({
           <p className="body-16px text-newBlack-1 md:max-w-[596px] w-full text-justify">
             {professor.bio}
           </p>
-          <div className="mt-5 md:mt-4 flex flex-wrap gap-2.5 items-center">
+          <div className="mt-[18px] md:mt-4 flex flex-wrap gap-2.5 items-center">
             {professor.tags?.map((tag) => <TextTag key={tag}>{tag}</TextTag>)}
           </div>
-          <div className="mt-1 w-fit">
+          <div className="md:mt-1 w-fit">
             <SocialLinks professor={professor} />
           </div>
         </div>

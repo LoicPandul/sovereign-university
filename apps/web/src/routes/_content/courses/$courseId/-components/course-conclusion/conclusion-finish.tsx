@@ -23,7 +23,7 @@ export const ConclusionFinish = ({ course }: ConclusionFinishProps) => {
 
   return (
     <>
-      <DividerSimple className="mb-1 md:mb-8" />
+      <DividerSimple className="mb-5 md:mb-8" />
       <Professor course={course} addThanksTipping />
       <Credits course={course} />
       <OtherCourses course={course} />
@@ -81,7 +81,7 @@ const Professor = ({
             key={professor.id}
             professor={professor}
             hasDonateButton
-            centeredContent={false}
+            centeredContent={true}
             mobileSize="medium"
           />
         ))}
@@ -104,7 +104,7 @@ const Credits = ({ course }: { course: JoinedCourseWithAll }) => {
 
   return (
     <>
-      <DividerSimple className="my-1 md:mt-3 md:mb-8" />
+      <DividerSimple className="my-5 md:mt-3 md:mb-8" />
       <section className="w-full flex flex-col">
         <h4 className="subtitle-medium-caps-18px text-darkOrange-5">
           {t('words.credits')}
@@ -191,7 +191,7 @@ const OtherCourses = ({ course }: { course: JoinedCourseWithAll }) => {
 
   return (
     <>
-      <DividerSimple className="my-1 md:my-8" />
+      <DividerSimple className="my-5 md:my-8" />
       <section className="w-full flex flex-col">
         <h4 className="subtitle-medium-caps-18px text-darkOrange-5">
           {t('courses.details.otherCourses')}
