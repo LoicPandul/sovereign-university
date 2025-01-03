@@ -323,7 +323,7 @@ export const CourseConclusion = ({ chapter }: CourseConclusionProps) => {
             className={cn(
               step >= 5
                 ? ''
-                : 'bg-tertiary-1 p-6 rounded-[10px] md:rounded-[20px] shadow-course-navigation',
+                : 'bg-tertiary-1 p-2 md:px-[30px] md:py-8 rounded-[10px] md:rounded-[20px] shadow-course-navigation',
             )}
           >
             {course && step <= 1 ? (
@@ -340,7 +340,7 @@ export const CourseConclusion = ({ chapter }: CourseConclusionProps) => {
               ) : (
                 <section className="flex flex-col w-full gap-5 md:gap-[30px]">
                   <p className={titleStepClass}>{t('words.chapters')}</p>
-                  <p className="text-center text-newBlack-1 subtitle-large-18px md:title-large-24px">
+                  <p className="text-newBlack-1 body-16px md:subtitle-large-18px whitespace-pre-line">
                     {t('dashboard.course.conclusionHeadline')}
                   </p>
                   <CourseCurriculum
