@@ -19,7 +19,7 @@
     "clear": "rm -rf ./dist && rm -f *.tsbuildinfo"
   },
   "dependencies": {
-    "ioredis": "^5.4.1"
+    "ioredis": "^5.4.2"
   },
   "devDependencies": {
     "@blms/eslint-config": "workspace:*",
