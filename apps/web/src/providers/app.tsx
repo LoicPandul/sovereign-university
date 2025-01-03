@@ -9,7 +9,8 @@ import {
 } from 'react';
 import { HelmetProvider } from 'react-helmet-async';
 import { useTranslation } from 'react-i18next';
-import { ToastContainer } from 'react-toastify';
+
+import { ToastContainer } from '@blms/ui';
 
 import PageMeta from '#src/components/Head/PageMeta/index.js';
 import { router } from '#src/routes/-router.js';

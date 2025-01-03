@@ -4,6 +4,8 @@ import { IoCloseOutline } from 'react-icons/io5';
 import type { IconType } from 'react-icons/lib';
 import { toast } from 'react-toastify';
 
+export { ToastContainer } from 'react-toastify';
+
 const toastVariants = cva('md:!w-[299px] focus:ring-1 focus:ring-newGray-2', {
   variants: {
     mode: {
