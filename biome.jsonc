@@ -1,0 +1,85 @@
+{
+  "$schema": "https://biomejs.dev/schemas/1.9.4/schema.json",
+  "vcs": {
+    "enabled": false,
+    "clientKind": "git",
+    "useIgnoreFile": false,
+  },
+  "files": {
+    "ignoreUnknown": false,
+    "ignore": [
+      "**/dist/**",
+      "**/routeTree.gen.ts",
+      "packages/database/drizzle/migrations/*",
+      "packages/types/src/generated/*",
+    ],
+  },
+  "formatter": {
+    "enabled": true,
+    "indentStyle": "space",
+  },
+  "organizeImports": {
+    "enabled": true,
+  },
+  "linter": {
+    "enabled": true,
+    "rules": {
+      "recommended": true,
+      "a11y": {
+        "useAltText": "off",
+        "useKeyWithClickEvents": "off",
+        "useButtonType": "off",
+        "noSvgWithoutTitle": "off",
+        "useSemanticElements": "off",
+        "noLabelWithoutControl": "off",
+      },
+      "complexity": {
+        "noUselessTernary": "off",
+        "noUselessLoneBlockStatements": "off",
+        "useOptionalChain": "off",
+        "useArrowFunction": "off",
+        "noUselessRename": "off",
+        "noUselessFragments": "off",
+        "useLiteralKeys": "off",
+      },
+      "correctness": {
+        "noUnreachable": "off",
+        "useExhaustiveDependencies": "off",
+      },
+      "performance": { "noDelete": "off" },
+      "security": {
+        "noDangerouslySetInnerHtml": "off",
+      },
+      "style": {
+        "useSingleVarDeclarator": "off",
+        "noCommaOperator": "off",
+        "noInferrableTypes": "off",
+        "noNonNullAssertion": "off",
+        "noUnusedTemplateLiteral": "off",
+        "useTemplate": "off",
+        "noParameterAssign": "off",
+        "noUselessElse": "off",
+        "useSelfClosingElements": "off",
+        "useEnumInitializers": "off",
+        "useImportType": "off",
+        "useNodejsImportProtocol": "off",
+      },
+      "suspicious": {
+        "noRedeclare": "off",
+        "noShadowRestrictedNames": "off",
+        "noMisleadingCharacterClass": "off",
+        "noAssignInExpressions": "off",
+        "noImplicitAnyLet": "off",
+        "noDuplicateSelectorsKeyframeBlock": "off",
+        "noExplicitAny": "off",
+        "noArrayIndexKey": "off",
+      },
+    },
+  },
+  "javascript": {
+    "formatter": {
+      "quoteStyle": "single",
+      //   "lineWidth": 80
+    },
+  },
+}

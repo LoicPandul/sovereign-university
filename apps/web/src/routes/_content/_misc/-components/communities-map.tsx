@@ -1,16 +1,16 @@
 import { useNavigate } from '@tanstack/react-router';
-import { Attribution, Zoom, defaults as defaultControls } from 'ol/control.js';
 import Feature from 'ol/Feature.js';
+import OpenLayerMap from 'ol/Map.js';
+import View from 'ol/View.js';
+import { Attribution, Zoom, defaults as defaultControls } from 'ol/control.js';
 import Point from 'ol/geom/Point.js';
 import TileLayer from 'ol/layer/Tile.js';
 import VectorLayer from 'ol/layer/Vector.js';
-import OpenLayerMap from 'ol/Map.js';
 import type { Pixel } from 'ol/pixel.js';
 import { transform } from 'ol/proj.js';
-import OSM from 'ol/source/OSM.js';
 import { Vector as VectorSource } from 'ol/source.js';
+import OSM from 'ol/source/OSM.js';
 import { Circle as CircleStyle, Fill, Icon, Style } from 'ol/style.js';
-import View from 'ol/View.js';
 import { useEffect } from 'react';
 
 import OrangePillPath from '#src/assets/icons/orange_pill_color.svg';

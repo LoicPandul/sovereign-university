@@ -1,6 +1,5 @@
 import type { JoinedCourse } from '@blms/types';
 
-
 import type { Dependencies } from '../../dependencies.js';
 import { getProfessorsQuery } from '../../professors/queries/get-professors.js';
 import { formatProfessor } from '../../professors/services/utils.js';

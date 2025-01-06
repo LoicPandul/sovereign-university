@@ -1,9 +1,9 @@
 import fs from 'node:fs';
 import path from 'node:path';
 
-import { zodToTs, printNode, type GetType } from 'zod-to-ts';
-import type { ZodEnumDef, ZodTypeAny } from 'zod';
 import ts from 'typescript';
+import type { ZodEnumDef, ZodTypeAny } from 'zod';
+import { type GetType, printNode, zodToTs } from 'zod-to-ts';
 
 import * as schemas from '@blms/schemas';
 
@@ -115,7 +115,7 @@ const extractSchemas = (fileContent: string): string[] => {
 };
 
 // Map of enum values to their corresponding type name and import path
-let enumsMap = new Map<string, string>();
+const enumsMap = new Map<string, string>();
 
 let currentlyProcessedType = '';
 let currentlyProcessedFile = '';

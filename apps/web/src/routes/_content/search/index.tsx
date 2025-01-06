@@ -97,33 +97,37 @@ function SearchPage() {
                   <a
                     className="block bg-white/5 rounded p-2 hover:bg-white/10"
                     href={item.document.link}
-                    target="_blank" rel="noreferrer"
+                    target="_blank"
+                    rel="noreferrer"
                   >
                     <div className="flex gap-4 items-center">
                       <span className="bg-orange-400 px-2 py-1 rounded">
                         {item.document.type}
                       </span>
 
-                      {item.highlight.title ? (<div
-                        dangerouslySetInnerHTML={{
-                          __html: DOMPurify.sanitize(
-                            item.highlight.title?.snippet ?? '',
-                          ),
-                        }}
-                      ></div>) : (
-                        <div>
-                          {item.document.title}
-                        </div>
+                      {item.highlight.title ? (
+                        <div
+                          dangerouslySetInnerHTML={{
+                            __html: DOMPurify.sanitize(
+                              item.highlight.title?.snippet ?? '',
+                            ),
+                          }}
+                        ></div>
+                      ) : (
+                        <div>{item.document.title}</div>
                       )}
                     </div>
 
-                    {item.highlight.body && (<div className='ps-2 pt-2'
-                      dangerouslySetInnerHTML={{
-                        __html: DOMPurify.sanitize(
-                          item.highlight.body?.snippet ?? '',
-                        ),
-                      }}
-                    ></div>)}
+                    {item.highlight.body && (
+                      <div
+                        className="ps-2 pt-2"
+                        dangerouslySetInnerHTML={{
+                          __html: DOMPurify.sanitize(
+                            item.highlight.body?.snippet ?? '',
+                          ),
+                        }}
+                      ></div>
+                    )}
                   </a>
                 </li>
               ))}

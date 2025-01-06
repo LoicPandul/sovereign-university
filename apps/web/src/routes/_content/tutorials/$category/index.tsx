@@ -15,8 +15,8 @@ import {
   cn,
 } from '@blms/ui';
 
-import { CategoryIcon } from '#src/components/category-icon.js';
 import PageMeta from '#src/components/Head/PageMeta/index.js';
+import { CategoryIcon } from '#src/components/category-icon.js';
 import { MainLayout } from '#src/components/main-layout.tsx';
 import { SITE_NAME } from '#src/utils/meta.js';
 import { trpc } from '#src/utils/trpc.js';

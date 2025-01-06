@@ -2,18 +2,18 @@
 
 import { format, getDay, parse, startOfWeek } from 'date-fns';
 import { enUS } from 'date-fns/locale/en-US';
-import type { Coordinate } from 'ol/coordinate.js';
 import Feature from 'ol/Feature.js';
+import OpenLayerMap from 'ol/Map.js';
+import type MapBrowserEvent from 'ol/MapBrowserEvent.js';
+import View from 'ol/View.js';
+import type { Coordinate } from 'ol/coordinate.js';
 import Point from 'ol/geom/Point.js';
 import TileLayer from 'ol/layer/Tile.js';
 import VectorLayer from 'ol/layer/Vector.js';
-import OpenLayerMap from 'ol/Map.js';
-import type MapBrowserEvent from 'ol/MapBrowserEvent.js';
 import { transform } from 'ol/proj.js';
-import OSM from 'ol/source/OSM.js';
 import { Vector as VectorSource } from 'ol/source.js';
+import OSM from 'ol/source/OSM.js';
 import { Icon, Style } from 'ol/style.js';
-import View from 'ol/View.js';
 import 'ol/ol.css';
 import { useEffect, useState } from 'react';
 import type { Components } from 'react-big-calendar';

@@ -19,6 +19,9 @@
     "build:packages": "turbo run build --filter='./packages/*'",
     "docker:dev": "docker compose pull && docker compose up -d --remove-orphans postgres redis && docker compose up -d --build --renew-anon-volumes api web cdn && docker compose exec -u 0:0 api sh -c 'echo $CDN_PATH'",
     "format": "prettier --ignore-unknown --write --no-error-on-unmatched-pattern .",
+    "format-with-biome": "biome format  --write .",
+    "format-and-lint": "biome check .",
+    "format-and-lint:fix": "biome check . --write",
     "nuke": "pnpm clear && rm -r .turbo && find . -name 'node_modules' -type d -prune -exec rm -rf '{}' + && pnpm install && pnpm build:packages",
     "prepare": "husky",
     "lint": "turbo run lint",
@@ -32,6 +35,7 @@
     "clear": "turbo run clear"
   },
   "devDependencies": {
+    "@biomejs/biome": "1.9.4",
     "@types/node": "^22.10.5",
     "@vitejs/plugin-react": "^4.3.4",
     "dotenv-cli": "^7.4.4",
