@@ -37,9 +37,16 @@ transforms:
     type: 'filter'
     condition: '.service == "api"'
 
-  api_light_remap:
+  api_remap:
     inputs:
       - api_filter
+    type: 'remap'
+    source: | # noop
+      #
+
+  api_light_remap:
+    inputs:
+      - api_remap
     type: 'remap'
     source: | # Keep only message and timestamp
       .old = del(.)
@@ -62,7 +69,7 @@ transforms:
       .message = replace!(.message, r'^[\d-]+T[\d:.]+Z\s+', "")
       .message = replace(.message, r'^[\d\/]+ [\d:.]+ ', "")
 
-  web_remap_light:
+  web_light_remap:
     inputs:
       - web_remap
     type: 'remap'
@@ -98,7 +105,7 @@ transforms:
     type: 'remap'
     source: | # Replace prepending iso date
       .message = replace!(.message, r'^[\d-]+T[\d:.]+Z\s+', "")
-      .message = replace(.message, r'^[\d\/]+ [\d:.]+ ', "")'
+      .message = replace(.message, r'^[\d\/]+ [\d:.]+ ', "")
 
   # Traefik logs
   traefik_filter:
@@ -114,21 +121,21 @@ transforms:
     source: | # Replace prepending iso date
       .message = replace!(.message, r'^time=".+Z" level=\S+\s+', "")
 
-  # ElasticSearch logs
-  elasticsearch_filter:
+  # Quickwit logs
+  quickwit_filter:
     inputs:
       - docker_remap
     type: 'filter'
-    condition: '.service == "elasticsearch"'
+    condition: '.service == "quickwit"'
 
-  elasticsearch_remap:
+  quickwit_remap:
     inputs:
-      - elasticsearch_filter
+      - quickwit_filter
     type: 'remap'
-    source: | # Extract message from JSON
-      .tmp = parse_json!(.message)
-      .message = .tmp.message
-      del(.tmp)
+    source:
+      | # Remove ANSI escape codes for color formatting & prepending iso date
+      .message = replace!(.message, r'\x1b\[[0-9;]*m', "")
+      .message = replace(.message, r'^[\d-]+T[\d:.]+Z\s+', "")
 
   # Prometheus logs
   prometheus_filter:
@@ -213,6 +220,23 @@ transforms:
       .message = format_timestamp!(.old.timestamp, "%Y-%m-%dT%H:%M:%S%.3fZ") + " " + .old.message ?? ""
       del(.old)
 
+  # Merge all remaps into one
+  all_remap:
+    inputs:
+      - web_remap
+      - cdn_remap
+      - api_remap
+      - redis_remap
+      - postgres_remap
+      - seed_remap
+      - traefik_remap
+      - grafana_remap
+      - quickwit_remap
+      - prometheus_remap
+    type: 'remap'
+    source: | # noop
+      #
+
 # Send structured data to a short-term storage
 sinks:
   raw:
@@ -223,18 +247,59 @@ sinks:
     encoding:
       codec: json
 
+  raw_s3:
+    inputs:
+      - docker
+    type: 'aws_s3'
+    endpoint: ${S3_ENDPOINT}
+    bucket: planb-s3-logs-dev
+    region: sbg
+    key_prefix: vector/%Y-%m-%d/raw.
+    compression: gzip
+    content_encoding: gzip
+    content_type: application/gzip
+    filename_append_uuid: false
+    filename_extension: log.json.gz
+    filename_time_format: '%Y-%m-%dT%Hh%Mm%Ss%3f'
+    encoding:
+      codec: json
+    auth:
+      access_key_id: ${S3_ACCESS_KEY}
+      secret_access_key: ${S3_SECRET_KEY}
+
   compose:
     inputs:
-      - docker_remap
+      - all_remap
     type: 'file'
     path: '/var/log/vector/%Y-%m-%d/remap.log'
     encoding:
       codec: json
 
+  # Send logs to S3
+  remap_s3:
+    inputs:
+      - all_remap
+    type: 'aws_s3'
+    endpoint: ${S3_ENDPOINT}
+    bucket: planb-s3-logs-dev
+    region: sbg
+    key_prefix: vector/%Y-%m-%d/remap.
+    compression: gzip
+    content_encoding: gzip
+    content_type: application/gzip
+    filename_append_uuid: false
+    filename_extension: log.json.gz
+    filename_time_format: '%Y-%m-%dT%Hh%Mm%Ss%3f'
+    encoding:
+      codec: json
+    auth:
+      access_key_id: ${S3_ACCESS_KEY}
+      secret_access_key: ${S3_SECRET_KEY}
+
   # API output
   api:
     inputs:
-      - api_filter
+      - api_remap
     type: 'file'
     path: '/var/log/vector/%Y-%m-%d/full/api.log'
     encoding:
@@ -259,7 +324,7 @@ sinks:
 
   web_light:
     inputs:
-      - web_remap_light
+      - web_light_remap
     type: 'file'
     path: '/var/log/vector/%Y-%m-%d/light/web.log'
     encoding:
@@ -316,22 +381,14 @@ sinks:
     encoding:
       codec: text
 
-  elasticsearch_logs:
-    env_file:
-      - .env
-    type: elasticsearch
+  # Send logs to Quickwit
+  quickwit_http:
+    type: http
+    method: post
+    encoding:
+      codec: json
+    framing:
+      method: newline_delimited
     inputs:
-      - web_remap
-      - cdn_remap
-      - api_filter
-      - redis_remap
-      - postgres_remap
-      - seed_remap
-      - traefik_remap
-      - grafana_remap
-      - elasticsearch_remap
-      - prometheus_remap
-    endpoints:
-      - 'http://elasticsearch:9200'
-    auth:
-      access_key_id: ${ELASTICSEARCH_WRITE_KEY}
+      - all_remap
+    uri: 'http://quickwit:7280/api/v1/logs/ingest'

@@ -2,11 +2,38 @@
 # Hot reload vector config: docker kill --signal=HUP vector_container_id
 
 services:
+  quickwit:
+    image: quickwit/quickwit
+    volumes:
+      - quickwit_data:/quickwit/qwdata
+    ports:
+      - 7280:7280
+    command: ['run']
+
+  grafana:
+    image: grafana/grafana-oss
+    container_name: grafana
+    ports: # expose 3000 to 3030
+      - 3030:3000
+    volumes:
+      - grafana_data:/var/lib/grafana
+    environment:
+      GF_INSTALL_PLUGINS: https://github.com/quickwit-oss/quickwit-datasource/releases/download/v0.3.1/quickwit-quickwit-datasource-0.3.1.zip;quickwit-quickwit-datasource
+      GF_AUTH_DISABLE_LOGIN_FORM: 'true'
+      GF_AUTH_ANONYMOUS_ENABLED: 'true'
+      GF_AUTH_ANONYMOUS_ORG_ROLE: Admin
+
   vector:
     image: timberio/vector:0.41.1-alpine
+    env_file:
+      - .env
     ports:
       - 8686:8686
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
       - ./docker/vector/vector.yml:/etc/vector/vector.yaml:ro
       - ./logs:/var/log/vector
+
+volumes:
+  grafana_data:
+  quickwit_data:
