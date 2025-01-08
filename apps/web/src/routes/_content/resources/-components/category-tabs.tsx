@@ -19,7 +19,6 @@ export const CategoryTabs = ({ resourceActiveCategory }: CategoryTabsProps) => {
         const categoryTitle = capitalizeFirstWord(
           t(`resources.${resourceCategory.name}.title`),
         );
-        const isSingleWord = categoryTitle.split(' ').length === 1;
 
         return (
           <Link
@@ -32,12 +31,16 @@ export const CategoryTabs = ({ resourceActiveCategory }: CategoryTabsProps) => {
               'group relative',
               resourceCategory.unreleased
                 ? 'cursor-not-allowed opacity-50'
-                : resourceCategory.name === resourceActiveCategory
-                  ? 'scale-125 filter-newOrange1'
-                  : '',
+                : resourceCategory.name === resourceActiveCategory &&
+                    'filter-newOrange1',
             )}
           >
-            <div className="flex justify-center items-center p-2 lg:p-2.5 border border-white rounded-xl">
+            <div
+              className={cn(
+                'flex justify-center items-center p-2 lg:p-2.5 border border-white rounded-xl',
+                resourceCategory.name === resourceActiveCategory && 'scale-125',
+              )}
+            >
               <img
                 src={resourceCategory.image}
                 alt={resourceCategory.name}
@@ -46,9 +49,10 @@ export const CategoryTabs = ({ resourceActiveCategory }: CategoryTabsProps) => {
             </div>
             <span
               className={cn(
-                'absolute md:-left-6 xl:-left-7 right-0 text-center body-14px mx-auto text-white opacity-0 transition-opacity duration-300 group-hover:opacity-100 w-[100px]',
-                resourceCategory.unreleased ? 'pointer-events-none' : '',
-                isSingleWord ? '-bottom-6' : '-bottom-11',
+                'absolute left-1/2 -translate-x-1/2 body-14px text-white opacity-0 transition-opacity duration-300 group-hover:opacity-100 w-[100px] text-center',
+                resourceCategory.name === resourceActiveCategory
+                  ? 'top-16'
+                  : 'top-14',
               )}
             >
               {categoryTitle}
