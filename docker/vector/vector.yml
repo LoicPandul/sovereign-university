@@ -251,9 +251,9 @@ sinks:
     inputs:
       - docker
     type: 'aws_s3'
-    endpoint: ${S3_ENDPOINT}
-    bucket: planb-s3-logs-dev
-    region: sbg
+    endpoint: ${S3_LOG_ENDPOINT}
+    bucket: ${S3_LOG_BUCKET}
+    region: ${S3_LOG_REGION}
     key_prefix: vector/%Y-%m-%d/raw.
     compression: gzip
     content_encoding: gzip
@@ -264,8 +264,8 @@ sinks:
     encoding:
       codec: json
     auth:
-      access_key_id: ${S3_ACCESS_KEY}
-      secret_access_key: ${S3_SECRET_KEY}
+      access_key_id: ${S3_LOG_ACCESS_KEY}
+      secret_access_key: ${S3_LOG_SECRET_KEY}
 
   compose:
     inputs:
@@ -280,9 +280,9 @@ sinks:
     inputs:
       - all_remap
     type: 'aws_s3'
-    endpoint: ${S3_ENDPOINT}
-    bucket: planb-s3-logs-dev
-    region: sbg
+    endpoint: ${S3_LOG_ENDPOINT}
+    bucket: ${S3_LOG_BUCKET}
+    region: ${S3_LOG_REGION}
     key_prefix: vector/%Y-%m-%d/remap.
     compression: gzip
     content_encoding: gzip
@@ -293,8 +293,8 @@ sinks:
     encoding:
       codec: json
     auth:
-      access_key_id: ${S3_ACCESS_KEY}
-      secret_access_key: ${S3_SECRET_KEY}
+      access_key_id: ${S3_LOG_ACCESS_KEY}
+      secret_access_key: ${S3_LOG_SECRET_KEY}
 
   # API output
   api:

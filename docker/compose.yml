@@ -102,7 +102,7 @@ services:
   # https://typesense.org
   typesense:
     image: typesense/typesense:27.1
-    container_name: typesense
+    # container_name: typesense
     environment:
       - TYPESENSE_API_KEY=${TYPESENSE_API_KEY:-xyz}
       - TYPESENSE_DATA_DIR=/usr/share/typesense/data
