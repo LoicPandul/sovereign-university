@@ -6,9 +6,7 @@ import { FaArrowRightLong } from 'react-icons/fa6';
 import { Button, Loader, cn } from '@blms/ui';
 
 import bCertificatesImage from '#src/assets/about/b-certificates.webp';
-import Question from '#src/assets/icons/question.svg?react';
 import { PageLayout } from '#src/components/page-layout.js';
-import { ReactPlayer } from '#src/components/react-player.js';
 import { useGreater } from '#src/hooks/use-greater.js';
 import { trpc } from '#src/utils/trpc.js';
 
@@ -117,23 +115,7 @@ function BCertificate() {
       </div>
       {!isFetched && <Loader size={'s'} />}
       {isFetched && <BCertificateEvents events={filteredEvents} />}
-      <div className="flex flex-col items-center mb-6 md:mb-20">
-        <Question className="mb-2.5 md:mb-5" />
-        <h3 className="mobile-h3 md:text-[32px] md:font-semibold md:leading-tight md:tracking-[0.25px] text-center">
-          {t('bCertificate.curious')}
-        </h3>
-        <div className="max-w-4xl w-full overflow-hidden rounded-3xl mt-4 md:mt-12 aspect-video">
-          <ReactPlayer
-            url={'https://www.youtube.com/watch?v=9FDkHhUX3eU'}
-            controls
-            width={'100%'}
-            height={'100%'}
-          />
-        </div>
-        <span className="mt-5 mobile-h5 md:desktop-h5 text-newGray-2 text-center">
-          {t('bCertificate.joeNakamotoVideo')}
-        </span>
-      </div>
+
       <BCertificateOrganize />
     </PageLayout>
   );
