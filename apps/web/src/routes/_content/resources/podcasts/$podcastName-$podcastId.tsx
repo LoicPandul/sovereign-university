@@ -102,7 +102,7 @@ function Podcast() {
     >
       {!isFetched && <Loader size={'s'} />}
       {isFetched && !podcast && (
-        <div className="w-[768px] mx-auto text-white">
+        <div className="max-w-[768px] mx-auto text-white">
           {t('underConstruction.itemNotFoundOrTranslated', {
             item: t('words.podcast'),
           })}
@@ -127,7 +127,7 @@ function Podcast() {
                   <div className="relative">
                     <img
                       className="max-w-[219px] mx-auto object-cover [overflow-clip-margin:_unset] rounded-[10px] lg:max-w-[347px] md:mx-0 lg:rounded-none mb-5 lg:mb-[30px]"
-                      alt={t('imagesAlt.bookCover')}
+                      alt={'Podcast logo'}
                       src={assetUrl(podcast.path, 'logo.webp')}
                     />
                     <Flag

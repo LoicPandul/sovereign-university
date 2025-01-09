@@ -507,6 +507,30 @@ export const contentLegalsLocalized = content.table(
   }),
 );
 
+// MOVIES
+
+export const contentMovies = content.table('movies', (t) => ({
+  resourceId: t
+    .integer()
+    .primaryKey()
+    .notNull()
+    .references(() => contentResources.id, { onDelete: 'cascade' }),
+  id: t.uuid().unique().notNull(),
+
+  language: t.varchar({ length: 10 }).notNull(),
+
+  title: t.text().notNull(),
+  description: t.text(),
+  duration: t.integer(),
+  publicationYear: t.integer(),
+
+  author: t.text().notNull(),
+
+  // Links
+  platform: t.text().notNull(),
+  trailer: t.text().notNull(),
+}));
+
 // NEWSLETTER
 
 export const contentNewsletters = content.table('newsletters', (t) => ({

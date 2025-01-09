@@ -713,6 +713,11 @@
     "socialStudiesDescription": "Study the impact of Bitcoin on society.",
     "teachersDescription": "Get to know our academy teachers"
   },
+  "movies": {
+    "pageTitle": "Movies & Documentaries",
+    "goToMovie": "Go to movie",
+    "watchTrailer": "Watch the trailer"
+  },
   "nodeNetwork": {
     "apply": "Apply to become a Node",
     "applyhelp": "*Select the node Location",
@@ -1057,6 +1062,7 @@
     "podcast": "Podcast",
     "podcasts": "Podcasts",
     "price": "Price",
+    "producer": "Producer",
     "professor": "Professor",
     "professors": "Professors",
     "progress": "Progress",

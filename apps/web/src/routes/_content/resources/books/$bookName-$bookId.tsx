@@ -109,7 +109,7 @@ function Book() {
     >
       {!isFetched && <Loader size={'s'} />}
       {isFetched && !book && (
-        <div className="w-[768px] mx-auto text-white">
+        <div className="max-w-[768px] mx-auto text-white">
           {t('underConstruction.itemNotFoundOrTranslated', {
             item: t('words.book'),
           })}

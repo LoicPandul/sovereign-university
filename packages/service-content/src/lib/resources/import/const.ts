@@ -5,6 +5,7 @@ export const supportedCategories = [
   'builders',
   'conferences',
   'glossary',
+  'movies',
   'newsletters',
   'channels',
 ] as const;

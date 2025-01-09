@@ -106,7 +106,7 @@ function Lecture() {
     >
       {!isFetched && <Loader size={'s'} />}
       {isFetched && !lecture && (
-        <div className="w-[768px] mx-auto text-white">
+        <div className="max-w-[768px] mx-auto text-white">
           {t('underConstruction.itemNotFoundOrTranslated', {
             item: t('words.lecture'),
           })}

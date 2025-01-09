@@ -311,6 +311,10 @@
     @apply text-[32px] leading-[120%] font-normal tracking-normal;
   }
 
+  .display-small-med-32px {
+    @apply text-[32px] leading-[120%] font-medium tracking-normal;
+  }
+
   .display-small-bold-caps-22px {
     @apply text-[22px] leading-[116%] font-bold tracking-normal uppercase;
   }
