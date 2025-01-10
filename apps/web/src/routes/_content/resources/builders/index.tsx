@@ -44,9 +44,7 @@ function Builders() {
 
   const categories = [
     ...new Set(sortedBuilders.map((builder) => builder.category)),
-  ].sort(
-    (a, b) => categorizedBuilders[b].length - categorizedBuilders[a].length,
-  );
+  ].sort((a, b) => a.localeCompare(b));
 
   return (
     <ResourceLayout
