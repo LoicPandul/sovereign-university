@@ -3,7 +3,7 @@ import { t } from 'i18next';
 import React, { useContext } from 'react';
 import { Trans, useTranslation } from 'react-i18next';
 
-import type { JoinedCourse, JoinedCourseWithAll } from '@blms/types';
+import type { JoinedCourseWithAll } from '@blms/types';
 import { DividerSimple } from '@blms/ui';
 
 import { AuthorCard } from '#src/components/author-card.tsx';
@@ -11,6 +11,7 @@ import { ProofreadingDesktop } from '#src/components/proofreading-progress.tsx';
 import { ButtonWithArrow } from '#src/molecules/button-arrow.tsx';
 import { CourseCard } from '#src/organisms/course-card.tsx';
 import { AppContext } from '#src/providers/context.tsx';
+import { filterAndRandomizeCourses } from '#src/routes/_content/_misc/exam-certificates.$certificateId.js';
 import { formatNameForURL } from '#src/utils/string.ts';
 import { trpc } from '#src/utils/trpc.ts';
 
@@ -157,37 +158,7 @@ const OtherCourses = ({ course }: { course: JoinedCourseWithAll }) => {
     return null;
   }
 
-  const otherCourses = allCourses.filter((c) => c.id !== course.id);
-
-  const courseLevels = ['beginner', 'intermediate', 'advanced', 'wizard'];
-
-  const sameTopicSameLevel = otherCourses.filter(
-    (c) => c.topic === course.topic && c.level === course.level,
-  );
-
-  const differentTopicSameOrLowerLevel = otherCourses.filter(
-    (c) =>
-      c.topic !== course.topic &&
-      courseLevels.indexOf(c.level) <= courseLevels.indexOf(course.level),
-  );
-
-  const sameTopicHigherLevel = otherCourses.filter(
-    (c) =>
-      c.topic === course.topic &&
-      courseLevels.indexOf(c.level) > courseLevels.indexOf(course.level),
-  );
-
-  const selectedCourses = [
-    sameTopicSameLevel.length > 0
-      ? getRandomCourse(sameTopicSameLevel)
-      : getRandomCourse(allCourses),
-    differentTopicSameOrLowerLevel.length > 0
-      ? getRandomCourse(differentTopicSameOrLowerLevel)
-      : getRandomCourse(allCourses),
-    sameTopicHigherLevel.length > 0
-      ? getRandomCourse(sameTopicHigherLevel)
-      : getRandomCourse(allCourses),
-  ];
+  const selectedCourses = filterAndRandomizeCourses(course, allCourses);
 
   return (
     <>
@@ -208,6 +179,3 @@ const OtherCourses = ({ course }: { course: JoinedCourseWithAll }) => {
     </>
   );
 };
-
-const getRandomCourse = (courses: JoinedCourse[]) =>
-  courses[Math.floor(Math.random() * courses.length)];
