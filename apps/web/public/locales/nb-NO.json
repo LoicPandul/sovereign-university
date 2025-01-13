@@ -71,7 +71,7 @@
     "confirmation": "Bekreftelse",
     "displayName": "Visningsnavn",
     "oldPassword": "Gammelt passord",
-    "emailTip": "E-post er ikke obligatorisk, men det kan være nyttig i tilfelle du glemmer passordet ditt :)",
+    "emailTip": "E-post er ikke obligatorisk, men det kan være nyttig i tilfelle du glemmer passordet ditt!",
     "dashboardUnlocked": "Studentdashbordet ditt er låst opp!",
     "didYouKnow": "Visste du det?",
     "trackProgress": "Opprett en konto eller logg inn for å holde oversikt over fremdriften din"
@@ -234,7 +234,13 @@
       "courseAddedToDashboard": "Dette kurset er lagt til i studentdashbordet ditt",
       "premiumContentNeedsLogin": "Du må være logget inn for å få tilgang til dette kurset.",
       "premiumContentNeedsPayment": "Dette kurset er en del av et premiumprogram.",
-      "premiumContentNeedsPaymentAction": "Gå til kursets hjemmeside"
+      "premiumContentNeedsPaymentAction": "Gå til kursets hjemmeside",
+      "collaborativeEffort": "Dette kurset er resultatet av et samarbeid: hver leksjon, oversettelse og revisjon er muliggjort av bidragsyternes arbeid. Av denne grunn er vi alltid på utkikk etter korrekturlesere som kan gjennomgå innholdet vårt på mange språk. Hvis du ønsker å delta i korrekturlesingsprosessen, vennligst ta kontakt i vår Telegram-gruppe og les vår veiledning.\n\nVi minner deg om at dette innholdet er åpen kildekode - lisensiert under <0>CC BY-SA</0> - så det kan fritt deles og brukes, så lenge den opprinnelige kilden er kreditert.\n\nEn spesiell anerkjennelse for deres arbeid med dette kurset går til følgende korrekturlesere: ",
+      "hasBeenProofreadBy": "Dette kurset har blitt korrekturlest av",
+      "hasBeenTranslatedBy": "Dette kurset har blitt oversatt av",
+      "otherCourses": "Andre kurs",
+      "otherCoursesInterest": "Andre kurs du kan være interessert i",
+      "thanksTipping": "Du kan si takk ved å gi professoren et tips."
     },
     "explorer": {
       "buildPath": "Lag din egen sti ned i kaninhullet",
@@ -412,7 +418,19 @@
       "sameRules": "Du er i ferd med å ta slutteksamen på nytt. Reglene forblir de samme.",
       "score": "Poeng",
       "skipExam": "Hopp over eksamen",
-      "skipExamGoConclusion": "Hopp over eksamen, gå til konklusjonen"
+      "skipExamGoConclusion": "Hopp over eksamen, gå til konklusjonen",
+      "dontWorryRetake": "Ikke bekymre deg, du kan ta eksamen på nytt etter 24 timer."
+    },
+    "conclusion": {
+      "completedChaptersHeadline": "Alle kapitler er nå fullført!",
+      "completedFeedbackSubHeadline": "Du kan redigere vurderingene og kommentarene dine når som helst på dashbordet ditt.",
+      "stepsToComplete": "Dette er trinnene for å merke dette kurset som fullført i dashbordet ditt, før du fortsetter reisen din!",
+      "unlockFeatures2": "Vær oppmerksom på at vi verken samler inn personopplysninger eller bruker informasjonskapsler.",
+      "completedFeedbackHeadline": "Takk for tilbakemeldingen din!\nDen er veldig viktig for oss, så vi setter virkelig pris på den.",
+      "congratulationsEnd": "Gratulerer, du har nådd slutten av kurset",
+      "finalStep": "Dette var det siste steget for å merke dette kurset som fullført i dashbordet ditt, før du fortsetter reisen din!",
+      "takeFinalExam": "Nå som du har fullført alle kapitlene, er det på tide å ta den endelige eksamenen for å teste kunnskapene dine.",
+      "unlockFeatures1": "For å låse opp alle funksjoner og holde oversikt over fremgangen din, trenger du en konto."
     }
   },
   "words": {
@@ -591,7 +609,10 @@
     "unavailable": "Utilgjengelig",
     "user": "Bruker",
     "username": "Brukernavn",
-    "viewMore": "Se mer"
+    "viewMore": "Se mer",
+    "congrats": "Gratulerer!",
+    "credits": "Kreditter",
+    "exam": "Eksamen"
   },
   "dashboard": {
     "account": "Konto",
@@ -808,7 +829,8 @@
       "userRolesAllocation": "Tildeling av brukerroller"
     },
     "courseDashboard": "Kursdashbord",
-    "studentDashboard": "Studentdashbord"
+    "studentDashboard": "Studentdashbord",
+    "backToDashboard": "Tilbake til dashbordet"
   },
   "events": {
     "card": {
@@ -949,7 +971,7 @@
     },
     "patreonSection": {
       "title": "Sammen skal vi gjøre Bitcoin-utdanning bedre!",
-      "subtitle": "PlanB-nettverket er 100% åpen kildekode takket være våre generøse støttespillere",
+      "subtitle": "Plan ₿ Network er 100% åpen kildekode takket være våre generøse støttespillere",
       "content": "Plan ₿ Network er stolt av å samarbeide med mange bitcoin-selskaper rundt om i verden for å kunne tilby de beste utdanningsressursene som er mulig!"
     },
     "wallOfLoveSection": {
