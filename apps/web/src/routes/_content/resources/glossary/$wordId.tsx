@@ -14,7 +14,6 @@ import { AlphabetGlossary } from '../-components/alphabet-glossary.tsx';
 import { GlossaryFilterBar } from '../-components/glossary-filter-bar.tsx';
 import { GlossaryList } from '../-components/glossary-list.tsx';
 import { ResourceLayout } from '../-components/resource-layout.tsx';
-// eslint-disable-next-line import/no-named-as-default-member
 const GlossaryMarkdownBody = React.lazy(
   () => import('#src/components/Markdown/glossary-markdown-body.js'),
 );

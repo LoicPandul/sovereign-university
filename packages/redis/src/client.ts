@@ -38,7 +38,6 @@ export class RedisClient extends Redis {
   }
 
   override async connect() {
-    // eslint-disable-next-line @typescript-eslint/no-floating-promises
     super.connect();
 
     await new Promise<void>((resolve, reject) => {
@@ -64,7 +63,6 @@ export class RedisClient extends Redis {
     });
   }
 
-  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
   // @ts-ignore
   override set<K extends RedisKey>(key: K, value: RedisKeyValue[K]) {
     return super.set(key, JSON.stringify(value));
@@ -105,7 +103,6 @@ export class RedisClient extends Redis {
     return super.set(key, JSON.stringify(value), 'EX', expiry);
   }
 
-  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
   // @ts-ignore
   override async get<K extends RedisKey>(key: K) {
     const result = await super.get(key);

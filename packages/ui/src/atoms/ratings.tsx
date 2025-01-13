@@ -121,7 +121,6 @@ const PartialStar = ({ ...props }: PartialStarProps) => {
     props;
 
   return (
-    // eslint-disable-next-line jsx-a11y/click-events-have-key-events
     <div
       role={asInput ? 'input' : undefined}
       onClick={() => onValueChange && onValueChange()}

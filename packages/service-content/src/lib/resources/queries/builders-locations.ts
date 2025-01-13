@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unsafe-member-access */
 import { sql } from '@blms/database';
 import type { BuilderLocation } from '@blms/types';
 

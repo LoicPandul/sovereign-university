@@ -16,7 +16,6 @@ export interface PostgresClientConfig {
   password: string;
 }
 
-// eslint-disable-next-line @typescript-eslint/consistent-type-definitions
 type PostgresTypesMapper = {
   bigint: number;
   numeric: number;
@@ -85,13 +84,11 @@ export const createPostgresClient = (
       null: {
         to: 0,
         from: [0],
-        // eslint-disable-next-line unicorn/no-useless-undefined
         parse: () => undefined,
         serialize: () => null,
       },
     },
     transform: {
-      // eslint-disable-next-line import/no-named-as-default-member
       ...postgres.camel,
       // Convert undefined values to null postgres values
       undefined: null,

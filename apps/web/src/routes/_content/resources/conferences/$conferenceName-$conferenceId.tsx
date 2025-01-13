@@ -17,7 +17,6 @@ import { assetUrl, trpc } from '#src/utils/index.ts';
 import { formatNameForURL } from '#src/utils/string.js';
 
 import { ResourceLayout } from '../-components/resource-layout.tsx';
-// eslint-disable-next-line import/no-named-as-default-member
 const ConferencesMarkdownBody = React.lazy(
   () => import('#src/components/Markdown/conference-markdown-body.js'),
 );

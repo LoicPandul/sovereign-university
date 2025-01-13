@@ -32,7 +32,6 @@ const Flag: React.FC<Props> = ({
   useEffect(() => {
     import(`./flags/${code.toUpperCase()}.svg`)
       .then((img) => {
-        // eslint-disable-next-line @typescript-eslint/no-unsafe-argument, @typescript-eslint/no-unsafe-member-access
         return setImgSrc(img.default || img);
       })
       .catch(() => {});

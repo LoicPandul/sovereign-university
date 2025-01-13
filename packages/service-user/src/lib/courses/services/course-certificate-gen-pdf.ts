@@ -28,7 +28,6 @@ type MandatoryTextOptions = Pick<
   'font' | 'size' | 'color'
 >;
 
-// eslint-disable-next-line @typescript-eslint/no-redundant-type-constituents
 type TextOptions = PDFPageDrawTextOptions & MandatoryTextOptions;
 
 function textRight(page: PDFPage, text: string, options: TextOptions) {

@@ -8,7 +8,6 @@ interface ButtonWithArrowProps extends ButtonProps {
   children: React.ReactNode;
 }
 
-// eslint-disable-next-line import/no-named-as-default-member
 export const ButtonWithArrow = React.forwardRef<
   HTMLButtonElement,
   ButtonWithArrowProps

@@ -69,7 +69,6 @@ export const MenuElement = ({
   );
 
   return 'path' in element ? (
-    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     // @ts-ignore
     <Link className="block w-full text-black" to={element.path}>
       {item}

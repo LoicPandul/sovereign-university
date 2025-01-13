@@ -61,7 +61,6 @@ export const GlobalCertifications = () => {
     isTicketOpen.length === 0 &&
     isExamOpen.length > 0 &&
     isExamOpen.at(-1) === true
-    // eslint-disable-next-line sonarjs/no-duplicated-branches
   ) {
     isLastElementSelected = true;
   }

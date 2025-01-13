@@ -21,7 +21,6 @@ interface Props {
   };
   className?: string;
   // TODO fix this build issue
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   link?: ToPathOption<any>;
   // link?: ToPathOption<RegisteredRouter['routeTree']>;
   showPageHeader?: boolean;
@@ -76,7 +75,6 @@ export const ResourceLayout = ({
             <PageHeader
               title={title}
               description={tagLine || ''}
-              // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
               link={link ? link : ''}
               hasGithubDescription={true}
               addedCredits={addCredits}

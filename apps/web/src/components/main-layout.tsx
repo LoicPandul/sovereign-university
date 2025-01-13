@@ -48,7 +48,6 @@ export const MainLayout = ({
 
       sessionStorage.removeItem('hasJustRegistered');
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (

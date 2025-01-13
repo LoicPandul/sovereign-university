@@ -49,7 +49,6 @@ export const CoursesGallery = ({ courses }: { courses: JoinedCourse[] }) => {
     if (topics.includes(hash)) {
       setActiveTopics([hash]);
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [location.hash]);
 
   useEffect(() => {

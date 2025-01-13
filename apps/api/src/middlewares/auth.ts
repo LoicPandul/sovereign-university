@@ -98,10 +98,7 @@ export const createApiKeyMiddleware = (ctx: Dependencies): RequestHandler => {
     }
 
     return getActiveApiKey(keyId)
-      .then((key) =>
-        // eslint-disable-next-line promise/no-callback-in-promise
-        key ? next() : void res.status(401).send('Unauthorized'),
-      )
+      .then((key) => (key ? next() : void res.status(401).send('Unauthorized')))
       .catch(() => void res.status(500).send('Internal server error'));
   };
 };

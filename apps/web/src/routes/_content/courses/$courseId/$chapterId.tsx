@@ -47,7 +47,6 @@ import { CourseConclusion } from './-components/course-conclusion.tsx';
 import { CourseExam } from './-components/course-exam.tsx';
 import { CourseReview } from './-components/course-review.tsx';
 
-// eslint-disable-next-line import/no-named-as-default-member
 const CoursesMarkdownBody = React.lazy(
   () => import('#src/components/Markdown/courses-markdown-body.js'),
 );

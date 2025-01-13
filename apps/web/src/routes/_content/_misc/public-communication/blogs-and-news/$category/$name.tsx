@@ -14,7 +14,6 @@ import { trpc } from '#src/utils/trpc.js';
 import BlogSidebar from '../../../-components/public-communication/blog-sidebar.tsx';
 import Breadcrumbs from '../../../-components/public-communication/breadcrumbs.tsx';
 
-// eslint-disable-next-line import/no-named-as-default-member
 const BlogMarkdownBody = React.lazy(
   () => import('../../../-components/public-communication/blog-markdown.tsx'),
 );

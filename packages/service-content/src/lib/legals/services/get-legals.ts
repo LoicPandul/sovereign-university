@@ -1,5 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unsafe-return */
-
 import type { JoinedLegalLight } from '@blms/types';
 
 import type { Dependencies } from '../../dependencies.js';

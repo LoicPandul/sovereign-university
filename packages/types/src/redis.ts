@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import type { Session, SessionData } from 'express-session';
 
 import type { NonFunctionProperties } from './utils.js';

@@ -80,7 +80,6 @@ export const AppProvider = ({ children }: PropsWithChildren) => {
     if (!currentLanguage || currentLanguage !== i18n.language) {
       updateCurrentLanguage(newLanguage, location.pathname + location.hash);
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [currentLanguage, i18n, i18n.language, locationLanguage]);
 
   // Handle browser's back() and next()
@@ -101,7 +100,6 @@ export const AppProvider = ({ children }: PropsWithChildren) => {
     return () => {
       window.removeEventListener('popstate', handlePopState);
     };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [currentLanguage]);
 
   return (

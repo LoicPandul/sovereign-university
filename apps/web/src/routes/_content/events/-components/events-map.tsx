@@ -1,5 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unsafe-argument */
-
 import { format, getDay, parse, startOfWeek } from 'date-fns';
 import { enUS } from 'date-fns/locale/en-US';
 import Feature from 'ol/Feature.js';
@@ -413,7 +411,6 @@ const EventsMap = ({
 
   useEffect(() => {
     setFilter(courseTypes);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   return (
     <div className="bg-gray-100 rounded-xl">

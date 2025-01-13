@@ -203,7 +203,6 @@ const createIngestData = (client: TypesenseClient) => (data: Searchable[]) => {
     .catch((error) => console.error('[SEARCH] Import failed:', error));
 };
 
-/* eslint-disable @typescript-eslint/no-unused-vars */
 export const createIndexContent = ({ postgres, typesense }: Dependencies) => {
   const deleteIndexes = createDeleteIndexes(typesense);
   const createIndexes = createInitIndexes(typesense);
