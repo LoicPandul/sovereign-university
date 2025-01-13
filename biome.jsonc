@@ -3,23 +3,24 @@
   "vcs": {
     "enabled": false,
     "clientKind": "git",
-    "useIgnoreFile": false,
+    "useIgnoreFile": false
   },
   "files": {
     "ignoreUnknown": false,
     "ignore": [
       "**/dist/**",
       "**/routeTree.gen.ts",
+      "**/.turbo/**",
       "packages/database/drizzle/migrations/*",
-      "packages/types/src/generated/*",
-    ],
+      "packages/types/src/generated/*"
+    ]
   },
   "formatter": {
     "enabled": true,
-    "indentStyle": "space",
+    "indentStyle": "space"
   },
   "organizeImports": {
-    "enabled": true,
+    "enabled": true
   },
   "linter": {
     "enabled": true,
@@ -31,7 +32,7 @@
         "useButtonType": "off",
         "noSvgWithoutTitle": "off",
         "useSemanticElements": "off",
-        "noLabelWithoutControl": "off",
+        "noLabelWithoutControl": "off"
       },
       "complexity": {
         "noUselessTernary": "off",
@@ -40,15 +41,15 @@
         "useArrowFunction": "off",
         "noUselessRename": "off",
         "noUselessFragments": "off",
-        "useLiteralKeys": "off",
+        "useLiteralKeys": "off"
       },
       "correctness": {
         "noUnreachable": "off",
-        "useExhaustiveDependencies": "off",
+        "useExhaustiveDependencies": "off"
       },
       "performance": { "noDelete": "off" },
       "security": {
-        "noDangerouslySetInnerHtml": "off",
+        "noDangerouslySetInnerHtml": "off"
       },
       "style": {
         "useSingleVarDeclarator": "off",
@@ -62,7 +63,7 @@
         "useSelfClosingElements": "off",
         "useEnumInitializers": "off",
         "useImportType": "off",
-        "useNodejsImportProtocol": "off",
+        "useNodejsImportProtocol": "off"
       },
       "suspicious": {
         "noRedeclare": "off",
@@ -72,14 +73,14 @@
         "noImplicitAnyLet": "off",
         "noDuplicateSelectorsKeyframeBlock": "off",
         "noExplicitAny": "off",
-        "noArrayIndexKey": "off",
-      },
-    },
+        "noArrayIndexKey": "off"
+      }
+    }
   },
   "javascript": {
     "formatter": {
-      "quoteStyle": "single",
+      "quoteStyle": "single"
       //   "lineWidth": 80
-    },
-  },
+    }
+  }
 }
