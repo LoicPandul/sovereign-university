@@ -7,6 +7,7 @@ import type { CourseChapterResponse } from '@blms/types';
 import { Button, cn } from '@blms/ui';
 
 import congratsDark from '#src/assets/animations/congrats_animation_dark.webm';
+import congratsDarkMobile from '#src/assets/animations/congrats_animation_dark_mobile.webm';
 import completionStepsMobile from '#src/assets/courses/completion-steps-course-mobile.webp';
 import completionSteps from '#src/assets/courses/completion-steps-course.webp';
 import BookPixel from '#src/assets/icons/book-pixelated.svg?react';
@@ -22,6 +23,7 @@ import { CourseCurriculum } from '#src/organisms/course-curriculum.tsx';
 import { AppContext } from '#src/providers/context.tsx';
 import { trpc } from '#src/utils/trpc.ts';
 
+import { useSmaller } from '#src/hooks/use-smaller.ts';
 import { ConclusionFinish } from './course-conclusion/conclusion-finish.tsx';
 import { StepMessage } from './course-conclusion/step-message.tsx';
 import { CourseReview } from './course-review.tsx';
@@ -195,6 +197,8 @@ export const CourseConclusion = ({ chapter }: CourseConclusionProps) => {
     'label-small-med-12px md:title-large-sb-24px text-darkOrange-5 text-center';
   const titleStepClass =
     'text-newGray-1 subtitle-small-caps-14px md:subtitle-medium-caps-18px';
+
+  const isMobile = useSmaller('md');
 
   return (
     <>
@@ -478,17 +482,32 @@ export const CourseConclusion = ({ chapter }: CourseConclusionProps) => {
             ) : null}
 
             {step === 5 && (
-              <div className="fixed inset-0 flex justify-center items-center bg-black/80 backdrop-blur-md z-50">
-                <video
-                  className="relative z-50 w-[90%] max-w-[842px] max-h-[90%] rounded-lg"
-                  src={congratsDark}
-                  autoPlay
-                  muted
-                  preload="auto"
-                  onEnded={() => {
-                    updateStep(6);
-                  }}
-                />
+              <div className="fixed inset-0 flex justify-center items-center bg-black md:bg-black/80 md:backdrop-blur-md z-50">
+                {isMobile ? (
+                  <video
+                    className="relative w-full max-h-full"
+                    src={congratsDarkMobile}
+                    autoPlay
+                    muted
+                    preload="auto"
+                    onEnded={() => {
+                      updateStep(6);
+                    }}
+                  />
+                ) : (
+                  <div className="flex justify-center w-full max-h-[85%] bg-black px-[100px]">
+                    <video
+                      className="relative w-full"
+                      src={congratsDark}
+                      autoPlay
+                      muted
+                      preload="auto"
+                      onEnded={() => {
+                        updateStep(6);
+                      }}
+                    />
+                  </div>
+                )}
               </div>
             )}
 
