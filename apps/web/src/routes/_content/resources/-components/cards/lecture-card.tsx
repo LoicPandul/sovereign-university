@@ -6,7 +6,7 @@ import type { JoinedEvent } from '@blms/types';
 import { Button, cn } from '@blms/ui';
 
 import Flag from '#src/molecules/Flag/index.js';
-import { AppContext } from '#src/providers/context.tsx';
+import { ConversionRateContext } from '#src/providers/conversionRateContext.tsx';
 import { assetUrl } from '#src/utils/index.ts';
 
 interface LectureCardProps {
@@ -16,7 +16,7 @@ interface LectureCardProps {
 export const LectureCard = ({ lecture }: LectureCardProps) => {
   const { t } = useTranslation();
 
-  const { conversionRate } = useContext(AppContext);
+  const { conversionRate } = useContext(ConversionRateContext);
 
   const dollarPrice = lecture.priceDollars;
   const satsPrice =

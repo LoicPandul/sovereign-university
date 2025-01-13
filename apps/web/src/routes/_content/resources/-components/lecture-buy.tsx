@@ -11,6 +11,7 @@ import { useAuthModal } from '#src/providers/auth.tsx';
 import { AppContext } from '#src/providers/context.tsx';
 import type { PaymentModalDataModel } from '#src/services/utils.tsx';
 
+import { ConversionRateContext } from '#src/providers/conversionRateContext.tsx';
 import { EventPaymentModal } from '../../events/-components/event-payment-modal.tsx';
 
 export const LectureBuy = ({
@@ -22,7 +23,8 @@ export const LectureBuy = ({
   eventPayment?: EventPayment;
   refetchEventPayments: () => void;
 }) => {
-  const { session, conversionRate } = useContext(AppContext);
+  const { session } = useContext(AppContext);
+  const { conversionRate } = useContext(ConversionRateContext);
   const { openAuthModal: openAuthModalContext } = useAuthModal();
   const isLoggedIn = !!session;
 
