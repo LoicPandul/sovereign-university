@@ -5,7 +5,7 @@
     "missionContent1": "Nuestra misión es apoyar a las comunidades locales de Bitcoin a través de la educación. Recolectamos, organizamos y creamos los recursos necesarios (cursos, libros, carteles, volantes, videos) para que la industria de Bitcoin avance.",
     "missionContent2": "Centralizamos el conocimiento para poder compartirlo de la mejor manera posible, utilizando un repositorio de GitHub sencillo y multilingüe y una plataforma de E-learning. También asistimos a los centros locales de Bitcoin en su desarrollo proporcionando las herramientas adecuadas para que sus talentos puedan crecer.",
     "commitmentTitle": "Nuestros compromisos",
-    "commitmentContent": "Tenemos los siguientes compromisos con la comunidad de Bitcoin: \n • Mantener el código abierto \n • Proporcionar contenido educativo de alta calidad \n • Traducir nuestro contenido en tantos idiomas como sea posible \n • Apoyar a los constructores de Bitcoin en su viaje empresarial",
+    "commitmentContent": "Tenemos los siguientes compromisos con la comunidad de Bitcoin: \n • Mantener el código abierto \n • Proporcionar contenido educativo de alta calidad \n • Traducir nuestro contenido en tantos idiomas como sea posible \n • Apoyar a los emprendedores de Bitcoin en su camino",
     "coreTeamTitle": "El equipo principal",
     "coreTeamContent": "Plan ₿ Network es un colectivo de cientos de colaboradores, maestros, líderes comunitarios, diseñadores, desarrolladores y organizadores. Un agradecimiento especial a las numerosas personas que han hecho de PlanB una realidad y continúan haciéndolo todos los días. (Muro de colaboradores próximamente)",
     "coreTeamGiacomoRole": "Director y cofundador",
@@ -71,7 +71,10 @@
     "confirmation": "Confirmación",
     "displayName": "Nombre para mostrar",
     "oldPassword": "Contraseña antigua",
-    "emailTip": "El correo electrónico no es obligatorio, pero puede ser útil en caso de olvidar la contraseña :)"
+    "emailTip": "El correo electrónico no es obligatorio, pero puede ser útil en caso de olvidar la contraseña :)",
+    "dashboardUnlocked": "¡Tu panel de control del estudiante está desbloqueado!",
+    "didYouKnow": "¿Lo sabías?",
+    "trackProgress": "Crea una cuenta o inicia sesión para llevar un seguimiento de tu progreso."
   },
   "bet": {
     "contribute": "Este kit de herramientas está abierto a la contribución. Utiliza Figma, así que cualquiera puede añadir, modificar y traducir contenido. Para colaborar, agregar una categoría o una discusión, no dudes en unirte a nuestro discord.",
@@ -108,7 +111,7 @@
   },
   "builders": {
     "pageSubtitle": "Este portal es de código abierto y está abierto a la contribución.",
-    "pageTitle": "Constructores de Bitcoin",
+    "pageTitle": "Proyectos de Bitcoin",
     "noRelatedEvents": "No hay eventos próximos relacionados con este constructor en este momento.",
     "languages": "Idiomas",
     "relatedEvents": "Eventos próximos relacionados",
@@ -187,7 +190,10 @@
       "buyInPersonCourse": "Comprar curso presencial",
       "inPersonAccess": "Necesitas descargar tu boleto para acceder a la clase en persona.",
       "buyOnlineCourse": "Comprar curso en línea",
-      "paidCourse": "Pagado"
+      "paidCourse": "Premium",
+      "premiumContentNeedsPaymentAction": "Ve a la página principal del curso",
+      "collaborativeEffort": "Este curso es el resultado de un esfuerzo colaborativo: cada lección, traducción y revisión es posible gracias al trabajo de los contribuyentes. Por esta razón, siempre estamos buscando correctores que puedan revisar nuestro contenido en muchos idiomas. Si quieres participar en el proceso de corrección, por favor ponte en contacto en nuestro grupo de Telegram y lee nuestro tutorial.\n\nTe recordamos que este contenido es de código abierto - licenciado bajo <0>CC BY-SA</0> - por lo que puede ser compartido y utilizado libremente, siempre y cuando se acredite la fuente original.\n\nUn reconocimiento especial por su trabajo en este curso va para los siguientes correctores: ",
+      "premiumContentNeedsPayment": "Este curso es parte de un programa premium."
     },
     "explorer": {
       "footerTitle": "¡Nuestros profesores están aquí para ti!",
@@ -594,12 +600,17 @@
       "payment_details": "Detalles del pago",
       "payment_successful": "¡Reservación exitosa!",
       "time": "Hora"
+    },
+    "errors": {
+      "premiumContentNeedsLogin": "Necesitas iniciar sesión para acceder a este evento.",
+      "premiumContentNeedsPayment": "Este evento es parte de un programa premium.",
+      "premiumContentNeedsPaymentAction": "Ve a la página de eventos"
     }
   },
   "home": {
     "header": {
       "content": "La plataforma de Plan ₿ Network tiene como objetivo proporcionar las mejores herramientas y contenido educativo a nivel mundial, empoderando a las personas para recuperar su soberanía. Desde individuos hasta comunidades, estamos aquí para ayudarte en tu viaje con Bitcoin.",
-      "forEducators": "Para educadores y constructores",
+      "forEducators": "Para educadores y emprendedores",
       "globalNetwork": "Una Red Global de Bitcoin",
       "welcome": "Bienvenido a Plan ₿ Network",
       "link": "Sé parte de la red",
@@ -712,7 +723,8 @@
     "glossaryDescription": "Entiende el lenguaje de Bitcoin",
     "login": "Iniciar Sesión",
     "loginRegister": "Iniciar sesión / Registrarse",
-    "publicDescription": "Explora artículos de comunicación pública"
+    "publicDescription": "Explora artículos de comunicación pública",
+    "newsletterDescription": "Colección de contenidos que puedes utilizar para tus proyectos educativos"
   },
   "nodeNetwork": {
     "answer1": "Un nodo es simplemente una comunidad de Bitcoin que desea avanzar al siguiente nivel y acelerar su propia adopción local de Bitcoin. No hay un tamaño mínimo para comenzar.",
@@ -721,9 +733,9 @@
     "answer4": "El tamaño de un nodo de Bitcoin puede variar, y se le asignarán diferentes categorías basadas en requisitos específicos. Por ejemplo, un nodo que incluye un hackerspace, un gimnasio y un espacio de oficina será considerado más como una ciudadela.",
     "answer5": "Deseamos ofrecer un refugio seguro para los entusiastas de Bitcoin en todo el mundo. Creemos que al ayudar a que crezcan los centros locales, podremos crear una red de ciudadelas donde los bitcoiners serán bienvenidos para trabajar, crear, compartir y discutir de manera segura.",
     "apply": "Aplicar para ser un nodo",
-    "description1": "Creemos que la educación no solo debe tener lugar en línea, sino también en espacios físicos. Para lograr esto, Plan ₿ Network gestiona una red de centros alrededor del mundo que acogen a pensadores, constructores y educadores, promoviendo el avance de Bitcoin y las tecnologías de libertad.",
+    "description1": "Creemos que la educación no solo debe llevarse a cabo en línea, sino también en espacios físicos. Para lograr esto, Plan ₿ Network gestiona una red de centros alrededor del mundo para dar la bienvenida a pensadores, emprendedores y educadores que fomentan el avance de Bitcoin y las tecnologías de la libertad.",
     "descriptionextend": "Nuestro primer paso es invitar a comunidades con espacios físicos, a las que nos referimos como los “nodos completos” de nuestra red, a unirse a nosotros. En el futuro, a medida que nuestra red se fortalezca, ampliaremos esta invitación a más iniciativas en todo el mundo. Si compartes nuestros valores, por favor, contacta a nuestros representantes para unirte a nuestra red y ayudar a construir la mejor educación sobre Bitcoin posible.",
-    "mobiledescription": "Creemos que la educación no solo debe llevarse a cabo en línea, sino también en espacios físicos. Para lograr esto, Plan ₿ Network administra una red de centros en todo el mundo para acoger a pensadores, constructores y educadores que promueven el avance de Bitcoin y las tecnologías de la libertad. Nuestro primer paso es invitar a comunidades con espacios físicos, a los que nos referimos como los \"nodos completos\" de nuestra red, a unirse a nosotros. En el futuro, a medida que nuestra red se fortalezca, extenderemos esta invitación a más iniciativas en todo el mundo. Si compartes nuestros valores, por favor ponte en contacto con nuestros representantes para unirte a nuestra red y ayudar a construir la mejor educación posible sobre Bitcoin.",
+    "mobiledescription": "Creemos que la educación no solo debe llevarse a cabo en línea, sino también en espacios físicos. Para lograr esto, Plan ₿ Network administra una red de centros en todo el mundo para acoger a pensadores, emprendedores y educadores que promueven el avance de Bitcoin y las tecnologías de la libertad. Nuestro primer paso es invitar a comunidades con espacios físicos, a los que nos referimos como los \"nodos completos\" de nuestra red, a unirse a nosotros. En el futuro, a medida que nuestra red se fortalezca, extenderemos esta invitación a más iniciativas en todo el mundo. Si compartes nuestros valores, por favor ponte en contacto con nuestros representantes para unirte a nuestra red y ayudar a construir la mejor educación posible sobre Bitcoin.",
     "pageSubtitle": "¿Quieres llevar la adopción de Bitcoin al mundo? Únete a Plan ₿ Network.",
     "pageTitle": "Explora La Red de Nodos de Plan ₿",
     "question1": "¿Qué es un Nodo?",
@@ -774,7 +786,7 @@
       "title": "Biblioteca"
     },
     "builders": {
-      "title": "Constructores"
+      "title": "Proyectos"
     },
     "conferences": {
       "title": "Repeticiones de conferencias"
@@ -933,7 +945,7 @@
     "bitcoinWhitepaper": "Libro Blanco de Bitcoin",
     "book": "Libro",
     "books": "Libros",
-    "builders": "Constructores",
+    "builders": "Proyectos",
     "certificate": "Certificado",
     "conference": "Conferencia",
     "conferences": "Conferencias",
@@ -1030,11 +1042,11 @@
     "amount": "Monto",
     "bCertificate": "Certificado ₿",
     "edit": "Editar",
-    "free": "Libre",
+    "free": "Gratuito",
     "glossary": "Glosario",
     "onChain": "On chain",
     "onChainAddress": "Dirección On-chain",
-    "paid": "Pagado",
+    "paid": "Premium",
     "part": "Parte",
     "professor": "Profesor",
     "start": "Iniciar",
@@ -1114,7 +1126,8 @@
     "curious": "¿Curioso por saber cómo es el examen?",
     "joeNakamotoVideo": "¿Qué rayos es un examen de Bitcoin? Por Joe Nakamoto",
     "knowledgeableBitcoin": "¿Experto en Bitcoin?",
-    "tweetText": "¡Emocionado de haber aprobado el Certificado B en @planb_network con una puntuación de {{score}}/100! {{emoji}}\n\n{{certificateUrl}}"
+    "tweetText": "¡Emocionado de haber aprobado el Certificado B en @planb_network con una puntuación de {{score}}/100! {{emoji}}\n\n{{certificateUrl}}",
+    "download": "Descargar certificado"
   },
   "glossary": {
     "anotherWord": "Busca otra palabra",

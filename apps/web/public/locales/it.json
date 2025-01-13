@@ -194,7 +194,13 @@
       "courseAddedToDashboard": "Questo corso è stato aggiunto al tuo pannello studente",
       "premiumContentNeedsLogin": "È necessario accedere per visualizzare questo corso.",
       "premiumContentNeedsPayment": "Questo corso fa parte di un programma premium.",
-      "premiumContentNeedsPaymentAction": "Vai alla homepage del corso"
+      "premiumContentNeedsPaymentAction": "Vai alla homepage del corso",
+      "collaborativeEffort": "Questo corso è il risultato di una collaborazione di intenti: ogni lezione, traduzione e revisione è resa possibile dal lavoro di diversi collaboratori. Per questo motivo, siamo sempre alla ricerca di correttori di bozze che possano rivedere i nostri contenuti in molte lingue. Se vuoi partecipare al processo di correzione, scrivici nel nostro gruppo Telegram e leggi il nostro tutorial.\n\nTi ricordiamo che questo contenuto è open-source - concesso con la licenza <0>CC BY-SA</0> - quindi può essere liberamente condiviso e utilizzato, purché la fonte originale venga citata.\n\nUn ringraziamento speciale per il loro lavoro su questo corso va ai seguenti proofreader: ",
+      "hasBeenProofreadBy": "Questo corso è stato revisionato da",
+      "hasBeenTranslatedBy": "Questo corso è stato tradotto da",
+      "otherCourses": "Altri corsi",
+      "otherCoursesInterest": "Altri corsi che potrebbero interessarti",
+      "thanksTipping": "Puoi dire grazie lasciando una mancia al professore."
     },
     "explorer": {
       "footerTitle": "I nostri professori sono qui per te!",
@@ -381,7 +387,19 @@
       "tryOneMoreTime": "Prova ancora una volta!",
       "congratulationsPassed": "Congratulazioni, hai <0>superato</0> l'esame finale!",
       "dontGiveUpTryAgain": "Non arrenderti!\nPuoi riprovare dopo 24 ore.",
-      "goodLuck": "Buona fortuna!"
+      "goodLuck": "Buona fortuna!",
+      "dontWorryRetake": "Non preoccuparti, puoi rifare l'esame dopo 24 ore."
+    },
+    "conclusion": {
+      "completedChaptersHeadline": "Tutti i capitoli sono ora completati!",
+      "completedFeedbackHeadline": "Grazie per il tuo feedback!\nÈ molto importante per noi e lo apprezziamo davvero.",
+      "stepsToComplete": "Questi sono i passaggi da percorrere per contrassegnare questo corso come completato nella tua dashboard, prima di continuare il tuo viaggio!",
+      "completedFeedbackSubHeadline": "Puoi modificare le tue valutazioni e i commenti in qualsiasi momento dalla dashboard.",
+      "congratulationsEnd": "Congratulazioni, sei arrivato alla fine del corso",
+      "finalStep": "Questo è l'ultimo passaggio per segnare questo corso come completato nella tua dashboard, prima di continuare il tuo viaggio!",
+      "takeFinalExam": "Ora che hai completato tutti i capitoli, è il momento di sostenere l'esame finale per testare le tue conoscenze.",
+      "unlockFeatures1": "Per sbloccare tutte le funzionalità e tenere traccia dei tuoi progressi, hai bisogno di un account.",
+      "unlockFeatures2": "Si prega di notare che non raccogliamo alcun dato personale né utilizziamo cookie."
     }
   },
   "dashboard": {
@@ -593,10 +611,12 @@
       "upcomingEventsSubtitle": "Qui puoi scaricare l'elenco dei partecipanti per tutti gli eventi dal vivo.",
       "userRolesAllocation": "Assegnazione dei ruoli utente",
       "tutorialAnalyticsDescription": "Qui puoi vedere e confrontare tutti i tutorial sulla piattaforma.",
-      "tutorialsManagementPanel": "Pannello di gestione dei tutorial"
+      "tutorialsManagementPanel": "Pannello di gestione dei tutorial",
+      "makeProfessor": "Diventa professore"
     },
     "courseDashboard": "Pannello dei corsi",
-    "studentDashboard": "Pannello dello studente"
+    "studentDashboard": "Pannello dello studente",
+    "backToDashboard": "Torna alla dashboard"
   },
   "events": {
     "introduction": {
@@ -1077,7 +1097,7 @@
       "beginner": "Principiante",
       "developer": "sviluppatore",
       "intermediate": "Intermedio",
-      "wizard": "Procedura guidata",
+      "wizard": "Esperto",
       "level": "Livello",
       "levels": "Livelli",
       "beginnerFriendly": "Per principianti"
@@ -1168,7 +1188,7 @@
     "bookings": "Prenotazioni",
     "credentials": "Credenziali",
     "diploma": "Diploma",
-    "filter": "",
+    "filter": "Filtro",
     "failed": "Non superato",
     "grade": "Voto",
     "id": "ID",
@@ -1181,7 +1201,7 @@
     "required": "Richiesto",
     "teacher": "Insegnante",
     "total": "Totale",
-    "writtenByPodcasts": "",
+    "writtenByPodcasts": "Scritto da:",
     "status": "Stato",
     "abstract": "Estratto",
     "category": "Categoria",
@@ -1211,7 +1231,10 @@
     "unavailable": "Non disponibile",
     "user": "Utente",
     "username": "Nome utente",
-    "viewMore": "Visualizza altro"
+    "viewMore": "Visualizza altro",
+    "congrats": "Congratulazioni!",
+    "credits": "Ringraziamenti",
+    "exam": "Esame"
   },
   "conferences": {
     "addConferences": "Aggiungi pure qualsiasi conferenza mancante tramite questo repository <0>Github</0>.",
