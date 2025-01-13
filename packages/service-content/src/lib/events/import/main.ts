@@ -21,6 +21,8 @@ interface EventMain {
   address_line_2: string;
   address_line_3: string;
   builder: string;
+  professor: string;
+  course_related: string;
   type: string;
   links: {
     website: string;
@@ -29,7 +31,7 @@ interface EventMain {
     chat_url: string;
   };
   language?: string[];
-  tag?: string[];
+  tags?: string[];
 }
 
 export const createProcessMainFile = (transaction: TransactionSql) => {
@@ -64,6 +66,8 @@ export const createProcessMainFile = (transaction: TransactionSql) => {
             address_line_2,
             address_line_3,
             builder,
+            professor,
+            course_related,
             type,
             website_url,
             replay_url,
@@ -90,6 +94,8 @@ export const createProcessMainFile = (transaction: TransactionSql) => {
           ${parsedEvent.address_line_2},
           ${parsedEvent.address_line_3},
           ${parsedEvent.builder},
+          ${parsedEvent.professor},
+          ${parsedEvent.course_related},
           ${parsedEvent.type.toLowerCase()},
           ${parsedEvent.links.website},
           ${parsedEvent.links.replay_url},
@@ -114,6 +120,8 @@ export const createProcessMainFile = (transaction: TransactionSql) => {
           address_line_2 = EXCLUDED.address_line_2,
           address_line_3 = EXCLUDED.address_line_3,
           builder = EXCLUDED.builder,
+          professor = EXCLUDED.professor,
+          course_related = EXCLUDED.course_related,
           type = EXCLUDED.type,
           website_url = EXCLUDED.website_url,
           replay_url = EXCLUDED.replay_url,
@@ -130,10 +138,10 @@ export const createProcessMainFile = (transaction: TransactionSql) => {
         throw new Error('Could not insert events');
       }
 
-      if (result && parsedEvent.tag && parsedEvent.tag?.length > 0) {
+      if (result && parsedEvent.tags && parsedEvent.tags?.length > 0) {
         await transaction`
           INSERT INTO content.tags ${transaction(
-            parsedEvent.tag.map((tag) => ({ name: tag.toLowerCase() })),
+            parsedEvent.tags.map((tag) => ({ name: tag.toLowerCase() })),
           )}
           ON CONFLICT (name) DO NOTHING
         `;
@@ -142,7 +150,7 @@ export const createProcessMainFile = (transaction: TransactionSql) => {
           INSERT INTO content.event_tags (event_id, tag_id)
           SELECT
             ${result.id},
-            id FROM content.tags WHERE name = ANY(${parsedEvent.tag})
+            id FROM content.tags WHERE name = ANY(${parsedEvent.tags})
           ON CONFLICT DO NOTHING
         `;
       }

@@ -24,9 +24,7 @@ export const BuilderEvents = ({ events }: BuilderEventsProps) => {
   const { conversionRate } = useContext(ConversionRateContext);
 
   const isLoggedIn = !!session;
-  useEffect(() => {
-    console.log('Events data:', events);
-  }, [events]);
+
   const { data: eventPayments, refetch: refetchEventPayments } =
     trpc.user.events.getEventPayment.useQuery(undefined, {
       enabled: isLoggedIn,

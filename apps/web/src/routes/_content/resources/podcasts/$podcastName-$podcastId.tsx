@@ -215,12 +215,12 @@ function Podcast() {
                       className="basis-1/2 md:basis-1/4 text-white size-full bg-gradient-to-r max-w-[282px] max-h-[400px] rounded-[10px]"
                     >
                       <Link
-                        to={`/resources/podcasts/${formatNameForURL(suggestedPodcast.name)}-${suggestedPodcast.id}`}
+                        to={`/resources/podcasts/${formatNameForURL(suggestedPodcast.name || '')}-${suggestedPodcast.id}`}
                       >
                         <div className="relative h-full">
                           <img
                             className="size-full min-h-[198px] max-h-[198px] lg:min-h-[400px] md:max-h-[400px] object-cover [overflow-clip-margin:_unset] rounded-[10px]"
-                            alt={suggestedPodcast.name}
+                            alt={suggestedPodcast.name || ''}
                             src={assetUrl(suggestedPodcast.path, 'logo.webp')}
                           />
                           <div

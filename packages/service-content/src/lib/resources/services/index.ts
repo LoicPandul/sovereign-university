@@ -11,6 +11,8 @@ export { createGetPodcast } from './get-podcast.js';
 export { createGetPodcasts } from './get-podcasts.js';
 export { createGetBuildersLocations } from './builders-locations.get.js';
 export { createSyncBuildersLocations } from './builders-locations.sync.js';
+export { createGetLectures } from './get-lectures.js';
+export { createGetLecture } from './get-lecture.js';
 export { createGetNewsletters } from './get-newsletters.js';
 export { createGetNewsletter } from './get-newsletter.js';
 export { createGetYoutubeChannel } from './get-youtube-channel.js';

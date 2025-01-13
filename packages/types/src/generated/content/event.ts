@@ -27,6 +27,8 @@ export interface Event {
   addressLine2: string | null;
   addressLine3: string | null;
   builder: string | null;
+  professor: string | null;
+  courseRelated: string | null;
   websiteUrl: string | null;
   replayUrl: string | null;
   liveUrl: string | null;
@@ -56,6 +58,8 @@ export interface JoinedEvent {
   addressLine2: string | null;
   addressLine3: string | null;
   builder: string | null;
+  professor: string | null;
+  courseRelated: string | null;
   websiteUrl: string | null;
   replayUrl: string | null;
   liveUrl: string | null;

@@ -634,19 +634,21 @@
   },
   "events": {
     "card": {
-      "free": "free",
-      "online": "online",
-      "limited": "limited to",
-      "unlimited": "unlimited",
-      "people": "people",
-      "watchLive": "Watch live",
-      "watchReplay": "Watch replay",
-      "buyReplay": "Buy replay",
       "bookLive": "Book live",
       "bookSeat": "Book a seat",
+      "buyReplay": "Buy replay",
+      "buyVideo": "Buy video",
       "eventFull": "Event is full",
+      "free": "free",
+      "limited": "limited to",
+      "online": "online",
+      "people": "people",
+      "purchased": "Purchased",
       "seatBooked": "Seat booked",
-      "visitWebsite": "Visit website"
+      "unlimited": "unlimited",
+      "visitWebsite": "Visit website",
+      "watchLive": "Watch live",
+      "watchReplay": "Watch replay"
     },
     "main": {
       "upcomingEvents": "Upcoming events",
@@ -806,6 +808,14 @@
     "stylus": "a stylus",
     "underConstructionImage": "Illustration of several rabbits working on a construction site"
   },
+  "lectures": {
+    "buyVideoToUnlock": "Buy the video to unlock it",
+    "checkFullCourse": "Check out the full course",
+    "lecturePartCourse": "This lecture replay is part of the <0>{{courseTitle}}</0> course.\nDive into the full course to master the entire concept and unlock your full potential!",
+    "pageTitle": "Lecture Replays",
+    "partCourse": "This lecture is part of the course:",
+    "watchLecture": "Watch the lecture replay"
+  },
   "library": {
     "pageSubtitle": "This library is open-source and welcomes any contributions.",
     "pageTitle": "Bitcoin Library",
@@ -824,6 +834,7 @@
     "conferencesDescription": "Collection of Bitcoin conference replays since the Genesis Block",
     "exchangesDescription": "Buy and sell bitcoins on exchanges and learn about P2P",
     "glossaryDescription": "Understand the language of Bitcoin",
+    "lecturesDescription": "Rewatch recorded lectures from Bitcoin experts",
     "libraryDescription": "Discover plenty of books to improve your knowledge",
     "lightningDescription": "Manage your lightning node and use the lightning network",
     "login": "Log in",
@@ -964,6 +975,10 @@
       "title": "Youtube Channels",
       "noYoutubeChannels": "There are currently no Youtube Channels for selected language."
     },
+    "lectures": {
+      "title": "Lecture Replays",
+      "noLectures": "There are currently no Lecture Replays for selected language."
+    },
     "newsletter": {
       "title": "Newsletter",
       "check": "Check the newsletter"
@@ -981,13 +996,14 @@
       "level": "Level :",
       "noNewsletters": "There are currently no newsletters for selected language.",
       "title": "Newsletters",
-      "subtitle": "<0>Other newsletters</0> you may like: "
+      "subtitle": "<0>Other newsletters</0> you may like"
     },
     "pageDescription": "Trying to understand Bitcoin is like exploring a maze that keeps growing. To help you in your journey, we've compiled a vast array of resources including books, podcasts, videos and conferences replays. This portal gathers all the information in one Github repository to help you grasp a better understanding of the Bitcoin ecosystem.",
     "pageSubtitle": "Centralize knowledge to better distribute it",
-    "pageSubtitleBooks": "<0>Other books</0> you may like:",
-    "pageSubtitleChannels": "<0>Other Youtube Channels</0> you may like:",
-    "pageSubtitlePodcast": "<0>Other podcasts</0> you may like:",
+    "pageSubtitleBooks": "<0>Other books</0> you may like",
+    "pageSubtitleChannels": "<0>Other Youtube Channels</0> you may like",
+    "pageSubtitlePodcast": "<0>Other podcasts</0> you may like",
+    "pageSubtitleLectures": "<0>Other Lecture Replays</0> you may like",
     "pageTitle": "Welcome to the Resource Portal",
     "podcasts": {
       "title": "Podcasts",
@@ -1150,6 +1166,7 @@
     "category": "Category",
     "certificate": "Certificate",
     "channel": "Channel",
+    "channels": "Channels",
     "chapter": "Chapter",
     "chapters": "Chapters",
     "close": "Close",
@@ -1211,6 +1228,7 @@
       "level": "Level",
       "levels": "Levels"
     },
+    "lecture": "Lecture",
     "lectures": "Lectures",
     "library": "Library",
     "lightning": "Lightning",

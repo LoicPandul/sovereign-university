@@ -4,37 +4,40 @@ import * as React from 'react';
 
 import { cn } from '../lib/utils.js';
 
-const textTagVariants = cva('justify-center items-center gap-2 inline-flex', {
-  variants: {
-    size: {
-      small: 'px-2 py-[3px] subtitle-medium-16px rounded-lg',
-      verySmall:
-        'px-[5px] py-px text-xs leading-[166%] tracking-[0.4px] rounded-[5px]',
+const textTagVariants = cva(
+  'w-fit justify-center items-center gap-2 inline-flex',
+  {
+    variants: {
+      size: {
+        small: 'px-2 py-[3px] subtitle-medium-16px rounded-lg',
+        verySmall:
+          'px-[5px] py-px text-xs leading-[166%] tracking-[0.4px] rounded-[5px]',
+      },
+      variant: {
+        withoutFill: 'bg-transparent text-newBlack-5 dark:text-newGray-3',
+        grey: 'bg-newGray-5 text-newBlack-4 dark:bg-newBlack-3 dark:text-newGray-4 [&.light100]:bg-newGray-4',
+        orange:
+          'bg-darkOrange-0 text-darkOrange-7 dark:bg-darkOrange-8 dark:text-darkOrange-2 [&.light100]:bg-darkOrange-1',
+        green:
+          'bg-brightGreen-1 text-brightGreen-8 dark:bg-brightGreen-9 dark:text-brightGreen-2 [&.light100]:bg-brightGreen-2',
+        lightMaroon:
+          'bg-tertiary-1 text-tertiary-8 dark:bg-tertiary-8 dark:text-white [&.light100]:bg-tertiary-2',
+        darkMaroon:
+          'bg-tertiary-2 text-tertiary-8 dark:bg-tertiary-9 dark:text-white [&.light100]:bg-tertiary-3',
+      },
+      mode: {
+        light: '',
+        light100: 'light100',
+        dark: 'dark',
+      },
     },
-    variant: {
-      withoutFill: 'bg-transparent text-newBlack-5 dark:text-newGray-3',
-      grey: 'bg-newGray-5 text-newBlack-4 dark:bg-newBlack-3 dark:text-newGray-4 [&.light100]:bg-newGray-4',
-      orange:
-        'bg-darkOrange-0 text-darkOrange-7 dark:bg-darkOrange-8 dark:text-darkOrange-2 [&.light100]:bg-darkOrange-1',
-      green:
-        'bg-brightGreen-1 text-brightGreen-8 dark:bg-brightGreen-9 dark:text-brightGreen-2 [&.light100]:bg-brightGreen-2',
-      lightMaroon:
-        'bg-tertiary-1 text-tertiary-8 dark:bg-tertiary-8 dark:text-white [&.light100]:bg-tertiary-2',
-      darkMaroon:
-        'bg-tertiary-2 text-tertiary-8 dark:bg-tertiary-9 dark:text-white [&.light100]:bg-tertiary-3',
-    },
-    mode: {
-      light: '',
-      light100: 'light100',
-      dark: 'dark',
+    defaultVariants: {
+      size: 'small',
+      variant: 'grey',
+      mode: 'light',
     },
   },
-  defaultVariants: {
-    size: 'small',
-    variant: 'grey',
-    mode: 'light',
-  },
-});
+);
 export interface TextTagProps
   extends React.HTMLAttributes<HTMLDivElement>,
     VariantProps<typeof textTagVariants> {

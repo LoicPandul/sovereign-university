@@ -13,7 +13,8 @@ interface ResourcesDropdownItemProps {
     | 'bet'
     | 'glossary'
     | 'newsletters'
-    | 'channels';
+    | 'channels'
+    | 'lectures';
   imageSrc: string;
 }
 
