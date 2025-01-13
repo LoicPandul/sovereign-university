@@ -12,7 +12,7 @@
   "scripts": {
     "build": "tsc --build tsconfig.json",
     "postbuild": "cp -r src/lib/pdf dist/src/lib/",
-    "lint": "eslint --color './**/*.ts'",
+    "lint": "biome check .",
     "type-check": "tsc --build",
     "check-types": "tsc --noEmit",
     "build-types": "tsc --emitDeclarationOnly -p tsconfig.json",

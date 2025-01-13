@@ -11,7 +11,7 @@
   "types": "./src/index.ts",
   "scripts": {
     "build": "tsc --build tsconfig.json",
-    "lint": "eslint --color './**/*.ts'",
+    "lint": "biome check .",
     "types:generate": "tsx ./scripts/generate-from-schemas.ts && pnpm biome format --write ./src/generated",
     "type-check": "tsc --build",
     "check-types": "tsc --noEmit -p tsconfig.json",

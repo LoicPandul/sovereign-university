@@ -11,7 +11,7 @@
   "types": "./src/index.ts",
   "scripts": {
     "build": "tsc --build tsconfig.json",
-    "lint": "eslint --color './**/*.ts'",
+    "lint": "biome check .",
     "type-check": "tsc --build",
     "check-types": "tsc --noEmit",
     "build-types": "tsc --emitDeclarationOnly -p tsconfig.json",

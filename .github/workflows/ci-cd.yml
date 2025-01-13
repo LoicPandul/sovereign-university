@@ -49,7 +49,7 @@ jobs:
         run: pnpm build
 
       - name: Lint Code
-        run: pnpm format-and-lint
+        run: pnpm lint
 
   deploy:
     needs: build_and_test
