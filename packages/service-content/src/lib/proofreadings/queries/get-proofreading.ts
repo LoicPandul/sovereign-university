@@ -30,7 +30,6 @@ export const getProofreadingQuery = ({
   if (language !== undefined) {
     whereClauses.push(sql`p.language = LOWER(${language})`);
   }
-  // eslint-disable-next-line unicorn/no-array-reduce
   const whereStatement = sql`WHERE ${whereClauses.reduce(
     (acc, clause) => sql`${acc} AND ${clause}`,
   )}`;

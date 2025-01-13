@@ -8,7 +8,6 @@ import type { Dependencies } from '#src/dependencies.js';
 
 export async function checkSatsPrice(dollarPrice: number, satsPrice: number) {
   const response = await fetch('https://mempool.space/api/v1/prices');
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const data: any = await response.json();
   const conversionRate = data.USD;
 

@@ -9,9 +9,6 @@ interface AuthorCardProps extends React.HTMLProps<HTMLDivElement> {
   hasDonateButton?: boolean;
   mobileSize?: 'small' | 'medium';
 }
-{
-  /* eslint-disable tailwindcss/no-contradicting-classname */
-}
 
 export const AuthorCard = ({
   professor,

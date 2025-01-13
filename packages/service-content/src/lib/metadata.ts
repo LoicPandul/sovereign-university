@@ -182,7 +182,6 @@ export const createGetMetadata = (dependencies: Dependencies) => {
   const getExamCertificateMetadata = (
     lang: string,
     parts: string[],
-    // eslint-disable-next-line unicorn/consistent-function-scoping
   ): Metadata => {
     const [examId] = parts;
 
@@ -201,7 +200,6 @@ export const createGetMetadata = (dependencies: Dependencies) => {
   const getBcertCertificateMetadata = (
     lang: string,
     parts: string[],
-    // eslint-disable-next-line unicorn/consistent-function-scoping
   ): Metadata => {
     const examUrl = parts.join('/');
     const apiUrl = `/api/files/${examUrl}.png`;

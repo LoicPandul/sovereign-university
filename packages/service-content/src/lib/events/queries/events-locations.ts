@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unsafe-member-access */
 import { sql } from '@blms/database';
 import type { EventLocation } from '@blms/types';
 
@@ -9,7 +8,7 @@ import type { EventLocation } from '@blms/types';
 export const getEventsWithoutLocationQuery = () => {
   return sql<Array<{ name: string }>>`
     SELECT e.address_line_1 as name
-      FROM content.events e 
+      FROM content.events e
       LEFT JOIN content.event_locations el
       ON e.address_line_1 = el.name
       WHERE el.name IS NULL AND e.address_line_1 IS NOT NULL

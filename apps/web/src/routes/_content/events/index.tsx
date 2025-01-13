@@ -19,7 +19,6 @@ import { EventPaymentModal } from './-components/event-payment-modal.tsx';
 import { EventsGrid } from './-components/events-grid.tsx';
 import { EventsPassed } from './-components/events-passed.tsx';
 
-// eslint-disable-next-line import/no-named-as-default-member
 const EventsMap = React.lazy(() => import('./-components/events-map.tsx'));
 
 export const Route = createFileRoute('/_content/events/')({

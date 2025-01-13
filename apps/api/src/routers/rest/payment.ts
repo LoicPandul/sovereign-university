@@ -98,106 +98,97 @@ export const createRestPaymentRoutes = (
     },
   );
 
-  router.post(
-    '/webhooks/stripe',
-    // eslint-disable-next-line import/no-named-as-default-member
-    async (req, res): Promise<void> => {
-      try {
-        let event = req.body;
+  router.post('/webhooks/stripe', async (req, res): Promise<void> => {
+    try {
+      let event = req.body;
 
-        await new Promise((resolve) => setTimeout(resolve, 1000));
+      await new Promise((resolve) => setTimeout(resolve, 1000));
 
-        if (config.stripe.endpointSecret) {
-          const signature = req.headers['stripe-signature'] as string;
+      if (config.stripe.endpointSecret) {
+        const signature = req.headers['stripe-signature'] as string;
 
-          try {
-            event = stripe.webhooks.constructEvent(
-              // @ts-expect-error TODO: fix this?
-              req.rawBody,
-              signature,
-              config.stripe.endpointSecret,
-            );
-            // eslint-disable-next-line @typescript-eslint/no-explicit-any
-          } catch (error: any) {
-            console.log(
-              `Webhook signature verification failed.`,
-              error.message,
-            );
-            res.sendStatus(400);
-            return;
-          }
+        try {
+          event = stripe.webhooks.constructEvent(
+            // @ts-expect-error TODO: fix this?
+            req.rawBody,
+            signature,
+            config.stripe.endpointSecret,
+          );
+        } catch (error: any) {
+          console.log(`Webhook signature verification failed.`, error.message);
+          res.sendStatus(400);
+          return;
         }
-
-        switch (event.type) {
-          case 'payment_intent.succeeded': {
-            console.log('=== Stripe webhook', event.type);
-            const paymentIntent = event.data.object;
-            const paymentIntentId = paymentIntent.id;
-            const paymentId = paymentIntent.metadata.paymentId;
-            const product = paymentIntent.metadata.product;
-
-            if (product === 'course') {
-              await createUpdateCoursePaymentStatus(dependencies)({
-                paymentId,
-                paymentIntentId,
-              });
-            } else if (product === 'event') {
-              await createUpdateEventPaymentStatus(dependencies)({
-                paymentId,
-                paymentIntentId,
-              });
-            }
-
-            break;
-          }
-          case 'invoice.paid': {
-            console.log('============ Stripe webhook', event.type);
-
-            const invoice = event.data.object;
-            const intentId = invoice.payment_intent;
-            const invoiceId = invoice.id;
-            const hostedInvoiceUrl = invoice.hosted_invoice_url;
-
-            const paymentIntent =
-              await stripe.paymentIntents.retrieve(intentId);
-            const product = paymentIntent.metadata.product;
-
-            if (product === 'course') {
-              const coursePayment = await createUpdateCoursePaymentInvoiceId(
-                dependencies,
-              )({
-                intentId: intentId,
-                stripeInvoiceId: invoiceId,
-                invoiceUrl: hostedInvoiceUrl,
-              });
-
-              if (coursePayment) {
-                await startCourse({
-                  courseId: coursePayment.courseId,
-                  uid: coursePayment.uid,
-                });
-              }
-            } else if (product === 'event') {
-              await createUpdateEventPaymentInvoiceId(dependencies)({
-                intentId: intentId,
-                stripeInvoiceId: invoiceId,
-                invoiceUrl: hostedInvoiceUrl,
-              });
-            }
-
-            break;
-          }
-          default: {
-            console.log(`Unhandled event type ${event.type}.`);
-          }
-        }
-
-        res.send();
-      } catch (error) {
-        console.error('Error in stripe webhook', error);
       }
-    },
-  );
+
+      switch (event.type) {
+        case 'payment_intent.succeeded': {
+          console.log('=== Stripe webhook', event.type);
+          const paymentIntent = event.data.object;
+          const paymentIntentId = paymentIntent.id;
+          const paymentId = paymentIntent.metadata.paymentId;
+          const product = paymentIntent.metadata.product;
+
+          if (product === 'course') {
+            await createUpdateCoursePaymentStatus(dependencies)({
+              paymentId,
+              paymentIntentId,
+            });
+          } else if (product === 'event') {
+            await createUpdateEventPaymentStatus(dependencies)({
+              paymentId,
+              paymentIntentId,
+            });
+          }
+
+          break;
+        }
+        case 'invoice.paid': {
+          console.log('============ Stripe webhook', event.type);
+
+          const invoice = event.data.object;
+          const intentId = invoice.payment_intent;
+          const invoiceId = invoice.id;
+          const hostedInvoiceUrl = invoice.hosted_invoice_url;
+
+          const paymentIntent = await stripe.paymentIntents.retrieve(intentId);
+          const product = paymentIntent.metadata.product;
+
+          if (product === 'course') {
+            const coursePayment = await createUpdateCoursePaymentInvoiceId(
+              dependencies,
+            )({
+              intentId: intentId,
+              stripeInvoiceId: invoiceId,
+              invoiceUrl: hostedInvoiceUrl,
+            });
+
+            if (coursePayment) {
+              await startCourse({
+                courseId: coursePayment.courseId,
+                uid: coursePayment.uid,
+              });
+            }
+          } else if (product === 'event') {
+            await createUpdateEventPaymentInvoiceId(dependencies)({
+              intentId: intentId,
+              stripeInvoiceId: invoiceId,
+              invoiceUrl: hostedInvoiceUrl,
+            });
+          }
+
+          break;
+        }
+        default: {
+          console.log(`Unhandled event type ${event.type}.`);
+        }
+      }
+
+      res.send();
+    } catch (error) {
+      console.error('Error in stripe webhook', error);
+    }
+  });
 
   return router;
 };

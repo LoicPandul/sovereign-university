@@ -48,7 +48,6 @@ export const ChangePasswordModal = ({
         (pwd) => password.validate(pwd),
         (pwd) => {
           const result = password.validate(pwd, { details: true });
-          // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-unsafe-member-access
           return { message: Array.isArray(result) ? result[0].message : '' };
         },
       ),

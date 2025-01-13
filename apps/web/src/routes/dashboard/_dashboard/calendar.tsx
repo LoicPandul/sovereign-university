@@ -200,7 +200,6 @@ function DashboardCalendar() {
         onView={handleViewChange}
         defaultView={currentView}
         onSelectEvent={(e) => {
-          // eslint-disable-next-line sonarjs/no-small-switch
           switch (e.type) {
             case 'course': {
               navigate({

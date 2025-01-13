@@ -454,7 +454,6 @@ const ReviewSlider = ({
   disabled,
   value,
 }: {
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   id: string;
   label: string;
   stepNames: string[];

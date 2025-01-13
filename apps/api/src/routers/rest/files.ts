@@ -99,7 +99,6 @@ export const createRestFilesRoutes = async (
         })
         .then((fileId) => setProfilePicture(uid, fileId))
         .then((result) => res.json(result))
-        // eslint-disable-next-line promise/no-callback-in-promise
         .catch(next);
     },
   );

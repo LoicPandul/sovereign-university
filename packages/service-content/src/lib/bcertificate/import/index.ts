@@ -81,7 +81,6 @@ export const createUpdateBCertificateExams = ({
     bCertificateExam: ChangedBCertificateExam,
     errors: string[],
   ) => {
-    // eslint-disable-next-line prefer-const
     const { main, files } = separateContentFiles(bCertificateExam, 'bcert.yml');
 
     // bcert/editions/2024-btc-prague/bcert.yml

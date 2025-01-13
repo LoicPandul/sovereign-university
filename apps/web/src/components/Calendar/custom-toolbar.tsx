@@ -5,7 +5,6 @@ import { cn } from '@blms/ui';
 import type { CalendarEvent } from './calendar-event.ts';
 
 interface ViewNamesGroupProps {
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   views: any;
   messages: Messages<CalendarEvent>;
   view: View;
@@ -14,13 +13,10 @@ interface ViewNamesGroupProps {
 
 function ViewNamesGroup({
   views,
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   view,
   messages,
   onView,
 }: ViewNamesGroupProps) {
-  // eslint-disable-next-line @typescript-eslint/no-unsafe-return, @typescript-eslint/no-unsafe-call, @typescript-eslint/no-unsafe-member-access
-
   return views.map((name: View) => {
     return (
       <button

@@ -12,7 +12,7 @@
   "scripts": {
     "build": "tsc --build tsconfig.json",
     "postbuild": "cp types.d.ts dist/",
-    "lint": "eslint --color './**/*.ts'",
+    "lint": "biome check .",
     "type-check": "tsc --build",
     "check-types": "tsc --noEmit",
     "build-types": "tsc --emitDeclarationOnly -p tsconfig.json",
@@ -25,7 +25,6 @@
     "@blms/database": "workspace:*"
   },
   "devDependencies": {
-    "@blms/eslint-config": "workspace:*",
     "@blms/types": "workspace:*"
   }
 }

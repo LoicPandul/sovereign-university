@@ -30,7 +30,6 @@ const fetchEventLocation = async (query: string) => {
     `https://nominatim.openstreetmap.org/search?format=jsonv2&limit=1&q=${q}`,
   );
 
-  // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
   const data = await res.json();
 
   return expectedResponseSchema.parse(data)?.[0];

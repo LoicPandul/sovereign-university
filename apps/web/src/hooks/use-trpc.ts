@@ -9,8 +9,6 @@ const onError = (error: unknown) => {
   if (error instanceof TRPCClientError) {
     if (
       error.shape &&
-      // TODO re-enable the rule
-      // eslint-disable-next-line @typescript-eslint/no-unsafe-argument, @typescript-eslint/no-unsafe-member-access
       ['UNAUTHORIZED', 'FORBIDDEN'].includes(error.shape.data.code)
     ) {
       console.error('Try to access an unauthorized resource');

@@ -30,7 +30,6 @@ import { type TRPCRouterOutput, trpc } from '#src/utils/trpc.js';
 import { TutorialLayout } from '../-components/tutorial-layout.tsx';
 import { TutorialLikes } from '../-components/tutorial-likes.tsx';
 
-// eslint-disable-next-line import/no-named-as-default-member
 const TutorialsMarkdownBody = React.lazy(
   () => import('#src/components/Markdown/tutorials-markdown-body.js'),
 );
@@ -109,9 +108,6 @@ const Header = ({
     </div>
   );
 };
-{
-  /* eslint-disable tailwindcss/no-contradicting-classname */
-}
 
 const AuthorDetails = ({
   tutorial,

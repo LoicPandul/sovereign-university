@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unsafe-assignment */
 import { Link } from '@tanstack/react-router';
 import type { CSSProperties } from 'react';
 import { BsFillCircleFill, BsFillTriangleFill } from 'react-icons/bs';

@@ -1,14 +1,4 @@
 {
-  "eslint.validate": [
-    "json",
-    "javascript",
-    "javascriptreact",
-    "typescript",
-    "typescriptreact"
-  ],
-  "editor.codeActionsOnSave": {
-    "source.fixAll.eslint": "explicit"
-  },
   "settings": {
     "i18n-ally.keystyle": "nested",
     "i18n-ally.localesPaths": ["apps/web/public/locales"],
@@ -29,11 +19,6 @@
   "search.exclude": {
     "**/tsconfig.*.tsbuildinfo": true
   },
-  "eslint.workingDirectories": [
-    {
-      "mode": "auto"
-    }
-  ],
   "files.insertFinalNewline": true,
   "files.trimTrailingWhitespace": true,
   "typescript.tsdk": "node_modules/typescript/lib",

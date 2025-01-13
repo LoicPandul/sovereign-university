@@ -1,4 +1,3 @@
-/* eslint-disable import/no-duplicates */
 import type { JoinedTutorial } from '@blms/types';
 
 import exchangeSvg from '../assets/tutorials/exchange.svg';

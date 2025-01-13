@@ -1,4 +1,3 @@
-/* eslint-disable jsx-a11y/media-has-caption */
 import { Link } from '@tanstack/react-router';
 import { t } from 'i18next';
 import { useContext, useEffect, useState } from 'react';

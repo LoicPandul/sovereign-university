@@ -27,7 +27,6 @@ export const useShuffleSuggestedContent = (
   );
 
   // Categorize content into prioritized and others
-  // eslint-disable-next-line unicorn/no-array-reduce
   const categorizedContent = filteredContent.reduce(
     (acc: { prioritized: Content[]; others: Content[] }, suggestedContent) => {
       if (

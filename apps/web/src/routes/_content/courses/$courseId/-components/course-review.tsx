@@ -1,4 +1,3 @@
-/* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useNavigate } from '@tanstack/react-router';
 import { useEffect, useState } from 'react';
@@ -42,9 +41,7 @@ function FormSlider({
   stepNames,
   disabled,
 }: {
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   id: string;
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   form: any;
   label: string;
   stepNames: string[];
@@ -127,7 +124,6 @@ function FormTextArea({
   disabled,
 }: {
   id: string;
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   control: any;
   label: string;
   disabled?: boolean;
@@ -138,7 +134,6 @@ function FormTextArea({
     <FormField
       control={control}
       name={id}
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
       render={({ field }: { field: any }) => (
         <FormItem>
           <FormLabel
@@ -268,7 +263,6 @@ export function CourseReview({
       );
       form.setValue('adminComment', previousCourseReview.adminComment ?? '');
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [previousCourseReview]);
 
   const isLastChapter =
@@ -375,7 +369,6 @@ export function CourseReview({
                       <FormField
                         control={form.control}
                         name={'general'}
-                        // eslint-disable-next-line @typescript-eslint/no-explicit-any
                         render={({ field }: { field: any }) => (
                           <FormItem>
                             <FormLabel className="!mb-5 md:!mb-4">

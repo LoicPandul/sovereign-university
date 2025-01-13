@@ -1,5 +1,3 @@
-/* eslint-disable react/jsx-no-comment-textnodes */
-
 import { Link } from '@tanstack/react-router';
 import { t } from 'i18next';
 import { useTranslation } from 'react-i18next';
@@ -142,7 +140,6 @@ export const ProfessorCard = ({ professor, ...props }: ProfessorCardProps) => {
     >
       <div className="rounded-[10px] size-full md:rounded-[20px] flex max-md:flex-col md:items-end gap-4 bg-white w-[137px] sm:w-[226px] lg:w-[296px]">
         <div className="rounded-[10px] size-full md:rounded-[20px] p-1 lg:p-2 border-1 md:border-2 border-white">
-          {/* eslint-disable-next-line tailwindcss/no-contradicting-classname */}
           <div className="rounded-[10px] h-full md:rounded-[20px] py-4 flex flex-col items-center bg-gradient-to-b from-[#411800] to-[#FF5C00] to-[180px] lg:to-[240px] p-2.5 relative overflow-hidden">
             <span className="max-w-48 mb-8 w-full text-center text-base lg:title-large-sb-24px text-white lg:uppercase z-10 absolute">
               {professor.name}
@@ -197,7 +194,6 @@ export const ProfessorCardReduced = ({
       <Link
         to={`/professor/${formatNameForURL(professor.name || '')}-${professor.id}`}
         target="_blank"
-        // eslint-disable-next-line tailwindcss/no-contradicting-classname
         className={cn(
           'rounded-[20px] flex flex-col items-center bg-gradient-to-b from-[#411800] to-[#FF5C00] to-[200px] p-2.5 relative overflow-hidden w-[280px]',
           mobileSize === 'small' &&

@@ -9,7 +9,7 @@
   "scripts": {
     "build": "tsc --build tsconfig.json",
     "dev": "tsx --conditions=development --watch src/index.ts",
-    "lint": "eslint --color './**/*.ts'",
+    "lint": "biome check .'",
     "type-check": "tsc --build",
     "check-types": "tsc --noEmit --project tsconfig.trpc.json",
     "build-types": "tsc --emitDeclarationOnly --project tsconfig.trpc.json",
@@ -43,7 +43,6 @@
     "zod": "3.23.8"
   },
   "devDependencies": {
-    "@blms/eslint-config": "workspace:*",
     "@blms/types": "workspace:*",
     "@types/express": "^5.0.0",
     "@types/express-serve-static-core": "^5.0.3",

@@ -89,7 +89,6 @@ function DashboardStudentCourse() {
     if (tabs.some((tab) => tab.value === hash)) {
       setCurrentTab(hash);
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [location.hash]);
 
   const onTabChange = (value: string) => {

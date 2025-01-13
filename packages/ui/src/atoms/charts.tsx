@@ -1,7 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
-/* eslint-disable @typescript-eslint/no-redundant-type-constituents */
-/* eslint-disable react/prop-types */
-
 import * as React from 'react';
 import * as RechartsPrimitive from 'recharts';
 
