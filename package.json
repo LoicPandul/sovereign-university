@@ -52,7 +52,7 @@
     "vite-tsconfig-paths": "^5.1.4"
   },
   "lint-staged": {
-    "**/*": "prettier --loglevel warn --write --ignore-unknown"
+    "**/*": "npx biome format  --write ."
   },
   "packageManager": "pnpm@9.15.3"
 }
