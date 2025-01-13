@@ -31,7 +31,6 @@
     "postgres": "3.4.5"
   },
   "devDependencies": {
-    "@blms/eslint-config": "workspace:*",
     "dotenv": "^16.4.7",
     "drizzle-kit": "^0.28.1",
     "pg": "^8.13.1"

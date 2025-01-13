@@ -25,7 +25,6 @@
     "@blms/database": "workspace:*"
   },
   "devDependencies": {
-    "@blms/eslint-config": "workspace:*",
     "@blms/types": "workspace:*"
   }
 }

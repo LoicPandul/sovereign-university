@@ -35,7 +35,6 @@
     "uuid": "^11.0.3"
   },
   "devDependencies": {
-    "@blms/eslint-config": "workspace:*",
     "@blms/types": "workspace:*",
     "@types/uuid": "^10.0.0"
   }

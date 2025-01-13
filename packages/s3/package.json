@@ -19,7 +19,6 @@
     "clear": "rm -rf ./dist && rm -f *.tsbuildinfo"
   },
   "devDependencies": {
-    "@blms/eslint-config": "workspace:*",
     "@blms/types": "workspace:*"
   },
   "dependencies": {

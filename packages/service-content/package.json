@@ -30,7 +30,6 @@
     "zod": "^3.24.1"
   },
   "devDependencies": {
-    "@blms/eslint-config": "workspace:*",
     "@blms/types": "workspace:*",
     "@types/js-yaml": "^4.0.9",
     "@types/uuid": "^10.0.0",

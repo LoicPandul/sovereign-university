@@ -21,7 +21,6 @@
     "clear": "rm -rf ./dist && rm -f *.tsbuildinfo"
   },
   "devDependencies": {
-    "@blms/eslint-config": "workspace:*",
     "@blms/schemas": "workspace:*",
     "@types/express-session": "^1.18.1",
     "typesense": "^1.8.2",

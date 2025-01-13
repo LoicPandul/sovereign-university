@@ -22,7 +22,6 @@
     "simple-git": "^3.27.0"
   },
   "devDependencies": {
-    "@blms/eslint-config": "workspace:*",
     "@blms/types": "workspace:*",
     "@types/async": "^3.2.24"
   }
