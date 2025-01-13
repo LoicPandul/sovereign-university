@@ -1,4 +1,4 @@
-set -e 
+set -e
 
 [ "$SKIP_PRE_COMMIT" = 1 ] && exit 0
 

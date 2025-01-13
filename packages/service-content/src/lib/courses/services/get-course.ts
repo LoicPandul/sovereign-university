@@ -1,7 +1,6 @@
 import { firstRow } from '@blms/database';
 import type { CourseResponse } from '@blms/types';
 
-
 import type { Dependencies } from '../../dependencies.js';
 import { getProfessorsQuery } from '../../professors/queries/get-professors.js';
 import { formatProfessor } from '../../professors/services/utils.js';

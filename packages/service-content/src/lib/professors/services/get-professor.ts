@@ -1,7 +1,6 @@
 import { firstRow } from '@blms/database';
 import type { FullProfessor } from '@blms/types';
 
-
 import type { Dependencies } from '../../dependencies.js';
 import { indexBy } from '../../utils.js';
 import { getProfessorCoursesQuery } from '../queries/get-professor-courses.js';

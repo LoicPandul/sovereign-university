@@ -6,8 +6,8 @@ import { useTranslation } from 'react-i18next';
 import type { CourseProgressExtended } from '@blms/types';
 import { Divider, Tabs, TabsContent } from '@blms/ui';
 
-import { AuthorCard } from '#src/components/author-card.tsx';
 import { TabsListUnderlined } from '#src/components/Tabs/TabsListUnderlined.tsx';
+import { AuthorCard } from '#src/components/author-card.tsx';
 import { useSmaller } from '#src/hooks/use-smaller.ts';
 import { CourseCurriculum } from '#src/organisms/course-curriculum.tsx';
 import { addSpaceToCourseId } from '#src/utils/courses.ts';

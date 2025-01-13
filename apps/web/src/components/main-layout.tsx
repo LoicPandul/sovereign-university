@@ -5,8 +5,8 @@ import { cn, customToast } from '@blms/ui';
 
 import SignInIconLight from '#src/assets/icons/profile_log_in_light.svg';
 
-import { Footer } from './footer.tsx';
 import { Header } from './Header/header.tsx';
+import { Footer } from './footer.tsx';
 import ScrollToTopButton from './scroll-to-top-button.tsx';
 
 interface MainLayoutProps {

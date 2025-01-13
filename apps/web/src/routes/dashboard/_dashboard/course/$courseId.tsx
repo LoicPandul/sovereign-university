@@ -28,8 +28,8 @@ import CertificateSatoshiImage from '#src/assets/courses/completion-diploma-sato
 import ApprovedIcon from '#src/assets/icons/approved.svg?react';
 import LockGif from '#src/assets/icons/lock.gif';
 import SandClockGif from '#src/assets/icons/sandClock/sandclock.gif';
-import { AuthorCard } from '#src/components/author-card.tsx';
 import { TabsListUnderlined } from '#src/components/Tabs/TabsListUnderlined.tsx';
+import { AuthorCard } from '#src/components/author-card.tsx';
 import { useSmaller } from '#src/hooks/use-smaller.ts';
 import { ButtonWithArrow } from '#src/molecules/button-arrow.tsx';
 import { CourseCurriculum } from '#src/organisms/course-curriculum.tsx';

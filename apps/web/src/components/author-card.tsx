@@ -44,7 +44,9 @@ export const AuthorCard = ({
             {professor.bio}
           </p>
           <div className="mt-[18px] md:mt-4 flex flex-wrap gap-2.5 items-center">
-            {professor.tags?.map((tag) => <TextTag key={tag}>{tag}</TextTag>)}
+            {professor.tags?.map((tag) => (
+              <TextTag key={tag}>{tag}</TextTag>
+            ))}
           </div>
           <div className="md:mt-1 w-fit">
             <SocialLinks professor={professor} />

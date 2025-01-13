@@ -79,52 +79,52 @@
 }
 
 @font-face {
-  font-family: 'SpaceMono';
-  src: url('../assets/fonts/space_mono/SpaceMono-Bold.ttf') format('truetype');
-  src: url('../assets/fonts/space_mono/SpaceMono-BoldItalic.ttf')
-    format('truetype');
-  src: url('../assets/fonts/space_mono/SpaceMono-Italic.ttf') format('truetype');
-  src: url('../assets/fonts/space_mono/SpaceMono-Regular.ttf')
-    format('truetype');
+  font-family: "SpaceMono";
+  src: url("../assets/fonts/space_mono/SpaceMono-Bold.ttf") format("truetype");
+  src: url("../assets/fonts/space_mono/SpaceMono-BoldItalic.ttf")
+    format("truetype");
+  src: url("../assets/fonts/space_mono/SpaceMono-Italic.ttf") format("truetype");
+  src: url("../assets/fonts/space_mono/SpaceMono-Regular.ttf")
+    format("truetype");
   font-display: swap;
 }
 
 @font-face {
-  font-family: 'Rubik';
+  font-family: "Rubik";
   font-style: normal;
-  src: url('../assets/fonts/rubik/Rubik-VariableFont_wght.ttf')
-    format('truetype');
+  src: url("../assets/fonts/rubik/Rubik-VariableFont_wght.ttf")
+    format("truetype");
   font-display: swap;
 }
 
 @font-face {
-  font-family: 'Rubik';
+  font-family: "Rubik";
   font-style: italic;
-  src: url('../assets/fonts/rubik/Rubik-Italic-VariableFont_wght.ttf')
-    format('truetype');
+  src: url("../assets/fonts/rubik/Rubik-Italic-VariableFont_wght.ttf")
+    format("truetype");
   font-display: swap;
 }
 
 @font-face {
-  font-family: 'Manrope';
-  src: url('../assets/fonts/manrope/Manrope-VariableFont_wght.ttf')
-    format('truetype');
+  font-family: "Manrope";
+  src: url("../assets/fonts/manrope/Manrope-VariableFont_wght.ttf")
+    format("truetype");
   font-display: swap;
 }
 
 @font-face {
-  font-family: 'Poppins';
+  font-family: "Poppins";
   font-style: normal;
-  src: url('../assets/fonts/poppins/Poppins-VariableFont_wght.ttf')
-    format('truetype');
+  src: url("../assets/fonts/poppins/Poppins-VariableFont_wght.ttf")
+    format("truetype");
   font-display: swap;
 }
 
 @font-face {
-  font-family: 'Poppins';
+  font-family: "Poppins";
   font-style: italic;
-  src: url('../assets/fonts/poppins/Poppins-Italic-VariableFont_wght.ttf')
-    format('truetype');
+  src: url("../assets/fonts/poppins/Poppins-Italic-VariableFont_wght.ttf")
+    format("truetype");
   font-display: swap;
 }
 
@@ -149,13 +149,11 @@
   }
 
   * {
-    font-family: 'Rubik', sans-serif;
+    font-family: "Rubik", sans-serif;
   }
 
   body {
-    font-feature-settings:
-      'rlig' 1,
-      'calt' 1;
+    font-feature-settings: "rlig" 1, "calt" 1;
     font-synthesis: none !important;
   }
 
@@ -583,7 +581,7 @@
   --toastify-toast-max-height: 800px;
   --toastify-toast-bd-radius: 10px;
   --toastify-toast-progress-bd-radius: 20px;
-  --toastify-font-family: 'Rubik', sans-serif;
+  --toastify-font-family: "Rubik", sans-serif;
   --toastify-z-index: 9999;
   --toastify-text-color-light: #757575;
   --toastify-text-color-dark: #fff;
@@ -698,34 +696,34 @@
   transform: translate3d(0, var(--y), 0) scale(var(--s));
   transition: transform 0.3s;
 }
-.Toastify__toast--stacked[data-collapsed='false'] {
+.Toastify__toast--stacked[data-collapsed="false"] {
   overflow: visible;
 }
-.Toastify__toast--stacked[data-collapsed='true']:not(:last-child) > * {
+.Toastify__toast--stacked[data-collapsed="true"]:not(:last-child) > * {
   opacity: 0;
 }
 .Toastify__toast--stacked:after {
-  content: '';
+  content: "";
   position: absolute;
   left: 0;
   right: 0;
   height: calc(var(--g) * 1px);
   bottom: 100%;
 }
-.Toastify__toast--stacked[data-pos='top'] {
+.Toastify__toast--stacked[data-pos="top"] {
   top: 0;
 }
-.Toastify__toast--stacked[data-pos='bot'] {
+.Toastify__toast--stacked[data-pos="bot"] {
   bottom: 0;
 }
-.Toastify__toast--stacked[data-pos='bot'].Toastify__toast--stacked:before {
+.Toastify__toast--stacked[data-pos="bot"].Toastify__toast--stacked:before {
   transform-origin: top;
 }
-.Toastify__toast--stacked[data-pos='top'].Toastify__toast--stacked:before {
+.Toastify__toast--stacked[data-pos="top"].Toastify__toast--stacked:before {
   transform-origin: bottom;
 }
 .Toastify__toast--stacked:before {
-  content: '';
+  content: "";
   position: absolute;
   left: 0;
   right: 0;
@@ -886,7 +884,7 @@
   border-radius: var(--toastify-toast-progress-bd-radius);
   overflow: hidden;
 }
-.Toastify__progress-bar--wrp[data-hidden='true'] {
+.Toastify__progress-bar--wrp[data-hidden="true"] {
   opacity: 0;
 }
 .Toastify__progress-bar--bg {

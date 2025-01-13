@@ -17,8 +17,8 @@ import {
 
 import { useGreater } from '#src/hooks/use-greater.js';
 import { useNavigateMisc } from '#src/hooks/use-navigate-misc.ts';
-import { BackLink } from '#src/molecules/backlink.js';
 import Flag from '#src/molecules/Flag/index.tsx';
+import { BackLink } from '#src/molecules/backlink.js';
 import { assetUrl } from '#src/utils/index.js';
 import { useShuffleSuggestedContent } from '#src/utils/resources-hook.ts';
 import { formatNameForURL } from '#src/utils/string.ts';
