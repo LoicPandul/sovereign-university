@@ -13,6 +13,7 @@ import { AppContext } from '#src/providers/context.js';
 import type { PaymentModalDataModel } from '#src/services/utils.tsx';
 import { trpc } from '#src/utils/trpc.js';
 
+import { ConversionRateContext } from '#src/providers/conversionRateContext.tsx';
 import { CurrentEvents } from './-components/current-events.tsx';
 import { EventBookModal } from './-components/event-book-modal.tsx';
 import { EventPaymentModal } from './-components/event-payment-modal.tsx';
@@ -28,7 +29,9 @@ export const Route = createFileRoute('/_content/events/')({
 function Events() {
   const { t } = useTranslation();
 
-  const { session, conversionRate } = useContext(AppContext);
+  const { session } = useContext(AppContext);
+  const { conversionRate } = useContext(ConversionRateContext);
+
   const isLoggedIn = !!session;
 
   const queryOpts = {

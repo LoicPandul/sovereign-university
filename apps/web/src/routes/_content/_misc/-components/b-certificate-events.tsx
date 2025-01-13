@@ -10,6 +10,7 @@ import { AppContext } from '#src/providers/context.js';
 import type { PaymentModalDataModel } from '#src/services/utils.tsx';
 import { trpc } from '#src/utils/trpc.js';
 
+import { ConversionRateContext } from '#src/providers/conversionRateContext.tsx';
 import { EventBookModal } from '../../events/-components/event-book-modal.tsx';
 import { EventCard } from '../../events/-components/event-card.tsx';
 import { EventPaymentModal } from '../../events/-components/event-payment-modal.tsx';
@@ -19,7 +20,9 @@ interface BCertificateEventsProps {
 }
 
 export const BCertificateEvents = ({ events }: BCertificateEventsProps) => {
-  const { session, conversionRate } = useContext(AppContext);
+  const { session } = useContext(AppContext);
+  const { conversionRate } = useContext(ConversionRateContext);
+
   const isLoggedIn = !!session;
 
   const { data: eventPayments, refetch: refetchEventPayments } =

@@ -16,11 +16,6 @@ interface Session {
   user: SessionData;
 }
 
-interface MempoolPrice {
-  USD: number;
-  EUR: number;
-}
-
 interface AppContext {
   // User
   user: UserDetails | null;
@@ -45,10 +40,6 @@ interface AppContext {
   // Register Toast
   hasSeenRegisterToast: boolean;
   setHasSeenRegisterToast: (value: boolean) => void;
-
-  // Conversion rate
-  conversionRate: number | null;
-  setConversionRate: (rate: number | null) => void;
 }
 
 export const AppContext = createContext<AppContext>({
@@ -75,10 +66,6 @@ export const AppContext = createContext<AppContext>({
   // Register Toast
   hasSeenRegisterToast: false,
   setHasSeenRegisterToast: () => {},
-
-  // Conversion Rate
-  conversionRate: null,
-  setConversionRate: () => {},
 });
 
 export const AppContextProvider = ({ children }: PropsWithChildren) => {
@@ -91,32 +78,6 @@ export const AppContextProvider = ({ children }: PropsWithChildren) => {
   );
   const [courses, setCourses] = useState<JoinedCourse[] | null>(null);
   const [blogs, setBlogs] = useState<JoinedBlogLight[] | null>(null);
-  const [conversionRate, setConversionRate] = useState<number | null>(null);
-
-  const fetchConversionRate = async (): Promise<void> => {
-    try {
-      const response = await fetch('https://mempool.space/api/v1/prices');
-      const data: MempoolPrice = await response.json();
-
-      if (data?.USD) {
-        setConversionRate(data.USD);
-      } else {
-        throw new Error(
-          'Failed to retrieve conversion rate from mempool.space.',
-        );
-      }
-    } catch (error) {
-      console.error('Error fetching conversion rate:', error);
-    }
-  };
-
-  useEffect(() => {
-    fetchConversionRate();
-
-    const interval = setInterval(fetchConversionRate, 5 * 60 * 1000); // 5 minutes
-
-    return () => clearInterval(interval);
-  }, []);
 
   const [hasSeenRegisterToast, setHasSeenRegisterToast] =
     useState<boolean>(false);
@@ -180,8 +141,6 @@ export const AppContextProvider = ({ children }: PropsWithChildren) => {
     setBlogs,
     hasSeenRegisterToast,
     setHasSeenRegisterToast,
-    conversionRate,
-    setConversionRate,
   };
 
   return (

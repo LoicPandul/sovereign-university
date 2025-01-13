@@ -30,6 +30,7 @@ import { SITE_NAME } from '#src/utils/meta.js';
 import { formatNameForURL } from '#src/utils/string.ts';
 import { trpc } from '#src/utils/trpc.js';
 
+import { ConversionRateContext } from '#src/providers/conversionRateContext.tsx';
 import { CourseLayout } from '../-components/course-layout.tsx';
 import { CoursePaymentModal } from '../-components/payment-modal/course-payment-modal.tsx';
 
@@ -73,7 +74,8 @@ function CourseDetails() {
   const [dollarPrice, setDollarPrice] = useState<number>(0);
   const [downloadedPdf, setDownloadedPdf] = useState('');
 
-  const { user, conversionRate } = useContext(AppContext);
+  const { user } = useContext(AppContext);
+  const { conversionRate } = useContext(ConversionRateContext);
 
   const navigate = useNavigate();
 

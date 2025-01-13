@@ -36,6 +36,7 @@ import { NotFound } from '../components/not-found.tsx';
 import { AboutUs } from '../molecules/about-us.tsx';
 import { CourseCard } from '../organisms/course-card.tsx';
 
+import { ConversionRateContext } from '#src/providers/conversionRateContext.tsx';
 import { CurrentEvents } from './_content/events/-components/current-events.tsx';
 import { EventBookModal } from './_content/events/-components/event-book-modal.tsx';
 import { EventPaymentModal } from './_content/events/-components/event-payment-modal.tsx';
@@ -265,7 +266,9 @@ function Home() {
   };
 
   const EventSection = () => {
-    const { session, conversionRate } = useContext(AppContext);
+    const { session } = useContext(AppContext);
+    const { conversionRate } = useContext(ConversionRateContext);
+
     const isLoggedIn = !!session;
 
     const {
