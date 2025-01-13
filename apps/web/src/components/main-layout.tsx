@@ -44,6 +44,9 @@ export const MainLayout = ({
         time: 5000,
         closeButton: true,
         imgSrc: SignInIconLight,
+        onClick: () => {
+          window.location.href = '/dashboard/courses';
+        },
       });
 
       sessionStorage.removeItem('hasJustRegistered');
