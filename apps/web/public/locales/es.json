@@ -193,7 +193,14 @@
       "paidCourse": "Premium",
       "premiumContentNeedsPaymentAction": "Ve a la página principal del curso",
       "collaborativeEffort": "Este curso es el resultado de un esfuerzo colaborativo: cada lección, traducción y revisión es posible gracias al trabajo de los contribuyentes. Por esta razón, siempre estamos buscando correctores que puedan revisar nuestro contenido en muchos idiomas. Si quieres participar en el proceso de corrección, por favor ponte en contacto en nuestro grupo de Telegram y lee nuestro tutorial.\n\nTe recordamos que este contenido es de código abierto - licenciado bajo <0>CC BY-SA</0> - por lo que puede ser compartido y utilizado libremente, siempre y cuando se acredite la fuente original.\n\nUn reconocimiento especial por su trabajo en este curso va para los siguientes correctores: ",
-      "premiumContentNeedsPayment": "Este curso es parte de un programa premium."
+      "premiumContentNeedsPayment": "Este curso es parte de un programa premium.",
+      "hasBeenProofreadBy": "Este curso ha sido revisado por",
+      "courseAddedToDashboard": "Este curso ha sido añadido a tu panel de control",
+      "hasBeenTranslatedBy": "Este curso ha sido traducido por",
+      "otherCourses": "Otros cursos",
+      "otherCoursesInterest": "Otros cursos que te pueden interesar",
+      "premiumContentNeedsLogin": "Debes iniciar sesión para acceder a este curso.",
+      "thanksTipping": "Puedes mostrar tu agradecimiento dándole una propina al profesor."
     },
     "explorer": {
       "footerTitle": "¡Nuestros profesores están aquí para ti!",
@@ -251,7 +258,8 @@
       "onlineCallout": "Estás a punto de comprar acceso <strong>en línea</strong> a este curso.",
       "inPersonDescription": "Cada sesión de clase se lleva a cabo en persona en las fechas y lugares especificados y también se transmite en vivo en la plataforma. \nEsta compra te dará acceso tanto a las clases presenciales como en línea.\nNo olvides reservar tu asiento para las clases a las que quieras asistir en persona.",
       "onlineDescription": "Cada sesión de clase se transmite en vivo en la plataforma.\nEsta compra te otorgará acceso a transmisiones en vivo y videos de repeticiones.",
-      "inPersonCallout": "Estás a punto de comprar acceso <strong>presencial</strong> a este curso."
+      "inPersonCallout": "Estás a punto de comprar acceso <strong>presencial</strong> a este curso.",
+      "checkoutError": "Se produjo un error durante el proceso de compra.\nPor favor, intenta de nuevo."
     },
     "preview": {
       "by": "por {{professor}}",
@@ -310,7 +318,16 @@
       "whatStudentsSay": "Lo que los estudiantes dicen sobre este curso",
       "skip": "Omitir reseña",
       "edit": "Editar",
-      "fieldRequired": "Este campo es obligatorio"
+      "fieldRequired": "Este campo es obligatorio",
+      "saveReview": "Guardar reseña",
+      "commentTeacherMobile": "Comentario privado al profesor",
+      "editReview": "Editar reseña",
+      "commentAdminMobile": "Comentario privado para el equipo de administrativo",
+      "commentPublicMobile": "Comentario público",
+      "feedback": "Retroalimentación",
+      "feedbackDescription1": "Por favor califica tu experiencia con el curso.",
+      "feedbackDescription2": "Ten en cuenta que los profesores no tendrán acceso a las evaluaciones individuales.",
+      "thankYou": "¡Gracias por tu reseña! Se tiene en consideración"
     },
     "exam": {
       "skipExam": "Omitir examen",
@@ -367,7 +384,19 @@
       "dontGiveUpTryAgain": "¡No te rindas!\nPuedes intentarlo de nuevo después de 24 horas.",
       "tryOneMoreTime": "¡Intentémoslo una vez más!",
       "goodLuck": "¡Buena suerte!",
-      "congratulationsPassed": "¡Felicidades, <0>aprobaste</0> el examen final!"
+      "congratulationsPassed": "¡Felicidades, <0>aprobaste</0> el examen final!",
+      "dontWorryRetake": "No te preocupes, podrás volver a realizar el examen después de 24 horas."
+    },
+    "conclusion": {
+      "completedChaptersHeadline": "¡Haz completado todos los capítulos!",
+      "completedFeedbackHeadline": "¡Gracias por tu retroalimentación!\nEs muy importante para nosotros, por lo que te lo agradecemos mucho.",
+      "completedFeedbackSubHeadline": "Puedes editar tus calificaciones y comentarios en cualquier momento en tu panel de control.",
+      "congratulationsEnd": "¡Felicitaciones! Has llegado al final del curso",
+      "finalStep": "¡Este fue el paso final para marcar este curso como completado en tu panel de control, antes de continuar tu viaje!",
+      "takeFinalExam": "Ahora que has completado todos los capítulos, es hora de tomar el examen final para poner a prueba tus conocimientos.",
+      "unlockFeatures1": "Para desbloquear todas las funciones y realizar un seguimiento de tu progreso, necesitas una cuenta.",
+      "unlockFeatures2": "Ten en cuenta que no recopilamos ningún dato personal ni utilizamos cookies.",
+      "stepsToComplete": "Estos son los pasos para marcar este curso como completado en tu panel de control, ¡antes de continuar tu viaje!"
     }
   },
   "dashboard": {
@@ -532,6 +561,31 @@
       "takePlaceAt": "La sesión se llevará a cabo en",
       "yourCertificate": "",
       "bCertificate": "Certificado ₿"
+    },
+    "adminPanel": {
+      "bookings": "Reservas",
+      "bookingsPanel": "Panel de reservas",
+      "confirmRemoval": "Confirmar eliminación",
+      "coursesIds": "Identificaciones de cursos",
+      "githubLink": "Enlace de Github",
+      "date": "Fecha",
+      "downloadList": "Lista de descargas",
+      "listOfParticipants": "Lista de participantes",
+      "makeProfessor": "Hacer profesor",
+      "nameOfEvent": "Nombre del evento",
+      "noUpcomingBookings": "No hay reservas próximas.",
+      "participants": "Participantes",
+      "professorName": "Nombre del profesor",
+      "removeTeacherDescription": "¿Estás seguro de que deseas eliminar a este profesor?",
+      "tutorialsManagementPanel": "Panel de gestión de tutoriales",
+      "type": "Tipo",
+      "upcomingBookings": "Próximas reservas",
+      "upcomingBookingsSubtitle": "Aquí puedes descargar la lista de participantes de todos los eventos presenciales.",
+      "searchByNameOrCategory": "Buscar por nombre o categoría",
+      "seeOrEdit": "Ver o editar",
+      "selectProfessor": "Seleccionar profesor",
+      "tutorialAnalytics": "Análisis de tutoriales",
+      "tutorialAnalyticsDescription": "Aquí podrás consultar y comparar todos los tutoriales de la plataforma."
     }
   },
   "events": {
@@ -1127,7 +1181,8 @@
     "joeNakamotoVideo": "¿Qué rayos es un examen de Bitcoin? Por Joe Nakamoto",
     "knowledgeableBitcoin": "¿Experto en Bitcoin?",
     "tweetText": "¡Emocionado de haber aprobado el Certificado B en @planb_network con una puntuación de {{score}}/100! {{emoji}}\n\n{{certificateUrl}}",
-    "download": "Descargar certificado"
+    "download": "Descargar certificado",
+    "verify": "Verifica la autenticidad de tu certificado"
   },
   "glossary": {
     "anotherWord": "Busca otra palabra",
