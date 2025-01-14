@@ -16,6 +16,7 @@ import FailurePixel from '#src/assets/icons/failure-pixelated.svg?react';
 import Finish from '#src/assets/icons/finish.svg?react';
 import HeartPixel from '#src/assets/icons/heart-pixelated.svg?react';
 import LockGif from '#src/assets/icons/lock.gif';
+import Padlock from '#src/assets/icons/padlock.svg?react';
 import SpeechIcon from '#src/assets/icons/speech_icon.svg?react';
 import SuccessParty from '#src/assets/icons/success_party.svg?react';
 import ThumbUp from '#src/assets/icons/thumb-up-pixelated.svg?react';
@@ -42,6 +43,8 @@ export const CourseConclusion = ({ chapter }: CourseConclusionProps) => {
     useState(false);
   const [classicChapterCompletion, setClassicChapterCompletion] = useState(0);
   const [isCourseReviewSubmitted, setIsCourseReviewSubmitted] = useState(false);
+  const [isCourseReviewSkipped, setIsCourseReviewSkipped] = useState(false);
+  const [isCourseExamSkipped, setIsCourseExamSkipped] = useState(false);
 
   const { data: course } = trpc.content.getCourse.useQuery({
     id: chapter.courseId,
@@ -99,7 +102,7 @@ export const CourseConclusion = ({ chapter }: CourseConclusionProps) => {
 
   const completedChapters = courseProgress?.[0]?.chapters;
 
-  function updateStep(step: number, forceScroll = true) {
+  function updateStep(step: number, forceScroll = false) {
     if (forceScroll) {
       scrollToHeader();
     }
@@ -153,16 +156,22 @@ export const CourseConclusion = ({ chapter }: CourseConclusionProps) => {
   }, [isAllClassicChaptersDone, step]);
 
   useEffect(() => {
-    if ((courseReview || isCourseReviewSubmitted) && step === 2) {
+    if (
+      (courseReview || isCourseReviewSubmitted || isCourseReviewSkipped) &&
+      step === 2
+    ) {
       setTimeout(() => updateStep(3), 3000);
     }
-  }, [courseReview, isCourseReviewSubmitted, step]);
+  }, [courseReview, isCourseReviewSubmitted, isCourseReviewSkipped, step]);
 
   useEffect(() => {
-    if (previousExamResults?.succeeded && step === 3) {
-      setTimeout(() => updateStep(4), 3000);
+    if (isCourseExamSkipped && step === 3) {
+      setTimeout(() => updateStep(6), 3000);
     }
-  }, [previousExamResults, step]);
+    if (previousExamResults?.succeeded && step === 3) {
+      setTimeout(() => updateStep(isCourseReviewSkipped ? 6 : 4), 3000);
+    }
+  }, [previousExamResults, isCourseExamSkipped, step]);
 
   useEffect(() => {
     if (step === 4) {
@@ -180,9 +189,7 @@ export const CourseConclusion = ({ chapter }: CourseConclusionProps) => {
   }, [step]);
 
   useEffect(() => {
-    if (step === 0) {
-      scrollToHeader();
-    }
+    scrollToHeader();
   }, [step]);
 
   const lineContainerClass = 'flex items-center w-full h-12 md:h-[100px]';
@@ -258,13 +265,15 @@ export const CourseConclusion = ({ chapter }: CourseConclusionProps) => {
             <HeaderBox
               text={t('courses.review.feedback')}
               isDone={step >= 2 && (!!courseReview || isCourseReviewSubmitted)}
-              isCurrentStep={step === 2}
+              isCurrentStep={step === 2 || isCourseReviewSkipped}
             >
               {step < 2 || (!courseReview && !isCourseReviewSubmitted) ? (
                 <SpeechIcon
                   className={cn(
                     iconSizeClass,
-                    step === 2 ? 'fill-newOrange-1' : 'fill-newGray-5',
+                    step === 2 || isCourseReviewSkipped
+                      ? 'fill-newOrange-1'
+                      : 'fill-newGray-5',
                   )}
                 />
               ) : (
@@ -273,7 +282,10 @@ export const CourseConclusion = ({ chapter }: CourseConclusionProps) => {
             </HeaderBox>
             <div className={lineContainerClass}>
               <div className={linkMainClass}>
-                {step >= 2 && (courseReview || isCourseReviewSubmitted) ? (
+                {step >= 2 &&
+                (courseReview ||
+                  isCourseReviewSubmitted ||
+                  isCourseReviewSkipped) ? (
                   <div className={linkSubClass}></div>
                 ) : null}
               </div>
@@ -282,13 +294,15 @@ export const CourseConclusion = ({ chapter }: CourseConclusionProps) => {
             <HeaderBox
               text={t('words.exam')}
               isDone={step >= 3 && !!previousExamResults?.succeeded}
-              isCurrentStep={step === 3}
+              isCurrentStep={step === 3 || isCourseExamSkipped}
             >
               {step < 3 || !previousExamResults ? (
                 <BookPixel
                   className={cn(
                     iconSizeClass,
-                    step === 3 ? 'fill-newOrange-1' : 'fill-newGray-5',
+                    step === 3 || isCourseExamSkipped
+                      ? 'fill-newOrange-1'
+                      : 'fill-newGray-5',
                   )}
                 />
               ) : (
@@ -306,16 +320,26 @@ export const CourseConclusion = ({ chapter }: CourseConclusionProps) => {
             <div className={lineContainerClass}>
               <div className={linkMainClass}>
                 {step >= 3 &&
-                previousExamResults &&
-                previousExamResults.succeeded ? (
+                ((previousExamResults && previousExamResults.succeeded) ||
+                  isCourseExamSkipped) ? (
                   <div className={linkSubClass}></div>
                 ) : null}
               </div>
             </div>
 
-            <HeaderBox text={t('words.congrats')} isDone={step >= 4}>
+            <HeaderBox
+              text={t('words.congrats')}
+              isDone={
+                step >= 4 && !isCourseExamSkipped && !isCourseReviewSkipped
+              }
+              isCurrentStep={
+                step === 6 && (isCourseExamSkipped || isCourseReviewSkipped)
+              }
+            >
               {step <= 3 ? (
                 <Finish className={cn(iconSizeClass, 'fill-newGray-5')} />
+              ) : isCourseExamSkipped || isCourseReviewSkipped ? (
+                <Padlock className={cn(iconSizeClass, 'fill-newOrange-1')} />
               ) : (
                 <Finish className={cn(iconSizeClass, 'fill-white')} />
               )}
@@ -362,6 +386,7 @@ export const CourseConclusion = ({ chapter }: CourseConclusionProps) => {
                     <Button
                       className="ml-auto mr-6"
                       onClick={() => {
+                        scrollToHeader();
                         completeAllChaptersMutation.mutate({
                           courseId: chapter.course.id,
                           language: chapter.language,
@@ -400,6 +425,10 @@ export const CourseConclusion = ({ chapter }: CourseConclusionProps) => {
                       chapterId={reviewChapterId}
                       isConclusionReview
                       onReviewSuccess={() => setIsCourseReviewSubmitted(true)}
+                      onSkip={() => {
+                        scrollToHeader();
+                        setIsCourseReviewSkipped(true);
+                      }}
                     />
                   </div>
                 </section>
@@ -465,17 +494,29 @@ export const CourseConclusion = ({ chapter }: CourseConclusionProps) => {
                 }
                 actionButton={
                   previousExamResults?.succeeded ? undefined : (
-                    <Link
-                      to="/courses/$courseId/$chapterId"
-                      params={{
-                        courseId: course?.id,
-                        chapterId: examChapterId,
-                      }}
-                    >
-                      <Button className="">
-                        {previousExamResults ? 'Try again' : 'Pass the exam'}
+                    <div className="flex max-md:flex-col gap-4">
+                      <Link
+                        to="/courses/$courseId/$chapterId"
+                        params={{
+                          courseId: course?.id,
+                          chapterId: examChapterId,
+                        }}
+                      >
+                        <Button>
+                          {previousExamResults ? 'Try again' : 'Pass the exam'}
+                        </Button>
+                      </Link>
+                      <Button
+                        variant="outline"
+                        className="w-fit mx-auto"
+                        onClick={() => {
+                          scrollToHeader();
+                          setIsCourseExamSkipped(true);
+                        }}
+                      >
+                        {t('words.skip')}
                       </Button>
-                    </Link>
+                    </div>
                   )
                 }
               />
