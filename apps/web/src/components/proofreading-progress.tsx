@@ -202,7 +202,7 @@ export const ProofreadingProgress = ({
   const contributorsLength = proofreadingData.contributors.length;
 
   return (
-    <div>
+    <div className="z-30">
       <Dialog>
         <DialogTrigger asChild>
           <button
