@@ -48,7 +48,7 @@
     "vite-tsconfig-paths": "^5.1.4"
   },
   "lint-staged": {
-    "**/*": "biome format --write --no-errors-on-unmatched"
+    "**/*": "biome check --files-ignore-unknown=true"
   },
   "packageManager": "pnpm@9.15.3"
 }
