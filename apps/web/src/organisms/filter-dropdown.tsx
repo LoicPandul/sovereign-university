@@ -114,6 +114,7 @@ export const FilterDropdown = ({
               document.querySelector('#searchInput') as HTMLInputElement
             )?.focus()
           }
+          // biome-ignore lint/a11y/useSemanticElements: <explanation>
           role="button"
           tabIndex={0}
           onKeyDown={(e) => {

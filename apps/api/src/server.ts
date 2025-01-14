@@ -22,7 +22,7 @@ export const startServer = async (dependencies: Dependencies, port = 3000) => {
   // Parse JSON bodies
   app.use(
     json({
-      verify: function (req, _res, buf) {
+      verify: (req, _res, buf) => {
         // @ts-expect-error TODO: fix this?
         if (routesWithRawBody.has(req.path) && buf?.length) {
           // @ts-expect-error TODO: fix this?

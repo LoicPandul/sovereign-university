@@ -22,7 +22,7 @@ export const capitalizeFirstWord = (str: string) =>
 export const normalizeString = (str: string) => {
   return str
     .normalize('NFD')
-    .replaceAll(/[\u0300-\u036F]/g, '')
+    .replace(/[\p{M}]/gu, '')
     .toLowerCase();
 };
 

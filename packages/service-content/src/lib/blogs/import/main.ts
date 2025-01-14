@@ -4,7 +4,7 @@ import type { Blog, ChangedFile } from '@blms/types';
 
 import { yamlToObject } from '../../utils.js';
 
-import { type ChangedBlog } from './index.js';
+import type { ChangedBlog } from './index.js';
 
 interface BlogMain {
   date?: string;

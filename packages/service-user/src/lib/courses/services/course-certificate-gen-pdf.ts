@@ -110,15 +110,11 @@ export async function createPdf(options: PdfCertificateOptions) {
 
   // Course ID
   textLeft(page, options.courseId, { x: margin, y: 104, ...conf.rubikWhite });
-
-  // Duration
-  {
-    textRight(page, options.duration, {
-      x: margin,
-      y: 104,
-      ...conf.rubikWhite,
-    });
-  }
+  textRight(page, options.duration, {
+    x: margin,
+    y: 104,
+    ...conf.rubikWhite,
+  });
 
   // Course Name
   {

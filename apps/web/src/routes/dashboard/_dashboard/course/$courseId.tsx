@@ -33,7 +33,7 @@ import { AuthorCard } from '#src/components/author-card.tsx';
 import { useSmaller } from '#src/hooks/use-smaller.ts';
 import { ButtonWithArrow } from '#src/molecules/button-arrow.tsx';
 import { CourseCurriculum } from '#src/organisms/course-curriculum.tsx';
-import { CourseReview } from '#src/routes/_content/courses/$courseId/-components/course-review.tsx';
+import { CourseReviewComponent } from '#src/routes/_content/courses/$courseId/-components/course-review.tsx';
 import {
   AnswersReviewPanel,
   TimeStampDialog,
@@ -373,10 +373,9 @@ const CourseExamsTable = ({
                 )}
                 key={index}
               >
-                <div
+                <button
                   className="cursor-pointer hover:font-medium body-14px md:body-16px text-newBlack-1 flex md:justify-between items-center px-2.5"
                   onClick={() => toggleCollapse(index)}
-                  role="button"
                   tabIndex={0}
                   onKeyDown={(e) => {
                     if (e.key === 'Enter' || e.key === ' ') {
@@ -420,7 +419,7 @@ const CourseExamsTable = ({
                       )}
                     />
                   </div>
-                </div>
+                </button>
                 <div
                   className={cn(
                     'flex flex-col max-md:gap-4 w-full items-center',
@@ -612,11 +611,11 @@ export const CourseRatings = ({ courseId }: { courseId: string }) => {
       <div className="w-full mt-5 md:mt-10">
         <div className="w-full max-w-[716px]">
           {isReviewFetched && !previousCourseReview && (
-            <CourseReview courseId={courseId} isLockedReview />
+            <CourseReviewComponent courseId={courseId} isLockedReview />
           )}
 
           {previousCourseReview && (
-            <CourseReview
+            <CourseReviewComponent
               courseId={courseId}
               existingReview={previousCourseReview}
               isDashboardReview

@@ -158,8 +158,7 @@ export const CourseTable = ({
                             <TooltipProvider key={i}>
                               <Tooltip delayDuration={0}>
                                 <TooltipTrigger>
-                                  <div
-                                    role="button"
+                                  <button
                                     tabIndex={0}
                                     className={`md:w-[50px] md:h-[52px] rounded ${bgColor} flex items-center justify-center hover:course-navigation-sm`}
                                     onClick={() =>
@@ -178,7 +177,7 @@ export const CourseTable = ({
                                         {course.id.slice(3)}
                                       </span>
                                     )}
-                                  </div>
+                                  </button>
                                 </TooltipTrigger>
                                 {status?.text && (
                                   <TooltipContent

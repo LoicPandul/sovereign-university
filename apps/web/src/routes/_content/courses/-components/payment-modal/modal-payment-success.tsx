@@ -14,7 +14,7 @@ interface ModalPaymentSuccessProps {
 }
 
 export const ModalPaymentSuccess = ({
-  checkoutData: checkoutData,
+  checkoutData,
   onClose,
 }: ModalPaymentSuccessProps) => {
   return (

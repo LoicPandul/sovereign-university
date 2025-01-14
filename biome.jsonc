@@ -27,33 +27,22 @@
     "rules": {
       "recommended": true,
       "a11y": {
-        "useAltText": "off",
         "useKeyWithClickEvents": "off",
         "useButtonType": "off",
-        "noSvgWithoutTitle": "off",
-        "useSemanticElements": "off",
-        "noLabelWithoutControl": "off"
+        "noSvgWithoutTitle": "off"
       },
       "complexity": {
-        "noUselessTernary": "off",
-        "noUselessLoneBlockStatements": "off",
         "useOptionalChain": "off",
-        "useArrowFunction": "off",
-        "noUselessRename": "off",
-        "noUselessFragments": "off",
         "useLiteralKeys": "off"
       },
       "correctness": {
-        "noUnreachable": "off",
         "useExhaustiveDependencies": "off"
       },
-      "performance": { "noDelete": "off" },
       "security": {
         "noDangerouslySetInnerHtml": "off"
       },
       "style": {
         "useSingleVarDeclarator": "off",
-        "noCommaOperator": "off",
         "noInferrableTypes": "off",
         "noNonNullAssertion": "off",
         "noUnusedTemplateLiteral": "off",
@@ -61,17 +50,12 @@
         "noParameterAssign": "off",
         "noUselessElse": "off",
         "useSelfClosingElements": "off",
-        "useEnumInitializers": "off",
-        "useImportType": "off",
-        "useNodejsImportProtocol": "off"
+        "useEnumInitializers": "off"
       },
       "suspicious": {
-        "noRedeclare": "off",
         "noShadowRestrictedNames": "off",
-        "noMisleadingCharacterClass": "off",
         "noAssignInExpressions": "off",
         "noImplicitAnyLet": "off",
-        "noDuplicateSelectorsKeyframeBlock": "off",
         "noExplicitAny": "off",
         "noArrayIndexKey": "off"
       }

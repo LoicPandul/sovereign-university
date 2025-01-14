@@ -98,7 +98,10 @@ export const ChangePictureModal = (props: Props) => {
                 activeTab === Tabs.PREVIEW &&
                   'bg-darkOrange-5 text-white cursor-default',
               )}
-              onClick={() => (getCropData(), setActiveTab(Tabs.PREVIEW))}
+              onClick={() => {
+                getCropData();
+                setActiveTab(Tabs.PREVIEW);
+              }}
             >
               {t('dashboard.profile.preview')}
             </button>
@@ -144,30 +147,23 @@ export const ChangePictureModal = (props: Props) => {
           </div>
 
           <div className="p-4 flex gap-4 justify-between items-center">
-            {image && (
-              <>
-                {loading ? (
-                  <div className="flex gap-2 px-2">
-                    <span>{t('dashboard.profile.saving')}</span>
-                    <img src={spinner} alt="spinner" className="size-6" />
-                  </div>
-                ) : (
-                  <>
-                    <Button variant="primary" size="m" onClick={validateChange}>
-                      <span>{t('dashboard.profile.save')}</span>
-                    </Button>
+            {image &&
+              (loading ? (
+                <div className="flex gap-2 px-2">
+                  <span>{t('dashboard.profile.saving')}</span>
+                  <img src={spinner} alt="spinner" className="size-6" />
+                </div>
+              ) : (
+                <>
+                  <Button variant="primary" size="m" onClick={validateChange}>
+                    <span>{t('dashboard.profile.save')}</span>
+                  </Button>
 
-                    <Button
-                      variant="secondary"
-                      size="m"
-                      onClick={props.onClose}
-                    >
-                      {t('dashboard.profile.cancel')}
-                    </Button>
-                  </>
-                )}
-              </>
-            )}
+                  <Button variant="secondary" size="m" onClick={props.onClose}>
+                    {t('dashboard.profile.cancel')}
+                  </Button>
+                </>
+              ))}
           </div>
         </div>
       </DialogContent>

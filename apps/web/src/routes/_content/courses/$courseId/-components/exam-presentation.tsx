@@ -132,6 +132,7 @@ export const ExamPresentation = ({
               id="displayName"
               className="rounded-md bg-commentTextBackground border border-gray-500/10 px-4 py-2 text-newGray-1 text-sm leading-[120%] w-full max-w-[302px] h-8 truncate"
               onClick={disabled ? openAuthModal : openChangeDisplayNameModal}
+              // biome-ignore lint/a11y/useSemanticElements: <explanation>
               role="button"
               tabIndex={0}
               onKeyDown={(e) => {

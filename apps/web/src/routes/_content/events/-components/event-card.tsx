@@ -265,39 +265,37 @@ export const EventCard = ({
           ))}
 
         {/* TODO Book seat actions (before and after booking seat, free and paid) + case where both physical and online (differentiate payment ?) */}
-        {isBookableInPersonEvent && !userBookedTheEvent && (
-          <>
-            {event &&
-            event.remainingSeats &&
-            event.remainingSeats > 0 &&
-            userEvent === undefined ? (
-              <Button
-                variant="primary"
-                size={isScreenSm ? 's' : 'xs'}
-                className="rounded-lg text-xs md:text-base"
-                onClick={() => {
-                  if (isLoggedIn) {
-                    setPaymentModalData({
-                      eventId: event.id,
-                      satsPrice: satsPrice,
-                      dollarPrice: dollarPrice,
-                      accessType: 'physical',
-                    });
-                    setIsPaymentModalOpen(true);
-                  } else {
-                    openAuthModal();
-                  }
-                }}
-              >
-                {t('events.card.bookSeat')}
-              </Button>
-            ) : (
-              <>
-                <span className="italic">{t('events.card.eventFull')}</span>
-              </>
-            )}
-          </>
-        )}
+        {isBookableInPersonEvent &&
+          !userBookedTheEvent &&
+          (event &&
+          event.remainingSeats &&
+          event.remainingSeats > 0 &&
+          userEvent === undefined ? (
+            <Button
+              variant="primary"
+              size={isScreenSm ? 's' : 'xs'}
+              className="rounded-lg text-xs md:text-base"
+              onClick={() => {
+                if (isLoggedIn) {
+                  setPaymentModalData({
+                    eventId: event.id,
+                    satsPrice: satsPrice,
+                    dollarPrice: dollarPrice,
+                    accessType: 'physical',
+                  });
+                  setIsPaymentModalOpen(true);
+                } else {
+                  openAuthModal();
+                }
+              }}
+            >
+              {t('events.card.bookSeat')}
+            </Button>
+          ) : (
+            <>
+              <span className="italic">{t('events.card.eventFull')}</span>
+            </>
+          ))}
 
         {isBookableInPersonEvent &&
           userBookedTheEvent &&

@@ -39,6 +39,7 @@ const Loader = ({ variant = 'orange', size, ...props }: LoaderProps) => {
 
   return (
     <div className="text-center">
+      {/* biome-ignore lint/a11y/useAltText: bug from biome */}
       <img
         src={imgSrc}
         alt="spinner"

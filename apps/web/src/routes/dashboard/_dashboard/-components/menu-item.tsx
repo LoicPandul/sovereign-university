@@ -25,9 +25,8 @@ export const MenuItem = ({
 
   return (
     <button className={cn('w-full', showOnMobileOnly && 'lg:hidden')}>
-      <div
+      <button
         onClick={dropdown ? () => setIsOpen(!isOpen) : onClick}
-        role="button"
         tabIndex={0}
         onKeyDown={(e) => {
           if (e.key === 'Enter' || e.key === ' ') {
@@ -53,7 +52,7 @@ export const MenuItem = ({
             )}
           />
         )}
-      </div>
+      </button>
       {dropdown && dropdown.length > 0 && isOpen && (
         <div className="flex flex-col w-full pl-8 gap-1 pt-1">
           {dropdown.map((item, index) => (

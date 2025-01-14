@@ -43,11 +43,9 @@ export const BillingSection = ({ invoices }: { invoices: Invoice[] }) => {
                     switch (invoice.paymentMethod) {
                       case 'free': {
                         return <span>{t('words.unavailable')}</span>;
-                        break;
                       }
                       case 'sbp': {
                         return <span>{t('words.unavailable')}</span>;
-                        break;
                       }
                       case 'stripe': {
                         return (
@@ -60,7 +58,6 @@ export const BillingSection = ({ invoices }: { invoices: Invoice[] }) => {
                             {t('words.access')}
                           </a>
                         );
-                        break;
                       }
                     }
                   }

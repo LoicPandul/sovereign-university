@@ -24,7 +24,7 @@ export const PageHeader = ({
   removeTopMargin?: boolean;
   increaseHorizontalPadding?: boolean;
 }) => {
-  const isSubsectionTitle = subtitle ? false : true;
+  const isSubsectionTitle = !subtitle;
 
   return (
     <div

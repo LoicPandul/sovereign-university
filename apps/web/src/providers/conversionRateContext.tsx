@@ -1,4 +1,9 @@
-import { PropsWithChildren, createContext, useEffect, useState } from 'react';
+import {
+  type PropsWithChildren,
+  createContext,
+  useEffect,
+  useState,
+} from 'react';
 
 interface ConversionRateContext {
   conversionRate: number | null;
