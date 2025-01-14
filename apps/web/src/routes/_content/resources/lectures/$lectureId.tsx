@@ -129,7 +129,7 @@ function Lecture() {
               color="orange"
             >
               <div className="w-full flex flex-col md:flex-row gap-[25px] lg:gap-10">
-                <div className="flex flex-col items-center shrink-0 relative rounded-[10px] lg:rounded-[20px] max-md:shadow-course-navigation">
+                <div className="flex flex-col items-center shrink-0 relative rounded-[10px] lg:rounded-[20px] max-md:shadow-course-navigation max-md:w-fit mx-auto">
                   <img
                     className="w-full max-w-[256px] mx-auto object-cover [overflow-clip-margin:_unset] rounded-[10px] lg:rounded-[20px] lg:max-w-[457px]"
                     alt={t('imagesAlt.bookCover')}
