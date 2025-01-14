@@ -861,15 +861,17 @@ function CourseChapter() {
                   <MarkdownContent chapter={chapter} />
                   {!isSpecialChapter && displayQuizAndNext && (
                     <div className="md:!mt-5">
-                      <span className="text-darkOrange-5 title-medium-sb-18px md:font-normal md:text-2xl">
-                        Quiz
-                      </span>
                       {questionsArray && questionsArray.length > 0 && (
-                        <QuizzCard
-                          name={chapter.course.id}
-                          chapter={`${chapter.part.partIndex.toString()}.${chapter.chapterIndex.toString()}`}
-                          questions={questionsArray}
-                        />
+                        <>
+                          <span className="text-darkOrange-5 title-medium-sb-18px md:font-normal md:text-2xl">
+                            Quiz
+                          </span>
+                          <QuizzCard
+                            name={chapter.course.id}
+                            chapter={`${chapter.part.partIndex.toString()}.${chapter.chapterIndex.toString()}`}
+                            questions={questionsArray}
+                          />
+                        </>
                       )}
                       <BottomButton chapter={chapter} />
                     </div>
