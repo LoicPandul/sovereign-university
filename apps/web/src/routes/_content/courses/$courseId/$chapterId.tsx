@@ -45,7 +45,7 @@ import QuizzCard from '../-components/quizz/quizz-card.tsx';
 
 import { CourseConclusion } from './-components/course-conclusion.tsx';
 import { CourseExam } from './-components/course-exam.tsx';
-import { CourseReview } from './-components/course-review.tsx';
+import { CourseReviewComponent } from './-components/course-review.tsx';
 
 const CoursesMarkdownBody = React.lazy(
   () => import('#src/components/Markdown/courses-markdown-body.js'),
@@ -621,21 +621,19 @@ function CourseChapter() {
 
   let computerProfessor = '';
   if (chapter) {
-    {
-      (() => {
-        let professors;
-        professors = chapter.course.professors;
-        if (chapter.professors && chapter.professors.length > 0) {
-          professors = chapter.professors;
-        }
+    (() => {
+      let professors;
+      professors = chapter.course.professors;
+      if (chapter.professors && chapter.professors.length > 0) {
+        professors = chapter.professors;
+      }
 
-        computerProfessor = joinWords(
-          professors
-            .map((p) => p.name)
-            .filter((name): name is string => name !== undefined),
-        );
-      })();
-    }
+      computerProfessor = joinWords(
+        professors
+          .map((p) => p.name)
+          .filter((name): name is string => name !== undefined),
+      );
+    })();
   }
 
   const isScreenSm = useGreater('sm');
@@ -831,14 +829,12 @@ function CourseChapter() {
                     </div>
                   )}
                   {chapter.isCourseReview && (
-                    <>
-                      <div className="mx-4">
-                        <CourseReview
-                          chapter={chapter}
-                          formDisabled={!isLoggedIn}
-                        ></CourseReview>
-                      </div>
-                    </>
+                    <div className="mx-4">
+                      <CourseReviewComponent
+                        chapter={chapter}
+                        formDisabled={!isLoggedIn}
+                      ></CourseReviewComponent>
+                    </div>
                   )}
 
                   {chapter.isCourseExam && (

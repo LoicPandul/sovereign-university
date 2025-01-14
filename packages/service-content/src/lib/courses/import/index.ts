@@ -356,7 +356,7 @@ export const createUpdateCourses = ({ postgres }: Dependencies) => {
                   ${parsedCourse.topic},
                   ${parsedCourse.subtopic},
                   ${parsedCourse.original_language},
-                  ${parsedCourse.requires_payment === true ? true : false},
+                  ${parsedCourse.requires_payment === true},
                   ${parsedCourse.format},
                   ${parsedCourse.online_price_dollars},
                   ${parsedCourse.inperson_price_dollars},

@@ -33,7 +33,7 @@ import { AuthorCard } from '#src/components/author-card.tsx';
 import { useSmaller } from '#src/hooks/use-smaller.ts';
 import { ButtonWithArrow } from '#src/molecules/button-arrow.tsx';
 import { CourseCurriculum } from '#src/organisms/course-curriculum.tsx';
-import { CourseReview } from '#src/routes/_content/courses/$courseId/-components/course-review.tsx';
+import { CourseReviewComponent } from '#src/routes/_content/courses/$courseId/-components/course-review.tsx';
 import {
   AnswersReviewPanel,
   TimeStampDialog,
@@ -612,11 +612,11 @@ export const CourseRatings = ({ courseId }: { courseId: string }) => {
       <div className="w-full mt-5 md:mt-10">
         <div className="w-full max-w-[716px]">
           {isReviewFetched && !previousCourseReview && (
-            <CourseReview courseId={courseId} isLockedReview />
+            <CourseReviewComponent courseId={courseId} isLockedReview />
           )}
 
           {previousCourseReview && (
-            <CourseReview
+            <CourseReviewComponent
               courseId={courseId}
               existingReview={previousCourseReview}
               isDashboardReview

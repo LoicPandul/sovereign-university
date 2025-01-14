@@ -12,10 +12,7 @@ interface PaymentQrProps extends React.HTMLProps<HTMLDivElement> {
   onBack?: () => void;
 }
 
-export const PaymentQr = ({
-  checkoutData: checkoutData,
-  onBack,
-}: PaymentQrProps) => {
+export const PaymentQr = ({ checkoutData, onBack }: PaymentQrProps) => {
   const { t } = useTranslation();
   const borderClassName =
     'border border-[rgba(115,115,115,0.1)] rounded-xl overflow-hidden';

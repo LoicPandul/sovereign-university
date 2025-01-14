@@ -27,7 +27,7 @@ import { trpc } from '#src/utils/trpc.ts';
 import { useSmaller } from '#src/hooks/use-smaller.ts';
 import { ConclusionFinish } from './course-conclusion/conclusion-finish.tsx';
 import { StepMessage } from './course-conclusion/step-message.tsx';
-import { CourseReview } from './course-review.tsx';
+import { CourseReviewComponent } from './course-review.tsx';
 
 interface CourseConclusionProps {
   chapter: CourseChapterResponse;
@@ -420,7 +420,7 @@ export const CourseConclusion = ({ chapter }: CourseConclusionProps) => {
                     {t('courses.review.feedback')}
                   </span>
                   <div>
-                    <CourseReview
+                    <CourseReviewComponent
                       courseId={course?.id}
                       chapterId={reviewChapterId}
                       isConclusionReview

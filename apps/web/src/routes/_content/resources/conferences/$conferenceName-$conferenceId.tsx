@@ -181,28 +181,26 @@ function Conference() {
                   {conference.location} · {conference.year}
                 </span>
                 {(conference.twitterUrl || conference.websiteUrl) && (
-                  <>
-                    <div className="flex flex-wrap items-center gap-4 mt-[15px]">
-                      {conference.twitterUrl && (
-                        <a
-                          href={conference.twitterUrl}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                        >
-                          <BsTwitterX className="size-4 md:size-6" />
-                        </a>
-                      )}
-                      {conference.websiteUrl && (
-                        <a
-                          href={conference.websiteUrl}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                        >
-                          <BsLink className="size-4 md:size-6" />
-                        </a>
-                      )}
-                    </div>
-                  </>
+                  <div className="flex flex-wrap items-center gap-4 mt-[15px]">
+                    {conference.twitterUrl && (
+                      <a
+                        href={conference.twitterUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        <BsTwitterX className="size-4 md:size-6" />
+                      </a>
+                    )}
+                    {conference.websiteUrl && (
+                      <a
+                        href={conference.websiteUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        <BsLink className="size-4 md:size-6" />
+                      </a>
+                    )}
+                  </div>
                 )}
                 <div className="flex flex-wrap items-center justify-center md:justify-start gap-2.5 mt-5 md:mt-[25px]">
                   {conference.tags.map((tag) => (

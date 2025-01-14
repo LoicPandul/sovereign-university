@@ -158,7 +158,7 @@ function FormTextArea({
   );
 }
 
-export function CourseReview({
+export function CourseReviewComponent({
   chapter,
   courseId,
   chapterId,

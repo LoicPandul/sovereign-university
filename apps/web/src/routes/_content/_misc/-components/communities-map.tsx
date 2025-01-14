@@ -106,7 +106,7 @@ export const CommunitiesMap = ({ communities }: CommunitiesMapProps) => {
 
     map.addLayer(vectorLayer);
 
-    map.on('click', function (evt: { pixel: Pixel }) {
+    map.on('click', (evt: { pixel: Pixel }) => {
       const feature = map.forEachFeatureAtPixel(
         evt.pixel,
         (feature) => feature,
