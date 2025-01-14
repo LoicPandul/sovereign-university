@@ -96,8 +96,6 @@ function CourseDetails() {
     { enabled: isLoggedIn },
   );
 
-  console.log(userCourseProgress);
-
   const { data: payments, refetch: refetchPayment } =
     trpc.user.courses.getPayments.useQuery(undefined, { enabled: isLoggedIn });
 
