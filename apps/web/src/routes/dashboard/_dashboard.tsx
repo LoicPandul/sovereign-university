@@ -26,7 +26,7 @@ function Dashboard() {
               : 'px-4 py-6',
           )}
         >
-          <Outlet></Outlet>
+          <Outlet />
         </div>
       </div>
     </MainLayout>
@@ -35,7 +35,7 @@ function Dashboard() {
       <div className="flex flex-row text-white min-h-[1012px] mt-3 mx-4">
         <MenuDashboard location={location} />
         <div className="bg-white grow rounded-xl ml-3 p-8 text-black">
-          <Outlet></Outlet>
+          <Outlet />
         </div>
       </div>
     </MainLayout>

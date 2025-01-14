@@ -248,7 +248,7 @@ export const CoursePaymentModal = ({
                       </Trans>
                     )
                   }
-                ></PaymentDescription>
+                />
               )}
             </div>
           </div>

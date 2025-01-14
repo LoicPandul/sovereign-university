@@ -144,7 +144,7 @@ const TimelineSmall = ({
       </Link>
       <div className="flex flex-col">
         <div className="flex items-center justify-center gap-3">
-          <div className="h-0 grow border-t border-gray-300 min-w-8"></div>
+          <div className="h-0 grow border-t border-gray-300 min-w-8" />
           <span className="body-12px text-newBlack-1 text-center max-w-[225px]">
             {t('courses.part.count', {
               count: chapter.part.partIndex,
@@ -153,7 +153,7 @@ const TimelineSmall = ({
             : {chapter.part.title}
           </span>
 
-          <div className="h-0 grow border-t border-gray-300 min-w-8"></div>
+          <div className="h-0 grow border-t border-gray-300 min-w-8" />
         </div>
 
         <div
@@ -565,27 +565,28 @@ function CourseChapter() {
   const questionsArray: Question[] = useMemo(() => {
     if (quizzArray === undefined) {
       return [];
-    } else {
-      const temp = mapQuizzToQuestions(quizzArray);
-      return getRandomQuestions(temp, 5);
     }
+
+    const temp = mapQuizzToQuestions(quizzArray);
+    return getRandomQuestions(temp, 5);
   }, [quizzArray]);
 
   const sections: string[] = useMemo(() => {
     if (chapter === undefined) {
       return [];
-    } else {
-      const regex = /^### (.+)$/gm;
-
-      const sections: string[] = [];
-
-      let match;
-      while ((match = regex.exec(chapter.rawContent)) !== null) {
-        sections.push(match[1]);
-      }
-
-      return sections;
     }
+
+    const regex = /^### (.+)$/gm;
+
+    const sections: string[] = [];
+
+    let match;
+    // biome-ignore lint/suspicious/noAssignInExpressions: <explanation>
+    while ((match = regex.exec(chapter.rawContent)) !== null) {
+      sections.push(match[1]);
+    }
+
+    return sections;
   }, [chapter]);
 
   const {
@@ -833,7 +834,7 @@ function CourseChapter() {
                       <CourseReviewComponent
                         chapter={chapter}
                         formDisabled={!isLoggedIn}
-                      ></CourseReviewComponent>
+                      />
                     </div>
                   )}
 

@@ -52,7 +52,7 @@ const ScrollToTopButton = () => {
           style={{
             background: `conic-gradient(rgba(255, 92, 0, 1) 0% ${scrollPercentage}%, transparent ${scrollPercentage}% 100%)`,
           }}
-        ></div>
+        />
 
         <button
           onClick={scrollToTop}

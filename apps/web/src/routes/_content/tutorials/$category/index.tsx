@@ -113,7 +113,7 @@ function TutorialCategory() {
               ])}
             </h1>
           </div>
-          <hr className="mb-5 lg:mb-8"></hr>
+          <hr className="mb-5 lg:mb-8" />
           <p className="hidden w-full text-justify body-16px text-black md:flex">
             {t(`tutorials.${category}.description`)}
           </p>

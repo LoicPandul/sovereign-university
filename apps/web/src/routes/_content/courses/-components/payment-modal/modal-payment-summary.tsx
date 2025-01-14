@@ -11,6 +11,7 @@ import { assetUrl } from '#src/utils/index.ts';
 const getFormattedUnit = (amount: number, unit: string, floating = 2) => {
   let prefix = '';
   if (amount > 0 && amount < 0.01) {
+    // biome-ignore lint/style/noParameterAssign: <explanation>
     amount = 0.01;
     prefix = `< `;
   }

@@ -177,7 +177,7 @@ function Events() {
             />
           </>
         )}
-        <div className="h-px w-2/5 bg-newBlack-5 mx-auto sm:w-full"></div>
+        <div className="h-px w-2/5 bg-newBlack-5 mx-auto sm:w-full" />
         {/* Add my event */}
         <div className="flex flex-col justify-center items-center max-sm:p-4 p-0 max-sm:border max-sm:border-darkOrange-5 max-sm:rounded-2xl max-w-2xl mx-auto">
           <p className="text-darkOrange-5 text-center text-xl font-semibold leading-tight max-sm:hidden mb-2">

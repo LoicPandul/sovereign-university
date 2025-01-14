@@ -160,7 +160,8 @@ const extractData = (token: Token, type: string) => {
           const currentToken = token.tokens.at(index + i);
           if (currentToken?.raw === `</${type}>`) {
             return res ? res : null;
-          } else if (currentToken?.raw === `_`) {
+          }
+          if (currentToken?.raw === `_`) {
             res += '_';
           }
           i++;

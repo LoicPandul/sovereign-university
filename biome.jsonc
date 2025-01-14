@@ -27,37 +27,27 @@
     "rules": {
       "recommended": true,
       "a11y": {
-        "useKeyWithClickEvents": "off",
-        "useButtonType": "off",
-        "noSvgWithoutTitle": "off"
+        "useKeyWithClickEvents": "off", // to remove (easy)
+        "useButtonType": "off", // to remove
+        "noSvgWithoutTitle": "off" // to remove
       },
       "complexity": {
-        "useOptionalChain": "off",
-        "useLiteralKeys": "off"
+        "useOptionalChain": "off", // to remove
+        "useLiteralKeys": "off" // to remove
       },
       "correctness": {
-        "useExhaustiveDependencies": "off"
-      },
-      "security": {
-        "noDangerouslySetInnerHtml": "off"
+        "useExhaustiveDependencies": "info" // OK
       },
       "style": {
-        "useSingleVarDeclarator": "off",
-        "noInferrableTypes": "off",
-        "noNonNullAssertion": "off",
-        "noUnusedTemplateLiteral": "off",
-        "useTemplate": "off",
-        "noParameterAssign": "off",
-        "noUselessElse": "off",
-        "useSelfClosingElements": "off",
-        "useEnumInitializers": "off"
+        "noNonNullAssertion": "off", // TBD
+        "noUnusedTemplateLiteral": "off", // to remove
+        "useTemplate": "off", // to remove
+        "useEnumInitializers": "off" // OK
       },
       "suspicious": {
-        "noShadowRestrictedNames": "off",
-        "noAssignInExpressions": "off",
-        "noImplicitAnyLet": "off",
-        "noExplicitAny": "off",
-        "noArrayIndexKey": "off"
+        "noImplicitAnyLet": "off", // to remove
+        "noExplicitAny": "off", // OK
+        "noArrayIndexKey": "off" // TBD
       }
     }
   },

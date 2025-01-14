@@ -91,13 +91,14 @@ export const FinalExam = ({
 
         if (prev > 0) {
           return prev - 1;
-        } else {
-          if (!hasSubmitted) {
-            onSubmit();
-          }
-          clearInterval(timer);
-          return 0;
         }
+
+        if (!hasSubmitted) {
+          onSubmit();
+        }
+        clearInterval(timer);
+
+        return 0;
       });
     }, 1000);
 

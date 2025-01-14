@@ -123,5 +123,5 @@ export default function PieChart({
     onClickNextStep,
   ]);
 
-  return <svg className={className} ref={ref}></svg>;
+  return <svg className={className} ref={ref} />;
 }

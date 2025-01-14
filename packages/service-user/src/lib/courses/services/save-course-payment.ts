@@ -137,7 +137,9 @@ export const createSaveCoursePayment = (dependencies: Dependencies) => {
       );
 
       return checkoutData;
-    } else if (method === 'stripe') {
+    }
+
+    if (method === 'stripe') {
       const paymentId = uuidv4();
       const session = await stripePayment(
         `${courseId}: ${format} course`,
@@ -168,9 +170,9 @@ export const createSaveCoursePayment = (dependencies: Dependencies) => {
         checkoutUrl: session.id,
         clientSecret: session.client_secret as string,
       };
-    } else {
-      throw new Error(`Unsupported payment method ${method}`);
     }
+
+    throw new Error(`Unsupported payment method ${method}`);
   };
 };
 

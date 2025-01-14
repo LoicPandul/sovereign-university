@@ -28,9 +28,9 @@ import type { PaymentModalDataModel } from '#src/services/utils.tsx';
 import { assetUrl } from '#src/utils/index.ts';
 import { trpc } from '#src/utils/trpc.ts';
 
-import Map from '../../src/assets/home/map.webp';
 import SponsorMobile from '../../src/assets/home/mobile-logos.webp';
 import Sponsor from '../../src/assets/home/sponsor-images.webp';
+import WorldMap from '../../src/assets/home/world-map.webp';
 import { MainLayout } from '../components/main-layout.tsx';
 import { NotFound } from '../components/not-found.tsx';
 import { AboutUs } from '../molecules/about-us.tsx';
@@ -322,7 +322,7 @@ function Home() {
               {t('home.eventSection.eventTitle')}
             </h1>
             <img
-              src={Map}
+              src={WorldMap}
               alt=""
               className="mx-auto 2xl:self-center lg:mx-0 object-cover w-full lg:w-[1213px] lg:h-[641px] [overflow-clip-margin:_unset] lg:mt-[120px]"
             />

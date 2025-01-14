@@ -235,7 +235,7 @@ function DashboardProfessorProfile() {
             />
           </TabsContent>
 
-          <TabsContent value="notifications"></TabsContent>
+          <TabsContent value="notifications" />
         </Tabs>
       )}
     </div>

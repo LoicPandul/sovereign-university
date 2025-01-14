@@ -71,6 +71,7 @@ export const createS3Service = (config: S3Config): S3Service => {
     },
     // Upload a file to the bucket
     put(key: string, body: Data, contentType?: string) {
+      // biome-ignore lint/style/noParameterAssign: <explanation>
       contentType ??=
         typeof body === 'string' ? 'text/plain' : 'application/octet-stream';
 
@@ -85,6 +86,7 @@ export const createS3Service = (config: S3Config): S3Service => {
     },
     // Upload a stream to the bucket
     async upload(key: string, stream: Readable, contentType?: string) {
+      // biome-ignore lint/style/noParameterAssign: <explanation>
       contentType ??= 'application/octet-stream';
 
       const upload = new Upload({

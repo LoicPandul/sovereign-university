@@ -136,10 +136,10 @@ const Buttons = ({
     },
   );
 
-  let timezone: string,
-    formattedStartDate: string,
-    formattedTime: string,
-    formattedCapacity: string;
+  let timezone: string;
+  let formattedStartDate: string;
+  let formattedTime: string;
+  let formattedCapacity: string;
 
   if (chapter) {
     timezone = chapter.timezone ? chapter.timezone : 'UTC';

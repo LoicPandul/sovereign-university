@@ -65,5 +65,5 @@ export const DividerSimple = ({
   className?: string;
   mode?: 'dark' | 'light';
 }) => {
-  return <div className={cn(dividerSimpleVariant({ mode }), className)}></div>;
+  return <div className={cn(dividerSimpleVariant({ mode }), className)} />;
 };

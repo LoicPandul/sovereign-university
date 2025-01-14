@@ -97,7 +97,7 @@ export const CourseDiplomas = () => {
                           </Button>
                         </Link>
                       </p>
-                      <p className=""></p>
+                      <p />
                     </Card>
                   );
                 })}

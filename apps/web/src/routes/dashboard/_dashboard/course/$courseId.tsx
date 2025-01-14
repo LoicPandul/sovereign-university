@@ -348,7 +348,7 @@ const CourseExamsTable = ({
             <span className="max-md:hidden">{t('words.status')}</span>
           </span>
         </div>
-        <div className="h-px bg-newGray-1"></div>
+        <div className="h-px bg-newGray-1" />
         {[...examResults]
           .sort(
             (a, b) =>

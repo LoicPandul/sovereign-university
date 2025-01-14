@@ -111,7 +111,7 @@ export const CurrentEvents = ({
         </div>
       </section>
       {showDivider && (
-        <div className="h-px w-2/5 bg-newBlack-5 mx-auto sm:w-full"></div>
+        <div className="h-px w-2/5 bg-newBlack-5 mx-auto sm:w-full" />
       )}
     </>
   );

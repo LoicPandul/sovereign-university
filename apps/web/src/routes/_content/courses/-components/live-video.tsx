@@ -25,7 +25,7 @@ export const LiveVideo = ({ url, chatUrl, displayVideo }: LiveVideoProps) => {
             src={url}
             allowFullScreen={true}
             sandbox="allow-same-origin allow-scripts allow-popups"
-          ></iframe>
+          />
           {chatUrl && (
             <iframe
               src={chatUrl}
@@ -33,7 +33,7 @@ export const LiveVideo = ({ url, chatUrl, displayVideo }: LiveVideoProps) => {
               sandbox="allow-same-origin allow-scripts allow-popups allow-forms"
               className="w-full"
               height="315"
-            ></iframe>
+            />
           )}
         </div>
       )}

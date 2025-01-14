@@ -17,7 +17,7 @@ export const BuilderCard = (props: BuilderCardProps) => {
           )}
           src={props.logo}
           alt={props.name}
-        ></img>
+        />
         <p className="absolute text-center text-xs md:text-sm font-bold text-white opacity-0 group-hover/builder:opacity-100 group-focus/builder:opacity-100 transition-all">
           {props.name}
         </p>
