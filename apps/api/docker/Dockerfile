@@ -45,7 +45,7 @@ RUN pnpm install --frozen-lockfile
 # Build the project and its dependencies
 COPY --from=builder /app/out/full/ .
 COPY turbo.json tsconfig.json ./
-RUN pnpm turbo build --filter="@blms/api"...
+RUN pnpm turbo build
 
 # Final image
 FROM base AS runner
