@@ -38,7 +38,7 @@ function EventDetails() {
     id: params.eventId,
   });
 
-  let videoUrl: string = '';
+  let videoUrl = '';
   if (event?.replayUrl) {
     videoUrl = event?.replayUrl;
   } else if (event?.liveUrl) {
@@ -100,7 +100,7 @@ function EventDetails() {
                     src={videoUrl}
                     allowFullScreen={true}
                     sandbox="allow-same-origin allow-scripts allow-popups"
-                  ></iframe>
+                  />
                 )}
                 {event?.chatUrl && (
                   <iframe
@@ -109,7 +109,7 @@ function EventDetails() {
                     sandbox="allow-same-origin allow-scripts allow-popups allow-forms"
                     className="w-full"
                     height="315"
-                  ></iframe>
+                  />
                 )}
               </div>
             </div>

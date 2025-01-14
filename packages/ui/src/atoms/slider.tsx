@@ -42,7 +42,7 @@ const Slider = React.forwardRef<
             props.max &&
             `${(Math.abs(average - props.value[0]) / (props.max - average) / 2) * 100}%`,
         }}
-      ></div>
+      />
     </SliderPrimitive.Root>
   );
 });

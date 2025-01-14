@@ -19,8 +19,8 @@
     "build:packages": "turbo run build --filter='./packages/*'",
     "docker:dev": "docker compose pull && docker compose up -d --remove-orphans postgres redis && docker compose up -d --build --renew-anon-volumes api web cdn && docker compose exec -u 0:0 api sh -c 'echo $CDN_PATH'",
     "format": "biome format --write .",
-    "lint": "biome check .",
-    "lint:fix": "biome check . --write",
+    "lint": "biome check . --diagnostic-level=warn",
+    "lint:fix": "biome check . --write --diagnostic-level=ward",
     "nuke": "pnpm clear && rm -r .turbo && find . -name 'node_modules' -type d -prune -exec rm -rf '{}' + && pnpm install && pnpm build:packages",
     "prepare": "husky",
     "knip": "knip",
@@ -48,7 +48,9 @@
     "vite-tsconfig-paths": "^5.1.4"
   },
   "lint-staged": {
-    "*": ["biome check --no-errors-on-unmatched --files-ignore-unknown=true"]
+    "*": [
+      "biome check --no-errors-on-unmatched --files-ignore-unknown=true --diagnostic-level=warn"
+    ]
   },
   "packageManager": "pnpm@9.15.3"
 }

@@ -20,6 +20,7 @@ export const fixEmbedUrl = (src: string) => {
   }
 
   if (src.includes('youtu')) {
+    // biome-ignore lint/style/noParameterAssign: <explanation>
     src = src.replace('watch?v=', '');
   }
 

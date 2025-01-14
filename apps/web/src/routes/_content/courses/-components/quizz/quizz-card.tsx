@@ -51,15 +51,16 @@ export default function QuizzCard({
       (selectedAnswer, index) => {
         if (selectedAnswer === null) {
           return '#FFF';
-        } else {
-          const correctAnswer = questions[index].correctAnswer;
-          if (selectedAnswer === correctAnswer) {
-            tempNumberOfCorrectAnswers++;
-            return '#53D250';
-          } else {
-            return '#E63333';
-          }
         }
+
+        const correctAnswer = questions[index].correctAnswer;
+
+        if (selectedAnswer === correctAnswer) {
+          tempNumberOfCorrectAnswers++;
+          return '#53D250';
+        }
+
+        return '#E63333';
       },
     );
 

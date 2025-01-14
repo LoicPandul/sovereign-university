@@ -304,7 +304,7 @@ const ExamResult = ({
                 </>
               ) : (
                 <>
-                  <td></td>
+                  <td />
                   <td colSpan={4} className="pr-32">
                     <BcertDetails
                       exam={exam}
@@ -374,9 +374,9 @@ const ExamResult = ({
                         </div>
                       </div>
                     </div>
-                    <div className="h-6"></div>
+                    <div className="h-6" />
                   </td>
-                  <td colSpan={1}></td>
+                  <td colSpan={1} />
                 </>
               )}
             </>
@@ -390,7 +390,7 @@ const ExamResult = ({
                         className="h-fit max-md:hidden"
                         src={DummyBCert}
                         alt="Dummy b-cert"
-                      ></img>
+                      />
 
                       <div className="w-full pr-4">
                         <BcertDetails
@@ -411,7 +411,7 @@ const ExamResult = ({
                         className="h-fit max-md:hidden"
                         src={DummyBCert}
                         alt="Dummy b-cert"
-                      ></img>
+                      />
 
                       <div className="w-full pr-4">
                         <BcertDetails
@@ -496,8 +496,8 @@ const ExamTicket = ({
       >
         <td>{examTicket.date.toLocaleDateString()}</td>
         <td>{examTicket.location}</td>
-        <td className="max-md:hidden"></td>
-        <td className="max-md:hidden"></td>
+        <td className="max-md:hidden" />
+        <td className="max-md:hidden" />
         <td className="italic pl-8">
           {examTicket.date.getTime() > Date.now() ? (
             <span>{t('words.booked')}</span>
@@ -541,7 +541,7 @@ const ExamTicket = ({
                       className="mt-2 mx-auto"
                       src={DummyBCert}
                       alt="Dummy b-cert"
-                    ></img>
+                    />
                   </div>
                 ) : (
                   <>
@@ -558,7 +558,7 @@ const ExamTicket = ({
                         className="mt-4"
                         src={DummyBCert}
                         alt="Dummy b-cert"
-                      ></img>
+                      />
                     </div>
                   </>
                 )}
@@ -567,7 +567,7 @@ const ExamTicket = ({
           ) : (
             <>
               <td className=" pt-6 pb-2" colSpan={2}>
-                <img src={DummyBCert} alt="Dummy b-cert"></img>
+                <img src={DummyBCert} alt="Dummy b-cert" />
               </td>
               <td className="pt-6 " colSpan={3}>
                 {examTicket.date.getTime() > Date.now() ? (
@@ -595,7 +595,7 @@ const ExamTicket = ({
                   </div>
                 )}
               </td>
-              <td></td>
+              <td />
             </>
           )}
         </tr>
@@ -681,7 +681,7 @@ const TableFooter = ({
             isLastElementSelected ? 'bg-newGray-6 ' : '',
             hasOneElementOpen ? 'shadow-lg' : '',
           )}
-        ></td>
+        />
       </tr>
     </tfoot>
   );

@@ -78,7 +78,7 @@ export const TutorialCard = ({
               />
               <div
                 className={`h-[9px] mx-3 w-px md:hidden ${dark ? 'bg-white' : 'bg-black'}`}
-              ></div>
+              />
               <MdThumbDown className="text-red-5 size-[18px] lg:size-[21px]" />
             </span>
             <span
@@ -135,7 +135,7 @@ export const TutorialCard = ({
 
             <div
               className={`h-[9px] mx-3 w-px md:hidden ${dark ? 'bg-white' : 'bg-black'}`}
-            ></div>
+            />
             <MdThumbDown className="text-red-5 size-[18px] lg:size-[21px]" />
           </span>
           <span

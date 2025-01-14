@@ -27,9 +27,9 @@ export const createRestSyncRoutes = (
       if (syncLocked) {
         res.status(409).json({ error: 'Already syncing' });
         return;
-      } else {
-        syncLocked = true;
       }
+
+      syncLocked = true;
 
       try {
         const result = await syncGithubRepositories();

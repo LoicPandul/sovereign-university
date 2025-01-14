@@ -221,7 +221,7 @@ function DashboardProfile() {
           </div>
         </TabsContent>
 
-        <TabsContent value="document"></TabsContent>
+        <TabsContent value="document" />
       </Tabs>
 
       <ChangeDisplayNameModal

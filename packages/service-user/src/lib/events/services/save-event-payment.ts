@@ -119,7 +119,9 @@ export const createSaveEventPayment = (dependencies: Dependencies) => {
       );
 
       return checkoutData;
-    } else if (method === 'stripe') {
+    }
+
+    if (method === 'stripe') {
       const paymentId = uuidv4();
       const session = await stripePayment(
         `${event.name}: ${withPhysical ? 'inperson' : 'online'} event`,
@@ -150,9 +152,9 @@ export const createSaveEventPayment = (dependencies: Dependencies) => {
         checkoutUrl: session.id,
         clientSecret: session.client_secret as string,
       };
-    } else {
-      throw new Error(`Unsupported payment method ${method}`);
     }
+
+    throw new Error(`Unsupported payment method ${method}`);
   };
 };
 

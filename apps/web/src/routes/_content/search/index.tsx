@@ -107,12 +107,13 @@ function SearchPage() {
 
                       {item.highlight.title ? (
                         <div
+                          // biome-ignore lint/security/noDangerouslySetInnerHtml: <explanation>
                           dangerouslySetInnerHTML={{
                             __html: DOMPurify.sanitize(
                               item.highlight.title?.snippet ?? '',
                             ),
                           }}
-                        ></div>
+                        />
                       ) : (
                         <div>{item.document.title}</div>
                       )}
@@ -121,12 +122,13 @@ function SearchPage() {
                     {item.highlight.body && (
                       <div
                         className="ps-2 pt-2"
+                        // biome-ignore lint/security/noDangerouslySetInnerHtml: <explanation>
                         dangerouslySetInnerHTML={{
                           __html: DOMPurify.sanitize(
                             item.highlight.body?.snippet ?? '',
                           ),
                         }}
-                      ></div>
+                      />
                     )}
                   </a>
                 </li>

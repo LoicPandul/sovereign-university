@@ -182,7 +182,7 @@ export const CourseConclusion = ({ chapter }: CourseConclusionProps) => {
       });
       updateStep(5);
     }
-  }, [previousExamResults, step, completeChapterMutation, chapter]);
+  }, [step, completeChapterMutation, chapter]);
 
   useEffect(() => {
     document.body.style.overflow = step === 5 ? 'hidden' : 'auto';
@@ -190,7 +190,7 @@ export const CourseConclusion = ({ chapter }: CourseConclusionProps) => {
 
   useEffect(() => {
     scrollToHeader();
-  }, [step]);
+  }, []);
 
   const lineContainerClass = 'flex items-center w-full h-12 md:h-[100px]';
   const lineSizeClass = 'w-full h-1 md:h-[5px] rounded-l-full';
@@ -230,7 +230,7 @@ export const CourseConclusion = ({ chapter }: CourseConclusionProps) => {
               )}
             >
               <div className={cn(linkMainClass, 'w-full shrink-0')}>
-                {step >= 0 ? <div className={linkSubClass}></div> : null}
+                {step >= 0 ? <div className={linkSubClass} /> : null}
               </div>
             </div>
 
@@ -257,7 +257,7 @@ export const CourseConclusion = ({ chapter }: CourseConclusionProps) => {
             <div className={lineContainerClass}>
               <div className={linkMainClass}>
                 {step >= 1 && isAllClassicChaptersDone ? (
-                  <div className={linkSubClass}></div>
+                  <div className={linkSubClass} />
                 ) : null}
               </div>
             </div>
@@ -286,7 +286,7 @@ export const CourseConclusion = ({ chapter }: CourseConclusionProps) => {
                 (courseReview ||
                   isCourseReviewSubmitted ||
                   isCourseReviewSkipped) ? (
-                  <div className={linkSubClass}></div>
+                  <div className={linkSubClass} />
                 ) : null}
               </div>
             </div>
@@ -322,7 +322,7 @@ export const CourseConclusion = ({ chapter }: CourseConclusionProps) => {
                 {step >= 3 &&
                 ((previousExamResults && previousExamResults.succeeded) ||
                   isCourseExamSkipped) ? (
-                  <div className={linkSubClass}></div>
+                  <div className={linkSubClass} />
                 ) : null}
               </div>
             </div>
@@ -380,7 +380,7 @@ export const CourseConclusion = ({ chapter }: CourseConclusionProps) => {
                     displayNotStarted
                     expandAll
                     className="self-start w-full md:mt-2.5"
-                  ></CourseCurriculum>
+                  />
                   {step > 1 ? null : (
                     // TODO CHECK IF TRANSITIONING
                     <Button

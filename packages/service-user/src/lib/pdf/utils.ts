@@ -54,10 +54,10 @@ export const breakLine = (
   const arr = text.split(' ');
   let shift = firstLarger ? 0 : arr.length;
 
-  let t1 = '',
-    t2 = '',
-    w1 = 0,
-    w2 = 0;
+  let t1 = '';
+  let t2 = '';
+  let w1 = 0;
+  let w2 = 0;
 
   do {
     t1 = arr.slice(0, shift).join(' ');

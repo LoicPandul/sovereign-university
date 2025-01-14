@@ -95,9 +95,9 @@ export const AppContextProvider = ({ children }: PropsWithChildren) => {
         if (data && data.uid && data.role) {
           const session: Session = { user: data };
           return setSession(session);
-        } else {
-          return setSession(null);
         }
+
+        return setSession(null);
       })
       .catch(() => null);
 

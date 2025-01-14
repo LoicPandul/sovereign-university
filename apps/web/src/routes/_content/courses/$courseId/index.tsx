@@ -794,7 +794,7 @@ function CourseDetails() {
           initialState={authMode}
         />
       ) : (
-        <div></div>
+        <div />
       )}
     </CourseLayout>
   );
