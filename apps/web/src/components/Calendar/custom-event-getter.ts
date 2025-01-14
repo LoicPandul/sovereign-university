@@ -9,7 +9,6 @@ export const customEventGetter = (event: CalendarEvent) => {
           color: '#FF9401',
         },
       };
-      break;
     }
     case 'conference': {
       return {
@@ -18,7 +17,6 @@ export const customEventGetter = (event: CalendarEvent) => {
           color: '#AD3F00',
         },
       };
-      break;
     }
     case 'exam': {
       return {
@@ -27,7 +25,6 @@ export const customEventGetter = (event: CalendarEvent) => {
           color: '#FF0000',
         },
       };
-      break;
     }
     case 'meetups': {
       return {
@@ -36,7 +33,6 @@ export const customEventGetter = (event: CalendarEvent) => {
           color: '#45A172',
         },
       };
-      break;
     }
     case 'course': {
       return {
@@ -45,13 +41,11 @@ export const customEventGetter = (event: CalendarEvent) => {
           color: '#FF5C00',
         },
       };
-      break;
     }
     default: {
       return {
         style: {},
       };
-      break;
     }
   }
 };

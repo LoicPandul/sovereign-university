@@ -186,6 +186,7 @@ const ExamResult = ({
           }
         }}
         tabIndex={0}
+        // biome-ignore lint/a11y/useSemanticElements: <explanation>
         role="button"
       >
         <td className="py-6 pr-1.5">{exam.date.toLocaleDateString()}</td>
@@ -490,6 +491,7 @@ const ExamTicket = ({
           }
         }}
         tabIndex={0}
+        // biome-ignore lint/a11y/useSemanticElements: <explanation>
         role="button"
       >
         <td>{examTicket.date.toLocaleDateString()}</td>

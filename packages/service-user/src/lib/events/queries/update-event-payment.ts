@@ -58,6 +58,4 @@ export const updateEventPaymentInvoiceId = ({
         WHERE stripe_payment_intent = ${intentId}
       ;
     `;
-
-  throw new Error('Should have isPaid or isExpired = true');
 };

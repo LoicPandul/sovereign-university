@@ -29,18 +29,15 @@
       "a11y": {
         "useKeyWithClickEvents": "off",
         "useButtonType": "off",
-        "noSvgWithoutTitle": "off",
-        "useSemanticElements": "off"
+        "noSvgWithoutTitle": "off"
       },
       "complexity": {
         "useOptionalChain": "off",
         "useLiteralKeys": "off"
       },
       "correctness": {
-        "noUnreachable": "off",
         "useExhaustiveDependencies": "off"
       },
-      "performance": { "noDelete": "off" },
       "security": {
         "noDangerouslySetInnerHtml": "off"
       },

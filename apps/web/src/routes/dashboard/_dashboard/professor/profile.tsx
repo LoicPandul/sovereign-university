@@ -167,14 +167,13 @@ function DashboardProfessorProfile() {
                     {professor.links.nostr && (
                       <div className="flex gap-5 items-center">
                         <Nostr className="size-[18px] fill-black shrink-0" />
-                        <div
+                        <button
                           className="w-fit truncate body-14px text-black cursor-pointer"
                           onClick={() => {
                             navigator.clipboard.writeText(
                               professor.links.nostr || '',
                             );
                           }}
-                          role="button"
                           tabIndex={0}
                           onKeyDown={(event) => {
                             if (event.key === 'Enter' || event.key === ' ') {
@@ -186,7 +185,7 @@ function DashboardProfessorProfile() {
                           title="Click to copy Nostr address"
                         >
                           {professor.links.nostr}
-                        </div>
+                        </button>
                       </div>
                     )}
                     {professor.links.github && (

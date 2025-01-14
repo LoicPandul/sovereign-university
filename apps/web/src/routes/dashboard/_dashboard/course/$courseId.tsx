@@ -373,10 +373,9 @@ const CourseExamsTable = ({
                 )}
                 key={index}
               >
-                <div
+                <button
                   className="cursor-pointer hover:font-medium body-14px md:body-16px text-newBlack-1 flex md:justify-between items-center px-2.5"
                   onClick={() => toggleCollapse(index)}
-                  role="button"
                   tabIndex={0}
                   onKeyDown={(e) => {
                     if (e.key === 'Enter' || e.key === ' ') {
@@ -420,7 +419,7 @@ const CourseExamsTable = ({
                       )}
                     />
                   </div>
-                </div>
+                </button>
                 <div
                   className={cn(
                     'flex flex-col max-md:gap-4 w-full items-center',

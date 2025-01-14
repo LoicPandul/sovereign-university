@@ -109,7 +109,7 @@ for (const currentDirectoryPath of allDirectoryPaths) {
     tsconfigData.references = [...new Set(newReferences)];
 
     if (tsconfigData.references.length === 0) {
-      delete tsconfigData.references;
+      tsconfigData.references = undefined;
     }
 
     writeJSON(tsconfigFilePath, tsconfigData);

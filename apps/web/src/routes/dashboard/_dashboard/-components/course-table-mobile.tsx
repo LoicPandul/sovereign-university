@@ -214,9 +214,8 @@ export const CourseTableMobile = ({
                           : '';
 
                         return (
-                          <div
+                          <button
                             key={course.id}
-                            role="button"
                             tabIndex={0}
                             className={`rounded-md size-[35px] min-[425px]:size-[50px] ${bgColor} ${activeBorder} flex items-center justify-center p-4 mx-auto`}
                             onClick={() => setSelectedCourse(course.id)}
@@ -231,7 +230,7 @@ export const CourseTableMobile = ({
                               <br />
                               {course.id.slice(3)}
                             </span>
-                          </div>
+                          </button>
                         );
                       },
                     )}
