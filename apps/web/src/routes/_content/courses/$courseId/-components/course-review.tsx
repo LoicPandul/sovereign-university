@@ -168,6 +168,7 @@ export function CourseReview({
   isConclusionReview,
   isLockedReview,
   onReviewSuccess,
+  onSkip,
 }: {
   chapter?: CourseChapterResponse;
   courseId?: string;
@@ -178,6 +179,7 @@ export function CourseReview({
   isConclusionReview?: boolean;
   isLockedReview?: boolean;
   onReviewSuccess?: () => void;
+  onSkip?: () => void;
 }) {
   const { t } = useTranslation();
   const navigate = useNavigate();
@@ -496,7 +498,7 @@ export function CourseReview({
                     </div>
 
                     {displayBottomButtons && (
-                      <div className="flex flex-wrap items-center justify-center gap-4 mx-auto mt-6 lg:mt-4">
+                      <div className="flex flex-wrap max-md:flex-col items-center justify-center gap-4 mx-auto mt-6 lg:mt-4">
                         <Button
                           className="w-fit"
                           variant="primary"
@@ -510,6 +512,18 @@ export function CourseReview({
                               : t('courses.review.editReview')
                             : t('courses.review.submitReview')}
                         </Button>
+
+                        {onSkip && (
+                          <Button
+                            className="w-fit"
+                            variant="outline"
+                            size={window.innerWidth >= 768 ? 'l' : 'm'}
+                            type="button"
+                            onClick={onSkip}
+                          >
+                            {t('words.skip')}
+                          </Button>
+                        )}
 
                         {!isLockedReview && !isConclusionReview ? (
                           <Button
