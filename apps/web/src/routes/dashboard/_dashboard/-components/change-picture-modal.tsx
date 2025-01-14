@@ -98,7 +98,10 @@ export const ChangePictureModal = (props: Props) => {
                 activeTab === Tabs.PREVIEW &&
                   'bg-darkOrange-5 text-white cursor-default',
               )}
-              onClick={() => (getCropData(), setActiveTab(Tabs.PREVIEW))}
+              onClick={() => {
+                getCropData();
+                setActiveTab(Tabs.PREVIEW);
+              }}
             >
               {t('dashboard.profile.preview')}
             </button>

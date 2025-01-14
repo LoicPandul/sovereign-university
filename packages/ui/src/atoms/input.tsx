@@ -76,7 +76,10 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
       <div className={cn('', className ?? '')}>
         {labelText && (
           <div className="flex flex-col justify-between text-center mb-2">
-            <label className="max-md:text-sm max-md:leading-[120%] md:desktop-h7 text-dashboardSectionText">
+            <label
+              className="max-md:text-sm max-md:leading-[120%] md:desktop-h7 text-dashboardSectionText"
+              htmlFor={`${labelText}-optional`}
+            >
               {labelText}{' '}
               {mandatory && <span className="text-[#E72940]">*</span>}
             </label>

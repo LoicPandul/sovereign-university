@@ -306,7 +306,8 @@ function Conference() {
                 return {
                   name: stage.name,
                   onClick: () => {
-                    setActiveVideo(0), setActiveStage(index);
+                    setActiveVideo(0);
+                    setActiveStage(index);
                   },
                 };
               })}
