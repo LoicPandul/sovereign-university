@@ -508,6 +508,7 @@ export const CourseConclusion = ({ chapter }: CourseConclusionProps) => {
                       </Link>
                       <Button
                         variant="outline"
+                        className="w-fit mx-auto"
                         onClick={() => {
                           scrollToHeader();
                           setIsCourseExamSkipped(true);
