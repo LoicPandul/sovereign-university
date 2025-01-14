@@ -215,7 +215,7 @@ function CourseDetails() {
           alt={course.name}
           className="rounded-[20px] w-full lg:max-w-[550px] shrink-1"
         />
-        <article className="flex flex-col lg:pt-3 w-full lg:max-w-[564px]">
+        <article className="flex flex-col lg:pt-3 w-full lg:max-w-[564px] [&>*]:border-b [&>*]:border-newGray-4">
           <ListItem
             leftText={t('words.professor')}
             rightText={course.professors.map((professor, index) => (
