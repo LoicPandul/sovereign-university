@@ -928,10 +928,7 @@
     "blogCategories": {
       "all": "All",
       "content": "Content",
-      "course": "Course release",
       "feature": "Feature",
-      "patch": "Patch notes",
-      "grants": "Grants",
       "network": "Network"
     },
     "legalSections": {

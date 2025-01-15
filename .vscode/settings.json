@@ -1,21 +1,14 @@
 {
-  "settings": {
-    "i18n-ally.keystyle": "nested",
-    "i18n-ally.localesPaths": ["apps/web/public/locales"],
-    "i18n-ally.autoDetection": true,
-    "i18n-ally.enabledFrameworks": ["react"],
-    "i18n-ally.indent": 2,
-    "i18n-ally.tabStyle": "space",
-    "i18n-ally.editor.preferEditor": true,
-    "i18n-ally.sortKeys": true,
-    "i18n-ally.keepFulfilled": false,
-    "i18n-ally.enabledParsers": ["json"],
-    "i18n-ally.extract.autoDetect": true,
-    "i18n-ally.sourceLanguage": "en"
-  },
-  "i18n-ally.localesPaths": ["apps/web/public/locales"],
-  "i18n-ally.keystyle": "nested",
+  "i18n-ally.autoDetection": true,
+  "i18n-ally.editor.preferEditor": true,
+  "i18n-ally.enabledFrameworks": ["react"],
+  "i18n-ally.enabledParsers": ["json"],
   "i18n-ally.extract.autoDetect": true,
+  "i18n-ally.keysInUse": ["publicCommunication.blogCategories.all"],
+  "i18n-ally.keystyle": "nested",
+  "i18n-ally.localesPaths": ["apps/web/public/locales"],
+  "i18n-ally.sortKeys": true,
+  "i18n-ally.sourceLanguage": "en",
   "search.exclude": {
     "**/tsconfig.*.tsbuildinfo": true
   },
@@ -33,6 +26,10 @@
     ".*Classes*",
     ".*Class*"
   ],
+  "tailwindCSS.experimental.classRegex": [
+    ["cva\\(([^)]*)\\)", "[\"'`]([^\"'`]*).*?[\"'`]"],
+    ["cx\\(([^)]*)\\)", "(?:'|\"|`)([^']*)(?:'|\"|`)"]
+  ],
   "cSpell.words": [
     "Ajelex",
     "Asio",
@@ -46,6 +43,7 @@
     "blogposts",
     "bytea",
     "corestore",
+    "cuboplus",
     "dont",
     "esplora",
     "fontkit",
@@ -58,6 +56,7 @@
     "nostr",
     "openpgp",
     "opentimestamps",
+    "oups",
     "paynym",
     "planb",
     "postbuild",
@@ -69,6 +68,7 @@
     "satoshi",
     "sats",
     "secp256k1",
+    "secu",
     "sendgrid",
     "superadmin",
     "tanstack",
@@ -80,9 +80,5 @@
     "uuidv",
     "webp",
     "zoomable"
-  ],
-  "tailwindCSS.experimental.classRegex": [
-    ["cva\\(([^)]*)\\)", "[\"'`]([^\"'`]*).*?[\"'`]"],
-    ["cx\\(([^)]*)\\)", "(?:'|\"|`)([^']*)(?:'|\"|`)"]
   ]
 }
