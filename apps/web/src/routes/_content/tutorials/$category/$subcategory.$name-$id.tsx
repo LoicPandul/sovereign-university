@@ -148,7 +148,6 @@ const AuthorDetails = ({
 function TutorialDetails() {
   const { i18n } = useTranslation();
   const params = Route.useParams();
-  console.log(params);
   const id = params.id;
   const navigate = useNavigate();
   const { navigateTo404 } = useNavigateMisc();

@@ -55,11 +55,24 @@ const BlogMarkdownBody = ({
             {children}
           </h3>
         ),
-        p: ({ children }) => (
-          <div className=" text-black mb-4 text-base tracking-wide md:text-justify text-start">
-            {children}
-          </div>
-        ),
+        p: ({ children }) => {
+          if (
+            Array.isArray(children) &&
+            children.length === 1 &&
+            typeof children[0] === 'string'
+          ) {
+            return (
+              <p className=" text-black mb-4 text-base tracking-wide md:text-justify text-start">
+                {children}
+              </p>
+            );
+          }
+          return (
+            <div className="text-black mb-4 text-base tracking-wide md:text-justify text-start">
+              {children}
+            </div>
+          );
+        },
         img: ({ src, alt }) =>
           src?.includes('youtube.com') || src?.includes('youtu.be') ? (
             <div className="mx-auto mb-2 max-w-full rounded-lg py-6">
