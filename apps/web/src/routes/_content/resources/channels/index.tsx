@@ -77,7 +77,7 @@ function YoutubeChannels() {
           </div>
         )}
 
-        <div className="flex flex-wrap gap-4 md:gap-11">
+        <div className="flex flex-wrap gap-4 md:gap-11 max-lg:justify-center">
           {!isFetched && <Loader size="s" />}
           {sortedYoutubeChannels?.length ? (
             sortedYoutubeChannels.map((youtubeChannel) => (
@@ -128,7 +128,7 @@ function YoutubeChannels() {
                   {LANGUAGES_MAP['en']}
                 </span>
               </div>
-              <div className="flex flex-wrap gap-4 md:gap-11">
+              <div className="flex flex-wrap gap-4 md:gap-11 max-lg:justify-center">
                 {englishYoutubeChannels.map((youtubeChannel) => (
                   <Fragment key={youtubeChannel.id}>
                     <Link
