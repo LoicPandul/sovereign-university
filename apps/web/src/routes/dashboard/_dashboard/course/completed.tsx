@@ -8,7 +8,6 @@ import { Divider, Tabs, TabsContent } from '@blms/ui';
 
 import { TabsListUnderlined } from '#src/components/Tabs/TabsListUnderlined.tsx';
 import { AuthorCard } from '#src/components/author-card.tsx';
-import { useSmaller } from '#src/hooks/use-smaller.ts';
 import { CourseCurriculum } from '#src/organisms/course-curriculum.tsx';
 import { addSpaceToCourseId } from '#src/utils/courses.ts';
 import { trpc } from '#src/utils/trpc.ts';
@@ -116,8 +115,6 @@ const CompletedCourseDetails = ({
 }) => {
   const { i18n } = useTranslation();
 
-  const isTablet = useSmaller('lg');
-
   const { data: course, isFetched } = trpc.content.getCourse.useQuery(
     {
       id: courseId,
@@ -154,7 +151,7 @@ const CompletedCourseDetails = ({
             hideGithubLink
             className="self-start w-full mt-5 md:mt-10"
           >
-            <h4 className="subtitle-small-caps-14px md:subtitle-medium-caps-18px text-darkOrange-5 mb-7 md:mb-6">
+            <h4 className="title-medium-sb-18px md:subtitle-medium-caps-18px text-dashboardSectionTitle mb-7 md:mb-6">
               {t('courses.details.curriculum')}
             </h4>
           </CourseCurriculum>
@@ -162,7 +159,7 @@ const CompletedCourseDetails = ({
           {isExamResultsFetched && examResults && examResults.length > 0 && (
             <>
               <Divider
-                className="max-md:hidden mt-10"
+                className="mt-10 max-w-[1024px]"
                 width="w-full"
                 mode="light"
               />
@@ -176,13 +173,13 @@ const CompletedCourseDetails = ({
                     ?.chapters.find((chapter) => chapter?.isCourseExam)
                     ?.chapterId
                 }`}
-                openLastExam={false}
+                openLastExam={true}
               />
             </>
           )}
 
           <Divider
-            className="max-md:hidden mt-10"
+            className="mt-10 max-w-[948px]"
             width="w-full"
             mode="light"
           />
@@ -190,7 +187,7 @@ const CompletedCourseDetails = ({
           <CourseRatings courseId={courseId} />
 
           <Divider
-            className="max-md:hidden mt-10"
+            className="mt-10 max-w-[948px]"
             width="w-full"
             mode="light"
           />
@@ -204,7 +201,8 @@ const CompletedCourseDetails = ({
                 <AuthorCard
                   key={professor.id}
                   professor={professor}
-                  hasDonateButton={!isTablet}
+                  hasDonateButton
+                  mobileSize="medium"
                 />
               ))}
             </div>
