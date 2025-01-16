@@ -31,7 +31,6 @@
     "checkingToken": "Checking token",
     "checkingTokenExplain": "We are checking if the token is valid…",
     "confirmation": "Confirmation",
-    "connectWithLn": "Connect with LN",
     "createAccount": "Register",
     "createOne": "Register here!",
     "dashboardUnlocked": "Your student dashboard is unlocked !",
@@ -40,8 +39,6 @@
     "emailAddress": "Email address",
     "emailTip": "Email is not mandatory, but it can be useful in case of a forgotten password!",
     "errors": {
-      "displayNameRegex": "The display name can only contain letters, digits, underscores (_), full-stops (.), dashes (-) and spaces.",
-      "displayNameRequired": "Display name is required.",
       "displayNameTooShort": "Display name must contain at least 2 characters.",
       "emailInvalid": "Invalid email",
       "invalidCredentials": "Invalid credentials",
@@ -62,7 +59,6 @@
     "newPassword": "New password",
     "noAccountNeeded": "No need for an account to start learning at Plan ₿ Network!",
     "noAccountYet": "Don't have an account?",
-    "oldPassword": "Old password",
     "passwordChanged": "Password changed",
     "passwordMinLength": "Password must be at least {{len}} characters",
     "passwordRequired": "Password is required",
@@ -95,7 +91,6 @@
     "verify": "Verify the authenticity of your certificate"
   },
   "bet": {
-    "contribute": "This toolkit is open to contribution. It uses Figma, so anyone can add, modify and translate content. To collaborate, add a category or a discussion, and don't hesitate to join our discord.",
     "contributeButton": "Help & Contribute",
     "contributeDescription": "If you either want to add, edit or translate some content, your help will be welcome!",
     "contributeTitle": "Want to contribute?",
@@ -103,7 +98,6 @@
       "description": "The items below can be used for educational events and purposes.",
       "title": "Educational Content"
     },
-    "hereForYou": "The BET is here for you!",
     "pageDescription": "Mass adoption is not easy. To move closer and more rapidly towards  that goal, we’ve developed an extendible database to host educational content. Here, Bitcoin educators can freely drop and access content as needed. We don't need to reinvent the wheel every time, so let's work together to centralize the useful resources is one toolkit!",
     "pageSubtitle": "The BET - A Bitcoin open-source toolkit for all educational projects",
     "pageTitle": "Bitcoin Educational Toolkit",
@@ -113,19 +107,8 @@
     }
   },
   "book": {
-    "abstract": "Abstract",
-    "bookSummary": {
-      "modifyTooltip": "Write or modify",
-      "noSummary": "A summary is yet to be written. If you've read the book and want to share yours, don't hesitate to write one on Github. It would greatly benefit the community, enhance the university's resources, and you might even earn some sats for your effort!",
-      "notice": "This summary is linked to Github, for any modification or addition.",
-      "title": "The book summary"
-    },
-    "buttonBuy": "Buy",
-    "buttonPdf": "PDF / E-book",
-    "offeredBy": "Offered by a generous contributor",
     "pageSubtitle": "This portal is open-source & accepts contribution.",
-    "pageTitle": "Bitcoin Library",
-    "topicsAddressed": "Topics addressed:"
+    "pageTitle": "Bitcoin Library"
   },
   "builders": {
     "languages": "Languages",
@@ -160,18 +143,7 @@
     "topics": "Topics"
   },
   "courses": {
-    "categories": {
-      "btc": "Bitcoin",
-      "crypto": "Cryptography",
-      "cuboplus": "Bitcoin",
-      "econ": "Austrian Economics",
-      "fin": "Finance",
-      "ln": "Lightning Network",
-      "min": "Mining",
-      "secu": "Security & Privacy"
-    },
     "chapter": {
-      "count": "Chapter {{count}}",
       "detail": {
         "bookSeat": "Book your seat",
         "cancelBooking": "Cancel your booking",
@@ -204,51 +176,29 @@
       "unlockFeatures2": "Please be aware that we do not collect any personal data nor use cookies."
     },
     "details": {
-      "access_invoice": "You can access your invoice via your dashboard",
-      "accessible": "Accessibility: Lifetime access",
-      "amount": "Amount",
       "buyCourse": "Buy the course",
       "buyInPersonCourse": "Buy in-person course",
       "buyOnlineCourse": "Buy online course",
       "collaborativeEffort": "This course is the result of a collaborative effort: each lesson, translation, and revision is made possible by the work of contributors. For this reason, we are always looking for proofreaders who can review our content in many languages. If you want to participate in the proofreading process, please reach out in our Telegram group and read our tutorial.\n\nWe remind you that this content is open-source - licensed under <0>CC BY-SA</0> - so it can be freely shared and used, as long as the original source is credited.\n\nA special acknowledgment for their work on this course goes to the following proofreaders: ",
       "courseAddedToDashboard": "This course has been added to your student dashboard",
-      "courseId": "Course ID: {{courseId}}",
-      "coursePayment": "Course payment",
       "curriculum": "Curriculum",
-      "date": "Date: {{startDate}} to {{endDate}}",
-      "dates_to": "{{startDate}} to {{endDate}}",
       "description": "Description",
-      "duration": "Duration: {{hours}} hours",
-      "goal": "Goal:",
       "hasBeenProofreadBy": "This course has been proofread by",
-      "hasBeenTranslatedBy": "This course has been translated by",
       "inPersonAccess": "You need to download your ticket to access the in-person class.",
-      "invoiceId": "TX ID",
-      "level": "Level: $t(words.level.{{level}})",
       "mobile": {
-        "chapters": "{{chapters}} chapters",
         "hours": "{{hours}} hours"
       },
-      "numberOfChapters": "Number of chapters: {{number}}",
       "objectives": "Objectives",
       "objectivesTitle": "What you will learn:",
       "otherCourses": "Other courses",
       "otherCoursesInterest": "Other courses you may be interested in",
       "paidCourse": "Premium",
-      "payment_details": "Payment details",
-      "payment_successful": "Payment successful!",
       "premiumContentNeedsLogin": "You need to be logged in to access this course.",
       "premiumContentNeedsPayment": "This course is part of a premium program.",
       "premiumContentNeedsPaymentAction": "Go to course homepage",
-      "price": "Price: {{price}} sats",
-      "professor": "Professor",
       "startCourse": "Start the course",
       "taughtBy": "This course is being taught by",
-      "teacher": "Teacher: {{teacher}}",
-      "teacherWord": "A word from the teacher",
-      "teachers": "Teachers: {{teachers}}",
-      "thanksTipping": "You can say thanks by tipping the professor.",
-      "total": "Total"
+      "thanksTipping": "You can say thanks by tipping the professor."
     },
     "exam": {
       "answersReview": "Answers review",
@@ -258,7 +208,6 @@
       "certificateAvailable": "It will be available about 10 hours after submission.",
       "certificateGeneration": "Your certificate is being ",
       "certificatePageOtherCourses": "Other related courses",
-      "certificatePageTitle": "Plan B Network Course Diploma",
       "congratulations": "Congratulations, you’ve reached the end of this course!",
       "congratulationsPassed": "Congratulations, you <0>passed</0> the final exam!",
       "courseDiploma": "Course diploma",
@@ -302,7 +251,6 @@
       "tamperProof": "Tamper-Proof: Blockchain ensures no one can alter or fake your credential.",
       "testKnowledge": "Now that you’ve completed this course, let’s test your knowledge.",
       "testResults": "Test results",
-      "timeLeft": "Time left",
       "timeStampBenefits": "Why it’s important :",
       "timeStampHow": "How it works :",
       "timeStampHowDescription": "When your degree is issued, a unique digital 'fingerprint' is created and stored on the blockchain. This makes the record permanent and tamper-proof. Any attempt to alter your degree will break the link, revealing the change.",
@@ -319,21 +267,8 @@
       "buildPath": "Build your own path down the rabbit hole",
       "exploreCourses": "Explore all Plan ₿ Courses",
       "findCourses": "Find the perfect course for your needs thanks to the Course Selection Tool",
-      "footerTitle": "Our professors are here for you!",
-      "footerp1": "At the Sovereign University, our professors have full autonomy in designing their course content and selecting the tools for your exploration, provided they adhere to our code of ethics. They are passionate bitcoiners from diverse backgrounds who share their valuable experience with us.",
-      "footerp2": "If you want to improve a course or propose your own, you can easily do so via the GitHub repository. Instead, to support a professor, you have several options: you can provide course feedback, tip the professor directly, or become a university member to help sustain the platform.",
       "journey": "Bitcoin is a journey, not a destination",
-      "moreToCome": "…and more to come!",
       "pageDescription": "The Plan ₿ Academy aims at simplifying Bitcoin education worldwide. Curated by experts from various fields, our academy provides a comprehensive range of courses designed to clarify every aspect of Bitcoin.\nFrom beginner to expert, whether at your own pace or followed weekly by a professor, we hope the academy can help you gain a deeper understanding of the expansive world of Bitcoin. Many of our courses are completely free so that anyone, anywhere, can access quality education.",
-      "pageSubtitle": "Mass adoption through centralized open-source education",
-      "pageTitle": "Welcome to the Plan ₿ Academy",
-      "s2p1": "If you've just started exploring the Bitcoin rabbit hole, you must know that it's an endless journey down many paths. At our university, we recognize this complexity, so we have designed our educational content to be non-linear, self-directed and as extensive as it can be.",
-      "s2p2": "You will be able to choose your own path, gaining skills and knowledge driven by your own motivation and determination.",
-      "s2p3": "All our courses are 100% free so nothing can stop you!",
-      "s2t1": "Bitcoin education is a journey, not a destination.",
-      "s3PickLevel": "Select level:",
-      "s3PickTopic": "Select a topic:",
-      "s3t1": "Build your own path down the rabbit hole",
       "seeCourse": "Discover the Course"
     },
     "part": {
@@ -348,7 +283,6 @@
       "book_description": "Please review the venue details provided.\nOnce your booking is processed, we will send you a confirmation ticket and a QR code to present at the event.",
       "checkoutError": "An error occurred during the checkout process.\nPlease try again.",
       "date": "Date",
-      "dates_to": "{{startDate}} to {{endDate}}",
       "downloadCurriculum": "Download curriculum",
       "duration": "Duration",
       "inPersonCallout": "You are about to purchase <strong>in-person</strong> access to this course.",
@@ -365,7 +299,6 @@
       "time": "Time"
     },
     "preview": {
-      "by": "by {{professor}}",
       "letsgo": "Let's go"
     },
     "quizz": {
@@ -386,10 +319,8 @@
       "commentPublicMobile": "Public comment",
       "commentTeacher": "Comment to the teacher (private)",
       "commentTeacherMobile": "Private comment to the teacher",
-      "currentlyLoggedOut": "You are currently logged out. In order to give us feedback on the course, please <0>log in or register</0>.",
       "difficulty": "Difficulty",
       "displayOutOf": "displayed out of",
-      "edit": "Edit",
       "editReview": "Edit review",
       "faithful": "Aligned with objective?",
       "feedback": "Feedback",
@@ -400,7 +331,6 @@
       "generalGrade": "General grade",
       "length": "Length",
       "loadMoreComments": "Load more comments",
-      "loading": "Loading…",
       "neutral": "neutral",
       "no": "no",
       "notReally": "no, not really",
@@ -422,13 +352,6 @@
       "writeThoughts": "Here you can write your thoughts",
       "yesOfCourse": "yes, of course",
       "yesVeryMuch": "yes, very much"
-    },
-    "unreleased": {
-      "colcardAndSparrow": "Coldcard and Sparrow",
-      "financeIntroduction": "Introduction to finance",
-      "financialCrisis": "Analysis of major financial crises",
-      "hyperinflation": "Study of hyperinflation",
-      "theoreticalLightning": "Advanced theoretical course on Lightning Network"
     }
   },
   "dashboard": {
@@ -864,7 +787,6 @@
     "check": "Check the podcast"
   },
   "podcasts": {
-    "hostedBy": "Hosted by {{host}}",
     "pageSubtitle": "This portal is open-source and welcomes contributions.",
     "pageTitle": "Bitcoin Podcasts"
   },
@@ -972,13 +894,9 @@
     "backTutorials": "Back to all tutorials",
     "details": {
       "author": "Author : ",
-      "checkAuthor": "Check out the author's other contributions and support his work.",
       "didHelp": "Did this help ?",
-      "enjoyed": "Enjoyed this tutorial?",
-      "madeBy": "This tutorial has been made by",
       "ratingSuccess": "Thanks for your rating!",
       "source": "Original source :",
-      "tipTooltip": "Like it? Tip.",
       "tutorialName": "Tutorial name",
       "writtenBy": "This tutorial was written by :"
     },
@@ -998,8 +916,6 @@
       "didYouKnow": "Did you know ?",
       "exploreAllTutorials": "Explore all tutorials"
     },
-    "headerSignature": "Rogzy",
-    "headerText": "Welcome into the infinite rabbit hole of Bitcoin! In this section we will offer you in depth tutorial on most bitcoin project out there. This pages in maintain by benevolel and passionate bitcoin who support this open source project. If you fee we made a mistake please reach out. To see our financial attachment ot the project mention refer to our transparency report. Thanks for your trust in this university and enjoy the ride.",
     "merchant": {
       "description": "Ever wonder how to easily accept bitcoin for a business? Explore our various solutions to become an expert and easily set up a merchant solution for the shops around you. The Point of Sale solution varies based on the merchant's needs (physical or online), their volume, and the complexity of their operations. A generally good proxy is to simply start with a basic LN wallet, move to an easy, efficient solution (such as mobile PoS), and finally explore BTC Pay Server for advanced, complex, professional solutions.",
       "shortDescription": "Solutions for businesses to accept Bitcoin",
