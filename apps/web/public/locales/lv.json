@@ -2,7 +2,6 @@
   "courses": {
     "review": {
       "loading": "",
-      "feedbackDescription": "",
       "yesOfCourse": "",
       "faithful": "",
       "recommend": "",
@@ -492,7 +491,6 @@
       "completedOutOf": "",
       "details": "",
       "done": "",
-      "downloadPdf": "",
       "inprogress": "",
       "inprogressCoursesTitle": "",
       "resumeLesson": "",
@@ -904,10 +902,7 @@
     "title": "",
     "blogCategories": {
       "content": "",
-      "course": "",
       "feature": "",
-      "patch": "",
-      "grants": "",
       "network": "",
       "all": ""
     },
@@ -1003,7 +998,6 @@
     "helpUs": "",
     "home": "",
     "hours": "",
-    "inPerson": "",
     "inReview": "",
     "intermediate": "",
     "interview": "",
@@ -1110,13 +1104,11 @@
     "pageTitle": ""
   },
   "payment": {
-    "proceedToPayment": "",
     "terms": "",
     "total": ""
   },
   "podcast": {
-    "abstract": "",
-    "discover": ""
+    "abstract": ""
   },
   "underConstruction": {
     "pageTitle": "",

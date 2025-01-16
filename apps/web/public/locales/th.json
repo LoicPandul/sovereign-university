@@ -183,10 +183,6 @@
       "payment_details": "รายละเอียดการชำระเงิน",
       "amount": "จำนวน",
       "invoiceId": "รหัสของธุรกรรม",
-      "terms1": "See our",
-      "terms2": "general terms",
-      "terms3": "and conditions for refund details",
-      "terms4": "Fee distribution: Author 99 % - Plateform 1 %",
       "buyInPersonCourse": "ซื้อคอร์สเรียนแบบสถานที่จริง",
       "buyOnlineCourse": "ซื้อคอร์สสอนแบบออนไลน์",
       "inPersonAccess": "คุณจำเปต้องดาวน์โหลดตั๋วของคุณเพื่อเข้าร่วมคลาสสอนในสถานที่จริง",
@@ -217,9 +213,6 @@
       "buildPath": "สร้างเส้นทางการเดินทางลงสู่รูกระต่ายของคุณเอง",
       "seeCourse": "ดูหลักสูตร"
     },
-    "footer": {
-      "": ""
-    },
     "part": {
       "count": "ส่วนที่ {{count}}"
     },
@@ -238,14 +231,7 @@
       "payment_successful": "การชำระเงินเสร็จสมบูรณ์!",
       "teacher": "ผู้สอน",
       "teachers": "เหล่าผู้สอน",
-      "terms1": "See our",
-      "terms2": "general terms",
-      "terms3": "and conditions for refund details",
-      "terms4": "Fee distribution: Author 99 % - Plateform 1 %",
-      "total": "Total",
       "back_course": "กลับสู่หลักสูตร",
-      "callout": "คุณกำลังจะซื้อหลักสูตรนี้",
-      "description": "การซื้อนี้จะทำให้คุณสามารถเข้าถึงคอร์สออนไลน์บนแพลตฟอร์มนี้ รวมถึงการเรียนในห้องเรียนจริง หากคุณจองที่นั่งของคุณไว้ โดยแต่ละคลาสจะจัดขึ้น ณ สถาณที่จริงดในวันที่และสถานที่ที่ได้ระบุไว้ โดยจะถูกบันทึกและสตรีมออนไลน์บนแพลตฟอร์มนี้",
       "book_description": "โปรดตรวจสอบรายละเอียดสถานที่ที่ให้มา\nเมื่อการจองของคุณได้รับการดำเนินการแล้ว เราจะส่งบัตรยืนยันและรหัส QR ให้คุณเพื่อให้คุณนำไปแสดงในงาน",
       "qr_unified": "QR โค้ดนี้เป็นแบบครบวงจร จึงสามารถรองรับการชำระเงินทั้งทาง Lightning และการชำระเงินแบบ On-chain ได้",
       "time": "เวลา",
@@ -259,7 +245,6 @@
       "by": "โดย {{professor}}",
       "letsgo": "มาเริ่มกันเถอะ"
     },
-    "proceedToPayment": "Proceed to payment",
     "quizz": {
       "clickOnPie": "คลิกที่แผนภูมิวงกลมเพื่อตรวจสอบข้อผิดพลาดของคุณและดูคำอธิบาย",
       "quizz": "แบบทดสอบ",
@@ -288,7 +273,6 @@
       "writeThoughts": "สามารถเขียนความคิดเห็นของคุณได้ที่นี่",
       "yesVeryMuch": "ใช่ ประมาณนั้น",
       "currentlyLoggedOut": "คุณยังไม่ได้เข้าสู่ระบบ หากต้องการให้คำติชมเกี่ยวกับหลักสูตร กรุณา <0>เข้าสู่ระบบหรือลงทะเบียน</0>",
-      "feedbackDescription": "โปรดให้คะแนนประสบการณ์ของคุณกับหลักสูตรด้านล่างนี้\nการส่งความคิดเห็นนี้เป็นขั้นตอนที่จำเป็นเพื่อเข้าสู่การสอบปลายภาคและทำให้หลักสูตรเป็นผล\nโปรดทราบว่า เหล่าผู้สอนจะไม่สามารถเข้าถึงการประเมินของแต่ละบุคคลได้",
       "feedbackSessionTitle": "เซสชันการประเมินผล",
       "generalGrade": "เกรดโดยทั่วไป",
       "length": "ความยาว",
@@ -317,9 +301,6 @@
       "commentAdminMobile": "ส่งคอมเมนท์ถึงทีมผู้ดูแลระบบ",
       "commentPublicMobile": "คอมเมนท์สาธารณะ",
       "commentTeacherMobile": "คอมเมนท์ส่วนตัวถึงผู้สอน",
-      "conclusionFeedback1": "ขอขอบคุณสำหรับความคิดเห็นของคุณ!",
-      "conclusionFeedback2": "นี่เป็นสิ่งที่สำคัญมากสำหรับเรา ขอขอบคุณอย่างยิ่ง",
-      "conclusionFeedback3": "ด้านล่างนี้คือคำติชมของคุณ คุณสามารถแก้ไขได้ทุกเวลาบนแดชบอร์ดของคุณ",
       "editReview": "แก้ไข การรีวิว",
       "feedback": "ข้อเสนอแนะ",
       "feedbackDescription1": "โปรดให้คะแนนประสบการณ์ของคุณกับหลักสูตรด้านล่างนี้",
@@ -399,7 +380,6 @@
       "whereYouAre": "มาดูความคืบหน้าของคุณกัน !",
       "completedOutOf": "{{completed}} หน่วย เสร็จสิ้นจากทั้งหมด {{total}}",
       "done": "เสร็จสิ้น",
-      "downloadPdf": "",
       "viewDetails": "ดูรายละเอียด",
       "yourCertificate": "ใบรับรองของคุณ",
       "download": "ดาวน์โหลดปริญญาบัตร",
@@ -440,22 +420,12 @@
       "upcomingTicketTitle": "การจองที่กำลังจะมาถึง",
       "upcomingTicketSubtitle": "ดาวน์โหลดบัตรของคุณที่นี่เพื่อเข้าร่วมกิจกรรมที่จะมาถึง โปรดจำไว้ว่าคุณจะต้องนำบัตรมาด้วยเพื่อใช้เข้างาน"
     },
-    "bookings": "การจอง",
     "administration": "การจัดการระบบ",
     "bCertificate": {
-      "assertLevel": "ประเมินระดับของคุณในด้าน Bitcoin",
-      "bCertificate": "ใบรับรอง ₿",
       "bookExam": "จองช่วงเวลาสอบ",
       "certificate": "ใบรับรอง",
-      "general": "ทั่วไป",
       "grade": "เกรด",
-      "gradesDiploma": "เกรดและปริญญาบัตร",
-      "learnMore": "เรียนรู้เพิ่มเติม",
-      "noResults": "ยังไม่มีเกรดหรือใบรับรองที่เกี่ยวข้องกับบัญชีนี้\nหากคุณผ่านการสอบมาเป็นระยะเวลานึงและผลการสอบของคุณยังไม่ปรากฎแล้ว โปรดติดต่อมาทางเราให้ช่วยเหลือ",
-      "presentation": "ใบรับรอง ₿ เป็นการสอบที่จัดโดย ครือข่ายของ Plan B ที่ออกแบบมาเพื่อประเมินความรู้ของคุณเกี่ยวกับด้าน Bitcoin และทุกหัวข้อที่เกี่ยวข้อง",
-      "findResults": "คุณสามารถค้นหาผลการสอบใบรับรอง ₿ ที่คุณสอบผ่านด้วยบัญชีที่ลงทะเบียนนี้ ผลการสอบมักจะใช้ระยะเวลา 2 ถึง 3 สัปดาห์ประมวลและแสดงผล หากผลลัพธ์ของคุณยังไม่ปรากฎหลังจากผ่านไประยะเวลานึงแล้ว กรุณาติดต่อเรา",
-      "organizedSessions": "ใบรับรอง ₿ นั้น ถูกจัดสอบโดยเครือข่ายของทาง Plan B ตามสถานที่ต่างๆในเวลาที่แตกต่างกัน โปรดตรวจสอบว่าคุณได้จองที่นั่งของคุณในเซสชันนั้นๆ",
-      "wantToPass": "ต้องการสอบใช่ไหม?"
+      "noResults": "ยังไม่มีเกรดหรือใบรับรองที่เกี่ยวข้องกับบัญชีนี้\nหากคุณผ่านการสอบมาเป็นระยะเวลานึงและผลการสอบของคุณยังไม่ปรากฎแล้ว โปรดติดต่อมาทางเราให้ช่วยเหลือ"
     },
     "teacher": {
       "profile": {
@@ -600,12 +570,6 @@
     "studentDashboard": "แดชบอร์ดของผู้เรียน"
   },
   "events": {
-    "introduction": {
-      "introductionh1": "Welcome to Plan B Network events",
-      "introductionp1": "Bottom up adoption enhanced by a strong network",
-      "introductionp2": "Looking for a Bitcoin event to go to ?",
-      "introductionp3": "Want to talk about Bitcoin in real time ? Here you can find all the events supported by the Plan B Network communities. Whether you want to listen to a lecture, discuss Bitcoin around a drink, or take an exam to assess your knowledge, you’ll be able to find the right event here through the Plan B Network."
-    },
     "main": {
       "upcomingEvents": "กิจกรรมที่กำลังจะมาถึง",
       "currentEvents": "กิจกรรมที่กำลังจัดขึ้น ณ ตอนนี้"
@@ -751,27 +715,17 @@
     }
   },
   "imagesAlt": {
-    "bitcoinCurrency": "the sign of bitcoin currency",
     "blueEllipse": "วงรีสีน้ำเงิน",
     "bookCover": "ปกหนังสือ",
-    "community": "3 people",
     "contributorHeart": "หัวใจสำหรับผู้สนับสนุนที่น่ารัก",
     "contributorPP": "รูปโปรไฟล์ของผู้สนับสนุน",
-    "courseThumbnail": "Course thumbnail",
-    "curriculum": "Curriculum",
-    "decouvreBitcoinLogo": "DecouvreBitcoin Logo",
-    "favorite": "a heart inside a circle",
-    "flagsInCircle": "a circle of flags",
     "forwardArrow": "ลูกศรเลื่อนไปข้างหน้า",
-    "github": "the icon of github",
     "orangePill": "ยาเม็ดสีส้ม",
     "printedCircuits": "แผงวงจรที่ถูกพิมพ์",
     "rabbit404": "กระต่ายใช้ไฟฉายส่องป้าย 404",
     "sthRepresentingCompany": "สิ่งที่เป็นตัวแทนของบริษัท",
     "stylus": "สไตลัส",
-    "underConstructionImage": "กระต่ายหลายตัวที่กำลังทำงานท ณ สถานที่ก่อสร้าง",
-    "visibilityOff": "the eyes icon without off sign",
-    "worldMap": "world map with hubs linked"
+    "underConstructionImage": "กระต่ายหลายตัวที่กำลังทำงานท ณ สถานที่ก่อสร้าง"
   },
   "library": {
     "pageSubtitle": "คลังข้อมูลนี้เป็นแบบโอเพนซอร์สและยินดีรับการสนับสนุนจากทุกคน",
@@ -839,7 +793,6 @@
   },
   "podcast": {
     "abstract": "บทคัดย่อ",
-    "discover": "สำรวจพ็อดคาสท์นี้",
     "check": "ดูพอดคาสท์"
   },
   "podcasts": {
@@ -1173,7 +1126,6 @@
     "goal": "จุดมุ่งหมาย",
     "grade": "เกรด",
     "id": "ไอดี",
-    "inPerson": "",
     "inReview": "อยู่ระหว่าการพิจารณา",
     "location": "สถานที่ตั้ง",
     "passed": "ผ่าน",
@@ -1239,9 +1191,7 @@
     "topics": "หัวข้อ"
   },
   "payment": {
-    "proceedToPayment": "ดำเนินการชำระเงิน",
     "terms": "ดู<0>ข้อกำหนดทั่วไป</0>และเงื่อนไขของเราสำหรับรายละเอียดในการคืนเงิน",
-    "feeDistribution": "การแบ่งค่าธรรมเนียม: ผู้เขียน 99% - แพลตฟอร์ม 1%",
     "total": "รวมทั้งหมด",
     "payWithBitcoin": "ชำระด้วยบิตคอยน์",
     "payByCard": "ชำระด้วยบัตร"
@@ -1282,19 +1232,12 @@
     "relatedWords": "คำที่เกี่ยวข้อง:",
     "term": "คำศัพท์"
   },
-  "general": {
-    "itemNotFound": "ไม่พบ {{item}}",
-    "itemNotFoundOrTranslated": "ไม่พบ {{item}} หรือ มันยังไม่ได้ถูกแปลในภาษาของคุณ"
-  },
   "publicCommunication": {
     "description": "ที่เครือข่าย Plan B เราภาคภูมิใจในการปฏิบัติตามมาตรฐานของโอเพ่นซอร์สและรักษาความโปร่งใสไว้ ในตลอดเส้นทางการเดินทางของเรา",
     "blogCategories": {
-      "grants": "ทุนการศึกษา",
-      "course": "ข่าวเผยแพร่ของคอร์ส",
       "all": "ทั้งหมด",
       "content": "เนื้อหา",
       "feature": "คุณสมบัติ",
-      "patch": "โน๊ตของ Patch",
       "network": "เครือข่าย"
     },
     "legalSections": {

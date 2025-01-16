@@ -230,11 +230,9 @@
       "accessibility": "Aksesibilitas",
       "accessibility_forever": "Selamanya",
       "amount": "Jumlah",
-      "callout": "Anda akan membeli kursus ini.",
       "date": "Tanggal",
       "dates_to": "{{startDate}} hingga {{endDate}}",
       "downloadCurriculum": "Unduh kurikulum",
-      "description": "Pembelian ini akan memberikan Anda akses ke kursus online di platform serta kelas tatap muka, dengan syarat Anda memesan tempat terlebih dahulu. Setiap sesi kelas berlangsung secara tatap muka pada tanggal dan lokasi yang ditentukan sebelum direkam dan disiarkan secara daring di platform kami.",
       "book_description": "Silakan tinjau rincian tempat yang diberikan. Setelah pemesananmu diproses, kami akan memberikan tiket konfirmasi dan kode QR, yang harus Anda tunjukkan saat acara.",
       "duration": "Durasi",
       "invoiceId": "Kode transaksi",
@@ -364,7 +362,6 @@
       "tooEasy": "",
       "tooHard": "",
       "faithful": "",
-      "feedbackDescription": "",
       "yesOfCourse": "",
       "recommend": ""
     }
@@ -384,7 +381,6 @@
       "whereYouAre": "",
       "completedOutOf": "",
       "done": "",
-      "downloadPdf": "",
       "yourCertificate": "",
       "viewDetails": ""
     },
@@ -407,7 +403,6 @@
       "billingSubtitle": "Unduh faktur dari pemesanan Anda di sini.",
       "downloadInvoice": "Unduh faktur"
     },
-    "bookings": "Pesanan",
     "calendar": {
       "calendar": "Kalender",
       "personalCalendar": "Kalender pribadi"
@@ -436,19 +431,10 @@
     },
     "account": "Akun",
     "bCertificate": {
-      "assertLevel": "Tentukan tingkat pengetahuan Anda tentang Bitcoin",
-      "bCertificate": "Sertifikat ₿",
       "bookExam": "Jadwalkan sesi ujian",
       "certificate": "Sertifikat",
-      "general": "Umum",
       "grade": "Tingkat",
-      "gradesDiploma": "Nilai dan ijazah",
-      "learnMore": "Pelajari lebih lanjut",
-      "noResults": "Belum ada nilai atau sertifikat yang terkait dengan akun ini. Jika Anda telah lulus ujian dan hasilnya belum tersedia setelah waktu yang lama, harap hubungi kami untuk mendapatkan bantuan.",
-      "organizedSessions": "Sertifikat ₿ diselenggarakan oleh Plan B Network di berbagai lokasi dan waktu. Pastikan untuk memesan tempatmu di sesi tersebut.",
-      "presentation": "Sertifikat ₿ adalah ujian berbasis \"meja\" yang diselenggarakan oleh Plan B Network dan dirancang untuk menilai tingkat pengetahuan Anda tentang Bitcoin dan semua topik terkaitnya.",
-      "findResults": "Di sini Anda dapat menemukan hasil ujian Sertifikat ₿ yang  mana Anda telah lulus saat terdaftar dengan akun ini. Hasil biasanya memerlukan waktu 2 hingga 3 minggu untuk diproses dan dapat tersedia di sini. Jika setelah waktu yang lama hasil Anda tidak muncul di sini, harap hubungi kami.",
-      "wantToPass": "Ingin lulus ujiannya?"
+      "noResults": "Belum ada nilai atau sertifikat yang terkait dengan akun ini. Jika Anda telah lulus ujian dan hasilnya belum tersedia setelah waktu yang lama, harap hubungi kami untuk mendapatkan bantuan."
     },
     "administration": "",
     "course": {
@@ -921,8 +907,7 @@
     "credentials": "",
     "diploma": "",
     "hours": "",
-    "id": "",
-    "inPerson": ""
+    "id": ""
   },
   "home": {
     "header": {
@@ -1078,14 +1063,11 @@
     "pageTitle": "Ups."
   },
   "payment": {
-    "proceedToPayment": "Lanjutkan ke pembayaran",
     "terms": "Lihat <0>syarat dan ketentuan umum</0> kami untuk detail pengembalian dana.",
-    "feeDistribution": "Distribusi biaya: Penulis 99% - Platform 1%",
     "total": "Total"
   },
   "podcast": {
-    "abstract": "Abstrak",
-    "discover": "Temukan podcast ini"
+    "abstract": "Abstrak"
   },
   "professors": {
     "pageSubtitle": "Semua profesor kami adalah sukarelawan dan penggemar bitcoin yang berdedikasi. Anda bisa memberikan tip sebagai ungkapan terima kasih.",
@@ -1118,10 +1100,7 @@
     "blogCategories": {
       "all": "",
       "content": "",
-      "course": "",
       "feature": "",
-      "patch": "",
-      "grants": "",
       "network": ""
     },
     "legalSections": {

@@ -257,7 +257,6 @@
       "yesOfCourse": "Eh, tabbas",
       "yesVeryMuch": "Eh, sosai",
       "currentlyLoggedOut": "Yanzu haka an fita daga cikin asus. Don ba mu ra'ayi kan darasin, don Allah <0>shiga ko a yi rijista</0>.",
-      "feedbackDescription": "Da fatan za a ƙididdige kwarewar ku da darasin a ƙasa.\nWannan ba da ra'ayi wajibi ne don samun damar zuwa jarrabawar ƙarshe da tabbatar da darasin.\nA lura cewa malamai ba za su sami damar ganin bayanan kowane mai koyo ba.",
       "veryBad": "mugun gaske",
       "writeThoughts": "Anan za ka/ki iya rubuta ra'ayoyinka/ki",
       "whatStudentsSay": "Abin da dalibai ke cewa akan wannan kwas",
@@ -310,12 +309,10 @@
       "accessibility_forever": "Har abada",
       "amount": "Adadi",
       "back_course": "Komawa ga darasi",
-      "callout": "Ka/kina kusa da sayen wannan darasin.",
       "date": "Kwanan wata",
       "dates_to": "{{startDate}} zuwa {{endDate}}",
       "downloadCurriculum": "Sauke manhajar karatu",
       "duration": "Tsawon Lokaci",
-      "description": "Wannan sayayya ta ba ka/ki damar shiga darussa na online a dandalin, da kuma ajin da za a yi a zahiri, muddin ka/kin tanadi wurinka/ki. Kowanne zaman aji yana gudana ne a zahiri a ranaku da wurare da aka kayyade, kafin a yi rikodin da watsa shi kai tsaye a dandalin.",
       "book_description": "Da fatan za a duba bayanan wurin da aka bayar.\nDa zarar an kammala tanadin ka/ki, za mu aika maka/ki da tikiti na tabbaci da QR code don nunawa a wurin taron.",
       "invoiceId": "ID ɗin Tx",
       "access_invoice": "Za ka iya samun takardar biyan kudi ta hanyar duba dashbord ɗinka",
@@ -396,19 +393,10 @@
   "dashboard": {
     "administration": "Tsarin gudanarwa",
     "bCertificate": {
-      "bCertificate": "Takardar ₿",
       "bookExam": "Kama gurbin yin jarabawa",
       "certificate": "Takardar shaida",
-      "general": "Baki daya",
       "grade": "Daraja",
-      "gradesDiploma": "Darajoji da takardar karatun",
-      "assertLevel": "Yi magana akan matsayinka a cikin Bitcoin",
-      "learnMore": "Ƙara karatu",
-      "organizedSessions": "Shaidar ₿ an shirya ta hanyar Plan B Network a wurare da dama da lokacin daban-daban. Ka tabbatar ka wajen a wani taro.",
-      "wantToPass": "Kana son daukar jarrabawar?",
-      "noResults": "Har yanzu ba a haɗa kowanne daraja ko takaddar shaida da wannan asusun ba.\nIdan ka wuce jarrabawa kuma sakamakon ka ba ya samuwa bayan wani lokaci mai tsawo, da fatan za ka tuntube mu don samun taimako.",
-      "presentation": "Shaidar ₿ na takaddun shaida ne wanda aka shirya ta hanyar Plan B, wanda aka tsara don bincike sanin Bitcoin da duk abubuwan da suka danganta ka da shi.",
-      "findResults": "Anan za ka sami sakamakon jarrabawarka na ₿ da ka yi yayin da ka yi rajista da wannan asusun. Sakamakon yana dauke da mako 2 zuwa 3 don a sarrafa shi kuma ya kasance nan. Idan bayan lokaci mai tsawo sakamakonka ba su nuna nan ba, don Allah ka tuntube mu."
+      "noResults": "Har yanzu ba a haɗa kowanne daraja ko takaddar shaida da wannan asusun ba.\nIdan ka wuce jarrabawa kuma sakamakon ka ba ya samuwa bayan wani lokaci mai tsawo, da fatan za ka tuntube mu don samun taimako."
     },
     "booking": {
       "accessLive": "Kashiga jarabawa wanda ake yanzu",
@@ -430,7 +418,6 @@
       "upcomingTicketSubtitle": "Sauke tikettinka ta nan don zuwa taron da za'a yi gaba. Kada ku manta kuzo dashi domin samun shiga."
     },
     "account": "Asusu",
-    "bookings": "Ajiya",
     "calendar": {
       "calendar": "Kalanda",
       "personalCalendar": "Kalandar ka"
@@ -469,7 +456,6 @@
       "completedCoursesTitle": "Darasin da aka kammala",
       "inprogressCoursesDescription": "Tanan zaka iya duba cigaban darusan da ka fara.",
       "completedOutOf": "{{completed}} na cikin darussan da aka kammala daga {{total}} da ake da su",
-      "downloadPdf": "Sauke PDF",
       "done": "An gama",
       "whereYouAre": "Bari mu ga inda ka/kike!",
       "viewDetails": "Duba cikakkun bayanai",
@@ -619,10 +605,6 @@
     "pageSubtitle": "Karɓa daga ƙasa zuwa sama yana ƙarfafa ne ta hanyar sadarwa mai kyau mai ƙarfi",
     "pageTitle": "Ana neman halartar taron Bitcoin?"
   },
-  "general": {
-    "itemNotFound": "Ba'a samu ba {{item}}",
-    "itemNotFoundOrTranslated": "Ba a sami {{item}} ba, ko ba a fassara shi a cikin harshenka ba"
-  },
   "glossary": {
     "anotherWord": "Nema wani kalma",
     "creditsLoic": "<0>Alƙawari</0>: Kamus na Bitcoin da aka rubuta da Loïc Morel (Pandul), wanda ya samu a kan <1>ma'aikatar Github</1> namu.",
@@ -743,9 +725,7 @@
     "pageSubtitlePodcast": ""
   },
   "payment": {
-    "proceedToPayment": "Ci gaba da biyan kuɗi",
     "terms": "Duba <0>sharuddanda ka'idoji</0> namu don bayanai kan dawo da kuɗi",
-    "feeDistribution": "Rarraba kuɗi: Marubuci 99% - Dandali 1%",
     "total": "JImla"
   },
   "podcasts": {
@@ -782,10 +762,7 @@
       "network": "Hanyar sadarwa",
       "all": "Duka",
       "content": "Abubabuwan da ke ciki",
-      "course": "Sakin kwas",
-      "feature": "Siffofi",
-      "patch": "Bayanai kan gyare-gyare",
-      "grants": "Tallafin kudi"
+      "feature": "Siffofi"
     },
     "legalSections": {
       "privacyPolicy": "Manufar sirri",
@@ -817,8 +794,7 @@
     "pageSubtitle": "Yana yiwuwa wani ya shiga cikin zurfin ramin zomo kuma ya ɓace. Don dawowa saman, danna"
   },
   "podcast": {
-    "abstract": "Takaitaccen bayani",
-    "discover": "Samu wannan shirin na sauti"
+    "abstract": "Takaitaccen bayani"
   },
   "home": {
     "header": {
@@ -1144,7 +1120,6 @@
     "ratings": "Darajoji",
     "status": "Matsayi",
     "total": "JImlila",
-    "inPerson": "Fuska-da-fuska",
     "inReview": "Ana kan dubawa",
     "location": "Wuri",
     "required": "Ana bukata"

@@ -180,10 +180,6 @@
       "payment_details": "Payment details",
       "amount": "Amount",
       "invoiceId": "Invoice ID",
-      "terms1": "See our",
-      "terms2": "general terms",
-      "terms3": "and conditions for refund details",
-      "terms4": "Fee distribution: Author 99 % - Plateform 1 %",
       "inPersonAccess": "",
       "buyOnlineCourse": "",
       "paidCourse": "",
@@ -210,9 +206,6 @@
       "journey": "Bitcoin é o caminho, não o destino",
       "seeCourse": "Veja o curso"
     },
-    "footer": {
-      "": ""
-    },
     "part": {
       "count": "Parte n°{{count}}/{{total}}"
     },
@@ -231,14 +224,7 @@
       "payment_successful": "Payment successful!",
       "teacher": "Teacher",
       "teachers": "Teachers",
-      "terms1": "See our",
-      "terms2": "general terms",
-      "terms3": "and conditions for refund details",
-      "terms4": "Fee distribution: Author 99 % - Plateform 1 %",
-      "total": "Total",
       "back_course": "Retorne ao curso",
-      "callout": "Você está prestes a adquirir este curso.",
-      "description": "Esta compra garantirá a você o acesso aos cursos on-line da plataforma bem como das aulas presenciais, desde que você reserve sua vaga. Cada sessão de aulas acontecem presencialmente nas datas e locais específicos antes de serem gravadas e transmitidas on-line na plataforma.",
       "book_description": "Por avor confira os detalhes fornecidos do local,\nUma vez efetuada a reserva, nós te forneceremos um ingresso com a confirmação e um QR code, para ser apresentado no evento.",
       "qr_unified": "Este QR code é unificado, aceitando pagamentos lightning and on-chain.",
       "time": "Hora",
@@ -251,7 +237,6 @@
       "by": "por {{professor}}",
       "letsgo": "Vamos a isso"
     },
-    "proceedToPayment": "Proceed to payment",
     "quizz": {
       "clickOnPie": "Clica no gráfico circular, verifica os teus erros e vê as explicações",
       "quizz": "Questionário",
@@ -358,7 +343,6 @@
       "asExpected": "",
       "commentAdmin": "",
       "loading": "",
-      "feedbackDescription": "",
       "yesOfCourse": "",
       "faithful": "",
       "recommend": ""
@@ -378,7 +362,6 @@
       "startCourse": "Inicie ou finalize um curso",
       "completedOutOf": "",
       "done": "",
-      "downloadPdf": "",
       "viewDetails": "",
       "yourCertificate": "",
       "whereYouAre": ""
@@ -405,7 +388,6 @@
       "upcomingTicketTitle": "Reservas futuras",
       "upcomingTicketSubtitle": "Baixe aqui seu ingresso para participar do teu próximo evento. Certifique-se de trazer o ingresso para ter acesso ao evento."
     },
-    "bookings": "Reservas",
     "profile": {
       "email": "Email",
       "emailChangeConfirmation": "Confirmação da mudança de email foi enviado, confira sua caixa de entrada para confirmar.",
@@ -431,19 +413,10 @@
       "personalCalendar": "Calendário pessoal"
     },
     "bCertificate": {
-      "assertLevel": "Verifique seu nível no Bitcoin",
-      "bCertificate": "O Certificado ₿",
       "bookExam": "Agende um exame",
       "certificate": "Certificado",
-      "general": "Geral",
       "grade": "Nota",
-      "gradesDiploma": "Notas e diploma",
-      "learnMore": "Saiba mais",
-      "noResults": "Ainda não há notas nem certificados associados a esta conta.\nSe você prestou um exame e seus resultados ainda não estão disponíveis após um longo período, favor contactar-nos para assistência.",
-      "organizedSessions": "O Certificado ₿ é organizado pelo Plan B Network em diversas datas e locais. Certifique-se de agendar seu lugar em uma sessão.",
-      "presentation": "O Certificado ₿ é um exame organizado pelo Plan B Network que visa avaliar seu nível sobre Bitcoin e todos tópicos a ele relacionados.",
-      "findResults": "Aqui você pode encontrar todos resultados dos exames do Certiicado ₿ que você prestou quando registrado com sua conta. Os resultados geralmente levam entre 2 e 3 semanas para ficarem disponíveis. Se após um longo período seus resultados não aparecerem aqui, favor contactar-nos.",
-      "wantToPass": "Quer prestar um exame?"
+      "noResults": "Ainda não há notas nem certificados associados a esta conta.\nSe você prestou um exame e seus resultados ainda não estão disponíveis após um longo período, favor contactar-nos para assistência."
     },
     "administration": "Administração",
     "course": {
@@ -529,12 +502,6 @@
     }
   },
   "events": {
-    "introduction": {
-      "introductionh1": "Welcome to Plan B Network events",
-      "introductionp1": "Bottom up adoption enhanced by a strong network",
-      "introductionp2": "Looking for a Bitcoin event to go to ?",
-      "introductionp3": "Want to talk about Bitcoin in real time ? Here you can find all the events supported by the Plan B Network communities. Whether you want to listen to a lecture, discuss Bitcoin around a drink, or take an exam to assess your knowledge, you’ll be able to find the right event here through the Plan B Network."
-    },
     "main": {
       "upcomingEvents": "Eventos programados",
       "currentEvents": "Eventos acontecendo agora"
@@ -661,27 +628,17 @@
     }
   },
   "imagesAlt": {
-    "bitcoinCurrency": "o sinal da moeda bitcoin",
     "blueEllipse": "uma elipse azul",
     "bookCover": "uma capa de livro",
-    "community": "3 pessoas",
     "contributorHeart": "um coração para um bom colaborador",
     "contributorPP": "Foto de perfil do colaborador",
-    "courseThumbnail": "Miniatura do curso",
-    "curriculum": "Currículo",
-    "decouvreBitcoinLogo": "DescobreBitcoin Logo",
-    "favorite": "um coração dentro de um círculo",
-    "flagsInCircle": "um círculo de bandeiras",
     "forwardArrow": "uma seta para frente",
-    "github": "o ícone do github",
     "orangePill": "uma pílula laranja",
     "printedCircuits": "um circuito impresso",
     "rabbit404": "um coelho apontando uma lanterna num sinal 404",
     "sthRepresentingCompany": "algo que representa a empresa",
     "stylus": "uma lapiseira",
-    "underConstructionImage": "Ilustração de vários coelhos trabalhando num local de construção",
-    "visibilityOff": "o ícone dos olhos sem sinal desligar",
-    "worldMap": "mapa do mundo com hubs ligados"
+    "underConstructionImage": "Ilustração de vários coelhos trabalhando num local de construção"
   },
   "library": {
     "pageSubtitle": "Esta biblioteca é open-source e aberta para contribuição. Gratidão por avaliar e compartilhar!",
@@ -739,8 +696,7 @@
     "pageTitle": "Oops."
   },
   "podcast": {
-    "abstract": "Abstrato",
-    "discover": "Descobre este podcast"
+    "abstract": "Abstrato"
   },
   "podcasts": {
     "hostedBy": "Organizado por {{host}}",
@@ -1057,7 +1013,6 @@
     "grade": "",
     "hours": "",
     "id": "",
-    "inPerson": "",
     "inReview": "",
     "lectures": "",
     "location": "",
@@ -1093,9 +1048,7 @@
     "topics": "Tópicos"
   },
   "payment": {
-    "proceedToPayment": "Vá para pagamento",
     "terms": "Veja nossos <0>termos gerais</0> e os detalhes das condições de ressarcimento",
-    "feeDistribution": "Distribuição de taxas: Autor 99% - Plataforma 1%",
     "total": "Total"
   },
   "bCertificate": {
@@ -1138,20 +1091,13 @@
     "blogPost": "Blogs & Novidades",
     "legal": "Informação legal",
     "blogCategories": {
-      "features": "Características",
       "network": "Rede",
-      "grants": "Bolsas",
       "all": "Tudo",
-      "course": "Lançamento de curso",
-      "patch": "Notas",
       "content": "",
       "feature": ""
     },
     "legalSections": {
       "contact": "Contato",
-      "general": "Geral",
-      "cookies": "Cookies",
-      "privacy": "Privacidade",
       "legalNotice": "",
       "privacyPolicy": "",
       "termsOfSale": ""

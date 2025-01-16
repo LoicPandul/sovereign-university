@@ -300,7 +300,6 @@
       "difficulty": "سطح دشواری",
       "commentAdmin": "ارسال نظر به تیم مدیریت (خصوصی)",
       "displayOutOf": "نمایش داده شده از",
-      "feedbackDescription": "لطفا تجربه خود از دوره زیر را ارزیابی نمایید.\nاین جلسه بازخورد برای دسترسی به امتحان نهایی و تأیید دوره الزامی می‌باشد.\nتوجه داشته باشید که اساتید به ارزیابی‌های فردی دسترسی نخواهند داشت.",
       "length": "طول",
       "edit": "ویرایش",
       "tooHard": "خیلی سخت",
@@ -425,7 +424,6 @@
       "completedOutOf": "{{completed}} درس از {{total}} موجود",
       "details": "جزئیات",
       "done": "انجام شد",
-      "downloadPdf": "دانلود PDF",
       "resumeLesson": "رزومه",
       "seeProgress": "جهت دیدن پیشرفت خود.",
       "yourCertificate": "گواهینامه شما"
@@ -888,7 +886,6 @@
     "helpUs": "",
     "home": "",
     "id": "",
-    "inPerson": "",
     "inReview": "",
     "intermediate": "",
     "interview": "",
@@ -1055,10 +1052,7 @@
     "blogCategories": {
       "all": "",
       "content": "",
-      "course": "",
       "feature": "",
-      "patch": "",
-      "grants": "",
       "network": ""
     },
     "legalSections": {
@@ -1089,13 +1083,11 @@
     "changeEmail": ""
   },
   "payment": {
-    "proceedToPayment": "",
     "terms": "",
     "total": ""
   },
   "podcast": {
-    "abstract": "",
-    "discover": ""
+    "abstract": ""
   },
   "podcasts": {
     "hostedBy": "",

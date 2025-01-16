@@ -183,10 +183,6 @@
       "payment_details": "Detalles del pago",
       "amount": "Monto",
       "invoiceId": "ID de la transacción",
-      "terms1": "See our",
-      "terms2": "general terms",
-      "terms3": "and conditions for refund details",
-      "terms4": "Fee distribution: Author 99 % - Plateform 1 %",
       "buyInPersonCourse": "Comprar curso presencial",
       "inPersonAccess": "Necesitas descargar tu boleto para acceder a la clase en persona.",
       "buyOnlineCourse": "Comprar curso en línea",
@@ -223,9 +219,6 @@
       "journey": "Bitcoin es un viaje, no un destino",
       "seeCourse": "Descubre el Curso"
     },
-    "footer": {
-      "": ""
-    },
     "part": {
       "count": "Parte {{count}}"
     },
@@ -244,14 +237,7 @@
       "payment_successful": "¡Pago exitoso!",
       "teacher": "Profesor",
       "teachers": "Profesores",
-      "terms1": "See our",
-      "terms2": "general terms",
-      "terms3": "and conditions for refund details",
-      "terms4": "Fee distribution: Author 99 % - Plateform 1 %",
-      "total": "Total",
       "back_course": "Regresar al curso",
-      "callout": "Estás a punto de comprar este curso.",
-      "description": "Esta compra te otorga acceso a cursos en línea en la plataforma, así como a clases presenciales, siempre que reserves tu cupo. Cada sesión de clase se lleva a cabo en persona en las fechas y lugares especificados, antes de ser grabada y transmitida en línea en la plataforma.",
       "book_description": "Por favor revisa los detalles del lugar proporcionados.\nUna vez que se procese tu reserva, te enviaremos un ticket de confirmación y un código QR para presentar en el evento.",
       "qr_unified": "Este código QR es unificado, por lo que acepta pagos en lightning y on-chain.",
       "time": "Hora",
@@ -265,7 +251,6 @@
       "by": "por {{professor}}",
       "letsgo": "Vamos"
     },
-    "proceedToPayment": "Proceed to payment",
     "quizz": {
       "clickOnPie": "Haz clic en el gráfico de pastel para verificar las respuestas correctas",
       "quizz": "Cuestionario",
@@ -286,7 +271,6 @@
     "review": {
       "currentlyLoggedOut": "Actualmente no has iniciado sesión. Para proporcionarnos comentarios sobre el curso, por favor <0>inicia sesión o regístrate</0>.",
       "faithful": "¿Alineado con el objetivo?",
-      "feedbackDescription": "Por favor, califica tu experiencia con el curso a continuación.\nEsta sesión de retroalimentación es obligatoria para tener acceso al examen final y para validar el curso.\nTenga en cuenta que los profesores no tendrán acceso a las evaluaciones individuales.",
       "loading": "Cargando…",
       "neutral": "neutral",
       "no": "no",
@@ -413,7 +397,6 @@
       "startCourse": "Inicia o termina un curso",
       "completedOutOf": "{{completed}} unidades completadas de {{total}} disponibles",
       "done": "Hecho",
-      "downloadPdf": "Descargar PDF",
       "viewDetails": "Ver detalles",
       "yourCertificate": "Tu certificado",
       "whereYouAre": "¡Veamos dónde estás!"
@@ -440,22 +423,12 @@
       "upcomingTicketTitle": "Próximas reservas",
       "upcomingTicketSubtitle": "Descarga tu boleto aquí para asistir a tu próximo evento. Por favor recuerda llevarlo contigo para entrar."
     },
-    "bookings": "Reservas",
     "administration": "Administración",
     "bCertificate": {
-      "assertLevel": "Afirma tu nivel en Bitcoin",
-      "bCertificate": "El Certificado ₿",
       "bookExam": "Reserva una sesión de examen",
       "certificate": "Certificado",
-      "general": "General",
       "grade": "Calificación",
-      "gradesDiploma": "Calificaciones y diploma",
-      "learnMore": "Aprende más",
-      "noResults": "Aún no hay calificaciones ni certificados asociados con esta cuenta. \nSi aprobaste un examen y tus resultados no están disponibles después de un período prolongado, por favor contáctanos para obtener ayuda.",
-      "organizedSessions": "El Certificado ₿ es organizado por Plan ₿ Network en varias ubicaciones y horarios. Asegúrate de reservar tu asiento en una sesión.",
-      "presentation": "El Certificado ₿ es un examen de mesa organizado por Plan ₿ Network, diseñado para evaluar tus conocimientos sobre Bitcoin y todos sus temas relacionados.",
-      "findResults": "Aquí puedes encontrar los resultados de los exámenes del Certificado ₿ que has aprobado mientras estabas registrado con esta cuenta. Los resultados generalmente tardan de 2 a 3 semanas en procesarse y estar disponibles aquí. Si después de mucho tiempo tus resultados no aparecen aquí, por favor contáctanos.",
-      "wantToPass": "¿Quieres tomar el examen?"
+      "noResults": "Aún no hay calificaciones ni certificados asociados con esta cuenta. \nSi aprobaste un examen y tus resultados no están disponibles después de un período prolongado, por favor contáctanos para obtener ayuda."
     },
     "profile": {
       "personalInformation": "Mi información personal",
@@ -589,12 +562,6 @@
     }
   },
   "events": {
-    "introduction": {
-      "introductionh1": "Welcome to Plan B Network events",
-      "introductionp1": "Bottom up adoption enhanced by a strong network",
-      "introductionp2": "Looking for a Bitcoin event to go to ?",
-      "introductionp3": "Want to talk about Bitcoin in real time ? Here you can find all the events supported by the Plan B Network communities. Whether you want to listen to a lecture, discuss Bitcoin around a drink, or take an exam to assess your knowledge, you’ll be able to find the right event here through the Plan B Network."
-    },
     "main": {
       "upcomingEvents": "Próximos eventos",
       "currentEvents": "Eventos que están sucediendo ahora mismo"
@@ -726,27 +693,17 @@
     }
   },
   "imagesAlt": {
-    "bitcoinCurrency": "el signo de moneda bitcoin",
     "blueEllipse": "una elipse azul",
     "bookCover": "una portada de libro",
-    "community": "3 personas",
     "contributorHeart": "un corazón para un buen colaborador",
     "contributorPP": "foto de perfil del colaborador",
-    "courseThumbnail": "Miniatura del curso",
-    "curriculum": "Currículo",
-    "decouvreBitcoinLogo": "DecouvreBitcoin Logo",
-    "favorite": "un corazón dentro de un círculo",
-    "flagsInCircle": "un círculo de banderas",
     "forwardArrow": "una flecha hacia adelante",
-    "github": "el ícono de github",
     "orangePill": "una píldora naranja",
     "printedCircuits": "circuitos impresos",
     "rabbit404": "un conejo iluminando un letrero de error 404 con una linterna",
     "sthRepresentingCompany": "algo que representa a la empresa",
     "stylus": "un puntero",
-    "underConstructionImage": "Ilustración de varios conejos trabajando en un sitio de construcción",
-    "visibilityOff": "el ícono de los ojos sin el signo de apagado",
-    "worldMap": "mapa del mundo con centros enlazados"
+    "underConstructionImage": "Ilustración de varios conejos trabajando en un sitio de construcción"
   },
   "library": {
     "pageSubtitle": "Esta biblioteca es de código abierto y está abierta a cualquier contribución.",
@@ -805,8 +762,7 @@
     "pageTitle": "Ups."
   },
   "podcast": {
-    "abstract": "Abstracto",
-    "discover": "Descubre este podcast"
+    "abstract": "Abstracto"
   },
   "podcasts": {
     "hostedBy": "Alojado por {{host}}",
@@ -1112,7 +1068,6 @@
     "communities": "Comunidades",
     "goal": "Meta",
     "hours": "horas",
-    "inPerson": "En persona",
     "ratings": "Valoraciones",
     "booked": "",
     "bookings": "",
@@ -1159,9 +1114,7 @@
     "topics": "Temas"
   },
   "payment": {
-    "proceedToPayment": "Proceder al pago",
     "terms": "Consulta nuestros <0>términos generales</0> y condiciones para obtener detalles sobre reembolsos",
-    "feeDistribution": "Distribución de la tarifa: Autor 99 % - Plataforma 1 %",
     "total": "Total"
   },
   "bCertificate": {
@@ -1210,10 +1163,7 @@
     "blogCategories": {
       "content": "Contenido",
       "feature": "Característica",
-      "grants": "Subvenciones",
       "network": "Red",
-      "patch": "Notas de la actualización",
-      "course": "Publicación del curso",
       "all": "Todo"
     },
     "goBackButtons": {

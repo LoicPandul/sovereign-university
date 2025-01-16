@@ -285,7 +285,6 @@
     "review": {
       "commentAdmin": "給管理團隊的留言（私人）",
       "currentlyLoggedOut": "您目前已登出。若要提供課程回饋，請先<0>登入或註冊</0>。",
-      "feedbackDescription": "請評價您對本課程的體驗。\n此回饋填寫為必填項目，完成後方可參加期末考試並完成課程認證。\n請注意，老師無法查看個別評價。",
       "asExpected": "如預期",
       "commentPublic": "留言（公開）",
       "commentTeacher": "給老師的留言（私人）",
@@ -322,9 +321,6 @@
       "commentAdminMobile": "私人留言給管理團隊",
       "commentPublicMobile": "公開評論",
       "commentTeacherMobile": "私人留言給老師",
-      "conclusionFeedback1": "感謝您的回饋！",
-      "conclusionFeedback2": "這對我們來說非常重要，所以我們真的非常感激。",
-      "conclusionFeedback3": "以下是您的回饋，您可以隨時在您的儀表板中編輯它。",
       "editReview": "編輯評論",
       "feedback": "回饋",
       "feedbackDescription1": "請在下方為您的課程體驗評分。",
@@ -415,19 +411,10 @@
   },
   "dashboard": {
     "bCertificate": {
-      "gradesDiploma": "成績和證書",
-      "learnMore": "了解更多",
       "noResults": "此帳戶目前沒有任何成績或證書記錄。\n若您已通過考試且成績在長時間後仍未顯示，請聯繫我們以獲得協助。",
-      "presentation": "比特幣 ₿ 證書考試是由 Plan B Network 聚辦的一場筆試，目標在評估您對比特幣及其相關主題的知識。",
-      "assertLevel": "評估您的比特幣知識水平",
-      "bCertificate": "比特幣證書",
       "bookExam": "預約考試場次",
       "certificate": "證書",
-      "general": "一般",
-      "grade": "等級",
-      "organizedSessions": "比特幣 ₿ 證書考試由 Plan B Network 在不同的地點和時間組織舉行。請務必預約您所參加場次的座位。",
-      "findResults": "在這裡，您可以查看使用此帳戶報名參加的比特幣 ₿ 證書考試成績。成績通常需要 2 至 3 週的時間處理並顯示在這裡，如果長時間後您的成績仍未顯示，請聯繫我們。",
-      "wantToPass": "想參加考試嗎？"
+      "grade": "等級"
     },
     "booking": {
       "noTicket": "您目前沒有任何票券。",
@@ -531,7 +518,6 @@
     },
     "account": "帳戶",
     "administration": "管理",
-    "bookings": "訂單",
     "calendar": {
       "calendar": "日曆",
       "personalCalendar": "個人日曆"
@@ -550,7 +536,6 @@
       "seeProgress": "在這裡查看您的進度。",
       "startCourse": "開始或完成一門課程",
       "done": "完成",
-      "downloadPdf": "下載 PDF",
       "whereYouAre": "讓我們看看你在哪裡！",
       "viewDetails": "查看詳情",
       "yourCertificate": "您的證書",
@@ -588,7 +573,6 @@
       "beingGraded": "您的考試正在進行評分。結果應在1到2週內公布。",
       "courseDiplomas": "課程文憑",
       "completionDiplomas": "結業證書",
-      "downloadAvailableSoon": "證書很快就能下載",
       "globalCertifications": "全球認證",
       "retakeExam": "重新測驗",
       "seatBooked": "您的考試座位已經預訂好了",
@@ -863,8 +847,6 @@
     "question5": "什麼是秘密計劃？"
   },
   "payment": {
-    "feeDistribution": "費用分配：作者 99% - 平台 1%",
-    "proceedToPayment": "繼續進行付款",
     "terms": "請查看我們的<0>一般條款</0>以取得退款明細",
     "total": "總計",
     "payWithBitcoin": "用比特幣支付",
@@ -894,10 +876,7 @@
     "blogCategories": {
       "all": "所有",
       "content": "內容",
-      "course": "課程發布",
       "feature": "特色",
-      "patch": "更新說明",
-      "grants": "補助金",
       "network": "網絡"
     },
     "goBackButtons": {
@@ -1118,7 +1097,6 @@
     "helpUs": "幫助我們",
     "home": "首頁",
     "hours": "小時",
-    "inPerson": "實體",
     "intermediate": "中級",
     "interview": "採訪",
     "invoice": "收據",
@@ -1248,7 +1226,6 @@
   },
   "podcast": {
     "abstract": "摘要",
-    "discover": "探索這個 Podcast",
     "check": "查看 podcast"
   },
   "podcasts": {

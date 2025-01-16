@@ -180,10 +180,6 @@
       "payment_details": "Betalningsdetaljer",
       "amount": "Belopp",
       "invoiceId": "Transaktions-ID",
-      "terms1": "See our",
-      "terms2": "general terms",
-      "terms3": "and conditions for refund details",
-      "terms4": "Fee distribution: Author 99 % - Plateform 1 %",
       "inPersonAccess": "Du behöver ladda ner din biljett för att få tillgång till lektionen med fysiskt närvarande.",
       "buyOnlineCourse": "Köp onlinekurs",
       "buyInPersonCourse": "Köp kurs med fysiskt närvarande",
@@ -210,9 +206,6 @@
       "exploreCourses": "Utforska alla Plan ₿-kurser",
       "journey": "Bitcoin är en resa, inte en destination"
     },
-    "footer": {
-      "": ""
-    },
     "part": {
       "count": "Del {{count}}"
     },
@@ -231,14 +224,7 @@
       "payment_successful": "Betalningen lyckades!",
       "teacher": "Lärare",
       "teachers": "Lärare",
-      "terms1": "See our",
-      "terms2": "general terms",
-      "terms3": "and conditions for refund details",
-      "terms4": "Fee distribution: Author 99 % - Plateform 1 %",
-      "total": "Total",
       "back_course": "Tillbaka till kursen",
-      "callout": "",
-      "description": "",
       "book_description": "Vänligen granska de angivna uppgifterna för lokalen.\nNär din bokning har behandlats kommer vi att skicka dig en bekräftelsebiljett och en QR-kod att presentera vid eventet.",
       "qr_unified": "Denna QR-kod är enhetlig, så den accepterar betalningar med både lightning och on-chain.",
       "time": "Tid",
@@ -251,7 +237,6 @@
       "by": "av {{professor}}",
       "letsgo": "Nu kör vi"
     },
-    "proceedToPayment": "Proceed to payment",
     "quizz": {
       "clickOnPie": "Klicka för att granska",
       "quizz": "Quiz",
@@ -271,7 +256,6 @@
     },
     "review": {
       "loading": "Laddar…",
-      "feedbackDescription": "Vänligen betygsätt din upplevelse av kursen nedan.\nDenna feedback-session är obligatorisk för att få tillgång till slutprovet och för att validera kursen.\nObservera att lärarna inte kommer att ha tillgång till individuella utvärderingar.",
       "yesOfCourse": "ja, självklart",
       "faithful": "Stämmer överens med objektivet?",
       "recommend": "Skulle du rekommendera den?",
@@ -376,7 +360,6 @@
       "completedCoursesTitle": "Slutförda kurser",
       "completedCoursesDescription": "Här kan du se dina slutförda kurser.",
       "completedOutOf": "{{completed}} delar slutförda av {{total}} tillgängliga",
-      "downloadPdf": "Ladda ner PDF",
       "inprogressCoursesTitle": "Pågående kurser",
       "seeProgress": "för att se dina framsteg här.",
       "startCourse": "Starta eller slutför en kurs",
@@ -405,7 +388,6 @@
       "upcomingTicketTitle": "Kommande bokningar",
       "upcomingTicketSubtitle": "Ladda ner din biljett här för att delta på ditt kommande event. Kom ihåg att ta med den för inträde."
     },
-    "bookings": "",
     "profile": {
       "saving": "Sparar…",
       "emailChangeConfirmation": "Ett bekräftelsemail för din e-poständring har skickats, vänligen kolla din inkorg för att bekräfta.",
@@ -520,12 +502,6 @@
     }
   },
   "events": {
-    "introduction": {
-      "introductionh1": "Welcome to Plan B Network events",
-      "introductionp1": "Bottom up adoption enhanced by a strong network",
-      "introductionp2": "Looking for a Bitcoin event to go to ?",
-      "introductionp3": "Want to talk about Bitcoin in real time ? Here you can find all the events supported by the Plan B Network communities. Whether you want to listen to a lecture, discuss Bitcoin around a drink, or take an exam to assess your knowledge, you’ll be able to find the right event here through the Plan B Network."
-    },
     "main": {
       "upcomingEvents": "Kommande events",
       "currentEvents": "Events som pågår just nu"
@@ -652,27 +628,17 @@
     }
   },
   "imagesAlt": {
-    "bitcoinCurrency": "the sign of bitcoin currency",
     "blueEllipse": "en blå ellips",
     "bookCover": "ett bokomslag",
-    "community": "3 people",
     "contributorHeart": "ett hjärta till en trevlig medverkande",
     "contributorPP": "Den medverkandes profilbild",
-    "courseThumbnail": "Course thumbnail",
-    "curriculum": "Curriculum",
-    "decouvreBitcoinLogo": "DecouvreBitcoin Logo",
-    "favorite": "a heart inside a circle",
-    "flagsInCircle": "a circle of flags",
     "forwardArrow": "en framåtpil",
-    "github": "the icon of github",
     "orangePill": "ett orange piller",
     "printedCircuits": "en utskriven krets",
     "rabbit404": "En kanin som lyser med en ficklampa på en 404-skylt",
     "sthRepresentingCompany": "något som representerar företaget",
     "stylus": "en pekare",
-    "underConstructionImage": "Illustration av flera kaniner som arbetar på en byggarbetsplats",
-    "visibilityOff": "the eyes icon without off sign",
-    "worldMap": "world map with hubs linked"
+    "underConstructionImage": "Illustration av flera kaniner som arbetar på en byggarbetsplats"
   },
   "library": {
     "pageSubtitle": "Detta bibliotek är open source och tar gärna emot bidrag.",
@@ -730,8 +696,7 @@
     "pageTitle": "Hoppsan."
   },
   "podcast": {
-    "abstract": "Abstrakt",
-    "discover": "Utforska denna podcast"
+    "abstract": "Abstrakt"
   },
   "podcasts": {
     "hostedBy": "Värd: {{host}}",
@@ -1032,7 +997,6 @@
     "grade": "Betyg",
     "hours": "timmar",
     "id": "ID",
-    "inPerson": "Fysiskt närvarande",
     "inReview": "Under granskning",
     "lectures": "Föreläsningar",
     "lightningInvoice": "Lightning-faktura",
@@ -1084,9 +1048,7 @@
     "topics": "Ämnen"
   },
   "payment": {
-    "proceedToPayment": "Fortsätt till betalning",
     "terms": "Se våra <0>allmänna villkor</0> för detaljer om återbetalning",
-    "feeDistribution": "",
     "total": "Totalt"
   },
   "bCertificate": {
@@ -1134,10 +1096,7 @@
   "publicCommunication": {
     "description": "Plan ₿ Network är stolta över att följa open source-standard och bibehålla transparens genom hela sin resa",
     "blogCategories": {
-      "course": "Släpp av kurs",
       "feature": "Funktion",
-      "patch": "Release notes",
-      "grants": "Bidrag",
       "network": "Nätverk",
       "all": "Alla",
       "content": "Innehåll"

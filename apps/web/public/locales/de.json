@@ -180,10 +180,6 @@
       "payment_details": "Details zur Zahlung",
       "amount": "Menge",
       "invoiceId": "Rechnung ID",
-      "terms1": "See our",
-      "terms2": "general terms",
-      "terms3": "and conditions for refund details",
-      "terms4": "Fee distribution: Author 99 % - Plateform 1 %",
       "paidCourse": "",
       "buyInPersonCourse": "",
       "buyOnlineCourse": "",
@@ -210,9 +206,6 @@
       "journey": "Bitcoin ist eine Reise, kein Ziel",
       "seeCourse": "Siehe den Kurs"
     },
-    "footer": {
-      "": ""
-    },
     "part": {
       "count": "Teil {{count}}"
     },
@@ -231,14 +224,7 @@
       "payment_successful": "Zahlung erfolgt!",
       "teacher": "Lehrer*in",
       "teachers": "Lehrer*innen",
-      "terms1": "See our",
-      "terms2": "general terms",
-      "terms3": "and conditions for refund details",
-      "terms4": "Fee distribution: Author 99 % - Plateform 1 %",
-      "total": "Total",
       "back_course": "Zurück zum Kurs",
-      "callout": "Sie sind im Begriff, diesen Kurs zu kaufen.",
-      "description": "Dieser Kauf gewährt Ihnen Zugang zu Online-Kursen auf der Plattform sowie zu Präsenzkursen, vorausgesetzt, Sie reservieren Ihren Platz. Jede Unterrichtseinheit findet persönlich zu den angegebenen Terminen und Orten statt, bevor sie aufgezeichnet und online auf der Plattform gestreamt wird.",
       "book_description": "Bitte überprüfen Sie die bereitgestellten Angabe zum Verantstaltungsort.\nSobald Ihre Buchung bearbeitet wurde, senden wir Ihnen ein Bestätigungsticket und einen QR-Code, den Sie bei der Veranstaltung vorlegen müssen.",
       "qr_unified": "Dieser QR-Code ist vereinheitlicht, d.h. er akzeptiert Lightning- und On-Chain-Zahlungen.",
       "time": "Zeit",
@@ -251,7 +237,6 @@
       "by": "von {{professor}}",
       "letsgo": "Los geht's"
     },
-    "proceedToPayment": "Proceed to payment",
     "quizz": {
       "clickOnPie": "Klicken Sie auf das Kreisdiagramm, um Ihre Fehler zu überprüfen, und schauen Sie sich die Erklärungen an",
       "quizz": "Quiz",
@@ -271,7 +256,6 @@
     },
     "review": {
       "currentlyLoggedOut": "Sie sind derzeit abgemeldet. Um uns Feedback zum Kurs zu geben, bitte <0>melden Sie sich an oder registrieren Sie sich</0>.",
-      "feedbackDescription": "Bitte bewerten Sie Ihre Erfahrung mit dem Kurs unten.\nDiese Rückmeldung ist obligatorisch, um Zugang zur Abschlussprüfung zu erhalten und den Kurs zu validieren.\nBeachten Sie, dass Lehrkräfte keinen Zugang zu individuellen Bewertungen haben.",
       "feedbackSessionTitle": "Bewertung",
       "generalGrade": "Allgemeine Bewertung",
       "length": "Länge",
@@ -380,8 +364,7 @@
       "viewDetails": "",
       "yourCertificate": "",
       "completedOutOf": "",
-      "done": "",
-      "downloadPdf": ""
+      "done": ""
     },
     "account": "Konto",
     "courses": "Kurse",
@@ -405,22 +388,12 @@
       "upcomingTicketTitle": "Kommende Buchungen",
       "upcomingTicketSubtitle": "Laden Sie hier Ihr Ticket herunter, um an Ihrer kommende Veranstaltung teilzunehmen. Bitte denken Sie daran, es für den Eintritt mitzubringen."
     },
-    "bookings": "Buchungen",
     "administration": "Verwaltung",
     "bCertificate": {
-      "general": "Allgemein",
       "grade": "Note",
-      "gradesDiploma": "Noten und Diplom",
-      "learnMore": "Erfahren Sie mehr",
-      "assertLevel": "Behaupten Sie Ihr Niveau in Bitcoin",
-      "bCertificate": "Das ₿ Zertifikat",
       "bookExam": "Buchen Sie eine Prüfungssitzung",
       "certificate": "Zertifikat",
-      "noResults": "Mit diesem Konto sind noch keine Noten oder Zertifikate verbunden. \nWenn Sie eine Prüfung bestanden haben und Ihre Ergebnisse nach einer längeren Zeit nicht verfügbar sind, wenden Sie sich bitte an uns um Hilfe.",
-      "organizedSessions": "Das ₿ Zertifikat wird von Plan B Network an verschiedenen Orten und Zeiten organisiert. Stellen Sie sicher, dass Sie Ihren Platz bei einer Sitzung buchen.",
-      "presentation": "Das ₿-Zertifikat ist eine von Plan B Network organisierte Prüfung, die Ihr Wissen über Bitcoin und alle damit verbundenen Themen bewertet.",
-      "findResults": "Hier finden Sie Ihre Ergebnisse zu den ₿ Zertifikatsprüfungen, die Sie während der Registrierung mit diesem Konto bestanden haben. Es dauert in der Regel 2 bis 3 Wochen, bis die Ergebnisse bearbeitet werden und hier verfügbar sind. Wenn Ihre Ergebnisse nach langer Zeit nicht hier angezeigt werden, kontaktieren Sie uns bitte.",
-      "wantToPass": "Möchten Sie die Prüfung ablegen?"
+      "noResults": "Mit diesem Konto sind noch keine Noten oder Zertifikate verbunden. \nWenn Sie eine Prüfung bestanden haben und Ihre Ergebnisse nach einer längeren Zeit nicht verfügbar sind, wenden Sie sich bitte an uns um Hilfe."
     },
     "profile": {
       "edit": "Bearbeiten",
@@ -529,12 +502,6 @@
     }
   },
   "events": {
-    "introduction": {
-      "introductionh1": "Welcome to Plan B Network events",
-      "introductionp1": "Bottom up adoption enhanced by a strong network",
-      "introductionp2": "Looking for a Bitcoin event to go to ?",
-      "introductionp3": "Want to talk about Bitcoin in real time ? Here you can find all the events supported by the Plan B Network communities. Whether you want to listen to a lecture, discuss Bitcoin around a drink, or take an exam to assess your knowledge, you’ll be able to find the right event here through the Plan B Network."
-    },
     "main": {
       "upcomingEvents": "Kommende Veranstaltungen",
       "currentEvents": "Veranstaltungen im Moment"
@@ -661,27 +628,17 @@
     }
   },
   "imagesAlt": {
-    "bitcoinCurrency": "das Zeichen der Bitcoin-Währung",
     "blueEllipse": "eine blaue Ellipse",
     "bookCover": "ein Buchcover",
-    "community": "3 Personen",
     "contributorHeart": "ein Herz für netten Mitwirkenden",
     "contributorPP": "Profilbild des Mitwirkenden",
-    "courseThumbnail": "Kurs-Vorschaubild",
-    "curriculum": "Lehrplan",
-    "decouvreBitcoinLogo": "DecouvreBitcoin Logo",
-    "favorite": "ein Herz in einem Kreis",
-    "flagsInCircle": "ein Kreis von Flaggen",
     "forwardArrow": "ein Vorwärtspfeil",
-    "github": "das Icon von github",
     "orangePill": "eine orange Pille",
     "printedCircuits": "eine Leiterplatte",
     "rabbit404": "ein Kaninchen leuchtet mit einer Taschenlampe auf ein Schild 404",
     "sthRepresentingCompany": "etwas, was das Unternehmen repräsentiert",
     "stylus": "ein Stylus",
-    "underConstructionImage": "Illustration von mehreren Kaninchen, die auf einer Baustelle arbeiten",
-    "visibilityOff": "das Augensymbol ohne Zeichen",
-    "worldMap": "Weltkarte mit verlinkten Hubs"
+    "underConstructionImage": "Illustration von mehreren Kaninchen, die auf einer Baustelle arbeiten"
   },
   "library": {
     "pageSubtitle": "Diese Bibliothek ist Open-Source & offen für einen Beitrag.",
@@ -739,8 +696,7 @@
     "pageTitle": "Hoppla."
   },
   "podcast": {
-    "abstract": "Abstrakt",
-    "discover": "Entdecke diesen Podcast"
+    "abstract": "Abstrakt"
   },
   "podcasts": {
     "hostedBy": "Gehostet von {{host}}",
@@ -1062,7 +1018,6 @@
     "goal": "",
     "filter": "",
     "grade": "",
-    "inPerson": "",
     "location": "",
     "publicationDate": "",
     "ratings": "",
@@ -1093,9 +1048,7 @@
     "conferencesSinceGenesis": "Archiv der Bitcoin-Konferenzen seit dem Genesis-Block"
   },
   "payment": {
-    "proceedToPayment": "Weiter zur Zahlung",
     "terms": "Sehen Sie unsere <0>Allgemeinen Geschäftsbedingungen</0> für die Angabe der Rückerstattung",
-    "feeDistribution": "Honorarverteilung: Autor 99 % - Plattform 1 %",
     "total": "Summe"
   },
   "bCertificate": {
@@ -1146,10 +1099,7 @@
     "legal": "Rechtliche Informationen",
     "blogCategories": {
       "all": "Alle",
-      "course": "Kursfreigabe",
       "feature": "Merkmal",
-      "patch": "Patchnotizen",
-      "grants": "Zuschüsse",
       "network": "Netzwerk",
       "content": "Inhalt"
     },

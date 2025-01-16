@@ -104,7 +104,6 @@
       "soAndSo": "",
       "submitReview": "",
       "edit": "",
-      "feedbackDescription": "",
       "feedbackSessionTitle": "",
       "fieldRequired": "",
       "generalGrade": "",
@@ -240,7 +239,6 @@
       "completedOutOf": "",
       "details": "",
       "done": "",
-      "downloadPdf": "",
       "inprogress": "",
       "resumeLesson": "",
       "seeProgress": "",
@@ -866,12 +864,10 @@
   },
   "payment": {
     "terms": "",
-    "total": "",
-    "proceedToPayment": ""
+    "total": ""
   },
   "podcast": {
-    "abstract": "",
-    "discover": ""
+    "abstract": ""
   },
   "professors": {
     "navigationTitles": {
@@ -900,10 +896,7 @@
   "publicCommunication": {
     "blogCategories": {
       "feature": "",
-      "patch": "",
-      "grants": "",
       "network": "",
-      "course": "",
       "all": "",
       "content": ""
     },
@@ -982,7 +975,6 @@
     "home": "",
     "hours": "",
     "id": "",
-    "inPerson": "",
     "inReview": "",
     "intermediate": "",
     "interview": "",

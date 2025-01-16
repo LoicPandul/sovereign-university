@@ -180,10 +180,6 @@
       "payment_details": "Maksun tiedot",
       "amount": "Määrä",
       "invoiceId": "Invoice ID",
-      "terms1": "See our",
-      "terms2": "general terms",
-      "terms3": "and conditions for refund details",
-      "terms4": "Fee distribution: Author 99 % - Plateform 1 %",
       "paidCourse": "",
       "buyInPersonCourse": "",
       "buyOnlineCourse": "",
@@ -210,9 +206,6 @@
       "findCourses": "",
       "seeCourse": ""
     },
-    "footer": {
-      "": ""
-    },
     "part": {
       "count": "Jakso {{count}}"
     },
@@ -231,14 +224,7 @@
       "payment_successful": "Maksu onnistui!",
       "teacher": "Opettaja",
       "teachers": "Opettajat",
-      "terms1": "See our",
-      "terms2": "general terms",
-      "terms3": "and conditions for refund details",
-      "terms4": "Fee distribution: Author 99 % - Plateform 1 %",
-      "total": "Total",
       "back_course": "Takaisin kurssille",
-      "callout": "Olet ostamassa tätä koulutus-pakettia.",
-      "description": "Tämä ostos antaa sinulle pääsyn online koulutus-materiaaleihin alustallamme, sekä luennoillemme, joihin voit varata istumapaikan portaalimme kautta. Jokainen koulutuksen luento järjestetään ennalta määrätyissä ajankohdissa ja paikoissa ennen niiden julkaisua online-alustallamme.",
       "book_description": "Tarkista seuraavat tilauksenne tiedot.\nKun tilauksenne on käsitelty, lähetämme teille vahvistusviestissä pääsylipun ja QR-koodin. Tarvitsette niitä ilmoittautuessanne tapahtuman sisääntulo-portilla.",
       "qr_unified": "Tämä QR-koodi on yhdistetty, joten se hyväksyy sekä Lightning- että on-chain-maksut.",
       "time": "Aika",
@@ -251,7 +237,6 @@
       "by": "Julkaisijana {{professor}}",
       "letsgo": "Aloitetaan"
     },
-    "proceedToPayment": "Proceed to payment",
     "quizz": {
       "clickOnPie": "Klikkaa piirakka-kaaviota, josta näet virheesi selityksineen",
       "quizz": "Koe",
@@ -360,8 +345,7 @@
       "loading": "",
       "yesOfCourse": "",
       "recommend": "",
-      "faithful": "",
-      "feedbackDescription": ""
+      "faithful": ""
     }
   },
   "dashboard": {
@@ -370,7 +354,6 @@
       "completed": "Suoritetut luennot",
       "details": "Tiedot",
       "inprogress": "Keskeneräiset luennot",
-      "downloadPdf": "",
       "inprogressCoursesTitle": "",
       "seeProgress": "",
       "startCourse": "",
@@ -405,7 +388,6 @@
       "upcomingTicketTitle": "Tulevat",
       "pastTicketTitle": "Aiemmat"
     },
-    "bookings": "Tilaukset",
     "profile": {
       "personalInformation": "",
       "change": "",
@@ -520,12 +502,6 @@
     }
   },
   "events": {
-    "introduction": {
-      "introductionh1": "Welcome to Plan B Network events",
-      "introductionp1": "Bottom up adoption enhanced by a strong network",
-      "introductionp2": "Looking for a Bitcoin event to go to ?",
-      "introductionp3": "Want to talk about Bitcoin in real time ? Here you can find all the events supported by the Plan B Network communities. Whether you want to listen to a lecture, discuss Bitcoin around a drink, or take an exam to assess your knowledge, you’ll be able to find the right event here through the Plan B Network."
-    },
     "main": {
       "upcomingEvents": "Tulevat tapahtumat",
       "currentEvents": "Käynnissä olevat tapahtumat"
@@ -652,27 +628,17 @@
     }
   },
   "imagesAlt": {
-    "bitcoinCurrency": "bitcoin-valuutan merkki",
     "blueEllipse": "sininen ellipsi",
     "bookCover": "kirjan kansi",
-    "community": "3 people",
     "contributorHeart": "Rakkaudella kivalle kehittäjälle",
     "contributorPP": "contributor profile pic",
-    "courseThumbnail": "Course thumbnail",
-    "curriculum": "Opinto-ohjelma",
-    "decouvreBitcoinLogo": "DecouvreBitcoin Logo",
-    "favorite": "a heart inside a circle",
-    "flagsInCircle": "a circle of flags",
     "forwardArrow": "a forward arrow",
-    "github": "the icon of github",
     "orangePill": "an orange pill",
     "printedCircuits": "a printed circuits",
     "rabbit404": "a rabbit shining a flashlight on a 404 sign",
     "sthRepresentingCompany": "Esittele yritystäsi",
     "stylus": "a stylus",
-    "underConstructionImage": "Illustration of several rabbits working on a construction site",
-    "visibilityOff": "the eyes icon without off sign",
-    "worldMap": "world map with hubs linked"
+    "underConstructionImage": "Illustration of several rabbits working on a construction site"
   },
   "library": {
     "pageSubtitle": "Tämä kirjasto on avointa lähdekoodia ja avoin muokkauksille.",
@@ -730,8 +696,7 @@
     "pageTitle": "Oho."
   },
   "podcast": {
-    "abstract": "Abstrakti",
-    "discover": "Kuuntele tämä podcast"
+    "abstract": "Abstrakti"
   },
   "podcasts": {
     "hostedBy": "Juontaja {{host}}",
@@ -1049,7 +1014,6 @@
     "communities": "",
     "hours": "",
     "id": "",
-    "inPerson": "",
     "inReview": "",
     "onChain": "",
     "onChainAddress": "",
@@ -1061,9 +1025,7 @@
   },
   "payment": {
     "total": "Yhteensä",
-    "terms": "Katso <0>general terms</0> toimitus- ja palautusehdot",
-    "feeDistribution": "Palkkioiden jakautuminen: Kirjoittaja 99 % - Alusta 1 %",
-    "proceedToPayment": "Siirry maksamaan"
+    "terms": "Katso <0>general terms</0> toimitus- ja palautusehdot"
   },
   "conferences": {
     "addConferences": "Voit vapaasti lisätä puuttuvia konferensseja tämän <0>Github</0> -repositoryn kautta.",
@@ -1114,10 +1076,7 @@
     "blogCategories": {
       "all": "",
       "content": "",
-      "course": "",
       "feature": "",
-      "patch": "",
-      "grants": "",
       "network": ""
     },
     "legalSections": {

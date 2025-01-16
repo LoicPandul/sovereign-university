@@ -255,7 +255,6 @@
     "grade": "",
     "hours": "",
     "id": "",
-    "inPerson": "",
     "inReview": "",
     "lectures": "",
     "location": "",
@@ -394,11 +393,9 @@
       "accessibility": "可访问性",
       "amount": "金额",
       "back_course": "回到课程",
-      "callout": "您即将购买此课程。",
       "date": "日期",
       "dates_to": "从{{startDate}} 到 {{endDate}}",
       "downloadCurriculum": "下载课程大纲",
-      "description": "此次购买将授予您在平台上访问在线课程以及参加面对面课程的权限，前提是您预订了位子。每个课程会议都会在指定的日期和地点进行，然后被录制并在平台上在线播放。",
       "book_description": "请查场地详情。\n一旦预订处理完毕，我们将为您提供确认票据和二维码，以在活动现场出示。",
       "duration": "持续时间",
       "invoiceId": "交易ID",
@@ -440,7 +437,6 @@
     },
     "review": {
       "loading": "",
-      "feedbackDescription": "",
       "yesOfCourse": "",
       "faithful": "",
       "recommend": "",
@@ -599,7 +595,6 @@
       "upcomingTicketTitle": "即将到来的预订",
       "upcomingTicketSubtitle": "在此处下载您的票据，以参加您的下次活动。请确保带上票据，以便能进入活动现场。"
     },
-    "bookings": "预订",
     "calendar": {
       "calendar": "日历",
       "personalCalendar": "个人时间安排"
@@ -620,24 +615,14 @@
       "whereYouAre": "",
       "completedOutOf": "",
       "done": "",
-      "downloadPdf": "",
       "viewDetails": "",
       "yourCertificate": ""
     },
     "bCertificate": {
-      "assertLevel": "确认你在比特币方面的水平",
-      "bCertificate": "₿ 证书",
       "bookExam": "预约考试时间",
       "certificate": "证书",
-      "general": "将军",
       "grade": "等级",
-      "gradesDiploma": "成绩和文凭",
-      "learnMore": "了解更多",
-      "noResults": "此帐户尚未关联任何等级或证书。\n如果你已经通过考试，但在较长时间后仍无法查看结果，请联系我们寻求帮助。",
-      "organizedSessions": "\"₿\"证书由Plan B Network在各种地点和时间组织。请确保预订上课时间的位置。",
-      "presentation": "\"₿证书\"是由Plan B Network组织的一项桌面考试，旨在确认你对比特币及其所有相关主题的了解程度。",
-      "wantToPass": "想要通过考试？",
-      "findResults": "您可在此找到您用此账户注册后参加的₿证书考试的结果。成绩通常需要2到3周的时间处理，并在此处显示。如果很长时间后您的成绩仍未显示，请与我们联系。"
+      "noResults": "此帐户尚未关联任何等级或证书。\n如果你已经通过考试，但在较长时间后仍无法查看结果，请联系我们寻求帮助。"
     },
     "teacher": {
       "reviews": {
@@ -849,19 +834,11 @@
     }
   },
   "imagesAlt": {
-    "bitcoinCurrency": "比特币货币的符号",
     "blueEllipse": "一个蓝色的椭圆形",
     "bookCover": "書籍封面",
-    "community": "3个人",
     "contributorHeart": "对优秀贡献者的心意",
     "contributorPP": "贡献者的个人资料照片",
-    "courseThumbnail": "课程缩略图",
-    "curriculum": "课程表",
-    "decouvreBitcoinLogo": "DecouvreBitcoin徽标",
-    "favorite": "一个圆圈内的心",
-    "flagsInCircle": "一圈旗帜",
     "forwardArrow": "向前箭头",
-    "github": "Github的图标",
     "orangePill": "一个橙色的药片",
     "printedCircuits": "印刷电路板",
     "rabbit404": "一只兔子用手电筒照亮一个404标志",
@@ -1068,8 +1045,6 @@
     "mobiledescription": ""
   },
   "payment": {
-    "feeDistribution": "费用分配：作者99% - 平台1%",
-    "proceedToPayment": "继续进行付款",
     "terms": "查看我们的<0>通用条款</0>以获取退款详情",
     "total": "总计"
   },
@@ -1095,8 +1070,7 @@
     "pageTitle": "哎呀。"
   },
   "podcast": {
-    "abstract": "摘要",
-    "discover": "发现这个播客"
+    "abstract": "摘要"
   },
   "podcasts": {
     "hostedBy": "由{{host}}主办",
@@ -1127,10 +1101,7 @@
     "blogCategories": {
       "all": "",
       "content": "",
-      "course": "",
       "feature": "",
-      "patch": "",
-      "grants": "",
       "network": ""
     },
     "legalSections": {

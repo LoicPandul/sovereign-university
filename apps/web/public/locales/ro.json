@@ -262,7 +262,6 @@
       "accessibility_forever": "Pentru totdeauna",
       "amount": "Cantitate",
       "back_course": "Înapoi la curs",
-      "callout": "Sunteți pe cale să achiziționați acest curs.",
       "date": "Data",
       "dates_to": "{{startDate}} până în {{endDate}}",
       "downloadCurriculum": "Descarcă curriculumul",
@@ -276,7 +275,6 @@
       "teacher": "Profesor",
       "teachers": "Profesori",
       "time": "Timp",
-      "description": "Această achiziție vă oferă acces la cursuri online pe platformă, precum și la cursuri față în față, cu condiția să vă rezervați locul. Fiecare sesiune de curs are loc în persoană la datele și locațiile specificate, înainte de a fi înregistrată și transmisă online pe platformă.",
       "inPersonCallout": "Sunteți pe cale să achiziționați acces <strong>în persoană</strong> la acest curs.",
       "inPersonDescription": "Fiecare sesiune de clasă are loc în persoană în datele și locațiile specificate și este de asemenea transmisă în direct pe platformă.\nAceastă achiziție îți va oferi acces atât la clasele în persoană, cât și la cele online.\nNu uita să îți rezervi locul pentru clasele la care vrei să participi în persoană.",
       "onlineCallout": "Sunteți pe cale să achiziționați accesul <strong>online</strong> la acest curs.",
@@ -326,7 +324,6 @@
       "yesVeryMuch": "da, foarte mult",
       "commentAdmin": "Comentariu pentru echipa de administrare (privat)",
       "currentlyLoggedOut": "În acest moment nu sunteți autentificat. Pentru a ne oferi un feedback despre curs, vă rugăm să <0>vă autentificați sau să vă înregistrați</0>.",
-      "feedbackDescription": "Vă rugăm să evaluați experiența dvs. despre cursul de mai jos.\nAceast feedback este obligatoriu pentru a avea acces la examenul final și pentru a valida cursul.\nRețineți că profesorii nu vor avea acces la evaluările individuale.",
       "feedbackSessionTitle": "Sesiune de feedback",
       "tooLong": "prea lung",
       "whatStudentsSay": "Ce spun studenții despre acest curs",
@@ -414,19 +411,10 @@
     "account": "Cont",
     "administration": "Administrație",
     "bCertificate": {
-      "bCertificate": "Certificatul ₿",
       "bookExam": "Rezervați o sesiune de examen",
       "certificate": "Certificat",
-      "general": "General",
       "grade": "Nota",
-      "gradesDiploma": "Note și diplomă",
-      "learnMore": "Aflați mai multe",
-      "organizedSessions": "Certificatul ₿ este organizat de Plan B Network în diverse locații și la diferite ore. Asigurați-vă că vă rezervați locul la o sesiune.",
-      "findResults": "Aici puteți găsi rezultatele la examenele pentru Certificatul ₿ pe care le-ați trecut în timp ce erați înregistrat cu acest cont. Durează de obicei de la 2 până la 3 săptămâni pentru a procesa rezultatele. Dacă după o perioadă lungă de timp rezultatele dvs. nu apar aici, vă rugăm să ne contactați.",
-      "wantToPass": "Vrei să dai examenul?",
-      "assertLevel": "Afirmă-ți nivelul în Bitcoin",
-      "noResults": "încă nu există note sau certificate asociate cu acest cont .\nDacă ați trecut un examen și rezultatele dvs. nu sunt disponibile după o perioadă îndelungată, vă rugăm să ne contactați pentru asistență.",
-      "presentation": "Certificatul ₿ este un examen organizat de Plan B Network, conceput pentru a evalua cunoștințele dvs. despre Bitcoin și toate subiectele sale conexe."
+      "noResults": "încă nu există note sau certificate asociate cu acest cont .\nDacă ați trecut un examen și rezultatele dvs. nu sunt disponibile după o perioadă îndelungată, vă rugăm să ne contactați pentru asistență."
     },
     "booking": {
       "accessLive": "Accesați examenul live",
@@ -468,10 +456,8 @@
       "viewDetails": "Vezi detalii",
       "yourCertificate": "Certificatul tău",
       "completedOutOf": "{{completed}} unități finalizate din {{total}} disponibile",
-      "done": "Terminat",
-      "downloadPdf": "Descarcă PDF"
+      "done": "Terminat"
     },
-    "bookings": "Rezervări",
     "profile": {
       "change": "Schimba",
       "edit": "Editare",
@@ -700,10 +686,6 @@
       "subtitle": "Ce spun Bitcoinerii despre noi"
     }
   },
-  "general": {
-    "itemNotFoundOrTranslated": "{{item}} nu a fost găsit sau nu a fost tradus în limba dumneavoastră",
-    "itemNotFound": "{{item}} nu a fost găsit"
-  },
   "glossary": {
     "needHelp": "Ai nevoie de ajutor pentru a defini un cuvânt tehnic?",
     "notTranslated": "Informațiile din glosar nu au fost încă traduse.\nDacă doriți să ajutați, nu ezitați să contribuiți",
@@ -779,10 +761,7 @@
     "blogCategories": {
       "all": "Toate",
       "content": "Conținut",
-      "course": "Lansarea cursului",
       "feature": "Caracteristici",
-      "patch": "Note de patch-uri",
-      "grants": "Granturi",
       "network": "Network"
     },
     "legalSections": {
@@ -958,8 +937,6 @@
   },
   "payment": {
     "terms": "Consultați <0>termenii și condițiile</0> noastre generale pentru detalii despre rambursare",
-    "proceedToPayment": "Continuați la plată",
-    "feeDistribution": "Distribuția comisioanelor: Autor 99% - Platformă 1%",
     "total": "Total"
   },
   "proofreading": {
@@ -995,8 +972,7 @@
     "pageTitle": "Oops."
   },
   "podcast": {
-    "abstract": "Rezumat",
-    "discover": "Descoperă acest podcast"
+    "abstract": "Rezumat"
   },
   "podcasts": {
     "hostedBy": "Găzduit de {{host}}",
@@ -1136,7 +1112,6 @@
     "wallets": "Portofele",
     "resume": "Reluați",
     "goal": "Obiectiv",
-    "inPerson": "În persoană",
     "ratings": "Evaluări",
     "diploma": "Diplomă",
     "filter": "Filtru",

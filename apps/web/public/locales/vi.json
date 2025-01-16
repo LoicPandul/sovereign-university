@@ -74,7 +74,6 @@
       "accessibility_forever": "Mãi mãi",
       "amount": "Số lượng",
       "back_course": "Quay trở lại khoá học",
-      "callout": "Bạn sắp mua khoá học này.",
       "date": "Ngày",
       "dates_to": "{{startDate}} đến {{endDate}}",
       "book_description": "Vui long xem lại chi tiết địa điểm đã được cung cấp.\nMột khi quá trình đặt chỗ được xử lý, chúng tôi sẽ cung cấp cho bạn vé xác nhận và mã QR để bạn xuất trình tại sự kiện.",
@@ -88,7 +87,6 @@
       "teachers": "Các giáo viên",
       "time": "Thời gian",
       "downloadCurriculum": "Tải về chương trình giảng dạy",
-      "description": "Giao dịch mua này sẽ cấp cho bạn quyền truy cập vào các khoá học trực tuyến trên nền tảng cũng như các lớp học trực tiếp, miễn là bạn đặt chỗ trước. Mỗi buổi học trực tiếp sẽ diễn ra vào ngày giờ và địa điểm củ thể được chỉ định trước khi được ghi lại và phát trực tuyến trên nền tảng.",
       "inPersonCallout": "",
       "onlineCallout": "",
       "onlineDescription": "",
@@ -187,9 +185,6 @@
     "part": {
       "count": "Phần số {{count}}/{{total}}"
     },
-    "footer": {
-      "": ""
-    },
     "review": {
       "writeThoughts": "Bạn có thể viết suy nghĩ của mình ở đây",
       "asExpected": "như mong đợi",
@@ -200,7 +195,6 @@
       "faithful": "Đúng với mục tiêu?",
       "yesVeryMuch": "vâng, rất nhiều",
       "currentlyLoggedOut": "Bạn hiện tại đã đăng xuất. Để đưa ra phản hồi về khoá học, vui lòng <0>đăng nhập hoặc đăng ký</0>.",
-      "feedbackDescription": "Vui lòng đánh giá trải nghiệm của bạn về khoá học vào phía dưới.\nPhần phản hồi này là bắt buộc để có thể truy cập vào bài thi cuối và xác nhận khoá học.\nLưu ý rằng các giáo viên sẽ không có quyền truy cập vào đánh giá của từng cá nhân.",
       "feedbackSessionTitle": "Phần phản hồi",
       "generalGrade": "Điểm chung",
       "length": "Độ dài",
@@ -457,7 +451,6 @@
       "startCourse": "Bắt đầu hoặc hoàn thành một khoá học",
       "completedOutOf": "",
       "done": "",
-      "downloadPdf": "",
       "viewDetails": "",
       "yourCertificate": "",
       "whereYouAre": ""
@@ -481,21 +474,11 @@
       "upcomingTicketTitle": "Đặt chỗ sắp tới",
       "upcomingTicketSubtitle": "Tải xuống vé của bạn ở đây để tham dự sự kiện sắp tới. Vui lòng mang theo vé ở cổng vào."
     },
-    "bookings": "Đặt chỗ",
     "bCertificate": {
-      "gradesDiploma": "Điểm và bằng cấp",
-      "learnMore": "Tìm hiểu thêm",
-      "assertLevel": "Khẳng định đẳng cấp của bạn về Bitcoin",
-      "bCertificate": "Chứng chỉ ₿",
       "bookExam": "Đặt lịch thi",
       "certificate": "Chứng chỉ",
-      "general": "Chung",
       "grade": "Điểm",
-      "noResults": "Chưa có bảng điểm hoặc chứng chỉ nào liên quan tới tài khoản này.\nNếu bạn đã vượt qua một kỳ thi và kết quả của bạn không có sau một thời gian dài, vui lòng liên hệ với chúng tôi để được hỗ trợ.",
-      "presentation": "Chứng chỉ ₿ mà một kỳ thi trắc nghiệm được tổ chức bởi Plan B Network, được thiết kế để đánh giá kiến thức của bạn về Bitcoin và các chủ đề liên quan.",
-      "findResults": "Tại đây, bạn có thể tìm thấy kết quả của kỳ thi cấp chứng chỉ ₿ mà bạn đã vượt qua khi đăng ký bằng tài khoản này. Kết quả thường mất từ 2 đến 3 tuần để được xử lý. Nếu sau một thời gian dài mà kết quả của bạn không hiển thị tại đây, vui lòng liên hệ với chúng tôi.",
-      "organizedSessions": "Chứng chỉ ₿ được tổ chức bởi Plan B Network tại nhiều địa điểm và thời gian khác nhau. Hãy đảm bảo đặt chỗ cho một kỳ thi.",
-      "wantToPass": "Bạn có muốn thi?"
+      "noResults": "Chưa có bảng điểm hoặc chứng chỉ nào liên quan tới tài khoản này.\nNếu bạn đã vượt qua một kỳ thi và kết quả của bạn không có sau một thời gian dài, vui lòng liên hệ với chúng tôi để được hỗ trợ."
     },
     "administration": "Quản trị",
     "profile": {
@@ -669,27 +652,17 @@
     }
   },
   "imagesAlt": {
-    "bitcoinCurrency": "ký hiệu của đồng tiền bitcoin",
     "blueEllipse": "một hình elip màu xanh nước biển",
     "bookCover": "một bìa cuốn sách",
-    "community": "3 người",
     "contributorHeart": "một trái tim dành cho người đóng góp",
     "contributorPP": "hình đại diện của người đóng góp",
-    "courseThumbnail": "Thumbnail của khoá học",
-    "curriculum": "Chương trình giảng dạy",
-    "favorite": "một trái tim bên trong một vòng tròn",
-    "flagsInCircle": "một vòng tròn của những lá cờ",
     "forwardArrow": "một mũi tên hướng về phía trước",
     "orangePill": "một viên thuốc màu cam",
     "printedCircuits": "một mạch in",
     "sthRepresentingCompany": "một cái gì đó đại diện cho công ty",
     "stylus": "một phong cách",
     "underConstructionImage": "Hình minh hoạ một số chú thỏ đang làm việc trên công trường",
-    "visibilityOff": "biểu tượng đôi mắt không có dấu hiệu tắt",
-    "decouvreBitcoinLogo": "Logo của DecourveBitcoin",
-    "github": "biểu tượng của github",
-    "rabbit404": "một con thỏ chiếu đèn pin vào biển báo 404",
-    "worldMap": "bản đồ thế giới với các trung tâm được liên kết"
+    "rabbit404": "một con thỏ chiếu đèn pin vào biển báo 404"
   },
   "library": {
     "pageSubtitle": "Thư viện này là mã nguồn mở và được mở cho mọi người đóng góp.",
@@ -747,14 +720,11 @@
     "pageSubtitle": "Có vẻ như ai đó đã rớt quá sâu vào hang thỏ và bị lạc. Để quay lại mặt đất, nhấp vào"
   },
   "payment": {
-    "proceedToPayment": "Xử lý thanh toán",
     "terms": "Xem <0>điều khoản chung</0> của chúng tôi và chi tiết về điều kiện hoàn trả",
-    "feeDistribution": "Phân bổ phí: Tác giả 99% - Nền tảng 1%",
     "total": "Tổng cộng"
   },
   "podcast": {
-    "abstract": "Tóm tắt",
-    "discover": "Khám phá podcast này"
+    "abstract": "Tóm tắt"
   },
   "podcasts": {
     "hostedBy": "Được tổ chức bởi {{host}}",
@@ -1068,7 +1038,6 @@
     "booked": "",
     "diploma": "",
     "id": "",
-    "inPerson": "",
     "inReview": "",
     "location": "",
     "overview": "",
@@ -1148,10 +1117,7 @@
     "blogCategories": {
       "all": "Tất cả",
       "content": "Nội dung",
-      "course": "Phát hành khoá học",
       "feature": "Tính năng",
-      "patch": "Ghi chú bản vá",
-      "grants": "Các khoản tài trợ",
       "network": "Mạng lưới"
     },
     "goBackButtons": {

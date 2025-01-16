@@ -7,10 +7,8 @@
       "accessibility_forever": "",
       "amount": "",
       "back_course": "",
-      "callout": "",
       "date": "",
       "dates_to": "",
-      "description": "",
       "book_description": "",
       "duration": "",
       "invoiceId": "",
@@ -116,9 +114,6 @@
       "buildPath": "",
       "exploreCourses": ""
     },
-    "footer": {
-      "": ""
-    },
     "part": {
       "count": ""
     },
@@ -144,7 +139,6 @@
       "theoreticalLightning": ""
     },
     "review": {
-      "feedbackDescription": "",
       "yesOfCourse": "",
       "faithful": "",
       "recommend": "",
@@ -352,7 +346,6 @@
     "free": "",
     "glossary": "",
     "goal": "",
-    "inPerson": "",
     "lectures": "",
     "lightningInvoice": "",
     "onChainAddress": "",
@@ -548,7 +541,6 @@
       "upcomingTicketTitle": "",
       "upcomingTicketSubtitle": ""
     },
-    "bookings": "",
     "courses": "",
     "logout": "",
     "myCourses": {
@@ -558,7 +550,6 @@
       "resumeLesson": "",
       "inprogressCoursesDescription": "",
       "done": "",
-      "downloadPdf": "",
       "completedCoursesTitle": "",
       "completedCoursesDescription": "",
       "completedOutOf": "",
@@ -809,27 +800,17 @@
     }
   },
   "imagesAlt": {
-    "bitcoinCurrency": "",
     "blueEllipse": "",
     "bookCover": "",
-    "community": "",
     "contributorHeart": "",
     "contributorPP": "",
-    "courseThumbnail": "",
-    "curriculum": "",
-    "decouvreBitcoinLogo": "",
-    "favorite": "",
-    "flagsInCircle": "",
     "forwardArrow": "",
-    "github": "",
     "orangePill": "",
     "printedCircuits": "",
     "rabbit404": "",
     "sthRepresentingCompany": "",
     "stylus": "",
-    "underConstructionImage": "",
-    "visibilityOff": "",
-    "worldMap": ""
+    "underConstructionImage": ""
   },
   "library": {
     "pageSubtitle": "",
@@ -887,14 +868,11 @@
     "pageTitle": ""
   },
   "payment": {
-    "proceedToPayment": "",
     "terms": "",
-    "feeDistribution": "",
     "total": ""
   },
   "podcast": {
-    "abstract": "",
-    "discover": ""
+    "abstract": ""
   },
   "podcasts": {
     "hostedBy": "",
@@ -1077,11 +1055,8 @@
     "description": "",
     "blogCategories": {
       "all": "",
-      "patch": "",
-      "grants": "",
       "feature": "",
       "content": "",
-      "course": "",
       "network": ""
     },
     "blogPageStrings": {

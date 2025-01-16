@@ -180,10 +180,6 @@
       "payment_details": "Szczegóły płatności",
       "amount": "Kwota",
       "invoiceId": "ID faktury",
-      "terms1": "See our",
-      "terms2": "general terms",
-      "terms3": "and conditions for refund details",
-      "terms4": "Fee distribution: Author 99 % - Plateform 1 %",
       "buyOnlineCourse": "Kup kurs online",
       "inPersonAccess": "Musisz pobrać swój bilet, aby uzyskać dostęp do zajęć stacjonarnych.",
       "buyInPersonCourse": "Kup kurs stacjonarny",
@@ -210,9 +206,6 @@
       "seeCourse": "Zobacz kurs",
       "buildPath": "Zbuduj własną ścieżkę w głąb króliczej nory"
     },
-    "footer": {
-      "": ""
-    },
     "part": {
       "count": "Część {{count}}"
     },
@@ -231,14 +224,7 @@
       "payment_successful": "Płatności dokonano pomyślnie!",
       "teacher": "Nauczyciel",
       "teachers": "Nauczyciele",
-      "terms1": "See our",
-      "terms2": "general terms",
-      "terms3": "and conditions for refund details",
-      "terms4": "Fee distribution: Author 99 % - Plateform 1 %",
-      "total": "Total",
       "back_course": "Powrót do kursu",
-      "callout": "Zaraz sfinalizujesz proces zakupu tego kursu.",
-      "description": "Zakup ten zapewni Ci dostęp do kursów online na platformie, jak również do zajęć stacjonarnych, pod warunkiem, że zarezerwujesz swoje miejsce. Każda sesja odbywa się osobiście w określonych terminach i miejscach, zanim zostanie nagrana i udostępniona online na platformie.",
       "book_description": "Proszę przejrzeć podane szczegóły dotyczące miejsca wydarzenia. \nPo przetworzeniu rezerwacji wyślemy Ci bilet potwierdzający oraz kod QR, który należy pokazać na miejscu.",
       "qr_unified": "Ten kod QR jest ujednolicony, więc akceptuje płatności w sieci lightning oraz on-chain.",
       "time": "Czas",
@@ -251,7 +237,6 @@
       "by": "autor {{professor}}",
       "letsgo": "To zaczynajmy!"
     },
-    "proceedToPayment": "Proceed to payment",
     "quizz": {
       "clickOnPie": "Kliknij, aby przejżeć wyniki",
       "quizz": "Quiz",
@@ -294,7 +279,6 @@
       "yesOfCourse": "tak, oczywiście",
       "yesVeryMuch": "tak, bardzo",
       "asExpected": "zgodnie z oczekiwaniami",
-      "feedbackDescription": "Dodaj swoją ewaluację kursu poniżej.\nSesja ewaluacyjna jest obowiązkowa, aby uzyskać dostęp do egzaminu końcowego i zatwierdzić kurs.\nInformujemy, że nauczyciele nie będą mieli dostępu do poszczególnych ewaluacji.",
       "recommend": "Poleciłbyś ten kurs?",
       "faithful": "Jesteś nastawiony na osiągnięcie swojego celu?",
       "currentlyLoggedOut": "W tym momencie jesteś wylogowany. Aby przekazać nam swoją opinię na temat kursu, prosimy <0>zaloguj się lub zarejestruj się</0>.",
@@ -378,7 +362,6 @@
       "startCourse": "Rozpocznij lub ukończ kurs",
       "completedOutOf": "",
       "done": "",
-      "downloadPdf": "",
       "viewDetails": "",
       "yourCertificate": "",
       "whereYouAre": ""
@@ -405,21 +388,11 @@
       "upcomingTicketTitle": "Nadchodzące rezerwacje",
       "upcomingTicketSubtitle": "Pobierz swój bilet tutaj, aby wziąć udział w najbliższym wydarzeniu. Upewnij się, że masz ze sobą bilet, aby mieć wstęp na wydarzenie."
     },
-    "bookings": "Rezerwacje",
     "bCertificate": {
-      "learnMore": "Dowiedz się więcej",
       "noResults": "Nie ma jeszcze żadnych ocen ani certyfikatów powiązanych z tym kontem.\nJeśli zdałeś egzamin, ale twoje wyniki nie są dostępne po dłuższym czasie, skontaktuj się z nami w celu uzyskania pomocy.",
-      "assertLevel": "Potwierdź swój poziom wiedzy o Bitcoinie",
-      "bCertificate": "Certyfikat",
       "bookExam": "Zarezerwuj termin egzaminu",
       "certificate": "Certyfikat",
-      "general": "Ogólne",
-      "grade": "Ocena",
-      "gradesDiploma": "Oceny i dyplom",
-      "organizedSessions": "Certyfikat ₿ jest organizowany przez sieć Plan B w różnych lokalizacjiach i terminach. Upewnij się, że zarezerwowałeś swoje miejsce na sesji.",
-      "wantToPass": "Chcesz zdać egzamin?",
-      "findResults": "Tutaj możesz znaleźć wyniki egzaminów na certyfikat ₿, do których podchodziłeś, będąc zarejestrowany na tym koncie. Analiza wyników i ich publikacja tutaj zajmuje zwykle od 2 do 3 tygodni. Skontaktuj się z nami, jeśli twoje wyniki nie pojawiły się tutaj po dłuższym czasie.",
-      "presentation": "Certyfikat ₿ to egzamin w trybie stacjonarnym organizowany przez sieć Plan B, mający na celu potwierdzenie Twojego poziomu wiedzy na temat Bitcoina i wszystkich związanych z nim tematów."
+      "grade": "Ocena"
     },
     "administration": "Administracja",
     "calendar": {
@@ -529,12 +502,6 @@
     }
   },
   "events": {
-    "introduction": {
-      "introductionh1": "Welcome to Plan B Network events",
-      "introductionp1": "Bottom up adoption enhanced by a strong network",
-      "introductionp2": "Looking for a Bitcoin event to go to ?",
-      "introductionp3": "Want to talk about Bitcoin in real time ? Here you can find all the events supported by the Plan B Network communities. Whether you want to listen to a lecture, discuss Bitcoin around a drink, or take an exam to assess your knowledge, you’ll be able to find the right event here through the Plan B Network."
-    },
     "main": {
       "upcomingEvents": "Nadchodzące wydarzenia",
       "currentEvents": "Aktualnie odbywające się wydarzenia"
@@ -661,27 +628,17 @@
     }
   },
   "imagesAlt": {
-    "bitcoinCurrency": "the sign of bitcoin currency",
     "blueEllipse": "a blue ellipse",
     "bookCover": "a book cover",
-    "community": "3 people",
     "contributorHeart": "a heart for nice contributor",
     "contributorPP": "contributor profile pic",
-    "courseThumbnail": "Course thumbnail",
-    "curriculum": "Curriculum",
-    "decouvreBitcoinLogo": "DecouvreBitcoin Logo",
-    "favorite": "a heart inside a circle",
-    "flagsInCircle": "a circle of flags",
     "forwardArrow": "a forward arrow",
-    "github": "the icon of github",
     "orangePill": "an orange pill",
     "printedCircuits": "a printed circuits",
     "rabbit404": "a rabbit shining a flashlight on a 404 sign",
     "sthRepresentingCompany": "something representing the company",
     "stylus": "a stylus",
-    "underConstructionImage": "Illustration of several rabbits working on a construction site",
-    "visibilityOff": "the eyes icon without off sign",
-    "worldMap": "world map with hubs linked"
+    "underConstructionImage": "Illustration of several rabbits working on a construction site"
   },
   "library": {
     "pageSubtitle": "To biblioteka open-source otwarta na współpracę.",
@@ -739,8 +696,7 @@
     "pageTitle": "Uups."
   },
   "podcast": {
-    "abstract": "Abstrakt",
-    "discover": "Odkryj ten podkast"
+    "abstract": "Abstrakt"
   },
   "podcasts": {
     "hostedBy": "Prowadzony przez {{host}}",
@@ -1054,7 +1010,6 @@
     "goal": "",
     "grade": "",
     "id": "",
-    "inPerson": "",
     "inReview": "",
     "location": "",
     "overview": "",
@@ -1093,9 +1048,7 @@
     "topics": "Tematy"
   },
   "payment": {
-    "proceedToPayment": "Przejdź do płatności",
     "terms": "Zobacz nasze <0>ogólne warunki</0> i szczegóły dotyczące zwrotu kosztów",
-    "feeDistribution": "Podział opłat: Autor 99% - Platforma 1%",
     "total": "Razem"
   },
   "bCertificate": {
@@ -1148,19 +1101,12 @@
     "legal": "Informacje prawne",
     "blogCategories": {
       "all": "Wszystko",
-      "course": "Publikacja kursu",
-      "features": "Szczegóły",
-      "patch": "Notatki o poprawkach",
-      "grants": "Dotacje",
       "network": "Sieć",
       "content": "Treść",
       "feature": "Opis"
     },
     "legalSections": {
       "contact": "Kontakt",
-      "general": "Ogólne",
-      "cookies": "Ciasteczka",
-      "privacy": "Prywatność",
       "termsOfSale": "Warunki sprzedaży",
       "legalNotice": "Informacja prawna",
       "privacyPolicy": "Polityka prywatności"
@@ -1169,10 +1115,6 @@
       "simpleGoBack": "Powrót do wszystkich artykułów"
     },
     "title": "Komunikacja publiczna"
-  },
-  "general": {
-    "itemNotFound": "Nie znaleziono {{item}}",
-    "itemNotFoundOrTranslated": "Nie znaleziono {{item}} lub tłumaczenie na język polski nie jest jeszcze dostępne"
   },
   "proofreading": {
     "description": "Oryginalna treść została przetłumaczona przez AI, ale aby zapewnić dokładność tłumaczenia, konieczna jest korekta wykonana przez człowieka.",

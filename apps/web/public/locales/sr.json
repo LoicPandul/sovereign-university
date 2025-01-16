@@ -183,9 +183,7 @@
       "qr_unified": "Ovaj QR kod je ujednačen, tako da prihvata lightning i on-chain plaćanja.",
       "teacher": "Nastavnik",
       "time": "Vreme",
-      "callout": "Upravo ćete kupiti ovaj kurs.",
       "dates_to": "{{startDate}} do {{endDate}}",
-      "description": "Ova kupovina će vam omogućiti pristup online kursevima na platformi, kao i časovima uživo, pod uslovom da rezervišete svoje mesto. Svako predavanje se održava uživo prema navedenim datumima i lokacijama pre nego što se snimi i emituje online na platformi.",
       "teachers": "Nastavnici",
       "access_invoice": "Možete pristupiti računu preko Vašeg profila",
       "accessibility": "Pristupačnost",
@@ -341,7 +339,6 @@
       "commentTeacher": "Komentar za nastavnika (privatno)",
       "currentlyLoggedOut": "Trenutno ste odjavljeni. Kako biste nam dali povratne informacije o kursu, molimo Vas da se <0>prijavite ili registrujete</0>.",
       "difficulty": "Nivo težine",
-      "feedbackDescription": "Molimo Vas da ocenite Vaše iskustvo sa kursom ispod.\nOva sesija davanja povratnih informacija je obavezna da biste imali pristup završnom ispitu i da biste validirali kurs.\nNapomena: Nastavnici neće imati pristup pojedinačnim evaluacijama.",
       "quality": "Kvalitet",
       "ratingsAndReviews": "Ocene i recenzije",
       "skip": "Preskoči recenziju",
@@ -372,8 +369,7 @@
       "fieldRequired": "Ovo polje je obavezno",
       "commentAdminMobile": "Privatni komentar za administrativni tim",
       "commentPublicMobile": "Javni komentar",
-      "commentTeacherMobile": "Privatni komentar za nastavnika",
-      "conclusionFeedback1": "Hvala na vašim povratnim informacijama !"
+      "commentTeacherMobile": "Privatni komentar za nastavnika"
     },
     "unreleased": {
       "colcardAndSparrow": "Coldcard i Sparrow",
@@ -457,7 +453,6 @@
       "completedOutOf": "Završeno {{completed}} poglavlja od {{total}} dostupnih",
       "details": "Detalji",
       "done": "Završeno",
-      "downloadPdf": "Preuzmi PDF",
       "inprogress": "U toku",
       "inprogressCoursesTitle": "Kursevi u toku",
       "inprogressCoursesDescription": "Ovde možete proveriti svoj napredak u kursevima koje ste započeli.",
@@ -474,11 +469,9 @@
       "bCertificate": "₿ Sertifikat",
       "courseDiplomas": "Diplome kurseva",
       "completionDiplomas": "Diplome o završetku",
-      "downloadAvailableSoon": "Preuzimanje sertifikata će uskoro biti dostupno",
       "globalCertifications": "Globalne sertifikacije",
       "retakeExam": "Ponovno polaganje ispita",
       "seatBooked": "Vaše mesto na ispitu je rezervisano",
-      "seeTicket": "Pogledajte ulaznicu",
       "takePlaceAt": "Sesija će se održati u",
       "yourCertificate": "Vaš sertifikat",
       "downloadTicket": "Preuzmite kartu"
@@ -802,10 +795,7 @@
     "blogCategories": {
       "all": "Sve",
       "content": "Sadržaj",
-      "course": "Objavljivanje kursa",
       "feature": "Osobina",
-      "patch": "Izveštaj o ažuriranju",
-      "grants": "Grantovi",
       "network": "Mreža"
     },
     "legalSections": {
@@ -962,7 +952,6 @@
   },
   "payment": {
     "total": "Ukupno",
-    "proceedToPayment": "Nastavite ka plaćanju",
     "terms": "Pogledajte naše <0>opšte uslove</0> i uslove za detalje o povraćaju novca"
   },
   "notFound": {
@@ -971,8 +960,7 @@
     "pageTitle": "Ups."
   },
   "podcast": {
-    "abstract": "Apstrakt",
-    "discover": "Otkrijte ovaj podcast"
+    "abstract": "Apstrakt"
   },
   "podcasts": {
     "hostedBy": "Domaćin je {{host}}",
@@ -1075,7 +1063,6 @@
     "helpUs": "Pomozite nam",
     "hours": "sati",
     "id": "ID",
-    "inPerson": "Uživo",
     "interview": "Intervju",
     "invoice": "Faktura",
     "lectures": "Predavanja",

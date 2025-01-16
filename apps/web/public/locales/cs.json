@@ -251,8 +251,6 @@
       "teacher": "Vyučující",
       "teachers": "Vyučující",
       "time": "Čas",
-      "callout": "Právě se chystáte zakoupit tento kurz.",
-      "description": "Tento nákup vám umožní přístup k online kurzům na platformě i k prezenčním lekcím, pokud si rezervujete místo. Každá lekce se koná ve stanovených termínech a na určených místech osobně a poté je nahrána a streamována online na platformě.",
       "book_description": "Zkontrolujte si prosím podrobnosti o místě konání.\nPo zpracování rezervace vám zašleme potvrzovací vstupenku a QR kód, který předložíte na místě konání akce.",
       "inPersonCallout": "",
       "onlineCallout": "",
@@ -280,13 +278,9 @@
       "theoreticalLightning": "Pokročilý teoretický kurz o síti Lightning Network",
       "financeIntroduction": "Úvod do oblasti financí"
     },
-    "footer": {
-      "": ""
-    },
     "review": {
       "recommend": "",
       "faithful": "",
-      "feedbackDescription": "",
       "yesOfCourse": "",
       "feedbackSessionTitle": "",
       "fieldRequired": "",
@@ -399,7 +393,6 @@
       "upcomingTicketTitle": "Nadcházející rezervace",
       "upcomingTicketSubtitle": "Stáhněte si vstupenku a zúčastněte se příští akce. Ujistěte se, že máte vstupenku s sebou, abyste měli přístup na akci."
     },
-    "bookings": "Rezervace",
     "logout": "Odhlásit se",
     "myCourses": {
       "completed": "Dokončené kurzy",
@@ -411,7 +404,6 @@
       "completedCoursesDescription": "",
       "completedOutOf": "",
       "done": "",
-      "downloadPdf": "",
       "seeProgress": "",
       "viewDetails": "",
       "yourCertificate": "",
@@ -660,26 +652,16 @@
     }
   },
   "imagesAlt": {
-    "bitcoinCurrency": "znak měny bitcoin",
     "blueEllipse": "modrá elipsa",
     "bookCover": "obálka knihy",
-    "community": "3 lidé",
     "contributorHeart": "srdce pro milého přispěvatele",
     "contributorPP": "profilový obrázek přispěvatele",
-    "courseThumbnail": "Náhled kurzu",
-    "curriculum": "Osnova",
-    "decouvreBitcoinLogo": "Logo DécouvreBitcoin",
-    "favorite": "srdce v kruhu",
     "forwardArrow": "šipka vpřed",
-    "github": "ikona GitHub",
     "orangePill": "oranžová pilulka",
     "printedCircuits": "tištěné obvody",
     "rabbit404": "zajíc svítící svítilnou na symbol 404",
     "stylus": "stylus",
     "underConstructionImage": "Ilustrace několika zajíců pracujících na stavbě",
-    "visibilityOff": "ikona očí bez nápisu off",
-    "worldMap": "mapa světa s odkazy na huby",
-    "flagsInCircle": "kruh vlajek",
     "sthRepresentingCompany": "něco, co reprezentuje společnost"
   },
   "library": {
@@ -738,13 +720,10 @@
     "pageTitle": "Ups."
   },
   "payment": {
-    "proceedToPayment": "Pokračujte k platbě",
-    "feeDistribution": "Rozdělení poplatku: autor 99% - platforma 1%",
     "terms": "Podrobnosti o vrácení peněz naleznete v našich <0>obecných podmínkách</0>",
     "total": "Celkem"
   },
   "podcast": {
-    "discover": "Poznejte tento podcast",
     "abstract": "Abstrakt"
   },
   "podcasts": {
@@ -1061,7 +1040,6 @@
     "grade": "",
     "hours": "",
     "id": "",
-    "inPerson": "",
     "inReview": "",
     "lightningInvoice": "",
     "location": "",
@@ -1132,10 +1110,7 @@
     "blogCategories": {
       "all": "",
       "content": "",
-      "course": "",
       "feature": "",
-      "patch": "",
-      "grants": "",
       "network": ""
     },
     "blogPost": "",
