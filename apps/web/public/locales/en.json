@@ -585,28 +585,19 @@
     "pageTitle": "Looking for a Bitcoin event to attend?",
     "payment": {
       "access_invoice": "You can access your invoice via your dashboard.",
-      "access_online_successful": "When the event starts, log into the platform to gain access to the live stream on the event page.",
-      "access_physical_successful": "You can download your ticket here, or download it later in your dashboard.",
       "access_type": "Type of access",
       "additional_free_description": "This event is free, so there is no charge for booking this seat. However, please make sure to attend, since the number of seats is limited.",
       "address": "Address",
-      "amount": "Amount",
       "back_events": "Back to events",
       "book_seat": "Book a seat",
-      "callout_online": "You are about to book online access to this event.",
       "callout_physical": "You are about to book physical access to this event.",
-      "callout_replay": "You are about to book access to the replay video of this event.",
       "date": "Date",
-      "dates_to": "{{startDate}}{{endDate}}",
       "description_free_physical": "Please review the provided venue details.\nOnce the booking is confirmed, we will issue a confirmation ticket and a QR code to present at the event.",
-      "description_online": "Please review the date and time of the event provided.\nWhen the time comes, log in to the platform to access the live stream via the event page.",
-      "description_physical": "Please review the provided venue details.\nOnce your booking is confirmed, we will issue a ticket to present at the event. This ticket will also grant you access to the live stream and replay video, if available.",
       "download_ticket": "Download your ticket",
       "enjoy": "We hope you'll enjoy it :)",
       "language": "Language",
       "limitation": "Limitation",
       "max_capacity": "Max capacity of",
-      "payment_details": "Payment details",
       "payment_successful": "Booking successful!",
       "time": "Time"
     }
@@ -667,32 +658,17 @@
       "availableLanguages": "Available languages",
       "availableLanguagesVariation": "Languages available: ",
       "content1": "At Plan ₿, we believe Bitcoin is an international revolution that concerns everyone. To empower billions of people, we are designing this platform to be multilingual and accessible to all. The platform currently supports 7 languages, and more are being added every month. To achieve this, we use a mix of AI and the passion of Bitcoiners around the world. You too can start bootstrapping your own local network in your country!",
-      "content2": "You too can start bootstrapping your own local network in your country!",
       "link": "Help us translate the academy",
       "subtitle": "Everything is translated into local languages!",
-      "subtitle2": "We need you!",
       "title": "No language barrier here."
     },
-    "numbersSection": {
-      "networkMember": "Network Members"
-    },
+    "numbersSection": {},
     "patreonSection": {
       "content": "The Plan ₿ Network is proud to team up with many bitcoin companies around the world in order to provide the best educational resources possible!",
-      "subtitle": "Plan ₿ Network is 100% open-source thanks to our generous patrons",
       "title": "Together, let's make Bitcoin education better!"
     },
-    "sectionEducation": {
-      "content1": "Bitcoin is not only a technology and a form of money, but also a revolutionary way to approach life. In line with this awareness, our courses cover a wide range of fields, empowering individuals to excel in their areas of interest and further their understanding. From your first Bitcoin lesson to a deep dive into the protocol's specifics, we will help you navigate the rabbit hole safely. There's no reason to hesitate. Knowledge awaits you.",
-      "link": "Check the academy",
-      "subtitle": "Learn Bitcoin at the academy",
-      "title": "From beginner to advanced"
-    },
-    "sectionNetwork": {
-      "content1": "Connect with worldwide Bitcoin enthusiasts who share a common passion. From small communities meeting regularly, to BTC educational centers, our network map will help you find the inspiration to learn and build. You will discover a wide range of services, such as an incubation center, physical workshops, seminars, BTC retreats, and more. The network is open to everyone, so come and say hi to your local BTC community!",
-      "link": "Be part of the network",
-      "subtitle": "Worldwide Bitcoin Campuses",
-      "title": "Access a network of"
-    },
+    "sectionEducation": {},
+    "sectionNetwork": {},
     "tutorialSection": {
       "content1": "Bitcoin is constantly evolving, with the emergence of new actors, solutions, protocols, and technological breakthroughs. Thus, it can be challenging to maintain an accurate and up-to-date database of quality tutorials. Here at Plan ₿, we have achieved just that. Whether you are a beginner or an advanced user, you can navigate hundreds of tutorials to explore our industry according to your needs.",
       "link": "See all tutorials",
@@ -724,44 +700,30 @@
   },
   "library": {
     "pageSubtitle": "This library is open-source and welcomes any contributions.",
-    "pageTitle": "Bitcoin Library",
-    "publishedIn": "Published in {{date}}",
-    "writtenBy": "Written by {{author}}"
+    "pageTitle": "Bitcoin Library"
   },
   "menu": {
     "bCertificateDescription": "Pass the ₿ Certificate exam to assert your Bitcoin level",
     "betDescription": "Collection of content that you can use for your educational projects",
     "bitcoinDescription": "Learn Bitcoin from fundamentals to advanced applications.",
-    "btc101Description": "Get a better understanding of bitcoin by taking these classes.",
     "buildersDescription": "Learn about the companies and projects that contribute to improving Bitcoin and increasing its adoption",
     "businessDescription": "Uncover Bitcoin usage in commerce.",
     "channelsDescription": "Access our exclusive selection of Youtube channels to learn about Bitcoin",
     "chooseLanguage": "Choose a language",
     "conferencesDescription": "Collection of Bitcoin conference replays since the Genesis Block",
-    "exchangesDescription": "Buy and sell bitcoins on exchanges and learn about P2P",
     "glossaryDescription": "Understand the language of Bitcoin",
     "lecturesDescription": "Rewatch recorded lectures from Bitcoin experts",
     "libraryDescription": "Discover plenty of books to improve your knowledge",
-    "lightningDescription": "Manage your lightning node and use the lightning network",
     "login": "Log in",
-    "loginRegister": "Log in / Register",
-    "manifestoDescription": "Read Plan ₿ manifesto",
-    "merchantsDescription": "Accept bitcoin payments and discover tools for merchants",
     "miningCourseDescription": "Understand the processes, tools and industry behind the Bitcoin mining.",
-    "miningDescription": "Mine your own bitcoins and learn about the mining industry",
     "newsletterDescription": "Collection of content that you can use for your educational projects",
-    "nodeDescription": "Learn how to be self-sovereign with your own bitcoin node",
     "nodeNetworkDescription": "Join the Plan ₿ global community network",
-    "ourStoryDescription": "Learn about the story of the university",
     "podcastsDescription": "Explore the bitcoin ecosystem through podcasts",
     "protocolDescription": "Discover the core rules that power the Bitcoin network.",
     "publicDescription": "Explore public communication articles",
     "securityDescription": "Master the techniques for safeguarding your Bitcoin assets.",
     "socialStudiesDescription": "Study the impact of Bitcoin on society.",
-    "sponsorsDescription": "Discover our sponsors and main contributors",
-    "supportUsDescription": "Find ways to support us, by any manner",
-    "teachersDescription": "Get to know our academy teachers",
-    "walletsDescription": "Secure and use your bitcoins"
+    "teachersDescription": "Get to know our academy teachers"
   },
   "nodeNetwork": {
     "apply": "Apply to become a Node",
@@ -783,7 +745,6 @@
     "total": "Total"
   },
   "podcast": {
-    "abstract": "Abstract",
     "check": "Check the podcast"
   },
   "podcasts": {
@@ -845,14 +806,30 @@
     "title": "Public communication"
   },
   "resources": {
+    "articles": {
+      "title": "Articles"
+    },
+    "bet": {
+      "title": "Educational Toolkit"
+    },
     "books": {
-      "author": "Author : "
+      "author": "Author : ",
+      "title": "Library"
+    },
+    "builders": {
+      "title": "Projects"
     },
     "channels": {
       "noYoutubeChannels": "There are currently no Youtube Channels for selected language.",
       "title": "Youtube Channels"
     },
+    "conferences": {
+      "title": "Conference replays"
+    },
     "github": "All this data is managed via one open-source <0>Github</0> repository. Feel free to contribute and add any missing content.",
+    "glossary": {
+      "title": "Glossary"
+    },
     "lectures": {
       "noLectures": "There are currently no Lecture Replays for selected language.",
       "title": "Lecture Replays"
@@ -1002,7 +979,6 @@
     "access": "Access",
     "account": "Account",
     "action": "Action",
-    "additionalCriteria": "Additional criteria",
     "admin": "Admin",
     "admins": "Admins",
     "advanced": "Advanced",
@@ -1010,14 +986,12 @@
     "amount": "Amount",
     "article": "Article",
     "articles": "Articles",
-    "audioBook": "Audio Book",
     "author": "Author",
     "bCertificate": "₿ Certificate",
     "back": "Back",
     "beginner": "Beginner",
     "billing": "Billing",
     "bitcoin": "Bitcoin",
-    "bitcoinWhitepaper": "Bitcoin Whitepaper",
     "book": "Book",
     "booked": "Booked",
     "bookings": "Bookings",
@@ -1048,11 +1022,9 @@
     "date": "Date",
     "description": "Description",
     "details": "Details",
-    "didYouKnow": "Did you know ?",
     "diploma": "Diploma",
     "dislikes": "Dislikes",
     "displayName": "Display name",
-    "documentaries": "Documentaries",
     "donations": "Donations",
     "download": "Download",
     "duration": "Duration",
@@ -1066,12 +1038,10 @@
     "failed": "Failed",
     "filter": "Filter",
     "finish": "Finish",
-    "followUs": "Follow us",
     "free": "Free",
     "glossary": "Glossary",
     "goal": "Goal",
     "grade": "Grade",
-    "helpUs": "Help us",
     "home": "Home",
     "hours": "hours",
     "hybrid": "Hybrid",
@@ -1105,9 +1075,7 @@
     "merchants": "Merchants",
     "mining": "Mining",
     "more": "More",
-    "movieDocumentary": "Movie Documentary",
     "network": "Network",
-    "networkMember": "Network Member",
     "newsletter": "Newsletter",
     "newsletters": "Newsletters",
     "node": "Node",
@@ -1134,7 +1102,6 @@
     "purchase": "Purchase",
     "ratings": "Ratings",
     "register": "Register",
-    "relatedResources": "Related resources",
     "required": "Required",
     "resources": "Resources",
     "resume": "Resume",
@@ -1145,8 +1112,6 @@
     "security": "Security",
     "skip": "Skip",
     "socialStudies": "Social studies",
-    "sponsorUs": "Sponsor Us",
-    "sponsoringAndContributors": "Sponsoring & contributors",
     "start": "Start",
     "startHere": "Start here!",
     "status": "Status",
@@ -1175,8 +1140,7 @@
     "videos": "Videos",
     "view": "View",
     "viewMore": "View more",
-    "wallets": "Wallets",
-    "writtenByPodcasts": "Written by:"
+    "wallets": "Wallets"
   },
   "youtubeChannels": {
     "pageTitle": "Youtube Channels",

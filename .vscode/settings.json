@@ -88,7 +88,15 @@
     "tutorials.wallet.title",
     "lectures.lecturePartCourse",
     "courses.exam.congratulationsPassed",
-    "courses.exam.oopsFailed"
+    "courses.exam.oopsFailed",
+    "words.about-us",
+    "words.level.wizard",
+    "words.level.developer",
+    "words.level.advanced",
+    "words.level.intermediate",
+    "words.intermediate",
+    "words.advanced",
+    "words.beginner"
   ],
   "cSpell.words": [
     "Ajelex",
