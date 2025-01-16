@@ -208,7 +208,7 @@ const ToastCloseButton = ({
   <button
     type="button"
     onClick={closeToast}
-    className="shrink-0 self-start"
+    className="shrink-0 self-start ml-auto"
     aria-label="Close toast"
     tabIndex={0}
   >

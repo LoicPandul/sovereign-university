@@ -30,6 +30,7 @@ import { createTRPCRouter } from '../../trpc/index.js';
 import { userBCertificateRouter } from './bcertificate.js';
 import { userBillingRouter } from './billing.js';
 import { userCalendarRouter } from './calendar.js';
+import { userCareerRouter } from './career.js';
 import { userCoursesRouter } from './courses.js';
 import { userEventsRouter } from './events.js';
 import { userTutorialsRouter } from './tutorials.js';
@@ -164,6 +165,7 @@ export const userRouter = createTRPCRouter({
   bcertificate: userBCertificateRouter,
   billing: userBillingRouter,
   calendar: userCalendarRouter,
+  career: userCareerRouter,
   courses: userCoursesRouter,
   events: userEventsRouter,
   tutorials: userTutorialsRouter,

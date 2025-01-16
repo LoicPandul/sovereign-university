@@ -685,7 +685,7 @@
   display: -ms-flexbox;
   display: flex;
   -ms-flex-pack: justify;
-  justify-content: space-between;
+  gap: 12px;
   max-height: var(--toastify-toast-max-height);
   font-family: var(--toastify-font-family);
   cursor: default;

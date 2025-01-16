@@ -47,6 +47,225 @@ export const usersAccounts = users.table('accounts', (t) => ({
   updatedAt: t.timestamp({ withTimezone: true }).defaultNow().notNull(),
 }));
 
+// CAREER
+
+export const careerLanguageLevelEnum = pgEnum('career_language_level', [
+  'beginner',
+  'elementary',
+  'intermediate',
+  'advanced',
+  'fluent',
+]);
+
+export const careerRoleLevelEnum = pgEnum('career_role_level', [
+  'student',
+  'junior',
+  'mid',
+  'senior',
+]);
+
+export const careerCompanySizeEnum = pgEnum('career_company_size', [
+  '1To10',
+  '11To40',
+  '41To100',
+  '100More',
+]);
+
+export const careerRemoteEnum = pgEnum('career_remote', [
+  'yes',
+  'sometimes',
+  'no',
+]);
+
+export const jobNameEnum = pgEnum('job_name', [
+  'fullStackDeveloper',
+  'backendEngineer',
+  'frontendEngineer',
+  'mobileAppDeveloper',
+  'devOpsEngineer',
+  'cloudInfrastructureEngineer',
+  'dataEngineer',
+  'protocolEngineer',
+  'technicalProductManager',
+  'technicalSupportEngineer',
+  'cybersecurity',
+  'cryptographer',
+  'businessDevelopmentManager',
+  'sales',
+  'businessAnalyst',
+  'revenueManager',
+  'productManager',
+  'uiUxDesigner',
+  'uxResearcher',
+  'brandStrategist',
+  'graphicDesigner',
+  'marketingManager',
+  'socialMediaManager',
+  'communityManager',
+  'publicRelationsManager',
+  'eventCoordinator',
+  'seoSpecialist',
+  'operationsManager',
+  'customerSupportSpecialist',
+  'customerSuccessManager',
+  'logisticManager',
+  'researcher',
+  'economicAnalyst',
+  'educator',
+  'contentWriter',
+  'technicalWriter',
+  'complianceOfficer',
+  'amlKycSpecialist',
+  'riskAnalyst',
+  'accountingManager',
+  'bitcoinInvestmentAnalyst',
+  'hrSpecialist',
+  'legalContractSpecialist',
+  'miningEngineer',
+  'miningOperationsManager',
+]);
+
+export const jobCategoryEnum = pgEnum('job_category', [
+  'technicalRoles',
+  'businessRoles',
+  'productDesign',
+  'marketingCommunity',
+  'operationsSupport',
+  'researchEducation',
+  'financeCompliance',
+  'more',
+]);
+
+export const usersCareerProfiles = users.table('career_profiles', (t) => ({
+  uid: t
+    .uuid()
+    .notNull()
+    .references(() => usersAccounts.uid, {
+      onDelete: 'cascade',
+      onUpdate: 'cascade',
+    })
+    .unique(),
+  id: t.uuid().primaryKey().notNull(),
+
+  // Primary infos
+  firstName: t.text(),
+  lastName: t.text(),
+  country: t.text(),
+
+  // Contact
+  email: t.text(),
+  linkedin: t.text(),
+  github: t.text(),
+  telegram: t.text(),
+  otherContact: t.text(),
+
+  // Bitcoin related experiences
+  isBitcoinCommunityParticipant: t.boolean().default(false).notNull(),
+  bitcoinCommunityText: t.text(),
+  isBitcoinProjectParticipant: t.boolean().default(false).notNull(),
+  bitcoinProjectText: t.text(),
+
+  // Job preferences
+  isAvailableFullTime: t.boolean().default(true).notNull(),
+  remoteWorkPreference: careerRemoteEnum().default('yes').notNull(),
+  expectedSalary: t.text(),
+  availabilityStart: t.text(),
+
+  // CV/Resume and Motivation Letter
+  cvUrl: t.text(),
+  motivationLetter: t.text(),
+
+  // Agreement
+  areTermsAccepted: t.boolean().default(false).notNull(),
+  allowReceivingEmails: t.boolean().default(false).notNull(),
+
+  createdAt: t.timestamp({ withTimezone: true }).defaultNow().notNull(),
+  editedAt: t.timestamp({ withTimezone: true }).defaultNow().notNull(),
+}));
+
+export const usersCareerLanguages = users.table(
+  'career_languages',
+  (t) => ({
+    careerProfileId: t
+      .uuid()
+      .notNull()
+      .references(() => usersCareerProfiles.id, {
+        onDelete: 'cascade',
+        onUpdate: 'cascade',
+      }),
+    languageCode: t
+      .text()
+      .notNull()
+      .references(() => usersLanguages.code, {
+        onDelete: 'cascade',
+        onUpdate: 'cascade',
+      }),
+    level: careerLanguageLevelEnum().notNull(),
+  }),
+  (table) => ({
+    pk: primaryKey({
+      columns: [table.careerProfileId, table.languageCode],
+    }),
+  }),
+);
+
+export const usersCareerRoles = users.table(
+  'career_roles',
+  (t) => ({
+    careerProfileId: t
+      .uuid()
+      .notNull()
+      .references(() => usersCareerProfiles.id, {
+        onDelete: 'cascade',
+        onUpdate: 'cascade',
+      }),
+    roleId: t
+      .uuid()
+      .notNull()
+      .references(() => usersJobTitles.id, {
+        onDelete: 'cascade',
+        onUpdate: 'cascade',
+      }),
+    level: careerRoleLevelEnum().notNull(),
+  }),
+  (table) => ({
+    pk: primaryKey({
+      columns: [table.careerProfileId, table.roleId],
+    }),
+  }),
+);
+
+export const usersCareerCompanySizes = users.table(
+  'career_company_sizes',
+  (t) => ({
+    careerProfileId: t
+      .uuid()
+      .notNull()
+      .references(() => usersCareerProfiles.id, {
+        onDelete: 'cascade',
+        onUpdate: 'cascade',
+      }),
+    size: careerCompanySizeEnum().notNull(),
+  }),
+  (table) => ({
+    pk: primaryKey({
+      columns: [table.careerProfileId, table.size],
+    }),
+  }),
+);
+
+export const usersLanguages = users.table('languages', (t) => ({
+  code: t.text().primaryKey().notNull(),
+  name: t.text().notNull(),
+  nativeName: t.text().notNull(),
+}));
+
+export const usersJobTitles = users.table('job_titles', (t) => ({
+  id: t.uuid().primaryKey().notNull(),
+  name: jobNameEnum().notNull(),
+  category: jobCategoryEnum().notNull(),
+}));
+
 // BLOGS
 
 export const contentBlogs = content.table(
