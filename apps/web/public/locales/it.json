@@ -183,10 +183,6 @@
       "payment_details": "Dettagli di pagamento",
       "amount": "Cifra",
       "invoiceId": "Invoice ID",
-      "terms1": "See our",
-      "terms2": "general terms",
-      "terms3": "and conditions for refund details",
-      "terms4": "Fee distribution: Author 99 % - Plateform 1 %",
       "buyOnlineCourse": "Acquista corso online",
       "inPersonAccess": "È necessario scaricare il biglietto per accedere alla lezione in presenza.",
       "buyInPersonCourse": "Acquista corso in presenza",
@@ -223,9 +219,6 @@
       "journey": "Bitcoin è un viaggio, non una meta",
       "seeCourse": "Guarda il corso"
     },
-    "footer": {
-      "": ""
-    },
     "part": {
       "count": "Parte n°{{count}}/{{total}}"
     },
@@ -244,14 +237,7 @@
       "payment_successful": "Pagamento avvenuto con successo!",
       "teacher": "Insegnante",
       "teachers": "Insegnanti",
-      "terms1": "See our",
-      "terms2": "general terms",
-      "terms3": "and conditions for refund details",
-      "terms4": "Fee distribution: Author 99 % - Plateform 1 %",
-      "total": "Total",
       "back_course": "Torna al corso",
-      "callout": "Stai per comprare questo corso.",
-      "description": "Questo acquisto ti darà accesso ai corsi online sulla piattaforma e alle lezioni di persona, a condizione che prenoti il posto. Ogni lezione ha luogo di persona nelle date e nei luoghi specificati prima di essere registrate e trasmesse via streaming online sulla piattaforma.",
       "book_description": "Controlla i dettagli del luogo forniti.\nDopo che la prenotazione sarà elaborata, ti forniremo un ticket di conferma e un codice QR da presentare all'evento.",
       "qr_unified": "Questo codice QR è unificato, quindi accetta sia pagamenti lightning che on-chain.",
       "time": "Orario",
@@ -265,7 +251,6 @@
       "by": "da {{professor}}",
       "letsgo": "Andiamo"
     },
-    "proceedToPayment": "Proceed to payment",
     "quizz": {
       "clickOnPie": "Clicca sul grafico a torta, controlla i tuoi errori e leggi le spiegazioni",
       "quizz": "Quiz",
@@ -289,7 +274,6 @@
       "commentPublic": "Commento (pubblico)",
       "commentTeacher": "Commento per l'insegnante (privato)",
       "difficulty": "Difficoltà",
-      "feedbackDescription": "Valuta la tua esperienza qui sotto.\nQuesta sessione di feedback è obbligatoria per avere accesso all'esame finale e validare il corso.\nNOTA: gli insegnanti non avranno accesso alle valutazioni individuali.",
       "feedbackSessionTitle": "Sessione di feedback",
       "generalGrade": "Valutazione generale",
       "length": "Lunghezza",
@@ -322,9 +306,6 @@
       "commentAdminMobile": "Commento privato agli admin",
       "commentPublicMobile": "Commento pubblico",
       "commentTeacherMobile": "Commento privato all'insegnante",
-      "conclusionFeedback1": "Grazie per il tuo feedback!",
-      "conclusionFeedback2": "È molto importante per noi e lo apprezziamo davvero.",
-      "conclusionFeedback3": "Di sotto vedrai i tuoi feedback: puoi modificarli in qualsiasi momento nel tuo pannello studente.",
       "editReview": "Modifica i commenti",
       "feedback": "Feedback",
       "feedbackDescription1": "Ti chiediamo gentilmente di valutare qui sotto la tua esperienza con il corso.",
@@ -416,7 +397,6 @@
       "startCourse": "Inizia o completa un corso",
       "completedOutOf": "{{completed}} unità completate su {{total}} disponibili",
       "done": "Fatto",
-      "downloadPdf": "",
       "viewDetails": "Vedi dettagli",
       "yourCertificate": "Il tuo certificato",
       "whereYouAre": "Vediamo a che punto sei!",
@@ -458,20 +438,10 @@
       "upcomingTicketTitle": "Prenotazioni future",
       "upcomingTicketSubtitle": "Qui puoi scaricare il tuo biglietto per partecipare al prossimo evento. Assicurati di portare il biglietto con te per avere accesso all'evento."
     },
-    "bookings": "Prenotazioni",
     "bCertificate": {
-      "organizedSessions": "Il certificato ₿ è organizzato da Plan B Network in vari luoghi e orari. Assicurati di prenotare un posto per la sessione.",
-      "findResults": "Qui puoi trovare i risultati degli esami Certificato ₿ che hai superato mentre eri registrato con questo account. Per avere il risultato disponibile qui, di solito servono da 2 a 3 settimane. Se entro questo tempo non vedi il risultato, contattaci.",
-      "bCertificate": "Il Certificato ₿",
       "bookExam": "Prenota una sessione di esame",
       "certificate": "Certificato",
-      "general": "Generale",
-      "learnMore": "Ulteriori informazioni",
-      "presentation": "Il Certificato ₿ è un esame con materiali a disposizione organizzato da Plan B Network e progettato per dimostrare il tuo livello su Bitcoin e tutti i suoi argomenti derivati.",
-      "wantToPass": "Vuoi superare l'esame?",
-      "assertLevel": "Dimostra il tuo livello in Bitcoin",
       "grade": "Voto",
-      "gradesDiploma": "Voti e diplomi",
       "noResults": "Non ci sono ancora voti o certificati associati a questo account.\nSe hai superato un esame e i tuoi risultati non sono ancora visibili dopo un lungo periodo di tempo, ti preghiamo di contattarci per assistenza."
     },
     "calendar": {
@@ -619,12 +589,6 @@
     "backToDashboard": "Torna alla dashboard"
   },
   "events": {
-    "introduction": {
-      "introductionh1": "Welcome to Plan B Network events",
-      "introductionp1": "Bottom up adoption enhanced by a strong network",
-      "introductionp2": "Looking for a Bitcoin event to go to ?",
-      "introductionp3": "Want to talk about Bitcoin in real time ? Here you can find all the events supported by the Plan B Network communities. Whether you want to listen to a lecture, discuss Bitcoin around a drink, or take an exam to assess your knowledge, you’ll be able to find the right event here through the Plan B Network."
-    },
     "main": {
       "upcomingEvents": "Prossimi eventi",
       "currentEvents": "Eventi in corso ora"
@@ -647,7 +611,9 @@
       "visitWebsite": "Visita il sito",
       "eventFull": "L'evento è pieno",
       "seatBooked": "Posto prenotato",
-      "buyReplay": "Acquista una registrazione"
+      "buyReplay": "Acquista una registrazione",
+      "buyVideo": "Acquista video",
+      "purchased": "Acquistato"
     },
     "newEvent": {
       "button": "Aggiungi il mio evento",
@@ -770,27 +736,17 @@
     }
   },
   "imagesAlt": {
-    "bitcoinCurrency": "il segno della valuta bitcoin",
     "blueEllipse": "un'ellisse blu",
     "bookCover": "una copertina del libro",
-    "community": "3 persone",
     "contributorHeart": "un cuore per un buon collaboratore",
     "contributorPP": "foto profilo collaboratore",
-    "courseThumbnail": "Miniatura corso",
-    "curriculum": "Curriculum",
-    "decouvreBitcoinLogo": "DecouvreBitcoin Logo",
-    "favorite": "un cuore all'interno di un cerchio",
-    "flagsInCircle": "una cerchia di bandiere",
     "forwardArrow": "una freccia in avanti",
-    "github": "l'icona di github",
     "orangePill": "una pillola arancione",
     "printedCircuits": "circuiti stampati",
     "rabbit404": "un coniglio che illumina con una torcia un cartello 404",
     "sthRepresentingCompany": "qualcosa che rappresenta l'azienda",
     "stylus": "uno stilo",
-    "underConstructionImage": "Illustrazione di diversi conigli che lavorano su un cantiere",
-    "visibilityOff": "l'icona occhi senza segno spento",
-    "worldMap": "mappa del mondo con hub collegati"
+    "underConstructionImage": "Illustrazione di diversi conigli che lavorano su un cantiere"
   },
   "library": {
     "pageSubtitle": "Questa libreria è open source e aperta al contributo. Grazie per aver valutato e condiviso !",
@@ -830,7 +786,8 @@
     "newsletterDescription": "Raccolta di contenuti che puoi utilizzare per i tuoi progetti educativi",
     "securityDescription": "Padroneggia le tecniche per salvaguardare i tuoi asset in Bitcoin.",
     "socialStudiesDescription": "Studia l'impatto di Bitcoin sulla società.",
-    "protocolDescription": "Scopri le regole fondamentali che alimentano la rete Bitcoin."
+    "protocolDescription": "Scopri le regole fondamentali che alimentano la rete Bitcoin.",
+    "lecturesDescription": "Rivedi delle presentazioni registrate dagli esperti di Bitcoin"
   },
   "nodeNetwork": {
     "answer1": "Un nodo è semplicemente una comunità Bitcoin che vuole progredire al passo successivo e accelerare la propria adozione locale Bitcoin! Non c'è nessuna dimensione minima con cui iniziare.",
@@ -858,7 +815,6 @@
   },
   "podcast": {
     "abstract": "Astratto",
-    "discover": "Scopri questo podcast",
     "check": "Ascolta il podcast"
   },
   "podcasts": {
@@ -935,7 +891,12 @@
     },
     "pageSubtitleChannels": "<0>Altri canali Youtube</0> che potrebbero piacerti:",
     "toggleLabelAll": "Tutti",
-    "toggleLabelSelectedLanguage": "Lingua selezionata"
+    "toggleLabelSelectedLanguage": "Lingua selezionata",
+    "lectures": {
+      "title": "Replay delle Lezioni",
+      "noLectures": "Al momento non ci sono canali Youtube per la lingua selezionata."
+    },
+    "pageSubtitleLectures": "<0>Altre registrazioni</0> che potrebbero piacerti"
   },
   "settings": {
     "changePassword": "Cambia password",
@@ -1155,7 +1116,7 @@
     "description": "Descrizione",
     "price": "Prezzo",
     "professor": "Professore",
-    "all": "Tutto",
+    "all": "Tutti",
     "bCertificate": "₿ Certificate",
     "courseId": "ID corso",
     "duration": "Durata",
@@ -1177,7 +1138,6 @@
     "free": "Gratuito",
     "goal": "Obiettivo",
     "hours": "ore",
-    "inPerson": "In presenza",
     "lectures": "Lezioni",
     "students": "Studenti",
     "public": "Blog e Notizie",
@@ -1234,7 +1194,10 @@
     "viewMore": "Visualizza altro",
     "congrats": "Congratulazioni!",
     "credits": "Ringraziamenti",
-    "exam": "Esame"
+    "exam": "Esame",
+    "channels": "Canali",
+    "lecture": "Conferenza",
+    "skip": "Salta"
   },
   "conferences": {
     "addConferences": "Aggiungi pure qualsiasi conferenza mancante tramite questo repository <0>Github</0>.",
@@ -1261,9 +1224,7 @@
     "topics": "Argomenti"
   },
   "payment": {
-    "proceedToPayment": "Procedi al pagamento",
     "terms": "Leggi le nostre <0>condizioni generali</0> per i dettagli sul rimborso",
-    "feeDistribution": "Distribuzione della commissione: Autore 99% - Piattaforma 1%",
     "total": "Totale",
     "payWithBitcoin": "Paga in Bitcoin",
     "payByCard": "Paga con carta"
@@ -1307,7 +1268,6 @@
   "publicCommunication": {
     "blogPost": "Blog & Notizie",
     "legalSections": {
-      "cookies": "Cookie",
       "contact": "Contatti",
       "legalNotice": "Nota legale",
       "privacyPolicy": "Politica sulla privacy",
@@ -1328,10 +1288,7 @@
       "all": "Tutte",
       "network": "Rete",
       "content": "Contenuti",
-      "course": "Nuovi corsi",
-      "feature": "In evidenza",
-      "grants": "Sovvenzioni",
-      "patch": "Note sulla patch"
+      "feature": "In evidenza"
     },
     "goBackButtons": {
       "simpleGoBack": "Torna a tutti gli articoli"
@@ -1351,5 +1308,13 @@
     "pageTitle": "Canali Youtube",
     "view": "Visualizza il canale Youtube",
     "watchTrailer": "Guarda il trailer"
+  },
+  "lectures": {
+    "buyVideoToUnlock": "Acquista il video per sbloccarlo",
+    "lecturePartCourse": "Questa replica fa parte del corso <0>{{courseTitle}}</0>.\nAccedi al corso completo per padroneggiarne i concetti e sbloccare il tuo pieno potenziale!",
+    "checkFullCourse": "Guarda l'intero corso",
+    "pageTitle": "Replay delle Lezioni",
+    "partCourse": "Questa lezione fa parte del corso:",
+    "watchLecture": "Guarda la replica della lezione"
   }
 }

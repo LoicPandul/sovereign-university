@@ -272,11 +272,9 @@
       "accessibility_forever": "For alltid",
       "amount": "Beløp",
       "back_course": "Tilbake til kurset",
-      "callout": "Du er i ferd med å kjøpe dette kurset.",
       "date": "Dato",
       "dates_to": "{{startDate}} til {{endDate}}",
       "downloadCurriculum": "Last ned pensum",
-      "description": "Dette kjøpet gir deg tilgang til nettbaserte kurs på plattformen, samt klasseromskurs, forutsatt at du reserverer plassen din. Hver klasseøkt foregår personlig på de angitte datoene og stedene, før de blir tatt opp og strømmet online på plattformen.",
       "duration": "Varighet",
       "invoiceId": "Tx ID",
       "numberOfChapters": "Antall kapitler",
@@ -332,7 +330,6 @@
       "yesVeryMuch": "ja, veldig mye",
       "yesOfCourse": "ja, selvfølgelig",
       "commentAdmin": "Kommentar til admin-teamet (privat)",
-      "feedbackDescription": "Vennligst vurder din opplevelse med kurset nedenfor.\nDenne tilbakemeldingen er obligatorisk for å få tilgang til avsluttende eksamen og for å validere kurset.\nMerk at lærere ikke vil ha tilgang til individuelle evalueringer.",
       "quality": "Kvalitet",
       "submitReview": "Send inn anmeldelse",
       "currentlyLoggedOut": "Du er for øyeblikket utlogget. For å gi oss tilbakemelding på kurset, vennligst <0>logg inn eller registrer deg</0>.",
@@ -347,9 +344,6 @@
       "commentAdminMobile": "Privat kommentar til admin-teamet",
       "commentPublicMobile": "Offentlig kommentar",
       "commentTeacherMobile": "Privat kommentar til læreren",
-      "conclusionFeedback1": "Takk for tilbakemeldingen din!",
-      "conclusionFeedback2": "Dette er veldig viktig for oss, så vi setter virkelig pris på det.",
-      "conclusionFeedback3": "Her er tilbakemeldingen din nedenfor, du kan redigere den når som helst på dashbordet ditt.",
       "editReview": "Rediger anmeldelse",
       "feedback": "Tilbakemelding",
       "feedbackDescription1": "Vennligst vurder din opplevelse med kurset nedenfor.",
@@ -574,7 +568,6 @@
     "booked": "Bestilt",
     "bookings": "Bestillinger",
     "goal": "Mål",
-    "inPerson": "Fysisk tilstede",
     "progress": "Fremgang",
     "publicationDate": "Publiseringsdato:",
     "ratings": "Vurderinger",
@@ -618,19 +611,10 @@
     "account": "Konto",
     "administration": "Administrasjon",
     "bCertificate": {
-      "assertLevel": "Bekreft ditt nivå i Bitcoin",
-      "bCertificate": "₿ Sertifikatet",
       "bookExam": "Bestill eksamen",
       "certificate": "Sertifikat",
-      "general": "Generell",
       "grade": "Karakter",
-      "gradesDiploma": "Karakterer og diplom",
-      "learnMore": "Lær mer",
-      "presentation": "₿-sertifikatet er en prøve organisert av Plan B Network, designet for å vurdere din kunnskap om Bitcoin og alle relaterte emner.",
-      "wantToPass": "Vil du ta eksamen?",
-      "noResults": "Det er ingen karakterer eller sertifikater knyttet til denne kontoen ennå.\nHvis du har bestått en eksamen og resultatene dine ikke er tilgjengelige etter en lengre periode, vennligst ta kontakt med oss for hjelp.",
-      "organizedSessions": "₿-sertifikatet er organisert av Plan B Network på forskjellige steder og tidspunkter. Sørg for å bestille plassen din på en økt.",
-      "findResults": "Her kan du finne resultatene dine til ₿ sertifikateksamener du har bestått mens du var registrert med denne kontoen. Resultatene tar vanligvis 2 til 3 uker å behandle og være tilgjengelige her. Hvis resultatene dine ikke vises her etter lang tid, vennligst kontakt oss."
+      "noResults": "Det er ingen karakterer eller sertifikater knyttet til denne kontoen ennå.\nHvis du har bestått en eksamen og resultatene dine ikke er tilgjengelige etter en lengre periode, vennligst ta kontakt med oss for hjelp."
     },
     "booking": {
       "accessLive": "Få tilgang til live eksamen",
@@ -651,7 +635,6 @@
       "upcomingTicketTitle": "Kommende bestillinger",
       "upcomingTicketSubtitle": "Last ned billetten din her for å delta på kommende arrangement. Husk å ta med billetten din for å få inngang til arrangementet."
     },
-    "bookings": "Bestillinger",
     "calendar": {
       "calendar": "Kalender",
       "personalCalendar": "Personlig kalender"
@@ -671,7 +654,6 @@
       "inprogressCoursesDescription": "Her kan du sjekke fremdriften i kursene du har startet.",
       "completedOutOf": "{{completed}} enheter fullført av {{total}} tilgjengelige",
       "done": "Ferdig",
-      "downloadPdf": "Last ned PDF",
       "whereYouAre": "La oss se hvor du er!",
       "viewDetails": "Se detaljer",
       "yourCertificate": "Ditt sertifikat",
@@ -788,11 +770,9 @@
       "bCertificate": "₿ Sertifikat",
       "bCertificateSubtitle": "Her kan du finne detaljene angående dine bestillinger og karakterer fra dine tidligere og fremtidige ₿ Sertifikater.\n₿ Sertifikatet er en tabell-eksamen organisert av Plan ₿ Network for å bekrefte ditt nivå i Bitcoin og relaterte emner.",
       "courseDiplomas": "Kursdiplomer",
-      "downloadAvailableSoon": "Nedlasting av vitnemål vil være tilgjengelig snart",
       "globalCertifications": "Globale sertifiseringer",
       "retakeExam": "Ta eksamen på nytt",
       "seatBooked": "Din plass på eksamensøkten er reservert",
-      "seeTicket": "Se billett",
       "takePlaceAt": "Økten vil finne sted på",
       "yourCertificate": "Ditt sertifikat",
       "beingGraded": "Eksamen din blir vurdert. Resultatene bør være tilgjengelige om 1 eller 2 uker.",
@@ -1078,10 +1058,7 @@
     "blogCategories": {
       "all": "Alt",
       "content": "Innhold",
-      "course": "Oppstart av kurs",
       "feature": "Funksjon",
-      "patch": "Oppdateringsnotater",
-      "grants": "Tilskudd",
       "network": "Nettverk"
     },
     "legalSections": {
@@ -1293,16 +1270,13 @@
     }
   },
   "payment": {
-    "proceedToPayment": "Fortsett til betaling",
     "terms": "Se våre <0>generelle vilkår</0> og betingelser for detaljer om refusjon",
-    "feeDistribution": "Fortjenestefordeling: Forfatter 99 % - Plattform 1 %",
     "total": "Totalt",
     "payWithBitcoin": "Betal med Bitcoin",
     "payByCard": "Betal med kort"
   },
   "podcast": {
     "abstract": "Sammendrag",
-    "discover": "Oppdag denne podcasten",
     "check": "Sjekk podcasten"
   },
   "settings": {

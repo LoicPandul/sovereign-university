@@ -181,10 +181,6 @@
       "payment_details": "Payment details",
       "amount": "Amount",
       "invoiceId": "Invoice ID",
-      "terms1": "See our",
-      "terms2": "general terms",
-      "terms3": "and conditions for refund details",
-      "terms4": "Fee distribution: Author 99 % - Plateform 1 %",
       "paidCourse": "",
       "buyInPersonCourse": "",
       "buyOnlineCourse": "",
@@ -211,9 +207,6 @@
       "findCourses": "",
       "seeCourse": ""
     },
-    "footer": {
-      "": ""
-    },
     "part": {
       "count": "Teilenummer {{count}}/{{total}}"
     },
@@ -232,14 +225,7 @@
       "payment_successful": "Payment successful!",
       "teacher": "Teacher",
       "teachers": "Teachers",
-      "terms1": "See our",
-      "terms2": "general terms",
-      "terms3": "and conditions for refund details",
-      "terms4": "Fee distribution: Author 99 % - Plateform 1 %",
-      "total": "Total",
       "back_course": "",
-      "callout": "",
-      "description": "",
       "book_description": "",
       "qr_unified": "",
       "time": "",
@@ -252,7 +238,6 @@
       "by": "von {{professor}}",
       "letsgo": "Los geht's"
     },
-    "proceedToPayment": "Proceed to payment",
     "quizz": {
       "clickOnPie": "Klicke auf das Tortendiagramm, überprüfe deine Fehler und sehe dir die Lösung an",
       "quizz": "Quizz",
@@ -360,7 +345,6 @@
       "writeThoughts": "",
       "recommend": "",
       "faithful": "",
-      "feedbackDescription": "",
       "yesOfCourse": "",
       "loading": ""
     }
@@ -376,7 +360,6 @@
       "completedCoursesDescription": "",
       "completedOutOf": "",
       "done": "",
-      "downloadPdf": "",
       "inprogressCoursesTitle": "",
       "seeProgress": "",
       "startCourse": "",
@@ -406,7 +389,6 @@
       "upcomingTicketTitle": "",
       "upcomingTicketSubtitle": ""
     },
-    "bookings": "",
     "administration": "",
     "credentials": {
       "bCertificate": "",
@@ -521,12 +503,6 @@
     }
   },
   "events": {
-    "introduction": {
-      "introductionh1": "Welcome to Plan B Network events",
-      "introductionp1": "Bottom up adoption enhanced by a strong network",
-      "introductionp2": "Looking for a Bitcoin event to go to ?",
-      "introductionp3": "Want to talk about Bitcoin in real time ? Here you can find all the events supported by the Plan B Network communities. Whether you want to listen to a lecture, discuss Bitcoin around a drink, or take an exam to assess your knowledge, you’ll be able to find the right event here through the Plan B Network."
-    },
     "main": {
       "upcomingEvents": "Upcoming events",
       "currentEvents": "Events happening right now"
@@ -653,27 +629,17 @@
     }
   },
   "imagesAlt": {
-    "bitcoinCurrency": "das Zeichen der Bitcoin-Währung",
     "blueEllipse": "eine blaue Ellipse",
     "bookCover": "ein Buchcover",
-    "community": "3 Personen",
     "contributorHeart": "ein Herz für netten Mitwirkenden",
     "contributorPP": "mitwirkendes Profilbild",
-    "courseThumbnail": "Kurs-Vorschaubild",
-    "curriculum": "Lehrplan",
-    "decouvreBitcoinLogo": "DecouvreBitcoin Logo",
-    "favorite": "ein Herz in einem Kreis",
-    "flagsInCircle": "a circle of flags",
     "forwardArrow": "ein Vorwärtspfeil",
-    "github": "das Icon von github",
     "orangePill": "an orange pill",
     "printedCircuits": "a printed circuits",
     "rabbit404": "a rabbit shining a flashlight on a 404 sign",
     "sthRepresentingCompany": "etwas für das Unternehmen",
     "stylus": "a stylus",
-    "underConstructionImage": "Abbildung mehrerer Kaninchen auf einer Baustelle",
-    "visibilityOff": "das Augensymbol ohne Zeichen",
-    "worldMap": "world map with hubs linked"
+    "underConstructionImage": "Abbildung mehrerer Kaninchen auf einer Baustelle"
   },
   "library": {
     "pageSubtitle": "Diese Bibliothek ist Open-Source & offen für einen Beitrag. Danke für die Bewertung und Freigabe !",
@@ -731,8 +697,7 @@
     "pageTitle": "Hoppla."
   },
   "podcast": {
-    "abstract": "Abstrakt",
-    "discover": "Entdecke diesen Podcast"
+    "abstract": "Abstrakt"
   },
   "podcasts": {
     "hostedBy": "Gehostet von {{host}}",
@@ -1057,7 +1022,6 @@
     "grade": "",
     "hours": "",
     "id": "",
-    "inPerson": "",
     "lightningInvoice": ""
   },
   "conferences": {
@@ -1085,9 +1049,7 @@
     "planBConferences": ""
   },
   "payment": {
-    "proceedToPayment": "",
     "terms": "",
-    "feeDistribution": "",
     "total": ""
   },
   "publicCommunication": {
@@ -1113,10 +1075,7 @@
     "blogCategories": {
       "all": "",
       "content": "",
-      "course": "",
       "feature": "",
-      "patch": "",
-      "grants": "",
       "network": ""
     },
     "goBackButtons": {

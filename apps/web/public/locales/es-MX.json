@@ -199,7 +199,6 @@
       "edit": "",
       "difficulty": "",
       "displayOutOf": "",
-      "feedbackDescription": "",
       "feedbackSessionTitle": "",
       "generalGrade": "",
       "length": "",
@@ -673,7 +672,6 @@
       "completedOutOf": "",
       "details": "",
       "done": "",
-      "downloadPdf": "",
       "inprogress": "",
       "inprogressCoursesDescription": "",
       "resumeLesson": "",
@@ -749,7 +747,6 @@
     "home": "",
     "hours": "",
     "id": "",
-    "inPerson": "",
     "inReview": "",
     "intermediate": "",
     "interview": "",
@@ -1055,10 +1052,7 @@
     "blogCategories": {
       "all": "",
       "content": "",
-      "course": "",
       "feature": "",
-      "patch": "",
-      "grants": "",
       "network": ""
     },
     "title": "",
@@ -1119,13 +1113,11 @@
     "itemNotFound": ""
   },
   "payment": {
-    "proceedToPayment": "",
     "terms": "",
     "total": ""
   },
   "podcast": {
-    "abstract": "",
-    "discover": ""
+    "abstract": ""
   },
   "podcasts": {
     "hostedBy": "",

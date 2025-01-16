@@ -160,7 +160,6 @@
     "goal": "",
     "grade": "",
     "id": "",
-    "inPerson": "",
     "inReview": "",
     "lectures": "",
     "admins": "",
@@ -524,8 +523,6 @@
       "numberOfChapters": "Peatükkide arv",
       "date": "Kuupäev",
       "access_invoice": "Oma arvele pääsete juurde oma tegumiriba kaudu",
-      "callout": "Olete ostmas seda kursust.",
-      "description": "Antud ost annab teile juurdepääsu platvormil olevatele veebikursustele ning samuti ka kohapealsetele tundidele, eeldusel, et broneerite oma koha. Iga õppesessioon toimub kohapeal ettenähtud kuupäevadel ja kohtades enne selle salvestamist ja platvormil veebis edastamist.",
       "book_description": "Palun vaadake üle esitatud toimumiskoha andmed.\nKui broneering on töödeldud, anname teile kinnituspileti ja QR-koodi, mida üritusel esitada.",
       "qr_unified": "Antud QR-kood on ühtne, seega see aktsepteerib nii lightning kui ka on-chain makseid.",
       "inPersonCallout": "",
@@ -647,7 +644,6 @@
       "commentPublic": "",
       "faithful": "",
       "recommend": "",
-      "feedbackDescription": "",
       "yesOfCourse": "",
       "loading": ""
     }
@@ -691,7 +687,6 @@
       "startCourse": "Alusta või lõpeta kursus",
       "completedOutOf": "",
       "done": "",
-      "downloadPdf": "",
       "viewDetails": "",
       "yourCertificate": "",
       "whereYouAre": ""
@@ -717,21 +712,11 @@
       "profile": ""
     },
     "logout": "Logi välja",
-    "bookings": "Broneeringud",
     "bCertificate": {
-      "assertLevel": "Kinnita oma tase Bitcoinis",
-      "bCertificate": "₿ Sertifikaat",
       "bookExam": "Broneeri eksamisessioon",
       "certificate": "Sertifikaat",
-      "general": "Üldine",
       "grade": "Hinne",
-      "gradesDiploma": "Hinded ja diplom",
-      "learnMore": "Lisateave",
-      "noResults": "Sellel kontol ei ole veel ühtegi hinnet ega tunnistust. \nKui olete eksami sooritanud ja teie tulemused pole pikema aja jooksul saadaval, siis palun pöörduge meie poole abi saamiseks.",
-      "organizedSessions": "₿ sertifikaat on Plan B Võrgustiku poolt korraldatud mitmetes erinevates kohtades ning erinevatel aegadel. Veenduge, et broneerite endale istekoha sessioonil.",
-      "presentation": "₿ sertifikaat on Plan B Võrgustiku poolt korraldatud eksam, mis on mõeldud teie taseme kinnitamiseks Bitcoini alal ja kõigi sellega seotud teemade kohta.",
-      "findResults": "Siit leiate oma tulemused ₿ sertifikaadi eksamitele, mille olete selle kontoga sooritanud. Tulemuste töötlemine ja kättesaadavaks tegemine võtab tavaliselt aega 2 kuni 3 nädalat. Kui pärast pikka aega teie tulemuid siin ei kuvata, siis võtke palun meiega ühendust.",
-      "wantToPass": "Soovid eksami läbida?"
+      "noResults": "Sellel kontol ei ole veel ühtegi hinnet ega tunnistust. \nKui olete eksami sooritanud ja teie tulemused pole pikema aja jooksul saadaval, siis palun pöörduge meie poole abi saamiseks."
     },
     "administration": "",
     "course": {
@@ -960,10 +945,6 @@
   },
   "imagesAlt": {
     "bookCover": "raamatu kaas",
-    "courseThumbnail": "Kursuse pisipilt",
-    "decouvreBitcoinLogo": "DecouvreBitcoin Logo",
-    "curriculum": "Õppekava",
-    "community": "3 inimest",
     "stylus": "stiilus",
     "blueEllipse": "sinine ellips",
     "contributorHeart": "süda toredale kaastöölisele",
@@ -1008,13 +989,10 @@
   },
   "payment": {
     "total": "Kokku",
-    "proceedToPayment": "Jätkake maksmisega",
-    "terms": "Vaadake meie <0>üldtingimusi</0> tagasimakse üksikasjade jaoks",
-    "feeDistribution": "Tasude jaotus: Autor 99% - Platvorm 1%"
+    "terms": "Vaadake meie <0>üldtingimusi</0> tagasimakse üksikasjade jaoks"
   },
   "podcast": {
-    "abstract": "Kokkuvõte",
-    "discover": "Avastage käesolevat taskuhäälingut"
+    "abstract": "Kokkuvõte"
   },
   "professors": {
     "pageTitle": "Professorid",
@@ -1137,12 +1115,9 @@
     },
     "title": "",
     "blogCategories": {
-      "patch": "",
-      "grants": "",
       "network": "",
       "all": "",
       "content": "",
-      "course": "",
       "feature": ""
     },
     "blogPost": "",

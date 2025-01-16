@@ -297,7 +297,6 @@
       "quality": "",
       "tooEasy": "",
       "yesVeryMuch": "",
-      "feedbackDescription": "",
       "faithful": "",
       "recommend": "",
       "yesOfCourse": "",
@@ -566,7 +565,6 @@
     "home": "",
     "hours": "",
     "id": "",
-    "inPerson": "",
     "inReview": "",
     "intermediate": "",
     "interview": "",
@@ -671,7 +669,6 @@
     },
     "myCourses": {
       "done": "",
-      "downloadPdf": "",
       "yourCertificate": "",
       "completedCoursesDescription": "",
       "completedOutOf": "",
@@ -1020,10 +1017,7 @@
   "publicCommunication": {
     "blogCategories": {
       "feature": "",
-      "patch": "",
-      "grants": "",
       "content": "",
-      "course": "",
       "all": "",
       "network": ""
     },
@@ -1119,13 +1113,11 @@
     "p2": ""
   },
   "payment": {
-    "proceedToPayment": "",
     "terms": "",
     "total": ""
   },
   "podcast": {
-    "abstract": "",
-    "discover": ""
+    "abstract": ""
   },
   "podcasts": {
     "hostedBy": "",

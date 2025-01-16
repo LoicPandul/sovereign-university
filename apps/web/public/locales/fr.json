@@ -183,10 +183,6 @@
       "payment_details": "Détails de paiement",
       "amount": "Montant",
       "invoiceId": "TX ID",
-      "terms1": "See our",
-      "terms2": "general terms",
-      "terms3": "and conditions for refund details",
-      "terms4": "Fee distribution: Author 99 % - Plateform 1 %",
       "buyOnlineCourse": "Acheter un cours en ligne",
       "inPersonAccess": "Vous devez télécharger votre billet pour accéder au cours en personne.",
       "buyInPersonCourse": "Acheter un cours en personne",
@@ -217,9 +213,6 @@
       "buildPath": "Construisez votre propre chemin dans le terrier du lapin",
       "seeCourse": "Découvrir le cours"
     },
-    "footer": {
-      "": ""
-    },
     "part": {
       "count": "Partie n°{{count}}"
     },
@@ -238,14 +231,7 @@
       "payment_successful": "Paiement réussi !",
       "teacher": "Professeur",
       "teachers": "Professeurs",
-      "terms1": "See our",
-      "terms2": "general terms",
-      "terms3": "and conditions for refund details",
-      "terms4": "Fee distribution: Author 99 % - Plateform 1 %",
-      "total": "Total",
       "back_course": "Retour au cours",
-      "callout": "Vous êtes sur le point d'acheter ce cours.",
-      "description": "Cet achat vous donnera accès à des formations en ligne sur la plateforme ainsi qu'à des cours en personne, à condition que vous réserviez votre place. Chaque session de cours a lieu en personne aux dates et lieux spécifiés avant d'être enregistrée et diffusée en ligne sur la plateforme.",
       "book_description": "Veuillez consulter les détails du lieu fournis.\nUne fois votre réservation traitée, nous vous enverrons un billet de confirmation et un code QR à présenter lors de l'événement.",
       "qr_unified": "Ce code QR est unifié, il accepte donc les paiements lightning et on-chain.",
       "time": "Temps",
@@ -259,7 +245,6 @@
       "by": "par {{professor}}",
       "letsgo": "Allons-y"
     },
-    "proceedToPayment": "Proceed to payment",
     "quizz": {
       "clickOnPie": "Cliquez sur le camembert pour vérifier la bonne réponse",
       "quizz": "Quiz",
@@ -362,7 +347,6 @@
       "commentTeacher": "Commentaire à l'enseignant (privé)",
       "feedbackSessionTitle": "Aidez-nous à améliorer nos cours en nous faisant part de vos retours.",
       "soAndSo": "untel et untel",
-      "feedbackDescription": "Veuillez évaluer votre expérience avec le cours ci-dessous.\nCette session de retour d'information est obligatoire pour avoir accès à l'examen final et pour valider le cours.\nNotez que les enseignants n'auront pas accès aux évaluations individuelles.",
       "asExpected": "comme prévu",
       "commentAdmin": "Commentaire à l'équipe d'administration (privé)",
       "displayOutOf": "affiché hors de",
@@ -377,10 +361,7 @@
       "feedbackDescription1": "Veuillez évaluer votre expérience avec le cours ci-dessous.\nCette session de feedback est obligatoire pour avoir accès à l'examen final et pour valider le cours.",
       "feedbackDescription2": "Notez que les enseignants n'auront pas accès aux évaluations individuelles.",
       "saveReview": "Enregistrer l'avis",
-      "thankYou": "Merci pour votre avis ! Il sera pris en compte",
-      "conclusionFeedback1": "Merci pour vos commentaires !",
-      "conclusionFeedback2": "C'est très important pour nous, donc nous l'apprécions vraiment.",
-      "conclusionFeedback3": "Voici votre commentaire ci-dessous, vous pouvez le modifier à tout moment dans votre tableau de bord."
+      "thankYou": "Merci pour votre avis ! Il sera pris en compte"
     }
   },
   "dashboard": {
@@ -398,7 +379,6 @@
       "whereYouAre": "Voyons où vous en êtes !",
       "completedOutOf": "{{completed}} unités terminées sur {{total}} disponibles",
       "done": "Fait",
-      "downloadPdf": "Télécharger le PDF",
       "viewDetails": "Voir les détails",
       "yourCertificate": "Votre certificat",
       "download": "Télécharger le diplôme",
@@ -439,7 +419,6 @@
       "upcomingTicketTitle": "Réservations à venir",
       "upcomingTicketSubtitle": "Téléchargez votre billet ici pour assister à votre prochain événement. N'oubliez pas de l'apporter avec vous pour entrer."
     },
-    "bookings": "",
     "bCertificate": {
       "certificate": "Certificat",
       "grade": "Note",
@@ -550,11 +529,9 @@
       "courseDiplomas": "Diplômes de cours",
       "courseDiplomasSubtitle": "Ici vous pouvez trouver les détails concernant tous les examens que vous avez passés après avoir terminé un cours sur la plateforme.",
       "completionDiplomas": "Diplômes finaux",
-      "downloadAvailableSoon": "Le téléchargement du certificat sera bientôt disponible",
       "globalCertifications": "Certifications mondiales",
       "retakeExam": "Repasser l'examen",
       "seatBooked": "Votre place à la session d'examen est réservée",
-      "seeTicket": "Voir le billet",
       "yourCertificate": "Votre certificat",
       "bCertificateSubtitle": "Ici vous pouvez trouver les détails concernant vos réservations et les notes de vos ₿-Certificates passés et futurs.\nLe ₿-Certificate est un examen sur table organisé par Plan ₿ Network pour affirmer votre niveau en Bitcoin et ses sujets connexes.",
       "takePlaceAt": "La session aura lieu à",
@@ -592,12 +569,6 @@
     "studentDashboard": "Tableau de bord de l'étudiant"
   },
   "events": {
-    "introduction": {
-      "introductionh1": "Welcome to Plan B Network events",
-      "introductionp1": "Bottom up adoption enhanced by a strong network",
-      "introductionp2": "Looking for a Bitcoin event to go to ?",
-      "introductionp3": "Want to talk about Bitcoin in real time ? Here you can find all the events supported by the Plan B Network communities. Whether you want to listen to a lecture, discuss Bitcoin around a drink, or take an exam to assess your knowledge, you’ll be able to find the right event here through the Plan B Network."
-    },
     "main": {
       "upcomingEvents": "Événements à venir",
       "currentEvents": "Événements qui se déroulent en ce moment"
@@ -743,27 +714,17 @@
     }
   },
   "imagesAlt": {
-    "bitcoinCurrency": "le signe de la devise bitcoin",
     "blueEllipse": "une ellipse bleue",
     "bookCover": "une couverture de livre",
-    "community": "3 personnes",
     "contributorHeart": "un cœur pour un bon contributeur",
     "contributorPP": "photo de profil du contributeur",
-    "courseThumbnail": "Miniature du cours",
-    "curriculum": "Programmation",
-    "decouvreBitcoinLogo": "DecouvreBitcoin Logo",
-    "favorite": "un cœur à l'intérieur d'un cercle",
-    "flagsInCircle": "un cercle de drapeaux",
     "forwardArrow": "une flèche vers l'avant",
-    "github": "l'icône de github",
     "orangePill": "une pilule orange",
     "printedCircuits": "un circuit imprimé",
     "rabbit404": "un lapin éclairant d'une lampe de poche un panneau 404",
     "sthRepresentingCompany": "quelque chose qui représente la société",
     "stylus": "un stylet",
-    "underConstructionImage": "Illustration de plusieurs lapins travaillant sur un site de construction",
-    "visibilityOff": "l'icône des yeux sans signe éteint",
-    "worldMap": "carte du monde avec les pôles liés"
+    "underConstructionImage": "Illustration de plusieurs lapins travaillant sur un site de construction"
   },
   "library": {
     "pageSubtitle": "Cette bibliothèque est open-source et accueille toutes les contributions.",
@@ -831,7 +792,6 @@
   },
   "podcast": {
     "abstract": "Résumé",
-    "discover": "Découvrez ce podcast",
     "check": "Vérifiez le podcast"
   },
   "podcasts": {
@@ -881,17 +841,13 @@
       "abstract": "Résumé",
       "author": "Auteur : ",
       "level": "Niveau :",
-      "subtitle": "<0>D'autres newsletters</0> qui pourraient vous intéresser : ",
-      "toggleLabelAll": "Tout",
-      "toggleLabelSelectedLanguage": "Langue sélectionnée"
+      "subtitle": "<0>D'autres newsletters</0> qui pourraient vous intéresser : "
     },
     "pageDescription": "Essayer de comprendre Bitcoin, c'est comme explorer un labyrinthe qui ne cesse de croître. Pour vous aider dans votre voyage, nous avons sélectionné une vaste collection de ressources traitant d'une myriade de sujets.",
     "pageSubtitle": "Centraliser les connaissances pour mieux les diffuser",
     "pageTitle": "Ressources",
     "podcasts": {
       "title": "Podcasts",
-      "toggleLabelAll": "Tout",
-      "toggleLabelSelectedLanguage": "Langue sélectionnée",
       "noPodcasts": "Il n'y a actuellement aucun podcast pour la langue sélectionnée."
     },
     "publicGrade": "Note publique : {{grade}}/5",
@@ -1167,7 +1123,6 @@
     "free": "Gratuit",
     "goal": "But",
     "id": "ID",
-    "inPerson": "En personne",
     "lectures": "Conférences",
     "lightningInvoice": "Facture lightning",
     "location": "Emplacement",
@@ -1235,9 +1190,7 @@
     "planBConferences": "Conférences Plan ₿"
   },
   "payment": {
-    "proceedToPayment": "Procédez au paiement",
     "terms": "Consultez nos <0>conditions générales</0> pour plus de détails sur les remboursements",
-    "feeDistribution": "Répartition des frais : Auteur 99% - Plateforme 1%",
     "total": "Total",
     "payWithBitcoin": "Payer avec Bitcoin",
     "payByCard": "Payer par carte"
@@ -1280,10 +1233,7 @@
     "blogCategories": {
       "all": "Tout",
       "content": "Contenu",
-      "course": "Sortie de cours",
       "feature": "Fonctionnalité",
-      "patch": "Notes de mise à jour",
-      "grants": "Subventions",
       "network": "Réseau"
     },
     "legalSections": {

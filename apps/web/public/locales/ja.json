@@ -180,10 +180,6 @@
       "payment_details": "Payment details",
       "amount": "Amount",
       "invoiceId": "Invoice ID",
-      "terms1": "See our",
-      "terms2": "general terms",
-      "terms3": "and conditions for refund details",
-      "terms4": "Fee distribution: Author 99 % - Plateform 1 %",
       "buyInPersonCourse": "",
       "buyOnlineCourse": "",
       "paidCourse": "",
@@ -210,9 +206,6 @@
       "exploreCourses": "",
       "journey": ""
     },
-    "footer": {
-      "": ""
-    },
     "part": {
       "count": "パートn°{{count}}/{{total}}"
     },
@@ -231,14 +224,7 @@
       "payment_successful": "Payment successful!",
       "teacher": "Teacher",
       "teachers": "Teachers",
-      "terms1": "See our",
-      "terms2": "general terms",
-      "terms3": "and conditions for refund details",
-      "terms4": "Fee distribution: Author 99 % - Plateform 1 %",
-      "total": "Total",
       "back_course": "",
-      "callout": "",
-      "description": "",
       "book_description": "",
       "qr_unified": "",
       "time": "",
@@ -251,7 +237,6 @@
       "by": "by {{professor}}",
       "letsgo": "レッツゴー！"
     },
-    "proceedToPayment": "Proceed to payment",
     "quizz": {
       "clickOnPie": "円グラフをクリックして、間違いをチェックし、解説を確認してください",
       "quizz": "クイズ",
@@ -270,7 +255,6 @@
       "theoreticalLightning": "ライトニング・ネットワークの上級理論コース"
     },
     "review": {
-      "feedbackDescription": "",
       "faithful": "",
       "recommend": "",
       "yesOfCourse": "",
@@ -375,7 +359,6 @@
       "completedCoursesDescription": "",
       "completedOutOf": "",
       "done": "",
-      "downloadPdf": "",
       "inprogressCoursesTitle": "",
       "seeProgress": "",
       "startCourse": "",
@@ -405,7 +388,6 @@
       "upcomingTicketTitle": "",
       "upcomingTicketSubtitle": ""
     },
-    "bookings": "",
     "bCertificate": {
       "noResults": "",
       "bookExam": "",
@@ -520,12 +502,6 @@
     }
   },
   "events": {
-    "introduction": {
-      "introductionh1": "Welcome to Plan B Network events",
-      "introductionp1": "Bottom up adoption enhanced by a strong network",
-      "introductionp2": "Looking for a Bitcoin event to go to ?",
-      "introductionp3": "Want to talk about Bitcoin in real time ? Here you can find all the events supported by the Plan B Network communities. Whether you want to listen to a lecture, discuss Bitcoin around a drink, or take an exam to assess your knowledge, you’ll be able to find the right event here through the Plan B Network."
-    },
     "main": {
       "upcomingEvents": "Upcoming events",
       "currentEvents": "Events happening right now"
@@ -652,27 +628,17 @@
     }
   },
   "imagesAlt": {
-    "bitcoinCurrency": "ビットコイン通貨のサイン",
     "blueEllipse": "青い楕円形",
     "bookCover": "表紙",
-    "community": "3名",
     "contributorHeart": "素敵なコントリビュータへのハート",
     "contributorPP": "コントリビュータのプロフィール写真",
-    "courseThumbnail": "コースのサムネイル画像",
-    "curriculum": "カリキュラム",
-    "decouvreBitcoinLogo": "DecouvreBitcoinのロゴマーク",
-    "favorite": "サークルの中のハート",
-    "flagsInCircle": "旗のサークル",
     "forwardArrow": "前方の矢印",
-    "github": "GitHubのアイコン",
     "orangePill": "オレンジピル",
     "printedCircuits": "プリント基板",
     "rabbit404": "404の看板を懐中電灯で照らすうさぎ",
     "sthRepresentingCompany": "会社を代表する何か",
     "stylus": "スタイラス",
-    "underConstructionImage": "工事現場で作業するうさぎたちのイラスト",
-    "visibilityOff": "ログアウト看板のない目のアイコン",
-    "worldMap": "ハブがリンクされている世界地図"
+    "underConstructionImage": "工事現場で作業するうさぎたちのイラスト"
   },
   "library": {
     "pageSubtitle": "このライブラリはオープンソースであり、いつでも支援を受け付けています。評価と共有に感謝します！",
@@ -730,8 +696,7 @@
     "pageTitle": "おっと！"
   },
   "podcast": {
-    "abstract": "抜粋",
-    "discover": "このポッドキャストを見つける"
+    "abstract": "抜粋"
   },
   "podcasts": {
     "hostedBy": "主催者：{{host}}",
@@ -1030,7 +995,6 @@
     "grade": "",
     "hours": "",
     "id": "",
-    "inPerson": "",
     "inReview": "",
     "lectures": "",
     "lightningInvoice": "",
@@ -1084,9 +1048,7 @@
     "topics": ""
   },
   "payment": {
-    "proceedToPayment": "",
     "terms": "",
-    "feeDistribution": "",
     "total": "合計"
   },
   "bCertificate": {
@@ -1136,10 +1098,7 @@
     "blogCategories": {
       "all": "",
       "content": "",
-      "course": "",
       "feature": "",
-      "patch": "",
-      "grants": "",
       "network": ""
     },
     "legalSections": {

@@ -1,8 +1,5 @@
 {
   "courses": {
-    "footer": {
-      "": ""
-    },
     "chapter": {
       "next": "",
       "count": "",
@@ -102,11 +99,9 @@
       "accessibility_forever": "",
       "amount": "",
       "back_course": "",
-      "callout": "",
       "date": "",
       "dates_to": "",
       "downloadCurriculum": "",
-      "description": "",
       "book_description": "",
       "duration": "",
       "invoiceId": "",
@@ -175,7 +170,6 @@
       "whatStudentsSay": "",
       "writeThoughts": "",
       "yesVeryMuch": "",
-      "feedbackDescription": "",
       "yesOfCourse": "",
       "faithful": "",
       "recommend": ""
@@ -526,7 +520,6 @@
       "upcomingTicketTitle": "",
       "upcomingTicketSubtitle": ""
     },
-    "bookings": "",
     "courses": "",
     "logout": "",
     "myCourses": {
@@ -540,7 +533,6 @@
       "completedCoursesDescription": "",
       "completedOutOf": "",
       "done": "",
-      "downloadPdf": "",
       "inprogressCoursesTitle": "",
       "seeProgress": "",
       "viewDetails": "",
@@ -781,7 +773,6 @@
     "goal": "",
     "grade": "",
     "hours": "",
-    "inPerson": "",
     "inReview": "",
     "lectures": "",
     "lightningInvoice": "",
@@ -936,27 +927,17 @@
     }
   },
   "imagesAlt": {
-    "bitcoinCurrency": "",
     "blueEllipse": "",
     "bookCover": "",
-    "community": "",
     "contributorHeart": "",
     "contributorPP": "",
-    "courseThumbnail": "",
-    "curriculum": "",
-    "decouvreBitcoinLogo": "",
-    "favorite": "",
-    "flagsInCircle": "",
     "forwardArrow": "",
-    "github": "",
     "orangePill": "",
     "printedCircuits": "",
     "rabbit404": "",
     "sthRepresentingCompany": "",
     "stylus": "",
-    "underConstructionImage": "",
-    "visibilityOff": "",
-    "worldMap": ""
+    "underConstructionImage": ""
   },
   "library": {
     "pageSubtitle": "",
@@ -989,14 +970,11 @@
     "pageTitle": ""
   },
   "payment": {
-    "proceedToPayment": "",
     "terms": "",
-    "feeDistribution": "",
     "total": ""
   },
   "podcast": {
-    "abstract": "",
-    "discover": ""
+    "abstract": ""
   },
   "podcasts": {
     "hostedBy": "",
@@ -1093,13 +1071,10 @@
   },
   "publicCommunication": {
     "blogCategories": {
-      "grants": "",
       "network": "",
       "feature": "",
-      "patch": "",
       "all": "",
-      "content": "",
-      "course": ""
+      "content": ""
     },
     "legalSections": {
       "contact": "",
