@@ -27,6 +27,7 @@ import {
   createGetPayments,
   createGetProgress,
   createGetUserChapter,
+  createGetUserDetailsByCertificateId,
   createSaveCoursePayment,
   createSaveCourseReview,
   createSaveQuizAttempt,
@@ -350,6 +351,27 @@ const downloadChapterTicketProcedure = studentProcedure
     }).then((buffer) => buffer.toString('base64'));
   });
 
+const getUserDetailsByCertificateIdProcedure = studentProcedure
+  .input(
+    z.object({
+      certificateId: z.string(),
+    }),
+  )
+  .output(
+    z.object({
+      uid: z.string(),
+      courseId: z.string(),
+      displayName: z.string(),
+    }),
+  )
+  .query(({ ctx, input }) => {
+    const { certificateId } = input;
+
+    return createGetUserDetailsByCertificateId(ctx.dependencies)({
+      certificateId,
+    });
+  });
+
 export const userCoursesRouter = createTRPCRouter({
   completeAllChapters: completeAllChaptersProcedure,
   completeChapter: completeChapterProcedure,
@@ -363,6 +385,7 @@ export const userCoursesRouter = createTRPCRouter({
   getUserChapter: getUserChapterProcedure,
   getPayment: getPaymentProcedure,
   getPayments: getPaymentsProcedure,
+  getUserDetailsByCertificateId: getUserDetailsByCertificateIdProcedure,
   saveCourseReview: saveCourseReviewProcedure,
   saveQuizAttempt: saveQuizAttemptProcedure,
   saveUserChapter: saveUserChapterProcedure,

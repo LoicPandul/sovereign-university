@@ -13,7 +13,7 @@ interface Props {
   link?: string;
   variant?: 'light' | 'dark';
   footerVariant?: 'dark' | 'light';
-  children: ReactNode;
+  children?: ReactNode;
   className?: string;
   maxWidth?: string;
   paddingXClasses?: string;
@@ -37,14 +37,15 @@ export const PageLayout = ({
         className={cn('flex h-fit justify-center', className, paddingXClasses)}
       >
         <div className={cn('w-full', maxWidth)}>
-          <PageHeader
-            title={title || ''}
-            subtitle={subtitle || ''}
-            description={description || ''}
-            link={link}
-          />
-
-          <div className="my-4 sm:my-6">{children}</div>
+          {title && (
+            <PageHeader
+              title={title}
+              subtitle={subtitle}
+              description={description}
+              link={link}
+            />
+          )}
+          {children && <div className="my-4 sm:my-6">{children}</div>}
         </div>
       </div>
     </MainLayout>
