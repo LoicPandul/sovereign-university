@@ -38,7 +38,18 @@
     "publicCommunication.legalSections.contact",
     "publicCommunication.legalSections.legalNotice",
     "publicCommunication.legalSections.privacyPolicy",
-    "publicCommunication.legalSections.termsOfSale"
+    "publicCommunication.legalSections.termsOfSale",
+    "professors.navigationTitles.all",
+    "professors.navigationTitles.lecturers",
+    "professors.navigationTitles.teachers",
+    "professors.navigationTitles.tutorialCreators",
+    "dashboard.teacher.courses.courseModification",
+    "dashboard.teacher.profile.tutorialModification",
+    "resources.newsletters.subtitle",
+    "resources.pageSubtitleBooks",
+    "resources.pageSubtitleChannels",
+    "resources.pageSubtitlePodcast",
+    "resources.pageSubtitleLectures"
   ],
   "cSpell.words": [
     "Ajelex",

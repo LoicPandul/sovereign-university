@@ -444,7 +444,6 @@
       "listOfParticipants": "List of participants",
       "makeProfessor": "Make professor",
       "nameOfEvent": "Name of Event",
-      "noUpcomingBookings": "There are no upcoming bookings.",
       "participants": "Participants",
       "professorName": "Professor name",
       "removeTeacherDescription": "Are you sure you want to remove this teacher?",
@@ -457,14 +456,9 @@
       "type": "Type",
       "upcomingBookings": "Upcoming bookings",
       "upcomingBookingsSubtitle": "Here you can download the list of participants for all in-person events.",
-      "upcomingEvents": "Upcoming events",
-      "upcomingEventsSubtitle": "Here you can download the list of participants for all in-person events.",
       "userRolesAllocation": "User roles allocation"
     },
-    "administration": "Administration",
     "bCertificate": {
-      "bookExam": "Book an exam session",
-      "certificate": "Certificate",
       "grade": "Grade",
       "noResults": "There are no grades or certificates associated with this account yet.\nIf you passed an exam and your results are not available after an extended period, please <0>reach out to us</0> for assistance."
     },
@@ -473,8 +467,6 @@
       "accessLive": "Access the live exam",
       "billingSubtitle": "Download the invoices from your bookings here.",
       "billingTitle": "Billing history",
-      "downloadInvoice": "Download invoice",
-      "downloadTicket": "Download ticket",
       "invoiceDate": "Date",
       "invoiceTitle": "Title",
       "invoiceType": "Type",
@@ -504,7 +496,6 @@
       "submitReviewInfo": "You have to submit a review to have access to this feature.",
       "tweetText": "Thrilled to have completed {{courseId}} course at @planb_network and earned my diploma with a score of {{score}}/100 on the final exam! {{emoji}} #PBNDiploma\n\n{{certificateUrl}}"
     },
-    "courseDashboard": "Course dashboard",
     "courses": "Courses",
     "credentials": {
       "bCertificate": "₿ Certificate",
@@ -526,9 +517,7 @@
       "completed": "Completed",
       "completedCoursesDescription": "Here you can check your completed courses.",
       "completedCoursesTitle": "Completed courses",
-      "completedOutOf": "{{completed}} units completed of {{total}} available",
       "courseDashboard": "Course dashboard",
-      "details": "Details",
       "detailsAndCertificate": "Details & certificate",
       "done": "Done",
       "download": "Download diploma",
@@ -561,7 +550,6 @@
       "edit": "Edit",
       "email": "Email",
       "emailChangeConfirmation": "A confirmation email for your email change has been sent, please check your inbox to confirm.",
-      "emailChangeRateLimitError": "Email change request already sent less than 5 minutes ago, please wait before trying again.",
       "password": "Password",
       "personalInformation": "My personal information",
       "preview": "Preview",
@@ -578,10 +566,8 @@
       "courses": {
         "analytics": "Analytics",
         "courseDetails": "Course details",
-        "courseId": "Course ID",
         "courseLongDescription": "Introductive description",
         "courseModification": "If you need help to edit something in the course, please check this <0>tutorial</0>.",
-        "courseName": "Course name",
         "courseShortDescription": "Goal",
         "coursesManagementPanel": "Courses panel",
         "curriculum": "Course curriculum",
@@ -599,9 +585,7 @@
       "profile": {
         "account": "Teacher account",
         "billingInformations": "Billing informations",
-        "chooseTags": "Choose the tags that describe you the best",
         "description": "Your description",
-        "descriptionTags": "These tags complete your public profile as they show your specialities as a bitcoiner.",
         "enterTipsInformations": "Plan ₿ Network encourages users to tip teachers. Please enter your information so that people can tip you when they wish to.",
         "lightningAddress": "Lightning address",
         "makeModifications": "Need to make modifications ?",
@@ -614,8 +598,7 @@
         "publicProfileDescription": "Here you can fill or edit all the information associated with your activity as a teacher at Plan ₿ Network.",
         "teacher": "Teacher",
         "teacherProfile": "Teacher profile",
-        "tutorialModification": "If you need help to edit something, please check this <0>tutorial</0>.",
-        "writeShortBio": "Write a short bio about yourself"
+        "tutorialModification": "If you need help to edit something, please check this <0>tutorial</0>."
       },
       "reviews": {
         "checkComments": "Here you can read the comments given by the students. The comments are sorted by date.",
@@ -800,16 +783,12 @@
     }
   },
   "imagesAlt": {
-    "blueEllipse": "a blue ellipse",
     "bookCover": "a book cover",
     "contributorHeart": "a heart for nice contributor",
-    "contributorPP": "contributor profile pic",
-    "forwardArrow": "a forward arrow",
     "orangePill": "an orange pill",
     "printedCircuits": "a printed circuits",
     "rabbit404": "a rabbit shining a flashlight on a 404 sign",
     "sthRepresentingCompany": "something representing the company",
-    "stylus": "a stylus",
     "underConstructionImage": "Illustration of several rabbits working on a construction site"
   },
   "lectures": {
@@ -862,21 +841,12 @@
     "walletsDescription": "Secure and use your bitcoins"
   },
   "nodeNetwork": {
-    "answer3": "Plan ₿ Network initially focuses on nodes that operate from a physical space. In the future, we plan to integrate more initiatives that could benefit from the network’s support for growth.",
-    "answer4": "A Bitcoin node can vary in size, and different grades will be assigned based on specific requirements. For instance, a node that includes a hackerspace, a gym, and office space will be regarded as more citadel-like.",
-    "answer5": "We wish to offer a safe haven for bitcoiners around the world. We believe that by helping local hubs grow, we will be able to create a network of citadels where they will be welcome to work, create, share, and discuss safely.",
     "apply": "Apply to become a Node",
     "applyhelp": "*Select the node Location",
     "description1": "We believe that education should not only take place online but also in physical spaces. To achieve this, Plan ₿ Network manages a network of hubs around the world to welcome thinkers, entrepreneurs and educators fostering the advancement of Bitcoin and freedom technologies.",
     "descriptionextend": "Our first step is to invite communities with physical spaces, which we refer to as the “full nodes” of our network, to join us. In the future, as our network strengthens, we will extend this invitation to more initiatives worldwide. If you share our values, please reach out to our representatives to join our network and help build the best Bitcoin education possible.",
-    "mobiledescription": "We believe that education should not only take place online but also in physical spaces. For this reason, Plan ₿ Network manages a network of hubs around the world to welcome those thinkers, entrepreneurs and educators who foster the advancement of Bitcoin and freedom technologies. Our first step is to invite communities with physical spaces (the “full nodes” of our network) to join us. In the future, as our network strengthens, we will extend this invitation to more initiatives worldwide. If you share our values, please contact our representatives to join our network and help build the best Bitcoin education system possible.",
     "pageSubtitle": "Want to orange pill the world? Join Plan ₿ Network.",
-    "pageTitle": "Explore Plan ₿ Node Network",
-    "question1": "What's a node ?",
-    "question2": "What do I gain ?",
-    "question3": "What are the requirements ?",
-    "question4": "What size is a node ?",
-    "question5": "What's the secret plan?"
+    "pageTitle": "Explore Plan ₿ Node Network"
   },
   "notFound": {
     "here": "Here",
@@ -953,33 +923,14 @@
     "title": "Public communication"
   },
   "resources": {
-    "articles": {
-      "title": "Articles"
-    },
-    "bet": {
-      "title": "Educational Toolkit"
-    },
     "books": {
-      "author": "Author : ",
-      "title": "Library"
-    },
-    "builders": {
-      "title": "Projects"
+      "author": "Author : "
     },
     "channels": {
       "noYoutubeChannels": "There are currently no Youtube Channels for selected language.",
       "title": "Youtube Channels"
     },
-    "conferences": {
-      "title": "Conference replays"
-    },
-    "filterBarLabel": "Find the perfect resources for your needs:",
     "github": "All this data is managed via one open-source <0>Github</0> repository. Feel free to contribute and add any missing content.",
-    "glossary": {
-      "title": "Glossary"
-    },
-    "headerSignature": "Rogzy",
-    "headerText": "Welcome into the infinite rabbit hole of Bitcoin! In this section we will offer you in depth tutorial on most bitcoin project out there. This pages in maintain by benevolel and passionate bitcoin who support this open source project. If you fee we made a mistake please reach out. To see our financial attachment ot the project mention refer to our transparency report. Thanks for your trust in this university and enjoy the ride.",
     "lectures": {
       "noLectures": "There are currently no Lecture Replays for selected language.",
       "title": "Lecture Replays"
@@ -989,7 +940,6 @@
       "title": "Newsletter"
     },
     "newsletters": {
-      "abstract": "Abstract",
       "author": "Author : ",
       "level": "Level :",
       "noNewsletters": "There are currently no newsletters for selected language.",
@@ -1007,7 +957,6 @@
       "noPodcasts": "There are currently no podcasts for selected language.",
       "title": "Podcasts"
     },
-    "publicGrade": "Public grade: {{grade}}/5",
     "searchFilterName": "Search by name",
     "toggleLabelAll": "All",
     "toggleLabelSelectedLanguage": "Selected language"
