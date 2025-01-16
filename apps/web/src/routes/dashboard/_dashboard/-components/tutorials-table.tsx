@@ -288,7 +288,7 @@ export const DashboardTutorialsTable = ({
 
               <TableCell>
                 <Link
-                  to={`/tutorials/${tutorial.category}/${tutorial.name}`}
+                  to={`/tutorials/${tutorial.category}/${tutorial.subcategory}/${tutorial.name}-${tutorial.id}`}
                   target="_blank"
                   className="w-fit hover:font-medium hover:underline"
                 >
