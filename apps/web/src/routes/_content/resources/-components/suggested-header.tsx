@@ -10,7 +10,7 @@ export const SuggestedHeader = ({
   placeholder: string;
 }) => {
   return (
-    <div className="flex flex-wrap items-center justify-center md:justify-start mb-5 lg:mb-10 mx-auto w-fit">
+    <div className="flex flex-wrap items-center justify-center md:justify-start mb-5 lg:mb-10 mx-auto w-fit text-center">
       <ThumbUp className="size-[20px] lg:size-[32px] mr-3 my-1 shrink-0 fill-newOrange-1" />
       <h3 className="items-center title-small-med-16px md:title-large-24px font-medium text-white mt-1">
         <Trans i18nKey={text}>

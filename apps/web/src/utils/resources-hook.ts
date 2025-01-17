@@ -3,6 +3,7 @@ import { useTranslation } from 'react-i18next';
 import type {
   JoinedBook,
   JoinedEvent,
+  JoinedMovie,
   JoinedNewsletter,
   JoinedPodcast,
   JoinedYoutubeChannel,
@@ -13,7 +14,8 @@ type Content =
   | JoinedNewsletter
   | JoinedPodcast
   | JoinedYoutubeChannel
-  | JoinedEvent;
+  | JoinedEvent
+  | JoinedMovie;
 
 export const useShuffleSuggestedContent = (
   suggestedContentArray: Content[],

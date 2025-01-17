@@ -7,6 +7,7 @@ import {
   joinedConferenceSchema,
   joinedEventSchema,
   joinedGlossaryWordSchema,
+  joinedMovieSchema,
   joinedNewsletterSchema,
   joinedPodcastSchema,
   joinedYoutubeChannelSchema,
@@ -23,6 +24,8 @@ import {
   createGetGlossaryWords,
   createGetLecture,
   createGetLectures,
+  createGetMovie,
+  createGetMovies,
   createGetNewsletter,
   createGetNewsletters,
   createGetPodcast,
@@ -38,6 +41,7 @@ import type {
   JoinedConference,
   JoinedEvent,
   JoinedGlossaryWord,
+  JoinedMovie,
   JoinedNewsletter,
   JoinedPodcast,
   JoinedYoutubeChannel,
@@ -142,6 +146,19 @@ export const resourcesRouter = createTRPCRouter({
         ctx.user.uid || '',
       );
     }),
+
+  // Movies
+  getMovies: createGetResourcesProcedure()
+    .output<Parser<JoinedMovie[]>>(joinedMovieSchema.array())
+    .query(({ ctx }) => {
+      return createGetMovies(ctx.dependencies)();
+    }),
+  getMovie: createGetResourceProcedure()
+    .output<Parser<JoinedMovie>>(joinedMovieSchema)
+    .query(({ ctx, input }) => {
+      return createGetMovie(ctx.dependencies)(input.id);
+    }),
+
   //Newsletters
   getNewsletters: createGetResourcesProcedure()
     .output<Parser<JoinedNewsletter[]>>(joinedNewsletterSchema.array())

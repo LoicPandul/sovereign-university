@@ -189,7 +189,7 @@ export const VerticalCard = ({
             </span>
           )}
         </div>
-        <div className="flex flex-wrap max-md:flex-col max-md:justify-center items-center w-full mt-4 gap-1.5 md:gap-5">
+        <div className="flex flex-wrap max-md:flex-col max-md:justify-center items-center w-full mt-[3px] md:mt-4 gap-1.5 md:gap-5">
           {buttonText &&
             (buttonLink ? (
               externalLink ? (

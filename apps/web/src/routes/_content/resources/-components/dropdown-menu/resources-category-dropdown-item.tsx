@@ -14,7 +14,8 @@ interface ResourcesDropdownItemProps {
     | 'glossary'
     | 'newsletters'
     | 'channels'
-    | 'lectures';
+    | 'lectures'
+    | 'movies';
   imageSrc: string;
 }
 

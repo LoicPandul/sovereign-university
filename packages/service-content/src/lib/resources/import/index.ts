@@ -11,6 +11,7 @@ import { createProcessChangedBook } from './categories/books.js';
 import { createProcessChangedBuilder } from './categories/builders.js';
 import { createProcessChangedConference } from './categories/conferences.js';
 import { createProcessChangedGlossaryWord } from './categories/glossary.js';
+import { createProcessChangedMovie } from './categories/movies.js';
 import { createProcessChangedNewsletter } from './categories/newsletters.js';
 import { createProcessChangedPodcast } from './categories/podcasts.js';
 import { createProcessChangedYoutubeChannel } from './categories/youtubeChannels.js';
@@ -117,6 +118,7 @@ export const createUpdateResources = (dependencies: Dependencies) => {
       conferences: createProcessChangedConference,
       podcasts: createProcessChangedPodcast,
       glossary: createProcessChangedGlossaryWord,
+      movies: createProcessChangedMovie,
       newsletters: createProcessChangedNewsletter,
       channels: createProcessChangedYoutubeChannel,
     } as const;

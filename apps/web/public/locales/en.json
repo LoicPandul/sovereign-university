@@ -704,6 +704,7 @@
     "libraryDescription": "Discover plenty of books to improve your knowledge",
     "login": "Log in",
     "miningCourseDescription": "Understand the processes, tools and industry behind the Bitcoin mining.",
+    "moviesDescription": "Discover captivating stories and in-depth explorations of Bitcoin evolution and impact",
     "newsletterDescription": "Collection of content that you can use for your educational projects",
     "nodeNetworkDescription": "Join the Plan ₿ global community network",
     "podcastsDescription": "Explore the bitcoin ecosystem through podcasts",
@@ -712,6 +713,11 @@
     "securityDescription": "Master the techniques for safeguarding your Bitcoin assets.",
     "socialStudiesDescription": "Study the impact of Bitcoin on society.",
     "teachersDescription": "Get to know our academy teachers"
+  },
+  "movies": {
+    "pageTitle": "Movies & Documentaries",
+    "goToMovie": "Go to movie",
+    "watchTrailer": "Watch the trailer"
   },
   "nodeNetwork": {
     "apply": "Apply to become a Node",
@@ -820,6 +826,10 @@
     "lectures": {
       "noLectures": "There are currently no Lecture Replays for selected language.",
       "title": "Lecture Replays"
+    },
+    "movies": {
+      "title": "Movies & Documentaries",
+      "noMovies": "There are currently no Movies or Documentaries for selected language."
     },
     "newsletter": {
       "check": "Check the newsletter"
@@ -1043,6 +1053,7 @@
     "location": "Location",
     "members": " Members",
     "mining": "Mining",
+    "movie": "Movie",
     "network": "Network",
     "newsletter": "Newsletter",
     "nodeNetwork": "Node Network",
@@ -1057,6 +1068,7 @@
     "podcast": "Podcast",
     "podcasts": "Podcasts",
     "price": "Price",
+    "producer": "Producer",
     "professor": "Professor",
     "professors": "Professors",
     "progress": "Progress",

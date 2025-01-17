@@ -13,6 +13,7 @@ import eventsSvg from '#src/assets/resources/conference.svg';
 import glossarySvg from '#src/assets/resources/glossary.svg';
 import lecturesSvg from '#src/assets/resources/lecture.svg';
 import coursesSvg from '#src/assets/resources/library.svg';
+import moviesSvg from '#src/assets/resources/movie.svg';
 import podcastSvg from '#src/assets/resources/podcast.svg';
 import tutorialsSvg from '#src/assets/resources/toolkit.svg';
 import aboutSvg from '#src/assets/resources/world.svg';
@@ -197,6 +198,13 @@ export const Header = ({ variant = 'dark' }: HeaderProps) => {
               description: t('menu.lecturesDescription'),
               path: '/resources/lectures',
               icon: lecturesSvg,
+            },
+            {
+              id: 'movies',
+              title: t('resources.movies.title'),
+              description: t('menu.moviesDescription'),
+              path: '/resources/movies',
+              icon: moviesSvg,
             },
           ],
         },
