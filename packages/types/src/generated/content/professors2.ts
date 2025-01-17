@@ -8,7 +8,7 @@ export interface FullProfessor {
   path: string;
   name: string;
   company: string | null;
-  affiliations: string[];
+  affiliations: string[] | null;
   contributorId: string;
   lastUpdated: Date;
   lastCommit: string;

@@ -19,7 +19,7 @@
     "clear": "rm -rf ./dist && rm -f *.tsbuildinfo"
   },
   "dependencies": {
-    "cron": "^3.5.0"
+    "cron": "^3.3.2"
   },
   "devDependencies": {
     "@blms/types": "workspace:*"

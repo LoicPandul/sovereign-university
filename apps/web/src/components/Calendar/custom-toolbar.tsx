@@ -54,21 +54,21 @@ export default function CustomToolbar({
         <button
           type="button"
           onClick={() => onNavigate('PREV')}
-          aria-label={messages.previous!.toString()}
+          aria-label={messages.previous}
         >
           &#60;
         </button>
         <button
           type="button"
           onClick={() => onNavigate('TODAY')}
-          aria-label={messages.today!.toString()}
+          aria-label={messages.today}
         >
           {label}
         </button>
         <button
           type="button"
           onClick={() => onNavigate('NEXT')}
-          aria-label={messages.next!.toString()}
+          aria-label={messages.next}
         >
           &#62;
         </button>

@@ -7,7 +7,7 @@ export interface Conference {
   description: string | null;
   year: string;
   builder: string | null;
-  languages: string[];
+  languages: string[] | null;
   location: string;
   originalLanguage: string;
   websiteUrl: string | null;
@@ -43,7 +43,7 @@ export interface JoinedConference {
   description: string | null;
   year: string;
   builder: string | null;
-  languages: string[];
+  languages: string[] | null;
   location: string;
   websiteUrl: string | null;
   twitterUrl: string | null;

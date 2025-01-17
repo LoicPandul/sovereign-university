@@ -24,9 +24,9 @@
     "gray-matter": "^4.0.3",
     "ioredis": "^5.4.2",
     "js-yaml": "^4.1.0",
-    "marked": "^15.0.6",
+    "marked": "^15.0.5",
     "pdf-img-convert": "^2.0.0",
-    "uuid": "^11.0.5",
+    "uuid": "^11.0.3",
     "zod": "^3.24.1"
   },
   "devDependencies": {
