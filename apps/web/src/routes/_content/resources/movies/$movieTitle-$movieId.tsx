@@ -96,8 +96,6 @@ function Movie() {
 
   return (
     <ResourceLayout
-      title={t('movies.pageTitle')}
-      tagLine={t('movies.pageSubtitle')}
       link={'/resources/movies'}
       activeCategory="movies"
       showPageHeader={false}
@@ -185,10 +183,13 @@ function Movie() {
 
                       <div className="flex flex-wrap gap-[10px]">
                         {movie.tags
-                          ?.filter((tag) => tag && tag.toLowerCase() !== 'null')
-                          .map((tag, i) => (
+                          ?.filter(
+                            (tag: string) =>
+                              tag && tag.toLowerCase() !== 'null',
+                          )
+                          .map((tag: string) => (
                             <TextTag
-                              key={i}
+                              key={tag}
                               size="small"
                               variant="lightMaroon"
                               mode="dark"

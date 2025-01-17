@@ -46,11 +46,7 @@ function Movies() {
   const isEnglishLanguage = i18n.language === 'en';
 
   return (
-    <ResourceLayout
-      title={t('movies.pageTitle')}
-      tagLine={t('movies.pageSubtitle')}
-      activeCategory="movies"
-    >
+    <ResourceLayout title={t('movies.pageTitle')} activeCategory="movies">
       <div className="flex flex-col gap-4 md:gap-9 mt-4 md:mt-12 mx-auto">
         <div className="flex items-center gap-1 md:gap-2.5 pb-2 md:pb-2.5 border-b border-b-newGray-1">
           <span className="label-small-12px md:label-large-med-20px text-white">
@@ -112,7 +108,7 @@ function Movies() {
                 className="shrink-0 !rounded-none mb-0.5 md:mb-0"
               />
               <span className="text-white subtitle-medium-caps-18px md:subtitle-large-caps-22px">
-                {LANGUAGES_MAP['en']}
+                {LANGUAGES_MAP.en}
               </span>
             </div>
             <div className="flex flex-wrap gap-4 md:gap-11">
