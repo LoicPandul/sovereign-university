@@ -136,7 +136,7 @@ export const EventPaymentModal = ({
 
   function updateCoupon(coupon: CouponCode | null) {
     setValidatedCoupon(coupon);
-    if (coupon && coupon.reductionPercentage) {
+    if (coupon?.reductionPercentage) {
       setSatsPriceReduced(
         Math.ceil((satsPrice * (100 - coupon.reductionPercentage)) / 100),
       );

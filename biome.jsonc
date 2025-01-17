@@ -26,18 +26,15 @@
     "enabled": true,
     "rules": {
       "recommended": true,
-      "complexity": {
-        "useOptionalChain": "off" // to remove
-      },
       "correctness": {
-        "useExhaustiveDependencies": "info" // OK
+        "useExhaustiveDependencies": "info"
       },
       "style": {
-        "noNonNullAssertion": "off", // OK
-        "useEnumInitializers": "off" // OK
+        "noNonNullAssertion": "off",
+        "useEnumInitializers": "off"
       },
       "suspicious": {
-        "noExplicitAny": "off" // OK
+        "noExplicitAny": "off"
       }
     }
   },

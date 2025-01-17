@@ -60,7 +60,7 @@ const Ratings = ({ ...props }: RatingsProps) => {
         className={cn(ratingVariants[variant].star)}
         Icon={Icon}
         asInput={asInput}
-        onValueChange={() => onValueChange && onValueChange(fullStars + 1)}
+        onValueChange={() => onValueChange?.(fullStars + 1)}
       />
     ) : null;
 
@@ -82,7 +82,7 @@ const Ratings = ({ ...props }: RatingsProps) => {
             asInput ? 'cursor-pointer hover:fill-current' : '',
           ),
           role: props.asInput && 'input',
-          onClick: () => onValueChange && onValueChange(i + 1),
+          onClick: () => onValueChange?.(i + 1),
           onMouseEnter: () => setHoverValue(i + 1),
         }),
       )}
@@ -99,8 +99,7 @@ const Ratings = ({ ...props }: RatingsProps) => {
           ),
           role: props.asInput && 'input',
           onClick: () =>
-            onValueChange &&
-            onValueChange(fullStars + i + 1 + (partialStar ? 1 : 0)),
+            onValueChange?.(fullStars + i + 1 + (partialStar ? 1 : 0)),
           onMouseEnter: () => setHoverValue(fullStars + i + 1),
         }),
       )}
@@ -124,8 +123,8 @@ const PartialStar = ({ ...props }: PartialStarProps) => {
   return (
     <div
       role={asInput ? 'input' : undefined}
-      onClick={() => onValueChange && onValueChange()}
-      onKeyDown={() => onValueChange && onValueChange()}
+      onClick={() => onValueChange?.()}
+      onKeyDown={() => onValueChange?.()}
       className={cn('relative inline-block', asInput && 'cursor-pointer')}
     >
       {React.cloneElement(Icon, {

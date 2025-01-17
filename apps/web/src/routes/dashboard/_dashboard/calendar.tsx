@@ -102,10 +102,9 @@ function DashboardCalendar() {
     }
 
     setFilteredEvents(
-      events &&
-        events.filter((e) =>
-          filter.length > 0 ? filter.includes(e.type! as CourseType) : true,
-        ),
+      events?.filter((e) =>
+        filter.length > 0 ? filter.includes(e.type! as CourseType) : true,
+      ),
     );
   }, [events, filter, filter.length]);
 

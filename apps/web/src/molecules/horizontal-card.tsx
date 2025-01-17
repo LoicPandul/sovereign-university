@@ -41,12 +41,9 @@ export const HorizontalCard = ({
 
       <div className="flex flex-col justify-between min-w-fit gap-2">
         <div className="flex items-center gap-2.5 ml-auto py-2">
-          {languages &&
-            languages
-              .slice(0, 2)
-              .map((language) => (
-                <Flag code={language} size="l" key={language} />
-              ))}
+          {languages?.slice(0, 2).map((language) => (
+            <Flag code={language} size="l" key={language} />
+          ))}
         </div>
         {buttonText &&
           (buttonLink ? (

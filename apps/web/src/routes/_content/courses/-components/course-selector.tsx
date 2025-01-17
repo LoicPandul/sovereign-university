@@ -48,25 +48,24 @@ export const CourseSelector = ({ courses }: { courses: JoinedCourse[] }) => {
             {t('words.topics')}
           </h3>
           <nav className="flex flex-col gap-2.5">
-            {topics &&
-              topics.map((topic) => (
-                <button
-                  key={topic}
-                  type="button"
-                  onClick={() => {
-                    setActiveTopic(topic);
-                    activeTopic !== topic && setActiveCourse(null);
-                  }}
-                  className={cn(
-                    'text-lg leading-snug font-medium w-full py-2 px-4  uppercase text-start rounded-md',
-                    activeTopic === topic
-                      ? 'bg-darkOrange-7'
-                      : 'hover:bg-darkOrange-9',
-                  )}
-                >
-                  {topic}
-                </button>
-              ))}
+            {topics?.map((topic) => (
+              <button
+                key={topic}
+                type="button"
+                onClick={() => {
+                  setActiveTopic(topic);
+                  activeTopic !== topic && setActiveCourse(null);
+                }}
+                className={cn(
+                  'text-lg leading-snug font-medium w-full py-2 px-4  uppercase text-start rounded-md',
+                  activeTopic === topic
+                    ? 'bg-darkOrange-7'
+                    : 'hover:bg-darkOrange-9',
+                )}
+              >
+                {topic}
+              </button>
+            ))}
           </nav>
         </div>
         {/* Middle column */}
@@ -81,24 +80,23 @@ export const CourseSelector = ({ courses }: { courses: JoinedCourse[] }) => {
                   {t(`words.level.${level}`)}
                 </h4>
                 <div className="flex flex-col gap-2.5">
-                  {filteredCourses &&
-                    filteredCourses
-                      .filter((course) => course.level === level)
-                      .map((course) => (
-                        <button
-                          key={course.id}
-                          type="button"
-                          onClick={() => setActiveCourse(course)}
-                          className={cn(
-                            'text-lg leading-snug font-medium w-full py-2 px-4 text-start rounded-md',
-                            activeCourse?.id === course.id
-                              ? 'bg-darkOrange-7'
-                              : 'hover:bg-darkOrange-9',
-                          )}
-                        >
-                          {course.name}
-                        </button>
-                      ))}
+                  {filteredCourses
+                    ?.filter((course) => course.level === level)
+                    .map((course) => (
+                      <button
+                        key={course.id}
+                        type="button"
+                        onClick={() => setActiveCourse(course)}
+                        className={cn(
+                          'text-lg leading-snug font-medium w-full py-2 px-4 text-start rounded-md',
+                          activeCourse?.id === course.id
+                            ? 'bg-darkOrange-7'
+                            : 'hover:bg-darkOrange-9',
+                        )}
+                      >
+                        {course.name}
+                      </button>
+                    ))}
                 </div>
               </div>
             ))}
@@ -184,55 +182,50 @@ export const CourseSelector = ({ courses }: { courses: JoinedCourse[] }) => {
                 {`${t(`words.level.${level}`)} - ${t('words.courses')}`}
               </h4>
               <div className="flex flex-col gap-2.5">
-                {filteredCourses &&
-                  filteredCourses
-                    .filter((course) => course.level === level)
-                    .map((course) => (
-                      <details
-                        key={course.id}
-                        className="group w-full p-2.5 text-start rounded-lg bg-darkOrange-10"
-                      >
-                        <summary className="py-1 flex justify-between hover:cursor-pointer">
-                          <span className="truncate leading-snug">
-                            {course.name}
-                          </span>
-                          <MdKeyboardArrowDown
-                            className={cn(
-                              'size-6 transition-transform ease-in-out rotate-0 group-open:-rotate-180',
-                            )}
-                          />
-                        </summary>
-                        <article className="flex flex-col gap-4 mt-2.5">
-                          <img
-                            src={assetUrl(
-                              `courses/${course.id}`,
-                              'thumbnail.webp',
-                            )}
-                            alt={course.name}
-                            className="rounded-md"
-                          />
-                          <CourseInfoSection course={course} />
-                          <Link
-                            to="/courses/$courseId"
-                            params={{ courseId: course.id }}
-                          >
-                            <Button
-                              variant="primary"
-                              size="m"
-                              className="w-full"
-                            >
-                              {t('courses.explorer.seeCourse')}
-                              <FaArrowRightLong
-                                className={cn(
-                                  'opacity-0 max-w-0 inline-flex whitespace-nowrap transition-[max-width_opacity] overflow-hidden ease-in-out duration-150 group-hover:max-w-96 group-hover:opacity-100',
-                                  'group-hover:ml-3',
-                                )}
-                              />
-                            </Button>
-                          </Link>
-                        </article>
-                      </details>
-                    ))}
+                {filteredCourses
+                  ?.filter((course) => course.level === level)
+                  .map((course) => (
+                    <details
+                      key={course.id}
+                      className="group w-full p-2.5 text-start rounded-lg bg-darkOrange-10"
+                    >
+                      <summary className="py-1 flex justify-between hover:cursor-pointer">
+                        <span className="truncate leading-snug">
+                          {course.name}
+                        </span>
+                        <MdKeyboardArrowDown
+                          className={cn(
+                            'size-6 transition-transform ease-in-out rotate-0 group-open:-rotate-180',
+                          )}
+                        />
+                      </summary>
+                      <article className="flex flex-col gap-4 mt-2.5">
+                        <img
+                          src={assetUrl(
+                            `courses/${course.id}`,
+                            'thumbnail.webp',
+                          )}
+                          alt={course.name}
+                          className="rounded-md"
+                        />
+                        <CourseInfoSection course={course} />
+                        <Link
+                          to="/courses/$courseId"
+                          params={{ courseId: course.id }}
+                        >
+                          <Button variant="primary" size="m" className="w-full">
+                            {t('courses.explorer.seeCourse')}
+                            <FaArrowRightLong
+                              className={cn(
+                                'opacity-0 max-w-0 inline-flex whitespace-nowrap transition-[max-width_opacity] overflow-hidden ease-in-out duration-150 group-hover:max-w-96 group-hover:opacity-100',
+                                'group-hover:ml-3',
+                              )}
+                            />
+                          </Button>
+                        </Link>
+                      </article>
+                    </details>
+                  ))}
               </div>
             </div>
           ))}

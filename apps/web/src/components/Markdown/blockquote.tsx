@@ -34,12 +34,7 @@ export const Blockquote = ({
 }) => {
   const filteredChildren = Array.isArray(children)
     ? children.slice(1, -1).map((child) => {
-        if (
-          child &&
-          child.props &&
-          child.props.node &&
-          child.props.node.tagName === 'p'
-        ) {
+        if (child?.props?.node && child.props.node.tagName === 'p') {
           return child.props.children;
         }
         return child === '\n' ? '\n\n' : child;

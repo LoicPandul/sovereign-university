@@ -92,7 +92,7 @@ export const AppContextProvider = ({ children }: PropsWithChildren) => {
     trpcClient.user.getSession
       .query()
       .then((data) => {
-        if (data && data.uid && data.role) {
+        if (data?.uid && data.role) {
           const session: Session = { user: data };
           return setSession(session);
         }

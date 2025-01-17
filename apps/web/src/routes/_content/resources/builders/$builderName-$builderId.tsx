@@ -143,16 +143,13 @@ function Builder() {
                   alt={t('imagesAlt.sthRepresentingCompany')}
                 />
                 <div className="flex justify-center gap-2.5 md:hidden">
-                  {builder.languages &&
-                    builder.languages
-                      .slice(0, 2)
-                      .map((language) => (
-                        <Flag
-                          code={language}
-                          key={language}
-                          className="!w-[26px] !h-[18px] shadow-card-items-dark"
-                        />
-                      ))}
+                  {builder.languages?.slice(0, 2).map((language) => (
+                    <Flag
+                      code={language}
+                      key={language}
+                      className="!w-[26px] !h-[18px] shadow-card-items-dark"
+                    />
+                  ))}
                 </div>
               </div>
               <div className="flex flex-col md:gap-6 ml-4 md:ml-10">
@@ -231,16 +228,13 @@ function Builder() {
                       {t('builders.languages')}
                     </span>
                     <div className="flex justify-center flex-col gap-2.5 ">
-                      {builder.languages &&
-                        builder.languages
-                          .slice(0, 3)
-                          .map((language) => (
-                            <Flag
-                              code={language}
-                              key={language}
-                              className="!w-[70px] !h-[49px] shadow-card-items-dark"
-                            />
-                          ))}
+                      {builder.languages?.slice(0, 3).map((language) => (
+                        <Flag
+                          code={language}
+                          key={language}
+                          className="!w-[70px] !h-[49px] shadow-card-items-dark"
+                        />
+                      ))}
                     </div>
                   </>
                 )}

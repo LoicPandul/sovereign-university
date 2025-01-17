@@ -49,5 +49,5 @@ export const anyCombinationExists = async (
     anyContributorIdExistsQuery(combinations),
   );
 
-  return result && result.exists;
+  return result?.exists;
 };

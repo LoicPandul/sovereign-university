@@ -605,7 +605,7 @@ function CourseChapter() {
   let displayLiveVideo = false;
   let displayQuizAndNext = true;
 
-  if (chapter && chapter.startDate && chapter.endDate) {
+  if (chapter?.startDate && chapter.endDate) {
     // const isMarkdownAvailable = chapter.rawContent && chapter.rawContent.length > 0 ? true : false;
     const now = new Date(Date.now());
     const chapterStartDate = new Date(chapter.startDate.getTime());

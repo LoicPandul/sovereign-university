@@ -305,7 +305,7 @@ export const CourseConclusion = ({ chapter }: CourseConclusionProps) => {
                 />
               ) : (
                 <>
-                  {previousExamResults && previousExamResults.succeeded ? (
+                  {previousExamResults?.succeeded ? (
                     <SuccessParty className={cn(iconSizeClass, 'fill-white')} />
                   ) : (
                     <span className={stepPercentageClass}>
@@ -318,8 +318,7 @@ export const CourseConclusion = ({ chapter }: CourseConclusionProps) => {
             <div className={lineContainerClass}>
               <div className={linkMainClass}>
                 {step >= 3 &&
-                ((previousExamResults && previousExamResults.succeeded) ||
-                  isCourseExamSkipped) ? (
+                (previousExamResults?.succeeded || isCourseExamSkipped) ? (
                   <div className={linkSubClass} />
                 ) : null}
               </div>

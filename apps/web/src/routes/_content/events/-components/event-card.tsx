@@ -267,8 +267,7 @@ export const EventCard = ({
         {/* TODO Book seat actions (before and after booking seat, free and paid) + case where both physical and online (differentiate payment ?) */}
         {isBookableInPersonEvent &&
           !userBookedTheEvent &&
-          (event &&
-          event.remainingSeats &&
+          (event?.remainingSeats &&
           event.remainingSeats > 0 &&
           userEvent === undefined ? (
             <Button

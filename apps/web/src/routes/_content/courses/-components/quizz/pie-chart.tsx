@@ -68,7 +68,7 @@ export default function PieChart({
       .enter()
       .append('path')
       .attr('d', arcGenerator)
-      .attr('fill', (_, i) => (colors && colors[i]) || d3.schemeCategory10[i])
+      .attr('fill', (_, i) => colors?.[i] || d3.schemeCategory10[i])
       .attr('stroke', 'black')
       .attr('stroke-width', 1)
       .attr(

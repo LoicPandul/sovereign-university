@@ -700,7 +700,7 @@ function CourseDetails() {
                       )
                       ? userCourseProgress[0]?.nextChapter?.chapterId
                       : last(course?.parts)?.chapters.at(-1)?.chapterId
-                    : course?.parts[0] && course?.parts[0].chapters[0]
+                    : course?.parts[0]?.chapters[0]
                       ? course?.parts[0].chapters[0].chapterId
                       : '',
               },

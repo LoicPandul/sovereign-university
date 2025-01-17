@@ -121,12 +121,11 @@ export const PaymentDescription = ({
         <PlanBLogo className="h-auto max-lg:hidden" width={240} />
         <PaymentCallout description={callout} />
         <div className="w-full flex flex-col">
-          {splitDescription &&
-            splitDescription.map((desc) => (
-              <p className="text-sm max-lg:text-center mt-3" key={desc}>
-                {desc}
-              </p>
-            ))}
+          {splitDescription?.map((desc) => (
+            <p className="text-sm max-lg:text-center mt-3" key={desc}>
+              {desc}
+            </p>
+          ))}
         </div>
         <div className="place-self-start flex flex-row place-items-center">
           <span className="max-md:text-sm">Have a reduction code ?</span>
