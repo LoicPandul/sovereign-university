@@ -124,7 +124,7 @@ function YoutubeChannels() {
                   className="shrink-0 !rounded-none mb-0.5 md:mb-0"
                 />
                 <span className="text-white subtitle-medium-caps-18px md:subtitle-large-caps-22px">
-                  {LANGUAGES_MAP['en']}
+                  {LANGUAGES_MAP.en}
                 </span>
               </div>
               <div className="flex flex-wrap gap-4 md:gap-11 max-lg:justify-center">

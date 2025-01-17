@@ -85,8 +85,8 @@ export const redis: RedisClientConfig = {
   host: getenv('REDIS_HOST', 'localhost'),
   port: getenv('REDIS_PORT', 6379),
   database: getenv('REDIS_DB', 0),
-  password: process.env['REDIS_PASSWORD'], // We do not use getenv here because
-  username: process.env['REDIS_USERNAME'], // these values can be undefined
+  password: process.env.REDIS_PASSWORD, // We do not use getenv here because
+  username: process.env.REDIS_USERNAME, // these values can be undefined
 };
 
 export const sync: GitHubSyncConfig = {

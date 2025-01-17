@@ -17,7 +17,7 @@ export const createRestMetadataRoutes = (
   router.get('/metadata', async (req, res) => {
     try {
       const proto = (req.headers['x-forwarded-proto'] as string) ?? 'http';
-      const host = req.headers['host'] as string;
+      const host = req.headers.host as string;
 
       const url = new URL(`${proto}://${host}${req.query.uri as string}`);
       const parts = url.pathname.split('/').filter(Boolean);

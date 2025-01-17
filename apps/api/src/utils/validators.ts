@@ -6,7 +6,7 @@ export const contributorIdSchema = z.string().refine(
     const parts = id.split('-');
     return (
       parts.length === 2 &&
-      parts.every((part) => bip39.wordlists['english'].includes(part))
+      parts.every((part) => bip39.wordlists.english.includes(part))
     );
   },
   {

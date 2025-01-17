@@ -11,7 +11,7 @@ import { anyContributorIdExistsQuery } from '../queries/contributor-id-exists.js
  */
 export const getRandomWord = () => {
   const index = Math.floor(Math.random() * 2048);
-  return bip39.wordlists['english'][index];
+  return bip39.wordlists.english[index];
 };
 
 /**

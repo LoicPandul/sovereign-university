@@ -31,8 +31,8 @@ export const createGenerateLnurlAuth = ({ redis }: Dependencies) => {
       .digest('hex');
 
     const host =
-      process.env['NODE_ENV'] === 'production'
-        ? `https://api.${process.env['DOMAIN']}`
+      process.env.NODE_ENV === 'production'
+        ? `https://api.${process.env.DOMAIN}`
         : 'http://localhost:3000/api';
 
     const url = new URL(`${host}/auth/lud4`);

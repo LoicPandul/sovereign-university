@@ -35,7 +35,7 @@ export const Route = createFileRoute('/_content/resources/lectures/$lectureId')(
   {
     params: {
       parse: (params) => {
-        const lectureId = params['lectureId'];
+        const lectureId = params.lectureId;
 
         return {
           lectureId: z.string().parse(lectureId),

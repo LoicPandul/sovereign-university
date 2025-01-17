@@ -131,8 +131,8 @@ export const createUpdateBlogs = ({ postgres }: Dependencies) => {
           VALUES (
             ${id},
             ${file.language?.toLowerCase()},
-            ${header.data['name']},
-            ${header.data['description']},
+            ${header.data.name},
+            ${header.data.description},
             ${header.content.trim()}
           )
           ON CONFLICT (blog_id, language) DO UPDATE SET

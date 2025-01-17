@@ -118,7 +118,7 @@ export const createUpdateLegals = ({ postgres }: Dependencies) => {
                 VALUES (
                   ${id},
                   ${file.language?.toLowerCase()},
-                  ${header.data['name']},
+                  ${header.data.name},
                   ${header.content.trim()}
                 )
                 ON CONFLICT (id, language) DO UPDATE SET

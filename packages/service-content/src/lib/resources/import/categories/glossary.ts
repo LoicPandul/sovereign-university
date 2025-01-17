@@ -105,7 +105,7 @@ export const createProcessChangedGlossaryWord = (
 
             await transaction`
               INSERT INTO content.glossary_words_localized (glossary_word_id, language, term, definition)
-              VALUES (${id}, ${file.language}, ${header.data['term']}, ${header.content.trim()})
+              VALUES (${id}, ${file.language}, ${header.data.term}, ${header.content.trim()})
               ON CONFLICT (glossary_word_id, language) DO UPDATE SET
                 term = EXCLUDED.term,
                 definition = EXCLUDED.definition

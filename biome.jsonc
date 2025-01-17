@@ -27,8 +27,7 @@
     "rules": {
       "recommended": true,
       "complexity": {
-        "useOptionalChain": "off", // to remove
-        "useLiteralKeys": "off" // to remove
+        "useOptionalChain": "off" // to remove
       },
       "correctness": {
         "useExhaustiveDependencies": "info" // OK
@@ -38,8 +37,7 @@
         "useEnumInitializers": "off" // OK
       },
       "suspicious": {
-        "noExplicitAny": "off", // OK
-        "noArrayIndexKey": "error" // TBD
+        "noExplicitAny": "off" // OK
       }
     }
   },
