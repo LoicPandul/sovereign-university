@@ -40,7 +40,6 @@ function Glossary() {
   return (
     <ResourceLayout
       title={t('glossary.pageTitle')}
-      tagLine={t('glossary.pageSubtitle')}
       activeCategory="glossary"
       maxWidth="1360"
       addCredits

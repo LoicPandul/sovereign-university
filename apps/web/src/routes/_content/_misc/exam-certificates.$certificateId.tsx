@@ -44,25 +44,25 @@ function Certificate() {
   const userCourse = courses?.find(
     (course) => course.id === userDetails?.courseId,
   );
-  const courseName = userCourse
-    ? userCourse.name
-    : t('courses.exam.courseNameNotFound');
+  const courseName = userCourse?.name;
   const username = userDetails?.displayName
     ? userDetails.displayName.charAt(0).toUpperCase() +
       userDetails.displayName.slice(1)
-    : t('courses.exam.userPlaceholder');
+    : null;
 
   return (
     <PageLayout footerVariant="dark" variant="dark" maxWidth="max-w-[1392px]">
       <h2 className="text-center display-small-32px lg:display-large">
         {t('courses.exam.courseDiploma')}
       </h2>
-      <p className="text-center max-w-[848px] body-14px lg:label-large-20px mx-auto mt-[35px] lg:mt-[80px]">
-        {t('courses.exam.examCertificateCompletionText', {
-          username,
-          courseName,
-        })}
-      </p>
+      {username && courseName ? (
+        <p className="text-center max-w-[848px] body-14px lg:label-large-20px mx-auto mt-[35px] lg:mt-[80px]">
+          {t('courses.exam.examCertificateCompletionText', {
+            username,
+            courseName,
+          })}
+        </p>
+      ) : null}
 
       <div className="flex flex-col w-full items-center pt-4 pb-[35px] md:pt-[40px] md:pb-[80px] font-light md:font-normal lg:px-4 text-center lg:text-start">
         {/* Certificate with Circuits */}

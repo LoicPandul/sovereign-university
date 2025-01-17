@@ -50,7 +50,6 @@ function Newsletter() {
   return (
     <ResourceLayout
       title={t('resources.newsletters.title')}
-      tagLine={t('resources.newsletters.tagline')}
       activeCategory="newsletters"
     >
       <div className="flex flex-col gap-4 md:gap-9 mt-4 md:mt-12 mx-auto">

@@ -101,8 +101,6 @@ function Book() {
 
   return (
     <ResourceLayout
-      title={t('book.pageTitle')}
-      tagLine={t('book.pageSubtitle')}
       link={'/resources/books'}
       activeCategory="books"
       showPageHeader={false}

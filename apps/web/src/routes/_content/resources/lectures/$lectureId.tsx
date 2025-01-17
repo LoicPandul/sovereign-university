@@ -99,8 +99,6 @@ function Lecture() {
 
   return (
     <ResourceLayout
-      title={t('lectures.pageTitle')}
-      tagLine={t('lectures.pageSubtitle')}
       link={'/resources/lectures'}
       activeCategory="lectures"
       showPageHeader={false}

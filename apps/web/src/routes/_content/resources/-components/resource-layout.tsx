@@ -11,8 +11,7 @@ import { ResourcesDropdownMenu } from './dropdown-menu/resources-category-dropdo
 import { FilterBar } from './filter-bar.tsx';
 
 interface Props {
-  title: string;
-  tagLine?: string;
+  title?: string;
   children: ReactNode;
   filterBar?: {
     label?: string;
@@ -20,9 +19,7 @@ interface Props {
     onChange: (v: string) => void;
   };
   className?: string;
-  // TODO fix this build issue
   link?: ToPathOption<any>;
-  // link?: ToPathOption<RegisteredRouter['routeTree']>;
   showPageHeader?: boolean;
   hidePageHeaderMobile?: boolean;
   addCredits?: boolean;
@@ -35,7 +32,6 @@ interface Props {
 
 export const ResourceLayout = ({
   title,
-  tagLine,
   children,
   filterBar,
   className,
@@ -73,8 +69,7 @@ export const ResourceLayout = ({
 
           {showPageHeader && (
             <PageHeader
-              title={title}
-              description={tagLine || ''}
+              title={title ? title : ''}
               link={link ? link : ''}
               hasGithubDescription={true}
               addedCredits={addCredits}

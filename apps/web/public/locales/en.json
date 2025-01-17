@@ -99,23 +99,17 @@
       "title": "Educational Content"
     },
     "pageDescription": "Mass adoption is not easy. To move closer and more rapidly towards  that goal, we’ve developed an extendible database to host educational content. Here, Bitcoin educators can freely drop and access content as needed. We don't need to reinvent the wheel every time, so let's work together to centralize the useful resources is one toolkit!",
-    "pageSubtitle": "The BET - A Bitcoin open-source toolkit for all educational projects",
     "pageTitle": "Bitcoin Educational Toolkit",
     "visualContent": {
       "description": "The images below can be used for your own creations.",
       "title": "Visual Content"
     }
   },
-  "book": {
-    "pageSubtitle": "This portal is open-source & accepts contribution.",
-    "pageTitle": "Bitcoin Library"
-  },
   "builders": {
     "languages": "Languages",
     "networkStrength": "The strength of a network lies in its members",
     "noRelatedEvents": "There are no upcoming events related to this educator at the moment.",
     "otherCommunities": "Explore Plan ₿ Communities",
-    "pageSubtitle": "This portal is open-source & open to contribution.",
     "pageTitle": "Bitcoin Projects",
     "relatedEvents": "Related upcoming events"
   },
@@ -137,7 +131,6 @@
     "latestConferences": "Latest conferences",
     "location": "Location",
     "noConferences": "No conferences added for {{year}} yet.",
-    "pageSubtitle": "This portal is open-source & open to contribution.",
     "pageTitle": "Conference replays",
     "planBConferences": "Plan ₿ conferences",
     "topics": "Topics"
@@ -611,7 +604,6 @@
     "loadMoreWords": "Load more words",
     "needHelp": "Need help defining a technical word?",
     "notTranslated": "The data in the glossary has not yet been translated.\nIf you would like to help, feel free to contribute on our",
-    "pageSubtitle": "Need help with a technical definition?",
     "pageTitle": "Bitcoin Glossary",
     "placeHolder": "What is this?",
     "randomSearch": "Random search",
@@ -696,7 +688,6 @@
     "watchLecture": "Watch the lecture replay"
   },
   "library": {
-    "pageSubtitle": "This library is open-source and welcomes any contributions.",
     "pageTitle": "Bitcoin Library"
   },
   "menu": {
@@ -745,7 +736,6 @@
     "check": "Check the podcast"
   },
   "podcasts": {
-    "pageSubtitle": "This portal is open-source and welcomes contributions.",
     "pageTitle": "Bitcoin Podcasts"
   },
   "professors": {
@@ -832,8 +822,7 @@
       "title": "Lecture Replays"
     },
     "newsletter": {
-      "check": "Check the newsletter",
-      "title": "Newsletter"
+      "check": "Check the newsletter"
     },
     "newsletters": {
       "author": "Author : ",

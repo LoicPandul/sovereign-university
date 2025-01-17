@@ -90,8 +90,6 @@ function GlossaryWord() {
 
   return (
     <ResourceLayout
-      title={t('glossary.pageTitle')}
-      tagLine={t('glossary.pageSubtitle')}
       link={'/resources/glossary'}
       activeCategory="glossary"
       showPageHeader={false}

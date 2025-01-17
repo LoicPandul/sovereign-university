@@ -50,7 +50,6 @@ function YoutubeChannels() {
   return (
     <ResourceLayout
       title={t('youtubeChannels.pageTitle')}
-      tagLine={t('youtubeChannels.pageSubtitle')}
       activeCategory="channels"
     >
       <div className="flex flex-col gap-4 md:gap-9 mt-4 md:mt-12 mx-auto">

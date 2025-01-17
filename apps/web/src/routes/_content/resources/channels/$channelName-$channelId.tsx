@@ -96,8 +96,6 @@ function Channel() {
 
   return (
     <ResourceLayout
-      title={t('channels.pageTitle')}
-      tagLine={t('channels.pageSubtitle')}
       link={'/resources/channels'}
       activeCategory="channels"
       showPageHeader={false}

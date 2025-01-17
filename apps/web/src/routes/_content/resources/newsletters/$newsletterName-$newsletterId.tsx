@@ -108,8 +108,6 @@ function NewsletterDetail() {
   if (!newsletter) {
     return (
       <ResourceLayout
-        title={t('newsletter.notFoundTitle')}
-        tagLine={t('newsletter.notFoundSubtitle')}
         link={'/resources/newsletters'}
         activeCategory="newsletter"
         showPageHeader={false}
@@ -127,8 +125,6 @@ function NewsletterDetail() {
 
   return (
     <ResourceLayout
-      title={t('resources.newsletter.title')}
-      tagLine={newsletter.author}
       link={'/resources/newsletters'}
       activeCategory="newsletters"
       showPageHeader={false}
