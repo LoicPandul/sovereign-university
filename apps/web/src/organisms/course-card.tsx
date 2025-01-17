@@ -130,7 +130,7 @@ export const CourseCard = ({
             />
             <ListItem
               leftText={t('words.duration')}
-              rightText={course.hours + ' hours'}
+              rightText={`${course.hours} hours`}
               className="border-t"
               variant={mode === 'light' ? 'lightMaroon' : 'dark'}
             />

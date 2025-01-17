@@ -134,7 +134,7 @@ export const RoleAllocationTable = ({ userRole }: { userRole: UserRole }) => {
           <div className="relative w-full max-w-[600px] mt-10 mb-5">
             <input
               type="text"
-              placeholder={`${t('words.search')} ${t('words.' + userRole).toLowerCase()}`}
+              placeholder={`${t('words.search')} ${t(`words.${userRole}`).toLowerCase()}`}
               value={search}
               onChange={(event) => setSearch(event.target.value)}
               className="w-full pl-5 pr-12 py-3 rounded-[25px] bg-newGray-5 text-newBlack-1 placeholder:text-newGray-1 body-14px"

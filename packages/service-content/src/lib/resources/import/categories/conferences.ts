@@ -73,7 +73,7 @@ const extractStages = (markdown: string, id: number): Stage[] => {
 
         if (token.type === 'text' || token.type === 'paragraph') {
           currentVideo.raw_content += currentVideo.raw_content
-            ? '\n' + token.text
+            ? `\n${token.text}`
             : (token.text as string);
         }
       }

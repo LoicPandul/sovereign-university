@@ -180,12 +180,8 @@ export const ProfessorCardReduced = ({
     close: closeTipModal,
   } = useDisclosure();
 
-  const numberCountClass =
-    'text-5xl leading-[116%] text-center text-white' +
-    (mobileSize === 'small' ? ' max-md:title-large-24px' : '');
-  const wordCountClass =
-    'font-semibold leading-[133%] text-center text-white' +
-    (mobileSize === 'small' ? ' max-md:body-12px' : '');
+  const numberCountClass = `text-5xl leading-[116%] text-center text-white${mobileSize === 'small' ? ' max-md:title-large-24px' : ''}`;
+  const wordCountClass = `font-semibold leading-[133%] text-center text-white${mobileSize === 'small' ? ' max-md:body-12px' : ''}`;
 
   return (
     <div

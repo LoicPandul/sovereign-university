@@ -17,11 +17,11 @@ const PageMeta = ({
 }: PageMetaProps) => {
   const newDescription =
     description && description.length > 200
-      ? description
+      ? `${description
           ?.replaceAll('#', '')
           .replaceAll('*', '')
           .trim()
-          .slice(0, 200) + '...'
+          .slice(0, 200)}...`
       : description;
 
   return (

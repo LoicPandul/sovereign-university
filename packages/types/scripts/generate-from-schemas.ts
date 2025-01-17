@@ -164,7 +164,7 @@ const generateFileContent = (
         );
 
         // TODO: This is a bit hacky, but it works for now
-        const importName = /.*\/(.+)\.ts$/.exec(filePath)?.[1] + '.js';
+        const importName = `${/.*\/(.+)\.ts$/.exec(filePath)?.[1]}.js`;
         currentImportSet.add(
           `import { ${typeName} } from './${importName}';\n`,
         );

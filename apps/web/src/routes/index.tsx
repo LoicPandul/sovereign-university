@@ -502,7 +502,7 @@ function Home() {
           </div>
           <div className="ml-auto mr-4 mt-2">
             <a
-              href={'https://x.com/' + handle}
+              href={`https://x.com/${handle}`}
               target="_blank"
               rel="noopener noreferrer"
             >

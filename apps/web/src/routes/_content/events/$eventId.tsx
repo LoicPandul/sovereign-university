@@ -42,7 +42,7 @@ function EventDetails() {
   if (event?.replayUrl) {
     videoUrl = event?.replayUrl;
   } else if (event?.liveUrl) {
-    videoUrl = event?.liveUrl + '?autoplay=1&muted=1&peertubeLink=0';
+    videoUrl = `${event?.liveUrl}?autoplay=1&muted=1&peertubeLink=0`;
   }
 
   return (

@@ -22,9 +22,7 @@ export const createSearch = ({ typesense }: Dependencies) => {
         highlight_affix_num_tokens: 20,
         search_cutoff_ms: 500, // search for 500ms max
         prioritize_exact_match: true,
-        filter_by:
-          `language:${search.language}` +
-          (search.category ? `&& type:${search.category}` : ''),
+        filter_by: `language:${search.language}${search.category ? `&& type:${search.category}` : ''}`,
       });
   };
 

@@ -9,7 +9,7 @@ import type { ChangedFile, GitHubSyncConfig } from '@blms/types';
 
 export const timeLog = (str: string) => {
   const key = `-- Sync procedure: ${str}`;
-  console.log(key + '...');
+  console.log(`${key}...`);
   console.time(key);
 
   return () => {

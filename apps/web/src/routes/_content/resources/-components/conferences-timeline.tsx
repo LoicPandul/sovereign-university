@@ -16,7 +16,7 @@ export const ConferencesTimeLine = ({
   const currentYear = new Date().getFullYear();
   const years = Array.from(
     { length: currentYear - 2008 },
-    (v, i) => '' + (2009 + i),
+    (v, i) => `${2009 + i}`,
   );
 
   const [emblaRef, emblaApi] = useEmblaCarousel({

@@ -211,7 +211,7 @@ export const createIndexContent = ({ postgres, typesense }: Dependencies) => {
   return async (_errors: string[]) => {
     const timeKey = '-- Sync procedure: indexing content';
     console.time(timeKey);
-    console.log(timeKey + '...');
+    console.log(`${timeKey}...`);
 
     // return;
     await deleteIndexes();

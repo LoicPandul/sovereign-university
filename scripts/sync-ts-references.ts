@@ -47,7 +47,7 @@ const getRelativePath = (
 ): string => {
   let relativePath = path.relative(sourceDirectoryPath, targetDirectoryPath);
   if (!relativePath.startsWith('.')) {
-    relativePath = './' + relativePath;
+    relativePath = `./${relativePath}`;
   }
   return relativePath;
 };

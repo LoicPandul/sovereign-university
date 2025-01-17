@@ -194,10 +194,8 @@ export const CourseConclusion = ({ chapter }: CourseConclusionProps) => {
 
   const lineContainerClass = 'flex items-center w-full h-12 md:h-[100px]';
   const lineSizeClass = 'w-full h-1 md:h-[5px] rounded-l-full';
-  const linkMainClass = lineSizeClass + ' bg-newGray-5';
-  const linkSubClass =
-    lineSizeClass +
-    'absolute bg-gradient-to-r from-white to-darkOrange-5 transition-all duration-3000 ease-in-out start-animation';
+  const linkMainClass = `${lineSizeClass} bg-newGray-5`;
+  const linkSubClass = `${lineSizeClass}absolute bg-gradient-to-r from-white to-darkOrange-5 transition-all duration-3000 ease-in-out start-animation`;
   const iconSizeClass = 'size-7 md:size-14';
   const stepMessageIconClass = 'size-10 md:size-20 mx-auto';
   const stepPercentageClass =

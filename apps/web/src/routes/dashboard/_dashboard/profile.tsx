@@ -166,7 +166,7 @@ function DashboardProfile() {
                 )}
                 {emailError && (
                   <div className="mt-6 text-red-5">
-                    {t('dashboard.profile.' + emailError)}
+                    {t(`dashboard.profile.${emailError}`)}
                   </div>
                 )}
               </div>

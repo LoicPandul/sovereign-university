@@ -52,7 +52,7 @@ import {
 
 export const timeLog = (len: number, name: string) => {
   const key = `-- Sync procedure: Syncing ${len} ${name}${len > 1 ? 's' : ''}`;
-  console.log(key + '...');
+  console.log(`${key}...`);
   console.time(key);
 
   return () => {
@@ -199,7 +199,7 @@ export const createProcessDeleteOldEntities = (dependencies: Dependencies) => {
 
   return async (sync_date: number, errors: string[]) => {
     const timeKey = '-- Sync procedure: Removing old entities';
-    console.log(timeKey + '...');
+    console.log(`${timeKey}...`);
     console.time(timeKey);
 
     await deleteProfessors(sync_date, errors);
@@ -220,7 +220,7 @@ export const createProcessDisableOldEntities = (dependencies: Dependencies) => {
 
   return async (sync_date: number, errors: string[]) => {
     const timeKey = '-- Sync procedure: Disabling old entities';
-    console.log(timeKey + '...');
+    console.log(`${timeKey}...`);
     console.time(timeKey);
 
     await disableQuizQuestions(sync_date, errors);

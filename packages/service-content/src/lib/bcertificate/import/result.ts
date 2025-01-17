@@ -120,10 +120,10 @@ export const createProcessTimestampFile = (
     VALUES (
       ${uid},
       ${bcertId},
-      ${filePathWithoutExtension + '.pdf'},
-      ${filePathWithoutExtension + '.png'},
-      ${filePathWithoutExtension + '.txt'},
-      ${filePathWithoutExtension + '.txt.ots'},
+      ${`${filePathWithoutExtension}.pdf`},
+      ${`${filePathWithoutExtension}.png`},
+      ${`${filePathWithoutExtension}.txt`},
+      ${`${filePathWithoutExtension}.txt.ots`},
       NOW()
     )
     ON CONFLICT (uid, b_certificate_exam) DO UPDATE SET

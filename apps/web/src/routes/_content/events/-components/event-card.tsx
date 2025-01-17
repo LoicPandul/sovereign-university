@@ -231,7 +231,7 @@ export const EventCard = ({
 
         {isPaidOnlineUpcomingEvent &&
           (userBookedTheEvent ? (
-            <Link to={'/events/' + event.id} target="_blank" className="w-fit">
+            <Link to={`/events/${event.id}`} target="_blank" className="w-fit">
               <Button
                 size={isScreenSm ? 's' : 'xs'}
                 variant="secondary"
@@ -330,7 +330,7 @@ export const EventCard = ({
 
     return (filteredEventPayments && filteredEventPayments.length > 0) ||
       isFree ? (
-      <Link to={'/events/' + event.id} className="w-fit">
+      <Link to={`/events/${event.id}`} className="w-fit">
         <Button
           variant="secondary"
           size={isScreenSm ? 's' : 'xs'}

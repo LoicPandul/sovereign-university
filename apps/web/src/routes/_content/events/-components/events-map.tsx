@@ -131,9 +131,7 @@ const osmLayer = new TileLayer({
 });
 
 function createCounterStyle(count: number) {
-  const src =
-    'data:image/svg+xml;base64,' +
-    btoa(`\
+  const src = `data:image/svg+xml;base64,${btoa(`\
 <svg width="48" height="79" viewBox="0 0 48 79" fill="none" xmlns="http://www.w3.org/2000/svg">
   <g>
     <g filter="url(#filter_1)">
@@ -161,7 +159,7 @@ function createCounterStyle(count: number) {
       <feBlend mode="normal" in="SourceGraphic" in2="shadow_1" result="shape"/>
     </filter>
   </defs>
-</svg>`);
+</svg>`)}`;
 
   return new Style({
     image: new Icon({

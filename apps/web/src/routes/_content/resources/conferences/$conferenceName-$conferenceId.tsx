@@ -262,7 +262,7 @@ function Conference() {
                   (video, index) => {
                     const videoName =
                       video.name.length > 50
-                        ? video.name.slice(0, 47).trim() + '...'
+                        ? `${video.name.slice(0, 47).trim()}...`
                         : video.name;
 
                     return index === activeVideo ? (

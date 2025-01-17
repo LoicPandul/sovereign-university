@@ -35,7 +35,6 @@
       },
       "style": {
         "noNonNullAssertion": "off", // TBD
-        "useTemplate": "off", // to remove
         "useEnumInitializers": "off" // OK
       },
       "suspicious": {

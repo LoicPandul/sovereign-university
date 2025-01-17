@@ -43,7 +43,7 @@ const defaultOnError = (lang: string) => (err: Error) => {
 };
 
 const ellipsis = (text: string, length = 200) =>
-  text.length > length ? text.slice(0, length) + '...' : text;
+  text.length > length ? `${text.slice(0, length)}...` : text;
 
 const meta = (
   title?: string | null,

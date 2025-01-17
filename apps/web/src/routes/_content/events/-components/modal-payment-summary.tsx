@@ -74,7 +74,7 @@ export const ModalPaymentSummary = ({
               <>
                 <PaymentRow
                   label={t('events.payment.address')}
-                  value={`${event.addressLine2 ? event.addressLine2 + '\n' : ''}${event.addressLine3 ? event.addressLine3 + '\n' : ''}${event.addressLine1 ? event.addressLine1.toUpperCase() : ''}`}
+                  value={`${event.addressLine2 ? `${event.addressLine2}\n` : ''}${event.addressLine3 ? `${event.addressLine3}\n` : ''}${event.addressLine1 ? event.addressLine1.toUpperCase() : ''}`}
                 />
                 <Separator />
               </>
