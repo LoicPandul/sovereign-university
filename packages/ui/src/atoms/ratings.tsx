@@ -124,6 +124,7 @@ const PartialStar = ({ ...props }: PartialStarProps) => {
     <div
       role={asInput ? 'input' : undefined}
       onClick={() => onValueChange && onValueChange()}
+      onKeyDown={() => onValueChange && onValueChange()}
       className={cn('relative inline-block', asInput && 'cursor-pointer')}
     >
       {React.cloneElement(Icon, {

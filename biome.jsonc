@@ -26,9 +26,6 @@
     "enabled": true,
     "rules": {
       "recommended": true,
-      "a11y": {
-        "useKeyWithClickEvents": "off" // to remove (easy)
-      },
       "complexity": {
         "useOptionalChain": "off", // to remove
         "useLiteralKeys": "off" // to remove
