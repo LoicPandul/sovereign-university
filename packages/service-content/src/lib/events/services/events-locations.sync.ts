@@ -39,6 +39,7 @@ export const createSyncEventsLocations = ({ postgres }: Dependencies) => {
   return async () => {
     const locations = await postgres.exec(getEventsWithoutLocationQuery());
 
+    // TODO perf: do them in parallel
     for (const { name } of locations) {
       const result = await fetchEventLocation(name).catch(() => null);
       if (!result) {
