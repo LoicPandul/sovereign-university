@@ -55,6 +55,7 @@ const ScrollToTopButton = () => {
         />
 
         <button
+          type="button"
           onClick={scrollToTop}
           className="relative z-20 flex size-12 items-center justify-center rounded-full bg-darkOrange-9 text-white"
         >

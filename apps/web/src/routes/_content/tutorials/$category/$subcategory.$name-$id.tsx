@@ -127,12 +127,13 @@ const AuthorDetails = ({
         {professor && <ProfessorCardReduced professor={professor} />}
         <div className="flex items-center gap-4">
           <button
-            className="flex items-center justify-center p-1 rounded-2xl bg-white shadow-course-navigation border border-darkOrange-2 overflow-hidden size-16 hover:bg-darkOrange-0 shrink-0"
+            type="button"
             onClick={(e) => {
               e.preventDefault();
               e.stopPropagation();
               openTipModal();
             }}
+            className="flex items-center justify-center p-1 rounded-2xl bg-white shadow-course-navigation border border-darkOrange-2 overflow-hidden size-16 hover:bg-darkOrange-0 shrink-0"
           >
             <DonateLightning className="size-16" />
           </button>
@@ -305,6 +306,7 @@ function TutorialDetails() {
         <div className="flex items-center justify-between py-2.5 gap-10">
           {isFetched && tutorial && (
             <button
+              type="button"
               onClick={() => {
                 isLoggedIn ? handleLike() : openAuthModal();
               }}
@@ -318,6 +320,7 @@ function TutorialDetails() {
           )}
           {isFetched && tutorial && (
             <button
+              type="button"
               onClick={() => {
                 isLoggedIn ? handleDislike() : openAuthModal();
               }}

@@ -208,7 +208,10 @@ export const TimeStampDialog = () => {
   return (
     <Dialog>
       <DialogTrigger asChild>
-        <button className="group relative justify-center text-darkOrange-5 underline decoration-darkOrange-5 text-nowrap max-md:font-medium">
+        <button
+          type="button"
+          className="group relative justify-center text-darkOrange-5 underline decoration-darkOrange-5 text-nowrap max-md:font-medium"
+        >
           {t('courses.exam.timeStamped')}
           <img
             src={QuestionBelow}
@@ -361,6 +364,7 @@ export const AnswersReviewPanel = ({
         {examResults.questions.map((q, index) => (
           <button
             key={index}
+            type="button"
             onClick={() => setSelectedQuestion(index)}
             className={cn(
               'size-8 md:size-12 flex justify-center items-center border border-newGray-1 rounded-lg label-medium-med-16px md:title-large-24px text-newBlack-1',

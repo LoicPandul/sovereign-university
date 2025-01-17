@@ -45,8 +45,9 @@ export const ConferencesTimeLine = ({
   return (
     <div className="flex relative w-full max-w-[914px] mx-auto mt-8 gap-2 max-md:bg-darkOrange-11 max-md:py-4 max-md:shadow-sm-card">
       <button
-        className="max-md:hidden p-[11px] rounded-lg bg-newBlack-3 text-darkOrange-7 hover:bg-white hover:text-darkOrange-5 leading-none transition-colors"
+        type="button"
         onClick={scrollPrev}
+        className="max-md:hidden p-[11px] rounded-lg bg-newBlack-3 text-darkOrange-7 hover:bg-white hover:text-darkOrange-5 leading-none transition-colors"
         onMouseMoveCapture={scrollPrev}
       >
         <RxCaretLeft size={24} />
@@ -56,14 +57,15 @@ export const ConferencesTimeLine = ({
           {years.map((year, index) => (
             <button
               key={year}
-              className={cn(
-                'p-[14px] rounded-lg bg-newBlack-3 text-darkOrange-7 hover:bg-white hover:text-darkOrange-5 text-lg font-medium leading-none transition-colors',
-                activeYear === year ? 'bg-white text-darkOrange-5' : '',
-              )}
+              type="button"
               onClick={() => {
                 setActiveYear(year);
                 scrollTo(index);
               }}
+              className={cn(
+                'p-[14px] rounded-lg bg-newBlack-3 text-darkOrange-7 hover:bg-white hover:text-darkOrange-5 text-lg font-medium leading-none transition-colors',
+                activeYear === year ? 'bg-white text-darkOrange-5' : '',
+              )}
             >
               {year}
             </button>
@@ -85,8 +87,9 @@ export const ConferencesTimeLine = ({
         </div>
       </div>
       <button
-        className="max-md:hidden p-[11px] rounded-lg bg-newBlack-3 text-darkOrange-7 hover:bg-white hover:text-darkOrange-5 leading-none transition-colors"
+        type="button"
         onClick={scrollNext}
+        className="max-md:hidden p-[11px] rounded-lg bg-newBlack-3 text-darkOrange-7 hover:bg-white hover:text-darkOrange-5 leading-none transition-colors"
         onMouseMoveCapture={scrollNext}
       >
         <RxCaretRight size={24} />

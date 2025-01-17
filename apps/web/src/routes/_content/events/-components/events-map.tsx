@@ -439,20 +439,23 @@ const EventsMap = ({
             {/* Date controls */}
             <div className="flex items-center gap-1 font-normal">
               <button
-                className="border bg-white rounded-lg p-1"
+                type="button"
                 onClick={() => setMonthShift(monthShift - 1)}
+                className="border bg-white rounded-lg p-1"
               >
                 <BsChevronLeft className="size-6 p-1" />
               </button>
               <button
-                className="border bg-white rounded-lg py-1 px-3"
+                type="button"
                 onClick={() => setMonthShift(0)}
+                className="border bg-white rounded-lg py-1 px-3"
               >
                 Today
               </button>
               <button
-                className="border bg-white rounded-lg p-1"
+                type="button"
                 onClick={() => setMonthShift(monthShift + 1)}
+                className="border bg-white rounded-lg p-1"
               >
                 <BsChevronRight className="size-6 p-1" />
               </button>
@@ -527,6 +530,7 @@ const EventsMap = ({
               {courseTypes.map((f) => (
                 <button
                   key={f}
+                  type="button"
                   onClick={() => onFilterClick(f)}
                   className={cn(
                     'text-xs md:text-base border-b border-transparent capitalize',
@@ -565,6 +569,7 @@ const EventsMap = ({
           </div>
           <div className="absolute bottom-2 right-2">
             <button
+              type="button"
               onClick={() => mapInstance && prepareShareUrl(mapInstance)}
               className="bg-orange-500 text-white px-3 py-2 rounded-lg shadow-md hover:bg-blue-900 flex items-center gap-2"
             >
@@ -625,7 +630,7 @@ const EventsMap = ({
             )}
           </div>
 
-          <button onClick={() => setSelectedEventGroup(null)}>
+          <button type="button" onClick={() => setSelectedEventGroup(null)}>
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"

@@ -41,7 +41,7 @@ export default function QuizzCardResults({
         <span className="mb-4 md:mb-6 text-newBlack-1 label-medium-16px md:title-large-24px">
           <QuizzResultMessage numberOfCorrectAnswers={numberOfCorrectAnswers} />
         </span>
-        <button onClick={nextStep} className="mb-2 md:mb-4">
+        <button type="button" onClick={nextStep} className="mb-2 md:mb-4">
           <PieChart
             colors={answersColors}
             globalCursorPointer={true}

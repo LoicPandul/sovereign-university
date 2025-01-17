@@ -18,13 +18,14 @@ const LetterButton = ({
 }: LetterButtonProps) => {
   return (
     <button
+      type="button"
+      onClick={() => onClick(letter)}
       className={cn(
         'm-1 p-2 rounded-full size-8 flex items-center justify-center font-bold text-sm sm:size-10 sm:text-base md:size-12 md:text-lg',
         selectedLetter === letter
           ? 'bg-darkOrange-5 text-white'
           : 'bg-[#1F242D] text-newGray-3',
       )}
-      onClick={() => onClick(letter)}
     >
       {letter}
     </button>

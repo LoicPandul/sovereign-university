@@ -82,26 +82,28 @@ export const ChangePictureModal = (props: Props) => {
         <div className="min-h-80 my-4">
           <div className={cn('flex border-y', !image && 'hidden')}>
             <button
+              type="button"
+              onClick={() => setActiveTab(Tabs.CROP)}
               className={cn(
                 'p-2 flex-1',
                 activeTab === Tabs.CROP &&
                   'bg-darkOrange-5 text-white cursor-default',
               )}
-              onClick={() => setActiveTab(Tabs.CROP)}
             >
               {t('dashboard.profile.crop')}
             </button>
 
             <button
+              type="button"
+              onClick={() => {
+                getCropData();
+                setActiveTab(Tabs.PREVIEW);
+              }}
               className={cn(
                 'p-2 flex-1',
                 activeTab === Tabs.PREVIEW &&
                   'bg-darkOrange-5 text-white cursor-default',
               )}
-              onClick={() => {
-                getCropData();
-                setActiveTab(Tabs.PREVIEW);
-              }}
             >
               {t('dashboard.profile.preview')}
             </button>

@@ -28,7 +28,6 @@
       "recommended": true,
       "a11y": {
         "useKeyWithClickEvents": "off", // to remove (easy)
-        "useButtonType": "off", // to remove
         "noSvgWithoutTitle": "off" // to remove
       },
       "complexity": {

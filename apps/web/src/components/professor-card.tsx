@@ -81,6 +81,7 @@ export const SocialLinks = ({ professor }: ProfessorCardProps) => {
     <div className="mt-4 md:mt-5 flex w-full justify-center px-1 text-primary gap-x-6">
       {professor.links.twitter && (
         <button
+          type="button"
           onClick={(e) => {
             e.preventDefault();
             e.stopPropagation();
@@ -96,6 +97,7 @@ export const SocialLinks = ({ professor }: ProfessorCardProps) => {
       )}
       {professor.links.nostr && (
         <button
+          type="button"
           onClick={(e) => {
             e.preventDefault();
             e.stopPropagation();
@@ -115,6 +117,7 @@ export const SocialLinks = ({ professor }: ProfessorCardProps) => {
 
       {professor.links.website && (
         <button
+          type="button"
           onClick={(e) => {
             e.preventDefault();
             e.stopPropagation();
@@ -257,12 +260,13 @@ export const ProfessorCardReduced = ({
           )}
         >
           <button
-            className="flex items-center overflow-hidden shrink-0"
+            type="button"
             onClick={(e) => {
               e.preventDefault();
               e.stopPropagation();
               openTipModal();
             }}
+            className="flex items-center overflow-hidden shrink-0"
           >
             <img
               src={DonateLightning}

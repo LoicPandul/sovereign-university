@@ -159,11 +159,12 @@ export const CourseTable = ({
                               <Tooltip delayDuration={0}>
                                 <TooltipTrigger>
                                   <button
-                                    tabIndex={0}
-                                    className={`md:w-[50px] md:h-[52px] rounded ${bgColor} flex items-center justify-center hover:course-navigation-sm`}
+                                    type="button"
                                     onClick={() =>
                                       setSelectedCourse(course?.name)
                                     }
+                                    className={`md:w-[50px] md:h-[52px] rounded ${bgColor} flex items-center justify-center hover:course-navigation-sm`}
+                                    tabIndex={0}
                                     onKeyDown={(e) => {
                                       if (e.key === 'Enter' || e.key === ' ') {
                                         setSelectedCourse(course?.name);

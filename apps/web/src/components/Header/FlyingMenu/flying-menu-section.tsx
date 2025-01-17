@@ -62,10 +62,11 @@ const SectionTitle = ({
   if ('action' in section) {
     return (
       <button
-        className="inline-flex cursor-pointer items-center gap-x-1 text-base font-semibold leading-6 lg:text-lg"
+        type="button"
         onClick={() => {
           section.action();
         }}
+        className="inline-flex cursor-pointer items-center gap-x-1 text-base font-semibold leading-6 lg:text-lg"
       >
         {section.title}
       </button>

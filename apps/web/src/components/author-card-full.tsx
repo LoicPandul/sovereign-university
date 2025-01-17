@@ -95,12 +95,13 @@ export const AuthorCardFull = ({
             </Link>
             <div className="flex items-center justify-center py-4 lg:py-[18px] px-[18px]">
               <button
-                className="flex items-center overflow-hidden shrink-0"
+                type="button"
                 onClick={(e) => {
                   e.preventDefault();
                   e.stopPropagation();
                   openTipModal();
                 }}
+                className="flex items-center overflow-hidden shrink-0"
               >
                 <img
                   src={DonateLightning}

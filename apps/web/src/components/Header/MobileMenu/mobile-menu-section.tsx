@@ -44,8 +44,9 @@ export const MobileMenuSection = ({ section }: MobileMenuSectionProps) => {
     if ('action' in section) {
       return (
         <button
-          className="group flex items-center text-newBlack-1 dark:text-white text-lg font-medium p-2 gap-[15px] w-full"
+          type="button"
           onClick={section.action}
+          className="group flex items-center text-newBlack-1 dark:text-white text-lg font-medium p-2 gap-[15px] w-full"
         >
           {section.mobileIcon && (
             <img
@@ -66,8 +67,9 @@ export const MobileMenuSection = ({ section }: MobileMenuSectionProps) => {
 
     return (
       <button
-        className="group flex items-center text-newBlack-1 dark:text-white text-lg font-medium p-2 gap-[15px] w-full"
+        type="button"
         onClick={() => toggle()}
+        className="group flex items-center text-newBlack-1 dark:text-white text-lg font-medium p-2 gap-[15px] w-full"
       >
         {section.mobileIcon && (
           <img

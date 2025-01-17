@@ -144,20 +144,22 @@ export const FilterDropdown = ({
             onBlur={() => setIsFocused(false)}
           />
           <button
-            className="text-darkOrange-0 flex items-center shrink-0"
+            type="button"
             onClick={clearSearch}
+            className="text-darkOrange-0 flex items-center shrink-0"
           >
             <MdOutlineClear size={18} />
           </button>
         </div>
 
         <button
+          type="button"
+          onClick={toggleDropdown}
           className={`absolute text-darkOrange-0 inset-y-0 right-0 flex items-center rounded-tr-[10px]
             ${isFocused ? 'bg-tertiary-8 border-y border-r border-darkOrange-7' : 'bg-darkOrange-6'}
             ${isOpen ? 'rounded-br-0 border-b-0' : 'rounded-br-[10px]'}
             border-l-0
           `}
-          onClick={toggleDropdown}
         >
           <span>
             <img className="p-[10px]" src={FilterIcon} sizes="20" alt="" />
@@ -171,6 +173,7 @@ export const FilterDropdown = ({
             {Object.keys(filters).map((category) => (
               <button
                 key={category}
+                type="button"
                 onClick={() => selectCategory(category)}
                 className={`px-[10px] py-1.5 body-16px ${
                   category === activeCategory
