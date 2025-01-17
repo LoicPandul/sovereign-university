@@ -26,13 +26,10 @@
     "accountCreated": "An kammala bude asusun ka, {{userName}}!",
     "alreadyHaveAccount": "Shin ka bude asusu?",
     "canSaveProgress": "Yanzu za ka iya adana ci gaban ka a Makarantar Bitcoin",
-    "connectWithLn": "Hada kai da LN",
     "createAccount": "Kirkiran Asusu",
     "createOne": "Kirkiri asusu yanzu!",
     "emailAddress": "Adireshin yanar gizo",
     "errors": {
-      "displayNameRegex": "Sunan adana kawai zai iya ƙunshe da haruffa, lambar, _, ., - da wurare.",
-      "displayNameRequired": "Dole ne asaka suna.",
       "displayNameTooShort": "Dole suna yazama yana da haruffa sama da biyu.",
       "usernameRegex": "Lakabi zai dauki haruffa, dakikoki, _, .da -.",
       "usernameRequired": "Dole ashigar da lakabi.",
@@ -70,15 +67,12 @@
     "passwordResetSent": "An turo imel adireshi na canza kalmar sirri(idan akwai imel aderishin ka acikin kushin baya nan mu).",
     "confirmation": "Tabbatarwa",
     "displayName": "Suna",
-    "oldPassword": "Tsohuwar kalmar sirri",
     "emailTip": "Amfani da imel ba dole ba ne, amma zai iya amfani idan an manta kalmar sirri :)"
   },
   "bCertificate": {
     "bookExam": "Kama gurbin yin jarabawa",
     "challengeYourself": "Kama da kai da tabbatar da darajarka!",
     "checkout": "Duba takardar ₿",
-    "curious": "Kana son sanin abin da jarabawar zata kasance?",
-    "joeNakamotoVideo": "Me ce-ce wani jarabawar Bitcoin ne? Da Joe Nakamoto",
     "knowledgeableBitcoin": "Ilimi akan Bitcoin ?",
     "noBookExam": "Babu wata jarabawa da aka tsara har yanzu.",
     "organizeExam": "Shirya jarabawa",
@@ -99,35 +93,16 @@
       "description": "Wannan abu ne da ake nufin a yi amfani da shi don taron ilimi da ma'auni.",
       "title": "Abubuwan Ilmantarwa"
     },
-    "hereForYou": "BET na nan don ku!",
-    "pageSubtitle": "BET - Kayan aiki na Bitcoin mai asali na bude ga dukkanin ayyukan ilimi",
     "pageTitle": "Kayayyakin Ilmantarwa na Bitcoin",
     "visualContent": {
       "description": "Hotunan da ke ƙasa zasu iya amfani da su don abubuwan da kake ƙirƙira.",
       "title": "Abun da ake gani"
     },
-    "contribute": "Wannan kayan aiki yana bukatar taimako. Yana amfani da Figma, don haka duk wanda zai iya ƙara, gyara ko fassara. Don aiki tare, ƙara ƙungiya ko magana, kada ka manta ka shiga discord namu.",
     "pageDescription": "Yada amfani ga jama'a ba abu ne mai sauƙi ba. Don mu kusanci wannan buri cikin sauri, mun haɓaka wani ɗakunan bayanai na abun cikin ilimi wanda za a iya faɗaɗa. A nan, malaman Bitcoin za su iya saka da samun abun ciki cikin sauƙi gwargwadon bukatarsu. Bari mu daina ƙirƙirar abin da ya riga ya wanzu, mu haɗa kai domin tattara mahimman albarkatu a cikin kayan aiki guda!"
-  },
-  "book": {
-    "abstract": "Takaitaccen bayani",
-    "bookSummary": {
-      "modifyTooltip": "Rubuta ko gyara",
-      "notice": "Wannan takaitaccen bayanin yana da alaƙa da Github, domin wani gyara ko ƙari",
-      "title": "Littafin a takaice",
-      "noSummary": "Ba a rubuta takaitaccen bayani ba tukuna. Idan ka karanta littafin kuma kana son bada gudunmawwarka, kada ka yi shakkar rubuta shi a Github. Zai taimaka wa al'umma sosai, kuma zai inganta kayan aikin jami'ar, har ma kana iya samun wasu 'sats' saboda ƙoƙarinka!"
-    },
-    "buttonBuy": "Sayi",
-    "buttonPdf": "PDF / Littafi na lantarki",
-    "offeredBy": "Daga mai ba da gudunmawa mai karimci",
-    "pageTitle": "Dakin Karatu na Bitcoin",
-    "topicsAddressed": "Batutuwa da aka tattauna:",
-    "pageSubtitle": "Wannan shafin budaddiyar manhaja ce kuma a bude yake don gudunmawa."
   },
   "builders": {
     "networkStrength": "Karfin hanyar sadarwa yana cikin mambobinta",
     "otherCommunities": "Bincika Al'ummomin Shirin B",
-    "pageSubtitle": "Wannan shafin budaddiyar manhaja ce kuma a bude yake don bayar da gudunmawa.",
     "pageTitle": "Masu Gina Bitcoin",
     "languages": "Harsuna",
     "relatedEvents": "Tarurrukan da zasu biyo baya da suka shafi wannan",
@@ -145,14 +120,12 @@
       "previousVideo": "Bidiyon da ya gabata",
       "selectStage": "Zaɓi wani mataki",
       "selectVideo": "Zaɓi bidiyo",
-      "speaker": "Mai Magana",
       "watchReplay": "Ka sake kallo na bidiyo"
     },
     "language": "Yare",
     "latestConferences": "Sababbin taruka",
     "location": "Guri",
     "noConferences": "Ba'a saka taro a {{year}} ba.",
-    "pageSubtitle": "Wannan shafin na kowa ne kuma a bude yake don bayar da gudunmawa.",
     "pageTitle": "Sake kallon taron",
     "planBConferences": "Taron Plan B",
     "topics": "Batutuwanin"
@@ -175,51 +148,28 @@
         "title": "Bidiyo na kai tsaye",
         "stayTuned": "Za a fara zaman kai tsaye minti 30 kafin ajin ya fara. Kasance a shirye!"
       },
-      "count": "Kashi {{count}}",
       "finishCourse": "Kammala da karatun",
       "next": "An gama, je zuwa shafi na gaba",
       "thanksTip": "Kana so ka nuna godiya?\nZa ka iya tallafawa marubucin da albashi."
     },
     "details": {
-      "accessible": "Akwai: Har abada",
       "buyCourse": "Sayi kwas din",
-      "courseId": "ID ɗin kwas: {{courseId}}",
-      "coursePayment": "Biya darasi",
       "curriculum": "Manhajar Karatu",
-      "date": "Kwanan wata: {{startDate}} zuwa {{endDate}}",
-      "dates_to": "{{startDate}} zuwa {{endDate}}",
       "description": "Bayani",
-      "duration": "Tsawon: {{hours}} hours",
-      "goal": "Manufa:",
-      "level": "Mataki: $t(words.level.{{level}})",
       "mobile": {
-        "chapters": "{{chapters}} babi",
         "hours": "{{hours}} sa'o'i"
       },
-      "numberOfChapters": "Adadin babi: {{number}}",
       "objectives": "Manufar aikin",
       "objectivesTitle": "Abubuwan da za'a koya:",
-      "price": "Farashi: {{price}} sats",
-      "professor": "Farfesa",
       "startCourse": "Fara darasin",
       "taughtBy": "Mai koyar da wannan darasi:",
-      "teacher": "Malami: {{teacher}}",
-      "teacherWord": "Kalaman malami/malama",
-      "total": "JImla",
-      "payment_successful": "Biyan kuɗi ya kammala!",
-      "payment_details": "Bayanan biyan kudi",
-      "amount": "Adadi",
-      "invoiceId": "ID ɗin Tx",
-      "teachers": "Malamai: {{teachers}}",
-      "access_invoice": "Za ka iya samun takardar biyan kudi ta hanyar duba dashbord ɗinka",
       "buyInPersonCourse": "Sayi kwas ɗin koyo na gani-gaka",
       "buyOnlineCourse": "Sayi kwas ɗin online",
       "inPersonAccess": "Dole ne ka sauke tikitinka don samun damar shiga ajin gani-gaka.",
       "paidCourse": "An biya"
     },
     "preview": {
-      "letsgo": "Mu je",
-      "by": "ta {{professor}}"
+      "letsgo": "Mu je"
     },
     "quizz": {
       "clickOnPie": "Danna kan da’irar zanen chat don duba kurakuranka da ganin bayanin su",
@@ -241,7 +191,6 @@
       "feedbackSessionTitle": "Zaman ba da ra'ayi",
       "generalGrade": "Jimlar daraja",
       "length": "Tsayi",
-      "loading": "Lodawa…",
       "neutral": "Tsaka-tsaki",
       "no": "a'a",
       "notReally": "A'a, ba haka ba",
@@ -256,53 +205,21 @@
       "veryGood": "mai kyau sosai",
       "yesOfCourse": "Eh, tabbas",
       "yesVeryMuch": "Eh, sosai",
-      "currentlyLoggedOut": "Yanzu haka an fita daga cikin asus. Don ba mu ra'ayi kan darasin, don Allah <0>shiga ko a yi rijista</0>.",
       "veryBad": "mugun gaske",
       "writeThoughts": "Anan za ka/ki iya rubuta ra'ayoyinka/ki",
       "whatStudentsSay": "Abin da dalibai ke cewa akan wannan kwas",
       "displayOutOf": "an nuna a cikin",
-      "edit": "Gyara",
       "fieldRequired": "Wajibi ne cike wannan gurbi",
       "skip": "Tsallake shawarwari",
       "loadMoreComments": "Loda ƙarin ra'ayoyi",
       "ratingsAndReviews": "Bayanai da ra'ayoyi"
     },
-    "unreleased": {
-      "colcardAndSparrow": "Coldcard da Sparrow",
-      "financeIntroduction": "Gabatarwa izuwa harkokin kudade",
-      "financialCrisis": "Bincike akan matsalolin kudi na babba",
-      "hyperinflation": "Bincike na tafiyar kudin kasa mai yawa",
-      "theoreticalLightning": "Koyarwa ta koyaushe kan hanyar Lightning Network"
-    },
-    "categories": {
-      "btc": "Bitcoin",
-      "crypto": "Fasahar ɓoye bayana",
-      "cuboplus": "Bitcoin",
-      "econ": "Tattalin Kasuwanci na Austria",
-      "fin": "Harkokin kudi",
-      "ln": "Network mai sauri",
-      "min": "hakar maadanai",
-      "secu": "Tsaro da Tsare Sirri"
-    },
     "explorer": {
       "buildPath": "Ka gina naka tafarki a cikin zurfin bincike",
       "exploreCourses": "Duba dukkanin karatuttukan Plan B",
       "findCourses": "Nemo cikakken karatun da ya dace da bukatunka godiya ga zaɓin karatu",
-      "footerTitle": "Malamai mu na nan domin ku!",
       "journey": "Bitcoin shine tafiya, ba wani wurin da za'a kai ba",
-      "moreToCome": ".... kuma wasu zasu zo !",
-      "pageSubtitle": "Samun karbuwa ilimi ta hanyar cibiya bai daya na bayani mai ginshiki",
-      "pageTitle": "Barka da zuwa Makarantar Plan B",
-      "s2p2": "Zaka iya zaɓar hanya da kake so kuma ka ci gaba da ita, samar da kwarewa da sanin har da farin ciki na kai.",
-      "footerp1": "A Jami'ar Sovereign, malamai mu suna da cikakken 'yancin kan su akan abun cikin su da kayan aikin da suke so ka bincika, muddin sun bi ka'idojin ɗabi'a. Suna da sha'awar Bitcoin daga fannoni daban-daban.",
-      "footerp2": "Idan ka so ka gyara koyarwa ko ka shaida na kanka, za ka iya yin hakan da sauki ta hanyar GitHub repository. Maimakon haka, don samar da taimako ga malami, akwai yawa dabi'u: za ka iya bayar da ra'ayi kan koyarwa, ka bada albashin malami daidai, ko ka zama dan kasuwa na jami'a don taimaka da ci gaban dandamali.",
       "pageDescription": "Makarantar Plan B na da niyyar sauya ilimin Bitcoin a duniya. An tattara shi ta hanyar masu mahimmanci daga sauran fannoni, makarantarmu ta samar da nau'ikan ilimi da suka kai ga kowane bangare na Bitcoin. Daga na farko zuwa na sani, ko a kan hanyarka ta kansa ko kuma an biyo ta makaranta a kowane mako ta hanyar malami, muna fatan za a iya taimakawa ka fahimci mafi girma na abin da ke cikin Bitcoin. Babban bangaren nau'ikanmu suna kawai kyauta domin kowace mutum, a kowace wurare, zai iya samun damar ilimi.",
-      "s2p1": "Idan ka fara bincika zurfin Bitcoin, dole ne ka san cewa hanya ce mara iyaka tare da hanyoyi da dama. A nan jami'ar, mun fahimci wannan kuma mun tsara abun cikin iliminmu yadda zai kasance ba mai layi guda ba, mai 'yancin kai, da kuma fadi sosai.",
-      "s2p3": "Dukkan darussanmu kyauta ne gaba ɗaya, don haka babu abin da zai tsayar da ku!",
-      "s2t1": "Ilmin Bitcoin tafiya ce, ba matsaya ba.",
-      "s3PickLevel": "Zaɓi mataki:",
-      "s3PickTopic": "Zabi maudu'i:",
-      "s3t1": "Ka gina naka tafarki a cikin zurfin bincike",
       "seeCourse": "Kaduba Littafin"
     },
     "payment": {
@@ -310,7 +227,6 @@
       "amount": "Adadi",
       "back_course": "Komawa ga darasi",
       "date": "Kwanan wata",
-      "dates_to": "{{startDate}} zuwa {{endDate}}",
       "downloadCurriculum": "Sauke manhajar karatu",
       "duration": "Tsawon Lokaci",
       "book_description": "Da fatan za a duba bayanan wurin da aka bayar.\nDa zarar an kammala tanadin ka/ki, za mu aika maka/ki da tikiti na tabbaci da QR code don nunawa a wurin taron.",
@@ -362,7 +278,6 @@
       "tamperProof": "Tabbatarwa Mai Tsauri: Blockchain yana tabbatar da cewa ba wanda zai iya canza ko bogin takardun shaidarka/ki.",
       "testKnowledge": "Yanzu da ka/kika kammala wannan kwas, bari mu gwada iliminka/ki.",
       "testResults": "Sakamakon jarrabawa",
-      "timeLeft": "Lokacin da ya rage",
       "timeStampBenefits": "Me yasa yake da muhimmanci :",
       "timeStamped": "lokacin-da-aka-sanya.",
       "timeStampHow": "Yadda yake aiki :",
@@ -391,10 +306,7 @@
     }
   },
   "dashboard": {
-    "administration": "Tsarin gudanarwa",
     "bCertificate": {
-      "bookExam": "Kama gurbin yin jarabawa",
-      "certificate": "Takardar shaida",
       "grade": "Daraja",
       "noResults": "Har yanzu ba a haɗa kowanne daraja ko takaddar shaida da wannan asusun ba.\nIdan ka wuce jarrabawa kuma sakamakon ka ba ya samuwa bayan wani lokaci mai tsawo, da fatan za ka tuntube mu don samun taimako."
     },
@@ -402,8 +314,6 @@
       "accessLive": "Kashiga jarabawa wanda ake yanzu",
       "billingTitle": "Tarihin Biyan Kuɗi",
       "billingSubtitle": "Ku sauke takardar biya da ka kama anan.",
-      "downloadInvoice": "Sauke takardar shaida biya",
-      "downloadTicket": "Sauka tikiti",
       "invoiceDate": "Kwanan wata",
       "invoiceTitle": "Take",
       "invoiceType": "Rubuta",
@@ -439,15 +349,13 @@
       "personalInformation": "Bayanina na kansa",
       "profileInformation": "Bayanan na Asali",
       "emailChangeConfirmation": "Antura maka imel na tabbatarwa don canja imel ɗin ka an aika, don Allah duba akwatin saƙonka don tabbatawa.",
-      "profile": "Baya nan mutum",
-      "emailChangeRateLimitError": "An riga an aika da buƙatar canjin imel kasa da da minti 5 da suka wuce, don Allah a dan jira kafin a sake gwadawa."
+      "profile": "Baya nan mutum"
     },
     "courses": "Darasi",
     "logout": "Fita daga asusun",
     "myCourses": {
       "completed": "An gama",
       "completedCoursesDescription": "Anan za ka iya duba darasin da ka gama.",
-      "details": "Bayanai",
       "inprogress": "Ana ci gaba dayi",
       "inprogressCoursesTitle": "Darasi da ake gudana",
       "resumeLesson": "Dawo",
@@ -455,7 +363,6 @@
       "startCourse": "Fara ko ka kammala darasi",
       "completedCoursesTitle": "Darasin da aka kammala",
       "inprogressCoursesDescription": "Tanan zaka iya duba cigaban darusan da ka fara.",
-      "completedOutOf": "{{completed}} na cikin darussan da aka kammala daga {{total}} da ake da su",
       "done": "An gama",
       "whereYouAre": "Bari mu ga inda ka/kike!",
       "viewDetails": "Duba cikakkun bayanai",
@@ -464,11 +371,9 @@
     "teacher": {
       "courses": {
         "courseDetails": "Bayanan Darasi",
-        "courseId": "ID na darasi",
         "courseLongDescription": "Bayani na farko",
         "analytics": "Bincike na bayanai",
         "courseModification": "Idan kana buƙatar taimako wajen gyara wani abu a cikin darasin, don Allah duba wannan <0>darasi</0>.",
-        "courseName": "Sunan darasi",
         "courseShortDescription": "Manufa",
         "coursesManagementPanel": "Allon darussan",
         "curriculum": "Manhajar Darasi",
@@ -491,14 +396,11 @@
         "notifications": "Sanarwa",
         "publicProfile": "Furofayil na jama'a",
         "publicProfileDescription": "Anan za ka/ki iya cike ko gyara bayanan da suka shafi aikin ka/ki a matsayin malami/malama a Plan ₿ Network.",
-        "writeShortBio": "Rubuta takaitaccen tarihinka/ki",
         "teacher": "Mai Koyarwa",
         "teacherProfile": "Furofayil din mai koyarwa",
         "account": "Asusun malamai",
         "billingInformations": "Bayananin Biyan Kuɗi",
-        "chooseTags": "Zabi alamomin da ke bayyana ka fiye da kowa",
         "description": "Bayaninka",
-        "descriptionTags": "Wannan alamomin na kammala bayaninka na jama'a domin su nuna sana'arka kamar mai amfani da bitcoin.",
         "enterTipsInformations": "Shafin Plan ₿ Network yana kira ga masu amfani su bada alheri ga malamai. Da fatan ka shigar da bayananka don ya sa mutane su iya baka alheri idan suka so.",
         "lightningAddress": "Adireshi na Lightning",
         "noLightningAddress": "Baayi saka adireshin lightning ba."
@@ -572,29 +474,20 @@
     },
     "pageDescription": "Kuna son tattauna Bitcoin kai tsaye? Anan, za ku iya samun dukkan tarurrukan da al'ummomin Plan B Network ke goyon baya. Ko kuna son sauraron laccoci, tattauna Bitcoin yayin sha ko kuma yin jarrabawa don tantance iliminku, za ku samu taron da ya dace a nan ta hanyar Plan B Network.",
     "payment": {
-      "callout_online": "Ana kokarin tanadar wurin zama ta kafar yanar gizo domin halartar wannan taro.",
       "access_invoice": "Za ku iya ganin takardar biyan kudinku a dashbod.",
-      "access_online_successful": "Lokacin da taron ya fara, shiga cikin dandalin don samun damar kallo kai tsaye a shafin taron.",
-      "access_physical_successful": "Za ku iya sauke tikitinku anan, ko kuma sauke shi daga baya a dashbod ɗinku.",
       "access_type": "Nau'in samun dama",
       "address": "Adireshi",
       "additional_free_description": "Wannan taron kyauta ne, don haka babu caji don tanadin wannan wurin zama. Duk da haka, a tabbatar an halarta, saboda adadin wuraren zama a kayyade yake.",
-      "amount": "Adadi",
       "back_events": "Koma zuwa tarurruka",
       "book_seat": "Tanadi wurin zama",
       "callout_physical": "Ana kusa da tanadin damar shiga wannan taron a zahiri.",
-      "callout_replay": "Ana kusa da tanadin damar samun maiamicin bidiyon wannan taron.",
       "date": "Kwanan wata",
-      "description_online": "Don Allah, duba kwanan wata da lokacin taron da aka bayar.\nYayin da lokacin ya zo, shiga cikin adireshin domin samun shirin zama mai zaman kansa ta shafin taron.",
-      "description_physical": "Don Allah, ka duba bayanin wurin da aka bayar.\nIdan an tabbatar da shigar da kai, zamu fitar da tikiti da za ka nuna a wannan taron. Wannan tikiti zai ba ka damar shiga cikin shirin zancen da kuma kallon bidiyo na sake, idan akwai.",
       "description_free_physical": "Don Allah, ka duba bayanin wurin da aka bayar.\nIdan an tabbatar da hasashen, zamu fitar da tikiti na tabbatarwa da lambar QR da za'a nuna a taron.",
       "download_ticket": "Sauke tikitinka",
       "enjoy": "Muna fatan za ku ji dadin shi :)",
       "language": "Yare",
       "limitation": "Iyaka",
       "max_capacity": "Mafi yawan",
-      "payment_details": "Bayanan biyan kudi",
-      "dates_to": "{{startDate}}{{endDate}}",
       "payment_successful": "Ankammala Ajiya!",
       "time": "Lokaci"
     },
@@ -615,93 +508,46 @@
     "randomSearch": "Nema daban-daban",
     "keepLooking": "Kana so ka ci gaba da bincike?",
     "loadMoreWords": "Karɓi karin kalmomi",
-    "pageSubtitle": "Kana buka taimako da bayanin fasaha?",
     "pageTitle": "Kamus na Bitcoin",
     "placeHolder": "Mene ne wan nan?",
     "needHelp": "Ka na bukatr taimako wajen bayyana kalmar fasaha?",
     "notTranslated": "Bayanin a cikin fayil na alfarma ba a tarjama shi ba har yanzu.\nIdan kana so ka taimaka, ka yi kokari ka taimaka a kan shafinmu"
   },
   "menu": {
-    "merchantsDescription": "Karɓi biyan kuɗi da Bitcoin kuma gano kayan aiki don 'yan kasuwa",
     "libraryDescription": "Gano littattafai da yawa don inganta iliminka/ki",
-    "lightningDescription": "Gudanar da node din haskenka da amfani da network din haske",
     "login": "Shiga ciki",
-    "loginRegister": "Shiga ciki /Yi rajista",
-    "manifestoDescription": "Karanta takardar shaidar Plan B",
     "betDescription": "Tarin abubuwan da za'a iya amfani da su don ayyukan ilimi",
     "buildersDescription": "Samu sani game da kamfanoni da ayyukan da ke aiki wajen inganta Bitcoin da kuma ƙara yawaita amfani da shi",
     "conferencesDescription": "Tarin maimaici na taron Bitcoin tun daga Genesis Block",
     "podcastsDescription": "Bincika tsarin Bitcoin ta hanyar podcasts",
     "bCertificateDescription": "Rubuta jarrabawar ₿ Certificate don tabbatar da ilimin Bitcoin ɗinka/ki",
     "glossaryDescription": "Fahimci harshen Bitcoin",
-    "miningDescription": "Hako bitcoins naka da kuma koya game da masana'antar hakar kuɗi",
-    "nodeDescription": "Koya yadda za ka/ki zama mai 'yancin kai da node din Bitcoin naka/naki",
     "nodeNetworkDescription": "Shiga cikin cibiyar al'umma ta duniya ta Plan B",
-    "ourStoryDescription": "Koya game da labarin jami'ar",
     "publicDescription": "Bincika makaloli na sadarwa na jama'a",
-    "btc101Description": "Samu fahimta mai kyau game da Bitcoin tare da waɗannan darussan.",
-    "exchangesDescription": "Sayi da sayar da bitcoins a kan musayar kudi da kuma koyon P2P",
-    "sponsorsDescription": "Gano masu daukar nauyi da manyan masu ba da gudummawa",
-    "supportUsDescription": "Nemo hanyoyi don tallafa mana ta kowanne hanya",
-    "teachersDescription": "San malamai na makarantar mu",
-    "walletsDescription": "Tsare da amfani da bitcoins ɗinka/ki"
+    "teachersDescription": "San malamai na makarantar mu"
   },
   "imagesAlt": {
     "underConstructionImage": "Zane na zomaye da dama suna aiki a wurin gini",
     "rabbit404": "‎Zomo yana haskawa da fitilar hannu kan alamar 404",
     "sthRepresentingCompany": "Wani abu da ke wakiltar kamfani",
-    "stylus": "Alƙalami na dijital",
-    "blueEllipse": "Ellips mai launin shuɗi",
     "bookCover": "bangon littafi",
     "contributorHeart": "Zuciya ga mai bada gudunmawa mai kyau",
-    "contributorPP": "Hoton bayanin mai bada gudunmawa",
-    "forwardArrow": "Alamar kibiyar gaba",
     "orangePill": "Kwaya mai launin ruwan ɗorawa",
     "printedCircuits": "Zanen kewayen bugu (printed circuits)"
   },
   "library": {
-    "pageSubtitle": "Wannan ɗakin karatu na buɗe-kai ne kuma ana iya ba da gudunmawa.",
-    "pageTitle": "Dakin Karatun Bitcoin",
-    "publishedIn": "An wallafa a {{date}}",
-    "writtenBy": "Marubuci {{author}}"
+    "pageTitle": "Dakin Karatun Bitcoin"
   },
   "nodeNetwork": {
     "apply": "Nemo hanyar zama Node",
-    "answer1": "Node wani shiri ne na ilimi ne da aka danganta da al'umma a wani wuri a duniya. Zai iya zama ginin da ake koyon Bitcoin a ciki, amma ba a iyakance shi ga haka ba. Network na Plan B na gudanar da cibiyoyi, amma kafa su a kowane birni a duniya ba zai yiwu ba. Shi ya sa muke dogaro da al'umma na masu amfani da Bitcoin don taimaka mana wajen sauya wannan hanyar sadarwa ta duniya zuwa zahiri.",
-    "answer4": "Node na Bitcoin na iya kasancewa a kowanne girma. Bisa wasu buƙatu, za a ba da matsayi daban-daban. Node sun hada da hackerspace, ɗakin motsa jiki, da wasu wuraren ofis zai fi kama da citadel.",
     "description1": "Plan B Network na goyon bayan shirye-shiryen ilimi a duniya baki ɗaya. Muna haɗin gwiwa don ƙirƙirar mafi kyawun kayan aiki don waɗannan ayyukan, ta hanyar dandamalinmu da kuma a zahiri. Ko yaushe muna neman sababbin nodes don shiga cikinmu. Idan kuna son yin aiki tare don ƙirƙirar hanyar sadarwa ta ilimi ta duniya mai rarrabuwa don Bitcoin, tuntuɓe mu!",
-    "question2": "Mai za ku samu ?",
-    "answer2": "Ta hanyar shiga cikin hanyar sadarwarmu, za ka samu damar samun abubuwan da ke ciki na musamman wadanda Plan B ke rarrabawa ta dandalinsa, wanda za ka iya rabawa mazauna nodenka. Muhimmin fa'ida shi ne bude hanyoyin tattaunawa don ayyukan nan gaba da haɗa kai da sauran al'ummomi a duniya don musayar gogewa.",
-    "answer3": "A farko, Plan B Network na mayar da hankali kan wurare da ke da wurin aiki na zahiri. A nan gaba, muna shirin haɗa kowanne shiri da zai iya amfana daga goyon bayan hanyar sadarwar don ci gaba.",
-    "answer5": "Muna son bayar da mafaka mai tsaro ga masu amfani da Bitcoin a duk duniya. Mun yarda cewa ta hanyar taimakawa wuraren haɗin gwiwa na gida su bunƙasa, za mu iya ƙirƙirar hanyar sadarwa na citadels inda masu amfani da Bitcoin za su iya aiki, ƙirƙira, raba, da tattaunawa cikin tsaro.",
     "pageSubtitle": "Kuna son kawo canji ga duniya da Bitcoin? Shiga cikin PlanB Network.",
     "pageTitle": "Bincika Hanyar Node ta Plan B",
-    "question1": "Mene ne node?",
-    "question3": "Mai ake bukata ?",
-    "question4": "Mene ne girman node ?",
-    "question5": "Menene shirin sirri ?",
     "descriptionextend": "Matakinmu na farko shi ne gayyatar al'ummomi da ke da wurare na zahiri, wanda muke kiran su da \"full nodes\" na cibiyarmu su kasance tare da mu. A nan gaba, yayin da cibiyarmu ke ƙarfafuwa, za mu faɗaɗa wannan gayyata ga ƙarin ƙungiyoyi a duk duniya. Idan kuna raba ƙimominmu, da fatan za ku tuntuɓi wakilanmu don shiga cikin cibiyarmu da taimakawa wajen gina mafi kyawun ilimin Bitcoin da zai yiwu.",
-    "mobiledescription": "Muna yarda cewa ilimi bai kamata ya kasance kawai akan layi (online) ba, ya kamata a ce ya kasance a wurare na zahiri. Domin cimma wannan, Plan B Network na gudanar da hanyar sadarwa na cibiyoyi a duk duniya da kuma maraba da masu tunani, masu gina abubuwa, da malamai waɗanda ke haɓaka ci gaban Bitcoin da fasahohin 'yanci. Matakinmu na farko shi ne gayyatar al'ummomi da ke da wurare na zahiri, wanda muke kiran su da \"full nodes\" na cibiyarmu su kasance tare da mu. A nan gaba, yayin da cibiyarmu ke ƙarfafuwa, za mu faɗaɗa wannan gayyata ga ƙarin ƙungiyoyi a duk duniya. Idan kuna raba ƙimominmu, da fatan za ku tuntuɓi wakilanmu don shiga cikin cibiyarmu don taimakawa wajen gina mafi kyawun ilimin Bitcoin da zai yiwu.",
     "applyhelp": "*Zaɓi Wurin Node"
   },
   "resources": {
-    "books": {
-      "title": "Dakin karatu"
-    },
     "github": "Dukkan wannan bayanin ana sarrafa shi ta hanyar wani rumbun ajiya na tushe na bude a <0>Github</0>. Za'a iya bada gudummawa da ƙara duk wani abu da bai bayyana ba.",
-    "articles": {
-      "title": "Makaloli"
-    },
-    "bet": {
-      "title": "Kayan Aikin Ilimi"
-    },
-    "builders": {
-      "title": "Masu gini"
-    },
-    "conferences": {
-      "title": "Sake kallon taron"
-    },
-    "filterBarLabel": "Nemo kayan aiki masu dacewa da bukatunku:",
     "newsletters": {
       "title": "Wasikun Labarai"
     },
@@ -709,18 +555,9 @@
     "podcasts": {
       "title": "Shirye-shiryen sauti"
     },
-    "publicGrade": "Daraja ta zahiri: {{grade}}/5",
     "searchFilterName": "Yi amfani da suna ka bincika",
     "pageSubtitle": "Tsara sanin ilimi don inganta yaduwar shi",
     "pageTitle": "Barka da zuwa dandalin samun bayanai",
-    "glossary": {
-      "title": "Kamus"
-    },
-    "headerSignature": "Rogzy",
-    "headerText": "Maraba da shiga cikin ramin Rabbit zomo mara iyaka na Bitcoin! A wannan sashin, za mu ba ku cikakkiyar koyarwa kan mafi yawan ayyukan Bitcoin. Wannan shafin yana kulawa da masu son wannan aikin tushen bude (open source). Idan anji mun yi kuskure, don Allah a tuntube mu. Don ganin alaƙar mu ta kudi da aikin, duba rahotonmu na bayyana gaskiya. Mun gode da amincewarku a wannan jami'a. da fatan kuma za ku ji dadin tafiyar.",
-    "newsletter": {
-      "title": "Labarai ta Imel"
-    },
     "pageSubtitleBooks": "",
     "pageSubtitlePodcast": ""
   },
@@ -729,8 +566,6 @@
     "total": "JImla"
   },
   "podcasts": {
-    "pageSubtitle": "Wannan portal yana da tushe na bude kuma yana bude don gudummawa.",
-    "hostedBy": "Wanda ya gabatar {{host}}",
     "pageTitle": "Podcasts na Bitcoin"
   },
   "professors": {
@@ -774,7 +609,6 @@
       "featuredArticleTitleText": "Maqala sabuwa da aka saki",
       "noArticlesText": "A halin yanzu, babu rubutun blog.",
       "blogListButtonText": "Karanta",
-      "noBlogs": "A halin yanzu, babu makaloli",
       "pastArticleSubtitleText": "Makaloli na baya",
       "errorMessageNotFound": "Ba'a samu blog ba.",
       "blogSidebarTitle": "Rubutun da suka gabata a Hanyar sadarwa",
@@ -792,9 +626,6 @@
     "here": "Anan",
     "pageTitle": "Kash.",
     "pageSubtitle": "Yana yiwuwa wani ya shiga cikin zurfin ramin zomo kuma ya ɓace. Don dawowa saman, danna"
-  },
-  "podcast": {
-    "abstract": "Takaitaccen bayani"
   },
   "home": {
     "header": {
@@ -825,34 +656,16 @@
       "openSourceTitle": "Tushen bude",
       "bitcoinFocusContent": "Muna bincika juyin juya halin Bitcoin daga shimfida ta tushen zuwa mu'amalar juna da juna."
     },
-    "sectionEducation": {
-      "title": "Da ka dankoyo zuwa kwararre",
-      "subtitle": "Koyi Bitcoin a cibiyar ilimi",
-      "link": "Duba makarantar",
-      "content1": "Bitcoin ba fasaha ba ce kawai da wani nau'in kuɗi, amma kuma wata hanyar juyin juya hali don kallon rayuwa. Bisa wannan fahimta, darasi ɗinmu suna rufe fannoni da dama, suna ba da dama ga mutane su yi fice a yankin da suka zaɓa, tare da faɗaɗa fahimtarsu. Daga darasin Bitcoin na farko har zuwa zurfin nazarin bayanan tsarin, za mu taimaka maka ka tafi cikin duniyar Bitcoin cikin aminci. Babu dalilin yin jinkiri. Ilimi na jiran ka."
-    },
-    "sectionNetwork": {
-      "title": "Kutsa cikin Netwok din",
-      "subtitle": "Guraren koyarwa na Bitcoin",
-      "link": "Kazama cikin mutanen mu",
-      "content1": "Hada kai da masu sha'awar Bitcoin daga fadin duniya da suke da irin wannan sha'awa. Daga ƙananan al'ummomi da ke haɗuwa akai-akai, zuwa cibiyoyin ilimin BTC, taswirar cibiyar sadarwarmu za ta taimaka maka samun ƙwarin gwiwa don koyo da gina abubuwa. Za ka samu nau'ikan ayyuka iri-iri, kamar cibiyar tallafi, tarukan bita na zahiri, taruka, wuraren hutu na BTC, da sauransu. Cibiyar a buɗe take ga kowa, don haka zo ka gaisa da al'ummar BTC na yankinka!"
-    },
-    "numbersSection": {
-      "networkMember": "Mambobin Network"
-    },
     "languageSection": {
       "link": "Taimaka mana mu fassara makarantar",
       "title": "Babu shingen yare a nan.",
-      "subtitle2": "Muna bukatar ku!",
       "availableLanguages": "Harsunan da ke akwai",
       "subtitle": "Komai ana fassara shi zuwa harsunan gida!",
       "content1": "A PlanB, muna ganin Bitcoin juyin juya halin kasa da kasa ne da ya shafi kowa. Don karfafa miliyoyin mutane, muna ƙirƙirar wannan dandali don ya kasance mai harsuna da yawa da kuma samuwa ga kowa. Dandalin a halin yanzu yana goyon bayan harsuna 7, kuma ana ƙara wasu kowanne wata. Don cimma wannan, muna amfani da haɗin gwiwar AI da sha'awar masu Bitcoin daga ko ina cikin duniya.",
-      "content2": "Ku ma za ku iya fara gina hanyar sadarwarku ta gida a ƙasar ku!",
       "availableLanguagesVariation": "Harsunan da ake da su: "
     },
     "patreonSection": {
       "title": "Tare, mu inganta ilimin Bitcoin !",
-      "subtitle": "Hanyar PlanB ta kasance 100% buɗaɗɗiyar hanya, godiya ga masu tallafawa masu kirki.",
       "content": "Hanyar PlanB tana alfahari da haɗin gwiwa da yawancin kamfanonin Bitcoin a duniya don samar da mafi kyawun kayan ilimi da za a iya samu !"
     },
     "wallOfLoveSection": {
@@ -871,12 +684,8 @@
     "details": {
       "author": "Mawallafi ",
       "didHelp": "Wan nan ya taimaka?",
-      "enjoyed": "Kaji dadin wan nan karatun?",
-      "madeBy": "Wanda yayi wan nan karatun shine",
       "source": "Rahoton asalin:",
-      "tipTooltip": "Kana sonshi? Bashi kyauta.",
-      "writtenBy": "Wanda yayi wan nan karatun shine :",
-      "checkAuthor": "Duba aikin da marubucin ya yi a wani bangare kuma kabashi goyon baya a sauran aikinsa."
+      "writtenBy": "Wanda yayi wan nan karatun shine :"
     },
     "approvedByCreator": "Wanda ya hada shi ya karba",
     "exchange": {
@@ -900,8 +709,6 @@
       "didYouKnow": "Shin ko kun san ?",
       "exploreAllTutorials": "Bincika dukkan koyarwa"
     },
-    "headerSignature": "Rogzy",
-    "headerText": "‫Maraba da shiga cikin ramin zomo mara iyaka na Bitcoin! A wannan sashin, za mu ba ku cikakken koyarwa kan mafi yawan ayyukan Bitcoin. Wannan shafin yana kulawa da masu son wannan aikin tushen bude (open source). Idan kuna jin mun yi kuskure, don Allah ku tuntube mu. Don ganin alaƙar mu ta kudi da aikin, duba rahotonmu na bayyana gaskiya. Mun gode da amincewarku a wannan jami'a, dafatan kuma za ku ji dadin tafiyar.",
     "merchant": {
       "shortDescription": "Hanyoyi don kasuwanci su karɓi Bitcoin",
       "title": "Mai sayarwa",
@@ -979,40 +786,24 @@
   "words": {
     "about": "Game da",
     "about-us": "Game da mu",
-    "account": "Asusu",
-    "additionalCriteria": "Karin ka'idoji",
     "advanced": "Na zamani",
     "admins": "Masu gudanarwa",
     "all": "Duka",
-    "articles": "Maqaloli",
-    "audioBook": "Littafin sauti",
     "amount": "Adadi",
-    "article": "Maqala",
     "communities": "Al'ummomi",
-    "continue": "Ci gaba",
     "course": "Darasi",
     "courses": "Darussa",
     "date": "Kwanan wata",
     "dashboard": "Dashbod",
     "details": "Bayanai",
-    "didYouKnow": "Shin ko kun san ?",
-    "documentaries": "Fima-fimai",
-    "donations": "Gudunmawa (Sadaka)",
     "download": "Sauke",
     "duration": "Tsawon Lokaci",
-    "economy": "Tattalin Arziki",
-    "education": "Ilimi",
-    "email": "Imel",
     "events": "Tarurruka",
-    "exchanges": "Musayoyi",
-    "followUs": "Biyo mu",
     "free": "Kyauta",
     "glossary": "Kamus",
-    "helpUs": "Taimaka mana",
     "home": "Gida",
     "hours": "awani",
     "intermediate": "Tsaka-tsaki",
-    "interview": "Tattaunawa",
     "invoice": "Invois",
     "level": {
       "advanced": "Babban mataki",
@@ -1026,41 +817,27 @@
     },
     "lectures": "Laccoci",
     "library": "Dakin karatu",
-    "lightning": "Walkiya",
     "members": " . Mambobi",
     "mining": "Haka",
     "bCertificate": "Takardar shaida ta ₿",
     "beginner": "Sabon shiga",
     "billing": "Biyan kudi",
-    "bitcoinWhitepaper": "Farar Takardar Bitcoin",
     "book": "Littafi",
-    "books": "Littattafai",
     "builder": "Mai gini",
     "builders": "Masu gini",
-    "certificate": "Takardar shaida",
     "chapter": "Babi",
     "conference": "Taro",
-    "conferences": "Tarurruka",
     "content": "Abubuwan da ke ciki",
     "back": "Komawa baya",
     "lightningInvoice": "Invois na haske",
     "lnurlAuth": "LNURL Sahihanci",
-    "manifesto": "Kuduri",
-    "merchandising": "Kasuwanci",
-    "merchants": "Masu sayarwa",
     "courseId": "Lambar darasi",
     "description": "Bayani",
     "edit": "Gyara",
-    "more": "Kari",
-    "movieDocumentary": "Takardun Fim",
-    "newsletters": "Wasikun Labarai",
-    "node": "Node",
     "nodeNetwork": "Hanyar sadarwa ta node",
     "on": "akan",
-    "onChain": "On chain",
     "onChainAddress": "Adireshin on chain",
     "online": "A kan layi",
-    "or": "ko",
     "ourStory": "Labarin mu",
     "tutorials": "Koyarwa",
     "paid": "An biya",
@@ -1070,41 +847,27 @@
     "price": "Farashi",
     "professor": "Farfesa",
     "professors": "Furofesoshi",
-    "purchase": "Sayi",
     "register": "Rajista",
     "public": "Sadarwa na jama'a",
-    "relatedResources": "Kayan aikin masu alaka",
     "resources": "Kayan aiki",
-    "resume": "Dawo",
-    "review": "Bita",
-    "rogzy": "Rogzi",
-    "sponsorUs": "Tallafa mana",
-    "sponsoringAndContributors": "Masu tallafawa da masu ba da gudummawa",
     "start": "Fara",
     "students": "Dalibai",
-    "supportUs": "Bada gudunmawa",
-    "teachers": "Malamai",
     "termsAndConditions": "Sharuɗɗa da ka'idoji",
     "ticket": "Tikiti",
     "tickets": "Tikitoci",
     "time": "Lokaci",
     "to": "zuwa",
-    "toolkits": "Kayayyakin aiki",
     "topics": "Batutuwa",
     "tutorial": "Koyarwa",
     "unified": "Hadadde",
     "update": "Sabuntawa",
     "users": "Masu amfani",
-    "video": "Bidiyo",
-    "videos": "Bidiyoyi",
     "view": "Duba",
     "wallets": "Lalita",
     "network": "Hanyar sadarwa",
-    "networkMember": "Memba na hanyar sadarwa",
     "newsletter": "Jaridar Labarai",
     "progress": "Ci gaba",
     "teacher": "Mai Koyarwa",
-    "writtenByPodcasts": "Wanda ya/ta rubuta:",
     "booked": "An kama",
     "bookings": "Kamu",
     "credentials": "Takardun shaida",

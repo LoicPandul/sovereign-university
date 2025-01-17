@@ -22,7 +22,6 @@
       "skipExam": "",
       "skipExamGoConclusion": "",
       "testResults": "",
-      "timeLeft": "",
       "timeStampBenefits": "",
       "timeStamped": "",
       "timeStampHow": "",
@@ -69,41 +68,25 @@
     },
     "explorer": {
       "pageDescription": "",
-      "s2p2": "",
-      "s2p1": "",
-      "moreToCome": "",
       "findCourses": "",
-      "footerp1": "",
       "seeCourse": "",
-      "s2p3": "",
-      "s3PickTopic": "",
-      "s3t1": "",
       "buildPath": "",
       "exploreCourses": "",
-      "footerTitle": "",
-      "footerp2": "",
-      "journey": "",
-      "pageSubtitle": "",
-      "pageTitle": "",
-      "s2t1": "",
-      "s3PickLevel": ""
+      "journey": ""
     },
     "review": {
-      "loading": "",
       "recommend": "",
       "faithful": "",
       "asExpected": "",
       "commentAdmin": "",
       "commentPublic": "",
       "commentTeacher": "",
-      "currentlyLoggedOut": "",
       "difficulty": "",
       "displayOutOf": "",
       "ratingsAndReviews": "",
       "skip": "",
       "soAndSo": "",
       "submitReview": "",
-      "edit": "",
       "feedbackSessionTitle": "",
       "fieldRequired": "",
       "generalGrade": "",
@@ -125,41 +108,20 @@
       "yesVeryMuch": ""
     },
     "details": {
-      "invoiceId": "",
-      "accessible": "",
       "paidCourse": "",
-      "teacher": "",
-      "teachers": "",
       "buyInPersonCourse": "",
       "buyOnlineCourse": "",
-      "courseId": "",
-      "total": "",
-      "payment_successful": "",
-      "access_invoice": "",
-      "payment_details": "",
-      "amount": "",
-      "coursePayment": "",
       "curriculum": "",
-      "date": "",
-      "dates_to": "",
-      "duration": "",
-      "goal": "",
       "inPersonAccess": "",
       "buyCourse": "",
       "description": "",
-      "level": "",
       "mobile": {
-        "chapters": "",
         "hours": ""
       },
-      "numberOfChapters": "",
       "objectives": "",
       "objectivesTitle": "",
-      "price": "",
-      "professor": "",
       "startCourse": "",
-      "taughtBy": "",
-      "teacherWord": ""
+      "taughtBy": ""
     },
     "chapter": {
       "next": "",
@@ -175,7 +137,6 @@
         "ticketDownload": ""
       },
       "thanksTip": "",
-      "count": "",
       "finishCourse": "",
       "nextLesson": "",
       "live": {
@@ -186,7 +147,6 @@
     "payment": {
       "back_course": "",
       "date": "",
-      "dates_to": "",
       "downloadCurriculum": "",
       "qr_unified": "",
       "teacher": "",
@@ -208,25 +168,7 @@
       "payment_successful": ""
     },
     "preview": {
-      "by": "",
       "letsgo": ""
-    },
-    "unreleased": {
-      "financialCrisis": "",
-      "hyperinflation": "",
-      "theoreticalLightning": "",
-      "colcardAndSparrow": "",
-      "financeIntroduction": ""
-    },
-    "categories": {
-      "cuboplus": "",
-      "econ": "",
-      "btc": "",
-      "crypto": "",
-      "fin": "",
-      "ln": "",
-      "min": "",
-      "secu": ""
     },
     "part": {
       "count": ""
@@ -236,8 +178,6 @@
     "myCourses": {
       "whereYouAre": "",
       "completedCoursesDescription": "",
-      "completedOutOf": "",
-      "details": "",
       "done": "",
       "inprogress": "",
       "resumeLesson": "",
@@ -265,7 +205,6 @@
       "change": "",
       "crop": "",
       "emailChangeConfirmation": "",
-      "emailChangeRateLimitError": "",
       "preview": "",
       "displayName": "",
       "email": ""
@@ -290,16 +229,13 @@
         "notifications": "",
         "account": "",
         "billingInformations": "",
-        "chooseTags": "",
         "description": "",
-        "descriptionTags": "",
         "enterTipsInformations": "",
         "lightningAddress": "",
         "noShortBio": "",
         "publicDescription": "",
         "publicProfile": "",
         "publicProfileDescription": "",
-        "writeShortBio": "",
         "teacher": "",
         "teacherProfile": "",
         "tutorialModification": "",
@@ -322,12 +258,10 @@
       },
       "courses": {
         "courseModification": "",
-        "courseName": "",
         "courseShortDescription": "",
         "coursesManagementPanel": "",
         "analytics": "",
         "courseDetails": "",
-        "courseId": "",
         "courseLongDescription": "",
         "curriculum": "",
         "curriculumDescription": "",
@@ -342,10 +276,8 @@
       }
     },
     "account": "",
-    "administration": "",
     "booking": {
       "billingSubtitle": "",
-      "downloadInvoice": "",
       "ticketDate": "",
       "ticketLocation": "",
       "ticketTitle": "",
@@ -356,7 +288,6 @@
       "upcomingTicketSubtitle": "",
       "accessLive": "",
       "billingTitle": "",
-      "downloadTicket": "",
       "invoiceDate": "",
       "invoiceTitle": "",
       "invoiceType": "",
@@ -378,65 +309,33 @@
     },
     "bCertificate": {
       "noResults": "",
-      "bookExam": "",
-      "certificate": "",
       "grade": ""
     },
     "courses": "",
     "logout": ""
   },
   "resources": {
-    "headerText": "",
-    "articles": {
-      "title": ""
-    },
     "pageSubtitle": "",
     "pageSubtitleBooks": "",
     "pageSubtitlePodcast": "",
-    "bet": {
-      "title": ""
-    },
-    "books": {
-      "title": ""
-    },
-    "builders": {
-      "title": ""
-    },
-    "conferences": {
-      "title": ""
-    },
     "newsletters": {
       "title": ""
     },
     "pageDescription": "",
-    "newsletter": {
-      "title": ""
-    },
-    "filterBarLabel": "",
     "github": "",
-    "glossary": {
-      "title": ""
-    },
-    "headerSignature": "",
     "pageTitle": "",
     "podcasts": {
       "title": ""
     },
-    "publicGrade": "",
     "searchFilterName": ""
   },
   "tutorials": {
     "details": {
       "source": "",
-      "enjoyed": "",
       "author": "",
-      "checkAuthor": "",
       "didHelp": "",
-      "madeBy": "",
-      "tipTooltip": "",
       "writtenBy": ""
     },
-    "headerText": "",
     "approvedByCreator": "",
     "merchant": {
       "shortDescription": "",
@@ -502,7 +401,6 @@
       "didYouKnow": "",
       "exploreAllTutorials": ""
     },
-    "headerSignature": "",
     "mining": {
       "description": "",
       "shortDescription": "",
@@ -553,9 +451,7 @@
   "auth": {
     "checkingTokenExplain": "",
     "errors": {
-      "displayNameRegex": "",
       "usernameRegex": "",
-      "displayNameRequired": "",
       "displayNameTooShort": "",
       "invalidCredentials": "",
       "emailInvalid": "",
@@ -576,7 +472,6 @@
     "tryAgain": "",
     "signIn": "",
     "confirmation": "",
-    "connectWithLn": "",
     "createAccount": "",
     "createOne": "",
     "displayName": "",
@@ -589,7 +484,6 @@
     "noAccountYet": "",
     "resetPassword": "",
     "newPassword": "",
-    "oldPassword": "",
     "passwordMinLength": "",
     "passwordRequired": "",
     "passwordsDontMatch": "",
@@ -606,8 +500,6 @@
     "bCertificateDescription": "",
     "bookExam": "",
     "checkout": "",
-    "curious": "",
-    "joeNakamotoVideo": "",
     "knowledgeableBitcoin": "",
     "noBookExam": "",
     "organizeDescription": "",
@@ -622,8 +514,7 @@
   "home": {
     "patreonSection": {
       "content": "",
-      "title": "",
-      "subtitle": ""
+      "title": ""
     },
     "header": {
       "link": "",
@@ -646,21 +537,6 @@
       "privacyContent": "",
       "title": ""
     },
-    "numbersSection": {
-      "networkMember": ""
-    },
-    "sectionEducation": {
-      "subtitle": "",
-      "content1": "",
-      "link": "",
-      "title": ""
-    },
-    "sectionNetwork": {
-      "title": "",
-      "subtitle": "",
-      "content1": "",
-      "link": ""
-    },
     "tutorialSection": {
       "title": "",
       "subtitle1": "",
@@ -673,8 +549,6 @@
       "availableLanguagesVariation": "",
       "title": "",
       "subtitle": "",
-      "subtitle2": "",
-      "content2": "",
       "link": "",
       "content1": ""
     },
@@ -685,7 +559,6 @@
   },
   "bet": {
     "contributeButton": "",
-    "contribute": "",
     "educationalContent": {
       "description": "",
       "title": ""
@@ -693,28 +566,11 @@
     "pageDescription": "",
     "contributeDescription": "",
     "contributeTitle": "",
-    "hereForYou": "",
-    "pageSubtitle": "",
     "pageTitle": "",
     "visualContent": {
       "description": "",
       "title": ""
     }
-  },
-  "book": {
-    "bookSummary": {
-      "notice": "",
-      "modifyTooltip": "",
-      "noSummary": "",
-      "title": ""
-    },
-    "pageSubtitle": "",
-    "abstract": "",
-    "buttonBuy": "",
-    "pageTitle": "",
-    "topicsAddressed": "",
-    "buttonPdf": "",
-    "offeredBy": ""
   },
   "conferences": {
     "description": "",
@@ -723,12 +579,10 @@
       "previousVideo": "",
       "selectStage": "",
       "selectVideo": "",
-      "speaker": "",
       "findReplay": "",
       "watchReplay": ""
     },
     "noConferences": "",
-    "pageSubtitle": "",
     "pageTitle": "",
     "planBConferences": "",
     "topics": "",
@@ -746,25 +600,16 @@
       "access_invoice": "",
       "address": "",
       "additional_free_description": "",
-      "description_physical": "",
-      "access_online_successful": "",
-      "access_physical_successful": "",
       "access_type": "",
-      "amount": "",
       "back_events": "",
-      "callout_online": "",
       "callout_physical": "",
-      "callout_replay": "",
       "date": "",
-      "dates_to": "",
-      "description_online": "",
       "description_free_physical": "",
       "download_ticket": "",
       "enjoy": "",
       "language": "",
       "limitation": "",
       "max_capacity": "",
-      "payment_details": "",
       "payment_successful": "",
       "time": ""
     },
@@ -806,7 +651,6 @@
     "filterBar": "",
     "needHelp": "",
     "loadMoreWords": "",
-    "pageSubtitle": "",
     "anotherWord": "",
     "creditsLoic": "",
     "definition": "",
@@ -819,55 +663,29 @@
     "term": ""
   },
   "menu": {
-    "ourStoryDescription": "",
     "podcastsDescription": "",
-    "loginRegister": "",
-    "manifestoDescription": "",
-    "merchantsDescription": "",
-    "miningDescription": "",
-    "nodeDescription": "",
     "nodeNetworkDescription": "",
     "publicDescription": "",
-    "sponsorsDescription": "",
-    "supportUsDescription": "",
     "teachersDescription": "",
-    "walletsDescription": "",
-    "lightningDescription": "",
     "login": "",
     "bCertificateDescription": "",
     "betDescription": "",
-    "btc101Description": "",
     "buildersDescription": "",
     "conferencesDescription": "",
-    "exchangesDescription": "",
     "glossaryDescription": "",
     "libraryDescription": ""
   },
   "nodeNetwork": {
-    "question2": "",
-    "question3": "",
-    "answer1": "",
-    "answer2": "",
-    "answer3": "",
-    "answer5": "",
     "apply": "",
     "applyhelp": "",
     "description1": "",
     "pageSubtitle": "",
     "pageTitle": "",
-    "question1": "",
-    "answer4": "",
-    "descriptionextend": "",
-    "mobiledescription": "",
-    "question4": "",
-    "question5": ""
+    "descriptionextend": ""
   },
   "payment": {
     "terms": "",
     "total": ""
-  },
-  "podcast": {
-    "abstract": ""
   },
   "professors": {
     "navigationTitles": {
@@ -909,7 +727,6 @@
     "blogPageStrings": {
       "blogListButtonText": "",
       "filterText": "",
-      "noBlogs": "",
       "featuredArticleTitleText": "",
       "pastArticleSubtitleText": "",
       "noArticlesText": "",
@@ -944,16 +761,12 @@
     "dashboard": "",
     "about": "",
     "about-us": "",
-    "account": "",
-    "additionalCriteria": "",
     "advanced": "",
     "admins": "",
     "all": "",
-    "article": "",
     "back": "",
     "beginner": "",
     "billing": "",
-    "continue": "",
     "course": "",
     "courseId": "",
     "courses": "",
@@ -961,23 +774,16 @@
     "date": "",
     "description": "",
     "details": "",
-    "didYouKnow": "",
     "diploma": "",
-    "education": "",
-    "email": "",
     "events": "",
-    "exchanges": "",
     "filter": "",
     "failed": "",
-    "followUs": "",
     "grade": "",
-    "helpUs": "",
     "home": "",
     "hours": "",
     "id": "",
     "inReview": "",
     "intermediate": "",
-    "interview": "",
     "invoice": "",
     "level": {
       "advanced": "",
@@ -990,28 +796,20 @@
       "wizard": ""
     },
     "publicationDate": "",
-    "purchase": "",
     "register": "",
     "public": "",
     "tickets": "",
     "unified": "",
     "update": "",
     "users": "",
-    "video": "",
-    "videos": "",
     "view": "",
-    "documentaries": "",
-    "donations": "",
     "download": "",
     "free": "",
     "glossary": "",
     "goal": "",
     "mining": "",
-    "articles": "",
-    "audioBook": "",
     "lectures": "",
     "library": "",
-    "lightning": "",
     "lnurlAuth": "",
     "podcast": "",
     "podcasts": "",
@@ -1019,78 +817,52 @@
     "professor": "",
     "professors": "",
     "progress": "",
-    "sponsorUs": "",
-    "sponsoringAndContributors": "",
     "time": "",
     "to": "",
     "total": "",
-    "toolkits": "",
     "topics": "",
     "tutorial": "",
     "tutorials": "",
-    "books": "",
     "builder": "",
     "builders": "",
-    "certificate": "",
     "chapter": "",
     "communities": "",
     "conference": "",
-    "bitcoinWhitepaper": "",
     "book": "",
     "booked": "",
     "bookings": "",
-    "conferences": "",
     "content": "",
     "duration": "",
-    "economy": "",
     "edit": "",
     "lightningInvoice": "",
     "location": "",
-    "manifesto": "",
-    "merchandising": "",
-    "merchants": "",
     "members": "",
-    "more": "",
-    "movieDocumentary": "",
     "network": "",
-    "networkMember": "",
     "newsletter": "",
-    "newsletters": "",
-    "node": "",
     "nodeNetwork": "",
     "on": "",
-    "onChain": "",
     "onChainAddress": "",
     "online": "",
-    "or": "",
     "ourStory": "",
     "overview": "",
     "paid": "",
     "part": "",
     "passed": "",
     "ratings": "",
-    "relatedResources": "",
     "required": "",
     "resources": "",
-    "resume": "",
-    "review": "",
-    "rogzy": "",
     "start": "",
     "status": "",
     "students": "",
-    "supportUs": "",
     "teacher": "",
-    "teachers": "",
     "termsAndConditions": "",
     "ticket": "",
-    "wallets": "",
-    "writtenByPodcasts": ""
+    "wallets": ""
   },
   "builders": {
     "networkStrength": "",
     "noRelatedEvents": "",
     "otherCommunities": "",
-    "pageSubtitle": "",
     "pageTitle": "",
     "languages": "",
     "relatedEvents": ""
@@ -1102,17 +874,10 @@
     "printedCircuits": "",
     "rabbit404": "",
     "underConstructionImage": "",
-    "blueEllipse": "",
-    "contributorPP": "",
-    "forwardArrow": "",
-    "sthRepresentingCompany": "",
-    "stylus": ""
+    "sthRepresentingCompany": ""
   },
   "library": {
-    "pageSubtitle": "",
-    "pageTitle": "",
-    "publishedIn": "",
-    "writtenBy": ""
+    "pageTitle": ""
   },
   "notFound": {
     "here": "",
@@ -1120,8 +885,6 @@
     "pageTitle": ""
   },
   "podcasts": {
-    "hostedBy": "",
-    "pageSubtitle": "",
     "pageTitle": ""
   }
 }

@@ -30,7 +30,6 @@
     "accountCreated": "Vaš nalog je kreiran, {{userName}}!",
     "alreadyHaveAccount": "Već imate nalog?",
     "canSaveProgress": "Sada možete sačuvati svoj napredak na Bitcoin Akademiji",
-    "connectWithLn": "Povežite se sa LN",
     "createOne": "Registrujte se ovde!",
     "createAccount": "Registrujte se",
     "emailAddress": "Email adresa",
@@ -38,8 +37,6 @@
       "usernameRegex": "Korisničko ime može sadržati samo slova, brojeve, donje crte(_), tačke( .) i crtice ( -).",
       "usernameRequired": "Korisničko ime je obavezno.",
       "usernameTooShort": "Korisničko ime mora sadržati najmanje 5 karaktera.",
-      "displayNameRegex": "Ime za prikaz može da sadrži samo slova, brojeve, donje crte (_), tačke(.), crtice(-) i razmake.",
-      "displayNameRequired": "Ime za prikaz je obavezno.",
       "displayNameTooShort": "Ime za prikaz mora da sadrži barem 2 karaktera.",
       "invalidCredentials": "Nevalidni kredencijali",
       "emailInvalid": "Nevažeći email"
@@ -70,7 +67,6 @@
     "signIn": "Prijavite se",
     "confirmation": "Potvrda",
     "displayName": "Ime za prikaz",
-    "oldPassword": "Stara lozinka",
     "emailTip": "Dodavanje korisničkog email-a nije obavezno, ali može biti korisno u slučaju zaboravljene lozinke :)",
     "dashboardUnlocked": "Vaša studentska kontrolna tabla je otključana !",
     "didYouKnow": "Da li ste znali ?",
@@ -86,8 +82,6 @@
     "bookExam": "Zakažite ispit",
     "challengeYourself": "Prihvati izazov i proceni svoj nivo!",
     "checkout": "Pogledajte ₿ sertifikat",
-    "curious": "Radoznali ste da saznate kako izgleda ispit?",
-    "joeNakamotoVideo": "Šta, zaboga, predstavlja Bitcoin ispit? Autor: Džo Nakamoto",
     "organizeTitle": "Želite da organizujete ispit za ₿ sertifikat u Vašem centru?",
     "pageSubtitle": "Masovno širenje kroz centralizovano obrazovanje otvorenog koda",
     "pageTitle": "Položite za ₿ Sertifikat",
@@ -97,7 +91,6 @@
     "download": "Preuzmite sertifikat"
   },
   "bet": {
-    "contribute": "Ovaj alat je otvoren za Vaš doprinos. Koristi Figmu, tako da svako može dodavati, modifikovati i prevoditi sadržaj. Da biste sarađivali, dodali kategoriju ili diskusiju, ne oklevajte da se pridružite našem discordu.",
     "contributeButton": "Pomozi i doprinesi",
     "contributeDescription": "Ako želite da dodate, izmenite ili prevedete neki sadržaj, Vaša pomoć je dobrodošla!",
     "contributeTitle": "Želite da doprinesete?",
@@ -105,9 +98,7 @@
       "description": "Stavke ispod mogu se koristiti za obrazovne događaje i svrhe.",
       "title": "Obrazovni Sadržaj"
     },
-    "hereForYou": "BET je ovde za Vas!",
     "pageDescription": "Postići masovnu primenu nije lako. Da bismo se brže i bliže približili tom cilju, razvili smo proširivu bazu obrazovnog sadržaja. Ovde, edukatori o Bitcoinu mogu slobodno da ostavljaju i pristupaju sadržaju po potrebi. Nemoramo svaki put iznova izmišljati točak, nego hajde da radimo zajedno na centralizaciji korisnih resursa na jednom mestu!",
-    "pageSubtitle": "BET - Bitcoin alat otvorenog koda za sve obrazovne projekte",
     "pageTitle": "Edukativni alat za Bitcoin",
     "visualContent": {
       "description": "Slike ispod mogu se koristiti za vaše sopstvene kreacije.",
@@ -126,29 +117,17 @@
       "previousVideo": "Prethodni video",
       "selectStage": "Izaberite fazu",
       "selectVideo": "Izaberite video",
-      "speaker": "Govornik",
       "watchReplay": "Pogledajte reprizu"
     },
     "language": "Jezik",
     "latestConferences": "Najnovije konferencije",
     "location": "Lokacija",
     "noConferences": "Još uvek nisu dodate konferencije za {{year}}.",
-    "pageSubtitle": "Ovaj portal je otvorenog koda i otvoren za doprinos.",
     "pageTitle": "Reprize konferencija",
     "planBConferences": "Plan B konferencije",
     "topics": "Teme"
   },
   "courses": {
-    "categories": {
-      "ln": "\"Lightning\" Mreža",
-      "btc": "Bitcoin",
-      "crypto": "Kriptografija",
-      "cuboplus": "Bitcoin",
-      "econ": "Austrijska škola ekonomije",
-      "fin": "Finansije",
-      "min": "Rudarenje",
-      "secu": "Bezbednost i privatnost"
-    },
     "chapter": {
       "detail": {
         "p1heading": "Da li planirate da prisustvujete ovom času lično?",
@@ -161,7 +140,6 @@
         "cancelBooking": "Otkažite svoju rezervaciju",
         "ticketDownload": "Preuzmite svoju kartu"
       },
-      "count": "Poglavlje {{count}}",
       "finishCourse": "Završite kurs",
       "next": "Završeno, pređite na sledeće poglavlje.",
       "thanksTip": "Želite da izrazite zahvalnost? \nMožete podržati autora napojnicom.",
@@ -183,7 +161,6 @@
       "qr_unified": "Ovaj QR kod je ujednačen, tako da prihvata lightning i on-chain plaćanja.",
       "teacher": "Nastavnik",
       "time": "Vreme",
-      "dates_to": "{{startDate}} do {{endDate}}",
       "teachers": "Nastavnici",
       "access_invoice": "Možete pristupiti računu preko Vašeg profila",
       "accessibility": "Pristupačnost",
@@ -197,37 +174,16 @@
       "checkoutError": "Došlo je do greške tokom procesa plaćanja.\nMolimo Vas, pokušajte ponovo."
     },
     "details": {
-      "date": "Datum: {{startDate}} do {{endDate}}",
-      "numberOfChapters": "Broj poglavlja: {{number}}",
-      "payment_successful": "Uplata uspešna!",
-      "accessible": "Dostupno: Doživotan pristup",
       "buyCourse": "Kupite kurs",
-      "courseId": "ID kursa: {{courseId}}",
-      "coursePayment": "Plaćanje kursa",
       "curriculum": "Nastavni plan i program",
-      "dates_to": "{{startDate}} do {{endDate}}",
       "description": "Opis",
-      "duration": "Trajanje: {{hours}} sati",
-      "goal": "Cilj:",
-      "level": "Nivo: $t(words.level.{{level}})",
       "mobile": {
-        "chapters": "{{chapters}} poglavlja",
         "hours": "{{hours}} sati"
       },
       "objectives": "Ciljevi",
       "objectivesTitle": "Šta ćete naučiti:",
-      "price": "Cena: {{price}} satošija",
-      "professor": "Profesor",
       "startCourse": "Započnite kurs",
       "taughtBy": "Ovaj kurs predaje",
-      "teacher": "Nastavnik: {{teacher}}",
-      "teachers": "Nastavnici: {{teachers}}",
-      "teacherWord": "Reč nastavnika",
-      "total": "Ukupno",
-      "access_invoice": "Možete pristupiti vašoj fakturu preko vašeg profila",
-      "payment_details": "Detalji o plaćanju",
-      "amount": "Iznos",
-      "invoiceId": "ID transakcije",
       "buyInPersonCourse": "Kupite kurs sa prisustvom uživo",
       "buyOnlineCourse": "Kupite online kurs",
       "inPersonAccess": "Potrebno je da preuzmete Vašu kartu da bi ste prisustvovali kursu lično.",
@@ -239,23 +195,10 @@
     },
     "explorer": {
       "findCourses": "Pronađite savršen kurs za Vaše potrebe zahvaljujući alatu za izbor kursa",
-      "footerp1": "Na Suverenom univerzitetu, naši profesori imaju potpunu autonomiju u kreiranju svog sadržaja i izboru alata koje žele da istražite, sve dok se pridržavaju našeg etičkog kodeksa. Oni su strastveni ljubitelji Bitcoina iz različitih oblasti koji vole da dele svoje vredno iskustvo sa Vama.",
       "pageDescription": "Plan ₿ Akademija ima za cilj da pojednostavi obrazovanje o Bitcoinu širom sveta. Uređena od strane stručnjaka iz različitih disciplina, naša akademija nudi bogatstvo kurseva dizajniranih da pojasne svaki aspekt Bitcoina. Od početnika do stručnjaka, bilo da učite u svom ritmu ili pratite nedeljna predavanja sa profesorom, nadamo se da Akademija može da Vam pomogne da bolje razumete obimnu temu kao što je Bitcoin. Veliki deo naših kurseva je potpuno besplatan kako bi svako, bilo gde, mogao da ima pristup kvalitetnom obrazovanju.",
       "exploreCourses": "Istražite sve Plan ₿ kurseve",
-      "footerTitle": "Naši profesori su ovde za Vas!",
       "buildPath": "Izgradite svoj put \"niz zečju rupu\"",
-      "footerp2": "Ako želite da unapredite kurs ili da predložite svoj, možete to jednostavno uraditi preko GitHub-a. Takođe, da biste podržali profesora, možete oceniti njegov kurs, direktno dati napojnicu profesoru ili postati član Univerziteta kako biste podržali platformu.",
       "journey": "Bitcoin je putovanje, ne destinacija",
-      "moreToCome": "... i još mnogo toga predstoji!",
-      "pageSubtitle": "Masovno širenje kroz centralizovano obrazovanje otvorenog koda",
-      "pageTitle": "Dobrodošli u Plan ₿ Akademiju",
-      "s2p1": "Ako ste tek počeli da istražujete Bitcoin \"zečju rupu\", morate znati da je to beskrajno putovanje sa mnogo staza. Na našem Univerzitetu mi prepoznajemo tu kompleksnost, tako da smo dizajnirali naš edukativni sadržaj da bude nelinearan, samoinicijativan i što je moguće obimniji.",
-      "s2p2": "Bićete u mogućnosti da izaberete svoj sopstveni ritam učenja, stičući veštine i znanje brzinom koja zavisi od vaše motivacije i posvećenosti.",
-      "s2p3": "Svi naši kursevi su 100% besplatni, tako da vas ništa ne može zaustaviti!",
-      "s2t1": "Obrazovanje o Bitcoinu je putovanje, a ne destinacija.",
-      "s3PickLevel": "Izaberite nivo:",
-      "s3PickTopic": "Izaberite temu:",
-      "s3t1": "Izgradite svoj put \"niz zečju rupu\"",
       "seeCourse": "Otkrijte kurs"
     },
     "part": {
@@ -279,7 +222,6 @@
       "sureSubmit": "Da li ste sigurni da želite da predate svoj ispit?",
       "tamperProof": "Nepodložan manipulacijama: Blockchain omogućava da niko ne može da promeni niti da lažira Vaše kredencijale.",
       "testKnowledge": "Sada kada ste završili ovaj kurs, hajde da testiramo Vaše znanje.",
-      "timeLeft": "Preostalo vreme",
       "timeStampBenefits": "Zašto je to važno :",
       "timeStamped": "vremenski obeležen.",
       "timeStampHow": "Kako to radi :",
@@ -319,8 +261,7 @@
       "planBTimeStamp": "U Plan ₿ mreži, obezbeđujemo Vašu diplomu koristeći tehnologiju vremenskog označavanja zasnovanu na blockchain-u."
     },
     "preview": {
-      "letsgo": "Krenimo",
-      "by": "{{professor}}"
+      "letsgo": "Krenimo"
     },
     "quizz": {
       "clickOnPie": "Kliknite na grafikon u obliku pite da biste proverili tačan odgovor",
@@ -337,7 +278,6 @@
       "commentAdmin": "Komentar za admin tim (privatno)",
       "commentPublic": "Komentar (javno)",
       "commentTeacher": "Komentar za nastavnika (privatno)",
-      "currentlyLoggedOut": "Trenutno ste odjavljeni. Kako biste nam dali povratne informacije o kursu, molimo Vas da se <0>prijavite ili registrujete</0>.",
       "difficulty": "Nivo težine",
       "quality": "Kvalitet",
       "ratingsAndReviews": "Ocene i recenzije",
@@ -356,13 +296,11 @@
       "yesVeryMuch": "da, veoma mnogo",
       "no": "ne",
       "notReally": "ne, ne baš",
-      "edit": "Izmeni",
       "recommend": "Da li biste preporučili kurs?",
       "faithful": "Da li je u skladu sa ciljem?",
       "feedbackSessionTitle": "Sesija davanja povratnih informacija",
       "generalGrade": "Opšta ocena",
       "length": "Dužina",
-      "loading": "Učitavanje…",
       "loadMoreComments": "Učitaj još komentara",
       "neutral": "neutralno",
       "displayOutOf": "prikazano od",
@@ -370,43 +308,18 @@
       "commentAdminMobile": "Privatni komentar za administrativni tim",
       "commentPublicMobile": "Javni komentar",
       "commentTeacherMobile": "Privatni komentar za nastavnika"
-    },
-    "unreleased": {
-      "colcardAndSparrow": "Coldcard i Sparrow",
-      "financeIntroduction": "Uvod u finansije",
-      "financialCrisis": "Analize velikih finansijkih kriza",
-      "hyperinflation": "Istraživanje o hiperinflaciji",
-      "theoreticalLightning": "Napredni teorijski kurs o Lightning Network"
     }
-  },
-  "book": {
-    "abstract": "Apstrakt",
-    "bookSummary": {
-      "modifyTooltip": "Napiši ili izmeni",
-      "noSummary": "Još uvek nije napisan rezime. Ako ste pročitali knjigu i želite da podelite rezime, ne oklevajte da ga napišete na Githubu. To bi mnogo pomoglo zajednici, unapredilo rezurse univerziteta i čak biste mogli dobiti neke satoshije za to!",
-      "notice": "Ovaj rezime je povezan sa Github-om, za bilo kakvu modifikaciju ili dodatak.",
-      "title": "Rezime knjige"
-    },
-    "buttonBuy": "Kupi",
-    "buttonPdf": "PDF / E-knjiga",
-    "offeredBy": "Ponuđeno od strane velikodušnog saradnika",
-    "pageSubtitle": "Ovaj portal je javno dostupan i otvoren za doprinose.",
-    "pageTitle": "Bitcoin Biblioteka",
-    "topicsAddressed": "Obrađene teme:"
   },
   "builders": {
     "networkStrength": "Snaga mreže leži u njenim članovima",
     "noRelatedEvents": "Još uvek nema predstojećih događaja za ovog kreatora.",
     "otherCommunities": "Istražite Plan B zajednice",
-    "pageSubtitle": "Ovaj portal je otvorenog koda i otvoren za doprinos.",
     "pageTitle": "Bitcoin Stvaraoci",
     "languages": "Jezici",
     "relatedEvents": "Povezani predstojeći događaji"
   },
   "dashboard": {
     "booking": {
-      "downloadInvoice": "Preuzmite fakturu",
-      "downloadTicket": "Preuzmite kartu",
       "noInvoice": "Trenutno nemate fakture.",
       "noTicket": "Trenutno nemate nijednu kartu.",
       "pastTicketTitle": "Prethodne rezervacije",
@@ -439,19 +352,14 @@
     },
     "bCertificate": {
       "grade": "Ocena",
-      "noResults": "Još uvek ne postoje ocene ni sertifikati povezani sa ovim nalogom.\nAko ste položili ispit i Vaši rezultati nisu dostupni nakon dužeg vremena, molimo Vas da nas kontaktirate za pomoć.",
-      "bookExam": "Zakažite ispitnu sesiju",
-      "certificate": "Sertifikat"
+      "noResults": "Još uvek ne postoje ocene ni sertifikati povezani sa ovim nalogom.\nAko ste položili ispit i Vaši rezultati nisu dostupni nakon dužeg vremena, molimo Vas da nas kontaktirate za pomoć."
     },
     "account": "Račun",
-    "administration": "Administracija",
     "myCourses": {
       "yourCertificate": "Vaš sertifikat",
       "completed": "Zavšeno",
       "completedCoursesTitle": "Završeni kursevi",
       "completedCoursesDescription": "Ovde možete proveriti svoje završene kurseve.",
-      "completedOutOf": "Završeno {{completed}} poglavlja od {{total}} dostupnih",
-      "details": "Detalji",
       "done": "Završeno",
       "inprogress": "U toku",
       "inprogressCoursesTitle": "Kursevi u toku",
@@ -493,8 +401,7 @@
       "profileInformation": "Profilni podaci",
       "profilePicture": "Profilna slika",
       "security": "Bezbednost",
-      "username": "Korisničko ime",
-      "emailChangeRateLimitError": "Zahtev za promenu imejla je već poslat pre manje od 5 minuta, molimo Vas da sačekate pre nego što pokušate ponovo."
+      "username": "Korisničko ime"
     },
     "teacher": {
       "courses": {
@@ -502,9 +409,7 @@
         "reviewInfos": "Ovde možete upravljati i pregledati sve informacije koje se tiču svakog kursa koji ste koordinisali.",
         "analytics": "Analitika",
         "courseDetails": "Detalji kursa",
-        "courseId": "ID Kursa",
         "courseLongDescription": "Uvodni opis",
-        "courseName": "Naziv kursa",
         "courseShortDescription": "Cilj",
         "coursesManagementPanel": "Panel o kursevima",
         "curriculum": "Sadržaj kursa",
@@ -518,12 +423,10 @@
         "reviews": "Recenzije"
       },
       "profile": {
-        "chooseTags": "Izaberite oznake koje Vas najbolje opisuju",
         "enterTipsInformations": "Plan ₿ Network podstiče korisnike da daju donacije nastavnicima. Molimo Vas da unesete svoje informacije kako bi Vas ljudi mogli nagraditi kada to žele.",
         "account": "Nastavnički nalog",
         "billingInformations": "Informacije o naplati",
         "description": "Vaš opis",
-        "descriptionTags": "Ove oznake upotpunjuju Vaš javni profil jer prikazuju Vaše specijalnosti kao bitkoinera.",
         "lightningAddress": "Lightning adresa",
         "makeModifications": "Želite da napravite izmene ?",
         "noLightningAddress": "Još uvek nije dodata Lightning adresa.",
@@ -533,7 +436,6 @@
         "publicDescription": "Ovaj opis je prikazan na Vašoj informativnoj kartici nastavnika na platformi.",
         "publicProfile": "Javni profil",
         "publicProfileDescription": "Ovde možete popuniti ili izmeniti sve informacije povezane sa Vašom aktivnošću kao nastavnika na Plan ₿ Mreži.",
-        "writeShortBio": "Napišite kratku biografiju o sebi",
         "teacher": "Nastavnik",
         "teacherProfile": "Profil nastavnika",
         "tutorialModification": "Ako Vam je potrebna pomoć da nešto izmenite, molimo Vas da pogledate ovaj <0>tutorijal</0>."
@@ -580,28 +482,19 @@
     "pageDescription": "Želite da razgovarate o Bitcoinu u realnom vremenu? Ovde možete pronaći sve događaje koje podržavaju zajednice Plan B Mreže. Bilo da želite da slušate predavanje, razgovarate o Bitcoinu uz piće, ili polažete ispit da procenite svoje znanje, ovde ćete pronaći pravi događaj koristeći Plan B Mrežu.",
     "payment": {
       "additional_free_description": "Ovaj događaj je besplatan, tako da nema naplate za rezervaciju ovog mesta. Međutim, molimo Vas da se obavezno pojavite, s obzirom da je broj mesta ograničen.",
-      "description_online": "Molim Vas da pregledate datum i vreme navedenog događaja.\nKada dođe vreme, prijavite se na platformu da biste pristupili prenosu uživo preko stranice događaja.",
       "description_free_physical": "Molimo Vas da pregledate dostavljene detalje o mestu održavanja.\nKada je rezervacija potvrđena, izdaćemo potvrdu o rezervaciji i QR kod koji treba da pokažete na događaju.",
       "time": "Vreme",
-      "access_online_successful": "Kada događaj počne, prijavite se na platformu da biste pristupili uživo prenosu na stranici događaja.",
-      "access_physical_successful": "Možete preuzeti svoju kartu ovde, ili je preuzeti kasnije na svojoj kontrolnoj tabli.",
       "access_type": "Vrsta pristupa",
       "address": "Adresa",
-      "amount": "Iznos",
       "back_events": "Nazad na događaje",
       "book_seat": "Rezervišite mesto",
-      "callout_online": "Upravo ćete rezervisati online pristup ovom događaju.",
       "callout_physical": "Upravo ćete rezervisati pristup uživo ovom događaju.",
-      "callout_replay": "Upravo ćete rezervisati pristup snimku ovog događaja.",
       "date": "Datum",
-      "dates_to": "{{startDate}}{{endDate}}",
-      "description_physical": "Molimo Vas da pregledate dostavljene detalje o mestu održavanja. \nKada Vaša rezervacija bude potvrđena, izdaćemo Vam kartu koju treba da pokažete na događaju. Ova karta će Vam takođe omogućiti pristup prenosu uživo i reprizi, ako su dostupni.",
       "download_ticket": "Preuzmite svoju kartu",
       "enjoy": "Nadamo se da ćete uživati :)",
       "language": "Jezik",
       "limitation": "Ograničenje",
       "max_capacity": "Maksimalni kapacitet od",
-      "payment_details": "Detalji o plaćanju",
       "payment_successful": "Uspešna rezervacija!",
       "access_invoice": "Možete pristupiti računu preko Vaše kontrolne table."
     },
@@ -627,7 +520,6 @@
     "needHelp": "Potrebna Vam je pomoć u definisanju tehničke reči?",
     "keepLooking": "Želite da nastavite pretragu?",
     "loadMoreWords": "Učitaj još reči",
-    "pageSubtitle": "Potrebna Vam je pomoć sa tehničkom definicijom?",
     "pageTitle": "Bitcoin rečnik",
     "placeHolder": "Šta je ovo?",
     "randomSearch": "Nasumična pretraga",
@@ -643,26 +535,12 @@
       "link": "Budite deo mreže",
       "startLink": "Počnite da učite"
     },
-    "sectionEducation": {
-      "content1": "Bitcoin nije samo tehnologija i oblik novca, već i revolucionaran način pristupa životu. U skladu sa ovom svešću, naši kursevi pokrivaju širok spektar oblasti, osnažujući pojedince da se istaknu u svojim oblastima interesovanja i prodube svoje razumevanje. Od vaše prve lekcije o Bitcoinu do detaljnog proučavanja specifičnosti protokola, pomoći ćemo vam da se sigurno krećete kroz \"zečju rupu\". Nema razloga za oklevanje. Znanje vas čeka.",
-      "title": "Od početnika do naprednog nivoa",
-      "subtitle": "Učite o Bitcoinu u Akademiji",
-      "link": "Proveri Akademiju"
-    },
-    "sectionNetwork": {
-      "content1": "Povežite se sa entuzijastima za Bitcoin širom sveta koji dele zajedničku strast. Od malih zajednica koje se redovno sastaju, do obrazovnih centara za BTC, naša mrežna mapa će Vam pomoći da pronađete inspiraciju za učenje i izgradnju. Otkrićete širok spektar usluga, kao što su inkubacioni centar, fizičke radionice, seminari, BTC skupovi, i još mnogo toga. Mreža je otvorena za sve, zato dođite i pozdravite svoju lokalnu BTC zajednicu!",
-      "link": "Budite deo mreže",
-      "title": "Pristupite mreži od",
-      "subtitle": "Bitcoin Kampusi širom sveta"
-    },
     "languageSection": {
       "content1": "U Plan ₿, verujemo da je Bitcoin međunarodna revolucija koja se tiče svih. Da bismo osnažili milijarde ljudi, dizajniramo ovu platformu da bude višejezična i dostupna svima. Platforma trenutno podržava 7 jezika, a svakog meseca se dodaju novi. Da bismo to postigli, koristimo kombinaciju veštačke inteligencije i strastvenih Bitcoinera širom sveta. I Vi možete početi da pokrećete svoju lokalnu mrežu u svojoj zemlji!",
       "availableLanguages": "Dostupni jezici",
       "availableLanguagesVariation": "Dostupni jezici: ",
       "title": "Ovde nema jezičke barijere.",
       "subtitle": "Sve je prevedeno na lokalne jezike!",
-      "subtitle2": "Trebamo te!",
-      "content2": "I Vi možete započeti sa pokretanjem sopstvene lokalne mreže u Vašoj zemlji!",
       "link": "Pomozite nam da prevedemo Akademiju"
     },
     "aboutUsSection": {
@@ -678,9 +556,6 @@
       "privacyTitle": "Privatnost",
       "privacyContent": "Verujemo da je privatnost jedno od najosnovnijih ljudskih prava koje je neophodno za napredak"
     },
-    "numbersSection": {
-      "networkMember": "Članovi mreže"
-    },
     "tutorialSection": {
       "title": "Centralizujte znanje da biste ga bolje distribuirali",
       "subtitle1": "Obrazovanje o Bitcoinu je jednostavno objašnjeno.",
@@ -690,7 +565,6 @@
     },
     "patreonSection": {
       "title": "Zajedno, hajde da učinimo obrazovanje o Bitcoinu boljim!",
-      "subtitle": "Plan ₿ Mreža je 100% otvorenog koda zahvaljujući našim velikodušnim pokroviteljima",
       "content": "Plan ₿ Mreža ponosno se udružuje sa mnogim bitcoin kompanijama širom sveta kako bi pružila najbolje moguće obrazovne resurse!"
     },
     "wallOfLoveSection": {
@@ -702,64 +576,34 @@
     "bCertificateDescription": "Polaganjem ispita za ₿ sertifikat potvrdite svoj nivo znanja o Bitcoinu",
     "publicDescription": "Proučite članke o javnoj komunikaciji",
     "betDescription": "Kolekcija sadržaja koju možete koristiti za Vaše obrazovne projekte",
-    "btc101Description": "Bolje razumite Bitcoin pohađanjem ovih časova.",
     "buildersDescription": "Saznajte više o kompanijama i projektima koji rade na poboljšanju Bitcoina i poboljšanju njegovog usvajanja",
     "conferencesDescription": "Kolekcija snimaka konferencija o Bitcoinu od Genesis Bloka",
-    "exchangesDescription": "Kupujte i prodajte Bitcoine na berzama i učite o P2P",
     "glossaryDescription": "Razumite jezik Bitcoina",
     "libraryDescription": "Otkrijte mnogo knjiga kako biste poboljšali Vaše znanje",
-    "lightningDescription": "Upravljajte svojim lightning nodom i koristite lightning mrežu",
     "login": "Prijavi se",
-    "loginRegister": "Prijavite se / Registrujte se",
-    "manifestoDescription": "Pročitajte Plan B manifest",
-    "merchantsDescription": "Prihvatite plaćanja u Bitcoinima i otkrijte alate za trgovce",
-    "miningDescription": "Rudarite svoje Bitcoine i učite o rudarskoj industriji",
-    "nodeDescription": "Naučite kako da budete samostalni sa svojim sopstvenim Bitcoin čvorom",
     "nodeNetworkDescription": "Pridružite se globalnoj mreži zajednice Plan ₿",
-    "ourStoryDescription": "Upoznajte se sa istorijom univerziteta",
     "podcastsDescription": "Istražite ekosistem Bitcoina kroz podkaste",
-    "sponsorsDescription": "Otkrijte naše sponzore i glavne saradnike",
-    "supportUsDescription": "Pronađite načine da nas podržite, na bilo koji način",
-    "teachersDescription": "Upoznajte naše nastavnike u Akademiji",
-    "walletsDescription": "Obezbedite i koristite svoje Bitcoine"
+    "teachersDescription": "Upoznajte naše nastavnike u Akademiji"
   },
   "nodeNetwork": {
-    "answer1": "Čvor je obrazovna inicijativa povezana sa zajednicom negde u svetu. Može se manifestovati u obliku zgrade gde se odvija obrazovanje o Bitcoinu, ali može uključivati mnogo više. Iako Plan ₿ Mreža upravlja centrima, njihovo uspostavljanje u svakom gradu širom sveta je nerealno. Zato se oslanjamo na zajednice Bitcoinera da nam pomognu da ovu globalnu mrežu pretvorimo u stvarnost.",
-    "answer2": "Pridruživanjem našoj mreži, dobijate pristup ekskluzivnom sadržaju koji Plan ₿ distribuira kroz svoju platformu, koji možete deliti sa stanovnicima vašeg čvora. Najvažnija korist je prilika da otvorite kanale diskusije za buduće projekte i povežete se sa drugim zajednicama širom sveta kako biste podelili međusobna iskustva.",
     "description1": "Verujemo da obrazovanje ne bi trebalo da se odvija samo na internetu, već i u fizičkom prostoru. Da bi se to postiglo, Plan B Mreža upravlja mrežom centara širom sveta kako bi dočekao mislioce, kreatore i edukatore koji podstiču napredak Bitcoina i tehnologija slobode.",
-    "answer3": "Plan ₿ Mreža se inicijalno fokusira na čvorove koji rade iz fizičkog prostora. U budućnosti planiramo da integrišemo više inicijativa koje bi mogle da imaju koristi od podrške mreže za rast.",
-    "answer4": "Bitcoin čvor može varirati u veličini, a različiti nivoi će biti dodeljeni na osnovu specifičnih zahteva. Na primer, čvor koji uključuje tehnički centar, teretanu i kancelarijski prostor će se smatrati više poput utvrđenja.",
-    "answer5": "Želimo da ponudimo sigurno utočište za Bitcoinere širom sveta. Verujemo da ćemo pomažući rastu lokalnih centara biti u mogućnosti da stvorimo mrežu utvrđenja gde će oni biti dobrodošli da rade, stvaraju, dele i bezbedno raspravljaju.",
     "apply": "Prijavite se da postanete Čvor",
     "applyhelp": "*Izaberite lokaciju čvora",
     "pageSubtitle": "Želite da \"orange pill-ujete\" svet? Pridružite se Plan ₿ Mreži.",
     "descriptionextend": "Naš prvi korak je da pozovemo zajednice koje imaju fizički prostor, koje nazivamo \"potpunim čvorovima\" naše mreže, da nam se pridruže. U budućnosti, kako naša mreža bude jačala, proširićemo ovu pozivnicu na više inicijativa širom sveta. Ako delite naše vrednosti, molimo Vas da se obratite našim predstavnicima da se pridružite našoj mreži i pomognete u izgradnji najbolje moguće edukacije o Bitcoinu.",
-    "mobiledescription": "Verujemo da obrazovanje ne bi trebalo da se odvija samo na internetu, već i u fizičkom prostoru. Da bi to postigli, Plan B Mreža upravlja mrežom centara širom sveta kako bi dočekao mislioce, kreatore i edukatore koji podstiču napredak Bitcoina i tehnologija slobode. Naš prvi korak je da pozovemo zajednice sa fizičkim prostorima, koje nazivamo \"potpuni čvorovi\" naše mreže, da nam se pridruže. U budućnosti, kako naša mreža bude jačala, proširićemo ovaj poziv na više inicijativa širom sveta. Ako delite naše vrednosti, molimo Vas da se obratite našim predstavnicima kako biste se pridružili našoj mreži i pomogli u izgradnji najboljeg mogućeg obrazovanja o Bitcoinu.",
-    "pageTitle": "Istražite Plan ₿ Čvor mrežu",
-    "question1": "Šta je čvor?",
-    "question2": "Šta ja dobijam?",
-    "question3": "Koji su zahtevi?",
-    "question4": "Koje veličine je čvor?",
-    "question5": "Koji je tajni plan?"
+    "pageTitle": "Istražite Plan ₿ Čvor mrežu"
   },
   "imagesAlt": {
-    "blueEllipse": "plava elipsa",
     "bookCover": "omot knjige",
     "contributorHeart": "srce za dobrog saradnika",
-    "contributorPP": "profilna slika saradnika",
-    "forwardArrow": "strelica napred",
     "orangePill": "narandžasta pilula",
     "printedCircuits": "štampani krugovi",
     "rabbit404": "zec sa svetiljkom osvetljava 404 znak",
     "sthRepresentingCompany": "nešto što predstavlja kompaniju",
-    "stylus": "olovka za ekran",
     "underConstructionImage": "Ilustracija nekoliko zečeva koji rade na gradjevinskoj lokaciji"
   },
   "library": {
-    "pageSubtitle": "Ova biblioteka je otvorenog koda i prihvata bilo koji doprinos.",
-    "pageTitle": "Bitcoin Biblioteka",
-    "publishedIn": "Objavljeno {{date}}",
-    "writtenBy": "Napisao/la {{author}}"
+    "pageTitle": "Bitcoin Biblioteka"
   },
   "professors": {
     "tips": {
@@ -786,8 +630,7 @@
       "errorMessageNotFound": "Blog nije pronadjen.",
       "blogSidebarTitle": "Prethodne objave u mreži",
       "blogListButtonText": "Pročitaj",
-      "filterText": "Filtriraj po temi :",
-      "noBlogs": "Trenutno nema članaka"
+      "filterText": "Filtriraj po temi :"
     },
     "title": "Javna komunikacija",
     "blogPost": "Blogovi & Vesti",
@@ -809,32 +652,7 @@
     }
   },
   "resources": {
-    "conferences": {
-      "title": "Reprize konferencija"
-    },
-    "newsletter": {
-      "title": "Bilten"
-    },
-    "filterBarLabel": "Pronađite savršene resurse za svoje potrebe:",
     "github": "Svi ovi podaci se upravljaju preko jednog otvorenog koda <0>Github</0> repozitorijuma. Slobodno doprinesite i dodajte bilo koji nedostajući sadržaj.",
-    "headerText": "Dobrodošli u beskrajnu \"zečju rupu\" Bitcoina! U ovom delu ćemo Vam ponuditi detaljni tutorijal o većini Bitcoin projekata koji postoje. Ove stranice održavaju dobrovoljci i strastveni Bitcoin podržavaoci ovog projekta otvorenog koda. Ako mislite da smo napravili grešku, molimo Vas da nas kontaktirate. Da biste videli našu finansijsku vezanost za pomenuti projekat, pogledajte naš izveštaj o transparentnosti. Hvala Vam na poverenju u ovaj Univerzitet i uživajte.",
-    "publicGrade": "Javna ocena: {{grade}}/5",
-    "articles": {
-      "title": "Članci"
-    },
-    "bet": {
-      "title": "Obrazovni komplet alata"
-    },
-    "books": {
-      "title": "Biblioteka"
-    },
-    "builders": {
-      "title": "Kreatori"
-    },
-    "glossary": {
-      "title": "Rečnik"
-    },
-    "headerSignature": "Rogzy",
     "newsletters": {
       "title": "Bilteni"
     },
@@ -860,8 +678,6 @@
       },
       "shortDescription": "Rešenja za prodaju-kupovinu Botcoina, KYC i ne-KYC"
     },
-    "headerText": "Dobrodošli u beskrajnu zečiju rupu Bitcoina! U ovom delu ćemo vam ponuditi detaljni tutorijal o većini bitcoin projekata koji postoje. Ove stranice održavaju dobrovoljci i strastveni bitcoineri koji podržavaju ovaj open source projekat. Ako mislite da smo napravili grešku, molimo Vas da nas kontaktirate. Da biste videli našu finansijsku vezanost za pomenuti projekat, pogledajte naš izveštaj o transparentnosti. Hvala Vam na poverenju u ovaj univerzitet i uživajte u vožnji.",
-    "headerSignature": "Rogzy",
     "merchant": {
       "description": "Da li ste se ikada pitali koliko je lako preduzećima da prihvate bitcoin? Istražite naša različita rešenja da biste postali stručnjak i lako postavili trgovinsko rešenje za prodavnice oko vas. Rešenje za prodajno mesto (POS terminal) varira na osnovu potreba trgovca (fizički ili online), njihovog obima i složenosti njihovih operacija. Generalno dobar pristup je jednostavno početi sa osnovnim LN novčanikom, preći na lako, efikasno rešenje (kao što je mobilno prodajno mesto POS), i na kraju istražiti BTC Pay Server za napredna, složena, profesionalna rešenja.",
       "shortDescription": "Rešenja za preduzeća da prihvate Bitcoin",
@@ -871,12 +687,8 @@
     "backTutorials": "Nazad na sve tutorijale",
     "details": {
       "author": "Autor : ",
-      "checkAuthor": "Pogledajte ostale doprinose autora i podržite njegov/njen rad.",
       "didHelp": "Da li je ovo pomoglo?",
-      "enjoyed": "Uživali ste u ovom tutorijalu?",
-      "madeBy": "Ovaj tutorijal je napravio/la",
       "source": "Orginalni izvor:",
-      "tipTooltip": "Sviđa ti se? Doniraj.",
       "writtenBy": "Ovaj tutorijal je napisao/la :"
     },
     "explorer": {
@@ -959,12 +771,7 @@
     "pageSubtitle": "Izgleda da je neko previše duboko upao u \"zečju rupu\" i izgubio se. Da biste se vratili na površinu, kliknite",
     "pageTitle": "Ups."
   },
-  "podcast": {
-    "abstract": "Apstrakt"
-  },
   "podcasts": {
-    "hostedBy": "Domaćin je {{host}}",
-    "pageSubtitle": "Ovaj portal je otvorenog koda i doprinosi su dobrodošli.",
     "pageTitle": "Bitcoin podkasti"
   },
   "proofreading": {
@@ -991,7 +798,6 @@
   },
   "words": {
     "content": "Sadržaj",
-    "didYouKnow": "Da li ste znali?",
     "free": "Besplatno",
     "level": {
       "intermediate": "Srednji",
@@ -1007,34 +813,23 @@
     "mining": "Rudarenje",
     "ourStory": "Naša priča",
     "admins": "Administratori",
-    "node": "Čvor",
-    "article": "Članak",
     "all": "Sve",
     "about": "O",
     "about-us": "O nama",
-    "account": "Račun",
-    "additionalCriteria": "Dodatni kriterijumi",
     "advanced": "Napredni",
     "amount": "Iznos",
-    "articles": "Članci",
-    "audioBook": "Audio knjiga",
     "back": "Povratak",
     "bCertificate": "₿ Sertifikat",
     "beginner": "Početnik",
     "billing": "Naplaćivanje",
-    "bitcoinWhitepaper": "Bitcoinov beli papir",
     "book": "Knjiga",
     "booked": "Rezervisano",
     "bookings": "Rezervacije",
-    "books": "Knjige",
     "builder": "Kreator",
     "builders": "Kreatori",
-    "certificate": "Sertifikat",
     "chapter": "Poglavlje",
     "communities": "Zajednice",
     "conference": "Konferencija",
-    "conferences": "Konferencije",
-    "continue": "Nastavi",
     "course": "Kurs",
     "courseId": "ID Kursa",
     "courses": "Kursevi",
@@ -1044,51 +839,33 @@
     "description": "Opis",
     "details": "Detalji",
     "diploma": "Diploma",
-    "documentaries": "Dokumentarci",
-    "donations": "Donacije",
     "download": "Preuzmi",
     "duration": "Trajanje",
-    "economy": "Ekonomija",
     "edit": "Izmeni",
-    "education": "Obrazovanje",
-    "email": "Imejl",
     "events": "Događaji",
-    "exchanges": "Razmene",
     "filter": "Filter",
     "failed": "Neuspešan",
-    "followUs": "Pratite nas",
     "glossary": "Rečnik",
     "goal": "Cilj",
     "grade": "Ocena",
-    "helpUs": "Pomozite nam",
     "hours": "sati",
     "id": "ID",
-    "interview": "Intervju",
     "invoice": "Faktura",
     "lectures": "Predavanja",
     "library": "Biblioteka",
-    "lightning": "Lightning",
     "lightningInvoice": "Lightning faktura",
     "lnurlAuth": "LNURL Authentikacija",
     "location": "Lokacija",
-    "manifesto": "Manifest",
-    "merchants": "Trgovci",
-    "more": "Više",
-    "movieDocumentary": "Dokumentarni film",
     "network": "Mreža",
-    "networkMember": "Član mreže",
     "newsletter": "Bilten",
-    "newsletters": "Bilteni",
     "nodeNetwork": "Mreža čvorova",
     "on": "na",
     "online": "Na mreži",
-    "or": "ili",
     "overview": "Pregled",
     "to": "do",
     "home": "Početna stranica",
     "inReview": "Na pregledu",
     "intermediate": "Srednji",
-    "merchandising": "Prodaja",
     "paid": "Plaćen",
     "part": "Deo",
     "passed": "Položio/la",
@@ -1099,42 +876,28 @@
     "professors": "Profesori",
     "progress": "Napredak",
     "publicationDate": "Datum objavljivanja:",
-    "purchase": "Kupovina",
     "register": "Registrujte se",
     "public": "Javna komunikacija",
     "ratings": "Ocene",
-    "relatedResources": "Povezani resursi",
     "resources": "Resursi",
-    "review": "Recenzija",
-    "sponsorUs": "Sponzorišite nas",
-    "sponsoringAndContributors": "Sponzori & saradnici",
     "start": "Početak",
     "status": "Status",
     "students": "Studenti",
-    "supportUs": "Podržite nas",
     "teacher": "Nastavnik",
-    "teachers": "Nastavnici",
     "termsAndConditions": "Uslovi i odredbe",
     "ticket": "Karta",
     "tickets": "Karte",
     "time": "Vreme",
     "total": "Ukupno",
-    "toolkits": "Alati",
     "topics": "Teme",
     "tutorial": "Tutorijal",
     "tutorials": "Tutorijali",
     "unified": "Ujedinjen",
     "update": "Ažuriranje",
     "users": "Korisnici",
-    "video": "Video",
-    "onChain": "na chain-u (primarni lanac blokova)",
     "onChainAddress": "adresa na chain-u",
-    "resume": "Nastaviti",
-    "rogzy": "Rogzy",
-    "videos": "Videi",
     "view": "Pogledajte",
     "wallets": "Novčanici",
-    "writtenByPodcasts": "Napisao/la:",
     "required": "Obavezno"
   }
 }

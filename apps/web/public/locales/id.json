@@ -25,8 +25,6 @@
   "auth": {
     "errors": {
       "usernameRegex": "Nama pengguna hanya boleh mengandung huruf, angka, tanda garis bawah (_), tanda titik (.), dan tanda hubung (-).",
-      "displayNameRegex": "Nama tampilan hanya boleh mengandung huruf, angka, garis bawah(_), tanda titik (.), tanda hubung (-), dan spasi",
-      "displayNameRequired": "Nama tampilan diperlukan",
       "displayNameTooShort": "Nama tampilan harus mengandung setidaknya 2 karakter.",
       "usernameRequired": "Nama pengguna diperlukan.",
       "usernameTooShort": "Nama pengguna harus mengandung setidaknya lima karakter.",
@@ -45,7 +43,6 @@
     "accountCreated": "Akun Anda telah berhasil dibuat, {{userName}}!",
     "alreadyHaveAccount": "Sudah memiliki akun?",
     "canSaveProgress": "Anda sekarang dapat menyimpan progress Anda pada Bitcoin Academy",
-    "connectWithLn": "Hubungkan dengan LN",
     "createAccount": "Daftar",
     "createOne": "Daftar di sini!",
     "emailAddress": "Alamat email",
@@ -70,8 +67,7 @@
     "signIn": "Masuk",
     "confirmation": "Konfirmasi",
     "displayName": "",
-    "emailTip": "",
-    "oldPassword": ""
+    "emailTip": ""
   },
   "bCertificate": {
     "bCertificateDescription": "Sertifikat ₿ merupakan ujian yang diakui secara internasional untuk mengukur tingkat pemahaman Anda tentang Bitcoin dan topik-topik yang berkaitan. Sertifikat ini dapat berfungsi sebagai bukti atas kemampuan dan pengetahuan Anda dalam industri Bitcoin, dapat memberi Anda peluang untuk masuk ke perusahaan dan jabatan tertentu dalam industri tersebut.",
@@ -79,8 +75,6 @@
     "bookExam": "Jadwalkan sesi ujian",
     "challengeYourself": "Mari tantang diri Anda & buktikan tingkat kemampuanmu!",
     "checkout": "Lihat sertifikat ₿",
-    "curious": "Ingin tahu seperti apa ujiannya?",
-    "joeNakamotoVideo": "Sebenarnya apa itu ujian Bitcoin?\nDitulis oleh Joe Nakamoto",
     "knowledgeableBitcoin": "Apakah Anda mengerti Bitcoin?",
     "noBookExam": "Belum ada sesi ujian yang dijadwalkan sekarang",
     "organizeExam": "Selenggarakan ujian",
@@ -92,7 +86,6 @@
     "tweetText": ""
   },
   "bet": {
-    "contribute": "Toolkit ini terbuka untuk kontribusi. Toolkit ini menggunakan Figma, sehingga siapapun dapat menambah, memodifikasi dan menerjemahkan. Untuk berkolaborasi, tambahkan kategori atau diskusi, dan jangan ragu untuk bergabung dalam discord kami.",
     "contributeButton": "Bantu & kontribusi",
     "contributeDescription": "Apabila Anda ingin menambah, menyunting atau menerjemahkan beberapa konten, kami sangat menantikan bantuan Anda!",
     "contributeTitle": "Ingin berkontribusi?",
@@ -100,8 +93,6 @@
       "description": "Konten ini dimaksudkan untuk siap digunakan dalam acara edukasi dan keperluan pendidikan.",
       "title": "Konten edukasi"
     },
-    "hereForYou": "BET ada di sini untuk Anda!",
-    "pageSubtitle": "BET - Sebuah toolkit open-source untuk semua program edukasi",
     "pageTitle": "Toolkit Edukasi Bitcoin",
     "visualContent": {
       "description": "Konten ini adalah data visual yang belum diolah, dapat digunakan untuk kreasi Anda.",
@@ -121,14 +112,12 @@
       "previousVideo": "Video sebelumnya",
       "selectStage": "Pilih tahap",
       "selectVideo": "Pilih video",
-      "speaker": "Pembicara",
       "watchReplay": "Tonton tayangan ulang"
     },
     "language": "Bahasa",
     "latestConferences": "Konferensi terbaru",
     "location": "Lokasi",
     "noConferences": "Belum ada konferensi yang ditambahkan ke {{year}}.",
-    "pageSubtitle": "Portal ini bersifat open-source dan terbuka untuk kontribusi.",
     "pageTitle": "Tayangan ulang konferensi",
     "planBConferences": "Konferensi B Plan",
     "topics": "Topik"
@@ -151,77 +140,32 @@
         "stayTuned": "Tayangan langsung akan dimulai tiga puluh menit sebelum kelas dimulai. Tetaplah menonton!",
         "title": "Video tayangan langsung"
       },
-      "count": "Bab {{count}}",
       "finishCourse": "Selesaikan kursus",
       "next": "Selesai, masuk ke bab berikutnya",
       "nextLesson": "Pembelajaran berikutnya adalah"
     },
     "details": {
-      "access_invoice": "Anda dapat mengakses tagihan Anda melalui dashboard Anda",
-      "accessible": "Dapat diakses: Seumur Hidup",
       "buyCourse": "Beli kursus",
-      "courseId": "ID kursus: {{courseId}}",
-      "coursePayment": "Pembayaran kursus",
       "curriculum": "Kurikulum",
-      "date": "Tanggal: {{startDate}} sampai {{endDate}}",
-      "dates_to": "{{startDate}} sampai {{endDate}}",
       "description": "Deskripsi",
-      "duration": "Durasi: {{hours}} jam",
-      "goal": "TUJUAN:",
-      "level": "Tingkatan: $t(words.level.{{level}})",
       "mobile": {
-        "chapters": "{{chapters}} bab",
         "hours": "{{hours}} jam"
       },
-      "numberOfChapters": "Jumlah bab: {{number}}",
       "objectives": "Tujuan",
       "objectivesTitle": "Yang akan Anda pelajari:",
-      "price": "Harga: {{price}} sats",
-      "professor": "Profesor",
       "startCourse": "Mulai kursus",
       "taughtBy": "Kursus ini diajarkan oleh:",
-      "teacher": "Pendidik: {{teacher}}",
-      "teachers": "Pendidik: {{teachers}}",
-      "teacherWord": "Pesan dari pengajar",
-      "total": "Total",
-      "payment_successful": "Pembayaran berhasil!",
-      "payment_details": "Detail pembayaran",
-      "amount": "Jumlah",
-      "invoiceId": "ID Transaksi",
       "buyInPersonCourse": "",
       "buyOnlineCourse": "",
       "inPersonAccess": "",
       "paidCourse": ""
     },
-    "categories": {
-      "btc": "Bitcoin",
-      "crypto": "Kriptografi",
-      "cuboplus": "Bitcoin",
-      "econ": "Ekonomi Austria",
-      "fin": "Keuangan",
-      "ln": "Jaringan Lightning",
-      "min": "Penambangan (Mining)",
-      "secu": "Keamanan & Privasi"
-    },
     "explorer": {
-      "footerp1": "Di Universitas Sovereign, profesor kami memiliki otonomi penuh atas konten mereka dan fitur yang ingin mereka perkenalkan kepada Anda, selama mereka berpegang pada kode etik. Mereka adalah bitcoiner yang antusias dari berbagai latar belakang.",
       "pageDescription": "Akademi Plan B bertujuan untuk menyederhanakan edukasi Bitcoin secara global. Disusun oleh para ahli dari berbagai disiplin ilmu, akademi ini menawarkan berbagai macam kursus yang dirancang untuk memaparkan tiap aspek Bitcoin dengan jelas. Dari pemula hingga ahli, baik dengan ritme Anda sendiri atau mengikuti jadwal mingguan dari profesor, kami berharap akademi ini dapat membantu Anda untuk memahami lebih baik topik-topik luas tentang Bitcoin. Sebagian besar dari kursus kami bersifat gratis, sehingga siapapun, dimanapun dapat mengakses pendidikan.",
       "journey": "Bitcoin adalah sebuah perjalanan, bukan destinasi",
-      "moreToCome": ".... dan masih banyak lagi!",
       "buildPath": "Bangunlah jalanmu sendiri untuk menjelajah lebih dalam",
       "exploreCourses": "Jelajahi semua kursus Plan B",
       "findCourses": "Dengan fitur pemilihan kursus, temukan kursus yang paling cocok untuk kebutuhan Anda",
-      "footerTitle": "Profesor kami ada di sini untuk Anda !",
-      "footerp2": "Apabila Anda ingin mengembangkan kursus yang sudah ada atau menyediakan kursus Anda sendiri, Anda dapat melakukannya melalui GitHub. Untuk mendukung profesor, Anda bisa memberi penilaian terhadap kursusnya, memberi tip secara langsung kepada beliau, atau menjadi anggota universitas untuk mendukung platform ini.",
-      "pageSubtitle": "Adopsi skala besar melalui edukasi open-source tersentralisasi",
-      "pageTitle": "Selamat datang di Akademi Plan B",
-      "s2p1": "Bila Anda sudah memulai menjelajahi dunia Bitcoin, Anda pasti mengerti bahwa itu merupakan perjalanan tiada akhirnya dengan banyak jalan. Di universitas ini, kami memahami ini dan telah merancang konten edukasi kami se-non-linear, mandiri, dan seluas mungkin.",
-      "s2p2": "Anda dapat memilih jalan Anda sendiri dan menjelajahinya, mendapatkan kemampuan dan pengetahuan sejauh motivasi Anda.",
-      "s2p3": "Semua kursus kami 100% bersifat gratis, jadi tidak ada lagi yang dapat menghentikan Anda!",
-      "s2t1": "Edukasi bitcoin adalah sebuah perjalanan, bukan sebuah destinasi",
-      "s3PickLevel": "Pilih tingkatan :",
-      "s3PickTopic": "Pilih topik :",
-      "s3t1": "Buat jalurmu sendiri untuk menjelajah lebih dalam",
       "seeCourse": "Lihat kursus"
     },
     "payment": {
@@ -231,7 +175,6 @@
       "accessibility_forever": "Selamanya",
       "amount": "Jumlah",
       "date": "Tanggal",
-      "dates_to": "{{startDate}} hingga {{endDate}}",
       "downloadCurriculum": "Unduh kurikulum",
       "book_description": "Silakan tinjau rincian tempat yang diberikan. Setelah pemesananmu diproses, kami akan memberikan tiket konfirmasi dan kode QR, yang harus Anda tunjukkan saat acara.",
       "duration": "Durasi",
@@ -252,7 +195,6 @@
       "count": "Bagian {{count}}"
     },
     "preview": {
-      "by": "oleh {{profesor}}",
       "letsgo": "Ayo!"
     },
     "quizz": {
@@ -264,13 +206,6 @@
       "resultItsOk": "Jangan menyerah, kamu akan melakukannya lebih baik lain kali!",
       "resultNotBad": "Tidak terlalu buruk!",
       "resultPerfect": "Luar biasa sempurna! Selamat ya!"
-    },
-    "unreleased": {
-      "colcardAndSparrow": "­Coldcard dan Sparrow",
-      "financeIntroduction": "Pengenalan keuangan",
-      "financialCrisis": "Analisis krisis keuangan besar",
-      "hyperinflation": "Studi tentang hiperinflasi",
-      "theoreticalLightning": "Kuliah teori tingkat lanjut tentang jaringan Lightning"
     },
     "exam": {
       "congratulationsPassed": "",
@@ -318,7 +253,6 @@
       "tamperProof": "",
       "testKnowledge": "",
       "testResults": "",
-      "timeLeft": "",
       "timeStampBenefits": "",
       "timeStamped": "",
       "timeStampHowDescription": "",
@@ -330,15 +264,12 @@
       "yesSubmit": ""
     },
     "review": {
-      "loading": "",
       "asExpected": "",
       "commentAdmin": "",
       "commentPublic": "",
       "commentTeacher": "",
-      "currentlyLoggedOut": "",
       "difficulty": "",
       "displayOutOf": "",
-      "edit": "",
       "feedbackSessionTitle": "",
       "fieldRequired": "",
       "generalGrade": "",
@@ -372,20 +303,17 @@
       "completed": "Selesai",
       "inprogressCoursesDescription": "Di sini Anda dapat memeriksa kemajuan Anda dalam kursus yang telah Anda mulai.",
       "completedCoursesDescription": "Di sini Anda dapat memeriksa kursus Anda yang telah selesai.",
-      "details": "Detail",
       "inprogressCoursesTitle": "Kursus sedang berlangsung",
       "inprogress": "Sedang berlangsung",
       "resumeLesson": "Lanjutkan",
       "seeProgress": "untuk melihat perkembangan Anda.",
       "startCourse": "Mulai atau selesaikan kursus",
       "whereYouAre": "",
-      "completedOutOf": "",
       "done": "",
       "yourCertificate": "",
       "viewDetails": ""
     },
     "booking": {
-      "downloadTicket": "Unduh tiket",
       "invoiceDate": "Tanggal",
       "invoiceTitle": "Judul",
       "invoiceType": "Tipe",
@@ -400,8 +328,7 @@
       "upcomingTicketSubtitle": "Unduh tiket Anda di sini untuk menghadiri acara berikutnya. Pastikan Anda membawa tiket agar Anda dapat menghadiri acara.",
       "accessLive": "Akses secara langsung",
       "billingTitle": "Riwayat tagihan",
-      "billingSubtitle": "Unduh faktur dari pemesanan Anda di sini.",
-      "downloadInvoice": "Unduh faktur"
+      "billingSubtitle": "Unduh faktur dari pemesanan Anda di sini."
     },
     "calendar": {
       "calendar": "Kalender",
@@ -426,17 +353,13 @@
       "profilePicture": "Foto profil",
       "security": "Keamanan",
       "username": "Nama pengguna",
-      "emailChangeRateLimitError": "",
       "profile": ""
     },
     "account": "Akun",
     "bCertificate": {
-      "bookExam": "Jadwalkan sesi ujian",
-      "certificate": "Sertifikat",
       "grade": "Tingkat",
       "noResults": "Belum ada nilai atau sertifikat yang terkait dengan akun ini. Jika Anda telah lulus ujian dan hasilnya belum tersedia setelah waktu yang lama, harap hubungi kami untuk mendapatkan bantuan."
     },
-    "administration": "",
     "course": {
       "checkDetailsCompleted": "",
       "completionDiploma": "",
@@ -472,9 +395,7 @@
         "courseLongDescription": "",
         "analytics": "",
         "courseDetails": "",
-        "courseId": "",
         "courseModification": "",
-        "courseName": "",
         "courseShortDescription": "",
         "coursesManagementPanel": "",
         "curriculum": "",
@@ -486,9 +407,7 @@
       "profile": {
         "account": "",
         "billingInformations": "",
-        "chooseTags": "",
         "description": "",
-        "descriptionTags": "",
         "enterTipsInformations": "",
         "publicProfileDescription": "",
         "teacher": "",
@@ -501,8 +420,7 @@
         "noTags": "",
         "notifications": "",
         "publicDescription": "",
-        "publicProfile": "",
-        "writeShortBio": ""
+        "publicProfile": ""
       },
       "reviews": {
         "checkComments": "",
@@ -519,26 +437,10 @@
       }
     }
   },
-  "book": {
-    "abstract": "Abstrak",
-    "bookSummary": {
-      "modifyTooltip": "Tulis atau ubah",
-      "noSummary": "Belum ada ringkasan yang ditulis. Jika Anda telah membaca bukunya dan ingin membagikan ringkasan, jangan ragu untuk menuliskannya di Github, karena ini akan membantu komunitas secara signifikan, meningkatkan universitas, dan Anda bahkan bisa mendapatkan beberapa sats untuk itu!",
-      "notice": "Ringkasan ini terhubung ke Github, untuk modifikasi atau penambahan",
-      "title": "Ringkasan buku"
-    },
-    "buttonBuy": "Beli",
-    "buttonPdf": "PDF / E-book",
-    "offeredBy": "Disediakan oleh kontributor yang dermawan",
-    "pageSubtitle": "Portal ini bersifat open-source dan terbuka terhadap kontribusi.",
-    "pageTitle": "Perpustakaan Bitcoin",
-    "topicsAddressed": "Topik yang dibahas:"
-  },
   "builders": {
     "networkStrength": "Kekuatan sebuah jaringan ada pada anggota-anggotanya",
     "noRelatedEvents": "Belum ada aktivitas mendatang terkait untuk pembangun ini.",
     "otherCommunities": "Jelajahi Komunitas-komunitas Plan B",
-    "pageSubtitle": "Portal ini bersifat open-source dan terbuka terhadap kontribusi.",
     "pageTitle": "Pembangun Bitcoin",
     "languages": "Bahasa",
     "relatedEvents": "Acara mendatang terkait"
@@ -570,11 +472,7 @@
       "title": "Bursa pertukaran"
     },
     "details": {
-      "checkAuthor": "Lihat kontribusi lain dari penulis dan dukung karyanya.",
-      "enjoyed": "Senang dengan tutorial ini?",
-      "madeBy": "Tutorial ini telah dibuat oleh",
       "source": "Sumber asli :",
-      "tipTooltip": "Suka? Berikan tip.",
       "author": "",
       "didHelp": "",
       "writtenBy": ""
@@ -615,8 +513,6 @@
       "didYouKnow": "Apakah Anda tahu ?",
       "exploreAllTutorials": ""
     },
-    "headerSignature": "Rogzy",
-    "headerText": "Selamat datang di lubang kelinci tak terbatas Bitcoin ! Di bagian ini, kami akan menawarkan Anda tutorial mendalam mengenai sebagian besar proyek bitcoin di luar sana. Halaman ini diperlihara oleh bitcoiner baik hati dan antusias yang mendukung proyek open-source ini. Apabila Anda menemukan bahwa kami melakukan kesalahan, silakan hubungi kami. Untuk melihat lampiran keuangan proyek, silakan merujuk pada laporan transparansi kami. Terima kasih atas kepercayaan Anda terhadap universitas ini dan nikmati perjalanan Anda.",
     "mining": {
       "description": "Industri penambangan (mining) adalah sebuah topik kompleks dengan banyak aspek yang dapat dipelajari di dalamnya. Di sini, kami akan berusaha untuk menemani perjalanan Anda dengan menggunakan perangkat keras dan lunak. Dari modifikasi S9 menjadi pemanas rumah, hingga mencoba untuk memenangkan lotere dengan penambang kutubuku.",
       "shortDescription": "Solusi penambangan Bitcoin",
@@ -660,35 +556,10 @@
     "podcasts": {
       "title": "Podcast"
     },
-    "publicGrade": "Peringkat publik: {{grade}}/5",
-    "books": {
-      "title": "Perpustakaan"
-    },
-    "builders": {
-      "title": "Pembangun"
-    },
-    "conferences": {
-      "title": "Tayangan ulang konferensi"
-    },
-    "filterBarLabel": "Temui sumber daya yang sesuai dengan kebutuhan Anda:",
-    "glossary": {
-      "title": "Glosarium"
-    },
-    "headerSignature": "Rogzy",
     "newsletters": {
       "title": "Buletin"
     },
-    "articles": {
-      "title": "Artikel-artikel"
-    },
-    "bet": {
-      "title": "Alat Bantu Pendidikan"
-    },
-    "headerText": "Selamat datang di lubang kelinci Bitcoin yang tak berujung! Di bagian ini, kami akan menyediakan tutorial mendalam tentang sebagian besar proyek Bitcoin yang ada. Halaman ini dikelola oleh para penggemar Bitcoin yang penuh dedikasi dan mendukung proyek sumber terbuka ini. Jika Anda merasa kami membuat kesalahan, silakan hubungi kami. Untuk melihat keterkaitan finansial kami dengan proyek yang disebutkan, silakan merujuk pada laporan transparansi kami. Terima kasih atas kepercayaan Anda pada universitas ini dan selamat menikmati perjalanannya!",
     "pageDescription": "Mempelajari Bitcoin seperti menjelajahi labirin yang terus berkembang. Untuk membantu perjalanan Anda, kami telah mengumpulkan berbagai sumber daya, termasuk buku, podcast, video, dan rekaman konferensi. Portal ini mengumpulkan semua informasi dalam satu repositori GitHub untuk membantu Anda memahami ekosistem Bitcoin dengan lebih baik.",
-    "newsletter": {
-      "title": ""
-    },
     "pageSubtitleBooks": "",
     "pageSubtitlePodcast": "",
     "searchFilterName": ""
@@ -730,27 +601,18 @@
     "payment": {
       "access_invoice": "Anda dapat mengakses faktur Anda melalui tampilan utama Anda.",
       "callout_physical": "Anda akan memesan akses luring ke acara ini.",
-      "description_online": "Silakan periksa tanggal dan waktu acara yang tertera.\nSaat tiba waktunya, masuklah ke dalam platform dan akses siaran langsung melalui halaman acara.",
       "description_free_physical": "Silakan periksa detail tempat acara yang tertera.\nSetelah pesanan diproses, kami akan memberikan Anda tiket konfirmasi dan kode QR untuk menghadiri acara.",
-      "access_online_successful": "Saat acara dimulai, masuklah ke platform dan Anda akan mendapatkan akses langsung ke siaran langsung melalui halaman acara.",
-      "access_physical_successful": "Tiket Anda dapat diunduh di sini, atau dapat diunduh nanti di dashboard Anda.",
       "access_type": "Tipe akses",
       "address": "Alamat",
       "additional_free_description": "Acara ini bersifat gratis, Anda tidak akan dikenakan biaya untuk memesan tempat. Namun pastikan untuk menghadirinya karena jumlah tempatnya terbatas.",
-      "amount": "Jumlah",
       "back_events": "Kembali ke acara",
       "book_seat": "Pesan tempat",
-      "callout_online": "Anda akan memesan akses daring ke acara ini.",
-      "callout_replay": "Anda akan memesan akses untuk tayangan ulang video acara ini.",
       "date": "Tanggal",
-      "dates_to": "{{startDate}} hingga {{endDate}}",
-      "description_physical": "Silakan periksa detail tempat acara yang tertera\nSetelah pesanan diproses, kami akan memberikan Anda tiket untuk menghadiri acara. Tiket ini juga akan memberi Anda akses ke siaran langsung dan tayangan ulang video, bila ada.",
       "download_ticket": "Unduh tiket Anda",
       "enjoy": "Semoga Anda akan menyukainya :)",
       "language": "Bahasa yang digunakan",
       "limitation": "Keterbatasan",
       "max_capacity": "Kapasitas maksimum adalah",
-      "payment_details": "Detail pembayaran",
       "payment_successful": "Pemesanan berhasil !",
       "time": "Waktu"
     }
@@ -764,14 +626,9 @@
   "words": {
     "about": "Tentang",
     "about-us": "Tentang Kami",
-    "account": "Akun",
-    "additionalCriteria": "Kriteria tambahan",
     "advanced": "Lanjutan",
     "all": "Semua",
     "amount": "Jumlah",
-    "article": "Artikel",
-    "articles": "Artikel",
-    "audioBook": "Buku audio",
     "wallets": "Dompet",
     "view": "Tampilan",
     "level": {
@@ -786,7 +643,6 @@
     },
     "members": " Anggota",
     "onChainAddress": "Alamat jaringan on chain",
-    "review": "Ulasan",
     "course": "Kursus",
     "courseId": "ID Kursus",
     "courses": "Kursus",
@@ -794,45 +650,24 @@
     "dashboard": "Dasbor",
     "description": "Deskripsi",
     "details": "Detail",
-    "didYouKnow": "Apakah kamu tahu?",
-    "documentaries": "Dokumenter",
-    "donations": "Donasi",
     "download": "Unduh",
     "duration": "Durasi",
-    "economy": "Ekonomi",
     "edit": "Sunting",
-    "education": "Pendidikan",
-    "email": "Email",
     "events": "Acara",
-    "exchanges": "Bursa pertukaran",
-    "followUs": "Ikuti kami",
     "free": "Gratis",
     "glossary": "Glosarium",
-    "helpUs": "Bantu kami",
     "home": "Halaman utama",
     "intermediate": "Tingkat menengah",
-    "interview": "Wawancara",
     "invoice": "Tagihan",
     "library": "Perpustakaan",
-    "lightning": "Lightning",
     "lightningInvoice": "Tagihan Lightning",
     "lnurlAuth": "LNURL Auth",
-    "manifesto": "Manifesto",
-    "merchandising": "Penjualan",
-    "merchants": "Penjual",
     "mining": "Penambangan",
-    "more": "Lainnya",
-    "movieDocumentary": "Dokumenter film",
     "network": "Jaringan",
-    "networkMember": "Anggota Jaringan",
     "newsletter": "Buletin",
-    "newsletters": "Buletin",
-    "node": "Node",
     "nodeNetwork": "Jaringan Node",
     "on": "Nyala",
-    "onChain": "On chain",
     "online": "Daring",
-    "or": "atau",
     "ourStory": "Cerita kami",
     "paid": "Sudah dibayar",
     "part": "Bagian",
@@ -841,43 +676,27 @@
     "price": "Harga",
     "professor": "Profesor",
     "professors": "Profesor",
-    "purchase": "Beli",
     "register": "Daftar",
-    "relatedResources": "Sumber daya terkait",
     "resources": "Sumber daya",
-    "resume": "Resume",
-    "rogzy": "Rogzy",
-    "sponsorUs": "Sponsori Kami",
-    "sponsoringAndContributors": "Sponsor & kontributor",
     "start": "Mulai",
-    "supportUs": "Dukung kami",
-    "teachers": "Pengajar",
     "termsAndConditions": "Syarat dan ketentuan",
     "ticket": "Tiket",
     "tickets": "Tiket",
     "time": "Waktu",
     "to": "hingga",
-    "toolkits": "Toolkit",
     "topics": "Topik",
     "tutorial": "Tutorial",
     "tutorials": "Tutorial",
     "unified": "Terpadu",
     "update": "Pembaharuan",
-    "video": "Video",
-    "videos": "Video",
     "back": "Kembali",
     "bCertificate": "Sertifikat ₿",
     "beginner": "Pemula",
     "billing": "Penagihan",
-    "bitcoinWhitepaper": "Whitepaper Bitcoin",
     "book": "Buku",
-    "books": "Buku",
     "builders": "Pembangun",
-    "certificate": "Sertifikat",
     "conference": "Konferensi",
-    "conferences": "Konferensi",
     "content": "Konten",
-    "continue": "Lanjutkan",
     "builder": "",
     "booked": "",
     "bookings": "",
@@ -902,7 +721,6 @@
     "teacher": "",
     "total": "",
     "users": "",
-    "writtenByPodcasts": "",
     "admins": "",
     "credentials": "",
     "diploma": "",
@@ -917,21 +735,6 @@
       "welcome": "Selamat datang di PlanB Network",
       "link": "Jadi bagian dari network",
       "startLink": "Mulai Belajar"
-    },
-    "numbersSection": {
-      "networkMember": "Anggota Jaringan"
-    },
-    "sectionEducation": {
-      "title": "Dari pemula hingga ahli",
-      "subtitle": "Pelajari Bitcoin di akademi",
-      "content1": "Bitcoin tidak hanya merupakan sebuah teknologi dan suatu bentuk dari uang, tetapi juga sebuah langkah revolusioner dalam hidup. Untuk terus mencerminkan hal ini, kursus kami mencakup berbagai disiplin ilmu, memberdayakan tiap individu untuk menjadi ahli di bidang minatnya serta memperdalam pemahamannya. Dari kursus Bitcoin pertama Anda ke pendalaman spesifikasi protokol, kursus kami akan membantu Anda menjelajahi dunia Bitcoin dengan aman. Tak ada alasan untuk ragu. Ilmu dan pengetahuan menantimu.",
-      "link": "Lihat akademi"
-    },
-    "sectionNetwork": {
-      "content1": "Berhubunglah dengan para penggemar Bitcoin di seluruh dunia yang memiliki minat yang sama. Dari komunitas kecil yang bertemu secara rutin hingga pusat pendidikan BTC, peta jaringan kami akan membantu Anda menemukan inspirasi untuk belajar dan membangun. Beragam layanan tersedia untuk penggemar, seperti pusat inkubasi, lokakarya fisik, seminar, retret BTC, dan banyak lagi. Jaringan ini terbuka untuk semua orang, jadi datanglah dan sapa komunitas BTC lokal Anda!",
-      "subtitle": "Kampus Bitcoin Global",
-      "title": "Mengakses jaringan dari",
-      "link": "Jadilah bagian dari jaringan ini"
     },
     "tutorialSection": {
       "content1": "Bitcoin terus berkembang dengan munculnya aktor, solusi, protokol, dan terobosan teknologi baru. Seringkali sulit untuk menjaga database yang akurat dan terkini dari tutorial yang baik. Di sini di PlanB, kami telah mencapai hal tersebut. Dari pemula hingga pengguna berpengalaman, Anda dapat menjelajahi ratusan tutorial untuk mengeksplorasi industri kami sesuai kebutuhan Anda.",
@@ -954,7 +757,6 @@
       "privacyContent": "Kami menganggap privasi sebagai salah satu hak dasar manusia yang paling penting dan esensial untuk kemajuan"
     },
     "patreonSection": {
-      "subtitle": "Jaringan PlanB adalah 100% sumber terbuka berkat para donor kami yang dermawan",
       "content": "Jaringan PlanB dengan bangga bekerja sama dengan banyak perusahaan Bitcoin di seluruh dunia untuk menyediakan sumber daya edukasi terbaik yang mungkin!",
       "title": "Bersama-sama, mari kita buat pendidikan Bitcoin lebih baik!"
     },
@@ -962,9 +764,7 @@
       "availableLanguages": "Bahasa yang tersedia",
       "title": "Tidak ada kendala bahasa di sini.",
       "subtitle": "Semuanya diterjemahkan ke bahasa setempat",
-      "subtitle2": "Kami membutuhkan Anda!",
       "content1": "Di PlanB, kami percaya bahwa Bitcoin adalah revolusi internasional yang menyangkut semua orang. Untuk memberdayakan miliaran orang, kami merancang platform ini agar dapat diakses dalam berbagai bahasa. Saat ini, platform ini mendukung 7 bahasa, dan lebih banyak bahasa akan ditambahkan setiap bulan. Untuk mencapainya, kami menggunakan kombinasi AI dan semangat para penggemar Bitcoin di seluruh dunia.",
-      "content2": "Anda juga dapat mulai membangun jaringan lokal Anda sendiri di negara Anda!",
       "link": "Bantu kami menerjemahkan akademi",
       "availableLanguagesVariation": ""
     },
@@ -980,7 +780,6 @@
     "needHelp": "Perlu bantuan untuk mengartikan kata teknis ?",
     "keepLooking": "Ingin tetap melihat?",
     "loadMoreWords": "Muat lebih banyak kata",
-    "pageSubtitle": "Perlu bantuan mengartikan kata teknis?",
     "pageTitle": "Glosarium Bitcoin",
     "placeHolder": "Apa ini?",
     "randomSearch": "Pencarian acak",
@@ -990,72 +789,40 @@
     "notTranslated": ""
   },
   "imagesAlt": {
-    "blueEllipse": "sebuah elips biru",
     "bookCover": "sebuah cover buku",
     "contributorHeart": "sebuah hati untuk kontributor yang baik",
-    "contributorPP": "foto profil kontributor",
-    "forwardArrow": "sebuah panah maju",
     "orangePill": "sebuah pil oranye",
     "printedCircuits": "sebuah sirkuit cetak",
-    "stylus": "Stilus",
     "rabbit404": "Seekor kelinci yang menerangi tanda 404 dengan senter",
     "sthRepresentingCompany": "sesuatu yang mewakili perusahaan",
     "underConstructionImage": "Ilustrasi beberapa kelinci yang bekerja di lokasi konstruksi"
   },
   "menu": {
     "betDescription": "Koleksi konten yang dapat Anda gunakan untuk proyek pendidikan Anda",
-    "btc101Description": "Dapatkan pemahaman yang lebih baik dengan materi-materi pelajaran ini",
     "teachersDescription": "Kenali pengajar di akademi kami",
     "bCertificateDescription": "Lulus ujian sertifikat ₿ untuk membuktikan tingkat pemahaman Anda tentang Bitcoin",
     "buildersDescription": "Pelajari tentang perusahaan dan proyek yang berperan dalam membuat Bitcoin semakin baik dan memperluas penggunaannya",
     "conferencesDescription": "Koleksi tayangan ulang konferensi Bitcoin sejak Genesis Block",
-    "exchangesDescription": "Beli dan jual bitcoin di bursa pertukaran dan pelajari tentang P2P",
     "glossaryDescription": "Memahami bahasa Bitcoin",
     "libraryDescription": "Temukan berbagai buku untuk meningkatkan pengetahuan Anda",
-    "lightningDescription": "Atur lightning node Anda dan gunakan lightning network",
     "login": "Masuk",
-    "loginRegister": "Masuk / Daftar",
-    "manifestoDescription": "Baca manifesto Plan B",
-    "miningDescription": "Tambang bitcoin Anda sendiri dan pelajari tentang industri penambangan",
-    "nodeDescription": "Pelajari cara menjadi merdeka dengan node bitcoin Anda sendiri",
     "nodeNetworkDescription": "Bergabung dengan komunitas jaringan global Plan B",
-    "ourStoryDescription": "Memahami tentang cerita dari universitas",
     "podcastsDescription": "Jelajahi ekosistem bitcoin melalui podcast",
-    "sponsorsDescription": "Kenali sponsor dan kontributor utama kami",
-    "supportUsDescription": "Temukan berbagai cara untuk mendukung kami",
-    "walletsDescription": "Lindungi dan gunakan bitcoin Anda",
-    "merchantsDescription": "Terima pembayaran Bitcoin dan temukan alat untuk para pedagang",
     "publicDescription": ""
   },
   "library": {
-    "pageSubtitle": "Perpustakaan ini bersifat sumber terbuka & menerima kontribusi.",
-    "pageTitle": "Perpustakaan Bitcoin",
-    "publishedIn": "Dipublikasikan pada {{date}}",
-    "writtenBy": "Ditulis oleh {{author}}"
+    "pageTitle": "Perpustakaan Bitcoin"
   },
   "podcasts": {
-    "hostedBy": "Diselenggarakan oleh {{host}}",
-    "pageSubtitle": "Portal ini bersifat sumber terbuka & terbuka terhadap kontribusi.",
     "pageTitle": "Podcast Bitcoin"
   },
   "nodeNetwork": {
-    "question5": "Apa rencana rahasianya?",
-    "answer1": "Sebuah node adalah inisiatif edukasi yang terhubung dengan komunitas di berbagai belahan dunia. Node bisa berupa gedung tempat pendidikan Bitcoin berlangsung, namun tidak terbatas pada itu saja. Plan B Network mengoperasikan pusat-pusat, namun mendirikan pusat di setiap kota di seluruh dunia tidak realistis. Itulah sebabnya kami mengandalkan komunitas penggemar Bitcoin untuk membantu mewujudkan jaringan global ini menjadi nyata.",
-    "answer2": "Dengan bergabung ke jaringan kami, Anda mendapatkan akses ke konten eksklusif yang didistribusikan Plan B melalui platformnya, yang dapat Anda bagikan dengan penghuni node Anda. Manfaat terpentingnya adalah membuka saluran diskusi untuk proyek-proyek masa depan dan terhubung dengan komunitas lain di seluruh dunia untuk berbagi pengalaman.",
-    "answer3": "Pada awalnya, Plan B Network fokus pada tempat-tempat dengan ruang fisik untuk beroperasi. Di masa depan, kami berencana untuk mengintegrasikan inisiatif apa pun yang dapat memanfaatkan dukungan jaringan ini untuk berkembang.",
-    "answer4": "Sebuah node Bitcoin bisa memiliki berbagai ukuran. Berdasarkan beberapa persyaratan, berbagai tingkat akan diberikan. Node yang memiliki hackerspace, gym, dan beberapa ruang kantor akan dianggap lebih mirip dengan markas.",
-    "answer5": "Kami ingin menyediakan tempat perlindungan yang aman bagi para penggemar Bitcoin di seluruh dunia. Kami percaya bahwa dengan membantu pusat-pusat lokal berkembang, kami akan dapat menciptakan jaringan markas di mana para penggemar Bitcoin dapat bekerja, berkreasi, berbagi, dan berdiskusi dengan aman.",
     "apply": "Ajukan permohonan untuk menjadi Node",
     "description1": "Plan B Network mendukung inisiatif edukasi di seluruh dunia. Kami bekerja sama untuk menciptakan alat terbaik bagi proyek-proyek ini, baik melalui platform kami maupun secara langsung. Kami selalu mencari node baru untuk bergabung dengan kami. Jika Anda ingin bekerja sama untuk membangun jaringan edukasi global yang terdesentralisasi untuk Bitcoin, hubungi kami!",
     "pageSubtitle": "Ingin memberi pil oranye alias mengedukasi dunia tentang Bitcoin? Bergabunglah dengan PlanB Network.",
     "pageTitle": "Jelajahi Jaringan Node Plan B",
-    "question1": "Apa itu node?",
-    "question2": "Apa yang bisa saya dapatkan?",
-    "question3": "Apa saja persyaratannya?",
-    "question4": "Berapa ukuran sebuah node?",
     "applyhelp": "",
-    "descriptionextend": "",
-    "mobiledescription": ""
+    "descriptionextend": ""
   },
   "notFound": {
     "here": "Disini",
@@ -1065,9 +832,6 @@
   "payment": {
     "terms": "Lihat <0>syarat dan ketentuan umum</0> kami untuk detail pengembalian dana.",
     "total": "Total"
-  },
-  "podcast": {
-    "abstract": "Abstrak"
   },
   "professors": {
     "pageSubtitle": "Semua profesor kami adalah sukarelawan dan penggemar bitcoin yang berdedikasi. Anda bisa memberikan tip sebagai ungkapan terima kasih.",
@@ -1119,8 +883,7 @@
       "errorMessageNotFound": "",
       "blogSidebarTitle": "",
       "blogListButtonText": "",
-      "filterText": "",
-      "noBlogs": ""
+      "filterText": ""
     },
     "description": ""
   }

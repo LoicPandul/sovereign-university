@@ -25,8 +25,6 @@
   "auth": {
     "errors": {
       "displayNameTooShort": "نام نمایشی باید حداقل شامل 2 کاراکتر باشد.",
-      "displayNameRegex": "نام نمایشی فقط می‌تواند شامل حروف، اعداد، _،.، - و فاصله باشد.",
-      "displayNameRequired": "نام نمایشی الزامی می‌باشد.",
       "usernameRequired": "نام کاربری مورد نیاز است.",
       "usernameTooShort": "نام کاربری باید حداقل 5 کاراکتر داشته باشد.",
       "usernameRegex": "نام کاربری فقط می‌تواند شامل حروف، اعداد، _، . و - باشد.",
@@ -39,7 +37,6 @@
     "accountCreated": "حساب شما ایجاد شده است، {{userName}}!",
     "alreadyHaveAccount": "قبلاً حساب کاربری ایجاد کرده‌اید؟",
     "canSaveProgress": "اکنون شما می‌توانید پیشرفت خود را در آکادمی بیت کوین ذخیره نمایید",
-    "connectWithLn": "اتصال با LN",
     "createAccount": "ثبت نام",
     "createOne": "ثبت نام کنید!",
     "emailAddress": "آدرس ایمیل",
@@ -70,7 +67,6 @@
     "signIn": "ورود",
     "confirmation": "تأیید",
     "displayName": "نام نمایش داده شده",
-    "oldPassword": "رمز عبور قدیمی",
     "emailTip": "ثبت ایمیل اجباری نیست، اما در صورت فراموش کردن رمز عبور می‌تواند مفید باشد :)"
   },
   "bCertificate": {
@@ -79,8 +75,6 @@
     "bookExam": "یک جلسه امتحان رزرو کنید",
     "challengeYourself": "خود را به چالش بکشید و سطح خود را بسنجید!",
     "checkout": "بررسی گواهینامه ₿",
-    "curious": "آیا مشتاقید بدانید این آزمون چگونه است؟",
-    "joeNakamotoVideo": "\"امتحان بیت کوین دیگه چیه؟\" نقل قول از جو ناکاموتو",
     "knowledgeableBitcoin": "آیا در مورد بیت کوین اطلاعات دارید؟",
     "noBookExam": "هنوز جلسه امتحانی برنامه ریزی نشده است.",
     "organizeExam": "برگزاری یک امتحان",
@@ -92,7 +86,6 @@
     "tweetText": "مفتخرم که گواهینامه B را در @planb_network با نمره {{score}}/100 کسب کرده‌ام! {{emoji}}\n\n{{certificateUrl}}"
   },
   "bet": {
-    "contribute": "این جعبه ابزار جهت مشارکت باز شده است و از فیگما استفاده می‌کند. بنابراین هر کسی می‌تواند به آن بیافزاید، آن را تغییر دهد و ترجمه نماید. برای پیوستن به دیسکورد ما در جهت همکاری، اضافه کردن یک دسته جدید، و گفتگو، تردید نکنید.",
     "contributeButton": "کمک و مشارکت",
     "visualContent": {
       "description": "تصاویر زیر می‌توانند برای انتشار شخصی شما مورد استفاده قرار گیرند.",
@@ -104,31 +97,13 @@
       "description": "این محتوا برای استفاده در رویدادها و اهداف آموزشی آماده شده است.",
       "title": "محتوای آموزشی"
     },
-    "hereForYou": "BET شما اینجا است!",
     "pageDescription": "پذیرش گسترده آسان نیست. برای پیشروی سریع‌تر و نزدیک‌تر به این هدف، ما یک پایگاه داده قابل گسترش از محتوای آموزشی توسعه داده‌ایم. در اینجا، معلمان بیت کوین می‌توانند به صورت آزاد محتوا بارگزاری کنند و در صورت نیاز به آن دسترسی پیدا کنند. بیایید هر بار چرخ را از اول اختراع نکنیم و برای مرکزی کردن منابع مفید در یک جعبه ابزار با یکدیگر همکاری کنیم!",
-    "pageSubtitle": "BET - یک جعبه ابزار منبع باز بیت کوین برای تمام پروژه‌های آموزشی",
     "pageTitle": "مجموعه آموزشی بیت کوین"
-  },
-  "book": {
-    "bookSummary": {
-      "noSummary": "هنوز خلاصه‌ای نگارش نشده است. اگر کتاب را مطالعه کرده‌اید و می‌خواهید خلاصه خود را به اشتراک بگذارید، در انتشار آن در Github تان مردد نباشید. این کار کمک شایانی به جامعه می‌کند، منابع دانشگاه را غنی‌تر می‌کند و حتی ممکن است برای تلاش خود چند ساتوشی بدست آورید!",
-      "modifyTooltip": "نوشتن یا تغییر دادن",
-      "notice": "برای اعمال هر تغییر یا ویرایش، این خلاصه به گیت هاب متصل است",
-      "title": "خلاصه کتاب"
-    },
-    "abstract": "چکیده",
-    "buttonBuy": "خرید کنید",
-    "buttonPdf": "PDF / کتاب الکترونیکی",
-    "offeredBy": "ارائه شده توسط یک سازمان‌دهنده سخاوتمند",
-    "pageSubtitle": "این پورتال منبع باز است و برای مشارکت باز است.",
-    "pageTitle": "کتابخانه بیت کوین",
-    "topicsAddressed": "موضوعات مطرح شده:"
   },
   "builders": {
     "noRelatedEvents": "در حال حاضر هیچ رویدادی مرتبط با این سازنده در دسترس نیست.",
     "networkStrength": "قدرت یک شبکه در اعضای آن می‌باشد",
     "otherCommunities": "بررسی انجمن‌های Plan B",
-    "pageSubtitle": "این پورتال منبع باز است و برای مشارکت باز است.",
     "pageTitle": "سازندگان بیت کوین",
     "languages": "زبان‌ها",
     "relatedEvents": "رویدادهای آینده مرتبط"
@@ -144,14 +119,12 @@
       "previousVideo": "ویدیوی قبلی",
       "selectStage": "یک مرحله را انتخاب نمایید",
       "selectVideo": "یک ویدیو را انتخاب نمایید",
-      "speaker": "بلندگو",
       "watchReplay": "تکرار را تماشا کنید"
     },
     "language": "زبان",
     "latestConferences": "کنفرانس‌های اخیر",
     "location": "مکان",
     "noConferences": "هنوز هیچ کنفرانسی برای {{year}} اضافه نشده است.",
-    "pageSubtitle": "این پورتال منبع باز (open-source) است و برای مشارکت فعال می‌باشد.",
     "addConferences": "می‌توانید هر کنفرانسی که فکر می‌کنید از قلم افتاده را از طریق این مخزن <0>گیتهاب</0> اضافه نمایید.",
     "planBConferences": "کنفرانس‌های Plan B",
     "topics": "موضوعات",
@@ -159,7 +132,6 @@
   },
   "courses": {
     "chapter": {
-      "count": "فصل {{count}}",
       "finishCourse": "اتمام دوره",
       "next": "فصل بعدی",
       "thanksTip": "می‌خواهید قدردانی خود را نشان دهید؟\nمی‌توانید با پرداخت انعام، از نویسنده حمایت کنید.",
@@ -182,71 +154,27 @@
     },
     "details": {
       "buyInPersonCourse": "خرید دوره‌ی حضوری",
-      "date": "تاریخ: {{startDate}} تا {{endDate}}",
       "inPersonAccess": "جهت دسترسی به کلاس حضوری باید بلیط خود را دانلود نمایید.",
-      "invoiceId": "شناسه تراکنش",
-      "accessible": "دسترسی: مادام العمر",
       "buyCourse": "دوره را خریداری کنید",
-      "courseId": "شناسه دوره: {{courseId}}",
-      "coursePayment": "پرداخت دوره",
       "curriculum": "سرفصل دوره",
-      "goal": "هدف:",
-      "numberOfChapters": "تعداد فصل‌ها: {{number}}",
       "startCourse": "دوره را آغاز نمایید",
       "taughtBy": "این دوره آموزش داده می‌شود توسط",
-      "teacher": "استاد: {{teacher}}",
-      "teachers": "استادها: {{teachers}}",
-      "teacherWord": "توضیحات مختصر استاد",
-      "total": "کل",
-      "payment_successful": "پرداخت موفق!",
-      "access_invoice": "می‌توانید از طریق داشبورد شخصی‌تان به فاکتور خود دسترسی پیدا کنید",
       "objectivesTitle": "چه مطالبی خواهید آموخت:",
-      "price": "قیمت: {{price}} ساتوشی",
       "objectives": "اهداف",
       "buyOnlineCourse": "خرید دوره‌ی آنلاین",
-      "dates_to": "{{startDate}} تا {{endDate}}",
       "description": "توضیحات",
-      "duration": "مدت زمان: {{hours}} ساعت",
-      "level": "سطح: $t(words.level.{{level}})",
       "mobile": {
-        "chapters": "{{chapters}} فصل",
         "hours": "{{hours}} ساعت"
       },
-      "professor": "استاد",
-      "amount": "میزان",
-      "payment_details": "جزئیات پرداخت",
       "paidCourse": "پرداخت شده"
     },
-    "categories": {
-      "btc": "بیت کوین",
-      "crypto": "رمزنگاری (کریپتو گرافی)",
-      "cuboplus": "بیت کوین",
-      "econ": "اقتصاد اتریشی",
-      "fin": "امور مالی",
-      "ln": "شبکه لایتنینگ",
-      "min": "استخراج (ماینینگ)",
-      "secu": "امنیت و حریم خصوصی"
-    },
     "explorer": {
-      "footerp2": "اگر قصد دارید یک دوره را بهبود بخشید یا دوره خودتان را ارائه دهید، می‌توانید به راحتی از طریق مخزن گیت هاب این کار را انجام دهید. به همین صورت، برای حمایت از یک استاد، گزینه های متعددی در اختیار دارید: می‌توانید بازخورد دوره را ارائه دهید، به صورت مستقیم به استاد پاداش بدهید، و یا عضوی از این دانشگاه شوید تا به حفظ پلتفرم کمک نمایید.",
       "pageDescription": "هدف آکادمی Plan B ساده سازی آموزش بیت کوین در سراسر جهان است. با حضور کارشناسان از زمینه های مختلف، آکادمی ما مجموعه‌ای جامع از دوره‌های آموزشی را طراحی کرده است تا هر جنبه ای از بیت کوین را به صورت واضح آموزش دهد. از سطح مبتدی تا پیشرفته، چه دوست داشته باشید تا با سرعت خودتان پیش بروید یا به صورت هفتگی یک استاد را دنبال کنید، امیدواریم که آکادمی بتواند به شما کمک کند تا موضوع گسترده‌ی بیت کوین را بهتر درک کنید. بخش اعظم دوره‌های ما کاملا رایگان هستند تا هر کسی، از هر جایی، به آموزش دسترسی داشته باشد.",
-      "footerp1": "اساتید ما، تا زمانی که از کدهای اخلاقی پیروی می‌کنند در دانشگاه سوورین حاضر خواهند بود و به صورت کاملا مستقل در مورد محتواهای خود و ابزارهایی که می‌خواهند شما بررسی کنید به فعالیت خود ادامه می‌دهند. آن‌ها بیت کوینرهایی پرشور هستند که در زمینه‌های مختلف سررشته دارند.",
-      "moreToCome": ".... و موارد بیشتر در راه است!",
-      "pageSubtitle": "پذیرش جمعی از طریق آموزش متمرکز و منبع باز",
-      "pageTitle": "به آکادمی Plan B خوش آمدید",
-      "s2p2": "شما امکان این را دارید که مسیر خودتان را انتخاب کنید و در آن پیشروی کنید و مهارت‌ها و دانش را ،به میزانی که انگیزه دارید، بیاموزید.",
       "seeCourse": "دوره را مشاهده کنید",
       "buildPath": "مسیر خودتان به سمت چاله خرگوش را بسازید",
       "journey": "بیت کوین یک مسیر است، نه مقصد",
       "findCourses": "به کمک انتخابگر، دوره ایده آل برای نیازهای خود را پیدا کنید",
-      "footerTitle": "استادان ما برای کمک به شما اینجا هستند!",
-      "exploreCourses": "بررسی تمام دوره‌های Plan B",
-      "s2t1": "یادگیری بیت کوین یک مسیر است، نه یک مقصد که به آن برسید.",
-      "s3PickLevel": "انتخاب سطح:",
-      "s3PickTopic": "انتخاب موضوع:",
-      "s2p3": "تمامی دوره‌های ما 100٪ رایگان هستند، پس هیچ چیز نمی‌تواند جلوی شما را بگیرد!",
-      "s2p1": "",
-      "s3t1": ""
+      "exploreCourses": "بررسی تمام دوره‌های Plan B"
     },
     "payment": {
       "inPersonDescription": "هر جلسه از کلاس در تاریخ و مکان مشخص به صورت حضوری برگزار می‌شود و همچنین بر روی پلتفرم به صورت زنده پخش می‌شود.\nاین خرید به شما امکان دسترسی به هر دو صورت حضوری و آنلاین را می‌دهد.\nبرای کلاس‌هایی که می خواهید به صورت حضوری شرکت کنید، رزرو صندلی خود را فراموش نکنید.",
@@ -260,7 +188,6 @@
       "accessibility": "دسترسی",
       "inPersonCallout": "شما در حال خرید <strong> به صورت حضوری</strong> این دوره هستید.",
       "date": "تاریخ",
-      "dates_to": "{{startDate}} تا {{endDate}}",
       "invoiceId": "شناسه تراکنش",
       "numberOfChapters": "تعداد فصل‌ها",
       "payment_details": "جزئیات پرداخت",
@@ -286,12 +213,10 @@
       "count": "قسمت {{count}}"
     },
     "preview": {
-      "by": "توسط {{professor}}",
       "letsgo": "به پیش"
     },
     "review": {
       "asExpected": "همانطور که انتظار می‌رفت",
-      "currentlyLoggedOut": "شما در حال حاضر از حساب‌تان خارج شده‌اید. برای ارائه بازخورد در مورد دوره، لطفا <0>وارد شوید یا ثبت نام نمایید</0>.",
       "faithful": "به هدف وفادار هستید؟",
       "feedbackSessionTitle": "جلسه بازخورد و ارزیابی",
       "generalGrade": "نمره کلی",
@@ -301,10 +226,8 @@
       "commentAdmin": "ارسال نظر به تیم مدیریت (خصوصی)",
       "displayOutOf": "نمایش داده شده از",
       "length": "طول",
-      "edit": "ویرایش",
       "tooHard": "خیلی سخت",
       "fieldRequired": "این فیلد الزامی است",
-      "loading": "در حال بارگذاری…",
       "loadMoreComments": "نظرات بیشتری بارگذاری کنید",
       "neutral": "خنثی",
       "no": "نه",
@@ -372,7 +295,6 @@
       "skipExamGoConclusion": "از امتحان صرف نظر کنید، به قسمت نتیجه بروید",
       "testKnowledge": "حالا که این دوره را تمام کرده‌اید، بیایید دانش شما را بسنجیم.",
       "testResults": "نتایج آزمون",
-      "timeLeft": "زمان باقی مانده",
       "timeStampBenefits": "چرا این موضوع مهم است:",
       "timerStart": "هنگامی که شما روی شروع کلیک کنید، تایمر 20 دقیقه‌ای شروع به کار می‌کند.",
       "tryAgain": "دوباره تلاش کنید",
@@ -381,13 +303,6 @@
       "wishTryAgain": "اگر می‌خواهید دوباره تلاش کنید، امتحان در 24 ساعت آینده در دسترس خواهد بود.",
       "certificateAvailable": "حدود 8 ساعت پس از ارسال در دسترس خواهد قرار گرفت.",
       "timeStamped": ""
-    },
-    "unreleased": {
-      "financeIntroduction": "مقدمه ای بر امور مالی",
-      "financialCrisis": "تحلیل بحران ‌های بزرگ مالی",
-      "hyperinflation": "مطالعه ابر تورم (hyperinflation)",
-      "theoreticalLightning": "دوره نظری پیشرفته در مورد شبکه لایتنینگ",
-      "colcardAndSparrow": ""
     }
   },
   "dashboard": {
@@ -399,7 +314,6 @@
       "saving": "در حال ذخیره‌سازی…",
       "crop": "محصول",
       "emailChangeConfirmation": "یک ایمیل تایید برای تغییر ایمیل شما ارسال شده است، لطفا صندوق ورودی خود را جهت تایید بررسی نمایید.",
-      "emailChangeRateLimitError": "درخواست تغییر ایمیل کمتر از 5 دقیقه قبل ارسال شده است، لطفا قبل از تلاش مجدد منتظر بمانید.",
       "preview": "پیش نمایش",
       "displayName": "نام نمایشی",
       "email": "ایمیل",
@@ -421,8 +335,6 @@
       "completed": "تکمیل شده",
       "completedCoursesTitle": "دوره‌های تکمیل شده",
       "completedCoursesDescription": "در اینجا می‌توانید دوره‌های تکمیل شده خود را بررسی کنید.",
-      "completedOutOf": "{{completed}} درس از {{total}} موجود",
-      "details": "جزئیات",
       "done": "انجام شد",
       "resumeLesson": "رزومه",
       "seeProgress": "جهت دیدن پیشرفت خود.",
@@ -447,10 +359,8 @@
         "reviews": "نظرات",
         "analytics": "تحلیل‌ها",
         "courseDetails": "جزئیات دوره",
-        "courseId": "شناسه دوره",
         "courseLongDescription": "توضیح مقدماتی",
         "courseModification": "اگر جهت ویرایش چیزی در دوره به کمک نیاز دارید، لطفاً این <0>آموزش</0> را بررسی نمایید.",
-        "courseName": "نام دوره",
         "courseShortDescription": "هدف",
         "coursesManagementPanel": "پنل دوره‌ها",
         "curriculum": "برنامه دوره",
@@ -467,9 +377,7 @@
       "profile": {
         "account": "حساب استاد",
         "billingInformations": "اطلاعات صورتحساب",
-        "chooseTags": "برچسب‌هایی که بهترین توصیف برای شماست را انتخاب نمایید",
         "description": "توضیحات شما",
-        "descriptionTags": "",
         "enterTipsInformations": "",
         "lightningAddress": "",
         "makeModifications": "",
@@ -478,7 +386,6 @@
         "publicDescription": "",
         "publicProfile": "",
         "publicProfileDescription": "",
-        "writeShortBio": "",
         "teacherProfile": "",
         "tutorialModification": "",
         "noLightningAddress": "",
@@ -500,10 +407,7 @@
       }
     },
     "account": "حساب",
-    "administration": "اداره",
     "bCertificate": {
-      "bookExam": "یک جلسه امتحان رزرو کنید",
-      "certificate": "گواهینامه",
       "grade": "نمره",
       "noResults": "هنوز هیچ نمره یا گواهینامه‌ای به این حساب مرتبط نشده است.\nاگر شما یک امتحان را گذرانه‌اید و نتایج شما پس از گذشت یک دوره طولانی مدت در دسترس نیست، لطفا جهت راهنمایی به ما مراجعه نمایید."
     },
@@ -511,8 +415,6 @@
       "accessLive": "دسترسی به امتحان در حال برگزاری",
       "billingTitle": "تاریخچه صورتحساب",
       "billingSubtitle": "فاکتورهای رزروهای خود را از اینجا دانلود نمایید.",
-      "downloadInvoice": "دانلود فاکتور",
-      "downloadTicket": "دانلود بلیط",
       "invoiceDate": "تاریخ",
       "invoiceTitle": "عنوان",
       "invoiceType": "نوع",
@@ -546,8 +448,7 @@
   "home": {
     "patreonSection": {
       "title": "",
-      "content": "",
-      "subtitle": ""
+      "content": ""
     },
     "header": {
       "content": "",
@@ -556,21 +457,6 @@
       "welcome": "",
       "link": "",
       "startLink": ""
-    },
-    "numbersSection": {
-      "networkMember": ""
-    },
-    "sectionEducation": {
-      "title": "",
-      "subtitle": "",
-      "content1": "",
-      "link": ""
-    },
-    "sectionNetwork": {
-      "subtitle": "",
-      "content1": "",
-      "link": "",
-      "title": ""
     },
     "tutorialSection": {
       "title": "",
@@ -595,12 +481,10 @@
     "languageSection": {
       "availableLanguagesVariation": "",
       "title": "",
-      "subtitle2": "",
       "link": "",
       "availableLanguages": "",
       "subtitle": "",
-      "content1": "",
-      "content2": ""
+      "content1": ""
     },
     "wallOfLoveSection": {
       "title": "",
@@ -608,36 +492,11 @@
     }
   },
   "resources": {
-    "headerText": "",
-    "articles": {
-      "title": ""
-    },
-    "bet": {
-      "title": ""
-    },
-    "books": {
-      "title": ""
-    },
-    "builders": {
-      "title": ""
-    },
-    "conferences": {
-      "title": ""
-    },
-    "newsletter": {
-      "title": ""
-    },
-    "filterBarLabel": "",
     "github": "",
-    "glossary": {
-      "title": ""
-    },
-    "headerSignature": "",
     "pageDescription": "",
     "pageSubtitleBooks": "",
     "pageSubtitlePodcast": "",
     "pageTitle": "",
-    "publicGrade": "",
     "searchFilterName": "",
     "newsletters": {
       "title": ""
@@ -651,14 +510,9 @@
     "details": {
       "source": "",
       "author": "",
-      "checkAuthor": "",
       "didHelp": "",
-      "enjoyed": "",
-      "madeBy": "",
-      "tipTooltip": "",
       "writtenBy": ""
     },
-    "headerText": "",
     "merchant": {
       "shortDescription": "",
       "description": "",
@@ -687,7 +541,6 @@
       "didYouKnow": "",
       "exploreAllTutorials": ""
     },
-    "headerSignature": "",
     "node": {
       "bitcoin": {
         "description": ""
@@ -754,30 +607,19 @@
     "builder": "",
     "progress": "",
     "publicationDate": "",
-    "videos": "",
     "about": "",
     "about-us": "",
-    "additionalCriteria": "",
-    "documentaries": "",
     "price": "",
     "professor": "",
     "professors": "",
-    "purchase": "",
     "register": "",
     "public": "",
     "ratings": "",
-    "relatedResources": "",
     "required": "",
     "resources": "",
-    "resume": "",
-    "review": "",
-    "rogzy": "",
-    "sponsorUs": "",
-    "sponsoringAndContributors": "",
     "start": "",
     "status": "",
     "students": "",
-    "supportUs": "",
     "teacher": "",
     "topics": "",
     "tutorial": "",
@@ -785,40 +627,27 @@
     "unified": "",
     "update": "",
     "users": "",
-    "video": "",
     "view": "",
     "wallets": "",
-    "writtenByPodcasts": "",
     "advanced": "",
     "admins": "",
-    "articles": "",
-    "audioBook": "",
     "bCertificate": "",
-    "bitcoinWhitepaper": "",
     "book": "",
     "booked": "",
     "bookings": "",
-    "books": "",
     "builders": "",
-    "certificate": "",
     "chapter": "",
     "communities": "",
     "conference": "",
-    "conferences": "",
     "content": "",
     "courseId": "",
     "dashboard": "",
     "description": "",
     "details": "",
-    "didYouKnow": "",
     "diploma": "",
-    "education": "",
-    "email": "",
     "events": "",
-    "exchanges": "",
     "filter": "",
     "failed": "",
-    "followUs": "",
     "hours": "",
     "level": {
       "developer": "",
@@ -832,67 +661,47 @@
     },
     "lectures": "",
     "library": "",
-    "lightning": "",
     "lightningInvoice": "",
     "lnurlAuth": "",
     "location": "",
-    "manifesto": "",
-    "merchandising": "",
-    "merchants": "",
     "members": "",
     "mining": "",
-    "more": "",
-    "movieDocumentary": "",
     "network": "",
-    "networkMember": "",
     "on": "",
-    "onChain": "",
     "onChainAddress": "",
     "online": "",
-    "or": "",
     "ourStory": "",
     "overview": "",
     "paid": "",
     "part": "",
     "podcasts": "",
-    "teachers": "",
     "termsAndConditions": "",
     "ticket": "",
     "tickets": "",
     "time": "",
     "to": "",
     "total": "",
-    "toolkits": "",
-    "account": "",
     "all": "",
     "amount": "",
-    "article": "",
     "back": "",
     "beginner": "",
-    "continue": "",
     "course": "",
     "courses": "",
     "credentials": "",
     "date": "",
-    "donations": "",
     "download": "",
     "duration": "",
-    "economy": "",
     "edit": "",
     "free": "",
     "glossary": "",
     "goal": "",
     "grade": "",
-    "helpUs": "",
     "home": "",
     "id": "",
     "inReview": "",
     "intermediate": "",
-    "interview": "",
     "invoice": "",
     "newsletter": "",
-    "newsletters": "",
-    "node": "",
     "nodeNetwork": "",
     "passed": "",
     "podcast": ""
@@ -933,23 +742,14 @@
     "pageTitle": "",
     "payment": {
       "access_invoice": "",
-      "access_online_successful": "",
-      "access_physical_successful": "",
       "access_type": "",
       "address": "",
       "additional_free_description": "",
-      "amount": "",
       "back_events": "",
-      "callout_online": "",
       "callout_physical": "",
-      "callout_replay": "",
       "date": "",
-      "dates_to": "",
-      "description_online": "",
-      "description_physical": "",
       "description_free_physical": "",
       "limitation": "",
-      "payment_details": "",
       "payment_successful": "",
       "time": "",
       "download_ticket": "",
@@ -969,67 +769,39 @@
     "term": "",
     "loadMoreWords": "",
     "notTranslated": "",
-    "pageSubtitle": "",
     "pageTitle": "",
     "placeHolder": "",
     "randomSearch": "",
     "filterBar": ""
   },
   "imagesAlt": {
-    "blueEllipse": "",
     "bookCover": "",
     "contributorHeart": "",
-    "contributorPP": "",
-    "forwardArrow": "",
     "orangePill": "",
     "printedCircuits": "",
     "rabbit404": "",
     "sthRepresentingCompany": "",
-    "stylus": "",
     "underConstructionImage": ""
   },
   "menu": {
     "glossaryDescription": "",
     "libraryDescription": "",
-    "lightningDescription": "",
     "login": "",
-    "loginRegister": "",
-    "manifestoDescription": "",
-    "merchantsDescription": "",
-    "miningDescription": "",
-    "nodeDescription": "",
     "nodeNetworkDescription": "",
-    "ourStoryDescription": "",
     "podcastsDescription": "",
     "publicDescription": "",
-    "sponsorsDescription": "",
-    "supportUsDescription": "",
     "teachersDescription": "",
-    "walletsDescription": "",
     "bCertificateDescription": "",
     "betDescription": "",
     "conferencesDescription": "",
-    "exchangesDescription": "",
-    "buildersDescription": "",
-    "btc101Description": ""
+    "buildersDescription": ""
   },
   "nodeNetwork": {
-    "mobiledescription": "",
     "apply": "",
     "applyhelp": "",
     "descriptionextend": "",
-    "answer2": "",
-    "answer3": "",
-    "answer4": "",
     "pageSubtitle": "",
     "pageTitle": "",
-    "question1": "",
-    "question2": "",
-    "question3": "",
-    "question4": "",
-    "question5": "",
-    "answer1": "",
-    "answer5": "",
     "description1": ""
   },
   "notFound": {
@@ -1071,8 +843,7 @@
       "errorMessageNotFound": "",
       "blogSidebarTitle": "",
       "blogListButtonText": "",
-      "filterText": "",
-      "noBlogs": ""
+      "filterText": ""
     },
     "description": ""
   },
@@ -1086,13 +857,8 @@
     "terms": "",
     "total": ""
   },
-  "podcast": {
-    "abstract": ""
-  },
   "podcasts": {
-    "hostedBy": "",
-    "pageTitle": "",
-    "pageSubtitle": ""
+    "pageTitle": ""
   },
   "professors": {
     "pageTitle": "",
@@ -1119,9 +885,6 @@
     "p1": ""
   },
   "library": {
-    "pageTitle": "",
-    "publishedIn": "",
-    "writtenBy": "",
-    "pageSubtitle": ""
+    "pageTitle": ""
   }
 }
