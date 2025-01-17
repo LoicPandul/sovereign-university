@@ -25,7 +25,7 @@ import smallCircleProgress2 from '#src/assets/proofreading/small_circle_progress
 import smallCircleProgress3 from '#src/assets/proofreading/small_circle_progress_3.webp';
 
 const SmallProgressImage = ({ progress }: { progress: number }) => {
-  let imgSrc;
+  let imgSrc: any;
 
   switch (progress) {
     case 1: {
@@ -50,7 +50,7 @@ const SmallProgressImage = ({ progress }: { progress: number }) => {
 };
 
 const LargeProgressImage = ({ progress }: { progress: number }) => {
-  let imgSrc;
+  let imgSrc: any;
 
   switch (progress) {
     case 1: {

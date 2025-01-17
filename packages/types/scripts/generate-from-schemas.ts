@@ -104,7 +104,7 @@ const extractSchemas = (fileContent: string): string[] => {
   ];
 
   for (const pattern of regexPatterns) {
-    let match;
+    let match: string[] | null;
     // biome-ignore lint/suspicious/noAssignInExpressions: <explanation>
     while ((match = pattern.exec(fileContent)) !== null) {
       // @ts-ignore - we know this is not null

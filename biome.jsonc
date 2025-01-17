@@ -38,7 +38,6 @@
         "useEnumInitializers": "off" // OK
       },
       "suspicious": {
-        "noImplicitAnyLet": "off", // to remove
         "noExplicitAny": "off", // OK
         "noArrayIndexKey": "off" // TBD
       }

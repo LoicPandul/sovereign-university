@@ -28,7 +28,7 @@ interface LoaderProps
 }
 
 const Loader = ({ variant = 'orange', size, ...props }: LoaderProps) => {
-  let imgSrc;
+  let imgSrc: string;
   if (variant === 'black') {
     imgSrc = spinnerBlack;
   } else if (variant === 'orange') {

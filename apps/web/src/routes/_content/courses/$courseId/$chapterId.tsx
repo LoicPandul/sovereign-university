@@ -580,7 +580,7 @@ function CourseChapter() {
 
     const sections: string[] = [];
 
-    let match;
+    let match: any;
     // biome-ignore lint/suspicious/noAssignInExpressions: <explanation>
     while ((match = regex.exec(chapter.rawContent)) !== null) {
       sections.push(match[1]);
@@ -623,7 +623,7 @@ function CourseChapter() {
   let computerProfessor = '';
   if (chapter) {
     (() => {
-      let professors;
+      let professors: any;
       professors = chapter.course.professors;
       if (chapter.professors && chapter.professors.length > 0) {
         professors = chapter.professors;

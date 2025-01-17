@@ -99,7 +99,7 @@ export const createUpdateQuizQuestions = ({ postgres }: Dependencies) => {
         const processMainFile = createProcessMainFile(transaction);
         const processLocalFile = createProcessLocalFile(transaction);
 
-        let id;
+        let id: any;
 
         try {
           id = await processMainFile(quizQuestion, main);

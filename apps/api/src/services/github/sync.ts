@@ -80,7 +80,7 @@ export function createSyncGithubRepositories(dependencies: Dependencies) {
 
     console.log('-- Sync procedure: UPDATE ASSETS ===========================');
 
-    let privateCdnError;
+    let privateCdnError: any;
     if (context.privateGit) {
       const timeSync = timeLog('Syncing private CDN repository');
       try {
@@ -93,7 +93,7 @@ export function createSyncGithubRepositories(dependencies: Dependencies) {
       timeSync();
     }
 
-    let publicCdnError;
+    let publicCdnError: any;
     {
       const timeSync = timeLog('Syncing public CDN repository');
       try {
