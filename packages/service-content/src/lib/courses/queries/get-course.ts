@@ -24,7 +24,7 @@ export const getCourseQuery = (id: string, language?: string) => {
       c.remaining_seats,
       c.number_of_rating,
       c.sum_of_all_rating,
-      COALESCE(NULLIF(c.sum_of_all_rating, 0) / NULLIF(c.number_of_rating, 0), 0) AS average_rating,
+      COALESCE(NULLIF(c.sum_of_all_rating::float, 0) / NULLIF(c.number_of_rating, 0), 0) AS average_rating,
       cl.name,
       cl.goal,
       cl.objectives,
