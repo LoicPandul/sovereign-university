@@ -149,6 +149,7 @@ function Conference() {
                 contributors: proofreading.contributorsId,
                 reward: proofreading.reward,
               }}
+              isOriginalLanguage={false}
             />
           ) : (
             <></>

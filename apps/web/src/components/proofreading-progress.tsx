@@ -183,6 +183,14 @@ const ContributorsNames = ({
       >
         {Contributor3}
       </span>
+      <span
+        className={cn(
+          'max-md:hidden text-[8px] absolute -bottom-8 w-full text-center',
+          mode === 'dark' ? 'text-newGray-4' : 'text-black',
+        )}
+      >
+        {t('proofreading.rewardsText')}
+      </span>
     </>
   );
 };
@@ -195,12 +203,13 @@ interface ProofreadingData {
 export const ProofreadingProgress = ({
   mode = 'dark',
   proofreadingData,
+  isOriginalLanguage,
 }: {
   mode: 'light' | 'dark';
   proofreadingData: ProofreadingData;
+  isOriginalLanguage: boolean;
 }) => {
   const contributorsLength = proofreadingData.contributors.length;
-
   return (
     <div className="z-30">
       <Dialog>
@@ -309,11 +318,20 @@ export const ProofreadingProgress = ({
                   />
                 </Button>
               </a>
+              <span
+                className={cn(
+                  'text-[8px] w-full text-center md:hidden',
+                  mode === 'dark' ? 'text-newGray-4' : 'text-black',
+                )}
+              >
+                {t('proofreading.rewardsText')}
+              </span>
             </div>
           </DialogContent>
         </DialogPortal>
       </Dialog>
       <ProofreadingDesktop
+        isOriginalLanguage={isOriginalLanguage}
         proofreadingData={proofreadingData}
         mode={mode}
         className=""
@@ -326,12 +344,14 @@ export const ProofreadingDesktop = ({
   proofreadingData,
   variant = 'horizontal',
   mode = 'dark',
+  isOriginalLanguage,
   standalone,
   className,
 }: {
   proofreadingData: ProofreadingData;
   variant?: 'horizontal' | 'vertical';
   mode: 'light' | 'dark';
+  isOriginalLanguage: boolean;
   standalone?: boolean;
   className?: string;
 }) => {
@@ -405,7 +425,9 @@ export const ProofreadingDesktop = ({
             mode === 'dark' ? 'text-white' : 'text-black',
           )}
         >
-          {t('proofreading.description')}
+          {isOriginalLanguage
+            ? t('proofreading.descriptionOriginalLanguage')
+            : t('proofreading.description')}
         </p>
         {!standalone && (
           <p
@@ -440,6 +462,7 @@ export const ProofreadingDesktop = ({
           </a>
         )}
       </div>
+
       <div
         className={cn(
           ' flex-col relative pointer-events-none',

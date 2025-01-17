@@ -87,7 +87,8 @@ function GlossaryWord() {
       document.body.scrollTo({ top: 0, behavior: 'smooth' });
     }
   }, [glossaryWord, glossaryWords, isFetched]);
-
+  const isOriginalLanguage =
+    glossaryWord?.language === glossaryWord?.originalLanguage;
   return (
     <ResourceLayout
       title={t('glossary.pageTitle')}
@@ -102,6 +103,7 @@ function GlossaryWord() {
         <>
           {proofreading ? (
             <ProofreadingProgress
+              isOriginalLanguage={isOriginalLanguage}
               mode="dark"
               proofreadingData={{
                 contributors: proofreading.contributorsId,

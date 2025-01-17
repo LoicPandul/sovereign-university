@@ -642,11 +642,13 @@ function CourseChapter() {
   useEffect(() => {
     setIsContentExpanded(isScreenSm ? isScreenSm : false);
   }, [isScreenSm]);
-
+  const isOriginalLanguage =
+    i18n.language === chapter?.course?.originalLanguage;
   return (
     <CourseLayout>
       {proofreading ? (
         <ProofreadingProgress
+          isOriginalLanguage={isOriginalLanguage}
           mode="light"
           proofreadingData={{
             contributors: proofreading.contributorsId,

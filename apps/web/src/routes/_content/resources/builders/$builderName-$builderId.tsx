@@ -103,7 +103,7 @@ function Builder() {
       });
     }
   }, [builder, isFetched, navigateTo404, navigate, params.builderName]);
-
+  const isOriginalLanguage = builder?.language === builder?.originalLanguage;
   return (
     <ResourceLayout
       title={t('builders.pageTitle')}
@@ -128,6 +128,7 @@ function Builder() {
           <article className="w-full border-2 border-darkOrange-5 bg-darkOrange-10 rounded-[1.25rem] mb-7 md:mb-24">
             {proofreading ? (
               <ProofreadingProgress
+                isOriginalLanguage={isOriginalLanguage}
                 mode="dark"
                 proofreadingData={{
                   contributors: proofreading.contributorsId,

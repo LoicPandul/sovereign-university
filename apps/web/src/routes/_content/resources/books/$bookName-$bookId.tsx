@@ -121,6 +121,7 @@ function Book() {
         <div className="w-full">
           {proofreading ? (
             <ProofreadingProgress
+              isOriginalLanguage={true}
               mode="dark"
               proofreadingData={{
                 contributors: proofreading.contributorsId,
