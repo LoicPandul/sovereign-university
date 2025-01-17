@@ -25,17 +25,14 @@
   "auth": {
     "accountCreated": "Kontoen din er opprettet, {{userName}}!",
     "alreadyHaveAccount": "Har du allerede en konto?",
-    "connectWithLn": "Koble til med LN",
     "createAccount": "Registrer",
     "createOne": "Registrer deg her!",
     "emailAddress": "E-postadresse",
     "errors": {
-      "displayNameRequired": "Visningsnavn er nødvendig.",
       "displayNameTooShort": "Visningsnavnet må inneholde minst 2 tegn.",
       "usernameRegex": "Brukernavnet kan bare inneholde bokstaver, tall, understreker (_), punktum (.) og bindestreker (-).",
       "usernameRequired": "Brukernavn er obligatorisk.",
       "usernameTooShort": "Brukernavnet må inneholde minst 5 tegn.",
-      "displayNameRegex": "Visningsnavnet kan bare inneholde bokstaver, tall, understreker (_), punktum (.), bindestreker (-) og mellomrom.",
       "invalidCredentials": "Ugyldige legitimasjonsopplysninger",
       "emailInvalid": "Ugyldig e-post"
     },
@@ -70,7 +67,6 @@
     "passwordResetSent": "E-post for tilbakestilling av passord er sendt til innboksen din (hvis e-postadressen finnes i databasen vår).",
     "confirmation": "Bekreftelse",
     "displayName": "Visningsnavn",
-    "oldPassword": "Gammelt passord",
     "emailTip": "E-post er ikke obligatorisk, men det kan være nyttig i tilfelle du glemmer passordet ditt!",
     "dashboardUnlocked": "Studentdashbordet ditt er låst opp!",
     "didYouKnow": "Visste du det?",
@@ -78,8 +74,6 @@
   },
   "bCertificate": {
     "checkout": "Sjekk ut ₿-sertifikatet",
-    "curious": "Nysgjerrig på hvordan eksamen er?",
-    "joeNakamotoVideo": "Hva i all verden er en Bitcoin-eksamen? Av Joe Nakamoto",
     "knowledgeableBitcoin": "Kunnskapsrik i Bitcoin?",
     "noBookExam": "Det er ingen eksamener planlagt ennå.",
     "organizeExam": "Organiser en eksamen",
@@ -104,9 +98,6 @@
       "description": "Elementene nedenfor kan brukes til utdanningsarrangementer og formål.",
       "title": "Utdanningsinnhold"
     },
-    "hereForYou": "BET er her for deg!",
-    "contribute": "Dette verktøysettet er åpent for bidrag. Det bruker Figma, så alle kan legge til, endre og oversette innhold. For å samarbeide, legg til en kategori eller en diskusjon, og nøl ikke med å bli med i vår discord.",
-    "pageSubtitle": "BET - Et Bitcoin åpen kildekode-verktøysett for alle utdanningsprosjekter",
     "pageDescription": "Masseadopsjon er ikke enkelt. For å komme nærmere og raskere mot det målet, har vi utviklet en utvidbar database for å huse pedagogisk innhold. Her kan Bitcoin-opplærere fritt legge til og få tilgang til innhold etter behov. Vi trenger ikke å finne opp hjulet på nytt hver gang, så la oss jobbe sammen for å sentralisere de nyttige ressursene i ett verktøysett!",
     "pageTitle": "Bitcoin Opplæringsverktøy",
     "visualContent": {
@@ -114,26 +105,10 @@
       "title": "Visuelt innhold"
     }
   },
-  "book": {
-    "abstract": "Sammendrag",
-    "bookSummary": {
-      "notice": "Denne oppsummeringen er koblet til Github, for eventuelle endringer eller tillegg.",
-      "title": "Bokomtale",
-      "modifyTooltip": "Skriv eller endre",
-      "noSummary": "Et sammendrag er ennå ikke skrevet. Hvis du har lest boken og ønsker å dele din, nøl ikke med å skrive en på Github. Det ville være til stor nytte for samfunnet, forbedre universitetets ressurser, og du kan til og med tjene noen sats for din innsats!"
-    },
-    "buttonBuy": "Kjøp",
-    "buttonPdf": "PDF / E-bok",
-    "offeredBy": "Tilbudt av en generøs bidragsyter",
-    "pageSubtitle": "Dette portalen er åpen kildekode og åpent for bidrag.",
-    "pageTitle": "Bitcoin-bibliotek",
-    "topicsAddressed": "Emner som ble tatt opp:"
-  },
   "builders": {
     "networkStrength": "Nettverkets styrke ligger i dets medlemmer",
     "noRelatedEvents": "Det er ingen kommende arrangementer relatert til denne utviklere n for øyeblikket.",
     "otherCommunities": "Utforsk Plan B-samfunn",
-    "pageSubtitle": "Dette portalen er åpen kildekode og åpent for bidrag.",
     "pageTitle": "Bitcoin Utviklere",
     "languages": "Språk",
     "relatedEvents": "Relaterte kommende arrangementer"
@@ -149,32 +124,19 @@
       "previousVideo": "Forrige video",
       "selectStage": "Velg scene",
       "selectVideo": "Velg en video",
-      "speaker": "Taler",
       "watchReplay": "Se på reprisen"
     },
     "language": "Språk",
     "latestConferences": "Siste konferanser",
     "location": "Sted",
     "noConferences": "Ingen konferanser lagt til for {{year}} ennå.",
-    "pageSubtitle": "Dette portalen er åpen kildekode og åpent for bidrag.",
     "pageTitle": "Konferanseopptak",
     "planBConferences": "Plan B-konferanser",
     "topics": "Emner",
     "description": "Konferanser spiller en avgjørende rolle i Bitcoin-industrien, og utgjør en essensiell del av hver Bitcoiners utdanningsreise. Av den grunn har vi laget dette verktøyet for å hjelpe deg med å enkelt navigere gjennom hundrevis av Bitcoin-arrangementer."
   },
   "courses": {
-    "categories": {
-      "btc": "Bitcoin",
-      "crypto": "Kryptografi",
-      "cuboplus": "Bitcoin",
-      "econ": "Østerriksk økonomi",
-      "fin": "Finans",
-      "ln": "Lightning-nettverket",
-      "min": "Gruvedrift",
-      "secu": "Sikkerhet & Personvern"
-    },
     "chapter": {
-      "count": "Kapittel {{count}}",
       "finishCourse": "Fullfør kurset",
       "next": "Fullført, gå videre til neste kapittel.",
       "thanksTip": "Ønsker du å vise din takknemlighet?\nDu kan støtte forfatteren med en donasjon.",
@@ -196,37 +158,16 @@
       }
     },
     "details": {
-      "accessible": "Tilgjengelighet: Livstids tilgang",
       "buyCourse": "Kjøp kurset",
-      "courseId": "Kurs-ID: {{courseId}}",
-      "coursePayment": "Kursbetaling",
       "curriculum": "Læreplan",
-      "date": "Dato: {{startDate}} til {{endDate}}",
       "description": "Beskrivelse",
-      "duration": "Varighet: {{hours}} timer",
-      "dates_to": "{{startDate}} til {{endDate}}",
-      "goal": "Mål:",
-      "level": "Nivå: $t(words.level.{{level}})",
       "mobile": {
-        "chapters": "{{chapters}} kapitler",
         "hours": "{{hours}} timer"
       },
-      "numberOfChapters": "Antall kapitler: {{number}}",
       "objectives": "Mål",
       "objectivesTitle": "Hva du vil lære:",
-      "price": "Pris: {{price}} sats",
-      "professor": "Professor",
       "startCourse": "Start kurset",
       "taughtBy": "Dette kurset undervises av:",
-      "teacher": "Lærer: {{teacher}}",
-      "teachers": "Lærere: {{teachers}}",
-      "teacherWord": "Noen ord fra læreren",
-      "total": "Totalt",
-      "payment_successful": "Betaling vellykket!",
-      "access_invoice": "Du kan få tilgang til fakturaen din via dashbordet ditt",
-      "payment_details": "Betalingsdetaljer",
-      "amount": "Beløp",
-      "invoiceId": "TX ID",
       "buyInPersonCourse": "Kjøp kurs, fysisk tilstede",
       "inPersonAccess": "Du må laste ned billetten din for å få tilgang til tilstede klassen.",
       "buyOnlineCourse": "Kjøp nettbasert kurs",
@@ -237,7 +178,6 @@
       "premiumContentNeedsPaymentAction": "Gå til kursets hjemmeside",
       "collaborativeEffort": "Dette kurset er resultatet av et samarbeid: hver leksjon, oversettelse og revisjon er muliggjort av bidragsyternes arbeid. Av denne grunn er vi alltid på utkikk etter korrekturlesere som kan gjennomgå innholdet vårt på mange språk. Hvis du ønsker å delta i korrekturlesingsprosessen, vennligst ta kontakt i vår Telegram-gruppe og les vår veiledning.\n\nVi minner deg om at dette innholdet er åpen kildekode - lisensiert under <0>CC BY-SA</0> - så det kan fritt deles og brukes, så lenge den opprinnelige kilden er kreditert.\n\nEn spesiell anerkjennelse for deres arbeid med dette kurset går til følgende korrekturlesere: ",
       "hasBeenProofreadBy": "Dette kurset har blitt korrekturlest av",
-      "hasBeenTranslatedBy": "Dette kurset har blitt oversatt av",
       "otherCourses": "Andre kurs",
       "otherCoursesInterest": "Andre kurs du kan være interessert i",
       "thanksTipping": "Du kan si takk ved å gi professoren et tips."
@@ -246,21 +186,8 @@
       "buildPath": "Lag din egen sti ned i kaninhullet",
       "exploreCourses": "Utforsk alle Plan B-kurs",
       "findCourses": "Finn det perfekte kurset for dine behov takket være verktøyet for kursvalg",
-      "footerTitle": "Våre professorer er her for deg!",
-      "footerp1": "Ved Sovereign University har professorene våre full autonomi når det gjelder å designe innholdet i kursene sine og velge verktøyene for utforskningen din, forutsatt at de overholder vår etiske kodeks. De er lidenskapelige bitcoiners fra forskjellige bakgrunner som deler sin verdifulle erfaring med oss.",
       "journey": "Bitcoin er en reise, ikke en destinasjon",
-      "moreToCome": "...og mer kommer!",
-      "pageSubtitle": "Masseadopsjon gjennom sentralisert åpen kildekode-utdanning",
-      "pageTitle": "Velkommen til Plan B Akademiet",
-      "s2p1": "Hvis du nettopp har begynt å utforske Bitcoin-kaninhullet, må du vite at det er en endeløs reise ned mange stier. På universitetet vårt anerkjenner vi denne kompleksiteten, så vi har designet vårt pedagogiske innhold til å være ikke-lineært, selvstyrt og så omfattende som det kan være.",
-      "s2p2": "Du vil kunne velge din egen vei, tilegne deg ferdigheter og kunnskap drevet av din egen motivasjon og besluttsomhet.",
-      "s2p3": "Alle våre kurs er 100% gratis, så ingenting kan stoppe deg!",
-      "s2t1": "Bitcoin-utdanning er en reise, ikke en destinasjon.",
-      "s3PickLevel": "Velg nivå:",
-      "s3PickTopic": "Velg et emne:",
-      "s3t1": "Lag din egen sti ned i kaninhullet",
       "seeCourse": "Oppdag kurset",
-      "footerp2": "Hvis du ønsker å forbedre et kurs eller foreslå ditt eget, kan du enkelt gjøre det via GitHub-repositoriet. For å støtte en professor, har du flere alternativer: du kan gi tilbakemelding på kurset, tipse professoren direkte, eller bli medlem av universitetet for å bidra til å opprettholde plattformen.",
       "pageDescription": "Plan ₿ Academy har som mål å forenkle Bitcoin-utdanning over hele verden. Kuratert av eksperter fra forskjellige felt, tilbyr akademiet vårt et omfattende utvalg av kurs designet for å klargjøre alle aspekter ved Bitcoin.\nFra nybegynner til ekspert, enten i ditt eget tempo eller fulgt ukentlig av en professor, håper vi at akademiet kan hjelpe deg med å få en dypere forståelse av den omfattende verdenen av Bitcoin. Mange av kursene våre er helt gratis, slik at alle, hvor som helst, kan få tilgang til kvalitetsutdanning."
     },
     "part": {
@@ -273,7 +200,6 @@
       "amount": "Beløp",
       "back_course": "Tilbake til kurset",
       "date": "Dato",
-      "dates_to": "{{startDate}} til {{endDate}}",
       "downloadCurriculum": "Last ned pensum",
       "duration": "Varighet",
       "invoiceId": "Tx ID",
@@ -292,7 +218,6 @@
       "checkoutError": "En feil oppstod under utsjekkingsprosessen.\nVennligst prøv igjen."
     },
     "preview": {
-      "by": "av {{professor}}",
       "letsgo": "La oss starte"
     },
     "quizz": {
@@ -314,7 +239,6 @@
       "feedbackSessionTitle": "Tilbakemelding",
       "generalGrade": "Generell karakter",
       "length": "Lengde",
-      "loading": "Laster…",
       "neutral": "nøytral",
       "no": "nei",
       "notReally": "nei, ikke egentlig",
@@ -332,10 +256,8 @@
       "commentAdmin": "Kommentar til admin-teamet (privat)",
       "quality": "Kvalitet",
       "submitReview": "Send inn anmeldelse",
-      "currentlyLoggedOut": "Du er for øyeblikket utlogget. For å gi oss tilbakemelding på kurset, vennligst <0>logg inn eller registrer deg</0>.",
       "loadMoreComments": "Last inn flere kommentarer",
       "displayOutOf": "vist ut av",
-      "edit": "Rediger",
       "ratingsAndReviews": "Vurderinger & anmeldelser",
       "whatStudentsSay": "Hva studenter sier om dette kurset",
       "skip": "Hopp over gjennomgang",
@@ -349,13 +271,6 @@
       "feedbackDescription1": "Vennligst vurder din opplevelse med kurset nedenfor.",
       "feedbackDescription2": "Merk at lærere ikke vil ha tilgang til individuelle evalueringer.",
       "thankYou": "Takk for din anmeldelse! Den er tatt i betraktning"
-    },
-    "unreleased": {
-      "colcardAndSparrow": "Coldcard og Sparrow",
-      "financeIntroduction": "Introduksjon til finans",
-      "financialCrisis": "Analyse av store finanskriser",
-      "hyperinflation": "Studie av hyperinflasjon",
-      "theoreticalLightning": "Avansert teoretisk kurs om Lightning Network"
     },
     "exam": {
       "certificateAvailable": "Det vil være tilgjengelig omtrent 8 timer etter innsending.",
@@ -393,7 +308,6 @@
       "tamperProof": "Manipuleringssikker: Blockchain sikrer at ingen kan endre eller forfalske legitimasjonen din.",
       "testKnowledge": "Nå som du har fullført dette kurset, la oss teste kunnskapen din.",
       "testResults": "Testresultater",
-      "timeLeft": "Gjenstående tid",
       "timeStampBenefits": "Hvorfor det er viktig :",
       "timeStamped": "tidsstemplet.",
       "timeStampHow": "Hvordan det fungerer :",
@@ -432,8 +346,6 @@
     "view": "Visning",
     "about-us": "Om Oss",
     "bCertificate": "₿ Sertifikat",
-    "continue": "Fortsett",
-    "education": "Utdanning",
     "level": {
       "advanced": "Avansert",
       "beginner": "Nybegynner",
@@ -445,9 +357,7 @@
       "beginnerFriendly": "Nybegynnervennlig"
     },
     "library": "Bibliotek",
-    "movieDocumentary": "Film Dokumentar",
     "podcasts": "Podcaster",
-    "sponsoringAndContributors": "Sponsing & bidragsytere",
     "on": "på",
     "ticket": "Billett",
     "tickets": "Billetter",
@@ -456,28 +366,17 @@
     "unified": "Forent",
     "update": "Oppdatering",
     "users": "Brukere",
-    "video": "Video",
-    "videos": "Videoer",
     "about": "Om",
-    "account": "Konto",
-    "additionalCriteria": "Tilleggs kriterier",
     "advanced": "Avansert",
     "admins": "Administratorer",
     "all": "Alt",
     "amount": "Beløp",
-    "article": "Artikkel",
-    "articles": "Artikler",
-    "audioBook": "Lydbok",
     "back": "Tilbake",
     "beginner": "Nybegynner",
     "billing": "Fakturering",
-    "bitcoinWhitepaper": "Bitcoin Whitepaper",
     "book": "Bok",
-    "books": "Bøker",
     "builders": "Bidragsytere",
-    "certificate": "Sertifikat",
     "conference": "Konferanse",
-    "conferences": "Konferanser",
     "content": "Innhold",
     "course": "Kurs",
     "courseId": "Kurs-ID",
@@ -486,43 +385,24 @@
     "dashboard": "Startside",
     "description": "Beskrivelse",
     "details": "Detaljer",
-    "didYouKnow": "Visste du at?",
-    "documentaries": "Dokumentarer",
-    "donations": "Donasjoner",
     "download": "Last ned",
     "duration": "Varighet",
-    "economy": "Økonomi",
     "edit": "Rediger",
-    "email": "Epost",
     "events": "Arrangementer",
-    "exchanges": "Vekslingstjenester",
-    "followUs": "Følg oss",
     "free": "Gratis",
     "glossary": "Ordliste",
-    "helpUs": "Hjelp oss",
     "home": "Hjem",
     "intermediate": "Mellomliggende",
-    "interview": "Intervju",
     "invoice": "Faktura",
-    "lightning": "Lightning",
     "lightningInvoice": "Lynfaktura",
     "lnurlAuth": "LNURL-godkjenning",
-    "manifesto": "Manifest",
-    "merchandising": "Fremme salg",
-    "merchants": "Kjøpmann",
     "members": " Medlemmer",
     "mining": "Mining",
-    "more": "Mer",
     "network": "Nettverk",
-    "networkMember": "Nettverksmedlem",
     "newsletter": "Nyhetsbrev",
-    "newsletters": "Nyhetsbrev",
-    "node": "Node",
     "nodeNetwork": "Nodenettverk",
     "online": "På nett",
     "onChainAddress": "On chain-adresse",
-    "onChain": "On chain",
-    "or": "eller",
     "ourStory": "Vår historie",
     "paid": "Betalt",
     "part": "Del",
@@ -530,21 +410,12 @@
     "price": "Pris",
     "professor": "Professor",
     "professors": "Professorer",
-    "purchase": "Kjøp",
     "register": "Registrer",
     "public": "Offentlig kommunikasjon",
-    "relatedResources": "Relaterte ressurser",
     "resources": "Ressurser",
-    "resume": "Gjenoppta",
-    "review": "Anmeldelse",
-    "rogzy": "Rogzy",
-    "sponsorUs": "Spons oss",
     "start": "Start",
     "students": "Studenter",
-    "supportUs": "Støtt oss",
-    "teachers": "Lærere",
     "termsAndConditions": "Vilkår og betingelser",
-    "toolkits": "Verktøy",
     "topics": "Emner",
     "tutorial": "Veiledning",
     "tutorials": "Veiledninger",
@@ -553,7 +424,6 @@
     "hours": "timer",
     "lectures": "Forelesninger",
     "communities": "Fellesskap",
-    "writtenByPodcasts": "Skrevet av:",
     "credentials": "Legitimasjon",
     "diploma": "Diplom",
     "location": "Sted",
@@ -609,10 +479,7 @@
   },
   "dashboard": {
     "account": "Konto",
-    "administration": "Administrasjon",
     "bCertificate": {
-      "bookExam": "Bestill eksamen",
-      "certificate": "Sertifikat",
       "grade": "Karakter",
       "noResults": "Det er ingen karakterer eller sertifikater knyttet til denne kontoen ennå.\nHvis du har bestått en eksamen og resultatene dine ikke er tilgjengelige etter en lengre periode, vennligst ta kontakt med oss for hjelp."
     },
@@ -620,8 +487,6 @@
       "accessLive": "Få tilgang til live eksamen",
       "billingTitle": "Faktureringshistorikk",
       "billingSubtitle": "Last ned fakturaer fra bestillingene dine her.",
-      "downloadInvoice": "Last ned faktura",
-      "downloadTicket": "Last ned billett",
       "invoiceDate": "Dato",
       "invoiceTitle": "Tittel",
       "invoiceType": "Skriv",
@@ -644,7 +509,6 @@
     "myCourses": {
       "completed": "Fullført",
       "completedCoursesDescription": "Her kan du sjekke dine fullførte kurs.",
-      "details": "Detaljer",
       "inprogress": "Under behandling",
       "inprogressCoursesTitle": "Kurs i gang",
       "resumeLesson": "Gjenoppta",
@@ -652,7 +516,6 @@
       "startCourse": "Start eller fullfør et kurs",
       "completedCoursesTitle": "Fullførte kurs",
       "inprogressCoursesDescription": "Her kan du sjekke fremdriften i kursene du har startet.",
-      "completedOutOf": "{{completed}} enheter fullført av {{total}} tilgjengelige",
       "done": "Ferdig",
       "whereYouAre": "La oss se hvor du er!",
       "viewDetails": "Se detaljer",
@@ -690,17 +553,14 @@
       "security": "Sikkerhet",
       "username": "Brukernavn",
       "personalInformation": "Min personlige informasjon",
-      "profile": "Profil",
-      "emailChangeRateLimitError": "Forespørsel om endring av epost allerede sendt for mindre enn 5 minutter siden, vennligst vent før du prøver igjen."
+      "profile": "Profil"
     },
     "teacher": {
       "courses": {
         "analytics": "Analyse",
         "courseDetails": "Kursdetaljer",
-        "courseId": "Kurs-ID",
         "courseLongDescription": "Innledende beskrivelse",
         "reviewInfos": "Her kan du kontrollere og gjennomgå all informasjon om hvert kurs du har koordinert.",
-        "courseName": "Kursnavn",
         "courseShortDescription": "Mål",
         "coursesManagementPanel": "Kurskontrollpanel",
         "curriculum": "Kursstudieplan",
@@ -715,13 +575,11 @@
         "reviews": "Anmeldelser"
       },
       "profile": {
-        "descriptionTags": "Disse taggene fullfører din offentlige profil da de viser dine spesialiteter som en bitcoiner.",
         "enterTipsInformations": "Plan ₿ Network oppfordrer brukere til å tipse lærere. Vennligst oppgi informasjonen din slik at folk kan tipse deg når de ønsker det.",
         "publicDescription": "Denne beskrivelsen vises i lærerinformasjonskortet ditt på plattformen.",
         "tutorialModification": "Hvis du trenger hjelp til å redigere noe, vennligst sjekk denne <0>tutorial</0>.",
         "account": "Lærerkonto",
         "billingInformations": "Faktureringsinformasjon",
-        "chooseTags": "Velg de taggene som beskriver deg best",
         "description": "Din beskrivelse",
         "lightningAddress": "Lightningadresse",
         "makeModifications": "Trenger du å gjøre endringer?",
@@ -731,7 +589,6 @@
         "notifications": "Varsler",
         "publicProfile": "Offentlig profil",
         "publicProfileDescription": "Her kan du fylle ut eller redigere all informasjon knyttet til din aktivitet som lærer på Plan ₿ Network.",
-        "writeShortBio": "Skriv en kort biografi om deg selv",
         "teacher": "Lærer",
         "teacherProfile": "Lærerprofil"
       },
@@ -782,10 +639,8 @@
     },
     "adminPanel": {
       "bookingsPanel": "Bestillingspanel",
-      "noUpcomingBookings": "Det er ingen kommende bestillinger.",
       "tutorialAnalyticsDescription": "Her kan du sjekke og sammenligne alle veiledningene på plattformen.",
       "upcomingBookings": "Kommende bestillinger",
-      "upcomingEventsSubtitle": "Her kan du laste ned listen over deltakere for alle arrangementer med fysisk tilstedeværelse.",
       "bookings": "Bestillinger",
       "confirmRemoval": "Bekreft fjerning",
       "coursesIds": "Kurs-IDer",
@@ -805,10 +660,8 @@
       "tutorialsManagementPanel": "Veiledningsstyringspanel",
       "type": "Skriv",
       "upcomingBookingsSubtitle": "Her kan du laste ned listen over deltakere for alle arrangementer med fysisk tilstedeværelse.",
-      "upcomingEvents": "Kommende arrangementer",
       "userRolesAllocation": "Tildeling av brukerroller"
     },
-    "courseDashboard": "Kursdashbord",
     "studentDashboard": "Studentdashbord",
     "backToDashboard": "Tilbake til dashbordet"
   },
@@ -847,30 +700,21 @@
     "pageTitle": "Leter du etter et Bitcoin-arrangement delta på?",
     "payment": {
       "access_invoice": "Du kan få tilgang til fakturaen din via dashbordet ditt.",
-      "access_online_successful": "Når arrangementet starter, logg inn på plattformen for å få tilgang til direktesendingen på arrangementsiden.",
-      "access_physical_successful": "Du kan laste ned billetten din her, eller laste den ned senere i dashbordet ditt.",
       "address": "Adresse",
-      "amount": "Beløp",
       "back_events": "Tilbake til arrangementer",
       "book_seat": "Bestill plass",
-      "callout_online": "Du er i ferd med å bestille online tilgang til dette arrangementet.",
       "callout_physical": "Du er i ferd med å bestille fysisk tilgang til dette arrangementet.",
-      "callout_replay": "Du er i ferd med å bestille tilgang til opptaket av dette arrangementet.",
       "date": "Dato",
-      "dates_to": "{{startDate}}{{endDate}}",
       "description_free_physical": "Vennligst gjennomgå de oppgitte detaljene for lokalet.\nNår bookingen er bekreftet, vil vi utstede en bekreftelsesbillett og en QR-kode som skal vises på arrangementet.",
       "download_ticket": "Last ned billetten din",
       "enjoy": "Vi håper du vil nyte det :)",
       "language": "Språk",
       "limitation": "Begrensning",
       "max_capacity": "Maksimum kapasitet",
-      "payment_details": "Betalingsdetaljer",
       "payment_successful": "Bestilling vellykket!",
       "time": "Tid",
       "access_type": "Type tilgang",
-      "additional_free_description": "Dette arrangementet er gratis, så det er ingen kostnad for å bestille denne plassen. Men vær snill å delta, siden antallet seter er begrenset.",
-      "description_online": "Vennligst sjekk dato og tid for arrangementet som er oppgitt.\nNår tiden kommer, logg inn på plattformen for å få tilgang til direktesendingen via arrangementsiden.",
-      "description_physical": "Vennligst gjennomgå de oppgitte detaljene for lokalet.\nNår bookingen din er bekreftet, vil vi utstede en billett som du kan presentere på arrangementet. Denne billetten vil også gi deg tilgang til direktesendingen og opptak, hvis tilgjengelig."
+      "additional_free_description": "Dette arrangementet er gratis, så det er ingen kostnad for å bestille denne plassen. Men vær snill å delta, siden antallet seter er begrenset."
     },
     "pageDescription": "Vil du snakke om Bitcoin i nåtid? Her, kan du finne alle arrangementene som støttes av Plan B Network-samfunnene. Enten du vil lytte til et foredrag, diskutere Bitcoin over en drink, eller ta en eksamen for å vurdere kunnskapen din, du vil finne det rette arrangementet her gjennom Plan B Network.",
     "errors": {
@@ -888,7 +732,6 @@
     "needHelp": "Trenger du hjelp til å definere et teknisk ord?",
     "keepLooking": "Vil du fortsette å søke?",
     "loadMoreWords": "Last inn flere ord",
-    "pageSubtitle": "Trenger du hjelp med en teknisk definisjon?",
     "pageTitle": "Bitcoin-ordliste",
     "placeHolder": "Hva er dette?",
     "randomSearch": "Tilfeldig søk",
@@ -903,18 +746,6 @@
       "welcome": "Velkommen til PlanB Network",
       "link": "Bli en del av nettverket",
       "startLink": "Start læring"
-    },
-    "sectionEducation": {
-      "content1": "Bitcoin er ikke bare en teknologi og en form for penger, men også en revolusjonerende måte å tilnærme seg livet på. I tråd med denne bevisstheten, dekker kursene våre et bredt spekter av felt, og gir enkeltpersoner muligheten til å utmerke seg i sine interesseområder og videreutvikle sin forståelse. Fra din første Bitcoin-leksjon til en dypdykk i protokollens spesifikasjoner, vil vi hjelpe deg med å navigere trygt i kaninhullet. Det er ingen grunn til å nøle. Kunnskap venter på deg.",
-      "title": "Fra nybegynner til avansert",
-      "subtitle": "Lær Bitcoin på akademiet",
-      "link": "Sjekk ut akademiet"
-    },
-    "sectionNetwork": {
-      "content1": "Koble deg til Bitcoin-entusiaster over hele verden som deler en felles lidenskap. Fra små samfunn som møtes regelmessig, til BTC-opplæringssentre, vil nettverkskartet vårt hjelpe deg med å finne inspirasjon til å lære og bygge. Du vil oppdage et bredt spekter av tjenester, som et inkubasjonssenter, fysiske verksteder, seminarer, BTC-retreater og mer. Nettverket er åpent for alle, så kom og si hei til din lokale BTC-samfunn!",
-      "title": "Få tilgang til et nettverk av",
-      "subtitle": "Verdensomspennende Bitcoin-studiesteder",
-      "link": "Bli en del av nettverket"
     },
     "tutorialSection": {
       "title": "Samle kunnskap for å distribuere den mer effektivt",
@@ -941,17 +772,11 @@
       "availableLanguages": "Tilgjengelige språk",
       "title": "Ingen språkbarriere her.",
       "subtitle": "Alt er oversatt til lokale språk!",
-      "subtitle2": "Vi trenger deg!",
-      "content2": "Du kan også starte med å bygge opp ditt eget lokale nettverk i ditt land!",
       "link": "Hjelp oss med å oversette akademiet",
       "availableLanguagesVariation": "Tilgjengelige språk: "
     },
-    "numbersSection": {
-      "networkMember": "Nettverksmedlemmer"
-    },
     "patreonSection": {
       "title": "Sammen skal vi gjøre Bitcoin-utdanning bedre!",
-      "subtitle": "Plan ₿ Network er 100% åpen kildekode takket være våre generøse støttespillere",
       "content": "Plan ₿ Network er stolt av å samarbeide med mange bitcoin-selskaper rundt om i verden for å kunne tilby de beste utdanningsressursene som er mulig!"
     },
     "wallOfLoveSection": {
@@ -975,47 +800,28 @@
   },
   "imagesAlt": {
     "underConstructionImage": "Illustrasjon av flere kaniner som jobber på en byggeplass",
-    "blueEllipse": "en blå ellipse",
     "bookCover": "en bokomslag",
     "contributorHeart": "et hjerte for hyggelig bidragsyter",
-    "contributorPP": "bidragsyter profilbilde",
-    "forwardArrow": "en fremover pil",
     "orangePill": "en oransje pille",
     "printedCircuits": "et trykt kretskort",
     "rabbit404": "en kanin som lyser med en lommelykt på et 404-skilt",
-    "sthRepresentingCompany": "noe som representerer selskapet",
-    "stylus": "en penn"
+    "sthRepresentingCompany": "noe som representerer selskapet"
   },
   "library": {
-    "writtenBy": "Skrevet av {{author}}",
-    "pageSubtitle": "Denne portalen er åpen kildekode og åpen for bidrag.",
-    "pageTitle": "Bitcoin-biblioteket",
-    "publishedIn": "Publisert {{date}}"
+    "pageTitle": "Bitcoin-biblioteket"
   },
   "menu": {
     "bCertificateDescription": "Bestå ₿-sertifikateksamen for å bekrefte ditt Bitcoin-nivå",
     "buildersDescription": "Lær om selskapene og prosjektene som jobber for å forbedre bitcoin og øke adopsjonen av det",
-    "merchantsDescription": "Godta bitcoin-betalinger og oppdag verktøy for kjøpmenn",
     "podcastsDescription": "Utforsk bitcoin-økosystemet gjennom podcaster",
     "betDescription": "Samling av innhold som du kan bruke til dine pedagogiske prosjekter",
-    "btc101Description": "Få en bedre forståelse av bitcoin med disse leksjonene",
     "conferencesDescription": "Samling av opptak fra Bitcoin-konferanser siden Genesis-blokken",
-    "exchangesDescription": "Kjøp og selg bitcoins på børser og lær om P2P",
     "glossaryDescription": "Forstå Bitcoin språket",
     "libraryDescription": "Oppdag mange bøker for å forbedre kunnskapen din",
-    "lightningDescription": "Administrer lightningnoden din og bruk lightningnettverket",
     "login": "Logg inn",
-    "loginRegister": "Logg inn / Registrer deg",
-    "manifestoDescription": "Les Plan B's manifest",
-    "miningDescription": "Utvinne dine egne bitcoins og lær om miningindustrien",
-    "nodeDescription": "Lær hvordan du kan være selvstendig med din egen bitcoin-node",
     "nodeNetworkDescription": "Bli med i det globale nettverket for Plan B",
-    "ourStoryDescription": "Lær om universitetets historie",
     "publicDescription": "Utforsk offentlige kommunikasjonsartikler",
-    "sponsorsDescription": "Oppdag våre sponsorer og hovedbidragsytere",
-    "supportUsDescription": "Finn måter å støtte oss på, på hvilken som helst måte",
     "teachersDescription": "Bli kjent med lærerne på akademiet vårt",
-    "walletsDescription": "Sikre og bruk dine bitcoins",
     "bitcoinDescription": "Lær Bitcoin fra grunnleggende til avanserte applikasjoner.",
     "businessDescription": "Avdekk Bitcoin-bruk i handel.",
     "channelsDescription": "Få tilgang til vårt eksklusive utvalg av Youtube-kanaler for å lære om Bitcoin",
@@ -1077,38 +883,17 @@
       "errorMessageNotFound": "Bloggen ble ikke funnet.",
       "blogSidebarTitle": "Tidligere innlegg i nettverket",
       "blogListButtonText": "Les",
-      "filterText": "Filtrer etter emne :",
-      "noBlogs": "Det er ingen artikler for øyeblikket"
+      "filterText": "Filtrer etter emne :"
     }
   },
   "resources": {
-    "headerText": "Velkommen til det uendelige kaninhullet av Bitcoin! I denne delen vil vi tilby deg en grundig veiledning om de fleste bitcoin-prosjektene der ute. Disse sidene vedlikeholdes av velvillige og lidenskapelige bitcoin-støttespillere som støtter dette åpne kildekodeprosjektet. Hvis du mener vi har gjort en feil, vennligst ta kontakt. For å se vår økonomiske tilknytning til prosjektene som er nevnt, henviser vi til vår åpenhetsrapport. Takk for tilliten du har til dette universitetet og nyt turen.",
     "pageDescription": "Å prøve å forstå Bitcoin er som å utforske en labyrint som fortsetter å vokse. For å hjelpe deg på reisen din, har vi samlet et stort utvalg av ressurser, inkludert bøker, podcaster, videoer og konferanseopptak. Dette portalen samler all informasjonen i ett Github-repositorium for å hjelpe deg med å få en bedre forståelse av Bitcoin-økosystemet.",
-    "articles": {
-      "title": "Artikler"
-    },
-    "bet": {
-      "title": "Utdanningsverktøy"
-    },
     "books": {
-      "title": "Bibliotek",
       "author": "Forfatter : "
     },
-    "builders": {
-      "title": "Bidragsytere"
-    },
-    "conferences": {
-      "title": "Konferanseopptak"
-    },
-    "filterBarLabel": "Finn de perfekte ressursene for dine behov:",
     "github": "All denne dataen administreres via ett åpent kildekode <0>Github</0> -lager. Føl deg fri til å bidra og legge til manglende innhold.",
-    "glossary": {
-      "title": "Ordliste"
-    },
-    "headerSignature": "Rogzy",
     "newsletters": {
       "title": "Nyhetsbrev",
-      "abstract": "Sammendrag",
       "noNewsletters": "Det er for øyeblikket ingen nyhetsbrev for valgt språk.",
       "author": "Forfatter : ",
       "level": "Nivå :",
@@ -1120,10 +905,8 @@
       "title": "Podcaster",
       "noPodcasts": "Det er for øyeblikket ingen podcaster for valgt språk."
     },
-    "publicGrade": "Offentlig karakter: {{grade}}/5",
     "searchFilterName": "Søk etter navn",
     "newsletter": {
-      "title": "Nyhetsbrev",
       "check": "Sjekk nyhetsbrevet"
     },
     "pageSubtitleBooks": "<0>Andre bøker</0> du kanskje vil like:",
@@ -1137,21 +920,10 @@
     "toggleLabelAll": "Alt"
   },
   "nodeNetwork": {
-    "answer1": "En node er et pedagogisk initiativ knyttet til et samfunn et sted i verden. Det kan bestå av en bygning der Bitcoin-utdanning finner sted, men det er ikke begrenset til det. Plan B Network driver knutepunkter, men å etablere dem i hver by over hele verden er urealistisk. Derfor er vi avhengige av et samfunn av bitcoiners for å hjelpe oss med å gjøre dette globale nettverket til virkelighet.",
-    "answer2": "Ved å bli med i nettverket vårt, får du tilgang til eksklusivt innhold som Plan B distribuerer gjennom plattformen sin, som du kan dele med medlemmene i noden din. Den viktigste fordelen er å åpne kanaler for diskusjon for fremtidige prosjekter og koble seg til andre fellesskap over hele verden for å dele erfaringer.",
     "description1": "Plan B Network støtter utdanningsinitiativer over hele verden. Vi samarbeider for å skape de beste verktøyene for disse prosjektene, både gjennom plattformen vår og i den fysiske verden. Vi er alltid på utkikk etter nye noder som kan bli med oss. Hvis du vil jobbe sammen for å skape et desentralisert globalt utdanningsnettverk for Bitcoin, ta kontakt!",
-    "answer3": "I utgangspunktet fokuserer Plan B Network på steder med et fysisk rom å operere fra. I fremtiden planlegger vi å integrere enhver initiativ som kunne dra nytte av nettverkets støtte for å vokse.",
-    "answer4": "En Bitcoin-node kan være av hvilken som helst størrelse. Basert på noen krav, vil forskjellige grader bli tilskrevet. En node med et hackerspace, et treningsstudio og noe kontorplass vil bli betraktet som mer citadel-lignende.",
-    "answer5": "Vi ønsker å tilby en trygg havn for Bitcoiners rundt om i verden. Vi tror at ved å hjelpe lokale knutepunkter med å vokse, vil vi kunne skape et nettverk av citadeller der Bitcoiners vil være velkomne til å jobbe, skape, dele og diskutere trygt.",
     "apply": "Søk om å bli en Node",
     "pageSubtitle": "Vil du gi verden den oransje pillen? Bli med i PlanB-nettverket.",
     "pageTitle": "Utforsk Plan B Node-nettverk",
-    "question1": "Hva er en node?",
-    "question2": "Hva tjener jeg på det?",
-    "question3": "Hva er kravene?",
-    "question4": "Hva er størrelsen på en node?",
-    "question5": "Hva er den hemmelige planen?",
-    "mobiledescription": "Vi mener at utdanning ikke bare bør foregå på nett, men også i fysiske rom. For å oppnå dette, administrerer Plan B Network et nettverk av knutepunkter rundt om i verden for å ønske tenkere, byggere og pedagoger velkommen til å fremme utviklingen av Bitcoin og frihetsteknologier. Vårt første skritt er å invitere samfunn med fysiske rom, som vi refererer til som \"full nodes\" i vårt nettverk, til å bli med oss. I fremtiden, når nettverket vårt styrkes, vil vi utvide denne invitasjonen til flere initiativer over hele verden. Hvis du deler våre verdier, vennligst ta kontakt med våre representanter for å bli med i nettverket vårt og hjelpe til med å bygge den beste Bitcoin-utdanningen som er mulig.",
     "descriptionextend": "Vårt første skritt er å invitere samfunn med fysiske rom, som vi refererer til som \"full nodes\" i nettverket vårt, til å bli med oss. I fremtiden, når nettverket vårt styrkes, vil vi utvide denne invitasjonen til flere initiativer over hele verden. Hvis du deler våre verdier, vennligst ta kontakt med våre representanter for å bli med i nettverket vårt og hjelpe til med å bygge den beste Bitcoin-utdanningen som er mulig.",
     "applyhelp": "*Velg node Plassering"
   },
@@ -1161,8 +933,6 @@
     "pageTitle": "Oisann."
   },
   "podcasts": {
-    "pageSubtitle": "Dette portalen er åpen kildekode og åpen for bidrag.",
-    "hostedBy": "Arrangert av {{host}}",
     "pageTitle": "Bitcoin-podcaster"
   },
   "tutorials": {
@@ -1177,7 +947,6 @@
       "shortDescription": "Løsninger for kjøp og salg av Bitcoin, KYC og ikke-KYC",
       "title": "Vekslingstjenester"
     },
-    "headerText": "Velkommen til det uendelige kaninhullet av Bitcoin! I denne delen vil vi tilby deg en grundig veiledning om de fleste bitcoin-prosjektene der ute. Disse sidene vedlikeholdes av velvillige og lidenskapelige bitcoin-støttespillere som støtter dette åpne kildekodeprosjektet. Hvis du mener vi har gjort en feil, vennligst ta kontakt. For å se vår økonomiske tilknytning til prosjektene som er nevnt, henviser vi til vår åpenhetsrapport. Takk for tilliten du har til dette universitetet og nyt turen.",
     "merchant": {
       "description": "Noen gang lurt på hvordan du enkelt kan akseptere bitcoin for en bedrift? Utforsk våre forskjellige løsninger for å bli en ekspert og enkelt sette opp en handelsløsning for butikkene rundt deg. Salgspunkt-løsningen varierer basert på handelens behov (fysisk eller online), deres volum, og kompleksiteten av deres operasjoner. En generelt god proxy er å rett og slett starte med en grunnleggende LN-lommebok, gå over til en enkel, effektiv løsning (som mobil PoS), og til slutt utforske BTC Pay Server for avanserte, komplekse, profesjonelle løsninger.",
       "shortDescription": "Løsninger for bedrifter for å akseptere Bitcoin",
@@ -1202,12 +971,8 @@
     "backTutorials": "Tilbake til alle opplæringsprogrammer",
     "details": {
       "author": "Forfatter : ",
-      "checkAuthor": "Sjekk ut forfatterens andre bidrag og støtt hans arbeid.",
       "didHelp": "Hjalp dette?",
-      "enjoyed": "Likte du denne opplæringen?",
-      "madeBy": "Denne opplæringen er laget av",
       "source": "Kilde:",
-      "tipTooltip": "Liker du det? Tips.",
       "writtenBy": "Denne opplæringen ble skrevet av :",
       "ratingSuccess": "Takk for vurderingen din! Den er tatt i betraktning",
       "tutorialName": "Veiledningsnavn"
@@ -1217,7 +982,6 @@
       "didYouKnow": "Visste du at?",
       "exploreAllTutorials": "Utforsk alle opplæringsprogrammer"
     },
-    "headerSignature": "Rogzy",
     "mining": {
       "description": "Gruveindustrien er et komplekst tema fullt av flere kaninhull i seg selv. Her vil vi prøve å følge deg på reisen din ved å bruke maskinvare og programvare. Fra å modifisere en S9 til en hjemmevarmer, til å prøve å vinne lotteriet med en nerdeminer.",
       "shortDescription": "Løsninger for Bitcoin-mining",
@@ -1276,7 +1040,6 @@
     "payByCard": "Betal med kort"
   },
   "podcast": {
-    "abstract": "Sammendrag",
     "check": "Sjekk podcasten"
   },
   "settings": {

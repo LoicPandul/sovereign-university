@@ -23,19 +23,13 @@
     "manifesto": "Me usume Bitcoini poolt pakutavasse detsentraliseeritud tulevikku.\n\nMeie missiooniks on tutvustada Bitcoini miljardile inimesele järgmise kümnendi jooksul. Meie tööriistadeks on haridus ja informatsioon.\n\nToetame kohalikke Bitcoini kogukondi, pakkudes avatud lähtekoodiga hariduslikku sisu ja pakkudes Bitcoini mentorite võrgustikku.\n\nMeie filosoofia on inspireeritud küberpunki manifestist. Nii nagu nemad toetasid privaatsust, toetame meie haridust. Usume, et teadmised on vabaduse ja muutuse aluseks.\n\nKasutame ainult Bitcoini.\n\nMe propageerime individuaalset vastutust ja iseseisvust, mida pakub oma võtmete omamine.\n\nMe nõuame verifitseerimist, mitte pimedat usaldust.\n\nUsume, et raha parandades parandame maailma.\n\nOleme detsentraliseeritud ja avatud lähtekoodiga, vältides kõikvõimalikke üksikuid tõrkekohti.\n\nJulgustame meie sisu vaba ning tasuta levitamist.\n\nPüüdleme maailma poole, mis toimib alt üles ning mille keskmes on üksikisik.\n\nMe lihtsustame, me harime, me jagame.\n\nLiitu meiega meie missioonis pakkuda oranži pilli kogu maailmale.\n"
   },
   "words": {
-    "videos": "Videod",
-    "video": "Video",
     "view": "Vaade",
     "update": "Uuendus",
     "tutorials": "Õpetused",
     "tutorial": "Õpetus",
     "topics": "Teemad",
-    "additionalCriteria": "Lisakriteeriumid",
-    "account": "Konto",
     "about-us": "Meist",
     "about": "Umbes",
-    "articles": "Artiklid",
-    "article": "Artikkel",
     "all": "Kõik",
     "level": {
       "level": "Tase",
@@ -48,89 +42,52 @@
       "beginnerFriendly": ""
     },
     "invoice": "Arve",
-    "interview": "Intervjuu",
     "intermediate": "Kesktase",
     "home": "Kodu",
-    "helpUs": "Aidake meid",
     "glossary": "Sõnastik",
     "free": "Tasuta",
-    "followUs": "Jälgi meid",
-    "exchanges": "Valuutavahetusettevõtted",
     "events": "Sündmused",
-    "email": "E-kiri",
-    "education": "Haridus",
     "edit": "Redigeeri",
     "duration": "Kestus",
     "download": "Laadi alla",
-    "donations": "Annetused",
-    "documentaries": "Dokumentaalfilmid",
-    "didYouKnow": "Kas teadsid?",
     "details": "Üksikasjad",
     "description": "Kirjeldus",
     "dashboard": "Juhtpaneel",
     "date": "Kuupäev",
     "courses": "Kursused",
     "course": "Kursus",
-    "continue": "Jätka",
     "content": "Sisu",
-    "conferences": "Konverentsid",
     "conference": "Konverents",
-    "certificate": "Sertifikaat",
     "builders": "Ehitajad",
-    "books": "Raamatud",
     "book": "Raamat",
-    "bitcoinWhitepaper": "Bitcoini valge paber",
     "billing": "Arveldamine",
     "bCertificate": "B-sertifikaat",
     "back": "Tagasi",
-    "sponsorUs": "Sponsoreeri Meid",
-    "rogzy": "Rogzy",
-    "review": "Ülevaade",
     "resources": "Materjalid",
-    "relatedResources": "Seotud materjalid",
     "register": "Registreeri",
-    "purchase": "Osta",
     "professors": "Professorid",
     "professor": "Professor",
     "price": "Hind",
     "podcasts": "Taskuhäälingud",
     "podcast": "Taskuhääling",
     "paid": "Tasulised",
-    "or": "või",
-    "onChain": "Ahelapealne",
     "on": "peal",
     "nodeNetwork": "Sõlmede võrk",
-    "node": "Sõlm",
-    "newsletters": "Uudiskirjad",
     "newsletter": "Uudiskiri",
-    "networkMember": "Võrgustiku Liige",
     "network": "Võrk",
-    "more": "Rohkem",
     "mining": "Kaevandamine",
     "members": " Liikmed",
-    "merchants": "Kaupmehed",
-    "merchandising": "Kaubandus",
-    "manifesto": "Manifest",
     "lnurlAuth": "LNURL Auth",
-    "lightning": "Lightning",
-    "toolkits": "Tööriistad",
     "to": "et",
     "time": "Aeg",
     "tickets": "Piletid",
     "ticket": "Pilet",
     "termsAndConditions": "Kasutustingimused",
-    "teachers": "Õpetajad",
-    "supportUs": "Toeta meid",
     "start": "Alusta",
-    "sponsoringAndContributors": "Sponsorlus & panustajad",
-    "resume": "Elulookirjeldus",
     "ourStory": "Meie lugu",
-    "movieDocumentary": "Dokumentaalfilm",
     "library": "Raamatukogu",
-    "economy": "Majandus",
     "courseId": "Kursuse ID",
     "beginner": "Algaja",
-    "audioBook": "Heliraamat",
     "advanced": "Edasijõudnud",
     "online": "Võrgus",
     "wallets": "Rahakotid",
@@ -151,7 +108,6 @@
     "required": "",
     "total": "",
     "users": "",
-    "writtenByPodcasts": "",
     "location": "",
     "builder": "",
     "chapter": "",
@@ -215,7 +171,6 @@
       },
       "description": "Vahetusplatvormid on üks sisse- ja väljapääsuteid teie traditsioonilise valuuta (euro, dollarid) ja bitcoini maailma vahel. Vahetusplatvormid võivad olla reguleeritud ja KYC (Tunne Oma Klienti) nõuetele vastavad või hoopis peer-to-peer ja anonüümsed. Iga vahetusplatvorm pakub erinevaid funktsioone, tasustruktuure, likviidsust ja kliendituge. Iga bitcoiner kasutab erinevat platvormi, vastavalt oma vajadustele ja veendumustele."
     },
-    "headerSignature": "Rogzy",
     "merchant": {
       "title": "Kaupmees",
       "shortDescription": "Lahendused ettevõtetele Bitcoini vastuvõtmiseks",
@@ -267,16 +222,11 @@
       "exploreAllTutorials": ""
     },
     "details": {
-      "tipTooltip": "Meeldib? Jäta jootraha.",
       "source": "Algallikas :",
-      "madeBy": "Selle õpetuse on teinud",
-      "enjoyed": "Nautisid seda õpetust?",
-      "checkAuthor": "Tutvuge autori teiste kirjutistega ja toetage tema loomingut.",
       "author": "",
       "didHelp": "",
       "writtenBy": ""
     },
-    "headerText": "Tere tulemast Bitcoini lõputusse jäneseurgu! Selles osas pakume teile põhjalikke õpetusi enamike olemasolevate bitcoini projektide kohta. Seda lehte haldavad heatahtlikud ja kirglikud bitcoinerid, kes toetavad meie avatud lähtekoodiga projekti. Kui arvate, et oleme teinud vea, võtke meiega ühendust. Et näha meie finantsseotust mainitud projektiga, vaadake meie läbipaistvusaruannet. Täname teid usalduse eest meie ülikoolis ning nautige sõitu.",
     "approvedByCreator": "",
     "backTutorials": ""
   },
@@ -284,14 +234,11 @@
     "accountCreated": "Teie konto on loodud, {{userName}}!",
     "alreadyHaveAccount": "Omate juba kontot?",
     "canSaveProgress": "Nüüd saate oma edusamme Bitcoini Akadeemias salvestada",
-    "connectWithLn": "Ühenda LN-iga",
     "createAccount": "Registreeri",
     "createOne": "Registreeri siin!",
     "emailAddress": "E-posti aadress",
     "errors": {
       "displayNameTooShort": "Kuvanimi peab sisaldama vähemalt 2 tähemärki.",
-      "displayNameRequired": "Kuvanimi on nõutud.",
-      "displayNameRegex": "Kuvanimi võib sisaldada ainult tähti, numbreid, _, ., - ja tühikuid.",
       "usernameRegex": "Kasutajanimi võib sisaldada ainult tähti, numbreid, _, . ja -.",
       "usernameRequired": "Kasutajanimi on nõutud.",
       "usernameTooShort": "Kasutajanimi peab sisaldama vähemalt 5 tähemärki.",
@@ -326,7 +273,6 @@
     "passwordMinLength": "Parool peab olema vähemalt {{len}} tähemärki pikk",
     "checkingTokenExplain": "Kontrollime, kas luba on kehtiv…",
     "passwordResetSent": "Parooli lähtestamise e-kiri on saadetud teie postkasti (kui e-kiri meie andmebaasis eksisteerib).",
-    "oldPassword": "",
     "confirmation": "",
     "displayName": "",
     "emailTip": ""
@@ -335,8 +281,6 @@
     "bookExam": "Broneeri eksamisessioon",
     "challengeYourself": "Tule pane end proovile & tõesta oma taset!",
     "checkout": "Tutvuge B-sertifikaadiga",
-    "curious": "Uudishimulik, et milline eksam välja näeb?",
-    "joeNakamotoVideo": "Mis paganama asi üldse on Bitcoini eksam ? Autor Joe Nakamoto",
     "knowledgeableBitcoin": "Teadlik ja kogenud Bitcoini alal ?",
     "noBookExam": "Eksamisessiooni pole veel planeeritud.",
     "organizeExam": "Korraldage eksam",
@@ -350,7 +294,6 @@
     "tweetText": ""
   },
   "bet": {
-    "contribute": "Antud tööriistakomplekt on avatud kõigile panustamiseks. See kasutab Figmat, seega igaüks saab lisada, muuta ja tõlkida. Koostööks, kategooria lisamiseks või aruteluks ärge kõhelge liitumast meie Discordiga.",
     "contributeButton": "Aita & panusta",
     "contributeDescription": "Kui soovite kas sisu lisada, muuta või tõlkida, on teie abi alati teretulnud!",
     "contributeTitle": "Soovid panustada?",
@@ -358,34 +301,16 @@
       "description": "See sisu on mõeldud kasutamiseks haridusüritustel ja üldiseks kasutamiseks.",
       "title": "Hariduslik sisu"
     },
-    "hereForYou": "BHT on siin teie jaoks!",
     "pageTitle": "Bitcoini hariduslik tööriistakomplekt",
-    "pageSubtitle": "BHT - Kõigile haridusprojektidele mõeldud Bitcoini avatud lähtekoodiga tööriistakomplekt",
     "visualContent": {
       "description": "Antud sisu on töötlemata visuaalne andmestik, mida saate oma loomingus kasutada.",
       "title": "Visuaalne sisu"
     },
     "pageDescription": "Massiline omaksvõtt pole lihtne. Selle eesmärgi poole kiiremini ja lähemale liikumiseks oleme välja töötanud laiendatava haridusliku sisuga andmebaasi. Siin saavad Bitcoini haridustöötajad vajadusel vabalt sisu lisada ning ligi pääseda. Ärgem leiuta iga kord ratast uuesti, vaid töötame koos, et keskenduda kasulikele ressurssidele ühes tööriistakomplektis !"
   },
-  "book": {
-    "abstract": "Kokkuvõte",
-    "bookSummary": {
-      "modifyTooltip": "Kirjuta või muuda",
-      "notice": "antud kokkuvõte on seotud GitHubiga, mis tahes muudatuse või lisamise tarbeks",
-      "title": "Raamatu kokkuvõte",
-      "noSummary": "Ühtegi kokkuvõtet pole veel kirjutatud. Kui olete raamatut lugenud ja soovite jagada ühte kokkuvõtet, ärge kartke seda Githubis kirjutada. See aitaks kogukonda, parandaks ülikooli ning võiksite isegi selle eest mõned sats'id saada!"
-    },
-    "buttonBuy": "Osta",
-    "buttonPdf": "PDF / E-raamat",
-    "offeredBy": "Pakutud helde panustaja poolt",
-    "pageSubtitle": "Käesolev portaal on avatud lähtekoodiga & avatud kaastööle.",
-    "pageTitle": "Bitcoini raamatukogu",
-    "topicsAddressed": "Käsitletud teemad:"
-  },
   "builders": {
     "noRelatedEvents": "Antud ehitaja jaoks pole veel tulevasi seotud sündmusi.",
     "otherCommunities": "Avastage Plan B kogukondi",
-    "pageSubtitle": "Käesolev portaal on avatud lähtekoodiga & avatud kaastööle.",
     "pageTitle": "Bitcoini Ehitajad",
     "languages": "Keeled",
     "relatedEvents": "Seotud tulevased sündmused",
@@ -401,7 +326,6 @@
       "previousVideo": "Eelmine video",
       "selectStage": "Valige lava",
       "selectVideo": "Valige video",
-      "speaker": "Kõneleja",
       "watchReplay": "Vaadake kordust"
     },
     "language": "Keel",
@@ -412,20 +336,9 @@
     "topics": "Teemad",
     "addConferences": "Lisage julgelt igasugused puuduvad konverentsid selle <0>Github</0> hoidla kaudu.",
     "description": "Konverentsid on võtmetähtsusega element Bitcoini tööstuses. Need on osa igast Bitcoineri haridusteekonnast. Me ehitasime selle tööriista, et aidata teil sadade konverentside vahel navigeerida.",
-    "location": "Asukoht",
-    "pageSubtitle": "Käesolev portaal on avatud lähtekoodiga & avatud kaastööle."
+    "location": "Asukoht"
   },
   "courses": {
-    "categories": {
-      "btc": "Bitcoin",
-      "crypto": "Krüptograafia",
-      "cuboplus": "Bitcoin",
-      "econ": "Austria majandusteadus",
-      "fin": "Rahandus",
-      "ln": "Lightning Network",
-      "min": "Kaevandamine",
-      "secu": "Turvalisus ja privaatsus"
-    },
     "chapter": {
       "finishCourse": "Lõpeta kursus",
       "next": "Tehtud, liigu järgmise peatüki juurde",
@@ -445,41 +358,19 @@
       "live": {
         "title": "Reaalajas video",
         "stayTuned": "Otseülekanne algab pool tundi enne tunni algust. Püsige lainel."
-      },
-      "count": "Peatükk {{count}}"
+      }
     },
     "details": {
-      "accessible": "Ligipääs: Eluaegne",
       "buyCourse": "Osta kursus",
-      "courseId": "Kursuse ID: {{courseId}}",
-      "coursePayment": "Kursuse makse",
       "curriculum": "Õppekava",
-      "date": "Kuupäev: {{startDate}} kuni {{endDate}}",
-      "dates_to": "{{startDate}} kuni {{endDate}}",
       "description": "Kirjeldus",
-      "duration": "Kestus: {{hours}} tundi",
-      "goal": "EESMÄRK:",
-      "level": "Tase: $t(words.level.{{level}})",
       "mobile": {
-        "chapters": "{{chapters}} peatükki",
         "hours": "{{hours}} tundi"
       },
       "objectives": "Eesmärgid",
-      "price": "Hind: {{price}} sats",
-      "professor": "Professor",
       "taughtBy": "Seda kursust õpetab :",
-      "teacher": "Õpetaja: {{teacher}}",
-      "teachers": "Õpetajad: {{teachers}}",
-      "teacherWord": "Paar sõna õpetajalt",
-      "total": "Kokku",
-      "payment_successful": "Makse edukalt sooritatud!",
-      "payment_details": "Makseandmed",
-      "amount": "Summa",
-      "invoiceId": "Tx ID",
-      "numberOfChapters": "Peatükkide arv: {{number}}",
       "objectivesTitle": "Mida te õpite :",
       "startCourse": "Alusta kursust",
-      "access_invoice": "Oma arvele pääsete juurde oma tegumiriba kaudu",
       "inPersonAccess": "",
       "paidCourse": "",
       "buyInPersonCourse": "",
@@ -488,23 +379,10 @@
     "explorer": {
       "buildPath": "Raja iseenda tee jäneseurgu",
       "exploreCourses": "Avasta kõiki Plan B kursuseid",
-      "footerTitle": "Meie professorid on siin teie jaoks !",
-      "footerp2": "Kui soovite mõnda kursust täiendada või pakkuda välja oma kursust, saate seda teha lihtsasti GitHubi kaudu. Professori toetamiseks võite kas hinnata nende kursust, jätta professorile otse jootraha või saada ülikooli liikmeks, et platvormi toetada.",
       "journey": "Bitcoin on teekond, mitte sihtkoht",
-      "moreToCome": "... ja palju muud tulekul !",
-      "s3PickLevel": "Vali tasemed :",
-      "s3PickTopic": "Vali teemad :",
       "seeCourse": "Vaata kursust",
       "findCourses": "Leidke oma vajadustele sobivaim kursus tänu kursusevalijale",
-      "footerp1": "Suveräänsuse Ülikoolis on meie professoritel täielik autonoomia sisu ja tööriistade üle, mida nad soovivad, et te uuriksite, seni kuni nad järgivad eetikakoodeksit ning on sellega kooskõlas. Nad on erinevate taustalugudega kirglikud bitcoinerid.",
-      "pageDescription": "Plan B Akadeemia eesmärk on lihtsustada Bitcoini haridust kogu maailmas. Erinevate erialade ekspertide poolt kureeritud akadeemia pakub hulgaliselt kursuseid, mis on mõeldud Bitcoini kõikide tahkude lahti selgitamiseks. Alates algajast kuni eksperdini, olgu see siis oma tempos või professori poolt nädalas jälgitav, me loodame, et akadeemia aitab teil paremini mõista seda laia teemat, mis on Bitcoin. Suur osa meie kursustest on täiesti tasuta, et igaühel, igal pool, oleks juurdepääs haridusele.",
-      "pageSubtitle": "Massiline kasutuselevõtt läbi keskse avatud lähtekoodiga hariduse",
-      "pageTitle": "Tere tulemast Plan B Akadeemiasse",
-      "s2p1": "Olles alustanud Bitcoini jäneseuru uurimist, peate teadma, et see on lõputu teekond mitmete radadega. Siin ülikoolis mõistame seda ja oleme kujundanud oma õppematerjali mitte-lineaarseks, autonoomseks ja nii ulatuslikuks kui võimalik.",
-      "s2p3": "Kõik meie kursused on 100% tasuta, seega miski ei saa sind takistada!",
-      "s2t1": "Bitcoini haridus on teekond, mitte sihtkoht",
-      "s2p2": "Saate valida oma tee ja seda mööda minna, omandades oskusi ja teadmisi täpselt nii palju kui teil motivatsiooni on.",
-      "s3t1": "Raja iseenda tee mööda jäneseurgu"
+      "pageDescription": "Plan B Akadeemia eesmärk on lihtsustada Bitcoini haridust kogu maailmas. Erinevate erialade ekspertide poolt kureeritud akadeemia pakub hulgaliselt kursuseid, mis on mõeldud Bitcoini kõikide tahkude lahti selgitamiseks. Alates algajast kuni eksperdini, olgu see siis oma tempos või professori poolt nädalas jälgitav, me loodame, et akadeemia aitab teil paremini mõista seda laia teemat, mis on Bitcoin. Suur osa meie kursustest on täiesti tasuta, et igaühel, igal pool, oleks juurdepääs haridusele."
     },
     "payment": {
       "accessibility": "Juurdepääsetavus",
@@ -519,7 +397,6 @@
       "payment_details": "Makseandmed",
       "payment_successful": "Makse edukalt sooritatud!",
       "back_course": "Tagasi kursuse juurde",
-      "dates_to": "{{startDate}} kuni {{endDate}}",
       "numberOfChapters": "Peatükkide arv",
       "date": "Kuupäev",
       "access_invoice": "Oma arvele pääsete juurde oma tegumiriba kaudu",
@@ -544,15 +421,7 @@
       "resultPerfect": "Täiuslik sooritus ! Õnnitlused !"
     },
     "preview": {
-      "by": "{{professor}} poolt",
       "letsgo": "Hakkame pihta"
-    },
-    "unreleased": {
-      "hyperinflation": "Hüperinflatsiooni uurimine",
-      "colcardAndSparrow": "Coldcard ja Sparrow",
-      "financeIntroduction": "Sissejuhatus finantsidesse",
-      "financialCrisis": "Suurte finantskriiside analüüs",
-      "theoreticalLightning": "Edasijõudnud teoreetiline kursus Lightning Networki kohta"
     },
     "exam": {
       "answersReview": "",
@@ -586,7 +455,6 @@
       "tamperProof": "",
       "testKnowledge": "",
       "testResults": "",
-      "timeLeft": "",
       "wishTryAgain": "",
       "yesSubmit": "",
       "timeStamped": "",
@@ -623,9 +491,7 @@
       "veryBad": "",
       "veryGood": "",
       "whatStudentsSay": "",
-      "currentlyLoggedOut": "",
       "difficulty": "",
-      "edit": "",
       "feedbackSessionTitle": "",
       "fieldRequired": "",
       "generalGrade": "",
@@ -644,8 +510,7 @@
       "commentPublic": "",
       "faithful": "",
       "recommend": "",
-      "yesOfCourse": "",
-      "loading": ""
+      "yesOfCourse": ""
     }
   },
   "dashboard": {
@@ -658,8 +523,6 @@
       "ticketLocation": "Asukoht",
       "ticketTitle": "Pealkiri",
       "billingTitle": "Arveldusajalugu",
-      "downloadInvoice": "Laadige arve alla",
-      "downloadTicket": "Laadi pilet alla",
       "pastTicketTitle": "Varasemad broneeringud",
       "upcomingTicketTitle": "Eelseisvad broneeringud",
       "ticketType": "Tüüp",
@@ -676,7 +539,6 @@
     "courses": "Kursused",
     "myCourses": {
       "completed": "Lõpetatud",
-      "details": "Üksikasjad",
       "completedCoursesTitle": "Läbitud kursused",
       "inprogress": "Pooleli",
       "inprogressCoursesTitle": "Pooleliolevad kursused",
@@ -685,7 +547,6 @@
       "inprogressCoursesDescription": "Siin saate kontrollida oma edusamme alustatud kursustel.",
       "seeProgress": "et siin oma edusamme näha.",
       "startCourse": "Alusta või lõpeta kursus",
-      "completedOutOf": "",
       "done": "",
       "viewDetails": "",
       "yourCertificate": "",
@@ -708,17 +569,13 @@
       "personalInformation": "Minu isiklik teave",
       "profileInformation": "Profiili info",
       "emailChangeConfirmation": "E-posti muutmise kinnituseks on e-kiri saadetud, muutmise kinnitamiseks kontrollige oma postkasti.",
-      "emailChangeRateLimitError": "",
       "profile": ""
     },
     "logout": "Logi välja",
     "bCertificate": {
-      "bookExam": "Broneeri eksamisessioon",
-      "certificate": "Sertifikaat",
       "grade": "Hinne",
       "noResults": "Sellel kontol ei ole veel ühtegi hinnet ega tunnistust. \nKui olete eksami sooritanud ja teie tulemused pole pikema aja jooksul saadaval, siis palun pöörduge meie poole abi saamiseks."
     },
-    "administration": "",
     "course": {
       "tweetText": "",
       "checkDetailsCompleted": "",
@@ -747,10 +604,8 @@
       "courses": {
         "analytics": "",
         "courseDetails": "",
-        "courseId": "",
         "courseLongDescription": "",
         "courseModification": "",
-        "courseName": "",
         "courseShortDescription": "",
         "coursesManagementPanel": "",
         "curriculum": "",
@@ -768,9 +623,7 @@
       "profile": {
         "account": "",
         "billingInformations": "",
-        "chooseTags": "",
         "description": "",
-        "descriptionTags": "",
         "enterTipsInformations": "",
         "lightningAddress": "",
         "makeModifications": "",
@@ -781,7 +634,6 @@
         "publicDescription": "",
         "publicProfile": "",
         "publicProfileDescription": "",
-        "writeShortBio": "",
         "teacher": "",
         "teacherProfile": "",
         "tutorialModification": ""
@@ -828,9 +680,7 @@
       "title": "Soovite lisada oma sündmust ?"
     },
     "payment": {
-      "amount": "Summa",
       "date": "Kuupäev",
-      "dates_to": "{{startDate}}{{endDate}}",
       "limitation": "Piirang",
       "time": "Aeg",
       "book_seat": "Broneeri iste",
@@ -840,19 +690,12 @@
       "max_capacity": "Maksimaalne mahutavus",
       "payment_successful": "Broneering õnnestus !",
       "address": "Aadress",
-      "payment_details": "Makseandmed",
       "access_type": "Juurdepääsu tüüp",
       "access_invoice": "Oma arvele pääsete juurde oma tegumiriba kaudu.",
-      "access_physical_successful": "Saate oma pileti alla laadida siit või siis laadida selle alla hiljem oma tegumiribalt.",
       "additional_free_description": "Antud üritus on tasuta, seega teilt ei võeta tasu antud koha broneerimise eest. Siiski, palun veenduge, et osalete üritusel, kuna kohtade arv on piiratud.",
-      "callout_online": "Olete broneerimas veebipääsu antud üritusele.",
       "callout_physical": "Olete broneerimas füüsilist juurdepääsu antud üritusele.",
-      "callout_replay": "Olete broneerimas juurdepääsu antud ürituse videolindistusele.",
-      "description_online": "Palun vaadake üle sündmuse kuupäev ja kellaaeg.\nKui aeg kätte jõuab, logige platvormile sisse ning pääsete otseülekandele sündmuse lehe kaudu.",
-      "description_physical": "Palun vaadake üle esitatud toimumiskoha andmed.\nKui broneering on töödeldud, anname teile pileti üritusel esitamiseks. See pilet annab teile ka juurdepääsu otseülekandele ja kordusvideole, kui neid on.",
       "description_free_physical": "Palun vaadake üle esitatud toimumiskoha andmed.\nKui broneering on töödeldud, anname teile kinnituspileti ja QR-koodi, mida üritusel esitada.",
-      "enjoy": "Loodame, et naudite seda! :)",
-      "access_online_successful": "Sündmuse algamisel, logi platvormi sisse ning teile antakse juurdepääs otseülekandele sündmuse lehe kaudu."
+      "enjoy": "Loodame, et naudite seda! :)"
     },
     "missed": {
       "missedh1": "Möödunud sündmused taasesitamiseks",
@@ -874,7 +717,6 @@
     "filterBar": "Leia otsitav sõna",
     "needHelp": "Vajate abi tehnilise sõna määratlemisel ?",
     "keepLooking": "Soovid edasi otsida ?",
-    "pageSubtitle": "Vajate abi tehnilise sõna määratlemisel ?",
     "placeHolder": "Mis see on ?",
     "notTranslated": "",
     "creditsLoic": ""
@@ -887,12 +729,6 @@
       "forEducators": "Haridustöötajatele ja ehitajatele",
       "welcome": "Tere tulemast PlanB Võrgustikku",
       "link": "Ole osa võrgustikust"
-    },
-    "sectionEducation": {
-      "link": "Vaadake akadeemiat",
-      "content1": "Bitcoin pole ainult tehnoloogia ja raha vorm, vaid ka revolutsiooniline viis elule läheneda. Selle kinnituseks hõlmavad meie kursused laia valikut valdkondadest, võimaldades igal üksikisikul oma huvivaldkondades silma paista ja oma mõistmist süvendada. Alates teie esimesest Bitcoini kursusest kuni protokolli üksikasjade põhjaliku uurimiseni aitavad meie kursused teil turvaliselt jäneseurust läbi navigeerida. Pole põhjust kõhelda. Teadmised ootavad teid.",
-      "title": "Algajast edasijõudnuni",
-      "subtitle": "Õpi Bitcoini kohta akadeemias"
     },
     "aboutUsSection": {
       "privacyTitle": "Privaatsus",
@@ -909,11 +745,9 @@
     },
     "languageSection": {
       "availableLanguages": "Saadaolevad keeled",
-      "subtitle2": "Me vajame sind!",
       "title": "Siin keelebarjääri pole.",
       "subtitle": "Kõik on tõlgitud kohalikesse keeltesse",
       "content1": "PlanB-s usume, et Bitcoin on kõiki puudutav rahvusvaheline revolutsioon. Et võimestada miljardeid inimesi, loome me seda platvormi mitmekeelseks ja kõigile kättesaadavaks. Käesolev platvorm toetab praegu 7 keelt ning iga kuu lisandub uusi. Selle saavutamiseks kasutame AI-d ja Bitcoini entusiastide kirge üle kogu maailma.",
-      "content2": "Ka sina saad alustada oma kohaliku võrgustikku loomist oma riigis!",
       "link": "Aita meil akadeemiat tõlkida",
       "availableLanguagesVariation": ""
     },
@@ -924,18 +758,8 @@
       "subtitle1": "Aitame teil õppida paljude põhjalike õpetuste abil vajalikku tehnoloogiat valdama!",
       "link2": ""
     },
-    "numbersSection": {
-      "networkMember": "Võrgustiku liige"
-    },
-    "sectionNetwork": {
-      "subtitle": "Ülemaailmsed Bitcoini ülikoolilinnakud",
-      "link": "Ole osa võrgustikust",
-      "title": "Pääse võrgustikku",
-      "content1": "Ühenduge ülemaailmsete ühist kirge jagavate Bitcoini entusiastidega. Meie võrgustiku kaart aitab leida inspiratsiooni õppimiseks ja ehitamiseks, alates väikestest regulaarselt kohtuvatest kogukondadest kuni BTC hariduskeskusteni. Entusiastidele on saadaval lai valik teenuseid, nagu inkubatsioonikeskus, füüsilised töötoad, seminarid, BTC kogunemiskohad ja palju muud. Võrgustik on avatud kõigile, nii et tulge ja öelge tere oma kohalikule BTC kogukonnale!"
-    },
     "patreonSection": {
       "title": "Muudame koos Bitcoini hariduse paremaks !",
-      "subtitle": "PlanB võrgustik on tänu meie heldetele patroonidele 100% avatud lähtekoodiga",
       "content": "PlanB Võrgustik teeb uhkusega koostööd mitmete Bitcoini ettevõtetega üle maailma, et pakkuda parimaid võimalikke haridusressursse !"
     },
     "wallOfLoveSection": {
@@ -945,11 +769,7 @@
   },
   "imagesAlt": {
     "bookCover": "raamatu kaas",
-    "stylus": "stiilus",
-    "blueEllipse": "sinine ellips",
     "contributorHeart": "süda toredale kaastöölisele",
-    "contributorPP": "kaastöölise profiilipilt",
-    "forwardArrow": "edasiviiv nool",
     "orangePill": "oranž pill",
     "printedCircuits": "trükkplaatide",
     "rabbit404": "404 märgile taskulampi suunav jänes",
@@ -957,42 +777,24 @@
     "underConstructionImage": "Illustratsioon mitmest ehitusplatsil töötavast jänesest"
   },
   "library": {
-    "pageTitle": "Bitcoini raamatukogu",
-    "pageSubtitle": "Käesolev teek on avatud lähtekoodiga ja avatud kaastööle.",
-    "publishedIn": "Avaldatud {{date}}",
-    "writtenBy": "Kirjutatud {{author}} poolt"
+    "pageTitle": "Bitcoini raamatukogu"
   },
   "menu": {
     "login": "Logi sisse",
     "conferencesDescription": "Bitcoini konverentside korduste kogumik esmaplokist alates",
     "betDescription": "Oma haridusprojektide jaoks kasutamiseks mõeldud materjalide kogum",
-    "btc101Description": "Saavuta parem arusaam Bitcoinist nende õppetundide abil",
     "buildersDescription": "Õppige tundma ettevõtteid ja projekte, mis töötavad Bitcoini paremaks muutmise ja selle kasutuselevõtu suurendamise nimel",
-    "exchangesDescription": "Osta ja müü Bitcoini turgudel ning õppige P2P kohta",
     "bCertificateDescription": "Sooritage ₿ sertifikaadi eksam, et tõestada oma teamisi Bitcoinist",
     "glossaryDescription": "Saage aru Bitcoini keelest",
     "libraryDescription": "Avasta mitmeid raamatuid, et parandada oma teadmisi",
-    "lightningDescription": "Halda oma lightning sõlme ning kasuta lightning networki",
-    "loginRegister": "Logi sisse / Registreeru",
-    "manifestoDescription": "Loe Plan B manifesti",
-    "merchantsDescription": "Aktsepteeri Bitcoini makseid ja avasta kaupmeestele mõeldud tööriistu",
-    "miningDescription": "Kaevake oma Bitcoine ning õppige kaevandustööstuse kohta",
-    "nodeDescription": "Õpi, kuidas olla iseseisev koos omaenda Bitcoini sõlmega",
     "nodeNetworkDescription": "Liitu Plan B globaalse kogukonna võrgustikuga",
-    "ourStoryDescription": "Õpi ülikooli loo kohta",
     "podcastsDescription": "Avastage Bitcoini ökosüsteemi taskuhäälingute kaudu",
-    "sponsorsDescription": "Avastage meie sponsoreid ja peamisi panustajad",
-    "supportUsDescription": "Leidke viise, kuidas meid toetada, ükskõik mismoodi",
     "teachersDescription": "Saage tuttavaks meie akadeemia õpetajatega",
-    "walletsDescription": "Kaitske ja kasutage oma Bitcoine",
     "publicDescription": ""
   },
   "payment": {
     "total": "Kokku",
     "terms": "Vaadake meie <0>üldtingimusi</0> tagasimakse üksikasjade jaoks"
-  },
-  "podcast": {
-    "abstract": "Kokkuvõte"
   },
   "professors": {
     "pageTitle": "Professorid",
@@ -1011,46 +813,19 @@
     }
   },
   "podcasts": {
-    "pageTitle": "Bitcoini taskuhäälingud",
-    "hostedBy": "Võõrustab {{host}}",
-    "pageSubtitle": "Käesolev portaal on avatud lähtekoodiga & avatud kaastööle."
+    "pageTitle": "Bitcoini taskuhäälingud"
   },
   "resources": {
-    "books": {
-      "title": "Raamatukogu"
-    },
-    "builders": {
-      "title": "Ehitajad"
-    },
-    "glossary": {
-      "title": "Sõnastik"
-    },
     "newsletters": {
       "title": "Uudiskirjad"
     },
     "podcasts": {
       "title": "Taskuhäälingud"
     },
-    "bet": {
-      "title": "Hariduslik tööriistakomplekt"
-    },
-    "conferences": {
-      "title": "Konverentsi kordused"
-    },
-    "articles": {
-      "title": "Artiklid"
-    },
-    "headerSignature": "Rogzy",
-    "publicGrade": "Avalik hinnang: {{grade}}/5",
     "github": "Kõiki neid andmeid hallatakse ühe avatud lähtekoodiga <0>Githubi</0> hoidla kaudu. Võite vabalt kaasa aidata ja lisada puuduvat sisu.",
     "pageTitle": "Tere tulemast Ressursside Portaali",
     "pageSubtitle": "Keskendage teadmisi nende paremaks jagamiseks",
-    "filterBarLabel": "Leidke täiuslikud ressursid oma vajadustele:",
     "pageDescription": "Katsetus Bitcoini mõista on nagu pidevalt kasvava labürindi avastamine. Teie teekonna hõlbustamiseks oleme koostanud laia valiku ressursse, sealhulgas raamatuid, taskuhäälinguid, videoid ja konverentside ülekandeid. See portaal kogub kogu teabe ühte Githubi hoidlasse, et aidata teil paremini Bitcoini ökosüsteemi mõista.",
-    "headerText": "Tere tulemast Bitcoini lõputusse jäneseurgu ! Selles osas pakume teile põhjalikke õpetusi enamike olemasolevate bitcoini projektide kohta. Seda lehte haldavad heatahtlikud ja kirglikud bitcoinerid, kes toetavad meie avatud lähtekoodiga projekti. Kui arvate, et oleme teinud vea, võtke meiega ühendust. Et näha meie finantsseotust mainitud projektiga, vaadake meie läbipaistvusaruannet. Täname teid usalduse eest meie ülikoolis ning nautige sõitu.",
-    "newsletter": {
-      "title": ""
-    },
     "pageSubtitleBooks": "",
     "pageSubtitlePodcast": "",
     "searchFilterName": ""
@@ -1067,23 +842,12 @@
     "pageSubtitle": "Tundub, et keegi langes liiga sügavale jäneseurgu ja eksis ära. Pinnale naasmiseks klõpsake"
   },
   "nodeNetwork": {
-    "answer1": "Sõlm on haridusalgatus, mis on seotud mõne kogukonnaga kusagil maailmas. See võib koosneda hoonest, kus viiakse läbi Bitcoini õpetamist, kuid see ei piirdu sellega. Plan B Võrgustik opereerib keskusi, kuid nende loomine igas maailma linnas on ebarealistlik. Seetõttu tugenemegi me selle globaalse võrgustiku teoks tegemisel Bitcoini kasutajate kogukonnale.",
-    "answer2": "Liitudes meie võrgustikuga, saate juurdepääsu Plan B platvormi kaudu levitatavale eksklusiivsele sisule, mida saate jagada oma sõlme elanikega. Kõige olulisem eelis on arutelukanalite avamine tulevaste projektide jaoks ja ühenduse loomine teiste kogukondadega üle kogu maailma, et jagada kogemusi.",
     "description1": "Plan B Võrgustik toetab haridusalaseid algatusi üle maailma. Teeme koostööd, et luua parimad tööriistad nendele projektidele, nii meie platvormi kaudu kui ka reaalses maailmas. Me otsime alati uusi sõlmpunkte, kes sooviksid meiega liituda. Kui soovid koostööd teha, et luua detsentraliseeritud globaalne haridusvõrk Bitcoinile, siis võta meiega ühendust!",
-    "answer5": "Soovime pakkuda Bitcoini kasutajatele turvalist pelgupaika üle kogu maailma. Usume, et kohalike sõlmpunktide kasvatamise abil suudame luua kindluste võrgustiku, kus Bitcoini kasutajad on teretulnud töötama, looma, jagama ja turvaliselt arutlema.",
     "apply": "Kandideerige, et saada Sõlmeks",
     "pageSubtitle": "Soovid maailmale oranži pilli pakkuda? Liitu PlanB võrgustikuga.",
     "pageTitle": "Avastage Plan B sõlmevõrku",
-    "question1": "Mis on sõlm ?",
-    "question2": "Mida ma sellest võidan ?",
-    "question3": "Mis on nõuded ?",
-    "question4": "Kui suur üldse sõlm on?",
-    "question5": "Mis on salaplaan ?",
-    "answer3": "Alguses keskendub Plan B Võrgustik kohtadele, kus on olemas füüsiline ruum tegevuste läbiviimiseks. Tulevikus plaanime integreerida mistahes algatusi, mis võiksid võrgustiku toetusest kasu saada.",
-    "answer4": "Bitcoini sõlm võib olla mistahes suurusega. Mõnede nõuete alusel omistatakse nendele erinevad hinne. Sõlme koos häkkeriruumi, jõusaali ning mõnede kontoriruumidega, peetakse rohkem kindluselaadseks.",
     "descriptionextend": "",
-    "applyhelp": "",
-    "mobiledescription": ""
+    "applyhelp": ""
   },
   "proofreading": {
     "completed": "",
@@ -1098,7 +862,6 @@
       "noArticlesText": "",
       "errorMessageNotFound": "",
       "filterText": "",
-      "noBlogs": "",
       "blogSidebarTitle": "",
       "featuredArticleTitleText": "",
       "pastArticleSubtitleText": "",

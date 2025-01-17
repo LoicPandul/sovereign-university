@@ -29,7 +29,6 @@
     "accountCreated": "您的账户已创建，{{userName}}！",
     "alreadyHaveAccount": "已经有账户了吗？",
     "canSaveProgress": "您现在可以在比特币学院保存您的进度了",
-    "connectWithLn": "连接LN",
     "createAccount": "注册",
     "createOne": "在这里注册！",
     "emailAddress": "电子邮件地址",
@@ -37,9 +36,7 @@
       "usernameRegex": "用户名只能包含字母、数字、_、. 和 -",
       "usernameRequired": "需要您提供用户名",
       "usernameTooShort": "用户名必须至少包含5个字符。",
-      "displayNameRequired": "需要显示名称。",
       "displayNameTooShort": "显示名称必须包含至少2个字符。",
-      "displayNameRegex": "显示名仅可包含字母、数字、下划线（_）、点号（.）、短横线（-）和空格。",
       "emailInvalid": "",
       "invalidCredentials": ""
     },
@@ -68,17 +65,14 @@
     "passwordResetError": "重置密码错误",
     "passwordResetSent": "已向您的邮箱发送密码重置邮件（如果该电子邮件地址存在于我们的数据库中）。",
     "tryAgain": "再试一次",
-    "oldPassword": "",
     "emailTip": "",
     "confirmation": "",
     "displayName": ""
   },
   "bCertificate": {
-    "joeNakamotoVideo": "到底什么是比特币考试？ 由Joe Nakamoto撰写",
     "bCertificateDescription": "B-证书是一项国际认证的考试，用于评估您对比特币及其衍生主题的了解程度。这个证书将使您能够在比特币行业中证明自己的技能和知识，是进入该行业公司和职位的准入证。",
     "bookExam": "预约考试时间",
     "checkout": "查看B证书",
-    "curious": "好奇考试是什么样的吗？",
     "knowledgeableBitcoin": "熟悉比特币吗？",
     "challengeYourself": "让我们挑战自己并证明你的水平！",
     "noBookExam": "目前还没有已排程的考试期。",
@@ -97,64 +91,34 @@
       "description": "这些内容本来就是准备好用于教育活动及其应用的。",
       "title": "教育内容"
     },
-    "hereForYou": "BET在这里为您服务！",
     "pageDescription": "大规模应用不容。为了更快接近这个目标，我们开发了一个可扩展的教育内容数据库。在这里，比特币教育者可以根据需要自由地添加和获取内容。让我们向前行进时不要每次都重新发明轮子，而是共同努力，将有用的资源集中在一个工具包！",
-    "contribute": "此工具包欢迎大家贡献各自力量。它使用Figma，任何人都可以添加、修改和翻译。如果你合作、添加类别或讨论，欢迎随时加入我们的Discord。",
     "contributeButton": "帮助和贡献",
     "contributeDescription": "如果您想添加、编辑或翻译一些内容，我们非常欢迎您的帮助！",
-    "pageSubtitle": "BET - 一个适用于所有教育项目的比特币开源工具包",
     "pageTitle": "比特币教育工具包",
     "visualContent": {
       "description": "这些内容是原始的视觉数据，可用于您的创作。",
       "title": "视觉内容"
     }
   },
-  "book": {
-    "bookSummary": {
-      "noSummary": "尚未有摘要。如果你已经阅读了这本书并想分享摘要，不要犹豫，请在Github上分享。这将对社区有很大帮助，提高大学的水平，你甚至还可以因此获得一些聪（比特币最小单位）的奖励！",
-      "modifyTooltip": "编写或修改",
-      "notice": "此摘要已链接到Github，可用于任何修改或添加。",
-      "title": "书籍摘要"
-    },
-    "abstract": "摘要",
-    "buttonBuy": "购买",
-    "buttonPdf": "PDF / 电子书",
-    "offeredBy": "由慷慨的贡献者提供",
-    "pageSubtitle": "此门户网站是开源的，欢迎大家贡献。",
-    "pageTitle": "比特币图书馆",
-    "topicsAddressed": "已写过的话题"
-  },
   "words": {
     "wallets": "钱包",
     "events": "活动",
     "intermediate": "中级",
-    "manifesto": "宣言",
     "onChainAddress": "链上地址",
-    "review": "评论",
     "on": "上线",
     "about": "关于",
     "about-us": "关于我们",
-    "account": "账户",
-    "additionalCriteria": "额外的标准",
     "advanced": "高级",
     "all": "所有",
     "amount": "金额",
-    "article": "文章",
-    "articles": "文章",
-    "audioBook": "有声读物",
     "back": "回来",
     "bCertificate": "₿ 证书",
     "beginner": "初学者",
     "billing": "计费",
-    "bitcoinWhitepaper": "比特币白皮书",
     "book": "书",
-    "books": "书籍",
     "builders": "建筑师",
-    "certificate": "证书",
     "conference": "会议",
-    "conferences": "会议",
     "content": "内容",
-    "continue": "继续",
     "course": "课程",
     "courseId": "课程ID",
     "courses": "课程",
@@ -162,22 +126,12 @@
     "dashboard": "控制面板",
     "description": "概述",
     "details": "详细信息",
-    "didYouKnow": "你知道吗？",
-    "documentaries": "纪录片",
-    "donations": "捐款",
     "download": "下载",
     "duration": "持续时间",
-    "economy": "经济",
     "edit": "编辑",
-    "education": "教育",
-    "email": "电子邮件",
-    "exchanges": "交易所",
-    "followUs": "关注我们",
     "free": "免费",
     "glossary": "词汇表",
-    "helpUs": "帮助我们",
     "home": "主页",
-    "interview": "采访",
     "invoice": "发票",
     "level": {
       "advanced": "高级",
@@ -190,24 +144,14 @@
       "beginnerFriendly": ""
     },
     "library": "图书馆",
-    "lightning": "闪电",
     "lightningInvoice": "闪电发票",
     "lnurlAuth": "LNURL授权",
-    "merchandising": "商品推广",
-    "merchants": "商人",
     "members": " 成员",
     "mining": "挖矿",
-    "more": "更多",
-    "movieDocumentary": "电影纪录片",
     "network": "网络",
-    "networkMember": "网络会员",
     "newsletter": "电子报",
-    "newsletters": "电子报",
-    "node": "节点",
     "nodeNetwork": "节点网络",
-    "onChain": "链上",
     "online": "在线",
-    "or": "或者",
     "ourStory": "我们的故事",
     "paid": "付款",
     "part": "部分",
@@ -216,30 +160,19 @@
     "price": "价格",
     "professor": "教授",
     "professors": "教授们",
-    "purchase": "购买",
     "register": "注册",
-    "relatedResources": "相关资源",
     "resources": "资源",
-    "resume": "摘要",
-    "rogzy": "Rogzy",
-    "sponsorUs": "赞助我们",
-    "sponsoringAndContributors": "赞助与贡献者",
     "start": "开始",
-    "supportUs": "支持我们",
-    "teachers": "教师",
     "termsAndConditions": "条款和条件",
     "ticket": "票据",
     "tickets": "票据",
     "time": "时间",
     "to": "至",
-    "toolkits": "工具包",
     "topics": "话题",
     "tutorial": "教程",
     "tutorials": "教程",
     "unified": "统一的",
     "update": "更新",
-    "video": "视频",
-    "videos": "视频",
     "view": "视图",
     "bookings": "",
     "builder": "",
@@ -269,8 +202,7 @@
     "students": "",
     "teacher": "",
     "total": "",
-    "users": "",
-    "writtenByPodcasts": ""
+    "users": ""
   },
   "conferences": {
     "description": "会议是比特币行业的关键元素。它们是每个比特币用户教育旅程的一部分。我们构建了这个工具，帮助您在数百个会议中浏览。",
@@ -281,7 +213,6 @@
     "addConferences": "随时通过<0>Github</0>代码仓库添加任何缺失的会议。",
     "details": {
       "findReplay": "找到回放",
-      "speaker": "扬声器",
       "nextVideo": "下一个视频",
       "previousVideo": "上一个视频",
       "selectStage": "选择一个阶段",
@@ -291,7 +222,6 @@
     "language": "语言",
     "latestConferences": "最新的会议",
     "location": "位置",
-    "pageSubtitle": "此门户网站是开源的，欢迎大家贡献。",
     "pageTitle": "会议重播",
     "planBConferences": "B Plan会议",
     "topics": "话题"
@@ -314,78 +244,33 @@
         "stayTuned": "直播将在课程开始前半小时开始。请保持关注。",
         "title": "直播视频"
       },
-      "count": "第{{count}}章",
       "next": "完成，进入下一章节",
       "thanksTip": "想说谢谢？打赏。",
       "nextLesson": "下一节课将会是"
     },
     "details": {
       "mobile": {
-        "chapters": "{{chapters}}章节",
         "hours": "{{hours}}小时"
       },
       "taughtBy": "这门课程由以下人员教授：",
-      "access_invoice": "您可通过控制面板查看您的发票",
-      "amount": "金额",
-      "level": "等级：$t(words.level.{{level}})",
-      "accessible": "可终生访问",
       "buyCourse": "购买课程",
-      "courseId": "课程名称：{{courseId}}",
-      "coursePayment": "课程付款",
       "curriculum": "课程表",
-      "date": "日期：从{{startDate}}到{{endDate}}",
-      "dates_to": "从{{startDate}} 到 {{endDate}}",
       "description": "概述",
-      "duration": "时长：{{hours}}小时",
-      "goal": "目标：",
-      "numberOfChapters": "章节数量：{{number}}",
       "objectives": "目标",
       "objectivesTitle": "你将学到什么：",
-      "price": "价格：{{price}} sats（聪）",
-      "professor": "教授",
       "startCourse": "开始课程",
-      "teacher": "老师：{{teacher}}",
-      "teachers": "教师：{{teachers}}",
-      "teacherWord": "教师寄语",
-      "total": "总计",
-      "payment_successful": "付款成功！",
-      "payment_details": "付款详情",
-      "invoiceId": "交易ID",
       "inPersonAccess": "",
       "buyInPersonCourse": "",
       "buyOnlineCourse": "",
       "paidCourse": ""
     },
-    "categories": {
-      "btc": "比特币",
-      "crypto": "密码学",
-      "cuboplus": "比特币",
-      "econ": "奥地利经济学",
-      "fin": "金融",
-      "ln": "闪电网络",
-      "min": "挖矿",
-      "secu": "安全与隐私"
-    },
     "explorer": {
       "buildPath": "進入兔子洞時建造你自己的道路",
       "exploreCourses": "探索所有B计划课程",
       "findCourses": "借助于课程选择器，找到最适合您需求的完美课程",
-      "footerTitle": "我们的教授在这里为您服务！",
-      "footerp2": "如果你想改进或提供你自己的课程，你可以通过GitHub来实现。如果要支持一位教授，你可以给他（她）的课程评价，直接给他（她）打赏，或者成为大学会员来支持这个平台。",
       "journey": "比特币是一场旅行，而不是一个目的地",
-      "moreToCome": ".... 还有更多！",
       "pageDescription": "Plan B学院致力于在全球范围内简化比特币教育。由各领域的专家精心策划，学院提供了丰富的课程，旨在揭示比特币的各个方面。从初学者到专家，无论是按照你自己的节奏学习，还是每周由教授指导，我们希望学院能帮助你更好理解比特币这个广泛的主题。我们的大部分课程都是完全免费的，以便任何人，任何地方，都可以接受教育。",
-      "pageSubtitle": "通过集中的开源教育实现大规模应用",
-      "pageTitle": "欢迎来到Plan B学院",
-      "s2p1": "如果你已经开始探索比特币这个兔子洞，你必须知道这是一条无尽的旅程，有许多路径。在这所大学，我们理解这一点，并设计了我们的教育内容，使其非线性，自主性，并尽可能的广泛。",
-      "s2p2": "你将能够选择自己的道路并沿着它前进，只要你有动力，就能获取技能和知识。",
-      "s2p3": "我们所有的课程都是100%免费的，所以没有什么可以阻止你！",
-      "s2t1": "比特币教育是一场旅行，而不是一个目的地",
-      "s3PickLevel": "选择级别：",
-      "s3PickTopic": "选择话题：",
-      "s3t1": "進入兔子洞時建造你自己的道路",
-      "seeCourse": "查看课程",
-      "footerp1": "在B计划网络中，我们的教师对他们的内容和他们希望你探索的工具拥有完全的自主权，只要他们遵守道德规范。他们是来自各种背景的热衷比特币的人。"
+      "seeCourse": "查看课程"
     },
     "payment": {
       "accessibility_forever": "永远",
@@ -394,7 +279,6 @@
       "amount": "金额",
       "back_course": "回到课程",
       "date": "日期",
-      "dates_to": "从{{startDate}} 到 {{endDate}}",
       "downloadCurriculum": "下载课程大纲",
       "book_description": "请查场地详情。\n一旦预订处理完毕，我们将为您提供确认票据和二维码，以在活动现场出示。",
       "duration": "持续时间",
@@ -414,15 +298,7 @@
     "part": {
       "count": "部分{{count}}"
     },
-    "unreleased": {
-      "theoreticalLightning": "关于闪电网络的高级理论课程",
-      "colcardAndSparrow": "Coldcard和Sparrow",
-      "financeIntroduction": "金融入门",
-      "financialCrisis": "分析主要的金融危机",
-      "hyperinflation": "研究超级通货膨胀"
-    },
     "preview": {
-      "by": "由{{professor}}",
       "letsgo": "让我们出发"
     },
     "quizz": {
@@ -436,7 +312,6 @@
       "resultPerfect": "绝对完美！恭喜！"
     },
     "review": {
-      "loading": "",
       "yesOfCourse": "",
       "faithful": "",
       "recommend": "",
@@ -444,10 +319,8 @@
       "asExpected": "",
       "commentPublic": "",
       "commentTeacher": "",
-      "currentlyLoggedOut": "",
       "difficulty": "",
       "displayOutOf": "",
-      "edit": "",
       "feedbackSessionTitle": "",
       "fieldRequired": "",
       "generalGrade": "",
@@ -480,7 +353,6 @@
       "examAndDiploma": "",
       "testKnowledge": "",
       "testResults": "",
-      "timeLeft": "",
       "timeStampBenefits": "",
       "timeStamped": "",
       "timeStampHow": "",
@@ -533,7 +405,6 @@
     "networkStrength": "网络的力量在于其成员",
     "noRelatedEvents": "这个建设者近期没有相关活动举办。",
     "otherCommunities": "探索计划B社区",
-    "pageSubtitle": "此门户网站是开源的，欢迎大家贡献。",
     "pageTitle": "比特币建设者",
     "languages": "语言",
     "relatedEvents": "即将举办的相关活动"
@@ -542,7 +413,6 @@
     "needHelp": "需要帮助定义一个技术词汇吗？",
     "keepLooking": "想继续看吗？",
     "loadMoreWords": "加载更多单词",
-    "pageSubtitle": "需要帮助定义一个技术词汇吗？",
     "pageTitle": "比特币词汇表",
     "placeHolder": "这是什么？",
     "randomSearch": "随机搜索",
@@ -572,7 +442,6 @@
       "username": "用户名",
       "change": "改变",
       "edit": "编辑",
-      "emailChangeRateLimitError": "",
       "profile": ""
     },
     "account": "账户",
@@ -580,8 +449,6 @@
       "accessLive": "访问直播",
       "billingTitle": "账单历史",
       "billingSubtitle": "在此处下载您的预训发票。",
-      "downloadInvoice": "下载发票",
-      "downloadTicket": "下载票据",
       "invoiceDate": "日期",
       "invoiceTitle": "标题",
       "invoiceType": "类型",
@@ -605,7 +472,6 @@
       "completed": "已完成",
       "completedCoursesTitle": "已完成的课程",
       "completedCoursesDescription": "在这里，您可以查看您已完成的课程。",
-      "details": "详细信息",
       "inprogress": "进行中",
       "inprogressCoursesTitle": "正在进行的课程",
       "inprogressCoursesDescription": "在这里，您可以查看您已开始的课程的进度。",
@@ -613,14 +479,11 @@
       "seeProgress": "在这里查看你的进度。",
       "startCourse": "开始或完成一门课程",
       "whereYouAre": "",
-      "completedOutOf": "",
       "done": "",
       "viewDetails": "",
       "yourCertificate": ""
     },
     "bCertificate": {
-      "bookExam": "预约考试时间",
-      "certificate": "证书",
       "grade": "等级",
       "noResults": "此帐户尚未关联任何等级或证书。\n如果你已经通过考试，但在较长时间后仍无法查看结果，请联系我们寻求帮助。"
     },
@@ -641,10 +504,8 @@
       "courses": {
         "analytics": "",
         "courseDetails": "",
-        "courseId": "",
         "courseLongDescription": "",
         "courseModification": "",
-        "courseName": "",
         "courseShortDescription": "",
         "coursesManagementPanel": "",
         "curriculum": "",
@@ -662,9 +523,7 @@
       "profile": {
         "account": "",
         "billingInformations": "",
-        "chooseTags": "",
         "description": "",
-        "descriptionTags": "",
         "enterTipsInformations": "",
         "lightningAddress": "",
         "makeModifications": "",
@@ -675,13 +534,11 @@
         "publicDescription": "",
         "publicProfile": "",
         "publicProfileDescription": "",
-        "writeShortBio": "",
         "teacher": "",
         "teacherProfile": "",
         "tutorialModification": ""
       }
     },
-    "administration": "",
     "course": {
       "checkDetailsCompleted": "",
       "completionDiploma": "",
@@ -731,28 +588,19 @@
     "pageDescription": "想要实时讨论比特币吗？在这里，您可以找到Plan B Network社区支持的所有活动。无论您是想听讲座，手持饮料讨论比特币，还是想通过考试评估您的知识，您都能通过Plan B Network找到适合的活动。",
     "payment": {
       "callout_physical": "您即将预订此活动的实体入场权限。",
-      "description_online": "请查看活动的日期和时间。\n到时请登录平台并通过活动页面访问直播。",
       "description_free_physical": "请查场地详情。\n一旦预订处理完毕，我们将为您提供确认票和二维码，以在活动现场出示。",
       "address": "地址",
       "access_invoice": "您可通过控制面板查看您的发票。",
-      "access_online_successful": "当活动开始时，登录平台，您将通过活动页面获得直播的访问权限。",
-      "access_physical_successful": "您可以在此处下载您的票据，或者稍后在您的控制面板中下载。",
       "access_type": "访问类型",
       "additional_free_description": "此活动免费，因此您预订的这个位置不会被收费。无论如何，请您确保出席，因为位置数量有限。",
-      "amount": "金额",
       "back_events": "回到活动",
       "book_seat": "预订位置",
-      "callout_online": "您即将预订此活动的在线访问权限。",
-      "callout_replay": "您即将预订此活动回放视频的访问权限。",
       "date": "日期",
-      "dates_to": "从{{startDate}} 到 {{endDate}}",
-      "description_physical": "请查看场地详情。\n一旦预订处理完毕，我们将为您提供活动时需出示的票据。您凭此票也可观看现场直播和重播视频（如果有的话）。",
       "download_ticket": "下载您的票据",
       "enjoy": "希望您喜欢它 :)",
       "language": "解说语言",
       "limitation": "限制",
       "max_capacity": "最大容量为",
-      "payment_details": "付款详情",
       "payment_successful": "预订成功！",
       "time": "时间"
     },
@@ -777,21 +625,6 @@
       "welcome": "欢迎来到PlanB网络",
       "link": "成为网络的一部分",
       "startLink": "开始学习"
-    },
-    "numbersSection": {
-      "networkMember": "网络会员"
-    },
-    "sectionEducation": {
-      "title": "从初级到高级",
-      "subtitle": "在学院里学习比特币",
-      "link": "查看学院",
-      "content1": "比特币不仅是一种技术和货币形式，也是一种革命性生活方式。为了呼应这一点，我们的课程涵盖了广泛的领域，使每个人都能在他们感兴趣的领域中表现出色，并进一步加深他们的理解。从你的第一门比特币课程到深入研究协议的具体内容，我们的课程将帮助你安全地探索这个深深的兔子洞。没有理由犹豫。知识在等待你。"
-    },
-    "sectionNetwork": {
-      "link": "成为网络的一部分",
-      "title": "访问一个网络",
-      "subtitle": "全球比特币校园",
-      "content1": "连接全球的比特币爱好者，共享共同的热情。从定期会面的小社区到比特币教育中心，我们的网络地图将帮助你找到学习和建设的灵感。为爱好者提供广泛的服务，如孵化中心、实体工作坊、研讨会、比特币休闲活动等等。该网络对所有人开放，所以快来和你的本地比特币社区打个招呼吧！"
     },
     "tutorialSection": {
       "title": "我们的目标是简化比特币教育。",
@@ -818,14 +651,11 @@
       "title": "这里没有语言障碍。",
       "content1": "在PlanB，我们坚信比特币是一场涉及所有人的国际革命。为了赋予数十亿人权力，我们正在设计这个平台，使其支持多种语言，对所有人开放。该平台目前支持7种语言，每个月都会增加更多。为了实现这一目标，我们使用了AI和全球比特币爱好者的热情相结合的方式。",
       "subtitle": "一切都被翻译成了当地语言",
-      "subtitle2": "我们需要你！",
-      "content2": "你也可以开始在你的国家建立自己的本地网络！",
       "link": "帮助我们翻译学院",
       "availableLanguagesVariation": ""
     },
     "patreonSection": {
       "title": "让我们一起让比特币教育变得更好！",
-      "subtitle": "多亏了我们慷慨的赞助者，PlanB网络能够100%开源",
       "content": "PlanB网络很荣幸能与世界各地的许多比特币公司合作，以最大可能提供最佳教育资源！"
     },
     "wallOfLoveSection": {
@@ -834,56 +664,28 @@
     }
   },
   "imagesAlt": {
-    "blueEllipse": "一个蓝色的椭圆形",
     "bookCover": "書籍封面",
     "contributorHeart": "对优秀贡献者的心意",
-    "contributorPP": "贡献者的个人资料照片",
-    "forwardArrow": "向前箭头",
     "orangePill": "一个橙色的药片",
     "printedCircuits": "印刷电路板",
     "rabbit404": "一只兔子用手电筒照亮一个404标志",
     "underConstructionImage": "描绘了几只兔子在建筑工地上工作的插图",
-    "sthRepresentingCompany": "代表公司的东西",
-    "stylus": "触控笔"
+    "sthRepresentingCompany": "代表公司的东西"
   },
   "menu": {
-    "btc101Description": "通过这些课程更好地理解比特币",
     "betDescription": "您可以用于教育项目的内容收集",
     "conferencesDescription": "自创世区块以来的比特币会议重播集锦",
-    "lightningDescription": "管理您的闪电节点并使用闪电网络",
     "nodeNetworkDescription": "加入Plan B全球社区网络",
-    "supportUsDescription": "通过任何方式找到支持我们的办法",
     "login": "登录",
     "bCertificateDescription": "通过₿证书考试来证明你的比特币水平",
     "buildersDescription": "了解那些致力于改善比特币并增长其应用的公司和项目",
-    "exchangesDescription": "在交易所买卖比特币，并学习点对点交易",
     "glossaryDescription": "理解比特币的语言",
     "libraryDescription": "发现大量的书籍来提升你的知识",
-    "loginRegister": "登录 / 注册",
-    "manifestoDescription": "阅读Plan B的宣言",
-    "merchantsDescription": "接受比特币支付并探索商家工具",
-    "miningDescription": "挖掘你自己的比特币，并了解挖矿行业",
-    "nodeDescription": "学习如何通过自己的比特币节点实现自主权",
-    "ourStoryDescription": "了解大学的故事",
     "podcastsDescription": "通过播客探索比特币生态系统",
-    "sponsorsDescription": "了解我们的赞助商和主要贡献者",
     "teachersDescription": "了解我们学院的教师",
-    "walletsDescription": "保护并使用你的比特币",
     "publicDescription": ""
   },
   "resources": {
-    "filterBarLabel": "找到完美的满足您需求的资源：",
-    "headerText": "欢迎进入无尽的比特币旅程！在这个部分，我们将为您提供大多数比特币项目的深入教程。这些页面由热心且热情的比特币支持者维护，他们支持这个项目开源。如果您觉得我们这里有错误，请联系我们。要查看我们提及项目的财务附件，请参阅我们的透明度报告。感谢您对这所大学的信任，请享受这次旅程。",
-    "builders": {
-      "title": "建筑师"
-    },
-    "conferences": {
-      "title": "会议重播"
-    },
-    "glossary": {
-      "title": "词汇表"
-    },
-    "headerSignature": "Rogzy",
     "newsletters": {
       "title": "电子报"
     },
@@ -894,35 +696,17 @@
     "podcasts": {
       "title": "播客"
     },
-    "publicGrade": "公众评级：{{grade}}/5",
-    "bet": {
-      "title": "教育工具包"
-    },
-    "articles": {
-      "title": "文章"
-    },
-    "books": {
-      "title": "图书馆"
-    },
-    "newsletter": {
-      "title": ""
-    },
     "pageSubtitleBooks": "",
     "pageSubtitlePodcast": "",
     "searchFilterName": ""
   },
   "tutorials": {
     "details": {
-      "madeBy": "这个教程是由",
-      "checkAuthor": "查看作者的其他贡献并支持他的工作。",
-      "enjoyed": "喜欢这个教程吗？",
       "source": "原始资源",
-      "tipTooltip": "喜欢吗？打赏。",
       "writtenBy": "",
       "author": "",
       "didHelp": ""
     },
-    "headerText": "欢迎进入无尽的比特币旅程！在这个部分，我们将为您提供大多数比特币项目的深入教程。这些页面由热心且热情的比特币支持者维护，他们支持这个项目开源。如果您觉得我们这里有错误，请联系我们。要查看我们提及项目的财务附件，请参阅我们的透明度报告。感谢您对这所大学的信任，请享受这次旅程。",
     "mining": {
       "shortDescription": "比特币挖矿解决方案",
       "description": "挖矿是一个充满了复杂性和深奥性的话题。在这里，我们将尝试通过硬件和软件来陪伴你的探索之旅。从将S9改造成家用暖气，到尝试用极客矿工赢得彩票。",
@@ -944,7 +728,6 @@
       "didYouKnow": "你知道吗？",
       "exploreAllTutorials": ""
     },
-    "headerSignature": "Rogzy",
     "merchant": {
       "description": "有没有想过如何轻松地为生意接受比特币？探索我们的各种解决方案，成为专家，并为您周围的商店设置简单的商家解决方案。销售点解决方案根据商家的需求（实体或在线）、他们的交易量以及他们运营的复杂性而变化。通常的好办法仅是简简单单从基本的LN钱包开始，转向一个简单、高效的解决方案（如移动PoS），最后探索BTC Pay Server以寻找高级、复杂、专业的解决方案。",
       "shortDescription": "为生意接受比特币的解决方案",
@@ -1014,10 +797,7 @@
     "backTutorials": ""
   },
   "library": {
-    "pageSubtitle": "这个图书馆是开源的，并且欢迎贡献。",
-    "pageTitle": "比特币图书馆",
-    "publishedIn": "发表于{{date}}",
-    "writtenBy": "由{{author}}撰写"
+    "pageTitle": "比特币图书馆"
   },
   "settings": {
     "changeDisplayName": "更改显示名称",
@@ -1026,23 +806,12 @@
     "changeEmail": "更改电子邮件"
   },
   "nodeNetwork": {
-    "answer1": "节点是与世界某处社区相关的教育倡议。它可以包含一栋建筑，在那里进行比特币教育，但不仅限于此。Plan B Network依靠中心运营，但在全球每个城市建立这样的中心是不现实的。这就是为什么我们依赖比特币用户社区来帮助我们实现这个全球网络的原因。",
     "description1": "Plan B网络支持全球的教育倡议。我们通过我们的平台和实体空间共同创建这些项目的最佳工具。我们一直在寻找新的节点加入我们。如果你想一起创建一个关于比特币的全球分散的教育网络，请联系我们！",
-    "answer2": "通过加入我们的网络，您可以获得Plan B通过其平台分发的独家内容，您可以与您节点的居民分享这些内容。最重要的好处是开启未来项目的讨论渠道，并与全球其他社区连接，分享经验。",
-    "answer3": "最初，Plan B网络主要关注实体空间运营。未来，我们计划整合所有可以受益于网络支持的倡议。",
-    "answer4": "比特币节点可以是任何规模。基于一些要求，将被赋予不同的等级。一个拥有黑客空间、健身房和办公空间的节点将被认为和城堡一样。",
-    "answer5": "我们希望为全球的比特币用户提供一个安全的避风港。我们相信，通过帮助本地中心发展，我们将能够创建一个城堡网络，比特币用户在那里可以安全地工作、创造、分享和讨论。",
     "apply": "申请成为一个节点",
-    "question4": "节点的大小是多少？",
-    "question5": "什么是秘密计划？",
     "pageSubtitle": "想让全世界接受比特币这枚橙色良药吗？加入PlanB网络。",
     "pageTitle": "探索计划B节点网络",
-    "question1": "什么是节点？",
-    "question2": "我能得到什么？",
-    "question3": "要求都有哪些？",
     "applyhelp": "",
-    "descriptionextend": "",
-    "mobiledescription": ""
+    "descriptionextend": ""
   },
   "payment": {
     "terms": "查看我们的<0>通用条款</0>以获取退款详情",
@@ -1069,12 +838,7 @@
     "pageSubtitle": "看来有人深陷兔子洞而迷失了方向。要回到地表，请点击",
     "pageTitle": "哎呀。"
   },
-  "podcast": {
-    "abstract": "摘要"
-  },
   "podcasts": {
-    "hostedBy": "由{{host}}主办",
-    "pageSubtitle": "此门户网站是开源的，欢迎大家贡献。",
     "pageTitle": "比特币播客"
   },
   "underConstruction": {
@@ -1120,8 +884,7 @@
       "errorMessageNotFound": "",
       "blogSidebarTitle": "",
       "blogListButtonText": "",
-      "filterText": "",
-      "noBlogs": ""
+      "filterText": ""
     }
   }
 }

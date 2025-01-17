@@ -26,7 +26,6 @@
     "accountCreated": "Ihr Konto wurde angelegt, {{userName}}!",
     "alreadyHaveAccount": "Haben Sie schon ein Konto ?",
     "canSaveProgress": "Du kannst jetzt deinen Fortschritt in der Bitcoin-Akademie speichern",
-    "connectWithLn": "Mit LN verbinden",
     "createAccount": "Konto erstellen",
     "createOne": "Erstellen Sie eins !",
     "emailAddress": "Email Adresse",
@@ -35,10 +34,8 @@
       "usernameRequired": "Benutzername erforderlich",
       "usernameTooShort": "Der Benutzername muss mindestens 5 Zeichen enthalten",
       "emailInvalid": "بريد الكتروني غير صالح",
-      "displayNameRequired": "اسم العرض مطلوب.",
       "displayNameTooShort": "يجب أن يحتوي اسم العرض على حرفين على الأقل.",
-      "invalidCredentials": "بيانات اعتماد غير صالحة",
-      "displayNameRegex": "لا يمكن أن يحتوي اسم العرض إلا على أحرف وأرقام وعلامات سفلية (_) ونقاط (.) وشرطات (-) ومسافات."
+      "invalidCredentials": "بيانات اعتماد غير صالحة"
     },
     "forgottenPassword": "Passwort vergessen ?",
     "headerAccountCreated": "Konto erstellt",
@@ -51,7 +48,6 @@
     "sendLink": "Link versenden",
     "signIn": "Einloggen",
     "confirmation": "تأكيد",
-    "oldPassword": "كلمة المرور القديمة",
     "invalidTokenExplain": {
       "invalid": "",
       "notFound": "لم يتم العثور على الرمز",
@@ -75,14 +71,11 @@
     "didYouKnow": "هل تعلم ؟"
   },
   "bet": {
-    "contribute": "Dieses Toolkit ist offen für einen Beitrag. Es verwendet Figma, so dass jeder etwas hinzufügen, verändern und übersetzen kann. Um zusammenzuarbeiten, erstelle eine Kategorie oder starte eine Unterhaltung. Zögere nicht und komme in unseren Discord.",
     "educationalContent": {
       "description": "Dieser Inhalt soll für pädagogische Zwecke zur Verfügung stehen.",
       "title": "Lehrinhalte"
     },
-    "hereForYou": "Das BET ist für dich da!",
     "pageDescription": "Die Sovereign University unterstützt Bitcoin Pädagogen und lokale Communitys auf der ganzen Welt, um bei der Bitcoin Adoption zu helfen. Ziel ist es, eine große Datenbank zusammenzustellen und zugänglich machen. Sowohl mit Bildungsinhalten (von uns und von anderen erstellt) als auch mit visuellen Daten.",
-    "pageSubtitle": "Das BET - Ein Bitcoin-Open-Source-Toolkit für alle Bildungsprojekte",
     "pageTitle": "Bitcoin Educational Toolkit",
     "visualContent": {
       "description": "Dieser Inhalt sind Rohdaten für deine Projekte.",
@@ -92,23 +85,7 @@
     "contributeTitle": "",
     "contributeButton": ""
   },
-  "book": {
-    "abstract": "Abstrakt",
-    "bookSummary": {
-      "modifyTooltip": "Schreiben oder ändern",
-      "noSummary": "Es wurde noch keine Zusammenfassung erstellt. Wenn du das Buch gelesen hast und eine Zusammenfassung teilen möchtest, schreibe eine auf Github . Es würde der Gemeinschaft sehr helfen, die Universität verbessern und du könntest sogar ein paar sats dafür bekommen!",
-      "notice": "diese Inhaltsübersicht ist mit github verknüpft, für jede Änderung oder Ergänzung",
-      "title": "Die Buchübersicht"
-    },
-    "buttonBuy": "Kaufen",
-    "buttonPdf": "PDF / E-Book",
-    "offeredBy": "Von einem großzügigen Mitwirkenden angeboten",
-    "pageSubtitle": "Diese Bibliothek ist Open-Source & offen für Änderungen. Danke fürs bewerten und teilen !",
-    "pageTitle": "Die Bibliothek",
-    "topicsAddressed": "Aufgegriffene Themen:"
-  },
   "builders": {
-    "pageSubtitle": "Dieses Portal ist Open Source & offen für Ergänzungen. Vielen Dank fürs bewerten und teilen!",
     "pageTitle": "Das Builder Portal",
     "languages": "",
     "relatedEvents": "",
@@ -117,18 +94,7 @@
     "noRelatedEvents": ""
   },
   "courses": {
-    "categories": {
-      "btc": "Bitcoin",
-      "crypto": "Kryptographie",
-      "cuboplus": "Bitcoin",
-      "econ": "Österreichische Ökonomie",
-      "fin": "Finanzen",
-      "ln": "Lightning Network",
-      "min": "Mining",
-      "secu": "Sicherheit & Privatsphäre"
-    },
     "chapter": {
-      "count": "Chapter {{count}}",
       "finishCourse": "Kurs beenden",
       "next": "Fertig, gehen wir zum nächsten Kapitel!",
       "thanksTip": "Danke sagen ? Tipp.",
@@ -150,57 +116,23 @@
       "nextLesson": ""
     },
     "details": {
-      "accessible": "Accessible: Lifetime",
       "buyCourse": "Buy the course",
-      "courseId": "Kurs-ID: {{courseId}}",
-      "coursePayment": "Course payment",
       "curriculum": "Lehrplan",
-      "date": "Date: {{startDate}} to {{endDate}}",
-      "dates_to": "{{startDate}} to {{endDate}}",
       "description": "Beschreibung",
-      "duration": "Dauer: {{hours}} Stunden",
-      "goal": "ZIEL:",
-      "level": "Stufe: $t(words.level.{{level}})",
       "mobile": {
-        "chapters": "{{chapters}} Kapitel",
         "hours": "{{hours}} Stunden"
       },
-      "numberOfChapters": "Anzahl der Kapitel: {{number}}",
       "objectives": "Ziele",
       "objectivesTitle": "ماذا ستتعلم:",
-      "price": "Price: {{price}} sats",
-      "professor": "Professor",
       "startCourse": "Kurs beginnen",
       "taughtBy": "Dieser Kurs wird unterrichtet von :",
-      "teacher": "Teacher: {{teacher}}",
-      "teachers": "Lehrer: {{teachers}}",
-      "teacherWord": "A word from the teacher",
-      "total": "Total",
-      "payment_successful": "Payment successful!",
-      "access_invoice": "You can access your invoice via your dashboard",
-      "payment_details": "Payment details",
-      "amount": "Amount",
-      "invoiceId": "Invoice ID",
       "paidCourse": "",
       "buyInPersonCourse": "",
       "buyOnlineCourse": "",
       "inPersonAccess": ""
     },
     "explorer": {
-      "footerTitle": "Unsere Professoren sind für Sie da!",
-      "footerp1": "An der Sovereign University verfügen unsere Professoren über vollständige Autonomie hinsichtlich ihres Inhalts und der Werkzeuge, die Sie erforschen möchten, solange sie unseren Ethikkodex befolgen. Sie sind leidenschaftliche Bitcoiner aus verschiedenen Hintergründen.",
-      "footerp2": "Wenn du einen Kurs verbessern oder einen eigenen Kurs anbieten möchtest, kannst du dies einfach über GitHub tun. Um einen Professor zu unterstützen, kannst du entweder seinen Kurs bewerten, den Professor direkt tippen oder ein Universitätsmitglied werden, um die Plattform zu unterstützen.",
-      "moreToCome": ".... und mehr am kommen!",
       "pageDescription": "Hier finden Sie eine große Anzahl von Kursen rund um Bitcoin, mit einer Vielzahl von Themen. Dieser Kontent ist wie Bitcoin und wächst organisch weiter. Alle Inhalte sind kostenlos, Open-Source und für jedermann zugänglich. Der Kursindex ist in Kreisen organisiert, um sich an den Lernweg eines jeden anzupassen.",
-      "pageSubtitle": "Willkommen am Tor der E-Learning-Plattform.",
-      "pageTitle": "Kurse",
-      "s2p1": "Wenn du angefangen hast, den Bitcoin Kaninchenbau zu erkunden, musst du wissen, dass es eine endlose Reise mit vielen Gängen ist. Hier an der Universität verstehen wir dies und gestalten unsere Bildungsinhalte als nicht-linear, autonom und so umfangreich, wie es sein kann.",
-      "s2p2": "Du wirst in der Lage sein, deinen eigenen Weg zu wählen und ihn zu beschreiten, indem du Fähigkeiten und Wissen gewonnst, soweit deine Motivation geht.",
-      "s2p3": "Alle unsere Kurse sind 100% kostenlos, sodass du durch nichts gestoppt werden kannst.",
-      "s2t1": "Bitcoin-Bildung ist eine Reise ohne Ziel",
-      "s3PickLevel": "Level wählen:",
-      "s3PickTopic": "Themen wählen:",
-      "s3t1": "Alle Kurse sind nach deren Hauptthema benannt",
       "buildPath": "",
       "exploreCourses": "",
       "journey": "",
@@ -216,7 +148,6 @@
       "accessibility_forever": "Forever",
       "amount": "Amount",
       "date": "Date",
-      "dates_to": "{{startDate}} to {{endDate}}",
       "downloadCurriculum": "Download curriculum",
       "duration": "Duration",
       "invoiceId": "Invoice ID",
@@ -235,7 +166,6 @@
       "onlineCallout": ""
     },
     "preview": {
-      "by": "von {{professor}}",
       "letsgo": "Los geht's"
     },
     "quizz": {
@@ -247,13 +177,6 @@
       "resultItsOk": "Nicht aufgeben, du wirst es beim nächsten Mal besser machen!",
       "resultNotBad": "Nicht zu schlecht!",
       "resultPerfect": "Absolut richtig! Herzlichen Glückwunsch !"
-    },
-    "unreleased": {
-      "colcardAndSparrow": "Coldcard und Sparrow",
-      "financeIntroduction": "Einführung in Finanzen",
-      "financialCrisis": "Analyse der Finanzkrisen",
-      "hyperinflation": "Analyse der Hyperinflation",
-      "theoreticalLightning": "Theoretischer Kurs über das Lightning Netzwerk für Fortgeschrittene"
     },
     "exam": {
       "letsConclude": "",
@@ -299,7 +222,6 @@
       "retakeExam": "",
       "sameRules": "",
       "score": "",
-      "timeLeft": "",
       "timeStampBenefits": "",
       "timeStamped": "",
       "timerStart": "",
@@ -317,8 +239,6 @@
       "asExpected": "",
       "commentAdmin": "",
       "commentPublic": "",
-      "currentlyLoggedOut": "",
-      "edit": "",
       "soAndSo": "",
       "tooShort": "",
       "veryBad": "",
@@ -345,20 +265,17 @@
       "writeThoughts": "",
       "recommend": "",
       "faithful": "",
-      "yesOfCourse": "",
-      "loading": ""
+      "yesOfCourse": ""
     }
   },
   "dashboard": {
     "myCourses": {
       "resumeLesson": "Resume the lesson",
       "completed": "",
-      "details": "",
       "inprogress": "",
       "yourCertificate": "",
       "completedCoursesTitle": "",
       "completedCoursesDescription": "",
-      "completedOutOf": "",
       "done": "",
       "inprogressCoursesTitle": "",
       "seeProgress": "",
@@ -374,8 +291,6 @@
       "accessLive": "",
       "billingTitle": "",
       "billingSubtitle": "",
-      "downloadInvoice": "",
-      "downloadTicket": "",
       "invoiceDate": "",
       "invoiceTitle": "",
       "invoiceType": "",
@@ -389,7 +304,6 @@
       "upcomingTicketTitle": "",
       "upcomingTicketSubtitle": ""
     },
-    "administration": "",
     "credentials": {
       "bCertificate": "",
       "courseDiplomasSubtitle": "",
@@ -423,7 +337,6 @@
       "edit": "",
       "save": "",
       "crop": "",
-      "emailChangeRateLimitError": "",
       "displayName": "",
       "email": "",
       "password": "",
@@ -435,8 +348,6 @@
       "saving": ""
     },
     "bCertificate": {
-      "bookExam": "",
-      "certificate": "",
       "grade": "",
       "noResults": ""
     },
@@ -450,8 +361,6 @@
         "noShortBio": "",
         "noTags": "",
         "billingInformations": "",
-        "descriptionTags": "",
-        "chooseTags": "",
         "description": "",
         "enterTipsInformations": "",
         "lightningAddress": "",
@@ -461,7 +370,6 @@
         "publicDescription": "",
         "publicProfile": "",
         "publicProfileDescription": "",
-        "writeShortBio": "",
         "account": "",
         "teacherProfile": "",
         "tutorialModification": ""
@@ -488,7 +396,6 @@
         "proposeNewCourse": "",
         "reviews": "",
         "courseLongDescription": "",
-        "courseName": "",
         "coursesManagementPanel": "",
         "curriculum": "",
         "curriculumDescription": "",
@@ -496,8 +403,7 @@
         "quickRecap": "",
         "reviewInfos": "",
         "analytics": "",
-        "courseDetails": "",
-        "courseId": ""
+        "courseDetails": ""
       },
       "menu": ""
     }
@@ -538,28 +444,19 @@
     "pageTitle": "",
     "payment": {
       "access_invoice": "",
-      "access_online_successful": "",
-      "access_physical_successful": "",
       "access_type": "",
       "address": "",
       "additional_free_description": "",
-      "amount": "",
       "back_events": "",
       "book_seat": "",
-      "callout_online": "",
       "callout_physical": "",
-      "callout_replay": "",
       "date": "",
-      "dates_to": "",
-      "description_online": "",
-      "description_physical": "",
       "description_free_physical": "",
       "download_ticket": "",
       "enjoy": "",
       "language": "",
       "limitation": "",
       "max_capacity": "",
-      "payment_details": "",
       "payment_successful": "",
       "time": ""
     }
@@ -572,21 +469,6 @@
       "welcome": "Welcome to PlanB Network",
       "link": "Werde Teil des Netzwerks",
       "startLink": "Start Learning"
-    },
-    "numbersSection": {
-      "networkMember": "Betwork Member"
-    },
-    "sectionEducation": {
-      "title": "From beginner to advanced",
-      "subtitle": "Learn Bitcoin in the academy",
-      "content1": "Bitcoin is not only a technology and a form of money but also a revolutionary way to approach life. To echo this, our courses span a wide range of fields, empowering each individual to excel in their areas of interest and further their understanding. From your first Bitcoin course to a deep dive into the protocol's specifics, our courses will help you navigate the rabbit hole safely. There's no reason to hesitate. Knowledge awaits you.",
-      "link": "Check the academy"
-    },
-    "sectionNetwork": {
-      "title": "Access a network of",
-      "subtitle": "Worldwide Bitcoin Campuses",
-      "content1": "Connect with Bitcoin enthusiasts worldwide who share a common passion. From small communities meeting regularly to BTC educational centers, our network map will help you find the inspiration to learn and build. A wide range of services are available for enthusiasts, such as an incubation center, physical workshops, seminars, BTC retreats, and more. The network is open to everyone, so come say hi to your local BTC community!",
-      "link": "Be part of the network"
     },
     "tutorialSection": {
       "title": "Making Bitcoin education simple is our objective.",
@@ -611,16 +493,13 @@
     "languageSection": {
       "title": "No language barrier here.",
       "subtitle": "Everything is translated to local languages",
-      "subtitle2": "We need you!",
       "content1": "At PlanB, we believe Bitcoin is an international revolution that concerns everyone. To empower billions of people, we are designing this platform to be multilingual and accessible to all. The platform currently supports 7 languages, and more are being added every month. To achieve this, we use a mix of AI and the passion of Bitcoiners around the world.",
-      "content2": "You too can start bootstrapping your own local network in your country!",
       "link": "Help us translate the academy",
       "availableLanguages": "",
       "availableLanguagesVariation": ""
     },
     "patreonSection": {
       "title": "Together let's make Bitcoin education better !",
-      "subtitle": "The PlanB Network is 100% open-source thanks to our generous patrons",
       "content": "The PlanB Network is proud to team up with many bitcoin companies around the world in order to provide the best educational resources possible !"
     },
     "wallOfLoveSection": {
@@ -629,66 +508,36 @@
     }
   },
   "imagesAlt": {
-    "blueEllipse": "eine blaue Ellipse",
     "bookCover": "ein Buchcover",
     "contributorHeart": "ein Herz für netten Mitwirkenden",
-    "contributorPP": "mitwirkendes Profilbild",
-    "forwardArrow": "ein Vorwärtspfeil",
     "orangePill": "an orange pill",
     "printedCircuits": "a printed circuits",
     "rabbit404": "a rabbit shining a flashlight on a 404 sign",
     "sthRepresentingCompany": "etwas für das Unternehmen",
-    "stylus": "a stylus",
     "underConstructionImage": "Abbildung mehrerer Kaninchen auf einer Baustelle"
   },
   "library": {
-    "pageSubtitle": "Diese Bibliothek ist Open-Source & offen für einen Beitrag. Danke für die Bewertung und Freigabe !",
-    "pageTitle": "Die Bibliothek",
-    "publishedIn": "Veröffentlicht in {{date}}",
-    "writtenBy": "Geschrieben von {{author}}"
+    "pageTitle": "Die Bibliothek"
   },
   "menu": {
     "betDescription": "Collection of content that you can use for your educational projects",
-    "btc101Description": "Erhalte ein besseres Verständnis von Bitcoin mit diesen Lektionen",
     "buildersDescription": "Erfahren Sie mehr über die Unternehmen und Projekte, die daran arbeiten, Bitcoin zu verbessern und seine Annahme zu steigern",
-    "exchangesDescription": "Kaufen und verkaufen Sie Bitcoins an Börsen und erfahren Sie mehr über P2P",
     "libraryDescription": "Entdecke viele Bücher, um dein Wissen zu verbessern",
-    "lightningDescription": "Verwalten Sie Ihren Blitzknoten und nutzen Sie das Blitznetzwerk",
-    "manifestoDescription": "Read Plan B's manifesto",
-    "merchantsDescription": "Akzeptieren Sie Bitcoin-Zahlungen und entdecken Sie Tools für Händler",
-    "miningDescription": "Baue deine eigenen Bitcoins ab und lerne mehr über die Bergbauindustrie",
-    "nodeDescription": "Erfahren Sie, wie Sie mit Ihrem eigenen Bitcoin-Knoten souverän sein können",
     "nodeNetworkDescription": "Join the global network of Bitcoin communities!",
-    "ourStoryDescription": "Erfahren Sie mehr über die Geschichte der Universität",
     "podcastsDescription": "Erkunde das Bitcoin-Ökosystem durch Podcasts",
-    "sponsorsDescription": "Entdecken Sie unsere Sponsoren und Hauptbeitragszahler",
-    "supportUsDescription": "Finden Sie Wege, uns zu unterstützen, auf irgendeine Weise",
     "teachersDescription": "Lernen Sie unsere Universitätslehrer kennen, entschuldigen Sie Bitcoiner",
-    "walletsDescription": "Sichern und verwenden Sie Ihre Bitcoins",
     "conferencesDescription": "",
     "bCertificateDescription": "",
-    "loginRegister": "",
     "glossaryDescription": "",
     "login": "",
     "publicDescription": ""
   },
   "nodeNetwork": {
-    "answer1": "A node is simply a bitcoin community that wants to move to the next step and accelerate its own local Bitcoin adoption ! There is no minimum size to start with.",
-    "answer2": "At Plan B we aim to improve the educational bitcoin ecosystem by providing the right tools to build and educate on Bitcoin. By becoming a node, your community will get access to a large range of resources, services, special educational training and more. Make your community count as a reference in the Bitcoin world.",
-    "answer3": "To be part of the network you must align on some core values. These are: \n - be bitcoin only \n - value privacy \n - care for the open source work.",
-    "answer4": "A Bitcoin node can be of any size. Based on some requirement different grade will be attribute. A node with an hackerspace, a gym, some office place will be considered more citaldel like.",
-    "answer5": "We wish to offer a safe heaven for bitcoiners around the world. We beleive that by helping local hubs grow, we will be able to create a network of citadels where bitcoiners will be welcome to work, create, share and discuss safely.",
     "apply": "Apply to become a Node",
     "description1": "Our financial system is crumbling, our food is being poisoned, our freedom is being taken away. We can't wait for a miracle, we have to create a safe place to live in. We must create our own PlanB !",
     "pageSubtitle": "Our strength is our community. Let's gather into a global bitcoin network.",
     "pageTitle": "Node Map",
-    "question1": "What's a node?",
-    "question2": "What do I gain?",
-    "question3": "Was sind die Voraussetzungen?",
-    "question4": "What size is a node?",
-    "question5": "What's the secret plan?",
     "descriptionextend": "",
-    "mobiledescription": "",
     "applyhelp": ""
   },
   "notFound": {
@@ -696,12 +545,7 @@
     "pageSubtitle": "Anscheinend fiel jemand zu tief in das Kaninchenloch und ist verloren gegangen. Um an die Oberfläche zurückzukehren, klicke auf",
     "pageTitle": "Hoppla."
   },
-  "podcast": {
-    "abstract": "Abstrakt"
-  },
   "podcasts": {
-    "hostedBy": "Gehostet von {{host}}",
-    "pageSubtitle": "Dieses Portal ist Open Source & offen für einen Beitrag. Vielen Dank für die Bewertung und das Teilen!",
     "pageTitle": "Das Podcast-Portal"
   },
   "professors": {
@@ -721,24 +565,6 @@
     }
   },
   "resources": {
-    "articles": {
-      "title": "Articles"
-    },
-    "bet": {
-      "title": "Educational Toolkit"
-    },
-    "books": {
-      "title": "Books"
-    },
-    "builders": {
-      "title": "Builders"
-    },
-    "conferences": {
-      "title": "Conferences"
-    },
-    "filterBarLabel": "Finden Sie die perfekten Ressourcen für Ihre Bedürfnisse:",
-    "headerSignature": "Rogzy",
-    "headerText": "Willkommen in der unendlichen Kaninchenloch von Bitcoin ! Diese Seiten werden von benevolel und leidenschaftlichen Bitcoin gepflegt und unterstützen dieses Open-Source-Projekt. Wenn Sie einen Fehler gemacht haben, wenden Sie sich bitte an unseren Finanzanhänger. Vielen Dank für Ihr Vertrauen in diese Universität und genießen Sie die Fahrt.",
     "newsletters": {
       "title": "Newsletters"
     },
@@ -748,17 +574,10 @@
     "podcasts": {
       "title": "Podcasts"
     },
-    "publicGrade": "Öffentliche Klasse: {{grade}}/5",
     "github": "",
     "pageSubtitleBooks": "",
     "pageSubtitlePodcast": "",
-    "searchFilterName": "",
-    "newsletter": {
-      "title": ""
-    },
-    "glossary": {
-      "title": ""
-    }
+    "searchFilterName": ""
   },
   "settings": {
     "changePassword": "Change password",
@@ -768,11 +587,7 @@
   },
   "tutorials": {
     "details": {
-      "checkAuthor": "Check out the author's other contributions and support his work.",
-      "enjoyed": "Enjoyed this tutorial?",
-      "madeBy": "This tutorial has been made by",
       "source": "Original source :",
-      "tipTooltip": "Like it? Tip.",
       "author": "",
       "didHelp": "",
       "writtenBy": ""
@@ -793,8 +608,6 @@
       "didYouKnow": "Did you know?",
       "exploreAllTutorials": ""
     },
-    "headerSignature": "Rogzy",
-    "headerText": "Willkommen in der unendlichen Kaninchenloch von Bitcoin ! Diese Seiten werden von benevolel und leidenschaftlichen Bitcoin gepflegt und unterstützen dieses Open-Source-Projekt. Wenn Sie einen Fehler gemacht haben, wenden Sie sich bitte an uns. Vielen Dank für Ihr Vertrauen in diese Universität und genießen Sie die Fahrt.",
     "merchant": {
       "description": "Ever wonder how to easily accept bitcoin for a business? Explore our various solutions to become an expert and easily set up a merchant solution for the shops around you. The Point of Sale solution varies based on the merchant's needs (physical or online), their volume, and the complexity of their operations. A generally good proxy is to simply start with a basic LN wallet, move to an easy, efficient solution (such as mobile PoS), and finally explore BTC Pay Server for advanced, complex, professional solutions.",
       "shortDescription": "Lösungen für Unternehmen, die Bitcoin akzeptieren",
@@ -879,40 +692,20 @@
   "words": {
     "about": "Über",
     "about-us": "Über uns",
-    "account": "Konto",
-    "additionalCriteria": "Zusätzliche Kriterien",
     "advanced": "Erweitert",
-    "article": "Artikel",
-    "articles": "Artikel",
-    "audioBook": "Audio-Buch",
     "back": "Zurück",
     "beginner": "Anfänger",
-    "bitcoinWhitepaper": "Bitcoin Whitepaper",
     "book": "Buch",
-    "books": "Bücher",
     "builders": "Baumeister",
-    "certificate": "Certificate",
     "conference": "Konferenz",
-    "conferences": "Konferenzen",
     "content": "Inhalt",
-    "continue": "Continue",
     "course": "Kurs",
     "courses": "Kurse",
     "dashboard": "Dashboard",
     "details": "Details",
-    "didYouKnow": "Did you know?",
-    "documentaries": "Dokumentationen",
-    "donations": "Spenden",
-    "economy": "Economy",
-    "education": "Education",
-    "email": "E-Mail",
     "events": "Events",
-    "exchanges": "Austausche",
-    "followUs": "Folgen Sie uns",
-    "helpUs": "Hilf uns",
     "home": "Zuhause",
     "intermediate": "Mittler",
-    "interview": "Interview",
     "level": {
       "advanced": "Erweitert",
       "beginner": "Anfänger",
@@ -924,44 +717,22 @@
       "levels": ""
     },
     "library": "Bibliothek",
-    "lightning": "Blitz",
     "lnurlAuth": "LNURL Auth",
-    "manifesto": "Manifesto",
-    "merchandising": "Merchandising",
-    "merchants": "Händler",
     "members": " Members",
     "mining": "Bergbau",
-    "more": "Mehr",
-    "movieDocumentary": "Filmdokument",
     "network": "Network",
-    "networkMember": "Network Member",
     "newsletter": "Newsletter",
-    "newsletters": "Newsletter",
-    "node": "Knoten",
     "nodeNetwork": "Node Network",
-    "or": "oder",
     "ourStory": "Unsere Geschichte",
     "podcast": "Podcast",
     "podcasts": "Podcasts",
     "professors": "Professors",
-    "purchase": "Purchase",
     "register": "Registrieren",
-    "relatedResources": "Verwandte Ressourcen",
     "resources": "Ressourcen",
-    "resume": "Resume",
-    "review": "Überprüfen",
-    "rogzy": "Rogzy",
-    "sponsorUs": "Sponsor uns",
-    "sponsoringAndContributors": "Sponsoring & Mitwirkende",
-    "supportUs": "Unterstütze uns",
-    "teachers": "Lehrer",
     "termsAndConditions": "Nutzungsbedingungen",
-    "toolkits": "Toolkits",
     "tutorial": "Tutorial",
     "tutorials": "Anleitungen",
     "update": "Update",
-    "video": "Video",
-    "videos": "Videos",
     "wallets": "Wallets",
     "date": "",
     "time": "",
@@ -988,7 +759,6 @@
     "failed": "",
     "free": "",
     "inReview": "",
-    "onChain": "",
     "overview": "",
     "paid": "",
     "part": "",
@@ -1003,7 +773,6 @@
     "builder": "",
     "onChainAddress": "",
     "view": "",
-    "writtenByPodcasts": "",
     "admins": "",
     "chapter": "",
     "communities": "",
@@ -1037,14 +806,12 @@
       "previousVideo": "",
       "selectStage": "",
       "selectVideo": "",
-      "speaker": "",
       "watchReplay": ""
     },
     "language": "",
     "latestConferences": "",
     "location": "",
     "noConferences": "",
-    "pageSubtitle": "",
     "pageTitle": "",
     "planBConferences": ""
   },
@@ -1066,8 +833,7 @@
       "pastArticleSubtitleText": "",
       "blogListButtonText": "",
       "blogSidebarTitle": "",
-      "filterText": "",
-      "noBlogs": ""
+      "filterText": ""
     },
     "title": "",
     "blogPost": "",
@@ -1090,7 +856,6 @@
     "pageTitle": "",
     "definition": "",
     "loadMoreWords": "",
-    "pageSubtitle": "",
     "notTranslated": "",
     "placeHolder": "",
     "relatedWords": "",
@@ -1110,9 +875,7 @@
     "organizeTitle": "",
     "pageTitle": "",
     "tweetText": "",
-    "joeNakamotoVideo": "",
     "bCertificateDescription": "شهادة ₿ هي اختبار معترف به دوليًا لتقييم استعدادك للعملة الرقمية Bitcoin والموضوعات المشتقة منها. ستمكنك هذه الشهادة من إثبات مهاراتك ومعرفتك في صناعة Bitcoin، مما يتيح لك الوصول إلى الشركات والمناصب في هذه الصناعة.",
-    "curious": "",
     "readChart": "",
     "organizeDescription": "",
     "challengeYourself": "تحدى نفسك وأكد مستواك!"

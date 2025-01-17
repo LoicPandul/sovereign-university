@@ -4,7 +4,6 @@
     "accountCreated": "Hesabınız oluşturuldu, {{kullanıcı adı}}!",
     "alreadyHaveAccount": "Zaten bir hesabınız var mı?",
     "canSaveProgress": "Artık Bitcoin Akademisi'nde ilerlemelerinizi kaydedebilirsiniz.",
-    "connectWithLn": "LN ile bağlantı kurun",
     "createAccount": "Kayıt Ol",
     "createOne": "Buraya kaydolun!",
     "emailAddress": "E-posta adresi",
@@ -12,9 +11,7 @@
       "usernameRegex": "Kullanıcı adı yalnızca harfler, rakamlar, _, . ve - içerebilir.",
       "usernameRequired": "Kullanıcı adı gereklidir.",
       "usernameTooShort": "Kullanıcı adı en az 5 karakter içermelidir.",
-      "displayNameRegex": "Görünen isim yalnızca harfler, rakamlar, _, ., - ve boşluklar içerebilir.",
       "displayNameTooShort": "Görünen isim en az 2 karakter içermelidir.",
-      "displayNameRequired": "Görünen isim gereklidir.",
       "emailInvalid": "",
       "invalidCredentials": ""
     },
@@ -48,7 +45,6 @@
     "confirmation": "Parola Tekrarı",
     "displayName": "Görünen Ad",
     "emailTip": "E-posta zorunlu değildir ancak şifrenizin unutulması durumunda faydalı olabilir :)",
-    "oldPassword": "",
     "didYouKnow": "Biliyor Muydunuz?"
   },
   "dashboard": {
@@ -57,8 +53,6 @@
       "accessLive": "",
       "billingTitle": "",
       "billingSubtitle": "",
-      "downloadInvoice": "",
-      "downloadTicket": "",
       "invoiceDate": "",
       "invoiceTitle": "",
       "invoiceType": "",
@@ -76,7 +70,6 @@
     "logout": "",
     "myCourses": {
       "completed": "",
-      "details": "",
       "inprogress": "",
       "resumeLesson": "",
       "inprogressCoursesDescription": "",
@@ -84,7 +77,6 @@
       "viewDetails": "",
       "completedCoursesTitle": "",
       "completedCoursesDescription": "",
-      "completedOutOf": "",
       "done": "",
       "inprogressCoursesTitle": "",
       "seeProgress": "",
@@ -93,9 +85,7 @@
     },
     "bCertificate": {
       "noResults": "",
-      "grade": "",
-      "bookExam": "",
-      "certificate": ""
+      "grade": ""
     },
     "profile": {
       "emailChangeConfirmation": "",
@@ -105,7 +95,6 @@
       "cancel": "",
       "save": "",
       "crop": "",
-      "emailChangeRateLimitError": "",
       "preview": "",
       "displayName": "",
       "email": "",
@@ -117,7 +106,6 @@
       "security": "",
       "username": "Kullanıcı Adı"
     },
-    "administration": "",
     "calendar": {
       "calendar": "",
       "personalCalendar": ""
@@ -150,10 +138,8 @@
       "courses": {
         "analytics": "",
         "courseDetails": "",
-        "courseId": "",
         "courseLongDescription": "",
         "courseModification": "",
-        "courseName": "",
         "courseShortDescription": "",
         "coursesManagementPanel": "",
         "curriculum": "",
@@ -171,9 +157,7 @@
       "profile": {
         "account": "",
         "billingInformations": "",
-        "chooseTags": "",
         "description": "",
-        "descriptionTags": "",
         "enterTipsInformations": "",
         "lightningAddress": "",
         "makeModifications": "",
@@ -184,7 +168,6 @@
         "publicDescription": "",
         "publicProfile": "",
         "publicProfileDescription": "",
-        "writeShortBio": "",
         "teacher": "",
         "teacherProfile": "",
         "tutorialModification": ""
@@ -210,49 +193,26 @@
   },
   "words": {
     "on": "",
-    "resume": "",
-    "review": "",
-    "rogzy": "",
     "about": "",
-    "bitcoinWhitepaper": "",
     "register": "",
     "about-us": "",
-    "account": "",
-    "additionalCriteria": "",
     "advanced": "",
-    "article": "",
-    "articles": "",
-    "audioBook": "",
     "back": "",
     "beginner": "",
     "billing": "",
     "book": "",
-    "books": "",
     "builders": "",
-    "certificate": "",
     "conference": "",
-    "conferences": "",
     "content": "",
-    "continue": "",
     "course": "",
     "courses": "",
     "date": "",
     "dashboard": "",
     "details": "",
-    "didYouKnow": "",
-    "documentaries": "",
-    "donations": "",
     "download": "",
-    "economy": "",
-    "education": "",
-    "email": "",
     "events": "",
-    "exchanges": "",
-    "followUs": "",
-    "helpUs": "",
     "home": "",
     "intermediate": "",
-    "interview": "",
     "invoice": "",
     "level": {
       "advanced": "",
@@ -265,45 +225,26 @@
       "levels": ""
     },
     "library": "",
-    "lightning": "",
     "lnurlAuth": "",
-    "manifesto": "",
-    "merchandising": "",
-    "merchants": "",
     "members": "",
     "mining": "",
-    "more": "",
-    "movieDocumentary": "",
     "network": "",
-    "networkMember": "",
     "newsletter": "",
-    "newsletters": "",
-    "node": "",
     "nodeNetwork": "",
     "online": "",
-    "or": "",
     "ourStory": "",
     "podcast": "",
     "podcasts": "",
     "professors": "",
-    "purchase": "",
-    "relatedResources": "",
     "resources": "",
-    "sponsorUs": "",
-    "sponsoringAndContributors": "",
-    "supportUs": "",
-    "teachers": "",
     "termsAndConditions": "",
     "ticket": "",
     "tickets": "",
     "time": "",
     "to": "",
-    "toolkits": "",
     "tutorial": "",
     "tutorials": "",
     "update": "Güncelle",
-    "video": "",
-    "videos": "",
     "wallets": "",
     "free": "",
     "admins": "",
@@ -332,7 +273,6 @@
     "lectures": "",
     "lightningInvoice": "",
     "location": "",
-    "onChain": "",
     "onChainAddress": "",
     "overview": "",
     "paid": "",
@@ -353,8 +293,7 @@
     "topics": "",
     "unified": "",
     "users": "",
-    "view": "",
-    "writtenByPodcasts": ""
+    "view": ""
   },
   "about": {
     "activeContributors": "Aktif katılımcılar",
@@ -380,14 +319,11 @@
     "manifesto": "Bitcoin'in sunduğu merkeziteysiz bir geleceğe inanıyoruz.\n\nMisyonumuz, on yıl içinde bir milyar kişiye Bitcoin'i tanıtmaktır. Araçlarımız eğitim ve bilgidir.\n\nYerel Bitcoin topluluklarını destekliyoruz, açık kaynaklı eğitim içeriği sağlıyoruz ve bir Bitcoin mentor ağı sunuyoruz.\n\nFelsefemiz, cypherpunk manifestosundan ilham alıyor. Tıpkı onların gizliliğini savundukları gibi, biz de eğitimi savunuyoruz. Bilginin, özgürlük ve değişimin temeli olduğuna inanıyoruz.\n\nBiz sadece Bitcoin odaklıyız.\n\nBireysel sorumluluk ve kendi anahtarlarınıza sahip olmanın sunduğu bağımsızlığı savunuyoruz.\n\nKör güveni değil, doğrulamayı teşvik ediyoruz.\n\nParayı düzelttiğimizde, dünyayı da düzelteceğimize inanıyoruz.\n\nMerkeziyetsiz ve açık kaynaklıyız, bu şekilde tek arıza noktası başarısızlıklarını önlemiş oluruz.\n\nİçeriklerimizin serbest paylaşımını teşvik ediyoruz.\n\nBireyin merkezde olduğu, alttan -yukarıya işleyen bir dünyayı hedefliyoruz.\n\nBasitleştiriyoruz, eğitiyoruz, paylaşıyoruz.\n\nDünyayı \"turuncu hap\" ile tanıştırmak için misyonumuza katılın.\n"
   },
   "bet": {
-    "contribute": "Bu araç seti, katkıya açıktır. Figma kullanır, bu yüzden herkes ekleyebilir, değiştirebilir ve çevirebilir. İşbirliği yapmak, bir kategori eklemek veya tartışmak için, discordumuza katılmaktan çekinmeyin.",
     "educationalContent": {
       "description": "Bu içerik, eğitim etkinlikleri ve kullanım için gerekli olacak şekilde tasarlanmıştır.",
       "title": "Eğitim içeriği"
     },
-    "hereForYou": "BET senin için burada!",
     "pageDescription": "Kitlesel benimsenme kolay değildir. Bu hedefe daha yakın ve daha hızlı ilerlemek için genişletilebilir bir eğitim içeriği veritabanı geliştirdik. Burada, Bitcoin eğitmenleri gerektiği gibi içerik bırakabilir ve erişebilirler. Her seferinde tekerleği yeniden icat etmeyelim ve yararlı kaynakları tek bir egitim setinde merkezileştirmek için birlikte çalışalım!",
-    "pageSubtitle": "BET - Tüm eğitim projeleri için bir açık kaynaklı Bitcoin egitim seti",
     "pageTitle": "Bitcoin Eğitim Seti",
     "visualContent": {
       "description": "Bu içerik, yaratımlarınız için kullanılacak ham görsel veridir.",
@@ -397,23 +333,7 @@
     "contributeDescription": "Eğer bazı içerikleri eklemek, düzenlemek veya çevirmek isterseniz, yardımınız memnuniyetle karşılanacaktır!",
     "contributeTitle": "Katkıda bulunmak ister misiniz?"
   },
-  "book": {
-    "abstract": "Taslak",
-    "bookSummary": {
-      "modifyTooltip": "Yaz veya değiştir",
-      "noSummary": "Bir özet henüz yazılmamış. Kitabı okuduysanız ve sizinki paylaşmak isterseniz, Github'da bir tane yazmaktan çekinmeyin. Bu, topluluğa büyük ölçüde fayda sağlar, üniversitenin kaynaklarını artırır ve hatta çabanız için bazı sats kazanabilirsiniz!",
-      "notice": "",
-      "title": ""
-    },
-    "buttonBuy": "",
-    "buttonPdf": "",
-    "offeredBy": "",
-    "pageSubtitle": "",
-    "pageTitle": "",
-    "topicsAddressed": ""
-  },
   "builders": {
-    "pageSubtitle": "",
     "pageTitle": "",
     "noRelatedEvents": "",
     "networkStrength": "",
@@ -433,31 +353,18 @@
       "previousVideo": "",
       "selectStage": "",
       "selectVideo": "",
-      "speaker": "",
       "watchReplay": ""
     },
     "language": "",
     "latestConferences": "",
     "location": "",
     "noConferences": "",
-    "pageSubtitle": "",
     "pageTitle": "",
     "planBConferences": "",
     "topics": ""
   },
   "courses": {
-    "categories": {
-      "btc": "",
-      "crypto": "",
-      "cuboplus": "",
-      "econ": "",
-      "fin": "",
-      "ln": "",
-      "min": "",
-      "secu": ""
-    },
     "chapter": {
-      "count": "",
       "finishCourse": "",
       "thanksTip": "",
       "detail": {
@@ -479,57 +386,23 @@
       }
     },
     "details": {
-      "accessible": "",
       "buyCourse": "",
-      "courseId": "",
-      "coursePayment": "",
       "curriculum": "",
-      "date": "",
-      "dates_to": "",
       "description": "",
-      "duration": "",
-      "goal": "",
-      "level": "",
       "mobile": {
-        "chapters": "",
         "hours": ""
       },
-      "numberOfChapters": "",
       "objectives": "",
       "objectivesTitle": "",
-      "price": "",
-      "professor": "",
       "startCourse": "",
       "taughtBy": "",
-      "teacher": "",
-      "teachers": "",
-      "teacherWord": "",
-      "total": "",
-      "payment_successful": "",
-      "access_invoice": "",
-      "payment_details": "",
-      "amount": "",
-      "invoiceId": "",
       "buyInPersonCourse": "",
       "buyOnlineCourse": "",
       "inPersonAccess": "",
       "paidCourse": ""
     },
     "explorer": {
-      "footerTitle": "",
-      "footerp1": "",
-      "footerp2": "",
-      "moreToCome": "",
       "pageDescription": "",
-      "pageSubtitle": "",
-      "pageTitle": "",
-      "s2p1": "",
-      "s2p2": "",
-      "s2p3": "",
-      "s2t1": "",
-      "s3PickLevel": "",
-      "s3PickTopic": "",
-      "s3t1": "",
       "findCourses": "",
       "seeCourse": "",
       "buildPath": "",
@@ -546,7 +419,6 @@
       "amount": "",
       "back_course": "",
       "date": "",
-      "dates_to": "",
       "downloadCurriculum": "",
       "book_description": "",
       "duration": "",
@@ -564,7 +436,6 @@
       "inPersonDescription": ""
     },
     "preview": {
-      "by": "",
       "letsgo": ""
     },
     "quizz": {
@@ -577,26 +448,16 @@
       "resultNotBad": "",
       "resultPerfect": ""
     },
-    "unreleased": {
-      "colcardAndSparrow": "",
-      "financeIntroduction": "",
-      "financialCrisis": "",
-      "hyperinflation": "",
-      "theoreticalLightning": ""
-    },
     "review": {
       "yesOfCourse": "",
       "faithful": "",
       "recommend": "",
-      "loading": "",
       "asExpected": "",
       "commentAdmin": "",
       "commentPublic": "",
       "commentTeacher": "",
-      "currentlyLoggedOut": "",
       "difficulty": "",
       "displayOutOf": "",
-      "edit": "",
       "feedbackSessionTitle": "",
       "fieldRequired": "",
       "generalGrade": "",
@@ -665,7 +526,6 @@
       "tamperProof": "",
       "testKnowledge": "",
       "testResults": "",
-      "timeLeft": "",
       "timeStampBenefits": "",
       "timeStamped": "",
       "timeStampHow": "",
@@ -680,22 +540,11 @@
   },
   "nodeNetwork": {
     "apply": "",
-    "answer1": "",
-    "answer2": "",
-    "answer3": "",
-    "answer4": "",
-    "answer5": "",
     "description1": "",
     "pageSubtitle": "",
     "pageTitle": "",
-    "question1": "",
-    "question2": "",
-    "question3": "",
-    "question4": "",
-    "question5": "",
     "applyhelp": "",
-    "descriptionextend": "",
-    "mobiledescription": ""
+    "descriptionextend": ""
   },
   "tutorials": {
     "merchant": {
@@ -704,11 +553,7 @@
       "shortDescription": ""
     },
     "details": {
-      "checkAuthor": "",
-      "enjoyed": "",
-      "madeBy": "",
       "source": "",
-      "tipTooltip": "",
       "didHelp": "",
       "author": "",
       "writtenBy": ""
@@ -729,8 +574,6 @@
       "didYouKnow": "",
       "exploreAllTutorials": ""
     },
-    "headerSignature": "",
-    "headerText": "",
     "mining": {
       "description": "",
       "shortDescription": "",
@@ -835,28 +678,19 @@
     "pageTitle": "",
     "payment": {
       "access_invoice": "",
-      "access_online_successful": "",
-      "access_physical_successful": "",
       "access_type": "",
       "address": "",
       "additional_free_description": "",
-      "amount": "",
       "back_events": "",
       "book_seat": "",
-      "callout_online": "",
       "callout_physical": "",
-      "callout_replay": "",
       "date": "",
-      "dates_to": "",
-      "description_online": "",
-      "description_physical": "",
       "description_free_physical": "",
       "download_ticket": "",
       "enjoy": "",
       "language": "",
       "limitation": "",
       "max_capacity": "",
-      "payment_details": "",
       "payment_successful": "",
       "time": ""
     }
@@ -869,21 +703,6 @@
       "welcome": "",
       "link": "",
       "startLink": ""
-    },
-    "numbersSection": {
-      "networkMember": ""
-    },
-    "sectionEducation": {
-      "title": "",
-      "subtitle": "",
-      "content1": "",
-      "link": ""
-    },
-    "sectionNetwork": {
-      "title": "",
-      "subtitle": "",
-      "content1": "",
-      "link": ""
     },
     "tutorialSection": {
       "title": "",
@@ -909,15 +728,12 @@
       "availableLanguages": "",
       "title": "",
       "subtitle": "",
-      "subtitle2": "",
       "content1": "",
-      "content2": "",
       "link": "",
       "availableLanguagesVariation": ""
     },
     "patreonSection": {
       "title": "",
-      "subtitle": "",
       "content": ""
     },
     "wallOfLoveSection": {
@@ -926,47 +742,28 @@
     }
   },
   "imagesAlt": {
-    "blueEllipse": "",
     "bookCover": "",
     "contributorHeart": "",
-    "contributorPP": "",
-    "forwardArrow": "",
     "orangePill": "",
     "printedCircuits": "",
     "rabbit404": "",
     "sthRepresentingCompany": "",
-    "stylus": "",
     "underConstructionImage": ""
   },
   "library": {
-    "pageSubtitle": "",
-    "pageTitle": "",
-    "publishedIn": "",
-    "writtenBy": ""
+    "pageTitle": ""
   },
   "menu": {
     "betDescription": "",
-    "btc101Description": "",
     "buildersDescription": "",
     "conferencesDescription": "",
-    "exchangesDescription": "",
     "libraryDescription": "",
-    "lightningDescription": "",
-    "manifestoDescription": "",
-    "merchantsDescription": "",
-    "miningDescription": "",
-    "nodeDescription": "",
     "nodeNetworkDescription": "",
-    "ourStoryDescription": "",
     "podcastsDescription": "",
-    "sponsorsDescription": "",
-    "supportUsDescription": "",
     "teachersDescription": "",
-    "walletsDescription": "",
     "bCertificateDescription": "",
     "glossaryDescription": "",
     "login": "Giriş Yap",
-    "loginRegister": "",
     "publicDescription": ""
   },
   "notFound": {
@@ -974,12 +771,7 @@
     "pageSubtitle": "",
     "pageTitle": ""
   },
-  "podcast": {
-    "abstract": ""
-  },
   "podcasts": {
-    "hostedBy": "",
-    "pageSubtitle": "",
     "pageTitle": ""
   },
   "professors": {
@@ -999,24 +791,6 @@
     }
   },
   "resources": {
-    "articles": {
-      "title": ""
-    },
-    "bet": {
-      "title": ""
-    },
-    "books": {
-      "title": ""
-    },
-    "builders": {
-      "title": ""
-    },
-    "conferences": {
-      "title": ""
-    },
-    "filterBarLabel": "",
-    "headerSignature": "",
-    "headerText": "",
     "newsletters": {
       "title": ""
     },
@@ -1025,13 +799,6 @@
     "pageTitle": "",
     "github": "",
     "podcasts": {
-      "title": ""
-    },
-    "publicGrade": "",
-    "newsletter": {
-      "title": ""
-    },
-    "glossary": {
       "title": ""
     },
     "pageSubtitleBooks": "",
@@ -1055,8 +822,6 @@
   "bCertificate": {
     "bCertificateDescription": "B-sertifikası, Bitcoin ve bağlantılı konular hakkındaki seviyenizi değerlendirmek için uluslararası olarak tanınan bir sınavdır. Bu sertifika, Bitcoin endüstrisi arasında yeteneklerinizi ve bilginizi kanıtlamanızı sağlar, size bu endüstrideki şirketlere ve pozisyonlara erişim imkanı verir.",
     "organizeDescription": "Sorun değil! Topluluğunuz Ağ'ın bir parçasıysa, merkezinizde bir sınav oturumu düzenlemek mümkündür. Bir sınavı ağırlayabilmeniz için zorunlu koşullara uyup uymadığınızdan emin olmak için lütfen tabloyu okuyun. Bu koşulları yerine getirebiliyorsanız, oturumunuzu planlayabilir ve onu platforma ekleyebilirsiniz.",
-    "curious": "Sınavın nasıl olduğunu merak ediyor musunuz?",
-    "joeNakamotoVideo": "Bitcoin sınavı nedir ? Joe Nakamoto tarafından",
     "knowledgeableBitcoin": "Bitcoin hakkında bilgili misiniz?",
     "noBookExam": "Henüz planlanmış bir sınav oturumu yok.",
     "bookExam": "Bir sınav oturumu ayırtın",
@@ -1076,7 +841,6 @@
     "needHelp": "",
     "keepLooking": "",
     "notTranslated": "",
-    "pageSubtitle": "",
     "placeHolder": "",
     "relatedWords": "",
     "anotherWord": "",
@@ -1121,8 +885,7 @@
       "errorMessageNotFound": "",
       "blogSidebarTitle": "",
       "blogListButtonText": "",
-      "filterText": "",
-      "noBlogs": ""
+      "filterText": ""
     }
   }
 }
