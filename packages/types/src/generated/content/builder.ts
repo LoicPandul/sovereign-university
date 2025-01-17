@@ -12,7 +12,7 @@ export interface Builder {
   resourceId: number;
   name: string;
   category: string;
-  languages: string[] | null;
+  languages: string[];
   addressLine1: string | null;
   addressLine2: string | null;
   addressLine3: string | null;
@@ -35,7 +35,7 @@ export interface JoinedBuilder {
   lastCommit: string;
   name: string;
   category: string;
-  languages: string[] | null;
+  languages: string[];
   websiteUrl: string | null;
   twitterUrl: string | null;
   githubUrl: string | null;

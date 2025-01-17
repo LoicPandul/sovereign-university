@@ -6,7 +6,7 @@ export interface Professor {
   path: string;
   name: string;
   company: string | null;
-  affiliations: string[] | null;
+  affiliations: string[];
   contributorId: string;
   websiteUrl: string | null;
   twitterUrl: string | null;
@@ -34,7 +34,7 @@ export interface JoinedProfessor {
   path: string;
   name: string;
   company: string | null;
-  affiliations: string[] | null;
+  affiliations: string[];
   contributorId: string;
   websiteUrl: string | null;
   twitterUrl: string | null;
@@ -63,7 +63,7 @@ export interface FormattedProfessor {
   path: string;
   name: string;
   company: string | null;
-  affiliations: string[] | null;
+  affiliations: string[];
   contributorId: string;
   lastUpdated: Date;
   lastCommit: string;
