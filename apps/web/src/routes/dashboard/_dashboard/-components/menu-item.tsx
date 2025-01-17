@@ -24,8 +24,12 @@ export const MenuItem = ({
   const location = useLocation();
 
   return (
-    <button className={cn('w-full', showOnMobileOnly && 'lg:hidden')}>
+    <button
+      type="button"
+      className={cn('w-full', showOnMobileOnly && 'lg:hidden')}
+    >
       <button
+        type="button"
         onClick={dropdown ? () => setIsOpen(!isOpen) : onClick}
         tabIndex={0}
         onKeyDown={(e) => {

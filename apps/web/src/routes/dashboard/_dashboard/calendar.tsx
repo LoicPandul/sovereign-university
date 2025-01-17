@@ -146,6 +146,16 @@ function DashboardCalendar() {
         {courseTypes.map((f, index) => (
           <button
             key={f}
+            type="button"
+            onClick={() =>
+              setFilter((prev) =>
+                prev.length === courseTypes.length
+                  ? [f]
+                  : prev.includes(f)
+                    ? prev.filter((p) => p !== f)
+                    : [...prev, f],
+              )
+            }
             style={
               filter.includes(f)
                 ? {
@@ -169,15 +179,6 @@ function DashboardCalendar() {
                 ? 'hover:brightness-110'
                 : 'hover:bg-newGray-5',
             )}
-            onClick={() =>
-              setFilter((prev) =>
-                prev.length === courseTypes.length
-                  ? [f]
-                  : prev.includes(f)
-                    ? prev.filter((p) => p !== f)
-                    : [...prev, f],
-              )
-            }
           >
             {f}s
             <span

@@ -32,11 +32,12 @@ export const DropdownItem = ({
     </Link>
   ) : (
     <button
+      type="button"
+      onClick={onClick}
       className={cn(
         ' text-left px-2.5 py-2 leading-[140%] tracking-015px w-full',
         variantClasses[variant],
       )}
-      onClick={onClick}
     >
       {name}
     </button>

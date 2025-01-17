@@ -97,8 +97,9 @@ export const PasswordReset = ({ isOpen, onClose, goTo }: LoginModalProps) => {
 
         <p className="mb-0 text-xs">
           <button
-            className="cursor-pointer border-none bg-transparent text-xs underline"
+            type="button"
             onClick={() => goTo(AuthModalState.SignIn)}
+            className="cursor-pointer border-none bg-transparent text-xs underline"
           >
             {t('words.back')}
           </button>

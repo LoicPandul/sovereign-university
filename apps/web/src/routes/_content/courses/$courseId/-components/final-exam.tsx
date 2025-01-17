@@ -143,6 +143,7 @@ export const FinalExam = ({
           {questions.map((_, questionIndex) => (
             <button
               key={questionIndex}
+              type="button"
               onClick={() => {
                 const article =
                   document.querySelectorAll('article')[questionIndex];
@@ -202,6 +203,7 @@ export const FinalExam = ({
                   {q.answers.map((answer, answerIndex) => (
                     <button
                       key={answerIndex}
+                      type="button"
                       onClick={() =>
                         handleAnswerClick(questionIndex, answerIndex)
                       }

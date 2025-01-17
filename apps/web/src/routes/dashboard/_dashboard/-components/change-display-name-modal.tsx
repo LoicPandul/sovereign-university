@@ -67,7 +67,7 @@ export const ChangeDisplayNameModal = ({
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
       <DialogTrigger asChild>
-        <button className="hidden" />
+        <button type="button" className="hidden" />
       </DialogTrigger>
       <DialogContent
         showCloseButton={false}

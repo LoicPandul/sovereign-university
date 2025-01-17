@@ -115,8 +115,9 @@ export const MobileMenu = ({
         {isLoggedIn ? (
           <div className="text-sm font-semibold shrink-0 min-w-8">
             <button
-              className="cursor-pointer text-white"
+              type="button"
               onClick={toggleDashboardMenu}
+              className="cursor-pointer text-white"
             >
               <img
                 src={
@@ -134,8 +135,9 @@ export const MobileMenu = ({
         ) : (
           <div className="text-sm font-semibold shrink-0 min-w-8">
             <button
-              className="cursor-pointer text-white"
+              type="button"
               onClick={onClickLogin}
+              className="cursor-pointer text-white"
             >
               <img
                 src={variant === 'light' ? SignInIconLight : SignInIconDark}

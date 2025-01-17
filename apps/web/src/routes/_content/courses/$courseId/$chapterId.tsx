@@ -795,8 +795,9 @@ function CourseChapter() {
                       )}
                     >
                       <button
-                        className="flex cursor-pointer items-center text-darkOrange-5 gap-2 lg:gap-4"
+                        type="button"
                         onClick={() => setIsContentExpanded(!isContentExpanded)}
+                        className="flex cursor-pointer items-center text-darkOrange-5 gap-2 lg:gap-4"
                       >
                         <IoIosArrowForward
                           className={cn(

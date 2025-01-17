@@ -74,7 +74,11 @@ export const MenuElement = ({
       {item}
     </Link>
   ) : (
-    <button className="block w-full text-black" onClick={element.action}>
+    <button
+      onClick={element.action}
+      type="button"
+      className="block w-full text-black"
+    >
       {item}
     </button>
   );

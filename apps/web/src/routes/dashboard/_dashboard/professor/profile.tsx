@@ -168,12 +168,13 @@ function DashboardProfessorProfile() {
                       <div className="flex gap-5 items-center">
                         <Nostr className="size-[18px] fill-black shrink-0" />
                         <button
-                          className="w-fit truncate body-14px text-black cursor-pointer"
+                          type="button"
                           onClick={() => {
                             navigator.clipboard.writeText(
                               professor.links.nostr || '',
                             );
                           }}
+                          className="w-fit truncate body-14px text-black cursor-pointer"
                           tabIndex={0}
                           onKeyDown={(event) => {
                             if (event.key === 'Enter' || event.key === ' ') {

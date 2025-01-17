@@ -206,6 +206,7 @@ export const ProofreadingProgress = ({
       <Dialog>
         <DialogTrigger asChild>
           <button
+            type="button"
             className="button-class absolute right-1 top-1 lg:hidden"
             aria-label="Open Proofreading Progress Dialog"
           >

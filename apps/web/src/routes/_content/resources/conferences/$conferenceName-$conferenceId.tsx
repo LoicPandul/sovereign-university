@@ -240,11 +240,12 @@ function Conference() {
                   ) : (
                     <button
                       key={`${stage.name}_${index}`}
-                      className="p-4 text-newGray-1 text-lg leading-normal font-medium capitalize"
+                      type="button"
                       onClick={() => {
                         setActiveVideo(0);
                         setActiveStage(index);
                       }}
+                      className="p-4 text-newGray-1 text-lg leading-normal font-medium capitalize"
                     >
                       {stage.name}
                     </button>

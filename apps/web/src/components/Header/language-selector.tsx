@@ -69,6 +69,7 @@ export const LanguageSelector = ({
     <Popover open={open} onOpenChange={setOpen}>
       <PopoverTrigger asChild>
         <button
+          type="button"
           className={cn(
             'group z-50 flex place-items-center text-sm font-semibold gap-2 lg:gap-2.5 outline-none px-2.5 py-2 lg:pl-4 lg:pr-2.5 rounded-2xl max-lg:w-24 transition-all',
             variantHeaderBackgroundMap[variant],
@@ -103,6 +104,7 @@ export const LanguageSelector = ({
           {filteredLanguages.map((language) => (
             <button
               key={language}
+              type="button"
               className="flex items-center gap-4 lg:px-4 lg:py-2 rounded-md lg:hover:bg-white/10 w-fit lg:w-44"
               onClick={() => changeLanguage(language)}
             >
@@ -173,6 +175,7 @@ export const LanguageSelectorMobile = ({
     <Popover open={open} onOpenChange={setOpen}>
       <PopoverTrigger asChild>
         <button
+          type="button"
           className={cn(
             'group flex justify-center items-center gap-[15px] p-2.5 outline-none rounded-lg mt-auto mx-auto w-[280px] bg-[#f39561] dark:bg-[#5f5f5f] text-darkOrange-11 dark:text-white',
             open && 'rounded-t-none pt-[15px]',
@@ -204,8 +207,9 @@ export const LanguageSelectorMobile = ({
         ).map((language) => (
           <button
             key={language}
-            className="flex items-center gap-4 w-full"
+            type="button"
             onClick={() => changeLanguage(language)}
+            className="flex items-center gap-4 w-full"
             aria-label={`Change language to ${
               LANGUAGES_MAP[language.toLowerCase().replaceAll('-', '')] ||
               language

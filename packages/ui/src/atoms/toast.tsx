@@ -206,9 +206,10 @@ const ToastCloseButton = ({
   color?: ToastProps['color'];
 }) => (
   <button
+    type="button"
     onClick={closeToast}
-    aria-label="Close toast"
     className="shrink-0 self-start"
+    aria-label="Close toast"
     tabIndex={0}
   >
     <IoCloseOutline

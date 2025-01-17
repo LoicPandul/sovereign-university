@@ -374,8 +374,9 @@ const CourseExamsTable = ({
                 key={index}
               >
                 <button
-                  className="cursor-pointer hover:font-medium body-14px md:body-16px text-newBlack-1 flex md:justify-between items-center px-2.5"
+                  type="button"
                   onClick={() => toggleCollapse(index)}
+                  className="cursor-pointer hover:font-medium body-14px md:body-16px text-newBlack-1 flex md:justify-between items-center px-2.5"
                   tabIndex={0}
                   onKeyDown={(e) => {
                     if (e.key === 'Enter' || e.key === ' ') {

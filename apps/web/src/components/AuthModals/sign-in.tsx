@@ -139,8 +139,9 @@ export const SignIn = ({ isOpen, onClose, goTo, redirectTo }: SignInProps) => {
             <p className="mobile-body2 md:desktop-body1 text-center">
               {t('auth.noAccountYet')}
               <button
-                className="ml-1 cursor-pointer underline italic"
+                type="button"
                 onClick={() => goTo(AuthModalState.Register)}
+                className="ml-1 cursor-pointer underline italic"
               >
                 {t('auth.createOne')}
               </button>
@@ -148,8 +149,9 @@ export const SignIn = ({ isOpen, onClose, goTo, redirectTo }: SignInProps) => {
 
             <p className="mb-0 mt-2 text-xs">
               <button
-                className="cursor-pointer border-none bg-transparent text-xs underline"
+                type="button"
                 onClick={() => goTo(AuthModalState.PasswordReset)}
+                className="cursor-pointer border-none bg-transparent text-xs underline"
               >
                 {t('auth.forgottenPassword')}
               </button>

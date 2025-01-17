@@ -61,6 +61,7 @@ export default function QuizzCardQuestion({
         <div className="flex flex-col items-start gap-3 self-stretch pl-0 md:gap-5 md:pl-7">
           {answers.map((question, index) => (
             <button
+              type="button"
               onClick={() => {
                 answerClick(index);
               }}

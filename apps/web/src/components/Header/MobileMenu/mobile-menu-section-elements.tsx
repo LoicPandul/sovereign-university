@@ -13,8 +13,9 @@ export const MobileMenuSectionElement = ({
 }: MobileMenuSectionElementProps) => {
   return 'action' in element ? (
     <button
-      className="group flex items-center text-tertiary-9 dark:text-white body-16px pr-2 pl-10 py-[5px] gap-[15px] w-full"
+      type="button"
       onClick={element.action}
+      className="group flex items-center text-tertiary-9 dark:text-white body-16px pr-2 pl-10 py-[5px] gap-[15px] w-full"
     >
       {typeof element.icon === 'string' ? (
         <img

@@ -65,13 +65,14 @@ export const SearchBar: React.FC<SearchBarProps> = ({
         />
         {inputValue && (
           <button
+            type="button"
             onClick={clearInput}
             className="ml-2 text-black absolute inset-y-0 right-0 flex items-center"
           >
             &times;
           </button>
         )}
-        <button onClick={toggleDropdown} className="ml-2">
+        <button type="button" onClick={toggleDropdown} className="ml-2">
           🔽
         </button>
       </div>
@@ -79,12 +80,14 @@ export const SearchBar: React.FC<SearchBarProps> = ({
         <div className="absolute bg-white border rounded mt-2">
           <div className="flex border-b">
             <button
+              type="button"
               onClick={() => handleTabChange('tab1')}
               className={`flex-1 text-black ${activeTab === 'tab1' ? 'font-bold' : ''}`}
             >
               Tab 1
             </button>
             <button
+              type="button"
               onClick={() => handleTabChange('tab2')}
               className={`flex-1 text-black ${activeTab === 'tab2' ? 'font-bold' : ''}`}
             >

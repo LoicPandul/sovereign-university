@@ -216,9 +216,10 @@ export const CourseTableMobile = ({
                         return (
                           <button
                             key={course.id}
-                            tabIndex={0}
-                            className={`rounded-md size-[35px] min-[425px]:size-[50px] ${bgColor} ${activeBorder} flex items-center justify-center p-4 mx-auto`}
+                            type="button"
                             onClick={() => setSelectedCourse(course.id)}
+                            className={`rounded-md size-[35px] min-[425px]:size-[50px] ${bgColor} ${activeBorder} flex items-center justify-center p-4 mx-auto`}
+                            tabIndex={0}
                             onKeyDown={(e) => {
                               if (e.key === 'Enter' || e.key === ' ') {
                                 setSelectedCourse(course.id);

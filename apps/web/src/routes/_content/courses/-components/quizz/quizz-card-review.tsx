@@ -56,7 +56,7 @@ export default function QuizzCardReview({
         <span className="mb-4 md:mb-6 text-newBlack-1 label-medium-16px md:title-large-24px">
           <QuizzResultMessage numberOfCorrectAnswers={numberOfCorrectAnswers} />
         </span>
-        <button onClick={nextStep} className="mb-5 md:mb-8">
+        <button type="button" onClick={nextStep} className="mb-5 md:mb-8">
           <PieChart
             width={isMobile ? 100 : 200}
             height={isMobile ? 100 : 200}

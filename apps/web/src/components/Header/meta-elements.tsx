@@ -49,20 +49,21 @@ export const MetaElements = ({
         <Link className="flex" to="/dashboard/courses">
           {isOnDashboard ? (
             <button
+              type="button"
+              onClick={async () => {
+                await logout();
+                window.location.reload();
+              }}
               className={`cursor-pointer rounded-[16px] py-[14px] px-[18px] ${
                 variant === 'light'
                   ? 'bg-darkOrange-2 text-black hover:bg-darkOrange-1 active:bg-darkOrange-1 active:text-darkOrange-5'
                   : 'bg-newBlack-3 text-white hover:bg-darkHover'
               }`}
-              onClick={async () => {
-                await logout();
-                window.location.reload();
-              }}
             >
               <IoLogOutOutline size={24} />
             </button>
           ) : (
-            <button className="cursor-pointer text-white">
+            <button type="button" className="cursor-pointer text-white">
               <img
                 src={pictureUrl ? pictureUrl : SignInIconLight}
                 alt={t('auth.signIn')}

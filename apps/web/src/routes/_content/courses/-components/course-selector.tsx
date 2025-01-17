@@ -52,16 +52,17 @@ export const CourseSelector = ({ courses }: { courses: JoinedCourse[] }) => {
               topics.map((topic) => (
                 <button
                   key={topic}
+                  type="button"
+                  onClick={() => {
+                    setActiveTopic(topic);
+                    activeTopic !== topic && setActiveCourse(null);
+                  }}
                   className={cn(
                     'text-lg leading-snug font-medium w-full py-2 px-4  uppercase text-start rounded-md',
                     activeTopic === topic
                       ? 'bg-darkOrange-7'
                       : 'hover:bg-darkOrange-9',
                   )}
-                  onClick={() => {
-                    setActiveTopic(topic);
-                    activeTopic !== topic && setActiveCourse(null);
-                  }}
                 >
                   {topic}
                 </button>
@@ -86,13 +87,14 @@ export const CourseSelector = ({ courses }: { courses: JoinedCourse[] }) => {
                       .map((course) => (
                         <button
                           key={course.id}
+                          type="button"
+                          onClick={() => setActiveCourse(course)}
                           className={cn(
                             'text-lg leading-snug font-medium w-full py-2 px-4 text-start rounded-md',
                             activeCourse?.id === course.id
                               ? 'bg-darkOrange-7'
                               : 'hover:bg-darkOrange-9',
                           )}
-                          onClick={() => setActiveCourse(course)}
                         >
                           {course.name}
                         </button>
