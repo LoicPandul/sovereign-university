@@ -44,11 +44,7 @@ function Lectures() {
   const isEnglishLanguage = i18n.language === 'en';
 
   return (
-    <ResourceLayout
-      title={t('lectures.pageTitle')}
-      tagLine={t('lectures.pageSubtitle')}
-      activeCategory="lectures"
-    >
+    <ResourceLayout title={t('lectures.pageTitle')} activeCategory="lectures">
       <div className="flex flex-col gap-4 md:gap-9 mt-4 md:mt-12 mx-auto">
         <div className="flex items-center gap-1 md:gap-2.5 pb-2 md:pb-2.5 border-b border-b-newGray-1">
           <span className="label-small-12px md:label-large-med-20px text-white">

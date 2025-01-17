@@ -124,8 +124,6 @@ function Conference() {
 
   return (
     <ResourceLayout
-      title={t('conferences.pageTitle')}
-      tagLine={t('conferences.pageSubtitle')}
       activeCategory="conferences"
       showPageHeader={false}
       backToCategoryButton={true}

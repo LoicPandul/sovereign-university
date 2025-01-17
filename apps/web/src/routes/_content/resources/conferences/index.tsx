@@ -71,7 +71,6 @@ function Conferences() {
   return (
     <ResourceLayout
       title={t('conferences.pageTitle')}
-      tagLine={t('conferences.pageSubtitle')}
       activeCategory="conferences"
       maxWidth="1360"
       className="mx-0 px-0"

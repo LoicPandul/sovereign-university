@@ -40,7 +40,6 @@ export const PageHeader = ({
           {subtitle}
         </h1>
       )}
-
       {link ? (
         <Link to={link}>
           <PageTitle title={title} isSubsectionTitle={isSubsectionTitle} />
@@ -48,7 +47,6 @@ export const PageHeader = ({
       ) : (
         <PageTitle title={title} isSubsectionTitle={isSubsectionTitle} />
       )}
-
       {hasGithubDescription ? (
         <>
           <p className="max-w-4xl mx-auto text-center text-xs md:desktop-subtitle1 text-newGray-1 leading-[1.66] tracking-[0.4px] mt-1 md:mt-6">

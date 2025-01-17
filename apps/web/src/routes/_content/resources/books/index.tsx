@@ -36,7 +36,6 @@ function Books() {
   return (
     <ResourceLayout
       title={t('library.pageTitle')}
-      tagLine={t('library.pageSubtitle')}
       filterBar={{
         onChange: setSearchTerm,
       }}

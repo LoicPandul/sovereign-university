@@ -49,7 +49,6 @@ function Builders() {
   return (
     <ResourceLayout
       title={t('builders.pageTitle')}
-      tagLine={t('builders.pageSubtitle')}
       filterBar={{
         onChange: setSearchTerm,
       }}

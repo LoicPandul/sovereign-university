@@ -577,7 +577,7 @@ export const CourseConclusion = ({ chapter }: CourseConclusionProps) => {
                 <div className="absolute inset-0 bg-gradient-to-b from-white/80 to-[#e2e2e2]/80 backdrop-blur-sm md:backdrop-blur-md flex items-center justify-center md:gap-6">
                   <img
                     src={LockGif}
-                    alt={t('courses.conclusion.unlockFeatures')}
+                    alt="Lock"
                     className="size-11 md:size-[74px] shrink-0"
                   />
                   <p className="text-black body-medium-12px md:subtitle-medium-med-16px w-full max-w-[831px] flex flex-col">

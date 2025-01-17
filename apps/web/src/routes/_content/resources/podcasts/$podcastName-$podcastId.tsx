@@ -95,8 +95,6 @@ function Podcast() {
 
   return (
     <ResourceLayout
-      title={t('podcasts.pageTitle')}
-      tagLine={t('podcasts.pageSubtitle')}
       link={'/resources/podcasts'}
       activeCategory="podcasts"
       showPageHeader={false}

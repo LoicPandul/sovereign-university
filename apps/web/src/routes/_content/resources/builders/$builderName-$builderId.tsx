@@ -106,8 +106,6 @@ function Builder() {
 
   return (
     <ResourceLayout
-      title={t('builders.pageTitle')}
-      tagLine={t('builders.pageSubtitle')}
       link={'/resources/builders'}
       activeCategory="builders"
       showPageHeader={false}

@@ -112,7 +112,6 @@ function BET() {
   return (
     <ResourceLayout
       title={t('bet.pageTitle')}
-      tagLine={t('bet.pageSubtitle')}
       activeCategory="bet"
       marginTopChildren={false}
       maxWidth="1360"
