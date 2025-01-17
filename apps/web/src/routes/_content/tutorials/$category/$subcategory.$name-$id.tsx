@@ -372,13 +372,13 @@ function TutorialDetails() {
               />
               <div className="-mt-4 w-full max-w-5xl lg:hidden">
                 <span className="mb-2 w-full text-left text-lg font-normal leading-6 text-darkOrange-5">
-                  <Link to="/tutorials">{t('words.tutorials') + ` > `}</Link>
+                  <Link to="/tutorials">{t('words.tutorials') + ' > '}</Link>
                   <Link
                     to={'/tutorials/$category'}
                     params={{ category: tutorial.category }}
                     className="capitalize"
                   >
-                    {tutorial.category + ` > `}
+                    {tutorial.category + ' > '}
                   </Link>
                   <span className="capitalize">{tutorial.title}</span>
                 </span>

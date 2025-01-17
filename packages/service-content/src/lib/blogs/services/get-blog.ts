@@ -16,7 +16,7 @@ export const createGetBlog = ({ postgres }: Dependencies) => {
       .then(firstRow);
 
     if (!blog) {
-      throw new Error(`Blog not found`);
+      throw new Error('Blog not found');
     }
 
     return blog;

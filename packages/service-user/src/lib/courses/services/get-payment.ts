@@ -15,7 +15,7 @@ export const createGetPayment = ({ postgres }: Dependencies) => {
       .then(firstRow);
 
     if (!payment) {
-      throw new Error(`Payment not found`);
+      throw new Error('Payment not found');
     }
 
     return payment;

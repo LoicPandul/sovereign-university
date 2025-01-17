@@ -22,7 +22,7 @@ export const createRestMetadataRoutes = (
       const url = new URL(`${proto}://${host}${req.query.uri as string}`);
       const parts = url.pathname.split('/').filter(Boolean);
 
-      console.log(`Metadata query`, url.toString());
+      console.log('Metadata query', url.toString());
       const metadata = await getMetadata(parts);
       const imageUrl = dependencies.config.domainUrl + metadata.image;
 

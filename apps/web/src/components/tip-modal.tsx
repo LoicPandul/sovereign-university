@@ -52,9 +52,9 @@ export const TipModal = ({
         </p>
         <div className="flex w-full flex-row items-center justify-evenly">
           <img src={BitcoinCircleGray} alt="" className="h-8 w-auto" />
-          <span className="text-2xl text-gray-300">{`<`}</span>
+          <span className="text-2xl text-gray-300">{'<'}</span>
           <img src={LightningOrange} alt="" className="h-12 w-auto" />
-          <span className="text-2xl text-gray-300">{`>`}</span>
+          <span className="text-2xl text-gray-300">{'>'}</span>
           <img src={PaynimRobotGray} alt="" className="h-8 w-auto" />
         </div>
 

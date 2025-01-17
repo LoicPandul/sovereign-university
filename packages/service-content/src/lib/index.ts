@@ -87,7 +87,7 @@ export const createProcessContentFiles = (dependencies: Dependencies) => {
     );
     const errors: string[] = [];
     const warnings: string[] = [];
-    console.log(`-- Sync procedure: Deleting proofreadings`);
+    console.log('-- Sync procedure: Deleting proofreadings');
     await deleteProofreadings(errors);
 
     // Sync resources

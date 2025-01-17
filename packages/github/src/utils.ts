@@ -156,7 +156,7 @@ async function listFiles(git: SimpleGit, pattern = [':!.*']) {
   const files = await git.raw([
     'ls-files',
     '-z',
-    `--format=%(objectname) %(path)`,
+    '--format=%(objectname) %(path)',
     ...pattern,
   ]);
 

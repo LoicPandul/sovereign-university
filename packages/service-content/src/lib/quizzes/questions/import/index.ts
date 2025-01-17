@@ -139,7 +139,7 @@ export const createDisableQuizQuestions = ({ postgres }: Dependencies) => {
         sql`UPDATE content.quiz_questions SET disabled = true WHERE last_sync < ${sync_date}`,
       );
     } catch {
-      errors.push(`Error disabling quiz_questions`);
+      errors.push('Error disabling quiz_questions');
     }
   };
 };

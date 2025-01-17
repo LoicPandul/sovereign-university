@@ -153,7 +153,7 @@ const ExamResult = ({
   const isMobile = useSmaller('md');
 
   function RetakeExam() {
-    const examLink = `/b-certificate`;
+    const examLink = '/b-certificate';
 
     return (
       <Link

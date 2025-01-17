@@ -14,7 +14,7 @@ const noFail = async (task: Fn) => {
   try {
     await task();
   } catch (error: unknown) {
-    console.error(`Cron job failed`, error);
+    console.error('Cron job failed', error);
   }
 };
 

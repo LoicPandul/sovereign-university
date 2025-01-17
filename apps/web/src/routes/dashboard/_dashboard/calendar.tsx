@@ -160,7 +160,7 @@ function DashboardCalendar() {
               filter.includes(f)
                 ? {
                     backgroundColor: `${courseColor[index]}`,
-                    color: `white`,
+                    color: 'white',
                     fontWeight: 600,
                     paddingTop: '8px',
                     paddingBottom: '8px',
@@ -168,7 +168,7 @@ function DashboardCalendar() {
                 : {
                     color: `${courseColor[index]}`,
                     borderColor: `${courseColor[index]}`,
-                    borderWidth: `2px`,
+                    borderWidth: '2px',
                     paddingTop: '6px',
                     paddingBottom: '6px',
                   }

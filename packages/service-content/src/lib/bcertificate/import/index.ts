@@ -189,7 +189,7 @@ export const createDeleteBCertificateExams = ({ postgres }: Dependencies) => {
       `,
       );
     } catch {
-      errors.push(`Error deleting B Certificate Exams`);
+      errors.push('Error deleting B Certificate Exams');
     }
   };
 };

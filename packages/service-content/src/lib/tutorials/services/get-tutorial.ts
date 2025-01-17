@@ -19,7 +19,7 @@ export const createGetTutorial = ({ postgres }: Dependencies) => {
       .then(firstRow);
 
     if (!tutorial) {
-      throw new Error(`Tutorial not found`);
+      throw new Error('Tutorial not found');
     }
 
     const credits = await postgres

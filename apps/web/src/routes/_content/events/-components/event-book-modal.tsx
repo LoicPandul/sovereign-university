@@ -68,7 +68,7 @@ export const EventBookModal = ({
                 onBooked={saveAndDisplaySuccess}
                 description={
                   accessType === 'physical'
-                    ? t(`events.payment.description_free_physical`)
+                    ? t('events.payment.description_free_physical')
                     : ''
                 }
                 callout={t(`events.payment.callout_${accessType}`)}

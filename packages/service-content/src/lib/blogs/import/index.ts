@@ -161,7 +161,7 @@ export const createDeleteBlogs = ({ postgres }: Dependencies) => {
       `,
       );
     } catch {
-      errors.push(`Error deleting blogs`);
+      errors.push('Error deleting blogs');
     }
   };
 };

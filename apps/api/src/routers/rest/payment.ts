@@ -115,7 +115,7 @@ export const createRestPaymentRoutes = (
             config.stripe.endpointSecret,
           );
         } catch (error: any) {
-          console.log(`Webhook signature verification failed.`, error.message);
+          console.log('Webhook signature verification failed.', error.message);
           res.sendStatus(400);
           return;
         }

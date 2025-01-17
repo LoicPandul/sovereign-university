@@ -83,7 +83,7 @@ for (const currentDirectoryPath of allDirectoryPaths) {
     const newReferences: Array<{ path: string }> = [];
 
     if (currentDirectoryPath.includes('web')) {
-      newReferences.push({ path: `../api/tsconfig.trpc.json` });
+      newReferences.push({ path: '../api/tsconfig.trpc.json' });
     }
 
     if (combinedDependencies) {

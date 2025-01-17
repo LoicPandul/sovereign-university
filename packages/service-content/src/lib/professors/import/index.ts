@@ -128,11 +128,11 @@ export const createDeleteProfessors = ({ postgres }: Dependencies) => {
   return async (sync_date: number, errors: string[]) => {
     try {
       await postgres.exec(
-        sql`DELETE FROM content.professors WHERE last_sync < ${sync_date} 
+        sql`DELETE FROM content.professors WHERE last_sync < ${sync_date}
       `,
       );
     } catch {
-      errors.push(`Error deleting professors`);
+      errors.push('Error deleting professors');
     }
   };
 };

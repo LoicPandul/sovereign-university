@@ -134,7 +134,7 @@ export const createDeleteResources = ({ postgres }: Dependencies) => {
       `,
       );
     } catch {
-      errors.push(`Error deleting resources`);
+      errors.push('Error deleting resources');
     }
   };
 };

@@ -230,7 +230,7 @@ function DashboardProfessorProfile() {
             {/* Modification */}
             <MakeModificationBlock
               title={t('dashboard.teacher.profile.makeModifications')}
-              titleLink={`https://github.com/PlanB-Network/bitcoin-educational-content`}
+              titleLink="https://github.com/PlanB-Network/bitcoin-educational-content"
               text="dashboard.teacher.profile.tutorialModification"
               textLink="/tutorials/others/create-teacher-profile"
             />

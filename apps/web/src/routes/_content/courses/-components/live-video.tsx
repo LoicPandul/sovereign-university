@@ -20,7 +20,7 @@ export const LiveVideo = ({ url, chatUrl, displayVideo }: LiveVideoProps) => {
       {url && displayVideo && (
         <div className="flex flex-col gap-6 w-full items-center">
           <iframe
-            title={`Live`}
+            title="Live"
             className="w-full aspect-video"
             src={url}
             allowFullScreen={true}

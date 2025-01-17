@@ -92,11 +92,11 @@ export const createDeleteEvents = ({ postgres }: Dependencies) => {
   return async (sync_date: number, errors: string[]) => {
     try {
       await postgres.exec(
-        sql`DELETE FROM content.events WHERE last_sync < ${sync_date} 
+        sql`DELETE FROM content.events WHERE last_sync < ${sync_date}
       `,
       );
     } catch {
-      errors.push(`Error deleting events`);
+      errors.push('Error deleting events');
     }
   };
 };

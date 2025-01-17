@@ -54,7 +54,7 @@ export const createSbpPayment = (config: SwissBitcoinPayConfig) => {
 
     try {
       const response = await fetch(
-        `https://api.swiss-bitcoin-pay.ch/checkout`,
+        'https://api.swiss-bitcoin-pay.ch/checkout',
         {
           method: 'POST',
           headers: headers,

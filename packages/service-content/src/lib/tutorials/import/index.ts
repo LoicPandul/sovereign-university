@@ -163,7 +163,7 @@ export const createDeleteTutorials = ({ postgres }: Dependencies) => {
       `,
       );
     } catch {
-      errors.push(`Error deleting tutorials`);
+      errors.push('Error deleting tutorials');
     }
   };
 };

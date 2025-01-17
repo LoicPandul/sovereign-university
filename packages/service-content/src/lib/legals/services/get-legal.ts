@@ -15,7 +15,7 @@ export const createGetLegal = ({ postgres }: Dependencies) => {
       .then(firstRow);
 
     if (!legal) {
-      throw new Error(`Legal document not found`);
+      throw new Error('Legal document not found');
     }
 
     return legal;

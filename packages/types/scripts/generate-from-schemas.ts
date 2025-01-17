@@ -126,7 +126,7 @@ const generateFileContent = (
   schemaNames: string[],
   filePath: string, // Current file path (used to track imports)
 ): string => {
-  let fileContent = ``;
+  let fileContent = '';
   currentlyProcessedFile = filePath;
   currentImportSet = new Set();
 
