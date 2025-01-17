@@ -516,6 +516,8 @@ const EventsMap = ({
                   strokeWidth={1.5}
                   stroke="currentColor"
                   className="size-6"
+                  role="img"
+                  aria-label="Events map"
                 >
                   <path
                     strokeLinecap="round"
@@ -638,6 +640,8 @@ const EventsMap = ({
               strokeWidth={1.5}
               stroke="currentColor"
               className="size-6"
+              role="img"
+              aria-label="Events card"
             >
               <path
                 strokeLinecap="round"

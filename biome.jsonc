@@ -27,8 +27,7 @@
     "rules": {
       "recommended": true,
       "a11y": {
-        "useKeyWithClickEvents": "off", // to remove (easy)
-        "noSvgWithoutTitle": "off" // to remove
+        "useKeyWithClickEvents": "off" // to remove (easy)
       },
       "complexity": {
         "useOptionalChain": "off", // to remove

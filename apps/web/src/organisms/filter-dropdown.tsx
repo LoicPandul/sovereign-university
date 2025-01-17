@@ -209,6 +209,8 @@ export const FilterDropdown = ({
                         fill="currentColor"
                         stroke="currentColor"
                         strokeWidth="1"
+                        role="img"
+                        aria-label="Checked"
                       >
                         <path
                           fillRule="evenodd"

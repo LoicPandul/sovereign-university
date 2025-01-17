@@ -152,6 +152,8 @@ export const BackgroundAuthorCardElement = ({
       viewBox="0 0 280 45"
       fill="none"
       className={`absolute bottom-0 h-full ${showAllCounts ? 'max-h-[240px]' : 'max-h-[140px]'}`}
+      role="img"
+      aria-label="Background effect"
     >
       <path
         d="M147.147 1.98324C142.545 0.222654 137.455 0.222651 132.853 1.98323L12.8534 47.8939C5.11227 50.8556 0 58.2852 0 66.5735V259.249C0 270.295 8.95431 279.249 20 279.249H260C271.046 279.249 280 270.295 280 259.249V66.5735C280 58.2852 274.888 50.8556 267.147 47.8939L147.147 1.98324Z"
