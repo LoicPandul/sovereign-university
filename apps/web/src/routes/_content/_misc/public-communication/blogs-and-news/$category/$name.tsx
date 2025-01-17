@@ -77,12 +77,8 @@ function SingleBlogDetail() {
                 </div>
                 {blog.tags && (
                   <div className="flex flex-row gap-[15px]">
-                    {blog.tags.map((tag, index) => (
-                      <TextTag
-                        key={index}
-                        variant="grey"
-                        className="capitalize"
-                      >
+                    {blog.tags.map((tag) => (
+                      <TextTag key={tag} variant="grey" className="capitalize">
                         {tag}
                       </TextTag>
                     ))}

@@ -44,6 +44,7 @@ export const CourseDiplomas = () => {
                   examResults.map((exam, index) => {
                     return (
                       <tr
+                        // biome-ignore lint/suspicious/noArrayIndexKey: <explanation>
                         key={index}
                         className={cn('mobile-body2 md:desktop-body1')}
                       >
@@ -76,6 +77,7 @@ export const CourseDiplomas = () => {
                 examResults.map((exam, index) => {
                   return (
                     <Card
+                      // biome-ignore lint/suspicious/noArrayIndexKey: <explanation>
                       key={index}
                       className={cn('p-2 my-4')}
                       withPadding={false}

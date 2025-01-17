@@ -166,9 +166,9 @@ function Podcast() {
                     <div className="flex flex-wrap gap-[10px] mb-5 lg:mb-8">
                       {podcast?.tags
                         ?.filter((tag) => tag && tag.toLowerCase() !== 'null')
-                        .map((tag, i) => (
+                        .map((tag) => (
                           <TextTag
-                            key={i}
+                            key={tag}
                             size="small"
                             variant="lightMaroon"
                             mode="dark"

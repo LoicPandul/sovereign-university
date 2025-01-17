@@ -103,6 +103,7 @@ export const NavigationPanel: React.FC<Props> = ({
                         (chapter) => chapter.partIndex === chapterOne.partIndex,
                       )
                       .map((chapter, index) => (
+                        // biome-ignore lint/suspicious/noArrayIndexKey: <explanation>
                         <li key={index + 1000}>
                           <Link
                             to={'/courses/$courseId/$chapterId'}

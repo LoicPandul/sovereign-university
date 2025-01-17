@@ -73,6 +73,7 @@ const Ratings = ({ ...props }: RatingsProps) => {
     >
       {Array.from({ length: fullStars }).map((_, i) =>
         React.cloneElement(FilledIcon, {
+          // biome-ignore lint/suspicious/noArrayIndexKey: <explanation>
           key: i,
           size,
           className: cn(

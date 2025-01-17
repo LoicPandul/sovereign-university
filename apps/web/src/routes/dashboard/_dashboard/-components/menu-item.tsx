@@ -61,6 +61,7 @@ export const MenuItem = ({
         <div className="flex flex-col w-full pl-8 gap-1 pt-1">
           {dropdown.map((item, index) => (
             <Link
+              // biome-ignore lint/suspicious/noArrayIndexKey: <explanation>
               key={index}
               to={item.to}
               className={cn(

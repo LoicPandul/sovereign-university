@@ -34,12 +34,12 @@
         "useExhaustiveDependencies": "info" // OK
       },
       "style": {
-        "noNonNullAssertion": "off", // TBD
+        "noNonNullAssertion": "off", // OK
         "useEnumInitializers": "off" // OK
       },
       "suspicious": {
         "noExplicitAny": "off", // OK
-        "noArrayIndexKey": "off" // TBD
+        "noArrayIndexKey": "error" // TBD
       }
     }
   },

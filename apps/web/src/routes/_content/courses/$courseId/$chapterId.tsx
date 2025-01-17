@@ -242,7 +242,7 @@ const TimelineBig = ({
 
           return (
             <div className="flex h-4 grow flex-row" key={currentPart.partIndex}>
-              {currentPart.chapters.map((currentChapter, chapterIndex) => {
+              {currentPart.chapters.map((currentChapter) => {
                 const firstChapter = currentChapter.chapterIndex === 1;
                 const lastChapter =
                   currentChapter.chapterIndex === currentPart.chapters.length;
@@ -259,7 +259,7 @@ const TimelineBig = ({
                         courseId: chapter.course.id,
                         chapterId: currentChapter.chapterId,
                       }}
-                      key={chapterIndex}
+                      key={chapter.chapterId}
                     >
                       <div
                         className={compose(
@@ -281,7 +281,7 @@ const TimelineBig = ({
                 return (
                   <div
                     className="border-beige-300 relative flex grow overflow-visible border-l-[1.5px] first:border-l-0"
-                    key={chapterIndex}
+                    key={chapter.chapterId}
                   >
                     <div
                       className={compose(
@@ -623,7 +623,8 @@ function CourseChapter() {
   let computerProfessor = '';
   if (chapter) {
     (() => {
-      let professors: any;
+      // biome-ignore lint/suspicious/noImplicitAnyLet: <explanation>
+      let professors;
       professors = chapter.course.professors;
       if (chapter.professors && chapter.professors.length > 0) {
         professors = chapter.professors;
@@ -814,10 +815,10 @@ function CourseChapter() {
                       {isContentExpanded && (
                         <div className="mt-[15px] lg:mt-4 text-sm md:text-base">
                           <ul className="flex flex-col gap-1.5">
-                            {sections.map((goal: string, index: number) => (
+                            {sections.map((goal: string) => (
                               <li
                                 className="flex items-center gap-2.5 text-black "
-                                key={index}
+                                key={goal}
                               >
                                 <HiCheck className="shrink-0 size-[18px] lg:size-6" />
                                 <span className="body-14px lg:label-large-20px">

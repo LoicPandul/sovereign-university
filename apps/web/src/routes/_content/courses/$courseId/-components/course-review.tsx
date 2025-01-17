@@ -85,6 +85,7 @@ function FormSlider({
             <div className="relative flex justify-between">
               {Array.from({ length: 11 }).map((_, i) => (
                 <div
+                  // biome-ignore lint/suspicious/noArrayIndexKey: <explanation>
                   key={i}
                   className="w-[2px] h-1 bg-newGray-3"
                   style={{ left: `${(i / 10) * 100}%` }}

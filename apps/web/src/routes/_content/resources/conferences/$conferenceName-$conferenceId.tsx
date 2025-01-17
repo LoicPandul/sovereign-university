@@ -52,6 +52,7 @@ const MarkdownContent = ({ rawContent }: { rawContent: string }) => {
       .replaceAll('[live replay]', '![video]')
       .split('\n')
       .map((content, index) => (
+        // biome-ignore lint/suspicious/noArrayIndexKey: <explanation>
         <Suspense key={index} fallback={<Loader size={'s'} />}>
           <ConferencesMarkdownBody content={content} />
         </Suspense>

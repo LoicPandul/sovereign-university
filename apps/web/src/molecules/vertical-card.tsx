@@ -145,9 +145,9 @@ export const VerticalCard = ({
         <div className="flex flex-col">
           {tags && tags.length > 0 && (
             <div className="flex flex-wrap md:hidden gap-1">
-              {tags.slice(0, isScreenMd ? tags.length : 1).map((tag, index) => (
+              {tags.slice(0, isScreenMd ? tags.length : 1).map((tag) => (
                 <span
-                  key={index}
+                  key={tag}
                   className="text-xs font-medium text-gray-700 bg-gray-200 rounded-[5px] px-[5px] py-px"
                 >
                   {tag}

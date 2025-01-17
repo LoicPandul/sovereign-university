@@ -371,7 +371,7 @@ const CourseExamsTable = ({
                   'flex flex-col py-2.5',
                   isCollapsed && 'bg-newGray-6 rounded-b-[20px]',
                 )}
-                key={index}
+                key={exam.id}
               >
                 <button
                   type="button"

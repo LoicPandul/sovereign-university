@@ -66,7 +66,7 @@ const SectionGrid = ({
 
         return (
           <VerticalCard
-            key={index}
+            key={item.name}
             title={item.name}
             subtitle={item.builder}
             imageSrc={item.logo}

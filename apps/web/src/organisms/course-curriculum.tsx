@@ -41,6 +41,7 @@ export const CourseCurriculum = ({
       <section className="flex flex-col gap-5">
         {course.parts?.map((part, partIndex) => (
           <details
+            // biome-ignore lint/suspicious/noArrayIndexKey: <explanation>
             key={partIndex}
             open={
               expandAll
@@ -87,6 +88,7 @@ export const CourseCurriculum = ({
                 return (
                   chapter !== undefined && (
                     <div
+                      // biome-ignore lint/suspicious/noArrayIndexKey: <explanation>
                       key={index}
                       className="flex justify-between items-center pl-4 lg:pl-8 gap-2"
                     >

@@ -98,7 +98,7 @@ export const GlobalCertifications = () => {
                 exams.map((exam, index) => {
                   return (
                     <ExamResult
-                      key={index}
+                      key={exam.id}
                       exam={exam}
                       handleExamOpen={handleExamOpen}
                       index={index}
@@ -113,7 +113,7 @@ export const GlobalCertifications = () => {
                   return (
                     <ExamTicket
                       examTicket={examTicket}
-                      key={index}
+                      key={examTicket.eventId}
                       index={index}
                       handleTicketOpen={handleTicketOpen}
                       isTicketOpen={isTicketOpen}
@@ -702,7 +702,10 @@ const BcertDetails = ({
         {t('words.details')}
       </p>
       {[...exam.results].reverse().map((result, resultIndex) => (
-        <div className="mt-2 desktop-body1" key={`${examIndex}-${resultIndex}`}>
+        <div
+          className="mt-2 desktop-body1"
+          key={`${examIndex}-${result.category}`}
+        >
           <div className="flex flew-row justify-between border-b py-[2px]  border-newGray-4">
             <span>
               {t('words.part')}{' '}

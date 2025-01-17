@@ -93,6 +93,7 @@ function SearchPage() {
 
             <ul className="search-results">
               {data.results.map((item, index) => (
+                // biome-ignore lint/suspicious/noArrayIndexKey: <explanation>
                 <li key={index} className="mt-2">
                   <a
                     className="block bg-white/5 rounded p-2 hover:bg-white/10"

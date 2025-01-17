@@ -381,8 +381,8 @@ function CourseDetails() {
             {t('courses.details.objectivesTitle')}
           </h3>
           <ul className="flex flex-col gap-4 md:gap-6">
-            {course.objectives?.map((goal, index) => (
-              <li className="flex gap-2.5 text-newBlack-1" key={index}>
+            {course.objectives?.map((goal) => (
+              <li className="flex gap-2.5 text-newBlack-1" key={goal}>
                 <IoCheckmark size={isMobile ? 18 : 24} className="shrink-0" />
                 <span className="body-16px md:label-large-20px">{goal}</span>
               </li>
@@ -487,6 +487,7 @@ function CourseDetails() {
             .slice(0, visibleFeedbacks)
             .map((feedback, index) => (
               <PublicComment
+                // biome-ignore lint/suspicious/noArrayIndexKey: <explanation>
                 key={index}
                 author={feedback.user}
                 date={feedback.date}

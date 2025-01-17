@@ -52,7 +52,7 @@ export const BlogList = ({ category }: BlogListProps) => {
           <div className="text-black grid grid-cols-2 lg:grid-cols-3 gap-4">
             {sortedBlogs.slice(1).map((blog, index) => (
               <VerticalCard
-                key={index}
+                key={blog.id}
                 imageSrc={assetUrl(blog.path, 'thumbnail.webp')}
                 imgClassName="w-full !rounded-b-0 rounded-t-[10px] lg:rounded-[10px] mb-1"
                 title={blog.title}

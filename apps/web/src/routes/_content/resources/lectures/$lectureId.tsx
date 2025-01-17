@@ -188,9 +188,9 @@ function Lecture() {
                     </div>
 
                     <div className="flex flex-wrap gap-[10px]">
-                      {lecture.tags.map((tag, i) => (
+                      {lecture.tags.map((tag) => (
                         <TextTag
-                          key={i}
+                          key={tag}
                           size="small"
                           variant="lightMaroon"
                           mode="dark"

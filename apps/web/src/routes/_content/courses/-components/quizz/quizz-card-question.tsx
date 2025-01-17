@@ -65,7 +65,7 @@ export default function QuizzCardQuestion({
               onClick={() => {
                 answerClick(index);
               }}
-              key={index}
+              key={question}
               className="group w-full"
             >
               <div className="border-newBlack-1 flex w-full cursor-pointer items-stretch rounded-lg border overflow-hidden">

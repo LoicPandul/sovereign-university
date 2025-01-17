@@ -142,6 +142,7 @@ export const FinalExam = ({
         <div className="flex flex-wrap w-full gap-2 max-md:hidden">
           {questions.map((_, questionIndex) => (
             <button
+              // biome-ignore lint/suspicious/noArrayIndexKey: <explanation>
               key={questionIndex}
               type="button"
               onClick={() => {
@@ -190,7 +191,7 @@ export const FinalExam = ({
           <div className="flex flex-col gap-5 md:gap-11 max-md:pt-10 max-lg:pt-16 max-md:w-full max-md:max-w-full">
             {questions.map((q, questionIndex) => (
               <article
-                key={questionIndex}
+                key={q.id}
                 className={cn(
                   'flex flex-col gap-4 md:gap-6 w-full max-w-[584px]',
                   questionIndex === 0 && 'pt-0',
@@ -202,6 +203,7 @@ export const FinalExam = ({
                 <section className="flex flex-col gap-2.5 md:gap-4 w-full">
                   {q.answers.map((answer, answerIndex) => (
                     <button
+                      // biome-ignore lint/suspicious/noArrayIndexKey: <explanation>
                       key={answerIndex}
                       type="button"
                       onClick={() =>

@@ -171,9 +171,9 @@ function Book() {
                     </div>
 
                     <div className="flex flex-wrap gap-[10px] items-center justify-center md:justify-start  mb-5 lg:mb-[30px]">
-                      {book?.tags.map((tag, i) => (
+                      {book?.tags.map((tag) => (
                         <TextTag
-                          key={i}
+                          key={tag}
                           size="small"
                           variant="lightMaroon"
                           mode="dark"

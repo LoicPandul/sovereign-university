@@ -36,12 +36,12 @@ export const BookingPart = ({ tickets }: { tickets: Ticket[] }) => {
               {t('words.ticket')}
             </span>
           </div>
-          {tickets.map((ticket, index) => {
+          {tickets.map((ticket) => {
             const location = ticket.isInPerson
               ? ticket.location
               : t('words.online');
             return (
-              <div key={index}>
+              <div key={ticket.eventId}>
                 <div className="hidden md:flex flex-row gap-4">
                   <span className="w-[150px] flex-none">
                     {formatDate(ticket.date)}

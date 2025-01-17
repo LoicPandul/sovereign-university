@@ -55,6 +55,7 @@ export const ModalPaymentSummary = ({
   const DescriptionWithBreaks = () => {
     const description = course.paidDescription;
     const parts = description?.split('\n').map((part, index) => (
+      // biome-ignore lint/suspicious/noArrayIndexKey: <explanation>
       <React.Fragment key={index}>
         {index > 0 && <br />}
         {part}
