@@ -33,6 +33,8 @@ interface CourseConclusionProps {
   chapter: CourseChapterResponse;
 }
 
+const STEP_DURATION = 2500;
+
 export const CourseConclusion = ({ chapter }: CourseConclusionProps) => {
   const { i18n } = useTranslation();
 
@@ -111,7 +113,7 @@ export const CourseConclusion = ({ chapter }: CourseConclusionProps) => {
 
   useEffect(() => {
     if (step === 0 && session?.user) {
-      setTimeout(() => updateStep(1, false), 3000);
+      setTimeout(() => updateStep(1, false), STEP_DURATION);
     }
   }, [step, session]);
 
@@ -151,7 +153,7 @@ export const CourseConclusion = ({ chapter }: CourseConclusionProps) => {
 
   useEffect(() => {
     if (isAllClassicChaptersDone && step === 1) {
-      setTimeout(() => updateStep(2), 3000);
+      setTimeout(() => updateStep(2), STEP_DURATION);
     }
   }, [isAllClassicChaptersDone, step]);
 
@@ -160,16 +162,19 @@ export const CourseConclusion = ({ chapter }: CourseConclusionProps) => {
       (courseReview || isCourseReviewSubmitted || isCourseReviewSkipped) &&
       step === 2
     ) {
-      setTimeout(() => updateStep(3), 3000);
+      setTimeout(() => updateStep(3), STEP_DURATION);
     }
   }, [courseReview, isCourseReviewSubmitted, isCourseReviewSkipped, step]);
 
   useEffect(() => {
     if (isCourseExamSkipped && step === 3) {
-      setTimeout(() => updateStep(6), 3000);
+      setTimeout(() => updateStep(6), STEP_DURATION);
     }
     if (previousExamResults?.succeeded && step === 3) {
-      setTimeout(() => updateStep(isCourseReviewSkipped ? 6 : 4), 3000);
+      setTimeout(
+        () => updateStep(isCourseReviewSkipped ? 6 : 4),
+        STEP_DURATION,
+      );
     }
   }, [previousExamResults, isCourseExamSkipped, step]);
 
@@ -195,7 +200,7 @@ export const CourseConclusion = ({ chapter }: CourseConclusionProps) => {
   const lineContainerClass = 'flex items-center w-full h-12 md:h-[100px]';
   const lineSizeClass = 'w-full h-1 md:h-[5px] rounded-l-full';
   const linkMainClass = `${lineSizeClass} bg-newGray-5`;
-  const linkSubClass = `${lineSizeClass}absolute bg-gradient-to-r from-white to-darkOrange-5 transition-all duration-3000 ease-in-out start-animation`;
+  const linkSubClass = `${lineSizeClass}absolute bg-gradient-to-r from-white to-darkOrange-5 transition-all ease-in-out start-animation`;
   const iconSizeClass = 'size-7 md:size-14';
   const stepMessageIconClass = 'size-10 md:size-20 mx-auto';
   const stepPercentageClass =
