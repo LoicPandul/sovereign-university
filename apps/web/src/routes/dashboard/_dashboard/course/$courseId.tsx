@@ -69,11 +69,21 @@ function DashboardStudentCourse() {
     },
   );
 
+  const courseHaveExam = course?.parts.some((p) =>
+    p.chapters.some((c) => c?.isCourseExam),
+  );
+
   const tabs = [
     { value: 'overview', key: 'overview', text: t('words.overview') },
-    { value: 'exam', key: 'exam', text: t('courses.exam.examAndDiploma') },
-    { value: 'ratings', key: 'ratings', text: t('words.ratings') },
   ];
+  if (courseHaveExam) {
+    tabs.push({
+      value: 'exam',
+      key: 'exam',
+      text: t('courses.exam.examAndDiploma'),
+    });
+  }
+  tabs.push({ value: 'ratings', key: 'ratings', text: t('words.ratings') });
 
   const getDefaultTab = () => {
     const hash = location.hash.replace('#', '');
@@ -88,6 +98,8 @@ function DashboardStudentCourse() {
     const hash = location.hash.replace('#', '');
     if (tabs.some((tab) => tab.value === hash)) {
       setCurrentTab(hash);
+    } else {
+      setCurrentTab('overview');
     }
   }, [location.hash]);
 
@@ -118,23 +130,25 @@ function DashboardStudentCourse() {
                 active: currentTab === tab.value,
               }))}
             />
+
             <TabsContent value="overview">
               <CourseOverview course={course} />
             </TabsContent>
-
-            <TabsContent value="exam">
-              <CourseExams
-                courseId={params.courseId}
-                examLink={`/courses/${params.courseId}/${
-                  course.parts
-                    .find((part) =>
-                      part.chapters.find((chapter) => chapter?.isCourseExam),
-                    )
-                    ?.chapters.find((chapter) => chapter?.isCourseExam)
-                    ?.chapterId
-                }`}
-              />
-            </TabsContent>
+            {courseHaveExam ? (
+              <TabsContent value="exam">
+                <CourseExams
+                  courseId={params.courseId}
+                  examLink={`/courses/${params.courseId}/${
+                    course.parts
+                      .find((part) =>
+                        part.chapters.find((chapter) => chapter?.isCourseExam),
+                      )
+                      ?.chapters.find((chapter) => chapter?.isCourseExam)
+                      ?.chapterId
+                  }`}
+                />
+              </TabsContent>
+            ) : null}
 
             <TabsContent value="ratings">
               <CourseRatings courseId={course.id} />
