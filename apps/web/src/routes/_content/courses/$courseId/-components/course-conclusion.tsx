@@ -6,8 +6,8 @@ import { Trans, useTranslation } from 'react-i18next';
 import type { CourseChapterResponse } from '@blms/types';
 import { Button, cn } from '@blms/ui';
 
-import congratsDark from '#src/assets/animations/congrats_animation_dark.webm';
-import congratsDarkMobile from '#src/assets/animations/congrats_animation_dark_mobile.webm';
+import congratsDark from '#src/assets/animations/congrats_animation_dark.mp4';
+import congratsDarkMobile from '#src/assets/animations/congrats_animation_dark_mobile.mp4';
 import completionStepsMobile from '#src/assets/courses/completion-steps-course-mobile.webp';
 import completionSteps from '#src/assets/courses/completion-steps-course.webp';
 import BookPixel from '#src/assets/icons/book-pixelated.svg?react';
