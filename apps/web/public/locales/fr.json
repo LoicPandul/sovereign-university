@@ -851,6 +851,34 @@
     "itemNotFound": "{{item}} introuvable",
     "itemNotFoundOrTranslated": "{{item}} introuvable, ou non traduit dans votre langue"
   },
+  "search": {
+    "all": "Tout",
+    "categories": "Catégories",
+    "courses": "Cours",
+    "book": "Livre",
+    "books": "Livres",
+    "events": "Événements",
+    "word": "Mot",
+    "words": "Mots",
+    "podcast": "Podcast",
+    "podcasts": "Podcasts",
+    "tutorial": "Tutoriel",
+    "tutorials": "Tutoriels",
+    "professor": "Professeur",
+    "professors": "Professeurs",
+    "search": "Rechercher",
+    "results": "Résultats",
+    "glossary_word": "Mot",
+    "course": "Cours",
+    "course_chapter": "Chapitre de cours",
+    "course_part": "Partie de cours",
+    "resultInfo": "{{count}} résultats trouvés en {{time}}ms",
+    "resultError": "Une erreur s'est produite. Veuillez réessayer.",
+    "explorer": {
+      "title": "Portail de recherche",
+      "subtitle": "Trouvez ce dont vous avez besoin"
+    }
+  },
   "words": {
     "about": "À propos de",
     "about-us": "A Propos",

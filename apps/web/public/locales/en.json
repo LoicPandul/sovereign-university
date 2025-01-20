@@ -978,6 +978,34 @@
     "p2": "and consider joining our community!",
     "pageTitle": "Oops."
   },
+  "search": {
+    "all": "All",
+    "categories": "Categories",
+    "courses": "Courses",
+    "book": "Book",
+    "books": "Books",
+    "events": "Events",
+    "word": "Word",
+    "words": "Words",
+    "podcast": "Podcast",
+    "podcasts": "Podcasts",
+    "tutorial": "Tutorial",
+    "tutorials": "Tutorials",
+    "professor": "Professor",
+    "professors": "Professors",
+    "search": "Search",
+    "results": "Results",
+    "glossary_word": "Word",
+    "course": "Course",
+    "course_chapter": "Course chapter",
+    "course_part": "Course part",
+    "resultInfo": "Found {{count}} results in {{time}}ms",
+    "resultError": "Something went wrong. Please try again.",
+    "explorer": {
+      "title": "Search Portal",
+      "subtitle": "Find what you need here"
+    }
+  },
   "words": {
     "about": "About",
     "about-us": "About Us",

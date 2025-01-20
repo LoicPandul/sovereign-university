@@ -77,7 +77,7 @@ export const resourcesRouter = createTRPCRouter({
       z.object({
         query: z.string(),
         language: z.string(),
-        category: z.string().optional(),
+        categories: z.string().array().optional(),
       }),
     )
     .query(({ ctx, input }) => {
