@@ -32,7 +32,7 @@
     "pdf-lib": "^1.17.1",
     "qr-image": "^3.2.0",
     "stripe": "^17.5.0",
-    "uuid": "^11.0.3"
+    "uuid": "^11.0.5"
   },
   "devDependencies": {
     "@blms/types": "workspace:*",
