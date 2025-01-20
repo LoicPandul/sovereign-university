@@ -9,7 +9,7 @@ export const getBuildersQuery = (language?: string) => {
       bl.language,
       b.name,
       b.category,
-      b.languages,
+      COALESCE(b.languages, '{}') AS languages,
       b.website_url,
       b.twitter_url,
       b.github_url,
