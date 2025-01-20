@@ -3,11 +3,7 @@ import { z } from 'zod';
 
 import { contentProfessors, contentProfessorsLocalized } from '@blms/database';
 
-export const professorSchema = createSelectSchema(contentProfessors, {
-  // TODO: Remove this when the issue is fixed
-  // https://github.com/drizzle-team/drizzle-orm/issues/1609
-  affiliations: z.array(z.string()),
-});
+export const professorSchema = createSelectSchema(contentProfessors);
 
 export const professorLocalizedSchema = createSelectSchema(
   contentProfessorsLocalized,
