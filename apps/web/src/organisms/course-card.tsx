@@ -13,7 +13,7 @@ import { assetUrl } from '#src/utils/index.js';
 const courseCardStyles = cva('group flex flex-col w-full md:h-[472px] p-2.5', {
   variants: {
     color: {
-      primary: 'bg-tertiary-2 dark:bg-tertiary-10',
+      primary: 'bg-newGray-5 dark:bg-tertiary-10',
       featured: 'bg-darkOrange-9 border border-darkOrange-5 shadow-sm-section',
     },
     mode: {
