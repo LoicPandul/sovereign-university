@@ -50,7 +50,7 @@ import type {
 
 import type { Parser } from '#src/trpc/types.js';
 
-import { studentProcedure } from '../../procedures/index.js';
+import { publicProcedure, studentProcedure } from '../../procedures/index.js';
 import { createTRPCRouter } from '../../trpc/index.js';
 
 const completeChapterProcedure = studentProcedure
@@ -351,7 +351,7 @@ const downloadChapterTicketProcedure = studentProcedure
     }).then((buffer) => buffer.toString('base64'));
   });
 
-const getUserDetailsByCertificateIdProcedure = studentProcedure
+const getUserDetailsByCertificateIdProcedure = publicProcedure
   .input(
     z.object({
       certificateId: z.string(),
