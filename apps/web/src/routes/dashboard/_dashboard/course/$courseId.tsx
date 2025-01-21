@@ -398,7 +398,7 @@ const CourseExamsTable = ({
                     }
                   }}
                 >
-                  <span className="pl-1 w-[180px] max-md:mr-auto">
+                  <span className="pl-1 w-fit max-md:mr-auto">
                     {new Date(exam.startedAt).toLocaleDateString(undefined, {
                       year: 'numeric',
                       month: 'numeric',
