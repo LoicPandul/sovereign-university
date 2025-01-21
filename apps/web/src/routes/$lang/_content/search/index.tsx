@@ -9,6 +9,7 @@ import { PageLayout } from '#src/components/page-layout.tsx';
 import { trpc } from '#src/utils/trpc.ts';
 
 import './style.css';
+import { getLanguageName } from '#src/utils/i18n.ts';
 
 export const Route = createFileRoute('/$lang/_content/search/')({
   component: SearchPage,
@@ -75,7 +76,7 @@ function SearchPage() {
 
         <search className="flex flex-col space-y-4">
           <label htmlFor="search" className="block text-xl font-bold">
-            {t('search.search')} ({i18n.language})
+            {t('search.search')} ({getLanguageName(i18n.language)})
           </label>
 
           <div className="flex flex-col p-5 gap-8 bg-newBlack-2 rounded-lg">

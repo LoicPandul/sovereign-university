@@ -40,6 +40,9 @@ export const LANGUAGES_MAP: { [key: string]: string } = {
   zhhans: '简体中文',
 };
 
+export const getLanguageName = (language: string) =>
+  LANGUAGES_MAP[language.replace('-', '').toLowerCase()] ?? language;
+
 void i18n
   .use(Detector)
   .use(Backend)
