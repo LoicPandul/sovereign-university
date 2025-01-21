@@ -287,7 +287,10 @@
       "tryOneMoreTime": "¡Intentémoslo una vez más!",
       "goodLuck": "¡Buena suerte!",
       "congratulationsPassed": "¡Felicidades, <0>aprobaste</0> el examen final!",
-      "dontWorryRetake": "No te preocupes, podrás volver a realizar el examen después de 24 horas."
+      "dontWorryRetake": "No te preocupes, podrás volver a realizar el examen después de 24 horas.",
+      "examCertificateCompletionText": "Plan ₿ Network se complace en felicitar a {{username}} por haber logrado recibir el diploma del curso “{{courseName}}”.",
+      "courseDiploma": "Diploma del curso",
+      "courseNotFound": "Curso no encontrado"
     },
     "conclusion": {
       "completedChaptersHeadline": "¡Haz completado todos los capítulos!",
@@ -315,7 +318,22 @@
       "done": "Hecho",
       "viewDetails": "Ver detalles",
       "yourCertificate": "Tu certificado",
-      "whereYouAre": "¡Veamos dónde estás!"
+      "whereYouAre": "¡Veamos dónde estás!",
+      "completeAll": "Completa todo",
+      "courseDashboard": "Panel de control del curso",
+      "detailsAndCertificate": "Detalles y certificado",
+      "download": "Descargar diploma",
+      "duration": "Duración:",
+      "newCourses": "Cada mes se añaden nuevos cursos",
+      "noCoursesAvailable": "No hay cursos disponibles.",
+      "notStarted": "No iniciado",
+      "notValidated": "No validado",
+      "price": "Precio:",
+      "professor": "Profesor:",
+      "seeDetails": "Ver detalles",
+      "seeTheCourse": "Ver el curso",
+      "verify": "Verifica la autenticidad de tu diploma",
+      "yourProgress": "Tu progreso:"
     },
     "account": "Cuenta",
     "courses": "Cursos",
@@ -414,6 +432,10 @@
         "seeStatistics": "Ver estadísticas",
         "viewDetails": "Ver detalles",
         "writtenFeedbacks": "Comentarios escritos"
+      },
+      "tutorials": {
+        "tutorialAnalyticsDescription": "Aquí puedes encontrar análisis de los tutoriales que has creado y publicado en la plataforma.",
+        "yourTutorials": "Tus tutoriales"
       }
     },
     "course": {
@@ -424,7 +446,9 @@
       "shareOnSocials": "Compartir en redes sociales:",
       "tweetText": "Emocionado de haber completado el curso {{courseId}} en @planb_network y obtenido mi certificado con una puntuación de {{score}}/100 en el examen final! {{emoji}}\n\n{{certificateUrl}}",
       "checkDetailsCompleted": "Aquí puedes revisar todos los detalles relacionados con este curso que completaste.",
-      "completionDiploma": "Diploma de finalización"
+      "completionDiploma": "Diploma de finalización",
+      "conclusionHeadline": "A continuación te mostramos un resumen de lo que has aprendido. Si te has saltado alguno de los capítulos o no los has validado correctamente, ahora es el momento de hacerlo, ya sea volviendo a aprender o presionando el botón de completar.",
+      "submitReviewInfo": "Debes compartirnos una reseña para poder habilitar el acceso a esta función."
     },
     "credentials": {
       "bCertificateSubtitle": "Aquí puedes encontrar los detalles sobre tus reservas y calificaciones de tus Certificados ₿ pasados y futuros.\nEl Certificado ₿ es un examen de mesa organizado por la Plan ₿ Network para que puedas afirmar tu nivel en Bitcoin y sus temas relacionados.",
@@ -437,7 +461,7 @@
       "retakeExam": "Vuelve a tomar el examen",
       "seatBooked": "Tu asiento en la sesión de examen está reservado",
       "takePlaceAt": "La sesión se llevará a cabo en",
-      "yourCertificate": "",
+      "yourCertificate": "Tu certificado",
       "bCertificate": "Certificado ₿"
     },
     "adminPanel": {
@@ -462,8 +486,11 @@
       "seeOrEdit": "Ver o editar",
       "selectProfessor": "Seleccionar profesor",
       "tutorialAnalytics": "Análisis de tutoriales",
-      "tutorialAnalyticsDescription": "Aquí podrás consultar y comparar todos los tutoriales de la plataforma."
-    }
+      "tutorialAnalyticsDescription": "Aquí podrás consultar y comparar todos los tutoriales de la plataforma.",
+      "userRolesAllocation": "Asignación de roles de usuario"
+    },
+    "backToDashboard": "Volver al panel de control",
+    "studentDashboard": "Panel de control del estudiante"
   },
   "events": {
     "main": {
@@ -488,7 +515,9 @@
       "visitWebsite": "Visitar el sitio web",
       "buyReplay": "Comprar la repetición",
       "eventFull": "El evento está lleno",
-      "seatBooked": "Asiento reservado"
+      "seatBooked": "Asiento reservado",
+      "buyVideo": "Comprar video",
+      "purchased": "Comprado"
     },
     "newEvent": {
       "button": "Agregar mi evento",
@@ -537,7 +566,7 @@
       "subtitle1": "¡Te ayudamos a dominar la tecnología con numerosos y profundos tutoriales!",
       "content1": "Bitcoin está en constante evolución, con la aparición de nuevos actores, soluciones, protocolos y avances tecnológicos. Por lo tanto, puede ser un desafío mantener una base de datos precisa y actualizada de tutoriales de calidad. Aquí en Plan ₿, hemos logrado justamente eso. Ya sea que seas un principiante o un usuario avanzado, puedes navegar por cientos de tutoriales para explorar nuestra industria según tus necesidades.",
       "link": "Ver todos los tutoriales",
-      "link2": ""
+      "link2": "Ver todos los recursos"
     },
     "aboutUsSection": {
       "title": "¿Quiénes somos?",
@@ -558,7 +587,7 @@
       "content1": "En Plan ₿, creemos que Bitcoin es una revolución internacional que afecta a todos. Para capacitar a miles de millones de personas, diseñamos esta plataforma para que sea multilingüe y accesible para todos. La plataforma soporta actualmente 7 idiomas y se añaden más cada mes. Para lograrlo, utilizamos una mezcla de IA y la pasión de los Bitcoiners en todo el mundo.",
       "link": "Ayúdanos a traducir la academia",
       "availableLanguages": "Idiomas disponibles",
-      "availableLanguagesVariation": ""
+      "availableLanguagesVariation": "Idiomas disponibles: "
     },
     "patreonSection": {
       "title": "¡Juntos vamos a mejorar la educación en Bitcoin!",
@@ -567,6 +596,19 @@
     "wallOfLoveSection": {
       "title": "Muro de amor",
       "subtitle": "Lo que los Bitcoiners dicen sobre nosotros"
+    },
+    "blogSection": {
+      "description": "Seguimos mejorando la plataforma, el contenido y la red. ¡Échale un vistazo!",
+      "seeAll": "Ver todo"
+    },
+    "courseSection": {
+      "checkAllCourses": "Ver todos los cursos",
+      "upcomingCourseDescription": "Explora los cursos más recientes disponibles en la plataforma. ¡El aprendizaje no tiene límites!",
+      "upcomingCourseTitle": "Cursos nuevos y próximamente disponibles"
+    },
+    "eventSection": {
+      "checkEvents": "Ver todos los eventos",
+      "eventTitle": "Una Red Global de Educadores de Bitcoin"
     }
   },
   "imagesAlt": {
@@ -629,18 +671,25 @@
   },
   "resources": {
     "newsletters": {
-      "title": "Boletines informativos"
+      "title": "Boletines informativos",
+      "subtitle": "<0>Otros newsletters</0> que te pueden interesar",
+      "level": "Nivel:"
     },
     "pageDescription": "Tratar de entender Bitcoin es como explorar un laberinto que no deja de crecer. Para ayudarte en tu camino, hemos recopilado una amplia colección de recursos que abordan una multitud de temas.",
     "pageSubtitle": "Centraliza el conocimiento para distribuirlo mejor",
     "pageTitle": "Recursos",
     "podcasts": {
-      "title": "Podcasts"
+      "title": "Podcasts",
+      "noPodcasts": "Actualmente no hay podcasts disponibles para el idioma seleccionado."
     },
     "github": "Todos esta información se gestiona a través de un repositorio <0>Github</0> de código abierto. Siéntete libre de contribuir y agregar cualquier contenido que falte.",
     "searchFilterName": "Buscar por nombre",
-    "pageSubtitleBooks": "",
-    "pageSubtitlePodcast": ""
+    "pageSubtitleBooks": "<0>Otros libros</0> que te pueden interesar",
+    "pageSubtitlePodcast": "<0>Otros podcasts</0> que te pueden interesar",
+    "toggleLabelAll": "Todo",
+    "toggleLabelSelectedLanguage": "Idioma seleccionado",
+    "pageSubtitleLectures": "<0>Otras repeticiones de clases</0> que te pueden interesar",
+    "pageSubtitleChannels": "<0>Otros canales de Youtube</0> que te pueden interesar"
   },
   "settings": {
     "changePassword": "Cambiar contraseña",
@@ -653,7 +702,9 @@
       "source": "Fuente original:",
       "writtenBy": "Este tutorial fue escrito por:",
       "author": "Autor: ",
-      "didHelp": "¿Ayudó esto?"
+      "didHelp": "¿Ayudó esto?",
+      "ratingSuccess": "¡Gracias por tu calificación!",
+      "tutorialName": "Nombre del tutorial"
     },
     "exchange": {
       "centralized": {
@@ -837,8 +888,8 @@
     "goal": "Meta",
     "hours": "horas",
     "ratings": "Valoraciones",
-    "booked": "",
-    "bookings": "",
+    "booked": "Reservado",
+    "bookings": "Reservas",
     "filter": "",
     "failed": "",
     "grade": "",
@@ -846,15 +897,29 @@
     "status": "",
     "teacher": "",
     "total": "",
-    "credentials": "",
-    "diploma": "",
+    "credentials": "Credenciales",
+    "diploma": "Diploma",
     "progress": "",
     "publicationDate": "",
     "id": "",
     "inReview": "",
     "location": "",
     "overview": "",
-    "passed": ""
+    "passed": "",
+    "credits": "Creditos",
+    "author": "Autor",
+    "cancel": "Cancelar",
+    "category": "Categoría",
+    "channel": "Canal",
+    "channels": "Canales",
+    "chapters": "Capítulos",
+    "close": "Cerrar",
+    "congrats": "¡Felicidades!",
+    "abstract": "Resumen",
+    "access": "Acceder",
+    "action": "Acción",
+    "admin": "Admin",
+    "bitcoin": "Bitcoin"
   },
   "conferences": {
     "addConferences": "Siéntete de agregar cualquier conferencia faltante a través de este repositorio de <0>Github</0>.",
@@ -952,5 +1017,9 @@
     "reviewEarn": "Revisa y gana sats",
     "status": "Estado del proofreading",
     "thanks": "¡Un gran agradecimiento a nuestros revisores!"
+  },
+  "lectures": {
+    "checkFullCourse": "Explora el curso completo",
+    "buyVideoToUnlock": "Compra el video para desbloquearlo"
   }
 }

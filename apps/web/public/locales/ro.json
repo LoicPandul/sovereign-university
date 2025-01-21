@@ -320,6 +320,12 @@
       "testKnowledge": "Acum că ai terminat acest curs, să îți testăm cunoștințele.",
       "testResults": "Rezultatele testului",
       "timeStampBenefits": "De ce este important:"
+    },
+    "conclusion": {
+      "completedFeedbackHeadline": "Vă mulțumim pentru feedback!\nEste foarte important pentru noi, așa că îl apreciem cu adevărat.",
+      "completedFeedbackSubHeadline": "Puteți edita oricând evaluările și comentariile în dashboardul dvs.",
+      "completedChaptersHeadline": "Toate capitolele sunt acum finalizate!",
+      "congratulationsEnd": "Felicitări, ai ajuns la sfârșitul cursului"
     }
   },
   "dashboard": {
