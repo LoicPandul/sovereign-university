@@ -44,7 +44,7 @@ export const calculateProgressQuery = (
     WITH
     -- Calculate the count of completed chapters for the user and course (plus one as the newly completed chapter is not yet in the table)
     chapter_count AS (
-        SELECT COUNT(*) + 1 as completed_count
+        SELECT COUNT(*) as completed_count
         FROM users.course_user_chapter
         WHERE
           uid = ${uid}

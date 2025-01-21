@@ -111,6 +111,23 @@ export const CourseConclusion = ({ chapter }: CourseConclusionProps) => {
     setStep(step);
   }
 
+  function completeConclusionChapter() {
+    const progress = courseProgress?.[0];
+    if (progress && progress.progressPercentage < 100) {
+      const conclusionChapter = courseChapters?.find(
+        (c) => c.isCourseConclusion,
+      );
+
+      if (conclusionChapter && course) {
+        completeChapterMutation.mutate({
+          chapterId: conclusionChapter.chapterId,
+          courseId: course?.id,
+          language: i18n.language,
+        });
+      }
+    }
+  }
+
   useEffect(() => {
     if (step === 0 && session?.user) {
       setTimeout(() => updateStep(1, false), STEP_DURATION);
@@ -191,6 +208,16 @@ export const CourseConclusion = ({ chapter }: CourseConclusionProps) => {
 
   useEffect(() => {
     document.body.style.overflow = step === 5 ? 'hidden' : 'auto';
+
+    if (step === 6 && !isCourseReviewSkipped && !isCourseExamSkipped) {
+      completeConclusionChapter();
+    }
+  }, [step]);
+
+  useEffect(() => {
+    if (!examChapterId) {
+      completeConclusionChapter();
+    }
   }, [step]);
 
   useEffect(() => {
