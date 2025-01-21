@@ -235,14 +235,15 @@ const TimelineBig = ({
         <span className="body-16px text-newBlack-5">{professor}</span>
       </div>
       <div className="mt-5 flex h-4 flex-row justify-between space-x-3 rounded-full">
-        {chapter.course.parts.map((currentPart) => {
+        {chapter.course.parts.map((currentPart, partIndex) => {
           const firstPart = currentPart.partIndex === 1;
           const lastPart =
             currentPart.partIndex === chapter.course.parts.length;
 
           return (
-            <div className="flex h-4 grow flex-row" key={currentPart.partIndex}>
-              {currentPart.chapters.map((currentChapter) => {
+            // biome-ignore lint/suspicious/noArrayIndexKey: <explanation>
+            <div className="flex h-4 grow flex-row" key={partIndex}>
+              {currentPart.chapters.map((currentChapter, chapterIndex) => {
                 const firstChapter = currentChapter.chapterIndex === 1;
                 const lastChapter =
                   currentChapter.chapterIndex === currentPart.chapters.length;
@@ -259,7 +260,8 @@ const TimelineBig = ({
                         courseId: chapter.course.id,
                         chapterId: currentChapter.chapterId,
                       }}
-                      key={chapter.chapterId}
+                      // biome-ignore lint/suspicious/noArrayIndexKey: <explanation>
+                      key={chapterIndex}
                     >
                       <div
                         className={compose(
@@ -281,7 +283,8 @@ const TimelineBig = ({
                 return (
                   <div
                     className="border-beige-300 relative flex grow overflow-visible border-l-[1.5px] first:border-l-0"
-                    key={chapter.chapterId}
+                    // biome-ignore lint/suspicious/noArrayIndexKey: <explanation>
+                    key={chapterIndex}
                   >
                     <div
                       className={compose(
