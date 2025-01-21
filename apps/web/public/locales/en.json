@@ -578,6 +578,8 @@
     "pageTitle": "Looking for a Bitcoin event to attend?",
     "payment": {
       "access_invoice": "You can access your invoice via your dashboard.",
+      "access_online_successful": "When the event starts, log into the platform to gain access to the live stream on the event page.",
+      "access_physical_successful": "You can download your ticket here, or download it later in your dashboard.",
       "access_type": "Type of access",
       "additional_free_description": "This event is free, so there is no charge for booking this seat. However, please make sure to attend, since the number of seats is limited.",
       "address": "Address",

@@ -2,6 +2,7 @@ import { z } from 'zod';
 
 import { invoiceSchema, ticketSchema } from '@blms/schemas';
 import {
+  createCancelTicket,
   createGetExamTickets,
   createGetInvoices,
   createGetTickets,
@@ -44,8 +45,25 @@ const getTicketsProcedure = studentProcedure
     }),
   );
 
+const cancelTicketProcedure = studentProcedure
+  .input(
+    z.object({
+      ticketId: z.string(),
+      eventType: z.string(),
+    }),
+  )
+  .output<Parser<void>>(z.void())
+  .mutation(({ ctx, input }) =>
+    createCancelTicket(ctx.dependencies)({
+      uid: ctx.user.uid,
+      ticketId: input.ticketId,
+      eventType: input.eventType,
+    }),
+  );
+
 export const userBillingRouter = createTRPCRouter({
   getExamTickets: getExamTicketsProcedure,
   getInvoices: getInvoicesProcedure,
   getTickets: getTicketsProcedure,
+  cancelTicket: cancelTicketProcedure,
 });

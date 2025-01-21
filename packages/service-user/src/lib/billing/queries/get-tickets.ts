@@ -14,7 +14,8 @@ export const getTicketsQuery = (uid: string /*, language: string*/) => {
       ev.name as title,
       ev.type::text as type,
       ep.with_physical as is_in_person,
-      ev.book_online as is_online
+      ev.book_online as is_online,
+      'true'::boolean as is_paid
     FROM users.event_payment ep
     JOIN content.events ev ON ep.event_id = ev.id
     WHERE ep.uid = ${uid}
@@ -33,7 +34,8 @@ export const getTicketsQuery = (uid: string /*, language: string*/) => {
       ev.name as title,
       ev.type::text as type,
       ue.with_physical as is_in_person,
-      ev.book_online as is_online
+      ev.book_online as is_online,
+      'false'::boolean as is_paid
     FROM users.user_event ue
     JOIN content.events ev ON ue.event_id = ev.id
     WHERE ue.uid = ${uid}
@@ -51,7 +53,8 @@ export const getTicketsQuery = (uid: string /*, language: string*/) => {
       cc.title as title,
       'course'::text as type,
       true as is_in_person,
-      cc.is_online as is_online
+      cc.is_online as is_online,
+      'false'::boolean as is_paid
     FROM users.course_user_chapter uc
     JOIN content.course_chapters_localized cc ON uc.chapter_id = cc.chapter_id
     WHERE uc.uid = ${uid}
