@@ -24,10 +24,7 @@ export const MenuItem = ({
   const location = useLocation();
 
   return (
-    <button
-      type="button"
-      className={cn('w-full', showOnMobileOnly && 'lg:hidden')}
-    >
+    <div className={cn('w-full', showOnMobileOnly && 'lg:hidden')}>
       <button
         type="button"
         onClick={dropdown ? () => setIsOpen(!isOpen) : onClick}
@@ -76,6 +73,6 @@ export const MenuItem = ({
           ))}
         </div>
       )}
-    </button>
+    </div>
   );
 };
