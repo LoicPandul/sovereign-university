@@ -34,7 +34,8 @@ function DashboardBookings() {
   const { data: invoices } = trpc.user.billing.getInvoices.useQuery({
     language: i18n.language ?? 'en',
   });
-  const { data: tickets } = trpc.user.billing.getTickets.useQuery();
+  const { data: tickets, refetch: refetchTickets } =
+    trpc.user.billing.getTickets.useQuery();
 
   if (!tickets) return null;
 
@@ -78,7 +79,10 @@ function DashboardBookings() {
                 {t('dashboard.booking.upcomingTicketSubtitle')}
               </p>
               <div className="w-full flex flex-col gap-4 text-newBlack-4">
-                <BookingPart tickets={upcomingTickets} />
+                <BookingPart
+                  tickets={upcomingTickets}
+                  refetchTickets={refetchTickets}
+                />
               </div>
 
               <hr className="my-10 border-newGray-4" />

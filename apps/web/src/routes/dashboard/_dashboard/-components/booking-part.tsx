@@ -10,7 +10,10 @@ import { AppContext } from '#src/providers/context.js';
 import { formatDate, formatTime } from '#src/utils/date.js';
 import { trpc } from '#src/utils/trpc.js';
 
-export const BookingPart = ({ tickets }: { tickets: Ticket[] }) => {
+export const BookingPart = ({
+  tickets,
+  refetchTickets,
+}: { tickets: Ticket[]; refetchTickets?: any }) => {
   const { t } = useTranslation();
 
   const { user } = useContext(AppContext);
@@ -32,7 +35,7 @@ export const BookingPart = ({ tickets }: { tickets: Ticket[] }) => {
             <span className="min-w-[100px] grow">
               {t('dashboard.booking.ticketTitle')}
             </span>
-            <span className="w-[150px] flex-none ml-auto">
+            <span className="w-[150px] flex-none mr-28">
               {t('words.ticket')}
             </span>
           </div>
@@ -59,6 +62,7 @@ export const BookingPart = ({ tickets }: { tickets: Ticket[] }) => {
                   </div>
                   <Buttons
                     ticket={ticket}
+                    refetchTickets={refetchTickets}
                     userName={user?.displayName as string}
                     buttonSize="m"
                   />
@@ -78,6 +82,7 @@ export const BookingPart = ({ tickets }: { tickets: Ticket[] }) => {
                     </span>
                     <Buttons
                       ticket={ticket}
+                      refetchTickets={refetchTickets}
                       userName={user?.displayName as string}
                       buttonSize="s"
                     />
@@ -96,10 +101,12 @@ export const BookingPart = ({ tickets }: { tickets: Ticket[] }) => {
 
 const Buttons = ({
   ticket,
+  refetchTickets,
   userName,
   buttonSize,
 }: {
   ticket: Ticket;
+  refetchTickets: any;
   userName: string;
   buttonSize: 's' | 'm';
 }) => {
@@ -112,6 +119,9 @@ const Buttons = ({
 
   const { mutateAsync: downloadChapterTicket, isPending: isPendingChapter } =
     trpc.user.courses.downloadChapterTicket.useMutation();
+
+  const { mutateAsync: cancelTicket } =
+    trpc.user.billing.cancelTicket.useMutation();
 
   // TODO should only fetch on click
   const { data: chapter, isFetched: isChapterFetched } =
@@ -226,6 +236,24 @@ const Buttons = ({
             </Button>
           </Link>
         )}
+
+        {!ticket.isPaid ? (
+          <button
+            type="button"
+            className="text-primary underline text-base md:text-lg"
+            onClick={async () => {
+              await cancelTicket({
+                eventType: ticket.type,
+                ticketId: ticket.eventId,
+              });
+              if (refetchTickets) {
+                refetchTickets();
+              }
+            }}
+          >
+            {t('words.cancel')}
+          </button>
+        ) : null}
       </div>
     </div>
   );
