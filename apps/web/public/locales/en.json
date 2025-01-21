@@ -769,8 +769,10 @@
   "proofreading": {
     "completed": "Proofreading completed",
     "description": "The original content has been translated by AI, but human review is necessary to ensure its accuracy.",
+    "descriptionOriginalLanguage": "Even if this page is in its original language, human review is still necessary to ensure its accuracy.",
     "inProgress": "Proofreading in progress",
     "reviewEarn": "Review and earn sats",
+    "rewardsText": "*Rewards may vary based on the $ exchange rate",
     "status": "Proofreading status",
     "thanks": "A big thank you goes to our amazing reviewers!"
   },

@@ -336,7 +336,7 @@ function TutorialDetails() {
       </div>
     );
   };
-
+  const isOriginalLanguage = tutorial?.language === tutorial?.originalLanguage;
   return (
     <MainLayout variant="light">
       <TutorialLayout
@@ -355,6 +355,7 @@ function TutorialDetails() {
           )}
           {proofreading ? (
             <ProofreadingProgress
+              isOriginalLanguage={isOriginalLanguage}
               mode="light"
               proofreadingData={{
                 contributors: proofreading.contributorsId,

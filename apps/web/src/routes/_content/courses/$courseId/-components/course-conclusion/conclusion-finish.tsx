@@ -98,7 +98,7 @@ const Credits = ({ course }: { course: JoinedCourseWithAll }) => {
     language: i18n.language,
     courseId: course.id,
   });
-
+  const isOriginalLanguage = i18n.language === course.originalLanguage;
   if (!proofreading || proofreading?.contributorsId.length === 0) {
     return null;
   }
@@ -138,6 +138,7 @@ const Credits = ({ course }: { course: JoinedCourseWithAll }) => {
           </Trans>
         </p>
         <ProofreadingDesktop
+          isOriginalLanguage={isOriginalLanguage}
           mode="light"
           proofreadingData={{
             contributors: proofreading.contributorsId,
