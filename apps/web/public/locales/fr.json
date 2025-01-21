@@ -135,7 +135,12 @@
       "premiumContentNeedsPayment": "Ce cours fait partie d'un programme premium.",
       "premiumContentNeedsPaymentAction": "Accédez à la page d'accueil du cours",
       "premiumContentNeedsLogin": "Vous devez être connecté pour accéder à ce cours.",
-      "courseAddedToDashboard": "Ce cours a été ajouté à votre tableau de bord étudiant"
+      "courseAddedToDashboard": "Ce cours a été ajouté à votre tableau de bord étudiant",
+      "collaborativeEffort": "Ce cours est le résultat d'un effort collaboratif : chaque leçon, traduction et révision est rendue possible grâce au travail des contributeurs. Pour cette raison, nous sommes toujours à la recherche de correcteurs qui peuvent réviser notre contenu dans de nombreuses langues. Si vous souhaitez participer au processus de correction, veuillez nous contacter dans notre groupe Telegram et lire notre tutoriel.\n\nNous vous rappelons que ce contenu est open-source - sous licence <0>CC BY-SA</0> - il peut donc être librement partagé et utilisé, tant que la source originale est créditée.\n\nUne reconnaissance spéciale pour leur travail sur ce cours va aux correcteurs suivants : ",
+      "hasBeenProofreadBy": "Ce cours a été relu par",
+      "otherCourses": "Autres cours",
+      "otherCoursesInterest": "D'autres cours qui pourraient vous intéresser",
+      "thanksTipping": "Vous pouvez dire merci en donnant un pourboire au professeur."
     },
     "explorer": {
       "pageDescription": "L'Académie Plan ₿ vise à simplifier l'éducation sur Bitcoin à l'échelle mondiale. Curée par des experts de divers domaines, notre académie propose une gamme complète de cours conçus pour clarifier chaque aspect de Bitcoin.\nDu débutant à l'expert, que ce soit à votre propre rythme ou suivi chaque semaine par un professeur, nous espérons que l'Académie peut vous aider à acquérir une compréhension plus profonde du vaste monde de Bitcoin. Beaucoup de nos cours sont entièrement gratuits afin que quiconque, n'importe où, puisse accéder à une éducation de qualité.",
@@ -239,7 +244,14 @@
       "tamperProof": "Inviolable : la blockchain garantit que personne ne peut modifier ou falsifier vos informations d'identification.",
       "timeStampHowDescription": "Lors de la délivrance de votre diplôme, une « empreinte digitale » numérique unique est créée et stockée sur la blockchain. Cela rend l'enregistrement permanent et inviolable. Toute tentative de modification de votre diplôme rompra le lien, révélant ainsi le changement.",
       "tryAgain": "Réessayer",
-      "certificateAvailable": "Il sera disponible environ 8 heures après la soumission."
+      "certificateAvailable": "Il sera disponible environ 8 heures après la soumission.",
+      "examCertificateCompletionText": "Plan ₿ Network a le plaisir de féliciter {{username}} pour avoir obtenu le diplôme du cours \"{{courseName}}\".",
+      "courseNotFound": "Cours non trouvé",
+      "dontWorryRetake": "Ne vous en faites pas, vous pouvez repasser l'examen après 24 heures.",
+      "bCertificateCompletionText": "Plan ₿ Network a le plaisir de féliciter {{username}} pour avoir reçu le certificat ₿.",
+      "buttonTextBCert": "En apprendre plus",
+      "certificatePageOtherCourses": "Autres cours connexes",
+      "courseDiploma": "Diplôme de cours"
     },
     "review": {
       "generalGrade": "Note générale",
@@ -280,7 +292,19 @@
       "feedbackDescription1": "Veuillez évaluer votre expérience avec le cours ci-dessous.\nCette session de feedback est obligatoire pour avoir accès à l'examen final et pour valider le cours.",
       "feedbackDescription2": "Notez que les enseignants n'auront pas accès aux évaluations individuelles.",
       "saveReview": "Enregistrer l'avis",
-      "thankYou": "Merci pour votre avis ! Il sera pris en compte"
+      "thankYou": "Merci pour votre avis ! Il sera pris en compte",
+      "feedback": "Retour d'information"
+    },
+    "conclusion": {
+      "takeFinalExam": "Maintenant que vous avez terminé tous les chapitres, il est temps de passer l'examen final pour tester vos connaissances.",
+      "completedChaptersHeadline": "Tous les chapitres sont maintenant terminés !",
+      "completedFeedbackHeadline": "Merci pour vos commentaires !\nC'est très important pour nous, donc nous l'apprécions vraiment.",
+      "completedFeedbackSubHeadline": "Vous pouvez modifier vos évaluations et commentaires à tout moment dans votre tableau de bord.",
+      "congratulationsEnd": "Félicitations, vous avez atteint la fin du cours",
+      "finalStep": "C'était l'étape finale pour marquer ce cours comme terminé dans votre tableau de bord, avant de continuer votre voyage !",
+      "stepsToComplete": "Voici les étapes pour marquer ce cours comme terminé dans votre tableau de bord, avant de continuer votre parcours !",
+      "unlockFeatures1": "Pour débloquer toutes les fonctionnalités et suivre votre progression, vous avez besoin d'un compte.",
+      "unlockFeatures2": "Veuillez noter que nous ne collectons aucune donnée personnelle et n'utilisons pas de cookies."
     }
   },
   "dashboard": {
@@ -468,7 +492,8 @@
       "professorName": "Nom du professeur",
       "participants": "Participants"
     },
-    "studentDashboard": "Tableau de bord de l'étudiant"
+    "studentDashboard": "Tableau de bord de l'étudiant",
+    "backToDashboard": "Retour au tableau de bord"
   },
   "events": {
     "main": {
@@ -493,7 +518,9 @@
       "visitWebsite": "Visitez le site Web",
       "buyReplay": "Acheter la rediffusion",
       "eventFull": "L'événement est complet",
-      "seatBooked": "Siège réservé"
+      "seatBooked": "Siège réservé",
+      "purchased": "Acheté",
+      "buyVideo": "Acheter une vidéo"
     },
     "newEvent": {
       "button": "Ajouter mon événement",
@@ -620,7 +647,8 @@
     "securityDescription": "Maîtrisez les techniques pour protéger vos actifs Bitcoin.",
     "socialStudiesDescription": "Étudiez l'impact de Bitcoin sur la société.",
     "channelsDescription": "Accédez à notre sélection exclusive de chaînes Youtube pour en savoir plus sur Bitcoin",
-    "chooseLanguage": "Choisissez une langue"
+    "chooseLanguage": "Choisissez une langue",
+    "lecturesDescription": "Revoir les conférences enregistrées d'experts Bitcoin"
   },
   "nodeNetwork": {
     "apply": "Postuler pour devenir un Nœud",
@@ -659,7 +687,8 @@
   },
   "resources": {
     "books": {
-      "author": "Auteur : "
+      "author": "Auteur : ",
+      "title": "Bibliothèque"
     },
     "newsletters": {
       "title": "Newsletters",
@@ -688,7 +717,27 @@
     },
     "pageSubtitleChannels": "<0>Autres chaînes Youtube</0> que vous pourriez aimer :",
     "toggleLabelAll": "Tout",
-    "toggleLabelSelectedLanguage": "Langue sélectionnée"
+    "toggleLabelSelectedLanguage": "Langue sélectionnée",
+    "lectures": {
+      "noLectures": "Il n'y a actuellement aucune rediffusion de conférence pour la langue sélectionnée.",
+      "title": "Reprises de conférences"
+    },
+    "articles": {
+      "title": "Articles"
+    },
+    "bet": {
+      "title": "Boîte à outils Éducative"
+    },
+    "builders": {
+      "title": "Bâtisseurs"
+    },
+    "conferences": {
+      "title": "Rediffusion de conférences"
+    },
+    "glossary": {
+      "title": "Glossaire"
+    },
+    "pageSubtitleLectures": "<0>Autres rediffusions de conférences</0> qui pourraient vous intéresser"
   },
   "settings": {
     "changePassword": "Changer le mot de passe",
@@ -868,7 +917,7 @@
     "amount": "Montant",
     "booked": "Réservé",
     "bookings": "Réservations",
-    "builder": "Bâtisseurs",
+    "builder": "Bâtisseur",
     "chapter": "Chapitre",
     "communities": "Communautés",
     "credentials": "Identifiants",
@@ -933,7 +982,13 @@
     "channel": "Chaîne",
     "chapters": "Chapitres",
     "finish": "Finir",
-    "viewMore": "Voir plus"
+    "viewMore": "Voir plus",
+    "congrats": "Félicitations !",
+    "credits": "Crédits",
+    "channels": "Chaîne",
+    "exam": "Examen",
+    "lecture": "Conférence",
+    "skip": "Sauter"
   },
   "conferences": {
     "addConferences": "N'hésitez pas à ajouter toute conférence manquante via ce dépôt <0>Github</0>.",
@@ -1038,5 +1093,13 @@
     "pageTitle": "Chaînes Youtube",
     "view": "Voir la chaîne Youtube",
     "watchTrailer": "Regardez la bande-annonce"
+  },
+  "lectures": {
+    "buyVideoToUnlock": "Achetez la vidéo pour la déverrouiller",
+    "checkFullCourse": "Découvrez le cours complet",
+    "lecturePartCourse": "Cette rediffusion de conférence fait partie du cours <0>{{courseTitle}}</0>.\nPlongez dans le cours complet pour maîtriser l'ensemble du concept et libérer votre plein potentiel !",
+    "pageTitle": "Reprises de conférences",
+    "partCourse": "Cette conférence fait partie du cours :",
+    "watchLecture": "Regardez la rediffusion de la conférence"
   }
 }
