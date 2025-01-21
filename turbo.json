@@ -67,22 +67,12 @@
       "dependsOn": ["^clear"],
       "cache": false
     },
-    "test": {
-      "dependsOn": ["build"],
-      "inputs": [
-        "src/**/*.tsx",
-        "src/**/*.ts",
-        "src/**/*.test.ts",
-        "test/**/*.ts",
-        "test/**/*.tsx"
-      ]
-    },
     "dev": {
       "cache": false,
       "persistent": true
     },
-    "//#format-and-lint": {},
-    "//#format-and-lint:fix": {
+    "//#lint": {},
+    "//#lint:fix": {
       "cache": false
     }
   }
