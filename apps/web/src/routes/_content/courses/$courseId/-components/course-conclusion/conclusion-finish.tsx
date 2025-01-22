@@ -137,16 +137,18 @@ const Credits = ({ course }: { course: JoinedCourseWithAll }) => {
             </a>
           </Trans>
         </p>
-        <ProofreadingDesktop
-          isOriginalLanguage={isOriginalLanguage}
-          mode="light"
-          proofreadingData={{
-            contributors: proofreading.contributorsId,
-            reward: proofreading.reward,
-          }}
-          standalone
-          variant="vertical"
-        />
+        <div className="mx-auto">
+          <ProofreadingDesktop
+            isOriginalLanguage={isOriginalLanguage}
+            mode="light"
+            proofreadingData={{
+              contributors: proofreading.contributorsId,
+              reward: proofreading.reward,
+            }}
+            standalone
+            variant="vertical"
+          />
+        </div>
       </section>
     </>
   );
