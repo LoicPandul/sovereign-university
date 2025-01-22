@@ -33,7 +33,7 @@ export const getLecturesQuery = () => {
     ) la ON TRUE
 
     WHERE e.type = 'lecture'
-      AND e.start_date < NOW() - INTERVAL '1 day'
+      AND e.end_date < NOW() - INTERVAL '30 days'
 
     ORDER BY e.start_date DESC
   `;
