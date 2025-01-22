@@ -37,6 +37,7 @@ export const Route = createRootRouteWithContext<{
   i18n?: i18n;
 }>()({
   beforeLoad: async ({ context, location, preload }) => {
+    console.log('BeforeLoad : enter');
     const { i18n } = context;
 
     if (!i18n || preload) {
@@ -53,9 +54,9 @@ export const Route = createRootRouteWithContext<{
       LANGUAGES.includes(pathLanguage) &&
       i18n.language !== pathLanguage
     ) {
-      console.log('Before load');
+      console.log('BeforeLoad: change language');
       // Change i18n language if the URL language is different
-      await i18n.changeLanguage(pathLanguage);
+      await i18n.changeLanguage(pathLanguage); // remove ?
     }
   },
   component: Root,

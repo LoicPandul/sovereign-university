@@ -1,5 +1,5 @@
 import { t } from 'i18next';
-import { useEffect, useState } from 'react';
+import { type JSX, useEffect, useState } from 'react';
 import { Trans } from 'react-i18next';
 
 import type { CouponCode, JoinedEvent } from '@blms/types';

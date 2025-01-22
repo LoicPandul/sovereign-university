@@ -54,28 +54,38 @@ export const AppProvider = ({ children }: PropsWithChildren) => {
   const [currentLanguage, setCurrentLanguage] = useState(locationLanguage);
 
   function updateCurrentLanguage(newLanguage: string, path: string) {
-    i18n.changeLanguage(newLanguage);
-    setCurrentLanguage(newLanguage);
+    console.log(
+      `updateCurrentLanguage ${currentLanguage} -- ${newLanguage} -- ${path}`,
+    );
 
-    router.update({
-      basepath: newLanguage,
-      context: router.options.context,
-    });
+    // Remove the if ?
+    if (currentLanguage !== newLanguage) {
+      i18n.changeLanguage(newLanguage);
+      setCurrentLanguage(newLanguage);
 
-    router.navigate({
-      to: path,
-      replace: true,
-    });
+      router.update({
+        basepath: newLanguage,
+        context: router.options.context, // remove this ?
+      });
 
-    router.load();
+      router.navigate({
+        to: path,
+        // reloadDocument: true,
+        replace: true,
+      });
+
+      router.load();
+    }
   }
 
   useLayoutEffect(() => {
+    console.log('App: useLayoutEffect', i18n.resolvedLanguage);
     setCurrentLanguage(i18n.resolvedLanguage);
   }, [i18n]);
 
   // Handle language change
   useEffect(() => {
+    console.log('App: handle language change');
     const newLanguage = currentLanguage ? currentLanguage : i18n.language;
 
     if (!currentLanguage || currentLanguage !== i18n.language) {

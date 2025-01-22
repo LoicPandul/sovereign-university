@@ -5,6 +5,8 @@ import { Button } from '@blms/ui';
 import PlanBLogo from '#src/assets/logo/planb_logo_horizontal_black.svg?react';
 import { PaymentCallout } from '#src/components/payment-callout.js';
 
+import type { JSX } from 'react';
+
 interface ModalBookDescriptionProps {
   accessType: 'physical' | 'online' | 'replay';
   callout: string;

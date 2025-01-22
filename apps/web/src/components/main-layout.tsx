@@ -1,5 +1,5 @@
 import { t } from 'i18next';
-import { useEffect, useRef } from 'react';
+import { type JSX, useEffect, useRef } from 'react';
 
 import { cn, customToast } from '@blms/ui';
 
