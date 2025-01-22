@@ -33,26 +33,27 @@ export const EventsPassed = ({
 
   let passedEvents: JoinedEvent[] = [];
 
-  if (events) {
-    passedEvents = events
-      ?.filter((event) => {
-        const now = Date.now();
-        let endDate = event.endDate.getTime();
-        const ONE_HOUR = 60 * 60 * 1000;
+  const THIRTY_DAYS = 30 * 24 * 60 * 60 * 1000;
 
-        if (event.endDate.getUTCHours() === 0) {
-          const TWENTY_FOUR_HOURS = 24 * ONE_HOUR;
-          endDate += TWENTY_FOUR_HOURS;
-        }
+  passedEvents = events
+    ?.filter((event) => {
+      const now = Date.now();
+      let endDate = event.endDate.getTime();
+      const ONE_HOUR = 60 * 60 * 1000;
 
-        return (
-          now > endDate &&
-          now - endDate > ONE_HOUR &&
-          (event.replayUrl || event.liveUrl)
-        );
-      })
-      .sort((a, b) => b.startDate.getTime() - a.startDate.getTime());
-  }
+      if (event.endDate.getUTCHours() === 0) {
+        const TWENTY_FOUR_HOURS = 24 * ONE_HOUR;
+        endDate += TWENTY_FOUR_HOURS;
+      }
+
+      return (
+        now > endDate &&
+        now - endDate > ONE_HOUR &&
+        now - endDate <= THIRTY_DAYS &&
+        (event.replayUrl || event.liveUrl)
+      );
+    })
+    .sort((a, b) => b.startDate.getTime() - a.startDate.getTime());
 
   if (passedEvents.length === 0) {
     return null;
