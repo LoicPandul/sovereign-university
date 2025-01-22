@@ -107,11 +107,14 @@ const Ratings = ({ ...props }: RatingsProps) => {
   );
 };
 
+interface MyIconProps extends React.SVGProps<SVGSVGElement> {
+  size?: number;
+}
 interface PartialStarProps {
   fillPercentage: number;
   size: number;
   className?: string;
-  Icon: React.ReactElement;
+  Icon: React.ReactElement<MyIconProps>;
   asInput?: boolean;
   onValueChange?: () => void;
 }

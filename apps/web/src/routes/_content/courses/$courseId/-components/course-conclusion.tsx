@@ -1,6 +1,6 @@
 import { Link } from '@tanstack/react-router';
 import { t } from 'i18next';
-import { useContext, useEffect, useState } from 'react';
+import { type JSX, useContext, useEffect, useState } from 'react';
 import { Trans, useTranslation } from 'react-i18next';
 
 import type { CourseChapterResponse } from '@blms/types';

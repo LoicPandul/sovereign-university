@@ -1,5 +1,5 @@
 import { Link } from '@tanstack/react-router';
-import { useContext } from 'react';
+import { type JSX, useContext } from 'react';
 import { useTranslation } from 'react-i18next';
 import { BsFillCircleFill, BsFillTriangleFill } from 'react-icons/bs';
 

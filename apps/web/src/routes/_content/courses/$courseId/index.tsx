@@ -1,6 +1,12 @@
 import { Link, createFileRoute, useNavigate } from '@tanstack/react-router';
 import { last } from 'lodash-es';
-import React, { useContext, useEffect, useMemo, useState } from 'react';
+import React, {
+  useContext,
+  useEffect,
+  useMemo,
+  useState,
+  type JSX,
+} from 'react';
 import { useTranslation } from 'react-i18next';
 import { FaLock } from 'react-icons/fa';
 import { FiLoader } from 'react-icons/fi';

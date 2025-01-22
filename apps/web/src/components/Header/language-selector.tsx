@@ -55,6 +55,7 @@ export const LanguageSelector = ({
 
     router.load();
 
+    //i18n.changeLanguage(lang);
     setCurrentLanguage(lang);
     setTimeout(() => {
       setOpen(false);

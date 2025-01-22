@@ -1,5 +1,7 @@
 import { cn } from '@blms/ui';
 
+import type { JSX } from 'react';
+
 interface RowTextProps {
   children: string | JSX.Element[];
   className?: string;
