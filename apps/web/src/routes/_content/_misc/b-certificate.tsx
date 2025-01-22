@@ -1,5 +1,4 @@
 import { createFileRoute } from '@tanstack/react-router';
-import { t } from 'i18next';
 import { useEffect } from 'react';
 import { FaArrowRightLong } from 'react-icons/fa6';
 
@@ -10,6 +9,7 @@ import { PageLayout } from '#src/components/page-layout.js';
 import { useGreater } from '#src/hooks/use-greater.js';
 import { trpc } from '#src/utils/trpc.js';
 
+import { useTranslation } from 'react-i18next';
 import { BCertificateEvents } from './-components/b-certificate-events.tsx';
 
 export const Route = createFileRoute('/_content/_misc/b-certificate')({
@@ -18,6 +18,7 @@ export const Route = createFileRoute('/_content/_misc/b-certificate')({
 
 const BCertificateOrganize = () => {
   const isScreenMd = useGreater('md');
+  const { t } = useTranslation();
 
   return (
     <div className="flex flex-col items-center max-md:border border-darkOrange-5 rounded-2xl max-md:p-4">
@@ -72,6 +73,7 @@ const BCertificateOrganize = () => {
 
 function BCertificate() {
   const { data: events, isFetched } = trpc.content.getRecentEvents.useQuery();
+  const { t } = useTranslation();
 
   const filteredEvents = events
     ? events.filter(

@@ -1,11 +1,11 @@
 import { Link } from '@tanstack/react-router';
-import { t } from 'i18next';
 import { FaArrowRightLong } from 'react-icons/fa6';
 
 import { Button, cn } from '@blms/ui';
 
 import { useGreater } from '#src/hooks/use-greater.js';
 
+import { useTranslation } from 'react-i18next';
 import BCertificateImage from '../assets/about/b-certificate-presentation.webp';
 
 interface BCertificatePresentationProps {
@@ -15,6 +15,8 @@ interface BCertificatePresentationProps {
 export const BCertificatePresentation = ({
   marginClasses = 'mt-20',
 }: BCertificatePresentationProps) => {
+  const { t } = useTranslation();
+
   const isScreenMd = useGreater('md');
 
   return (

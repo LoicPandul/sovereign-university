@@ -1,10 +1,10 @@
-import { t } from 'i18next';
 import { type JSX, useEffect, useRef } from 'react';
 
 import { cn, customToast } from '@blms/ui';
 
 import SignInIconLight from '#src/assets/icons/profile_log_in_light.svg';
 
+import { useTranslation } from 'react-i18next';
 import { Header } from './Header/header.tsx';
 import { Footer } from './footer.tsx';
 import ScrollToTopButton from './scroll-to-top-button.tsx';
@@ -24,6 +24,7 @@ export const MainLayout = ({
   footerVariant,
   headerVariant,
 }: MainLayoutProps) => {
+  const { t } = useTranslation();
   const box = useRef<HTMLDivElement | null>(null);
 
   const bgColorClasses = {
