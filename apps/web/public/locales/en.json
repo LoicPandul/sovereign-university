@@ -642,7 +642,8 @@
     },
     "eventSection": {
       "checkEvents": "Check all events",
-      "eventTitle": "A Global Bitcoin Network of Educators"
+      "eventTitle": "A Global Bitcoin Network of Educators",
+      "hottestEvent": "Hottest bitcoin event"
     },
     "header": {
       "content": "The Plan ₿ Network platform aims to provide the best tools and educational content worldwide, empowering people to regain their sovereignty. From individuals to communities, we are here to help you along your Bitcoin journey.",

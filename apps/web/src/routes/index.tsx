@@ -379,7 +379,7 @@ function Home() {
                   setIsPaymentModalOpen={setIsPaymentModalOpen}
                   setPaymentModalData={setPaymentModalData}
                   headingColor="text-white"
-                  headingText="Hottest bitcoin event"
+                  headingText={t('home.eventSection.hottestEvent')}
                   headingClass="!body-14px lg:!display-small-32px"
                   showUpcomingIfNone={true}
                   showDivider={false}
