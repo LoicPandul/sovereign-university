@@ -52,6 +52,21 @@ export const AppProvider = ({ children }: PropsWithChildren) => {
   );
   const [currentLanguage, setCurrentLanguage] = useState(locationLanguage);
 
+  function cleanUpdateLanguage(newLanguage: string) {
+    if (LANGUAGES.includes(newLanguage)) {
+      i18n.changeLanguage(newLanguage);
+    }
+
+    for (const lan of i18n.languages) {
+      if (LANGUAGES.includes(lan)) {
+        i18n.changeLanguage(lan);
+        return;
+      }
+    }
+
+    i18n.changeLanguage('en');
+  }
+
   async function updateCurrentLanguage(newLanguage: string, path: string) {
     console.log(
       `updateCurrentLanguage ${currentLanguage} -- ${newLanguage} -- ${path}`,
@@ -59,7 +74,7 @@ export const AppProvider = ({ children }: PropsWithChildren) => {
 
     console.log('CHANGE I18N language for2', newLanguage);
 
-    i18n.changeLanguage(newLanguage);
+    cleanUpdateLanguage(newLanguage);
 
     if (path === '/') {
       console.log(`NO PATH (${currentLanguage}--${newLanguage})`);
@@ -100,7 +115,7 @@ export const AppProvider = ({ children }: PropsWithChildren) => {
 
     console.log('CHANGE I18N language for1', newLanguage);
 
-    i18n.changeLanguage(newLanguage);
+    cleanUpdateLanguage(newLanguage);
 
     if (newLanguage && (!currentLanguage || currentLanguage !== newLanguage)) {
       updateCurrentLanguage(newLanguage, location.pathname + location.hash);
