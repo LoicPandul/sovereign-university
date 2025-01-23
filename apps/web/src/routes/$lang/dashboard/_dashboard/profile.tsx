@@ -1,9 +1,9 @@
 import { createFileRoute, useNavigate } from '@tanstack/react-router';
 import { t } from 'i18next';
 import type { ChangeEvent } from 'react';
-import { useContext, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 
-import { Button, Tabs, TabsContent } from '@blms/ui';
+import { Button, Loader, Tabs, TabsContent } from '@blms/ui';
 
 import SignInIconLight from '#src/assets/icons/profile_log_in_light.svg';
 import { TabsListUnderlined } from '#src/components/Tabs/TabsListUnderlined.js';
@@ -23,12 +23,9 @@ export const Route = createFileRoute('/$lang/dashboard/_dashboard/profile')({
 function DashboardProfile() {
   const navigate = useNavigate();
   const { user, setUser, session } = useContext(AppContext);
-  if (!session) {
-    navigate({ to: '/' });
-  }
 
   const [file, setFile] = useState<File | null>(null);
-  const pictureUrl = getPictureUrl(user);
+  const pictureUrl = getPictureUrl(user ? user : null);
   const profilePictureDisclosure = useDisclosure();
 
   // Called when the user selects a profile picture to upload
@@ -68,6 +65,16 @@ function DashboardProfile() {
   const onTabChange = (value: string) => {
     setCurrentTab(value);
   };
+
+  useEffect(() => {
+    if (session === null) {
+      navigate({ to: '/' });
+    }
+  }, [session]);
+
+  if (!session) {
+    return <Loader />;
+  }
 
   return (
     <div className="flex flex-col gap-4 lg:gap-8">

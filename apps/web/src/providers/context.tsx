@@ -18,11 +18,11 @@ interface Session {
 
 interface AppContext {
   // User
-  user: UserDetails | null;
+  user: UserDetails | null | undefined;
   setUser: (user: UserDetails | null) => void;
 
   // Session
-  session: Session | null;
+  session: Session | null | undefined;
   setSession: (session: Session | null) => void;
 
   // Tutorials
@@ -44,11 +44,11 @@ interface AppContext {
 
 export const AppContext = createContext<AppContext>({
   // User
-  user: null,
+  user: undefined,
   setUser: () => {},
 
   // Session
-  session: null,
+  session: undefined,
   setSession: () => {},
 
   // Tutorials
@@ -71,8 +71,8 @@ export const AppContext = createContext<AppContext>({
 export const AppContextProvider = ({ children }: PropsWithChildren) => {
   const { i18n } = useTranslation();
 
-  const [user, setUser] = useState<UserDetails | null>(null);
-  const [session, setSession] = useState<Session | null>(null);
+  const [user, setUser] = useState<UserDetails | null | undefined>(undefined);
+  const [session, setSession] = useState<Session | null | undefined>(undefined);
   const [tutorials, setTutorials] = useState<JoinedTutorialLight[] | null>(
     null,
   );
@@ -86,7 +86,12 @@ export const AppContextProvider = ({ children }: PropsWithChildren) => {
     trpcClient.user.getDetails
       .query()
       .then((data) => data ?? null)
-      .then(setUser)
+      .then((user) => {
+        if (user) {
+          return setUser(user);
+        }
+        return setUser(null);
+      })
       .catch(() => null);
 
     trpcClient.user.getSession

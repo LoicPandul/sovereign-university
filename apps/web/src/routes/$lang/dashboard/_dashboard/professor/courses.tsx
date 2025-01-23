@@ -43,10 +43,7 @@ function DashboardProfessorCourses() {
   const navigate = useNavigate();
   const { i18n, t } = useTranslation();
 
-  const { user } = useContext(AppContext);
-  if (!user || user.role !== 'professor') {
-    navigate({ to: '/' });
-  }
+  const { session, user } = useContext(AppContext);
 
   const { data: courses, isFetched } =
     trpc.content.getProfessorCourses.useQuery(
@@ -59,6 +56,23 @@ function DashboardProfessorCourses() {
         enabled: user?.role === 'professor',
       },
     );
+
+  useEffect(() => {
+    if (session === null) {
+      navigate({ to: '/' });
+    } else if (
+      session &&
+      session?.user.role !== 'admin' &&
+      session?.user.role !== 'superadmin' &&
+      session?.user.role !== 'professor'
+    ) {
+      navigate({ to: '/dashboard/courses' });
+    }
+  }, [session]);
+
+  if (!session) {
+    return <Loader />;
+  }
 
   return (
     <div className="flex flex-col gap-4 lg:gap-8 text-black">

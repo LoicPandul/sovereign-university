@@ -1,5 +1,5 @@
 import { Link, createFileRoute, useNavigate } from '@tanstack/react-router';
-import { useContext, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { BsGithub, BsTwitterX } from 'react-icons/bs';
 import { FiGlobe } from 'react-icons/fi';
@@ -25,9 +25,6 @@ function DashboardProfessorProfile() {
   const { t, i18n } = useTranslation();
 
   const { user } = useContext(AppContext);
-  if (!user) {
-    navigate({ to: '/' });
-  }
 
   const { data: professor, isFetched } = trpc.content.getProfessor.useQuery(
     {
@@ -63,6 +60,16 @@ function DashboardProfessorProfile() {
 
   const infoTextClasses =
     'flex flex-col py-1 px-4 bg-white rounded-md border border-newGray-4 overflow-y-scroll text-newBlack-3 body-14px !leading-[120%] whitespace-pre-line scrollbar-light';
+
+  useEffect(() => {
+    if (user === null) {
+      navigate({ to: '/' });
+    }
+  }, [user]);
+
+  if (!user) {
+    return <Loader />;
+  }
 
   return (
     <div className="flex flex-col gap-4 lg:gap-8">

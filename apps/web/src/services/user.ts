@@ -2,7 +2,7 @@ import type { UserDetails } from '@blms/types';
 
 import { httpClient } from '#src/utils/http.js';
 
-export const getPictureUrl = (user: UserDetails | null) =>
+export const getPictureUrl = (user: UserDetails | null | undefined) =>
   user?.picture ? `/api/files/user-files/${user?.picture}` : null;
 
 export const setProfilePicture = async (file: File) => {

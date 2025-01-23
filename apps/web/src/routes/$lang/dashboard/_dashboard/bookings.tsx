@@ -1,8 +1,8 @@
 import { createFileRoute, useNavigate } from '@tanstack/react-router';
-import { useContext, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
-import { Tabs, TabsContent } from '@blms/ui';
+import { Loader, Tabs, TabsContent } from '@blms/ui';
 
 import { TabsListUnderlined } from '#src/components/Tabs/TabsListUnderlined.js';
 import { AppContext } from '#src/providers/context.js';
@@ -21,9 +21,6 @@ function DashboardBookings() {
   const navigate = useNavigate();
 
   const { session } = useContext(AppContext);
-  if (!session) {
-    navigate({ to: '/' });
-  }
 
   const [currentTab, setCurrentTab] = useState('tickets');
 
@@ -37,12 +34,24 @@ function DashboardBookings() {
   const { data: tickets, refetch: refetchTickets } =
     trpc.user.billing.getTickets.useQuery();
 
-  if (!tickets) return null;
-
   const now = new Date();
 
-  const pastTickets = tickets.filter((ticket) => ticket.date < now);
-  const upcomingTickets = tickets.filter((ticket) => ticket.date >= now);
+  const pastTickets = tickets
+    ? tickets.filter((ticket) => ticket.date < now)
+    : [];
+  const upcomingTickets = tickets
+    ? tickets.filter((ticket) => ticket.date >= now)
+    : [];
+
+  useEffect(() => {
+    if (session === null) {
+      navigate({ to: '/' });
+    }
+  }, [session]);
+
+  if (!session) {
+    return <Loader />;
+  }
 
   return (
     <div className="flex flex-col gap-4 lg:gap-8">

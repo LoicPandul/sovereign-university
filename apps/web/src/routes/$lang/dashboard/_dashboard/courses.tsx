@@ -1,10 +1,11 @@
 import { createFileRoute, useNavigate } from '@tanstack/react-router';
-import { useContext } from 'react';
+import { useContext, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import { AppContext } from '#src/providers/context.js';
 import { trpc } from '#src/utils/trpc.ts';
 
+import { Loader } from '@blms/ui';
 import { CourseTableMobile } from './-components/course-table-mobile.tsx';
 import { CourseTable } from './-components/course-table.tsx';
 
@@ -19,9 +20,14 @@ function DashboardCourses() {
 
   const { data: progress } = trpc.user.courses.getProgress.useQuery();
 
+  useEffect(() => {
+    if (session === null) {
+      navigate({ to: '/' });
+    }
+  }, [session]);
+
   if (!session) {
-    navigate({ to: '/' });
-    return null;
+    return <Loader />;
   }
 
   if (!courses) {

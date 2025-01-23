@@ -1,8 +1,9 @@
 import { createFileRoute, useNavigate } from '@tanstack/react-router';
-import { useContext } from 'react';
+import { useContext, useEffect } from 'react';
 
 import { AppContext } from '#src/providers/context.js';
 
+import { Loader } from '@blms/ui';
 import { DashboardTutorialsPanel } from '../-components/tutorials-panel.tsx';
 
 export const Route = createFileRoute(
@@ -15,14 +16,22 @@ function DashboardProfessorTutorials() {
   const navigate = useNavigate();
 
   const { user, session } = useContext(AppContext);
+
+  useEffect(() => {
+    if (session === null) {
+      navigate({ to: '/' });
+    } else if (
+      session &&
+      session?.user.role !== 'admin' &&
+      session?.user.role !== 'superadmin' &&
+      session?.user.role !== 'professor'
+    ) {
+      navigate({ to: '/dashboard/courses' });
+    }
+  }, [session]);
+
   if (!session) {
-    navigate({ to: '/' });
-  } else if (
-    session?.user.role !== 'admin' &&
-    session?.user.role !== 'superadmin' &&
-    session?.user.role !== 'professor'
-  ) {
-    navigate({ to: '/dashboard/courses' });
+    return <Loader />;
   }
 
   return (

@@ -1,6 +1,6 @@
 import { Link, useNavigate } from '@tanstack/react-router';
 import { t } from 'i18next';
-import { useContext } from 'react';
+import { useContext, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { HiOutlineMagnifyingGlass } from 'react-icons/hi2';
 
@@ -14,13 +14,21 @@ export const CourseDiplomas = () => {
   const { t, i18n } = useTranslation();
 
   const { session } = useContext(AppContext);
-  if (!session) {
-    navigate({ to: '/' });
-  }
+
   const { data: examResults, isFetched } =
     trpc.user.courses.getAllSuccededUserExams.useQuery({
       language: i18n.language ?? 'en',
     });
+
+  useEffect(() => {
+    if (session === null) {
+      navigate({ to: '/' });
+    }
+  }, [session]);
+
+  if (!session) {
+    return <Loader />;
+  }
 
   return (
     <div className="flex flex-col gap-4 lg:gap-8 mt-10">

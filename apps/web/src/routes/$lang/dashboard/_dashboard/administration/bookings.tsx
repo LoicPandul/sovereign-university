@@ -1,8 +1,8 @@
 import { createFileRoute, useNavigate } from '@tanstack/react-router';
-import { useContext } from 'react';
+import { useContext, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 
-import { TextTag } from '@blms/ui';
+import { Loader, TextTag } from '@blms/ui';
 
 import { AppContext } from '#src/providers/context.tsx';
 
@@ -20,13 +20,21 @@ function AdminBookings() {
   const navigate = useNavigate();
 
   const { session } = useContext(AppContext);
+
+  useEffect(() => {
+    if (session === null) {
+      navigate({ to: '/' });
+    } else if (
+      session &&
+      session?.user.role !== 'admin' &&
+      session?.user.role !== 'superadmin'
+    ) {
+      navigate({ to: '/dashboard/courses' });
+    }
+  }, [session]);
+
   if (!session) {
-    navigate({ to: '/' });
-  } else if (
-    session?.user.role !== 'admin' &&
-    session?.user.role !== 'superadmin'
-  ) {
-    navigate({ to: '/dashboard/courses' });
+    return <Loader />;
   }
 
   return (
