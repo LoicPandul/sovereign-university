@@ -9,7 +9,7 @@ import { IoIosArrowDown } from 'react-icons/io';
 import { IoReload } from 'react-icons/io5';
 
 import type { JoinedBCertificateResults, Ticket } from '@blms/types';
-import { Button, cn } from '@blms/ui';
+import { Button, Loader, cn } from '@blms/ui';
 
 import DummyBCert from '#src/assets/about/dummy-bcert.webp';
 import ApprovedIcon from '#src/assets/icons/approved.svg?react';
@@ -24,9 +24,6 @@ export const GlobalCertifications = () => {
   const navigate = useNavigate();
 
   const { session } = useContext(AppContext);
-  if (!session) {
-    navigate({ to: '/' });
-  }
 
   const { data: exams } =
     trpc.user.bcertificate.getBCertificateResults.useQuery();
@@ -78,6 +75,16 @@ export const GlobalCertifications = () => {
     }
     setIsTicketOpen(results);
   }, [examTickets, exams]);
+
+  useEffect(() => {
+    if (session === null) {
+      navigate({ to: '/' });
+    }
+  }, [session]);
+
+  if (!session) {
+    return <Loader />;
+  }
 
   return (
     <div className="flex flex-col gap-4 lg:gap-8 mt-10">

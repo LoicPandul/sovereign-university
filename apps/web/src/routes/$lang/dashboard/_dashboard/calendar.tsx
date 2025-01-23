@@ -6,7 +6,7 @@ import type { Components, View } from 'react-big-calendar';
 import { Calendar, Views, dateFnsLocalizer } from 'react-big-calendar';
 import { useTranslation } from 'react-i18next';
 
-import { cn } from '@blms/ui';
+import { Loader, cn } from '@blms/ui';
 
 import type { CalendarEvent } from '#src/components/Calendar/calendar-event.js';
 import { customEventGetter } from '#src/components/Calendar/custom-event-getter.js';
@@ -37,9 +37,6 @@ function DashboardCalendar() {
   const { t, i18n } = useTranslation();
 
   const { session } = useContext(AppContext);
-  if (!session) {
-    navigate({ to: '/' });
-  }
 
   const [currentView, setCurrentView] = useState<View>(Views.MONTH);
 
@@ -134,6 +131,16 @@ function DashboardCalendar() {
   };
 
   const scrollToTime = new Date(1970, 1, 1, 9);
+
+  useEffect(() => {
+    if (session === null) {
+      navigate({ to: '/' });
+    }
+  }, [session]);
+
+  if (!session) {
+    return <Loader />;
+  }
 
   return (
     <div className="flex flex-col gap-4 lg:gap-8 h-full">

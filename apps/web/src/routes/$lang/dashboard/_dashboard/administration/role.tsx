@@ -1,8 +1,15 @@
 import { createFileRoute, useNavigate } from '@tanstack/react-router';
-import { useContext } from 'react';
+import { useContext, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 
-import { Tabs, TabsContent, TabsList, TabsTrigger, TextTag } from '@blms/ui';
+import {
+  Loader,
+  Tabs,
+  TabsContent,
+  TabsList,
+  TabsTrigger,
+  TextTag,
+} from '@blms/ui';
 
 import { useSmaller } from '#src/hooks/use-smaller.ts';
 import { AppContext } from '#src/providers/context.js';
@@ -21,16 +28,24 @@ function DashboardAdministrationRole() {
   const navigate = useNavigate();
 
   const { session } = useContext(AppContext);
-  if (!session) {
-    navigate({ to: '/' });
-  } else if (
-    session?.user.role !== 'admin' &&
-    session?.user.role !== 'superadmin'
-  ) {
-    navigate({ to: '/dashboard/courses' });
-  }
 
   const isTablet = useSmaller('lg');
+
+  useEffect(() => {
+    if (session === null) {
+      navigate({ to: '/' });
+    } else if (
+      session &&
+      session?.user.role !== 'admin' &&
+      session?.user.role !== 'superadmin'
+    ) {
+      navigate({ to: '/dashboard/courses' });
+    }
+  }, [session]);
+
+  if (!session) {
+    return <Loader />;
+  }
 
   return (
     <div className="flex flex-col gap-4 lg:gap-8">

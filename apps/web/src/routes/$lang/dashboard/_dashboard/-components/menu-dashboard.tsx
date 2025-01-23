@@ -56,7 +56,7 @@ export const MenuDashboard = ({
     (course) => course.progressPercentage >= 100,
   );
 
-  const pictureUrl = getPictureUrl(user);
+  const pictureUrl = getPictureUrl(user ? user : null);
 
   const navigate = useNavigate();
 
