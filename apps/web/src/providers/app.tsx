@@ -112,13 +112,12 @@ export const AppProvider = ({ children }: PropsWithChildren) => {
     const handlePopState = () => {
       console.log('HANDLE POP STATE');
       const pathName = location.pathname;
-      const path = pathName.slice(pathName.indexOf('/', 2)) + location.hash;
-      const newLanguage = pathName.slice(
-        pathName.indexOf('/') + 1,
-        pathName.indexOf('/', 1),
-      );
+      const newLanguage = pathName.split('/')[1];
+      const pathWithoutLang = location.pathname.replace(/^\/[^/]+/, '');
 
-      updateCurrentLanguage(newLanguage, path);
+      if (LANGUAGES.includes(newLanguage)) {
+        updateCurrentLanguage(newLanguage, pathWithoutLang);
+      }
     };
 
     window.addEventListener('popstate', handlePopState);
