@@ -20,6 +20,7 @@ function Lectures() {
   const { t, i18n } = useTranslation();
   const isMobile = useSmaller('md');
   const [showLocalOnly, setShowLocalOnly] = useState(true);
+  const [showFreeOnly, setShowFreeOnly] = useState(false);
 
   const { data: lectures, isFetched } = trpc.content.getLectures.useQuery(
     {},
@@ -33,27 +34,49 @@ function Lectures() {
   const englishLectures =
     lectures?.filter((lecture) => lecture.languages.includes('en')) ?? [];
 
-  const handleSwitchChange = (checked: boolean) => {
+  const handleLanguageSwitchChange = (checked: boolean) => {
     setShowLocalOnly(checked);
   };
 
-  const selectedLectures = showLocalOnly
-    ? [...localLectures]
-    : [...(lectures ?? [])];
+  const handleFreeSwitchChange = (checked: boolean) => {
+    setShowFreeOnly(checked);
+  };
+
+  const selectedLectures = showLocalOnly ? localLectures : (lectures ?? []);
+
+  const filteredLectures = showFreeOnly
+    ? selectedLectures.filter((lecture) => lecture.priceDollars === 0)
+    : selectedLectures;
 
   const isEnglishLanguage = i18n.language === 'en';
 
   return (
     <ResourceLayout title={t('lectures.pageTitle')} activeCategory="lectures">
       <div className="flex flex-col gap-4 md:gap-9 mt-4 md:mt-12 mx-auto">
-        <div className="flex items-center gap-1 md:gap-2.5 pb-2 md:pb-2.5 border-b border-b-newGray-1">
-          <span className="label-small-12px md:label-large-med-20px text-white">
-            {t('resources.toggleLabelAll')}
-          </span>
-          <Switch onCheckedChange={handleSwitchChange} defaultChecked />
-          <span className="label-small-12px md:label-large-med-20px text-white">
-            {t('resources.toggleLabelSelectedLanguage')}
-          </span>
+        <div className="flex items-center justify-between pb-2 md:pb-2.5 border-b border-b-newGray-1">
+          {/* Switch for Language Filtering */}
+          <div className="flex items-center gap-1 md:gap-2.5">
+            <span className="label-small-12px md:label-large-med-20px text-white">
+              {t('resources.toggleLabelAll')}
+            </span>
+            <Switch
+              onCheckedChange={handleLanguageSwitchChange}
+              defaultChecked
+            />
+            <span className="label-small-12px md:label-large-med-20px text-white">
+              {t('resources.toggleLabelSelectedLanguage')}
+            </span>
+          </div>
+          {/* Switch for Free-Only Filtering */}
+          <div className="flex items-center gap-1 md:gap-2.5">
+            <span className="label-small-12px md:label-large-med-20px text-white">
+              {t('resources.toggleLabelAll')}
+            </span>
+            <Switch onCheckedChange={handleFreeSwitchChange} />
+            <span className="label-small-12px md:label-large-med-20px text-white">
+              {t('resources.toggleFreeOnly')}
+            </span>
+          </div>
         </div>
 
         {showLocalOnly && (
@@ -69,10 +92,11 @@ function Lectures() {
           </div>
         )}
 
-        <div className="flex flex-wrap gap-[15px] md:gap-[45px] md:justify-center">
+        {/* Render Filtered Lectures */}
+        <div className="flex flex-wrap gap-[15px] md:gap-[45px] justify-center">
           {!isFetched && <Loader size="s" />}
-          {selectedLectures?.length ? (
-            selectedLectures.map((lecture) => (
+          {filteredLectures?.length ? (
+            filteredLectures.map((lecture) => (
               <LectureCard key={lecture.id} lecture={lecture} />
             ))
           ) : (
@@ -94,7 +118,7 @@ function Lectures() {
                 {LANGUAGES_MAP.en}
               </span>
             </div>
-            <div className="flex flex-wrap gap-[15px] md:gap-[45px] md:justify-center">
+            <div className="flex flex-wrap gap-[15px] md:gap-[45px] justify-center">
               {englishLectures.map((lecture) => (
                 <LectureCard key={lecture.id} lecture={lecture} />
               ))}
