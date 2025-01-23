@@ -4,7 +4,6 @@ import {
   type PropsWithChildren,
   createContext,
   useEffect,
-  useLayoutEffect,
   useState,
 } from 'react';
 import { HelmetProvider } from 'react-helmet-async';
@@ -53,49 +52,65 @@ export const AppProvider = ({ children }: PropsWithChildren) => {
   );
   const [currentLanguage, setCurrentLanguage] = useState(locationLanguage);
 
-  function updateCurrentLanguage(newLanguage: string, path: string) {
+  async function updateCurrentLanguage(newLanguage: string, path: string) {
     console.log(
       `updateCurrentLanguage ${currentLanguage} -- ${newLanguage} -- ${path}`,
     );
 
-    // Remove the if ?
-    if (currentLanguage !== newLanguage) {
-      i18n.changeLanguage(newLanguage);
-      setCurrentLanguage(newLanguage);
+    console.log('CHANGE I18N language for2', newLanguage);
 
-      router.update({
-        basepath: newLanguage,
-        context: router.options.context, // remove this ?
-      });
+    i18n.changeLanguage(newLanguage);
 
+    if (path === '/') {
+      console.log(`NO PATH (${currentLanguage}--${newLanguage})`);
       router.navigate({
-        to: path,
-        // reloadDocument: true,
+        to: `/${newLanguage}`,
         replace: true,
       });
-
-      router.load();
     }
+
+    const pathLanguage = location.pathname.split('/')[1];
+    console.log(`pathLanguage ${pathLanguage}`);
+
+    if (pathLanguage && !LANGUAGES.includes(pathLanguage)) {
+      console.log('333333333');
+      router.navigate({
+        to: `/${newLanguage}/${location.pathname}`,
+        replace: true,
+      });
+    }
+
+    router.load();
   }
 
-  useLayoutEffect(() => {
-    console.log('App: useLayoutEffect', i18n.resolvedLanguage);
-    setCurrentLanguage(i18n.resolvedLanguage);
-  }, [i18n]);
+  // useLayoutEffect(() => {
+  //   console.log('App: useLayoutEffect', i18n.resolvedLanguage);
+  //   setCurrentLanguage(i18n.resolvedLanguage);
+  // }, [i18n]);
 
   // Handle language change
   useEffect(() => {
-    console.log('App: handle language change');
+    console.log(
+      'App: handle language change',
+      currentLanguage,
+      '--',
+      i18n.language,
+    );
     const newLanguage = currentLanguage ? currentLanguage : i18n.language;
 
-    if (!currentLanguage || currentLanguage !== i18n.language) {
+    console.log('CHANGE I18N language for1', newLanguage);
+
+    i18n.changeLanguage(newLanguage);
+
+    if (newLanguage && (!currentLanguage || currentLanguage !== newLanguage)) {
       updateCurrentLanguage(newLanguage, location.pathname + location.hash);
     }
-  }, [currentLanguage, i18n, i18n.language, locationLanguage]);
+  }, [currentLanguage, locationLanguage]);
 
   // Handle browser's back() and next()
   useEffect(() => {
     const handlePopState = () => {
+      console.log('HANDLE POP STATE');
       const pathName = location.pathname;
       const path = pathName.slice(pathName.indexOf('/', 2)) + location.hash;
       const newLanguage = pathName.slice(
@@ -125,11 +140,7 @@ export const AppProvider = ({ children }: PropsWithChildren) => {
             <AppContextProvider>
               <ConversionRateProvider>
                 <AuthModalProvider>
-                  <RouterProvider
-                    router={router}
-                    context={{ i18n }}
-                    basepath={currentLanguage}
-                  />
+                  <RouterProvider router={router} context={{ i18n }} />
                   <PageMeta
                     title={SITE_NAME}
                     description="Let's build together the Bitcoin educational layer"

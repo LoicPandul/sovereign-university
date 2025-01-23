@@ -42,21 +42,16 @@ export const LanguageSelector = ({
   const activeLanguage = i18n.language ?? 'en';
 
   const changeLanguage = (lang: string) => {
-    const pathName = location.pathname.slice(location.pathname.indexOf('/', 2));
-
-    router.update({
-      basepath: lang,
-      context: router.options.context,
-    });
-
+    const pathWithoutLang = location.pathname.replace(/^\/[^/]+/, '');
+    const newPath = `/${lang}${pathWithoutLang}${location.hash}`;
     router.navigate({
-      to: pathName + location.hash,
+      to: newPath,
+      replace: true,
     });
 
-    router.load();
-
-    //i18n.changeLanguage(lang);
     setCurrentLanguage(lang);
+    i18n.changeLanguage(lang);
+
     setTimeout(() => {
       setOpen(false);
     }, 100);

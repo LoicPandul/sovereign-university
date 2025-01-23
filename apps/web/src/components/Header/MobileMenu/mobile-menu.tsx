@@ -7,7 +7,6 @@ import { IoMdClose } from 'react-icons/io';
 import { cn } from '@blms/ui';
 
 import { AppContext } from '#src/providers/context.js';
-import { MenuDashboard } from '#src/routes/dashboard/_dashboard/-components/menu-dashboard.tsx';
 import { getPictureUrl } from '#src/services/user.js';
 
 import SignInIconDark from '../../../assets/icons/profile_log_in_dark.svg';
@@ -17,6 +16,7 @@ import PlanBLogoWhite from '../../../assets/logo/planb_logo_horizontal_white_whi
 import { LanguageSelectorMobile } from '../language-selector.tsx';
 import type { NavigationSectionMobile } from '../props.ts';
 
+import { MenuDashboard } from '#src/routes/$lang/dashboard/_dashboard/-components/menu-dashboard.tsx';
 import { MobileMenuSection } from './mobile-menu-section.tsx';
 
 export interface MobileMenuProps {

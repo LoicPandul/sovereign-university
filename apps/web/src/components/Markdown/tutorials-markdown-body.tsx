@@ -9,7 +9,7 @@ import remarkMath from 'remark-math';
 import type { JoinedCourse, JoinedTutorialLight } from '@blms/types';
 
 import { CourseCard } from '#src/organisms/course-card.tsx';
-import { TutorialCard } from '#src/routes/_content/tutorials/-components/tutorial-card.js';
+import { TutorialCard } from '#src/routes/$lang/_content/tutorials/-components/tutorial-card.tsx';
 
 import VideoSVG from '../../assets/resources/video.svg?react';
 import { CopyButton } from '../copy-button.tsx';
