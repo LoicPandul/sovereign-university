@@ -5,8 +5,9 @@ import {
 } from '@tanstack/react-router';
 import type { i18n } from 'i18next';
 
+import { LANGUAGES } from '#src/utils/i18n.ts';
 import PlanBLogoOrange from '../assets/logo/planb_logo_horizontal_white_orangepill_whitetext.svg?react';
-import { LANGUAGES } from '../utils/i18n.ts';
+import { router } from './-router.tsx';
 
 const Root = () => {
   // const TanStackRouterDevtools =
@@ -36,27 +37,24 @@ const Root = () => {
 export const Route = createRootRouteWithContext<{
   i18n?: i18n;
 }>()({
-  beforeLoad: async ({ context, location, preload }) => {
-    console.log('BeforeLoad : enter');
+  // Add language for navigation inside the app
+  onStay: async ({ context, preload }) => {
+    console.log('==onStay');
     const { i18n } = context;
-
     if (!i18n || preload) {
       return;
     }
-
-    // TODO fix this (remove ?)
-    // Parse language as the second element of the pathname
-    // (the first one is always the basepath == current language, as the redirection occurs before)
     const pathLanguage = location.pathname.split('/')[1];
 
-    if (
-      pathLanguage &&
-      LANGUAGES.includes(pathLanguage) &&
-      i18n.language !== pathLanguage
-    ) {
-      console.log('BeforeLoad: change language');
-      // Change i18n language if the URL language is different
-      await i18n.changeLanguage(pathLanguage); // remove ?
+    // If no language in the path, redirect to language
+    if (!pathLanguage || (pathLanguage && !LANGUAGES.includes(pathLanguage))) {
+      console.log(
+        `==onStay => NO LANGUAGE IN PATH (${pathLanguage}) => (${i18n.language})`,
+      );
+      router.navigate({
+        to: `/${i18n.language}/${location.pathname}`,
+        replace: true,
+      });
     }
   },
   component: Root,
