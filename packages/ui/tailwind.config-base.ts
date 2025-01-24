@@ -1,7 +1,6 @@
 import type { Config } from 'tailwindcss';
 
 const baseConfig: Config = {
-  jit: true,
   darkMode: 'selector',
   content: ['./src/**/*.{ts,tsx}'],
   theme: {
