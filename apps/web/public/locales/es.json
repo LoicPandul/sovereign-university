@@ -894,9 +894,9 @@
     "failed": "",
     "grade": "",
     "required": "",
-    "status": "",
-    "teacher": "",
-    "total": "",
+    "status": "Estado",
+    "teacher": "Profesor",
+    "total": "Total",
     "credentials": "Credenciales",
     "diploma": "Diploma",
     "progress": "",
@@ -919,7 +919,16 @@
     "access": "Acceder",
     "action": "Acción",
     "admin": "Admin",
-    "bitcoin": "Bitcoin"
+    "bitcoin": "Bitcoin",
+    "username": "Nombre de usuario",
+    "security": "Seguridad",
+    "skip": "Saltar",
+    "startHere": "¡Empieza aquí!",
+    "student": "Estudiante",
+    "unavailable": "No disponible",
+    "user": "Usuario",
+    "viewMore": "Ver más",
+    "socialStudies": "Estudios sociales"
   },
   "conferences": {
     "addConferences": "Siéntete de agregar cualquier conferencia faltante a través de este repositorio de <0>Github</0>.",
@@ -1021,5 +1030,10 @@
   "lectures": {
     "checkFullCourse": "Explora el curso completo",
     "buyVideoToUnlock": "Compra el video para desbloquearlo"
+  },
+  "youtubeChannels": {
+    "pageTitle": "Canales de Youtube",
+    "view": "Ver Canal de Youtube",
+    "watchTrailer": "Ver el tráiler"
   }
 }
