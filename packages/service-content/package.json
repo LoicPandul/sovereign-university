@@ -22,7 +22,6 @@
     "@blms/database": "workspace:*",
     "@blms/s3": "workspace:*",
     "gray-matter": "^4.0.3",
-    "ioredis": "^5.4.2",
     "js-yaml": "^4.1.0",
     "marked": "^15.0.6",
     "pdf-img-convert": "^2.0.0",

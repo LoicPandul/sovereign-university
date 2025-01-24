@@ -27,8 +27,8 @@ importers:
         specifier: ^3.3.1
         version: 3.3.1
       knip:
-        specifier: ^5.43.2
-        version: 5.43.2(@types/node@22.10.10)(typescript@5.7.3)
+        specifier: ^5.43.3
+        version: 5.43.3(@types/node@22.10.10)(typescript@5.7.3)
       lint-staged:
         specifier: ^15.4.2
         version: 15.4.2
@@ -129,18 +129,12 @@ importers:
       '@types/express':
         specifier: ^5.0.0
         version: 5.0.0
-      '@types/express-serve-static-core':
-        specifier: ^5.0.5
-        version: 5.0.5
       '@types/express-session':
         specifier: ^1.18.1
         version: 1.18.1
       '@types/formidable':
         specifier: ^3.4.5
         version: 3.4.5
-      '@types/qs':
-        specifier: ^6.9.18
-        version: 6.9.18
       '@types/secp256k1':
         specifier: ^4.0.6
         version: 4.0.6
@@ -180,9 +174,6 @@ importers:
       '@trpc/server':
         specifier: 11.0.0-rc.433
         version: 11.0.0-rc.433
-      buffer:
-        specifier: ^6.0.3
-        version: 6.0.3
       class-variance-authority:
         specifier: ^0.7.1
         version: 0.7.1
@@ -210,9 +201,6 @@ importers:
       i18next-http-backend:
         specifier: ^3.0.2
         version: 3.0.2(encoding@0.1.13)
-      jsdom:
-        specifier: ~26.0.0
-        version: 26.0.0
       lodash-es:
         specifier: ^4.17.21
         version: 4.17.21
@@ -255,15 +243,12 @@ importers:
       react-syntax-highlighter:
         specifier: 15.6.1
         version: 15.6.1(react@19.0.0)
-      react-use-websocket:
-        specifier: ^4.11.1
-        version: 4.11.1
       recharts:
         specifier: ^2.15.0
         version: 2.15.0(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
       rehype-mathjax:
         specifier: 6.0.0
-        version: 6.0.0
+        version: 6.0.0(canvas@2.11.2(encoding@0.1.13))
       rehype-unwrap-images:
         specifier: 1.0.0
         version: 1.0.0
@@ -322,9 +307,6 @@ importers:
       postcss:
         specifier: ^8.5.1
         version: 8.5.1
-      sass:
-        specifier: ^1.83.4
-        version: 1.83.4
       tailwindcss:
         specifier: ^3.4.17
         version: 3.4.17
@@ -337,10 +319,6 @@ importers:
       cron:
         specifier: ^3.5.0
         version: 3.5.0
-    devDependencies:
-      '@blms/types':
-        specifier: workspace:*
-        version: link:../types
 
   packages/database:
     dependencies:
@@ -370,15 +348,9 @@ importers:
       '@blms/types':
         specifier: workspace:*
         version: link:../types
-      '@types/async':
-        specifier: ^3.2.24
-        version: 3.2.24
 
   packages/opentimestamps:
     dependencies:
-      '@blms/database':
-        specifier: workspace:*
-        version: link:../database
       openpgp:
         specifier: 6.0.1
         version: 6.0.1
@@ -439,9 +411,6 @@ importers:
       gray-matter:
         specifier: ^4.0.3
         version: 4.0.3
-      ioredis:
-        specifier: ^5.4.2
-        version: 5.4.2
       js-yaml:
         specifier: ^4.1.0
         version: 4.1.0
@@ -606,9 +575,6 @@ importers:
       tailwind-merge:
         specifier: ^2.6.0
         version: 2.6.0
-      zod:
-        specifier: ^3.24.1
-        version: 3.24.1
     devDependencies:
       '@chromatic-com/storybook':
         specifier: ^3.2.4
@@ -3087,9 +3053,6 @@ packages:
   '@types/aria-query@5.0.4':
     resolution: {integrity: sha512-rfT93uj5s0PRL7EzccGMs3brplhcrghnDoV26NqKhCAS1hVo+WdNsPvE/yb6ilfr5hi2MEk6d5EWJTKdxg8jVw==}
 
-  '@types/async@3.2.24':
-    resolution: {integrity: sha512-8iHVLHsCCOBKjCF2KwFe0p9Z3rfM9mL+sSP8btyR5vTjJRAqpBYD28/ZLgXPf0pjG1VxOvtCV/BgXkQbpSe8Hw==}
-
   '@types/babel__core@7.20.5':
     resolution: {integrity: sha512-qoQprZvz5wQFJwMDqeseRXWv3rqMvhgpbXFfVyWhbx9X47POIA6i/+dXefEmZKoAgOaTdaIgNSMqMIU61yRyzA==}
 
@@ -3589,9 +3552,6 @@ packages:
 
   buffer@5.6.0:
     resolution: {integrity: sha512-/gDYp/UtU0eA1ys8bOs9J6a+E/KWIY+DZ+Q2WESNUA0jFRsJOc0SNUO6xJ5SGA1xueg3NL65W6s+NY5l9cunuw==}
-
-  buffer@6.0.3:
-    resolution: {integrity: sha512-FTiCpNxtwiZZHEZbcbTIcZjERVICn9yq/pDFkTl95/AxzD1naBctN7YO68riM/gLSDY7sdrMby8hofADYuuqOA==}
 
   bytebuffer@5.0.1:
     resolution: {integrity: sha512-IuzSdmADppkZ6DlpycMkm8l9zeEq16fWtLvunEwFiYciR/BHo4E8/xs5piFquG+Za8OWmMqHF8zuRviz2LHvRQ==}
@@ -5034,15 +4994,6 @@ packages:
       canvas:
         optional: true
 
-  jsdom@26.0.0:
-    resolution: {integrity: sha512-BZYDGVAIriBWTpIxYzrXjv3E/4u8+/pSG5bQdIYCbNCGOvsPkDQfTVLAIXAf9ETdCpduCVTkDe2NNZ8NIwUVzw==}
-    engines: {node: '>=18'}
-    peerDependencies:
-      canvas: ^3.0.0
-    peerDependenciesMeta:
-      canvas:
-        optional: true
-
   jsesc@3.1.0:
     resolution: {integrity: sha512-/sM3dO2FOzXjKQhJuo0Q173wf2KOo8t4I8vHy6lF9poUp7bKT0/NHE8fPX23PwfhnykfqnC2xRxOnVw5XuGIaA==}
     engines: {node: '>=6'}
@@ -5114,8 +5065,8 @@ packages:
       tedious:
         optional: true
 
-  knip@5.43.2:
-    resolution: {integrity: sha512-e5l88Kx2QTJ2spRrqnE1V2J6AapwNgHs9lwJuaYr3n5ajeDXf8Wi3C+y3BBFhP6gAUW8J6yvrIxx+tjElhWLyg==}
+  knip@5.43.3:
+    resolution: {integrity: sha512-rCSc7X1jQs+ZIc08lQF3c3nS/nKzsg9UPIbY+qQUMh+FVF5ojdiT3bJNypRlSm2pMLQVeE7XWxXrtT4sdg6nfA==}
     engines: {node: '>=18.18.0'}
     hasBin: true
     peerDependencies:
@@ -5567,9 +5518,6 @@ packages:
   npmlog@5.0.1:
     resolution: {integrity: sha512-AqZtDUWOMKs1G/8lwylVjrdYgqA4d9nu8hc+0gzRxlDb1I10+FHBGMXs6aiQHFdCUUlqH99MUMuLfzWDNDtfxw==}
     deprecated: This package is no longer supported.
-
-  nwsapi@2.2.16:
-    resolution: {integrity: sha512-F1I/bimDpj3ncaNDhfyMWuFqmQDBwDB0Fogc2qpL3BWvkQteFD/8BzWuIRl83rq0DXfm8SGt/HFhLXZyljTXcQ==}
 
   oauth-sign@0.9.0:
     resolution: {integrity: sha512-fexhUFFPTGV8ybAtSIGbV6gOkSv8UtRbDBnAyLQw4QPKkgNlsH2ByPGtMUqdWkos6YCRmAqViwgZrJc/mRDzZQ==}
@@ -6124,9 +6072,6 @@ packages:
       react: '>=16.6.0'
       react-dom: '>=16.6.0'
 
-  react-use-websocket@4.11.1:
-    resolution: {integrity: sha512-39e8mK2a2A1h8uY3ePF45b2q0vwMOmaEy7J5qEhQg4n7vYa5oDLmqutG36kZQgAQ/3KCZS0brlGRbbZJ0+zfKQ==}
-
   react@18.3.1:
     resolution: {integrity: sha512-wS+hAgJShR0KhEvPJArfuPVN1+Hz1t0Y6n5jLrGQbkb4urgPE/0Rve+1kMB1v/oWgHgm4WIcV+i7F2pTVj+2iQ==}
     engines: {node: '>=0.10.0'}
@@ -6620,13 +6565,6 @@ packages:
     resolution: {integrity: sha512-n1cw8k1k0x4pgA2+9XrOkFydTerNcJ1zWCO5Nn9scWHTD+5tp8dghT2x1uduQePZTZgd3Tupf+x9BxJjeJi77Q==}
     engines: {node: '>=14.0.0'}
 
-  tldts-core@6.1.74:
-    resolution: {integrity: sha512-gTwtY6L2GfuxiL4CWpLknv9JDYYqBvKCk/BT5uAaAvCA0s6pzX7lr2IrkQZSUlnSjRHIjTl8ZwKCVXJ7XNRWYw==}
-
-  tldts@6.1.74:
-    resolution: {integrity: sha512-O5vTZ1UmmEmrLl/59U9igitnSMlprALLaLgbv//dEvjobPT9vyURhHXKMCDLEhn3qxZFIkb9PwAfNYV0Ol7RPQ==}
-    hasBin: true
-
   to-regex-range@5.0.1:
     resolution: {integrity: sha512-65P7iz6X5yEr1cwcgvQxbbIw7Uk3gOy5dIdtZ4rDveLqhrdJP+Li/Hx6tyK0NEb+2GCyneCMJiGqrADCSNk8sQ==}
     engines: {node: '>=8.0'}
@@ -6642,10 +6580,6 @@ packages:
   tough-cookie@4.1.4:
     resolution: {integrity: sha512-Loo5UUvLD9ScZ6jh8beX1T6sO1w2/MpCRpEP7V280GKMVUQ0Jzar2U3UJPsrdbziLEMMhu3Ujnq//rhiFuIeag==}
     engines: {node: '>=6'}
-
-  tough-cookie@5.1.0:
-    resolution: {integrity: sha512-rvZUv+7MoBYTiDmFPBrhL7Ujx9Sk+q9wwm22x8c8T5IJaR+Wsyc7TNxbVxo84kZoRJZZMazowFLqpankBEQrGg==}
-    engines: {node: '>=16'}
 
   tr46@0.0.3:
     resolution: {integrity: sha512-N3WMsuqV66lT30CrXNbEjx4GEwlow3v6rr4mCcv6prnfwhS01rkgyFdjPNBYd9br7LpXV1+Emh01fHnq2Gdgrw==}
@@ -9671,8 +9605,6 @@ snapshots:
 
   '@types/aria-query@5.0.4': {}
 
-  '@types/async@3.2.24': {}
-
   '@types/babel__core@7.20.5':
     dependencies:
       '@babel/parser': 7.26.5
@@ -10252,11 +10184,6 @@ snapshots:
       base64-js: 1.5.1
       ieee754: 1.2.1
 
-  buffer@6.0.3:
-    dependencies:
-      base64-js: 1.5.1
-      ieee754: 1.2.1
-
   bytebuffer@5.0.1:
     dependencies:
       long: 3.2.0
@@ -10352,6 +10279,7 @@ snapshots:
   chokidar@4.0.3:
     dependencies:
       readdirp: 4.1.1
+    optional: true
 
   chownr@2.0.0: {}
 
@@ -11539,7 +11467,8 @@ snapshots:
 
   immediate@3.0.6: {}
 
-  immutable@5.0.3: {}
+  immutable@5.0.3:
+    optional: true
 
   import-fresh@3.3.0:
     dependencies:
@@ -11715,7 +11644,7 @@ snapshots:
 
   jsdoc-type-pratt-parser@4.1.0: {}
 
-  jsdom@23.2.0:
+  jsdom@23.2.0(canvas@2.11.2(encoding@0.1.13)):
     dependencies:
       '@asamuzakjp/dom-selector': 2.0.2
       cssstyle: 4.2.1
@@ -11738,34 +11667,8 @@ snapshots:
       whatwg-url: 14.1.0
       ws: 8.18.0
       xml-name-validator: 5.0.0
-    transitivePeerDependencies:
-      - bufferutil
-      - supports-color
-      - utf-8-validate
-
-  jsdom@26.0.0:
-    dependencies:
-      cssstyle: 4.2.1
-      data-urls: 5.0.0
-      decimal.js: 10.5.0
-      form-data: 4.0.1
-      html-encoding-sniffer: 4.0.0
-      http-proxy-agent: 7.0.2
-      https-proxy-agent: 7.0.6
-      is-potential-custom-element-name: 1.0.1
-      nwsapi: 2.2.16
-      parse5: 7.2.1
-      rrweb-cssom: 0.8.0
-      saxes: 6.0.0
-      symbol-tree: 3.2.4
-      tough-cookie: 5.1.0
-      w3c-xmlserializer: 5.0.0
-      webidl-conversions: 7.0.0
-      whatwg-encoding: 3.1.1
-      whatwg-mimetype: 4.0.0
-      whatwg-url: 14.1.0
-      ws: 8.18.0
-      xml-name-validator: 5.0.0
+    optionalDependencies:
+      canvas: 2.11.2(encoding@0.1.13)
     transitivePeerDependencies:
       - bufferutil
       - supports-color
@@ -11833,7 +11736,7 @@ snapshots:
       - supports-color
     optional: true
 
-  knip@5.43.2(@types/node@22.10.10)(typescript@5.7.3):
+  knip@5.43.3(@types/node@22.10.10)(typescript@5.7.3):
     dependencies:
       '@nodelib/fs.walk': 3.0.1
       '@snyk/github-codeowners': 1.1.0
@@ -12486,8 +12389,6 @@ snapshots:
       gauge: 3.0.2
       set-blocking: 2.0.0
 
-  nwsapi@2.2.16: {}
-
   oauth-sign@0.9.0: {}
 
   object-assign@4.1.1: {}
@@ -13072,8 +12973,6 @@ snapshots:
       react: 19.0.0
       react-dom: 19.0.0(react@19.0.0)
 
-  react-use-websocket@4.11.1: {}
-
   react@18.3.1:
     dependencies:
       loose-envify: 1.4.0
@@ -13104,7 +13003,8 @@ snapshots:
     dependencies:
       picomatch: 2.3.1
 
-  readdirp@4.1.1: {}
+  readdirp@4.1.1:
+    optional: true
 
   recast@0.23.9:
     dependencies:
@@ -13168,13 +13068,13 @@ snapshots:
 
   regenerator-runtime@0.14.1: {}
 
-  rehype-mathjax@6.0.0:
+  rehype-mathjax@6.0.0(canvas@2.11.2(encoding@0.1.13)):
     dependencies:
       '@types/hast': 3.0.4
       '@types/mathjax': 0.0.40
       hast-util-from-dom: 5.0.1
       hast-util-to-text: 4.0.2
-      jsdom: 23.2.0
+      jsdom: 23.2.0(canvas@2.11.2(encoding@0.1.13))
       mathjax-full: 3.2.2
       unified: 11.0.5
       unist-util-visit-parents: 6.0.1
@@ -13360,6 +13260,7 @@ snapshots:
       source-map-js: 1.2.1
     optionalDependencies:
       '@parcel/watcher': 2.5.0
+    optional: true
 
   saxes@6.0.0:
     dependencies:
@@ -13747,12 +13648,6 @@ snapshots:
 
   tinyspy@3.0.2: {}
 
-  tldts-core@6.1.74: {}
-
-  tldts@6.1.74:
-    dependencies:
-      tldts-core: 6.1.74
-
   to-regex-range@5.0.1:
     dependencies:
       is-number: 7.0.0
@@ -13770,10 +13665,6 @@ snapshots:
       punycode: 2.3.1
       universalify: 0.2.0
       url-parse: 1.5.10
-
-  tough-cookie@5.1.0:
-    dependencies:
-      tldts: 6.1.74
 
   tr46@0.0.3: {}
 

@@ -20,8 +20,5 @@
   },
   "dependencies": {
     "cron": "^3.5.0"
-  },
-  "devDependencies": {
-    "@blms/types": "workspace:*"
   }
 }
