@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { LuMessageSquareMore } from 'react-icons/lu';
 import { MdOutlineSchool, MdPeopleAlt } from 'react-icons/md';
@@ -30,6 +30,7 @@ import { TUTORIALS_CATEGORIES } from '../../utils/tutorials.ts';
 import { AuthModal } from '../AuthModals/auth-modal.tsx';
 import { AuthModalState } from '../AuthModals/props.ts';
 
+import { AppContext } from '#src/providers/context.js';
 import { FlyingMenu } from './FlyingMenu/flying-menu.tsx';
 import { MobileMenu } from './MobileMenu/mobile-menu.tsx';
 import type { NavigationSection, NavigationSectionMobile } from './props.ts';
@@ -40,7 +41,8 @@ interface HeaderProps {
 
 export const Header = ({ variant = 'dark' }: HeaderProps) => {
   const { t } = useTranslation();
-
+  const { session } = useContext(AppContext);
+  const isLoggedIn = !!session;
   const { isOpen: isMobileMenuOpen, toggle: toggleMobileMenu } =
     useDisclosure();
   const { isOpen: isMobileDashboardMenuOpen, toggle: toggleDashboardMenu } =
@@ -325,16 +327,30 @@ export const Header = ({ variant = 'dark' }: HeaderProps) => {
         },
       ],
     },
-    {
-      id: 'dashboard',
-      title: t('dashboard.studentDashboard'),
-      action: () => {
-        toggleDashboardMenu();
-        toggleMobileMenu();
-      },
-      mobileIcon: variant === 'light' ? profileLogInBlack : profileLogInWhite,
-      removeFilterOnIcon: true,
-    },
+    isLoggedIn
+      ? {
+          id: 'dashboard',
+          title: t('dashboard.studentDashboard'),
+          action: () => {
+            toggleDashboardMenu();
+            toggleMobileMenu();
+          },
+          mobileIcon:
+            variant === 'light' ? profileLogInBlack : profileLogInWhite,
+          removeFilterOnIcon: true,
+        }
+      : {
+          id: 'login',
+          title: t('menu.login'),
+          action: () => {
+            setAuthMode(AuthModalState.SignIn);
+            openAuthModal();
+            toggleMobileMenu();
+          },
+          mobileIcon:
+            variant === 'light' ? profileLogInBlack : profileLogInWhite,
+          removeFilterOnIcon: true,
+        },
   ];
 
   return (
