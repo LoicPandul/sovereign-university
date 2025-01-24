@@ -14,7 +14,6 @@ const baseConfig: Config = {
     },
     colors: {
       transparent: 'transparent',
-      dashboardsection: '#FFFFFF0D',
       dashboardSectionTitle: '#060B15',
       dashboardSectionText: '#050A14',
       commentTextBackground: '#E9E9E9',
@@ -45,19 +44,6 @@ const baseConfig: Config = {
       newBlue: {
         1: '#0A69DA',
       },
-      // Does not work on firefox
-      // blue: {
-      //   100: 'hsl(from var(--base-blue) h s 90%)',
-      //   200: 'hsl(from var(--base-blue) h s 80%)',
-      //   300: 'hsl(from var(--base-blue) h s 70%)',
-      //   400: 'hsl(from var(--base-blue) h s 60%)',
-      //   500: 'hsl(from var(--base-blue) h s 50%)',
-      //   600: 'hsl(from var(--base-blue) h s 40%)',
-      //   700: 'hsl(from var(--base-blue) h s 30%)',
-      //   800: 'hsl(from var(--base-blue) h s 20%)',
-      //   900: 'hsl(from var(--base-blue) h s 10%)',
-      //   1000: 'hsl(from var(--base-blue) h s l)',
-      // },
       orange: {
         100: '#FFBD99',
         200: '#FF9D66',
@@ -186,10 +172,6 @@ const baseConfig: Config = {
         800: '#9E4A19',
         900: '#833C13',
       },
-      grayblue: {
-        300: '#B6BFD3',
-      },
-
       tertiary: {
         1: '#F1EEEC',
         2: '#E3DDD9',
