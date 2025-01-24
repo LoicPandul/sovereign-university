@@ -27,6 +27,8 @@ import { addSpaceToCourseId } from '#src/utils/courses.ts';
 import { assetUrl, trpc } from '#src/utils/index.ts';
 import { useShuffleSuggestedContent } from '#src/utils/resources-hook.ts';
 
+import type { JoinedEvent } from '@blms/types';
+import { LectureCard } from '../-components/cards/lecture-card.tsx';
 import { LectureBuy } from '../-components/lecture-buy.tsx';
 import { ResourceLayout } from '../-components/resource-layout.tsx';
 import { SuggestedHeader } from '../-components/suggested-header.tsx';
@@ -152,7 +154,7 @@ function Lecture() {
                 <div className="w-full max-w-2xl flex flex-col justify-between gap-6 md:gap-4 self-stretch">
                   <div className="flex flex-col gap-3">
                     <div className="flex justify-between items-center gap-4 w-full">
-                      <h2 className="title-large-24px lg:display-large-med-48px text-white">
+                      <h2 className="title-large-24px lg:display-small-med-32px text-white">
                         {lecture.name}
                       </h2>
                       <Flag
@@ -289,7 +291,7 @@ function Lecture() {
               {t('lectures.checkFullCourse')}
             </h3>
           </div>
-          <p className="text-white md:whitespace-pre-line text-center body-medium-14px md:title-large-24px mb-5 md:mb-12">
+          <p className="text-white md:whitespace-pre-line text-center body-medium-14px md:subtitle-medium-16px  mb-5 md:mb-12">
             <Trans
               i18nKey={'lectures.lecturePartCourse'}
               values={{ courseTitle: relatedCourse.name }}
@@ -321,19 +323,13 @@ function Lecture() {
                   return (
                     <CarouselItem
                       key={suggestedLecture.id}
-                      className="text-white bg-gradient-to-r size-full max-w-[157px] lg:max-w-[315px] aspect-[157/112] lg:aspect-[315/226] rounded-[10px]"
+                      className="text-white bg-gradient-to-r size-full max-w-[157px] lg:max-w-[315px] rounded-[10px]"
                     >
                       <Link to={`/resources/lectures/${suggestedLecture.id}`}>
-                        <div className="relative h-full">
-                          <img
-                            className="size-full object-cover object-center [overflow-clip-margin:_unset] rounded-[10px]"
-                            alt={suggestedLecture.name || ''}
-                            src={assetUrl(
-                              suggestedLecture.path,
-                              'thumbnail.webp',
-                            )}
-                          />
-                        </div>
+                        <LectureCard
+                          key={suggestedLecture.id}
+                          lecture={suggestedLecture as JoinedEvent}
+                        />
                       </Link>
                     </CarouselItem>
                   );

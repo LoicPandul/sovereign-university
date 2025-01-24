@@ -62,7 +62,7 @@ export const LectureCard = ({ lecture }: LectureCardProps) => {
     <>
       <article
         className={cn(
-          'flex flex-col w-[137px] md:w-[290px] bg-newBlack-2 p-2 md:p-2.5 rounded-2xl shrink-0',
+          'flex flex-col w-[137px] md:w-[290px] bg-newBlack-2 p-2 md:p-2.5 rounded-2xl shrink-0 hover:border hover:border-darkOrange-5',
         )}
       >
         {/* Image */}
