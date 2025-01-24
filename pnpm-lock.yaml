@@ -380,8 +380,8 @@ importers:
         specifier: workspace:*
         version: link:../database
       openpgp:
-        specifier: 5.11.2
-        version: 5.11.2
+        specifier: 6.0.1
+        version: 6.0.1
       opentimestamps:
         specifier: 0.4.9
         version: 0.4.9
@@ -3458,9 +3458,6 @@ packages:
   asap@2.0.6:
     resolution: {integrity: sha512-BSHWgDSAiKs50o2Re8ppvp3seVHXSRM44cdSsT9FfNEUUZLOGWVCsiWaRPWM1Znn+mqZ1OfVZ3z3DWEzSp7hRA==}
 
-  asn1.js@5.4.1:
-    resolution: {integrity: sha512-+I//4cYPccV8LdmBLiX8CYvf9Sp3vQsrqu2QNXRcrbiWvcx/UdlFiqUJJzxRQxgsZmvhXhn4cSKeSmoFjVdupA==}
-
   asn1@0.2.6:
     resolution: {integrity: sha512-ix/FxPn0MDjeyJ7i/yoHGFt/EX6LyNbxSEhPPXODPL+KB0VPk86UYfL0lMdy+KCnv+fmvIzySwaK5COwqVbWTQ==}
 
@@ -5615,9 +5612,9 @@ packages:
     resolution: {integrity: sha512-7x81NCL719oNbsq/3mh+hVrAWmFuEYUqrq/Iw3kUzH8ReypT9QQ0BLoJS7/G9k6N81XjW4qHWtjWwe/9eLy1EQ==}
     engines: {node: '>=12'}
 
-  openpgp@5.11.2:
-    resolution: {integrity: sha512-f8dJFVLwdkvPvW3VPFs6q9Vs2+HNhdvwls7a/MIFcQUB+XiQzRe7alfa3RtwfGJU7oUDDMAWPZ0nYsHa23Az+A==}
-    engines: {node: '>= 8.0.0'}
+  openpgp@6.0.1:
+    resolution: {integrity: sha512-3lReDKjgWsKFArZT4Y/yj7/Q0q6/VhXarn4WqKEkyiBWckNjrThSGoB1t0IKo3Ke0ClvBpyQfTwumkGUkxOwww==}
+    engines: {node: '>= 18.0.0'}
 
   opentimestamps@0.4.9:
     resolution: {integrity: sha512-EWA6nFSeNsD6aSX/Ek0WrWeTT+PKoP7455zWPkyvqf7/h7QsmDDbfFEY8S3Sd9/VxeQcyVu7yW0SqkvP+Zu/fg==}
@@ -10093,13 +10090,6 @@ snapshots:
 
   asap@2.0.6: {}
 
-  asn1.js@5.4.1:
-    dependencies:
-      bn.js: 4.12.1
-      inherits: 2.0.4
-      minimalistic-assert: 1.0.1
-      safer-buffer: 2.1.2
-
   asn1@0.2.6:
     dependencies:
       safer-buffer: 2.1.2
@@ -12540,9 +12530,7 @@ snapshots:
       is-docker: 2.2.1
       is-wsl: 2.2.0
 
-  openpgp@5.11.2:
-    dependencies:
-      asn1.js: 5.4.1
+  openpgp@6.0.1: {}
 
   opentimestamps@0.4.9:
     dependencies:

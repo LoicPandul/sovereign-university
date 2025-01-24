@@ -20,9 +20,9 @@
     "clear": "rm -rf ./dist && rm -f *.tsbuildinfo"
   },
   "dependencies": {
-    "openpgp": "5.11.2",
-    "opentimestamps": "0.4.9",
-    "@blms/database": "workspace:*"
+    "@blms/database": "workspace:*",
+    "openpgp": "6.0.1",
+    "opentimestamps": "0.4.9"
   },
   "devDependencies": {
     "@blms/types": "workspace:*"
