@@ -21,7 +21,7 @@ import {
   customToast,
 } from '@blms/ui';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { Link, createFileRoute } from '@tanstack/react-router';
+import { createFileRoute } from '@tanstack/react-router';
 import { t } from 'i18next';
 import React, { useEffect, useState } from 'react';
 import { useFieldArray, useForm } from 'react-hook-form';
@@ -30,7 +30,7 @@ import { BiPlus } from 'react-icons/bi';
 import { FaRegTrashAlt } from 'react-icons/fa';
 import { ImCheckmark } from 'react-icons/im';
 import { IoMdCheckmarkCircle } from 'react-icons/io';
-import { IoCheckmarkOutline } from 'react-icons/io5';
+import { IoCheckmarkOutline, IoWarningOutline } from 'react-icons/io5';
 import { MdOutlineEdit } from 'react-icons/md';
 import { z } from 'zod';
 import { useSmaller } from '#src/hooks/use-smaller.ts';
@@ -57,6 +57,7 @@ function CareerPortal() {
   const [selectedRole, setSelectedRole] = useState('');
 
   const [confirmDelete, setConfirmDelete] = useState(false);
+  const [cvErrorMessage, setCvErrorMessage] = useState('');
 
   const Step1FormSchema = z.object({
     firstName: z
@@ -119,7 +120,7 @@ function CareerPortal() {
   });
 
   const Step3FormSchema = z.object({
-    cvUrl: z.string().optional(),
+    cvUrl: z.string().min(1),
     motivationLetter: z
       .string()
       .min(1, { message: t('courses.review.fieldRequired') })
@@ -203,6 +204,45 @@ function CareerPortal() {
       return 1;
     }
     return 0;
+  };
+
+  const handleCVUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (file) {
+      if (file.type !== 'application/pdf') {
+        setCvErrorMessage(t('dashboard.careerPortal.invalidFile'));
+        return;
+      }
+      if (file.size > 10 * 1024 * 1024) {
+        setCvErrorMessage(t('dashboard.careerPortal.fileTooLarge'));
+        return;
+      }
+
+      const formData = new FormData();
+      formData.append('file', file);
+
+      const response = await fetch(`/api/career/cvs/${careerProfile?.id}`, {
+        method: 'POST',
+        body: formData,
+      });
+
+      if (response.status === 200) {
+        form.setValue('cvUrl', `/api/files/cvs/${careerProfile?.id}`);
+        customToast(t('dashboard.careerPortal.fileUploaded'), {
+          mode: 'light',
+          color: 'success',
+          icon: IoCheckmarkOutline,
+          closeButton: true,
+        });
+      } else {
+        customToast(t('dashboard.careerPortal.fileUploadError'), {
+          mode: 'light',
+          color: 'warning',
+          icon: IoWarningOutline,
+          closeButton: true,
+        });
+      }
+    }
   };
 
   const { data: languages } = trpc.user.career.getLanguages.useQuery();
@@ -954,7 +994,25 @@ function CareerPortal() {
                 subtitle={t('dashboard.careerPortal.cvUploadSubtitle')}
               />
 
-              <p>Placeholder CV upload</p>
+              <div className="flex flex-col gap-1 md:gap-2 mb-5 md:mb-10">
+                <input
+                  type="file"
+                  accept=".pdf"
+                  className="w-full max-w-[614px] rounded-[10px] overflow-hidden body-16px md:label-medium-16px text-newBlack-5 border border-newBlack-4 file:p-3.5 file:mr-3.5 file:rounded-none file:border-0 file:border-r file:border-newBlack-4 md:file:text-lg file:leading-normal file:font-medium file:bg-darkOrange-5 file:text-white hover:file:cursor-pointer"
+                  onChange={handleCVUpload}
+                />
+                <p className="body-14px text-newGray-1">
+                  {t('dashboard.careerPortal.acceptedFormat')}
+                </p>
+
+                {cvErrorMessage && <FormMessage>{cvErrorMessage}</FormMessage>}
+
+                {form.formState.errors.cvUrl && (
+                  <FormMessage>
+                    {t('dashboard.careerPortal.cvRequired')}
+                  </FormMessage>
+                )}
+              </div>
 
               <TitleAndSubtitle
                 title={t('dashboard.careerPortal.motivation')}
@@ -1224,7 +1282,7 @@ const FormText = ({
       render={({ field }) => (
         <FormItem
           className={cn(
-            'w-full',
+            'flex flex-col gap-y-2 w-full',
             hasMaxWidth
               ? type === 'text'
                 ? 'max-w-[450px]'
@@ -1285,10 +1343,7 @@ const FormSwitch = ({
       control={control}
       name={id}
       render={({ field }) => (
-        <FormItem
-          spaceY={false}
-          className="w-full flex max-md:flex-col gap-[15px] md:gap-10 md:items-center"
-        >
+        <FormItem className="w-full flex max-md:flex-col gap-[15px] md:gap-10 md:items-center">
           <FormHeader label={label} mandatory={mandatory} />
           <FormControl>
             <div className="flex gap-2.5 items-center">
@@ -1330,7 +1385,7 @@ const FormRadio = ({
       control={control}
       name={id}
       render={({ field }) => (
-        <FormItem spaceY={false} className="w-full flex flex-col gap-2">
+        <FormItem className="w-full flex flex-col gap-2">
           <FormHeader label={label} mandatory={mandatory} />
           <FormControl>
             <div className="flex flex-col gap-2 pl-[18px]">
@@ -1381,7 +1436,7 @@ const FormCheckbox = ({
       control={control}
       name={id}
       render={({ field }) => (
-        <FormItem spaceY={false} className="w-full">
+        <FormItem className="w-full">
           <label className="w-full flex items-center gap-4">
             <FormControl>
               <div className="grid place-items-center">
@@ -1434,7 +1489,7 @@ const FormCheckboxGroup = ({
       control={control}
       name={id}
       render={({ field }) => (
-        <FormItem spaceY={false} className="w-full flex flex-col gap-2">
+        <FormItem className="w-full flex flex-col gap-2">
           <FormHeader label={label} subLabel={subLabel} mandatory={mandatory} />
           <FormControl>
             <div className="flex flex-col gap-2 pl-[18px]">
@@ -1524,7 +1579,7 @@ const FormSelect = ({
       control={control}
       name={id}
       render={({ field }) => (
-        <FormItem spaceY={false} className="w-full flex flex-col gap-2">
+        <FormItem className="w-full flex flex-col gap-2">
           <FormHeader label={label} subLabel={subLabel} mandatory={mandatory} />
           <FormControl>
             <Select
