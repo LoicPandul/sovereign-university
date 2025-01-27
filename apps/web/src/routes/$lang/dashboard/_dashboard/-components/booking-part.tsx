@@ -163,6 +163,8 @@ const Buttons = ({
       : '';
   }
 
+  const now = new Date();
+
   return (
     <div className="md:w-[260px] md:flex-none md:ml-auto">
       <div className="flex flex-row gap-3">
@@ -237,7 +239,7 @@ const Buttons = ({
           </Link>
         )}
 
-        {!ticket.isPaid ? (
+        {!ticket.isPaid && ticket.date > now ? (
           <button
             type="button"
             className="text-primary underline text-base md:text-lg"
