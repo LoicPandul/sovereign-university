@@ -872,7 +872,10 @@
     "course": "Cours",
     "course_chapter": "Chapitre de cours",
     "course_part": "Partie de cours",
+    "filterByType": "Filtrer par type",
+    "languageSelected": "Langue sélectionnée: {{language}}",
     "startSearch": "Saisissez votre recherche",
+    "searchResult": "Résultat de la recherche",
     "resultInfo": "{{count}} résultats trouvés en {{time}}ms",
     "resultError": "Une erreur s'est produite. Veuillez réessayer.",
     "resultEmpty": "Oups! Nous n'avons pas trouvé de résultats pour votre recherche. Vérifiez l'orthographe, essayez un autre terme ou sélectionnez une autre catégorie.",
@@ -880,7 +883,7 @@
     "loadMoreResults": "Voir plus de résultats",
     "explorer": {
       "title": "Portail de recherche",
-      "subtitle": "Trouvez ce dont vous avez besoin"
+      "subtitle": "Que cherchez-vous aujourd'hui ?"
     }
   },
   "words": {

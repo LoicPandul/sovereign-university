@@ -3,12 +3,14 @@ import { default as DOMPurify } from 'dompurify';
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
-import { Button } from '@blms/ui';
+import { Button, cn } from '@blms/ui';
 
 import { PageLayout } from '#src/components/page-layout.tsx';
 import { trpc } from '#src/utils/trpc.ts';
 
+import { HiOutlineAdjustmentsHorizontal } from 'react-icons/hi2';
 import { IoMdClose } from 'react-icons/io';
+import { MdKeyboardArrowDown, MdKeyboardArrowUp } from 'react-icons/md';
 import searchErrorIcon from '#src/assets/icons/search-error.svg';
 import searchIcon from '#src/assets/icons/search.svg';
 
@@ -22,6 +24,7 @@ export const Route = createFileRoute('/$lang/_content/search/')({
 function SearchPage() {
   const { t, i18n } = useTranslation();
 
+  const [filtersOpen, setFiltersOpen] = useState(false);
   const [categories, setCategories] = useState<Set<string>>(new Set(['all']));
 
   const [query, setQuery] = useState('');
@@ -82,46 +85,12 @@ function SearchPage() {
       title={t('search.explorer.title')}
       subtitle={' '}
     >
-      <div className="max-w-6xl mx-auto pb-8 text-white min-h-[calc(100vh-64px)]">
-        <h2 className="text-orange-500 text-center text-xl pb-8">
+      <div className="max-w-6xl pb-8 text-white min-h-[calc(100vh-64px)] mx-2 sm:mx-auto ">
+        <h2 className="text-orange-500 text-center text-xl mt-16">
           {t('search.explorer.subtitle')}
         </h2>
 
-        <search className="flex flex-col space-y-4">
-          <label htmlFor="search" className="block text-xl font-bold">
-            {t('search.search')} ({getLanguageName(i18n.language)})
-          </label>
-
-          <div className="flex flex-col p-5 gap-8 bg-newBlack-2 rounded-lg">
-            <div className="flex items-center gap-8 font-medium">
-              <p>{t('search.categories')}</p>
-              <div className="flex flex-wrap gap-2">
-                <Button
-                  variant={categories.has('all') ? 'primary' : 'outlineWhite'}
-                  size="s"
-                  onClick={() => setCategories(new Set(['all']))}
-                >
-                  {t('search.all')}
-                </Button>
-                {filters.slice(1).map((filter) => (
-                  <Button
-                    key={filter}
-                    variant={
-                      categories.has(filter) ? 'primary' : 'outlineWhite'
-                    }
-                    size="s"
-                    onClick={() => {
-                      toggleFilter(filter);
-                    }}
-                    className="capitalize"
-                  >
-                    {`${t(`search.${filter}`)}`}
-                  </Button>
-                ))}
-              </div>
-            </div>
-          </div>
-
+        <search className="flex flex-col space-y-4 max-w-2xl mx-auto sm:mb-16">
           <div className="flex items-center gap-4 relative bg-tertiary-10 my-8 h-14 rounded-lg">
             <img
               src={searchIcon}
@@ -149,14 +118,14 @@ function SearchPage() {
 
           {query.length === 0 && (
             <div>
-              <p className="text-center text-xl mt-20">
+              <p className="text-center text-xl mt-16">
                 {t('search.startSearch')}
               </p>
             </div>
           )}
         </search>
 
-        <div className="mt-8">
+        <div>
           {search.isLoading && <p>Loading...</p>}
           {search.isError && (
             <p className="text-red-500">{t('search.resultError')}</p>
@@ -164,8 +133,75 @@ function SearchPage() {
           {lastPage && (
             <>
               {lastPage.found > 0 && (
-                <div className="ps-2 text-gray-500 font-light text-sm">
-                  <p>
+                <div className="mb-4 ps-2">
+                  <div className="flex flex-col space-y-4 text-base mb-4">
+                    <div className={cn(query.length > 0 ? '' : 'hidden')}>
+                      <Button
+                        className="flex justify-start items-center gap-2 p-0"
+                        variant="ghost"
+                        onClick={() => setFiltersOpen(!filtersOpen)}
+                      >
+                        <HiOutlineAdjustmentsHorizontal className="size-6 stroke-[1.5]" />
+
+                        <p className={cn(filtersOpen && 'underline')}>
+                          {t('search.filterByType')}
+                        </p>
+
+                        {filtersOpen ? (
+                          <MdKeyboardArrowUp className="size-6" />
+                        ) : (
+                          <MdKeyboardArrowDown className="size-6" />
+                        )}
+                      </Button>
+                    </div>
+
+                    <div
+                      className={cn(
+                        'flex items-center gap-8 font-medium',
+                        filtersOpen ? 'flex' : 'hidden',
+                      )}
+                    >
+                      <div className="flex flex-wrap gap-2">
+                        <Button
+                          variant={
+                            categories.has('all') ? 'primary' : 'outlineWhite'
+                          }
+                          size="s"
+                          onClick={() => setCategories(new Set(['all']))}
+                        >
+                          {t('search.all')}
+                        </Button>
+
+                        {filters.slice(1).map((filter) => (
+                          <Button
+                            key={filter}
+                            variant={
+                              categories.has(filter)
+                                ? 'primary'
+                                : 'outlineWhite'
+                            }
+                            size="s"
+                            onClick={() => {
+                              toggleFilter(filter);
+                            }}
+                            className="capitalize"
+                          >
+                            {`${t(`search.${filter}`)}`}
+                          </Button>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+
+                  <p className="text-gray-300 font-light text-sm mb-6">
+                    {t('search.languageSelected', {
+                      language: getLanguageName(i18n.language),
+                    })}
+                  </p>
+
+                  <p className="mb-1">{t('search.searchResult')}</p>
+
+                  <p className="text-gray-300 font-light text-sm mb-8">
                     {t('search.resultInfo', {
                       count: lastPage.found,
                       time: lastPage.time,
@@ -230,7 +266,7 @@ function SearchPage() {
               )}
 
               {lastPage.remaining > 0 && (
-                <div className="flex flex-col justify-center items-center gap-4 mt-8">
+                <div className="flex flex-col justify-center items-center gap-4 mt-16">
                   <Button
                     onClick={() => search.fetchNextPage()}
                     disabled={search.isFetchingNextPage}
