@@ -21,12 +21,21 @@ function SearchPage() {
   const [categories, setCategories] = useState<Set<string>>(new Set(['all']));
 
   const [query, setQuery] = useState('');
-  const { data, isLoading, isError } = trpc.content.search.useQuery(
-    { query, language: i18n.language, categories: [...categories] },
+  const search = trpc.content.search.useInfiniteQuery(
     {
+      query,
+      language: i18n.language,
+      categories: [...categories],
+      limit: 10,
+    },
+    {
+      initialCursor: 1,
+      getNextPageParam: (lastPage) => lastPage.nextCursor,
       enabled: query.length > 0, // Only fetch when query has input
     },
   );
+
+  const lastPage = search.data?.pages[search.data.pages.length - 1];
 
   const filters = [
     'all', //
@@ -121,65 +130,80 @@ function SearchPage() {
         </search>
 
         <div className="mt-8">
-          {isLoading && <p>Loading...</p>}
-          {isError && <p className="text-red-500">{t('search.resultError')}</p>}
-          {data && (
+          {search.isLoading && <p>Loading...</p>}
+          {search.isError && (
+            <p className="text-red-500">{t('search.resultError')}</p>
+          )}
+          {lastPage && (
             <>
-              {data.found && (
+              {lastPage.found && (
                 <div className="ps-2 text-gray-500 font-light text-sm">
                   <p>
                     {t('search.resultInfo', {
-                      count: data.found,
-                      time: data.time,
+                      count: lastPage.found,
+                      time: lastPage.time,
                     })}
                   </p>
                 </div>
               )}
 
               <ul className="search-results">
-                {data.results.map((item, index) => (
-                  // biome-ignore lint/suspicious/noArrayIndexKey: <explanation>
-                  <li key={index} className="mt-2">
-                    <a
-                      className="block bg-white/5 rounded p-2 hover:bg-white/10"
-                      href={item.document.link}
-                      target="_blank"
-                      rel="noreferrer"
-                    >
-                      <div className="flex gap-4 items-center">
-                        <span className="bg-tertiary-10 px-2 py-1 rounded">
-                          {t(`search.${item.document.type}`)}
-                        </span>
+                {search.data?.pages
+                  .flatMap((page) => page.results)
+                  .map((item, index) => (
+                    // biome-ignore lint/suspicious/noArrayIndexKey: <explanation>
+                    <li key={index} className="mt-2">
+                      <a
+                        className="block bg-white/5 rounded p-2 hover:bg-white/10"
+                        href={item.document.link}
+                        target="_blank"
+                        rel="noreferrer"
+                      >
+                        <div className="flex gap-4 items-center">
+                          <span className="bg-tertiary-10 px-2 py-1 rounded">
+                            {t(`search.${item.document.type}`)}
+                          </span>
 
-                        {item.highlight.title ? (
+                          {item.highlight.title ? (
+                            <div
+                              // biome-ignore lint/security/noDangerouslySetInnerHtml: <explanation>
+                              dangerouslySetInnerHTML={{
+                                __html: DOMPurify.sanitize(
+                                  item.highlight.title?.snippet ?? '',
+                                ),
+                              }}
+                            />
+                          ) : (
+                            <div>{item.document.title}</div>
+                          )}
+                        </div>
+
+                        {item.highlight.body && (
                           <div
+                            className="ps-2 pt-2"
                             // biome-ignore lint/security/noDangerouslySetInnerHtml: <explanation>
                             dangerouslySetInnerHTML={{
                               __html: DOMPurify.sanitize(
-                                item.highlight.title?.snippet ?? '',
+                                item.highlight.body?.snippet ?? '',
                               ),
                             }}
                           />
-                        ) : (
-                          <div>{item.document.title}</div>
                         )}
-                      </div>
-
-                      {item.highlight.body && (
-                        <div
-                          className="ps-2 pt-2"
-                          // biome-ignore lint/security/noDangerouslySetInnerHtml: <explanation>
-                          dangerouslySetInnerHTML={{
-                            __html: DOMPurify.sanitize(
-                              item.highlight.body?.snippet ?? '',
-                            ),
-                          }}
-                        />
-                      )}
-                    </a>
-                  </li>
-                ))}
+                      </a>
+                    </li>
+                  ))}
               </ul>
+
+              {lastPage.remaining > 0 && (
+                <div>
+                  <Button
+                    onClick={() => search.fetchNextPage()}
+                    disabled={search.isFetchingNextPage}
+                  >
+                    Load more ({lastPage.remaining} remaining)
+                  </Button>
+                </div>
+              )}
             </>
           )}
         </div>

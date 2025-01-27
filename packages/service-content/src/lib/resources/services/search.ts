@@ -7,6 +7,9 @@ interface SearchInput {
   categories?: string[];
   language: string;
   query: string;
+  // Pagination
+  limit: number;
+  cursor: number;
 }
 
 const searchCategoryMap: Record<string, string[] | null> = {
@@ -50,6 +53,8 @@ export const createSearch = ({ typesense }: Dependencies) => {
       search_cutoff_ms: 500, // search for 500ms max
       prioritize_exact_match: true,
       filter_by: filter,
+      limit: search.limit,
+      page: search.cursor,
     });
   };
 
@@ -57,6 +62,8 @@ export const createSearch = ({ typesense }: Dependencies) => {
     console.log('searching for:', search);
 
     const searchResult: SearchResult<Searchable> = {
+      remaining: 0,
+      nextCursor: 0,
       results: [],
       ...search,
       found: 0,
@@ -71,7 +78,13 @@ export const createSearch = ({ typesense }: Dependencies) => {
       return searchResult;
     }
 
-    searchResult.results = result.hits ?? [];
+    const results = result.hits ?? [];
+    const remaining =
+      result.found - (result.page - 1) * search.limit - results.length;
+
+    searchResult.remaining = remaining;
+    searchResult.nextCursor = result.page + 1;
+    searchResult.results = results;
     searchResult.found = result.found;
     searchResult.time = result.search_time_ms;
 

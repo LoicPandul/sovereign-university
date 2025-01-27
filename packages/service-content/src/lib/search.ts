@@ -13,6 +13,7 @@ export interface Searchable extends Record<string, unknown> {
   title: string;
   body: string;
   link: string;
+  // Pagination
 }
 
 const getCoursesQuery = () => sql<Searchable[]>`
@@ -189,9 +190,7 @@ const createDeleteIndexes = (client: TypesenseClient) => () => {
     .then(() => console.log('[SEARCH] Index deleted'))
     .catch((error) => {
       if (error instanceof TypesenseErrors.ObjectNotFound) {
-        return console.log(
-          '[SEARCH] Cannot delete collection "searchable" (does not exist)',
-        );
+        return console.log('[SEARCH] Nothing to delete, index does not exist');
       }
 
       console.error('[SEARCH] Failed to delete index:', error);
