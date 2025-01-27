@@ -4,32 +4,66 @@ import type { Dependencies } from '#src/lib/dependencies.js';
 import type { Searchable } from '#src/lib/search.js';
 
 interface SearchInput {
-  category?: string;
+  categories?: string[];
   language: string;
   query: string;
+  // Pagination
+  limit: number;
+  cursor: number;
 }
+
+const searchCategoryMap: Record<string, string[] | null> = {
+  courses: ['course', 'course_part', 'course_chapter'],
+  books: ['book'],
+  words: ['glossary_word'],
+  podcasts: ['podcast'],
+  tutorials: ['tutorial'],
+  professors: ['professor'],
+  all: null,
+  '': null,
+};
 
 export const createSearch = ({ typesense }: Dependencies) => {
   const searchContent = (search: SearchInput) => {
-    return typesense
-      .collections<Searchable>('searchable')
-      .documents()
-      .search({
-        q: search.query,
-        query_by: 'title,body',
-        query_by_weights: '3,1',
-        sort_by: '_text_match:desc',
-        highlight_affix_num_tokens: 20,
-        search_cutoff_ms: 500, // search for 500ms max
-        prioritize_exact_match: true,
-        filter_by: `language:${search.language}${search.category ? `&& type:${search.category}` : ''}`,
-      });
+    const categories = (search.categories ?? ['all'])
+      .map((category) => searchCategoryMap[category])
+      .filter(Boolean)
+      .flat();
+
+    const language = search.language.toLowerCase();
+
+    let filter = `language:${language}`;
+    if (categories) {
+      const map = categories
+        .map((category) => `type:${category}`)
+        .filter(Boolean)
+        .join(' || ');
+
+      filter += map && ` && (${map})`;
+    }
+
+    console.log('Searching for:', { language, categories, filter });
+
+    return typesense.collections<Searchable>('searchable').documents().search({
+      q: search.query,
+      query_by: 'title,body',
+      query_by_weights: '3,1',
+      sort_by: '_text_match:desc',
+      highlight_affix_num_tokens: 20,
+      search_cutoff_ms: 500, // search for 500ms max
+      prioritize_exact_match: true,
+      filter_by: filter,
+      limit: search.limit,
+      page: search.cursor,
+    });
   };
 
   return async (search: SearchInput): Promise<SearchResult<Searchable>> => {
     console.log('searching for:', search);
 
     const searchResult: SearchResult<Searchable> = {
+      remaining: 0,
+      nextCursor: 0,
       results: [],
       ...search,
       found: 0,
@@ -44,7 +78,13 @@ export const createSearch = ({ typesense }: Dependencies) => {
       return searchResult;
     }
 
-    searchResult.results = result.hits ?? [];
+    const results = result.hits ?? [];
+    const remaining =
+      result.found - (result.page - 1) * search.limit - results.length;
+
+    searchResult.remaining = remaining;
+    searchResult.nextCursor = result.page + 1;
+    searchResult.results = results;
     searchResult.found = result.found;
     searchResult.time = result.search_time_ms;
 

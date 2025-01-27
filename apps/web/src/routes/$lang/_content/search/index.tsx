@@ -1,143 +1,305 @@
 import { createFileRoute } from '@tanstack/react-router';
 import { default as DOMPurify } from 'dompurify';
 import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 
+import { Button, cn } from '@blms/ui';
+
+import { PageLayout } from '#src/components/page-layout.tsx';
 import { trpc } from '#src/utils/trpc.ts';
 
+import { HiOutlineAdjustmentsHorizontal } from 'react-icons/hi2';
+import { IoMdClose } from 'react-icons/io';
+import { MdKeyboardArrowDown, MdKeyboardArrowUp } from 'react-icons/md';
+import SearchErrorIcon from '#src/assets/icons/search-error.svg';
+import SearchIcon from '#src/assets/icons/search.svg';
+
 import './style.css';
+import { getLanguageName } from '#src/utils/i18n.ts';
 
 export const Route = createFileRoute('/$lang/_content/search/')({
   component: SearchPage,
 });
 
 function SearchPage() {
-  const [language, setLanguage] = useState('en');
-  const [category, setCategory] = useState('');
+  const { t, i18n } = useTranslation();
+
+  const [filtersOpen, setFiltersOpen] = useState(false);
+  const [categories, setCategories] = useState<Set<string>>(new Set(['all']));
 
   const [query, setQuery] = useState('');
-  const { data, isLoading, isError } = trpc.content.search.useQuery(
-    { query, language, category },
+  const search = trpc.content.search.useInfiniteQuery(
     {
+      query,
+      language: i18n.language,
+      categories: [...categories],
+      limit: 10,
+    },
+    {
+      initialCursor: 1,
+      getNextPageParam: (lastPage) => lastPage.nextCursor,
       enabled: query.length > 0, // Only fetch when query has input
     },
   );
 
+  const lastPage = search.data?.pages[search.data.pages.length - 1];
+
+  const clearSearch = () => {
+    setQuery('');
+    setCategories(new Set(['all']));
+  };
+
+  const filters = [
+    'all', //
+    'courses',
+    'books',
+    'words',
+    'podcasts',
+    'tutorials',
+    'professors',
+  ];
+
+  const createSetToggle = (
+    target: Set<string>,
+    dispatch: React.Dispatch<React.SetStateAction<Set<string>>>,
+  ) => {
+    return (filter: string) => {
+      if (filter === 'all') {
+        dispatch(new Set(['all']));
+      } else {
+        const isSelected = target.has(filter);
+        let newSelection = isSelected
+          ? new Set([...target].filter((i) => i !== filter))
+          : new Set([...target].filter((i) => i !== 'all')).add(filter);
+
+        if (newSelection.size === 0) {
+          newSelection = new Set(['all']);
+        }
+
+        dispatch(newSelection);
+      }
+    };
+  };
+
+  const toggleFilter = createSetToggle(categories, setCategories);
+
   return (
-    <div className="max-w-4xl mx-auto py-16 text-white border-x min-h-screen px-4">
-      <search>
-        <label htmlFor="search" className="block text-xl font-bold">
-          Search
-        </label>
+    <PageLayout
+      paddingXClasses="px-0"
+      maxWidth="max-w-[3000px]"
+      title={t('search.explorer.title')}
+      subtitle={' '}
+    >
+      <div className="max-w-6xl pb-8 text-white min-h-[calc(100vh-64px)] mx-2 sm:mx-auto ">
+        <h2 className="text-orange-500 text-center text-xl mt-16">
+          {t('search.explorer.subtitle')}
+        </h2>
 
-        <select
-          id="language"
-          value={language}
-          onChange={(e) => setLanguage(e.target.value)}
-          className="block mb-2 text-white bg-newBlack-2 p-4 focus:outline outline-blue-500 outline-2 rounded w-full"
-        >
-          <option value="id">Indonesian</option>
-          <option value="en">English</option>
-          <option value="fi">Finnish</option>
-          <option value="et">Estonian</option>
-          <option value="ru">Russian</option>
-          <option value="vi">Vietnamese</option>
-          <option value="pt">Portuguese</option>
-          <option value="ja">Japanese</option>
-          <option value="cs">Czech</option>
-          <option value="zh-hans">Chinese</option>
-          <option value="nb-no">Norwegian</option>
-          <option value="it">Italian</option>
-          <option value="es">Spanish</option>
-          <option value="de">German</option>
-          <option value="fr">French</option>
-        </select>
+        <search className="flex flex-col space-y-4 max-w-2xl mx-auto sm:mb-16">
+          <div className="flex items-center gap-4 relative bg-tertiary-10 my-8 h-14 rounded-lg">
+            <img
+              src={SearchIcon}
+              alt="search"
+              className="absolute size-6 mx-4"
+            />
 
-        <select
-          id="category"
-          value={category}
-          onChange={(e) => setCategory(e.target.value)}
-          className="block mb-2 text-white bg-newBlack-2 p-4 focus:outline outline-blue-500 outline-2 rounded w-full"
-        >
-          <option value="">All categories</option>
-          <option value="course_part">Course part</option>
-          <option value="course_chapter">Chapter</option>
-        </select>
+            <input
+              id="search"
+              className="absolute text-newOrange-1 ps-16 p-4 bg-transparent focus:outline outline-newOrange-1 w-full rounded-lg"
+              type="text"
+              placeholder={`${t('search.search')}...`}
+              autoComplete="off"
+              value={query}
+              onChange={(e) => setQuery(e.target.value)}
+            />
 
-        <input
-          id="search"
-          className="text-white bg-newBlack-2 p-4 focus:outline outline-blue-500 outline-2 rounded w-full"
-          type="text"
-          placeholder="Search..."
-          autoComplete="off"
-          value={query}
-          onChange={(e) => setQuery(e.target.value)}
-        />
-      </search>
-
-      <div className="mt-8">
-        {isLoading && <p>Loading...</p>}
-        {isError && (
-          <p className="text-red-500">
-            Something went wrong. Please try again.
-          </p>
-        )}
-        {data && (
-          <>
-            {data.found && (
-              <div className="ps-2 text-gray-500 font-light text-sm">
-                <p>
-                  Found {data.found} results in {data.time}ms
-                </p>
-              </div>
+            {query.length > 0 && (
+              <IoMdClose
+                className="absolute right-4 size-6 cursor-pointer"
+                onClick={() => clearSearch()}
+              />
             )}
+          </div>
 
-            <ul className="search-results">
-              {data.results.map((item, index) => (
-                // biome-ignore lint/suspicious/noArrayIndexKey: <explanation>
-                <li key={index} className="mt-2">
-                  <a
-                    className="block bg-white/5 rounded p-2 hover:bg-white/10"
-                    href={item.document.link}
-                    target="_blank"
-                    rel="noreferrer"
-                  >
-                    <div className="flex gap-4 items-center">
-                      <span className="bg-orange-400 px-2 py-1 rounded">
-                        {item.document.type}
-                      </span>
+          {query.length === 0 && (
+            <div>
+              <p className="text-center text-xl mt-16">
+                {t('search.startSearch')}
+              </p>
+            </div>
+          )}
+        </search>
 
-                      {item.highlight.title ? (
-                        <div
-                          // biome-ignore lint/security/noDangerouslySetInnerHtml: <explanation>
-                          dangerouslySetInnerHTML={{
-                            __html: DOMPurify.sanitize(
-                              item.highlight.title?.snippet ?? '',
-                            ),
-                          }}
-                        />
+        <div>
+          {search.isLoading && <p>Loading...</p>}
+          {search.isError && (
+            <p className="text-red-500">{t('search.resultError')}</p>
+          )}
+          {lastPage && (
+            <div>
+              <div
+                className={cn(
+                  'mb-4 ps-2',
+                  lastPage.results.length === 0 && categories.has('all')
+                    ? 'hidden'
+                    : '',
+                )}
+              >
+                <div className="flex flex-col space-y-4 text-base mb-4">
+                  <div className={cn(query.length > 0 ? '' : 'hidden')}>
+                    <Button
+                      className="flex justify-start items-center gap-2 p-0"
+                      variant="ghost"
+                      onClick={() => setFiltersOpen(!filtersOpen)}
+                    >
+                      <HiOutlineAdjustmentsHorizontal className="size-6 stroke-[1.5]" />
+
+                      <p className={cn(filtersOpen && 'underline')}>
+                        {t('search.filterByType')}
+                      </p>
+
+                      {filtersOpen ? (
+                        <MdKeyboardArrowUp className="size-6" />
                       ) : (
-                        <div>{item.document.title}</div>
+                        <MdKeyboardArrowDown className="size-6" />
                       )}
-                    </div>
+                    </Button>
+                  </div>
 
-                    {item.highlight.body && (
-                      <div
-                        className="ps-2 pt-2"
-                        // biome-ignore lint/security/noDangerouslySetInnerHtml: <explanation>
-                        dangerouslySetInnerHTML={{
-                          __html: DOMPurify.sanitize(
-                            item.highlight.body?.snippet ?? '',
-                          ),
-                        }}
-                      />
+                  <div
+                    className={cn(
+                      'flex items-center gap-8 font-medium',
+                      filtersOpen ? 'flex' : 'hidden',
                     )}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </>
-        )}
+                  >
+                    <div className="flex flex-wrap gap-2">
+                      <Button
+                        variant={
+                          categories.has('all') ? 'primary' : 'outlineWhite'
+                        }
+                        size="s"
+                        onClick={() => setCategories(new Set(['all']))}
+                      >
+                        {t('search.all')}
+                      </Button>
+
+                      {filters.slice(1).map((filter) => (
+                        <Button
+                          key={filter}
+                          variant={
+                            categories.has(filter) ? 'primary' : 'outlineWhite'
+                          }
+                          size="s"
+                          onClick={() => {
+                            toggleFilter(filter);
+                          }}
+                          className="capitalize"
+                        >
+                          {`${t(`search.${filter}`)}`}
+                        </Button>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+
+                <p className="text-gray-300 font-light text-sm mb-6">
+                  {t('search.languageSelected', {
+                    language: getLanguageName(i18n.language),
+                  })}
+                </p>
+
+                {lastPage.found > 0 && (
+                  <>
+                    <p className="mb-1">{t('search.searchResult')}</p>
+
+                    <p className="text-gray-300 font-light text-sm mb-8">
+                      {t('search.resultInfo', {
+                        count: lastPage.found,
+                        time: lastPage.time,
+                      })}
+                    </p>
+                  </>
+                )}
+              </div>
+
+              <ul className="search-results">
+                {search.data?.pages
+                  .flatMap((page) => page.results)
+                  .map((item, index) => (
+                    // biome-ignore lint/suspicious/noArrayIndexKey: react complains otherwise
+                    <li key={index} className="mt-2">
+                      <a
+                        className="block bg-white/5 rounded p-2 hover:bg-white/10"
+                        href={item.document.link}
+                        target="_blank"
+                        rel="noreferrer"
+                      >
+                        <div className="flex gap-4 items-center">
+                          <span className="bg-tertiary-10 px-2 py-1 rounded">
+                            {t(`search.${item.document.type}`)}
+                          </span>
+
+                          {item.highlight.title ? (
+                            <div
+                              // biome-ignore lint/security/noDangerouslySetInnerHtml: html is sanitized
+                              dangerouslySetInnerHTML={{
+                                __html: DOMPurify.sanitize(
+                                  item.highlight.title?.snippet ?? '',
+                                ),
+                              }}
+                            />
+                          ) : (
+                            <div>{item.document.title}</div>
+                          )}
+                        </div>
+
+                        {item.highlight.body && (
+                          <div
+                            className="ps-2 pt-2"
+                            // biome-ignore lint/security/noDangerouslySetInnerHtml: html is sanitized
+                            dangerouslySetInnerHTML={{
+                              __html: DOMPurify.sanitize(
+                                item.highlight.body?.snippet ?? '',
+                              ),
+                            }}
+                          />
+                        )}
+                      </a>
+                    </li>
+                  ))}
+              </ul>
+
+              {lastPage && search.data?.pages?.[0].found === 0 && (
+                <div className="flex flex-col items-center space-y-8 mt-12 max-w-xl mx-auto text-center">
+                  <img src={SearchErrorIcon} alt="search error" />
+
+                  <p>{t('search.resultEmpty')}</p>
+                </div>
+              )}
+
+              {lastPage.remaining > 0 && (
+                <div className="flex flex-col justify-center items-center gap-4 mt-16">
+                  <Button
+                    onClick={() => search.fetchNextPage()}
+                    disabled={search.isFetchingNextPage}
+                    variant="tertiary"
+                  >
+                    {t('search.loadMoreResults')}
+                  </Button>
+
+                  <div>
+                    (
+                    {t('search.resultsRemaining', {
+                      count: lastPage.remaining,
+                    })}
+                    )
+                  </div>
+                </div>
+              )}
+            </div>
+          )}
+        </div>
       </div>
-    </div>
+    </PageLayout>
   );
 }

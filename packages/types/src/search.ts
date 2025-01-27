@@ -9,4 +9,7 @@ export interface SearchResult<T extends DocumentSchema = DocumentSchema> {
   query: string;
   found: number;
   time: number;
+  // Pagination
+  nextCursor: number;
+  remaining: number;
 }
