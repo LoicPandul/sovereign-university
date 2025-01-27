@@ -872,8 +872,12 @@
     "course": "Cours",
     "course_chapter": "Chapitre de cours",
     "course_part": "Partie de cours",
+    "startSearch": "Saisissez votre recherche",
     "resultInfo": "{{count}} résultats trouvés en {{time}}ms",
     "resultError": "Une erreur s'est produite. Veuillez réessayer.",
+    "resultEmpty": "Oups! Nous n'avons pas trouvé de résultats pour votre recherche. Vérifiez l'orthographe, essayez un autre terme ou sélectionnez une autre catégorie.",
+    "resultsRemaining": "{{count}} résultats restants",
+    "loadMoreResults": "Voir plus de résultats",
     "explorer": {
       "title": "Portail de recherche",
       "subtitle": "Trouvez ce dont vous avez besoin"

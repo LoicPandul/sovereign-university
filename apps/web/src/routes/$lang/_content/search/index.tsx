@@ -8,6 +8,10 @@ import { Button } from '@blms/ui';
 import { PageLayout } from '#src/components/page-layout.tsx';
 import { trpc } from '#src/utils/trpc.ts';
 
+import { IoMdClose } from 'react-icons/io';
+import searchErrorIcon from '#src/assets/icons/search-error.svg';
+import searchIcon from '#src/assets/icons/search.svg';
+
 import './style.css';
 import { getLanguageName } from '#src/utils/i18n.ts';
 
@@ -118,15 +122,38 @@ function SearchPage() {
             </div>
           </div>
 
-          <input
-            id="search"
-            className="text-white bg-tertiary-10 p-4 focus:outline outline-blue-500 outline-2 w-full rounded-lg"
-            type="text"
-            placeholder={`${t('search.search')}...`}
-            autoComplete="off"
-            value={query}
-            onChange={(e) => setQuery(e.target.value)}
-          />
+          <div className="flex items-center gap-4 relative bg-tertiary-10 my-8 h-14 rounded-lg">
+            <img
+              src={searchIcon}
+              alt="search"
+              className="absolute size-6 mx-4"
+            />
+
+            <input
+              id="search"
+              className="absolute text-newOrange-1 ps-16 p-4 bg-transparent focus:outline outline-newOrange-1 w-full rounded-lg"
+              type="text"
+              placeholder={`${t('search.search')}...`}
+              autoComplete="off"
+              value={query}
+              onChange={(e) => setQuery(e.target.value)}
+            />
+
+            {query.length > 0 && (
+              <IoMdClose
+                className="absolute right-4 size-6 cursor-pointer"
+                onClick={() => setQuery('')}
+              />
+            )}
+          </div>
+
+          {query.length === 0 && (
+            <div>
+              <p className="text-center text-xl mt-20">
+                {t('search.startSearch')}
+              </p>
+            </div>
+          )}
         </search>
 
         <div className="mt-8">
@@ -136,7 +163,7 @@ function SearchPage() {
           )}
           {lastPage && (
             <>
-              {lastPage.found && (
+              {lastPage.found > 0 && (
                 <div className="ps-2 text-gray-500 font-light text-sm">
                   <p>
                     {t('search.resultInfo', {
@@ -151,7 +178,7 @@ function SearchPage() {
                 {search.data?.pages
                   .flatMap((page) => page.results)
                   .map((item, index) => (
-                    // biome-ignore lint/suspicious/noArrayIndexKey: <explanation>
+                    // biome-ignore lint/suspicious/noArrayIndexKey: react complains otherwise
                     <li key={index} className="mt-2">
                       <a
                         className="block bg-white/5 rounded p-2 hover:bg-white/10"
@@ -166,7 +193,7 @@ function SearchPage() {
 
                           {item.highlight.title ? (
                             <div
-                              // biome-ignore lint/security/noDangerouslySetInnerHtml: <explanation>
+                              // biome-ignore lint/security/noDangerouslySetInnerHtml: html is sanitized
                               dangerouslySetInnerHTML={{
                                 __html: DOMPurify.sanitize(
                                   item.highlight.title?.snippet ?? '',
@@ -181,7 +208,7 @@ function SearchPage() {
                         {item.highlight.body && (
                           <div
                             className="ps-2 pt-2"
-                            // biome-ignore lint/security/noDangerouslySetInnerHtml: <explanation>
+                            // biome-ignore lint/security/noDangerouslySetInnerHtml: html is sanitized
                             dangerouslySetInnerHTML={{
                               __html: DOMPurify.sanitize(
                                 item.highlight.body?.snippet ?? '',
@@ -194,14 +221,31 @@ function SearchPage() {
                   ))}
               </ul>
 
+              {lastPage && search.data?.pages?.[0].found === 0 && (
+                <div className="flex flex-col items-center space-y-8 mt-12 max-w-xl mx-auto text-center">
+                  <img src={searchErrorIcon} alt="search error" />
+
+                  <p>{t('search.resultEmpty')}</p>
+                </div>
+              )}
+
               {lastPage.remaining > 0 && (
-                <div>
+                <div className="flex flex-col justify-center items-center gap-4 mt-8">
                   <Button
                     onClick={() => search.fetchNextPage()}
                     disabled={search.isFetchingNextPage}
+                    variant="tertiary"
                   >
-                    Load more ({lastPage.remaining} remaining)
+                    {t('search.loadMoreResults')}
                   </Button>
+
+                  <div>
+                    (
+                    {t('search.resultsRemaining', {
+                      count: lastPage.remaining,
+                    })}
+                    )
+                  </div>
                 </div>
               )}
             </>

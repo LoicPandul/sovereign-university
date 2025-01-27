@@ -18,6 +18,7 @@ import type { Components } from 'react-big-calendar';
 import { Calendar, dateFnsLocalizer } from 'react-big-calendar';
 import { BsChevronLeft, BsChevronRight } from 'react-icons/bs';
 import { CiShare2 } from 'react-icons/ci';
+import { HiOutlineAdjustmentsHorizontal } from 'react-icons/hi2';
 
 import type {
   EventLocation,
@@ -507,22 +508,7 @@ const EventsMap = ({
           <div className="flex items-center justify-center md:justify-start h-16 rounded-t-xl border-b px-1 md:px-6 font-semibold text-gray-800">
             <div>
               <div className="hidden sm:flex items-center mr-6">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  strokeWidth={1.5}
-                  stroke="currentColor"
-                  className="size-6"
-                  role="img"
-                  aria-label="Events map"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M10.5 6h9.75M10.5 6a1.5 1.5 0 1 1-3 0m3 0a1.5 1.5 0 1 0-3 0M3.75 6H7.5m3 12h9.75m-9.75 0a1.5 1.5 0 0 1-3 0m3 0a1.5 1.5 0 0 0-3 0m-3.75 0H7.5m9-6h3.75m-3.75 0a1.5 1.5 0 0 1-3 0m3 0a1.5 1.5 0 0 0-3 0m-9.75 0h9.75"
-                  />
-                </svg>
+                <HiOutlineAdjustmentsHorizontal className="size-6 stroke-[1.5]" />
               </div>
             </div>
 

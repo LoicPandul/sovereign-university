@@ -999,8 +999,12 @@
     "course": "Course",
     "course_chapter": "Course chapter",
     "course_part": "Course part",
+    "startSearch": "Start your search to see results here",
     "resultInfo": "Found {{count}} results in {{time}}ms",
     "resultError": "Something went wrong. Please try again.",
+    "resultEmpty": "Oops! We couldn’t find anything matching your search. Check your spelling, try different keywords, or select another category.",
+    "resultsRemaining": "{{count}} results remaining",
+    "loadMoreResults": "See more results",
     "explorer": {
       "title": "Search Portal",
       "subtitle": "Find what you need here"
