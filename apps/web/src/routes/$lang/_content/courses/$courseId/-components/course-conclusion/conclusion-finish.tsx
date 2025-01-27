@@ -99,7 +99,7 @@ const Credits = ({ course }: { course: JoinedCourseWithAll }) => {
     courseId: course.id,
   });
   const isOriginalLanguage = i18n.language === course.originalLanguage;
-  if (!proofreading || proofreading?.contributorsId.length === 0) {
+  if (!proofreading) {
     return null;
   }
 
@@ -110,44 +110,60 @@ const Credits = ({ course }: { course: JoinedCourseWithAll }) => {
         <h4 className="subtitle-medium-caps-18px text-darkOrange-5">
           {t('words.credits')}
         </h4>
+
         <p className="mt-[15px] md:mt-6 label-large-20px md:display-small-32px text-black">
-          {t('courses.details.hasBeenProofreadBy')}{' '}
-          <span className="text-darkOrange-5 label-large-20px md:display-small-32px">
-            {proofreading?.contributorsId.map((proofreader, index) => (
-              <React.Fragment key={proofreader}>
-                <span>{proofreader}</span>
-                {index < course.professors.length - 2
-                  ? ', '
-                  : index === course.professors.length - 2
-                    ? ' & '
-                    : ''}
-              </React.Fragment>
-            ))}
-          </span>
+          {proofreading?.contributorsId?.length > 0
+            ? t('courses.details.hasBeenProofreadBy')
+            : t('courses.details.hasNotBeenProofread')}
         </p>
-        <p className="my-[25px] md:mt-6 md:mb-8 text-newBlack-1 md:text-justify body-16px md:subtitle-large-18px whitespace-pre-line">
-          <Trans i18nKey="courses.details.collaborativeEffort">
-            <a
-              className="hover:text-darkOrange-5 font-medium"
-              href="https://creativecommons.org/licenses/by-sa/4.0/deed.en"
-              target="_blank"
-              rel="noreferrer"
+
+        <span className="text-darkOrange-5 label-large-20px md:display-small-32px">
+          {proofreading?.contributorsId?.length > 0
+            ? proofreading.contributorsId.map((proofreader, index) => (
+                <React.Fragment key={proofreader}>
+                  <span>{proofreader}</span>
+                  {index < proofreading.contributorsId.length - 2
+                    ? ', '
+                    : index === proofreading.contributorsId.length - 2
+                      ? ' & '
+                      : ''}
+                </React.Fragment>
+              ))
+            : ''}
+        </span>
+
+        <div className="flex flex-col md:flex-row gap-6 lg:gap-[50px] mt-6 md:mt-[30px]">
+          <div className="max-md:mx-auto">
+            <ProofreadingDesktop
+              isOriginalLanguage={isOriginalLanguage}
+              mode="light"
+              proofreadingData={{
+                contributors: proofreading?.contributorsId || [],
+                reward: proofreading?.reward,
+              }}
+              standalone
+              variant="vertical"
+              hideRewardsText={true}
+            />
+          </div>
+          <p className="md:mb-8 text-newBlack-1 md:text-justify body-16px md:subtitle-large-18px whitespace-pre-line max-w-[468px]">
+            <Trans
+              i18nKey={
+                proofreading?.contributorsId?.length > 0
+                  ? 'courses.details.collaborativeEffort'
+                  : 'courses.details.collaborativeEffortNotProofread'
+              }
             >
-              CC BY-SA
-            </a>
-          </Trans>
-        </p>
-        <div className="mx-auto">
-          <ProofreadingDesktop
-            isOriginalLanguage={isOriginalLanguage}
-            mode="light"
-            proofreadingData={{
-              contributors: proofreading.contributorsId,
-              reward: proofreading.reward,
-            }}
-            standalone
-            variant="vertical"
-          />
+              <a
+                className="hover:text-darkOrange-5 font-medium"
+                href="https://creativecommons.org/licenses/by-sa/4.0/deed.en"
+                target="_blank"
+                rel="noreferrer"
+              >
+                CC BY-SA
+              </a>
+            </Trans>
+          </p>
         </div>
       </section>
     </>

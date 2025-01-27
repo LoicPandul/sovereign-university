@@ -85,11 +85,13 @@ const ContributorsNames = ({
   reward,
   mode,
   standalone,
+  hideRewardsText = false,
 }: {
   contributors: string[];
   reward: number;
   mode: 'light' | 'dark';
   standalone?: boolean;
+  hideRewardsText?: boolean;
 }) => {
   const remainingContributors = 3 - contributors.length;
 
@@ -183,14 +185,16 @@ const ContributorsNames = ({
       >
         {Contributor3}
       </span>
-      <span
-        className={cn(
-          'max-md:hidden text-[8px] absolute -bottom-8 w-full text-center',
-          mode === 'dark' ? 'text-newGray-4' : 'text-black',
-        )}
-      >
-        {t('proofreading.rewardsText')}
-      </span>
+      {!hideRewardsText && (
+        <span
+          className={cn(
+            'max-md:hidden text-[8px] absolute -bottom-8 w-full text-center',
+            mode === 'dark' ? 'text-newGray-4' : 'text-black',
+          )}
+        >
+          {t('proofreading.rewardsText')}
+        </span>
+      )}
     </>
   );
 };
@@ -348,6 +352,7 @@ export const ProofreadingDesktop = ({
   isOriginalLanguage,
   standalone,
   className,
+  hideRewardsText = false,
 }: {
   proofreadingData: ProofreadingData;
   variant?: 'horizontal' | 'vertical';
@@ -355,6 +360,7 @@ export const ProofreadingDesktop = ({
   isOriginalLanguage: boolean;
   standalone?: boolean;
   className?: string;
+  hideRewardsText?: boolean;
 }) => {
   const contributorsLength = proofreadingData.contributors.length;
 
@@ -478,6 +484,7 @@ export const ProofreadingDesktop = ({
           reward={proofreadingData.reward ? proofreadingData.reward : 0}
           mode={mode}
           standalone={standalone}
+          hideRewardsText={hideRewardsText}
         />
       </div>
     </div>
