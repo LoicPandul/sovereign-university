@@ -11,6 +11,7 @@ import { AppContext } from '#src/providers/context.js';
 import { getPictureUrl } from '#src/services/user.js';
 import { logout } from '#src/utils/session-utils.ts';
 
+import SearchIcon from '#src/assets/icons/search.svg';
 import SignInIconLight from '../../assets/icons/sing-in.svg';
 
 import { LanguageSelector } from './language-selector.tsx';
@@ -25,7 +26,7 @@ export const MetaElements = ({
   onClickLogin,
   variant = 'dark',
 }: MetaElementsProps) => {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const { user, session } = useContext(AppContext);
   const location = useLocation();
   const isLoggedIn = !!session;
@@ -40,6 +41,10 @@ export const MetaElements = ({
 
   return (
     <div className="flex flex-row place-items-center gap-6 md:gap-2 lg:gap-6 ml-auto max-lg:mx-auto">
+      <Link className="cursor-pointer" to={`/${i18n.language}/search`}>
+        <img className="size-6" src={SearchIcon} alt={t('search.search')} />
+      </Link>
+
       <LanguageSelector
         direction={isScreenLg ? 'down' : 'up'}
         variant={variant}

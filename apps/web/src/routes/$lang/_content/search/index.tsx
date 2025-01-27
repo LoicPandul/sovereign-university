@@ -11,8 +11,8 @@ import { trpc } from '#src/utils/trpc.ts';
 import { HiOutlineAdjustmentsHorizontal } from 'react-icons/hi2';
 import { IoMdClose } from 'react-icons/io';
 import { MdKeyboardArrowDown, MdKeyboardArrowUp } from 'react-icons/md';
-import searchErrorIcon from '#src/assets/icons/search-error.svg';
-import searchIcon from '#src/assets/icons/search.svg';
+import SearchErrorIcon from '#src/assets/icons/search-error.svg';
+import SearchIcon from '#src/assets/icons/search.svg';
 
 import './style.css';
 import { getLanguageName } from '#src/utils/i18n.ts';
@@ -43,6 +43,11 @@ function SearchPage() {
   );
 
   const lastPage = search.data?.pages[search.data.pages.length - 1];
+
+  const clearSearch = () => {
+    setQuery('');
+    setCategories(new Set(['all']));
+  };
 
   const filters = [
     'all', //
@@ -93,7 +98,7 @@ function SearchPage() {
         <search className="flex flex-col space-y-4 max-w-2xl mx-auto sm:mb-16">
           <div className="flex items-center gap-4 relative bg-tertiary-10 my-8 h-14 rounded-lg">
             <img
-              src={searchIcon}
+              src={SearchIcon}
               alt="search"
               className="absolute size-6 mx-4"
             />
@@ -111,7 +116,7 @@ function SearchPage() {
             {query.length > 0 && (
               <IoMdClose
                 className="absolute right-4 size-6 cursor-pointer"
-                onClick={() => setQuery('')}
+                onClick={() => clearSearch()}
               />
             )}
           </div>
@@ -131,84 +136,91 @@ function SearchPage() {
             <p className="text-red-500">{t('search.resultError')}</p>
           )}
           {lastPage && (
-            <>
-              {lastPage.found > 0 && (
-                <div className="mb-4 ps-2">
-                  <div className="flex flex-col space-y-4 text-base mb-4">
-                    <div className={cn(query.length > 0 ? '' : 'hidden')}>
-                      <Button
-                        className="flex justify-start items-center gap-2 p-0"
-                        variant="ghost"
-                        onClick={() => setFiltersOpen(!filtersOpen)}
-                      >
-                        <HiOutlineAdjustmentsHorizontal className="size-6 stroke-[1.5]" />
-
-                        <p className={cn(filtersOpen && 'underline')}>
-                          {t('search.filterByType')}
-                        </p>
-
-                        {filtersOpen ? (
-                          <MdKeyboardArrowUp className="size-6" />
-                        ) : (
-                          <MdKeyboardArrowDown className="size-6" />
-                        )}
-                      </Button>
-                    </div>
-
-                    <div
-                      className={cn(
-                        'flex items-center gap-8 font-medium',
-                        filtersOpen ? 'flex' : 'hidden',
-                      )}
+            <div>
+              <div
+                className={cn(
+                  'mb-4 ps-2',
+                  lastPage.results.length === 0 && categories.has('all')
+                    ? 'hidden'
+                    : '',
+                )}
+              >
+                <div className="flex flex-col space-y-4 text-base mb-4">
+                  <div className={cn(query.length > 0 ? '' : 'hidden')}>
+                    <Button
+                      className="flex justify-start items-center gap-2 p-0"
+                      variant="ghost"
+                      onClick={() => setFiltersOpen(!filtersOpen)}
                     >
-                      <div className="flex flex-wrap gap-2">
-                        <Button
-                          variant={
-                            categories.has('all') ? 'primary' : 'outlineWhite'
-                          }
-                          size="s"
-                          onClick={() => setCategories(new Set(['all']))}
-                        >
-                          {t('search.all')}
-                        </Button>
+                      <HiOutlineAdjustmentsHorizontal className="size-6 stroke-[1.5]" />
 
-                        {filters.slice(1).map((filter) => (
-                          <Button
-                            key={filter}
-                            variant={
-                              categories.has(filter)
-                                ? 'primary'
-                                : 'outlineWhite'
-                            }
-                            size="s"
-                            onClick={() => {
-                              toggleFilter(filter);
-                            }}
-                            className="capitalize"
-                          >
-                            {`${t(`search.${filter}`)}`}
-                          </Button>
-                        ))}
-                      </div>
-                    </div>
+                      <p className={cn(filtersOpen && 'underline')}>
+                        {t('search.filterByType')}
+                      </p>
+
+                      {filtersOpen ? (
+                        <MdKeyboardArrowUp className="size-6" />
+                      ) : (
+                        <MdKeyboardArrowDown className="size-6" />
+                      )}
+                    </Button>
                   </div>
 
-                  <p className="text-gray-300 font-light text-sm mb-6">
-                    {t('search.languageSelected', {
-                      language: getLanguageName(i18n.language),
-                    })}
-                  </p>
+                  <div
+                    className={cn(
+                      'flex items-center gap-8 font-medium',
+                      filtersOpen ? 'flex' : 'hidden',
+                    )}
+                  >
+                    <div className="flex flex-wrap gap-2">
+                      <Button
+                        variant={
+                          categories.has('all') ? 'primary' : 'outlineWhite'
+                        }
+                        size="s"
+                        onClick={() => setCategories(new Set(['all']))}
+                      >
+                        {t('search.all')}
+                      </Button>
 
-                  <p className="mb-1">{t('search.searchResult')}</p>
-
-                  <p className="text-gray-300 font-light text-sm mb-8">
-                    {t('search.resultInfo', {
-                      count: lastPage.found,
-                      time: lastPage.time,
-                    })}
-                  </p>
+                      {filters.slice(1).map((filter) => (
+                        <Button
+                          key={filter}
+                          variant={
+                            categories.has(filter) ? 'primary' : 'outlineWhite'
+                          }
+                          size="s"
+                          onClick={() => {
+                            toggleFilter(filter);
+                          }}
+                          className="capitalize"
+                        >
+                          {`${t(`search.${filter}`)}`}
+                        </Button>
+                      ))}
+                    </div>
+                  </div>
                 </div>
-              )}
+
+                <p className="text-gray-300 font-light text-sm mb-6">
+                  {t('search.languageSelected', {
+                    language: getLanguageName(i18n.language),
+                  })}
+                </p>
+
+                {lastPage.found > 0 && (
+                  <>
+                    <p className="mb-1">{t('search.searchResult')}</p>
+
+                    <p className="text-gray-300 font-light text-sm mb-8">
+                      {t('search.resultInfo', {
+                        count: lastPage.found,
+                        time: lastPage.time,
+                      })}
+                    </p>
+                  </>
+                )}
+              </div>
 
               <ul className="search-results">
                 {search.data?.pages
@@ -259,7 +271,7 @@ function SearchPage() {
 
               {lastPage && search.data?.pages?.[0].found === 0 && (
                 <div className="flex flex-col items-center space-y-8 mt-12 max-w-xl mx-auto text-center">
-                  <img src={searchErrorIcon} alt="search error" />
+                  <img src={SearchErrorIcon} alt="search error" />
 
                   <p>{t('search.resultEmpty')}</p>
                 </div>
@@ -284,7 +296,7 @@ function SearchPage() {
                   </div>
                 </div>
               )}
-            </>
+            </div>
           )}
         </div>
       </div>
