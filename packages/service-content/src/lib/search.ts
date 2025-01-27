@@ -1,3 +1,4 @@
+import { Errors as TypesenseErrors } from 'typesense';
 import type { Client as TypesenseClient } from 'typesense';
 import type { CollectionCreateSchema } from 'typesense/lib/Typesense/Collections.js';
 
@@ -186,7 +187,15 @@ const createDeleteIndexes = (client: TypesenseClient) => () => {
     .collections('searchable')
     .delete()
     .then(() => console.log('[SEARCH] Index deleted'))
-    .catch((error) => console.error('[SEARCH] Failed to delete index:', error));
+    .catch((error) => {
+      if (error instanceof TypesenseErrors.ObjectNotFound) {
+        return console.log(
+          '[SEARCH] Cannot delete collection "searchable" (does not exist)',
+        );
+      }
+
+      console.error('[SEARCH] Failed to delete index:', error);
+    });
 };
 
 const createIngestData = (client: TypesenseClient) => (data: Searchable[]) => {
