@@ -72,7 +72,7 @@ export const PasswordReset = ({ isOpen, onClose, goTo }: LoginModalProps) => {
             onSubmit={methods.handleSubmit(handlePasswordReset)}
             className="flex w-full flex-col items-center"
           >
-            <FormItem className="my-2 w-4/5">
+            <FormItem className="space-y-2 my-2 w-4/5">
               <FormLabel>{t('auth.emailAddress')}</FormLabel>
               <FormField
                 name="email"
