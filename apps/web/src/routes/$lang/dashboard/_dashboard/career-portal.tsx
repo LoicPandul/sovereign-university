@@ -415,13 +415,14 @@ function CareerPortal() {
               )}
               <p className="max-w-[738px] mx-auto text-newBlack-4 text-center body-14px">
                 <Trans i18nKey={'dashboard.careerPortal.beAware'}>
-                  {/* Todo : add link to candidate privacy notice once it's ready - see figma discussion */}
-                  <Link
-                    to=""
+                  <a
+                    href="https://workspace.planb.network/s/EKLJPd8YnH3ooft"
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="body-14px-medium hover:text-darkOrange-5"
                   >
                     here
-                  </Link>
+                  </a>
                 </Trans>
               </p>
             </>
