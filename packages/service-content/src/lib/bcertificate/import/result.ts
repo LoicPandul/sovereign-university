@@ -1,4 +1,4 @@
-import { convert } from 'pdf-img-convert';
+import { pdfThumbnail } from '@blms/service-common';
 
 import { type TransactionSql, firstRow } from '@blms/database';
 import type { S3Service } from '@blms/s3';
@@ -105,7 +105,7 @@ export const createProcessTimestampFile = (
     ////
     if (fileType === 'pdf') {
       const fileBufferCopy2 = Buffer.from(fileBuffer);
-      const thumbnail = await createPngFromFirstPage(fileBufferCopy2);
+      const thumbnail = await pdfThumbnail(fileBufferCopy2);
       if (!thumbnail) {
         console.warn('No thumbnail found for', filePath);
         return null;
@@ -135,15 +135,3 @@ export const createProcessTimestampFile = (
   `;
   };
 };
-
-export async function createPngFromFirstPage(pdfBlob: Uint8Array | Buffer) {
-  const pdfPages = await convert(pdfBlob);
-
-  for (const page of pdfPages.values()) {
-    if (page) {
-      return page;
-    }
-  }
-
-  return null;
-}

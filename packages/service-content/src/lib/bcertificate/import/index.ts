@@ -164,6 +164,11 @@ export const createUpdateBCertificateExams = ({
           try {
             await processTimestampFile(file, bcertEdition, bcertId);
           } catch (error) {
+            console.log(
+              'Error processing file(B Certificate OTS file) ${file?.path}',
+              error,
+            );
+
             errors.push(
               `Error processing file(B Certificate OTS file) ${file?.path}: ${error}`,
             );

@@ -53,6 +53,9 @@ jobs:
       - name: Lint Code
         run: pnpm lint
 
+      - name: Run tests
+        run: pnpm test
+
   deploy:
     needs: build_and_test
     if: (github.event_name == 'push') && (github.ref == 'refs/heads/mainnet' || github.ref == 'refs/heads/testnet')

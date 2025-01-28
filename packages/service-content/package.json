@@ -21,10 +21,10 @@
   "dependencies": {
     "@blms/database": "workspace:*",
     "@blms/s3": "workspace:*",
+    "@blms/service-common": "workspace:*",
     "gray-matter": "^4.0.3",
     "js-yaml": "^4.1.0",
     "marked": "^15.0.6",
-    "pdf-img-convert": "^2.0.0",
     "uuid": "^11.0.5",
     "zod": "^3.24.1"
   },
