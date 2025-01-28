@@ -5,6 +5,7 @@ export const getCourseQuery = (id: string, language?: string) => {
   return sql<JoinedCourseWithProfessorsContributorIds[]>`
     SELECT
       c.id,
+      c.is_archived,
       cl.language,
       c.level,
       c.hours,
@@ -12,6 +13,7 @@ export const getCourseQuery = (id: string, language?: string) => {
       c.subtopic,
       c.original_language,
       c.requires_payment,
+      c.payment_expiration_date,
       c.format,
       c.online_price_dollars,
       c.inperson_price_dollars,

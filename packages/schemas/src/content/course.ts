@@ -85,11 +85,13 @@ export const joinedCourseChapterSchema = courseChapterLocalizedSchema
 export const minimalJoinedCourseSchema = courseSchema
   .pick({
     id: true,
+    isArchived: true,
     hours: true,
     topic: true,
     subtopic: true,
     originalLanguage: true,
     requiresPayment: true,
+    paymentExpirationDate: true,
     format: true,
     onlinePriceDollars: true,
     inpersonPriceDollars: true,
