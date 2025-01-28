@@ -68,16 +68,9 @@ export const AppProvider = ({ children }: PropsWithChildren) => {
   }
 
   async function updateCurrentLanguage(newLanguage: string, path: string) {
-    console.log(
-      `updateCurrentLanguage ${currentLanguage} -- ${newLanguage} -- ${path}`,
-    );
-
-    console.log('CHANGE I18N language for2', newLanguage);
-
     cleanUpdateLanguage(newLanguage);
 
     if (path === '/') {
-      console.log(`NO PATH (${currentLanguage}--${newLanguage})`);
       router.navigate({
         to: `/${newLanguage}`,
         replace: true,
@@ -85,10 +78,8 @@ export const AppProvider = ({ children }: PropsWithChildren) => {
     }
 
     const pathLanguage = location.pathname.split('/')[1];
-    console.log(`pathLanguage ${pathLanguage}`);
 
     if (pathLanguage && !LANGUAGES.includes(pathLanguage)) {
-      console.log('333333333');
       router.navigate({
         to: `/${newLanguage}/${location.pathname}`,
         replace: true,
@@ -99,21 +90,12 @@ export const AppProvider = ({ children }: PropsWithChildren) => {
   }
 
   // useLayoutEffect(() => {
-  //   console.log('App: useLayoutEffect', i18n.resolvedLanguage);
   //   setCurrentLanguage(i18n.resolvedLanguage);
   // }, [i18n]);
 
   // Handle language change
   useEffect(() => {
-    console.log(
-      'App: handle language change',
-      currentLanguage,
-      '--',
-      i18n.language,
-    );
     const newLanguage = currentLanguage ? currentLanguage : i18n.language;
-
-    console.log('CHANGE I18N language for1', newLanguage);
 
     cleanUpdateLanguage(newLanguage);
 
@@ -125,7 +107,6 @@ export const AppProvider = ({ children }: PropsWithChildren) => {
   // Handle browser's back() and next()
   useEffect(() => {
     const handlePopState = () => {
-      console.log('HANDLE POP STATE');
       const pathName = location.pathname;
       const newLanguage = pathName.split('/')[1];
       const pathWithoutLang = location.pathname.replace(/^\/[^/]+/, '');

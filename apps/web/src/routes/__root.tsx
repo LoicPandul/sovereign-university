@@ -39,7 +39,6 @@ export const Route = createRootRouteWithContext<{
 }>()({
   // Add language for navigation inside the app
   onStay: async ({ context, preload }) => {
-    console.log('==onStay');
     const { i18n } = context;
     if (!i18n || preload) {
       return;
@@ -48,9 +47,6 @@ export const Route = createRootRouteWithContext<{
 
     // If no language in the path, redirect to language
     if (!pathLanguage || (pathLanguage && !LANGUAGES.includes(pathLanguage))) {
-      console.log(
-        `==onStay => NO LANGUAGE IN PATH (${pathLanguage}) => (${i18n.language})`,
-      );
       router.navigate({
         to: `/${i18n.language}/${location.pathname}`,
         replace: true,
