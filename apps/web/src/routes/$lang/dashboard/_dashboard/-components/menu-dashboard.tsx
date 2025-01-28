@@ -23,6 +23,7 @@ import { addSpaceToCourseId } from '#src/utils/courses.ts';
 import { logout } from '#src/utils/session-utils.js';
 import { trpc } from '#src/utils/trpc.ts';
 
+import { TbBriefcase2 } from 'react-icons/tb';
 import { MenuItem } from './menu-item.tsx';
 
 export const MenuDashboard = ({
@@ -63,6 +64,7 @@ export const MenuDashboard = ({
   const credentialsPath = '/dashboard/credentials';
   const bookingsPath = '/dashboard/bookings';
   const calendarPath = '/dashboard/calendar';
+  const careerPortalPath = '/dashboard/career-portal';
   const profilePath = '/dashboard/profile';
   const adminRolePath = '/dashboard/administration/role';
   const adminTutorialsPath = '/dashboard/administration/tutorials';
@@ -153,6 +155,14 @@ export const MenuDashboard = ({
             text={t('words.credentials')}
             icon={<BsMortarboard size={24} />}
             active={pathname.includes(credentialsPath)}
+            onClick={toggleMobileMenu}
+          />
+        </Link>
+        <Link to={careerPortalPath}>
+          <MenuItem
+            text={t('words.careerPortal')}
+            icon={<TbBriefcase2 size={24} />}
+            active={pathname.includes(careerPortalPath)}
             onClick={toggleMobileMenu}
           />
         </Link>

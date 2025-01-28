@@ -101,7 +101,7 @@ export const ChangePasswordModal = ({
               control={form.control}
               name="oldPassword"
               render={({ field, fieldState }) => (
-                <FormItem className="flex flex-col justify-between text-center">
+                <FormItem className="space-y-2 flex flex-col justify-between text-center">
                   <div className="my-2 w-80">
                     <FormLabel className="text-sm font-normal !max-md:leading-[120%] !md:desktop-h7 !text-dashboardSectionText">
                       Old password
@@ -118,7 +118,7 @@ export const ChangePasswordModal = ({
               control={form.control}
               name="newPassword"
               render={({ field, fieldState }) => (
-                <FormItem className="flex flex-col justify-between text-center">
+                <FormItem className="space-y-2 flex flex-col justify-between text-center">
                   <div className="my-2 w-80">
                     <FormLabel className="text-sm font-normal !max-md:leading-[120%] !md:desktop-h7 !text-dashboardSectionText">
                       New password
@@ -135,7 +135,7 @@ export const ChangePasswordModal = ({
               control={form.control}
               name="newPasswordConfirmation"
               render={({ field, fieldState }) => (
-                <FormItem className="flex flex-col justify-between text-center">
+                <FormItem className="space-y-2 flex flex-col justify-between text-center">
                   <div className="my-2 w-80">
                     <FormLabel className="text-sm font-normal !max-md:leading-[120%] !md:desktop-h7 !text-dashboardSectionText">
                       Confirmation

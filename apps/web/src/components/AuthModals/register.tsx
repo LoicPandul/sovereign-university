@@ -151,7 +151,7 @@ export const Register = ({
                       control={methods.control}
                       name="username"
                       render={({ field, fieldState }) => (
-                        <FormItem className="my-2 w-full">
+                        <FormItem className="space-y-2 my-2 w-full">
                           <FormLabel required>
                             {t('dashboard.profile.username')}
                           </FormLabel>
@@ -170,7 +170,7 @@ export const Register = ({
                       control={methods.control}
                       name="password"
                       render={({ field, fieldState }) => (
-                        <FormItem className="my-2 w-full">
+                        <FormItem className="space-y-2 my-2 w-full">
                           <FormLabel required>
                             {t('dashboard.profile.password')}
                           </FormLabel>
@@ -190,7 +190,7 @@ export const Register = ({
                       control={methods.control}
                       name="confirmation"
                       render={({ field, fieldState }) => (
-                        <FormItem className="my-2 w-full">
+                        <FormItem className="space-y-2 my-2 w-full">
                           <FormLabel required>
                             {t('auth.confirmation')}
                           </FormLabel>
@@ -210,7 +210,7 @@ export const Register = ({
                       control={methods.control}
                       name="email"
                       render={({ field, fieldState }) => (
-                        <FormItem className="my-2 w-full">
+                        <FormItem className="space-y-2 my-2 w-full">
                           <FormLabel>{t('auth.emailAddress')}</FormLabel>
                           <FormControl>
                             <Input

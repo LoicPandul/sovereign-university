@@ -7,6 +7,7 @@
 export type * from './account.js';
 export type * from './billing.js';
 export type * from './calendar.js';
+export type * from './career.js';
 export type * from './config.js';
 export type * from './course.js';
 export type * from './event.js';

@@ -62,7 +62,7 @@ function FormSlider({
           control={form.control}
           name={id}
           render={({ field: { value, onChange } }) => (
-            <FormItem>
+            <FormItem className="space-y-2">
               <FormLabel className="mb-3.5">{label}</FormLabel>
               <FormControl>
                 <Slider
@@ -136,7 +136,7 @@ function FormTextArea({
       control={control}
       name={id}
       render={({ field }: { field: any }) => (
-        <FormItem>
+        <FormItem className="space-y-2">
           <FormLabel
             removeDefaultClasses
             className="block text-left md:text-center label-medium-med-16px md:subtitle-large-med-20px text-dashboardSectionText"
@@ -373,7 +373,7 @@ export function CourseReviewComponent({
                         control={form.control}
                         name={'general'}
                         render={({ field }: { field: any }) => (
-                          <FormItem>
+                          <FormItem className="space-y-2">
                             <FormLabel className="!mb-5 md:!mb-4">
                               {t('courses.review.generalGrade')}
                             </FormLabel>

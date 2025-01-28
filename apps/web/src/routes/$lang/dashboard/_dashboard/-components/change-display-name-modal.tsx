@@ -88,7 +88,7 @@ export const ChangeDisplayNameModal = ({
               control={form.control}
               name="displayName"
               render={({ field, fieldState }) => (
-                <FormItem className="flex flex-col justify-between text-center">
+                <FormItem className="space-y-2 flex flex-col justify-between text-center">
                   <div className="my-2 w-80">
                     <FormLabel className="text-sm font-normal !max-md:leading-[120%] !md:desktop-h7 !text-dashboardSectionText">
                       {t('auth.displayName')}

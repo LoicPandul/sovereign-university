@@ -23,6 +23,7 @@ import { Route as LangContentCoursesIndexImport } from './routes/$lang/_content/
 import { Route as LangDashboardDashboardProfileImport } from './routes/$lang/dashboard/_dashboard/profile';
 import { Route as LangDashboardDashboardCredentialsImport } from './routes/$lang/dashboard/_dashboard/credentials';
 import { Route as LangDashboardDashboardCoursesImport } from './routes/$lang/dashboard/_dashboard/courses';
+import { Route as LangDashboardDashboardCareerPortalImport } from './routes/$lang/dashboard/_dashboard/career-portal';
 import { Route as LangDashboardDashboardCalendarImport } from './routes/$lang/dashboard/_dashboard/calendar';
 import { Route as LangDashboardDashboardBookingsImport } from './routes/$lang/dashboard/_dashboard/bookings';
 import { Route as LangContentEventsEventIdImport } from './routes/$lang/_content/events/$eventId';
@@ -149,6 +150,13 @@ const LangDashboardDashboardCoursesRoute =
   LangDashboardDashboardCoursesImport.update({
     id: '/courses',
     path: '/courses',
+    getParentRoute: () => LangDashboardDashboardRoute,
+  } as any);
+
+const LangDashboardDashboardCareerPortalRoute =
+  LangDashboardDashboardCareerPortalImport.update({
+    id: '/career-portal',
+    path: '/career-portal',
     getParentRoute: () => LangDashboardDashboardRoute,
   } as any);
 
@@ -616,6 +624,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof LangDashboardDashboardCalendarImport;
       parentRoute: typeof LangDashboardDashboardImport;
     };
+    '/$lang/dashboard/_dashboard/career-portal': {
+      id: '/$lang/dashboard/_dashboard/career-portal';
+      path: '/career-portal';
+      fullPath: '/$lang/dashboard/career-portal';
+      preLoaderRoute: typeof LangDashboardDashboardCareerPortalImport;
+      parentRoute: typeof LangDashboardDashboardImport;
+    };
     '/$lang/dashboard/_dashboard/courses': {
       id: '/$lang/dashboard/_dashboard/courses';
       path: '/courses';
@@ -995,6 +1010,7 @@ declare module '@tanstack/react-router' {
 interface LangDashboardDashboardRouteChildren {
   LangDashboardDashboardBookingsRoute: typeof LangDashboardDashboardBookingsRoute;
   LangDashboardDashboardCalendarRoute: typeof LangDashboardDashboardCalendarRoute;
+  LangDashboardDashboardCareerPortalRoute: typeof LangDashboardDashboardCareerPortalRoute;
   LangDashboardDashboardCoursesRoute: typeof LangDashboardDashboardCoursesRoute;
   LangDashboardDashboardCredentialsRoute: typeof LangDashboardDashboardCredentialsRoute;
   LangDashboardDashboardProfileRoute: typeof LangDashboardDashboardProfileRoute;
@@ -1012,6 +1028,8 @@ const LangDashboardDashboardRouteChildren: LangDashboardDashboardRouteChildren =
   {
     LangDashboardDashboardBookingsRoute: LangDashboardDashboardBookingsRoute,
     LangDashboardDashboardCalendarRoute: LangDashboardDashboardCalendarRoute,
+    LangDashboardDashboardCareerPortalRoute:
+      LangDashboardDashboardCareerPortalRoute,
     LangDashboardDashboardCoursesRoute: LangDashboardDashboardCoursesRoute,
     LangDashboardDashboardCredentialsRoute:
       LangDashboardDashboardCredentialsRoute,
@@ -1081,6 +1099,7 @@ export interface FileRoutesByFullPath {
   '/$lang/events/$eventId': typeof LangContentEventsEventIdRoute;
   '/$lang/dashboard/bookings': typeof LangDashboardDashboardBookingsRoute;
   '/$lang/dashboard/calendar': typeof LangDashboardDashboardCalendarRoute;
+  '/$lang/dashboard/career-portal': typeof LangDashboardDashboardCareerPortalRoute;
   '/$lang/dashboard/courses': typeof LangDashboardDashboardCoursesRoute;
   '/$lang/dashboard/credentials': typeof LangDashboardDashboardCredentialsRoute;
   '/$lang/dashboard/profile': typeof LangDashboardDashboardProfileRoute;
@@ -1148,6 +1167,7 @@ export interface FileRoutesByTo {
   '/$lang/events/$eventId': typeof LangContentEventsEventIdRoute;
   '/$lang/dashboard/bookings': typeof LangDashboardDashboardBookingsRoute;
   '/$lang/dashboard/calendar': typeof LangDashboardDashboardCalendarRoute;
+  '/$lang/dashboard/career-portal': typeof LangDashboardDashboardCareerPortalRoute;
   '/$lang/dashboard/courses': typeof LangDashboardDashboardCoursesRoute;
   '/$lang/dashboard/credentials': typeof LangDashboardDashboardCredentialsRoute;
   '/$lang/dashboard/profile': typeof LangDashboardDashboardProfileRoute;
@@ -1216,6 +1236,7 @@ export interface FileRoutesById {
   '/$lang/_content/events/$eventId': typeof LangContentEventsEventIdRoute;
   '/$lang/dashboard/_dashboard/bookings': typeof LangDashboardDashboardBookingsRoute;
   '/$lang/dashboard/_dashboard/calendar': typeof LangDashboardDashboardCalendarRoute;
+  '/$lang/dashboard/_dashboard/career-portal': typeof LangDashboardDashboardCareerPortalRoute;
   '/$lang/dashboard/_dashboard/courses': typeof LangDashboardDashboardCoursesRoute;
   '/$lang/dashboard/_dashboard/credentials': typeof LangDashboardDashboardCredentialsRoute;
   '/$lang/dashboard/_dashboard/profile': typeof LangDashboardDashboardProfileRoute;
@@ -1285,6 +1306,7 @@ export interface FileRouteTypes {
     | '/$lang/events/$eventId'
     | '/$lang/dashboard/bookings'
     | '/$lang/dashboard/calendar'
+    | '/$lang/dashboard/career-portal'
     | '/$lang/dashboard/courses'
     | '/$lang/dashboard/credentials'
     | '/$lang/dashboard/profile'
@@ -1351,6 +1373,7 @@ export interface FileRouteTypes {
     | '/$lang/events/$eventId'
     | '/$lang/dashboard/bookings'
     | '/$lang/dashboard/calendar'
+    | '/$lang/dashboard/career-portal'
     | '/$lang/dashboard/courses'
     | '/$lang/dashboard/credentials'
     | '/$lang/dashboard/profile'
@@ -1417,6 +1440,7 @@ export interface FileRouteTypes {
     | '/$lang/_content/events/$eventId'
     | '/$lang/dashboard/_dashboard/bookings'
     | '/$lang/dashboard/_dashboard/calendar'
+    | '/$lang/dashboard/_dashboard/career-portal'
     | '/$lang/dashboard/_dashboard/courses'
     | '/$lang/dashboard/_dashboard/credentials'
     | '/$lang/dashboard/_dashboard/profile'
@@ -1684,6 +1708,7 @@ export const routeTree = rootRoute
       "children": [
         "/$lang/dashboard/_dashboard/bookings",
         "/$lang/dashboard/_dashboard/calendar",
+        "/$lang/dashboard/_dashboard/career-portal",
         "/$lang/dashboard/_dashboard/courses",
         "/$lang/dashboard/_dashboard/credentials",
         "/$lang/dashboard/_dashboard/profile",
@@ -1724,6 +1749,10 @@ export const routeTree = rootRoute
     },
     "/$lang/dashboard/_dashboard/calendar": {
       "filePath": "$lang/dashboard/_dashboard/calendar.tsx",
+      "parent": "/$lang/dashboard/_dashboard"
+    },
+    "/$lang/dashboard/_dashboard/career-portal": {
+      "filePath": "$lang/dashboard/_dashboard/career-portal.tsx",
       "parent": "/$lang/dashboard/_dashboard"
     },
     "/$lang/dashboard/_dashboard/courses": {

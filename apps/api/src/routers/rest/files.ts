@@ -1,4 +1,5 @@
 import { randomUUID } from 'node:crypto';
+import fs from 'node:fs';
 import type { Readable } from 'node:stream';
 
 import type { Request, Router } from 'express';
@@ -73,6 +74,56 @@ const receiveImage = (req: Request, resizeOptions = defaultResizeOptions) => {
   });
 };
 
+const receivePdf = (req: Request) => {
+  return new Promise<Readable>((resolve, reject) => {
+    const form = formidable({
+      multiples: false,
+    });
+
+    try {
+      form.parse<never, 'file'>(req, (err, _, files) => {
+        if (err) {
+          throw new InternalServerError('Failed to parse form data');
+        }
+
+        if (files.file?.length !== 1) {
+          throw new BadRequest('Invalid number of files');
+        }
+
+        const [file] = files.file;
+
+        // Sanity check
+        if (!req.session.uid) {
+          throw new InternalServerError('Missing session uid');
+        }
+
+        if (!file.mimetype) {
+          throw new InternalServerError('Missing file mimetype');
+        }
+
+        if (file.mimetype !== 'application/pdf') {
+          throw new BadRequest('Invalid file type');
+        }
+
+        if (!file.originalFilename) {
+          throw new InternalServerError('Missing file name');
+        }
+
+        // Size limit
+        if (file.size > 10 * 1024 * 1024) {
+          throw new BadRequest('File too large');
+        }
+
+        const fileStream = fs.createReadStream(file.filepath);
+        resolve(fileStream);
+      });
+    } catch (error) {
+      console.log('Error:', error);
+      reject(error);
+    }
+  });
+};
+
 export const createRestFilesRoutes = async (
   dependencies: Dependencies,
   router: Router,
@@ -102,6 +153,25 @@ export const createRestFilesRoutes = async (
         .catch(next);
     },
   );
+
+  router.post('/career/cvs/:key', expressAuthMiddleware, (req, res, next) => {
+    const { key } = req.params;
+
+    // Sanity check
+    if (!req.session.uid) {
+      throw new InternalServerError('Missing session uid');
+    }
+    if (!key) {
+      throw new BadRequest('Missing key');
+    }
+
+    receivePdf(req)
+      .then((stream) => {
+        return dependencies.s3.upload(`cvs/${key}`, stream, 'application/pdf');
+      })
+      .then(() => res.json())
+      .catch(next);
+  });
 
   // Get all B-Cert files in a zip; typical key will be <exam-id>/<user-id>
   router.get('/files/zip/bcert/:edition/:username', async (req, res, next) => {
@@ -192,7 +262,12 @@ export const createRestFilesRoutes = async (
     try {
       const { dir, key } = req.params;
 
-      const allowedBuckets = ['certificates', 'bcertresults', 'user-files'];
+      const allowedBuckets = [
+        'certificates',
+        'bcertresults',
+        'user-files',
+        'cvs',
+      ];
       if (!allowedBuckets.includes(dir)) {
         res.status(401).send('Unauthorized');
         return;
