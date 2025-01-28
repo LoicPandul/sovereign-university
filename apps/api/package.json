@@ -25,7 +25,7 @@
     "@blms/schemas": "workspace:*",
     "@blms/service-content": "workspace:*",
     "@blms/service-user": "workspace:*",
-    "@trpc/server": "11.0.0-rc.433",
+    "@trpc/server": "11.0.0-rc.730",
     "argon2": "^0.41.1",
     "bech32": "^2.0.0",
     "bip39": "^3.1.0",
