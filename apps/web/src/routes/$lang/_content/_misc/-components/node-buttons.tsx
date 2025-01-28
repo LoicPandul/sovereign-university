@@ -4,7 +4,7 @@ export function NodeLocationSelector() {
   const [selectedRegion, setSelectedRegion] = useState('America');
 
   const regions = [
-    { label: 'America', link: 'https://t.me/ErnestoQuezada' },
+    { label: 'America', link: 'mailto:ajelex@planb.network' },
     { label: 'Europe', link: 'mailto:ajelex@planb.network' },
     { label: 'Africa', link: 'mailto:ajelex@planb.network' },
     { label: 'Asia/Pacific', link: 'mailto:ajelex@planb.network' },
