@@ -133,7 +133,7 @@ const Credits = ({ course }: { course: JoinedCourseWithAll }) => {
         </span>
 
         <div className="flex flex-col md:flex-row gap-6 lg:gap-[50px] mt-6 md:mt-[30px]">
-          <div className="max-md:mx-auto">
+          <div className="max-md:mx-auto shrink-0">
             <ProofreadingDesktop
               isOriginalLanguage={isOriginalLanguage}
               mode="light"
@@ -143,17 +143,26 @@ const Credits = ({ course }: { course: JoinedCourseWithAll }) => {
               }}
               standalone
               variant="vertical"
-              hideRewardsText={true}
             />
           </div>
-          <p className="md:mb-8 text-newBlack-1 md:text-justify body-16px md:subtitle-large-18px whitespace-pre-line max-w-[468px]">
-            <Trans
-              i18nKey={
-                proofreading?.contributorsId?.length > 0
-                  ? 'courses.details.collaborativeEffort'
-                  : 'courses.details.collaborativeEffortNotProofread'
-              }
-            >
+          <p className="md:mb-8 text-newBlack-1 md:text-justify body-16px md:subtitle-medium-16px whitespace-pre-line">
+            <Trans i18nKey={'courses.details.collaborativeEffort'}>
+              <a
+                className="hover:text-darkOrange-5 font-medium"
+                href="https://t.me/PlanBNetwork_ContentBuilder"
+                target="_blank"
+                rel="noreferrer"
+              >
+                telegram
+              </a>
+              <a
+                className="hover:text-darkOrange-5 font-medium"
+                href="/tutorials/others/contribution/content-review-tutorial-1ee068ca-ddaf-4bec-b44e-b41a9abfdef6"
+                target="_blank"
+                rel="noreferrer"
+              >
+                tutorial
+              </a>
               <a
                 className="hover:text-darkOrange-5 font-medium"
                 href="https://creativecommons.org/licenses/by-sa/4.0/deed.en"
