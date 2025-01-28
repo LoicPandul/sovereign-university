@@ -20,12 +20,10 @@ export const TutorialTile = ({
       className="flex flex-col gap-2 items-center justify-center w-20 lg:w-24 h-full"
     >
       <Link
-        to={'/tutorials/$category/$subcategory/$name-$id'}
+        to={`/tutorials/$category/$subcategory/${tutorial.name}-${tutorial.id}`}
         params={{
           category: tutorial.category,
           subcategory: tutorial.subcategory,
-          name: tutorial.name,
-          id: tutorial.id,
         }}
         className="group/builder relative flex flex-col items-center justify-center"
       >
