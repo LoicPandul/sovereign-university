@@ -861,6 +861,7 @@ export const courseFormatEnum = pgEnum('course_format', [
 
 export const contentCourses = content.table('courses', (t) => ({
   id: t.varchar({ length: 20 }).primaryKey().notNull(),
+  isArchived: t.boolean().default(false).notNull(),
 
   level: t.varchar({ length: 255 }).notNull(),
   hours: t.doublePrecision().notNull(),
@@ -869,6 +870,7 @@ export const contentCourses = content.table('courses', (t) => ({
   originalLanguage: t.varchar({ length: 10 }).notNull().default('en'),
 
   requiresPayment: t.boolean().default(false).notNull(),
+  paymentExpirationDate: t.timestamp(),
   format: courseFormatEnum().default('online').notNull(),
   onlinePriceDollars: t.integer(),
   inpersonPriceDollars: t.integer(),

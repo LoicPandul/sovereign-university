@@ -5,12 +5,14 @@ import { Level } from './resource.js';
 import { FormattedProfessor } from './professor.js';
 export interface Course {
   id: string;
+  isArchived: boolean;
   level: string;
   hours: number;
   topic: string;
   subtopic: string;
   originalLanguage: string;
   requiresPayment: boolean;
+  paymentExpirationDate: Date | null;
   format: 'online' | 'inperson' | 'hybrid';
   onlinePriceDollars: number | null;
   inpersonPriceDollars: number | null;
@@ -126,11 +128,13 @@ export interface JoinedCourseChapter {
 
 export interface MinimalJoinedCourse {
   id: string;
+  isArchived: boolean;
   hours: number;
   topic: string;
   subtopic: string;
   originalLanguage: string;
   requiresPayment: boolean;
+  paymentExpirationDate: Date | null;
   format: 'online' | 'inperson' | 'hybrid';
   onlinePriceDollars: number | null;
   inpersonPriceDollars: number | null;
@@ -157,11 +161,13 @@ export interface MinimalJoinedCourse {
 
 export interface JoinedCourse {
   id: string;
+  isArchived: boolean;
   hours: number;
   topic: string;
   subtopic: string;
   originalLanguage: string;
   requiresPayment: boolean;
+  paymentExpirationDate: Date | null;
   format: 'online' | 'inperson' | 'hybrid';
   onlinePriceDollars: number | null;
   inpersonPriceDollars: number | null;
@@ -189,11 +195,13 @@ export interface JoinedCourse {
 
 export interface JoinedCourseWithProfessorsContributorIds {
   id: string;
+  isArchived: boolean;
   hours: number;
   topic: string;
   subtopic: string;
   originalLanguage: string;
   requiresPayment: boolean;
+  paymentExpirationDate: Date | null;
   format: 'online' | 'inperson' | 'hybrid';
   onlinePriceDollars: number | null;
   inpersonPriceDollars: number | null;
@@ -221,11 +229,13 @@ export interface JoinedCourseWithProfessorsContributorIds {
 
 export interface JoinedCourseWithAll {
   id: string;
+  isArchived: boolean;
   hours: number;
   topic: string;
   subtopic: string;
   originalLanguage: string;
   requiresPayment: boolean;
+  paymentExpirationDate: Date | null;
   format: 'online' | 'inperson' | 'hybrid';
   onlinePriceDollars: number | null;
   inpersonPriceDollars: number | null;
@@ -301,11 +311,13 @@ export interface PartWithChapters {
 
 export interface CourseResponse {
   id: string;
+  isArchived: boolean;
   hours: number;
   topic: string;
   subtopic: string;
   originalLanguage: string;
   requiresPayment: boolean;
+  paymentExpirationDate: Date | null;
   format: 'online' | 'inperson' | 'hybrid';
   onlinePriceDollars: number | null;
   inpersonPriceDollars: number | null;

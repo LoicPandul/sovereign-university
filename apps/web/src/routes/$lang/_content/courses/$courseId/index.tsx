@@ -160,7 +160,13 @@ function CourseDetails() {
     course?.availableSeats &&
     course.availableSeats > 0;
 
-  const isStartOrBuyButtonDisabled = false;
+  const now = new Date(Date.now());
+
+  const isStartOrBuyButtonDisabled = !!(
+    courseHasToBePurchased &&
+    course.paymentExpirationDate &&
+    course.paymentExpirationDate < now
+  );
 
   const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
 

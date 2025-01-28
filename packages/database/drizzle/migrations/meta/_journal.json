@@ -351,6 +351,13 @@
       "when": 1737133978458,
       "tag": "0049_bouncy_doctor_strange",
       "breakpoints": true
+    },
+    {
+      "idx": 50,
+      "version": "7",
+      "when": 1738090709894,
+      "tag": "0050_clammy_microchip",
+      "breakpoints": true
     }
   ]
 }

@@ -90,6 +90,7 @@ export const groupByCourse = (files: ChangedFile[], errors: string[]) => {
 };
 
 interface CourseMain {
+  is_archived: boolean;
   level: string;
   hours: number;
   topic: string;
@@ -98,6 +99,7 @@ interface CourseMain {
   professors: string[];
   tags?: string[];
   requires_payment: boolean;
+  payment_expiration_date?: string;
   format: string;
   online_price_dollars?: number;
   inperson_price_dollars?: number;
@@ -322,23 +324,27 @@ export const createUpdateCourses = ({ postgres }: Dependencies) => {
           if (parsedCourse.requires_payment === null) {
             parsedCourse.requires_payment = false;
           }
+          if (parsedCourse.is_archived === null) {
+            parsedCourse.is_archived = false;
+          }
 
           const startDateTimestamp = convertStringToTimestamp(
             parsedCourse.start_date
               ? parsedCourse.start_date.toString()
               : '20000101',
           );
-          if (parsedCourse.requires_payment) {
-            console.log(
-              '-- Sync procedure: StartDateTimestamp',
-              startDateTimestamp,
-            );
-          }
+
           const endDateTimestamp = convertStringToTimestamp(
             parsedCourse.end_date
               ? parsedCourse.end_date.toString()
               : '20000101',
           );
+
+          const paymentExpirationDate = parsedCourse.payment_expiration_date
+            ? convertStringToTimestamp(
+                parsedCourse.payment_expiration_date.toString(),
+              )
+            : null;
 
           const lastUpdated = course.files.sort((a, b) => b.time - a.time)[0];
 
@@ -347,17 +353,21 @@ export const createUpdateCourses = ({ postgres }: Dependencies) => {
           }
 
           const result = await transaction<Course[]>`
-                INSERT INTO content.courses (id, level, hours, topic, subtopic, original_language, requires_payment, format, online_price_dollars, inperson_price_dollars,
-                  paid_description, paid_video_link, start_date, end_date, contact, available_seats, remaining_seats,
-                  last_updated, last_commit, last_sync)
+                INSERT INTO content.courses
+                  (id, is_archived, level, hours, topic, subtopic, original_language, requires_payment,
+                  payment_expiration_date, format, online_price_dollars, inperson_price_dollars,
+                  paid_description, paid_video_link, start_date, end_date, contact, available_seats,
+                  remaining_seats,last_updated, last_commit, last_sync)
                 VALUES (
                   ${course.id},
+                  ${parsedCourse.is_archived === true},
                   ${parsedCourse.level},
                   ${parsedCourse.hours},
                   ${parsedCourse.topic},
                   ${parsedCourse.subtopic},
                   ${parsedCourse.original_language},
                   ${parsedCourse.requires_payment === true},
+                  ${paymentExpirationDate},
                   ${parsedCourse.format},
                   ${parsedCourse.online_price_dollars},
                   ${parsedCourse.inperson_price_dollars},
@@ -373,12 +383,14 @@ export const createUpdateCourses = ({ postgres }: Dependencies) => {
                   NOW()
                 )
                 ON CONFLICT (id) DO UPDATE SET
+                  is_archived = EXCLUDED.is_archived,
                   level = EXCLUDED.level,
                   hours = EXCLUDED.hours,
                   topic = EXCLUDED.topic,
                   subtopic = EXCLUDED.subtopic,
                   original_language = EXCLUDED.original_language,
                   requires_payment = EXCLUDED.requires_payment,
+                  payment_expiration_date = EXCLUDED.payment_expiration_date,
                   format = EXCLUDED.format,
                   online_price_dollars = EXCLUDED.online_price_dollars,
                   inperson_price_dollars = EXCLUDED.inperson_price_dollars,
