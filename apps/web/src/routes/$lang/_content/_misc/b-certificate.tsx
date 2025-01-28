@@ -99,7 +99,7 @@ function BCertificate() {
         <img
           src={bCertificatesImage}
           alt="₿ Certificates"
-          className="w-full object-cover [overflow-clip-margin:_unset]"
+          className="w-full max-w-[456px] [overflow-clip-margin:_unset] max-h-[382px] "
         />
         <div className="flex flex-col lg:self-end lg:mb-3.5 w-full lg:max-w-[43%]">
           <h3 className="mobile-h2 md:desktop-h4 lg:mb-2.5">
