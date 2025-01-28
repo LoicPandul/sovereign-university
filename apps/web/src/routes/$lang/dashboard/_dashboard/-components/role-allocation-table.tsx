@@ -249,7 +249,7 @@ export const RoleAllocationTable = ({ userRole }: { userRole: UserRole }) => {
                           handleSelectedProfessor(user.uid, e.target.value)
                         }
                         className={cn(
-                          'w-full px-4 py-2 cursor-pointer no-scrollbar overflow-hidden text-ellipsis text-sm leading-[120px] rounded-md bg-commentTextBackground border border-gray-500/10',
+                          'w-full px-4 py-2 cursor-pointer no-scrollbar overflow-hidden text-ellipsis text-sm leading-[120%] rounded-md bg-commentTextBackground border border-gray-500/10',
                           selectedProfessors[user.uid]
                             ? 'text-newBlack-1'
                             : 'text-newGray-1',

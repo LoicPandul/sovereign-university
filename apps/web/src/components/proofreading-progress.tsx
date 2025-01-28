@@ -183,14 +183,16 @@ const ContributorsNames = ({
       >
         {Contributor3}
       </span>
-      <span
-        className={cn(
-          'max-md:hidden text-[8px] absolute -bottom-8 w-full text-center',
-          mode === 'dark' ? 'text-newGray-4' : 'text-black',
-        )}
-      >
-        {t('proofreading.rewardsText')}
-      </span>
+      {!standalone && (
+        <span
+          className={cn(
+            'max-md:hidden absolute -bottom-8 text-[8px] w-full font-light text-center',
+            mode === 'dark' ? 'text-newGray-4' : 'text-newBlack-4',
+          )}
+        >
+          {t('proofreading.rewardsText')}
+        </span>
+      )}
     </>
   );
 };
@@ -321,8 +323,8 @@ export const ProofreadingProgress = ({
               </a>
               <span
                 className={cn(
-                  'text-[8px] w-full text-center md:hidden',
-                  mode === 'dark' ? 'text-newGray-4' : 'text-black',
+                  'text-[8px] w-full font-light text-center md:hidden',
+                  mode === 'dark' ? 'text-newGray-4' : 'text-newBlack-4',
                 )}
               >
                 {t('proofreading.rewardsText')}
@@ -370,7 +372,7 @@ export const ProofreadingDesktop = ({
             ? 'bg-brightGreen-1'
             : 'bg-darkOrange-0',
         standalone
-          ? 'p-5 w-fit flex'
+          ? 'p-5 w-fit max-w-[282px] flex'
           : 'max-lg:hidden p-2.5 hover:p-5 absolute right-6 top-4 justify-start items-start inline-flex',
         className,
       )}
@@ -393,12 +395,10 @@ export const ProofreadingDesktop = ({
       <div
         className={cn(
           'flex-col gap-4 justify-center',
-          standalone
-            ? 'flex max-w-[282px]'
-            : 'max-w-[258px] hidden group-hover:flex',
+          standalone ? 'flex w-full' : 'max-w-[258px] hidden group-hover:flex',
         )}
       >
-        <div className="flex items-center gap-4">
+        <div className="flex items-center gap-[15px]">
           <span
             className={cn(
               'px-2 py-1 rounded-md shadow-course-navigation-sm title-medium-sb-18px',
@@ -480,6 +480,16 @@ export const ProofreadingDesktop = ({
           standalone={standalone}
         />
       </div>
+      {standalone && (
+        <span
+          className={cn(
+            'text-[8px] w-full font-light text-center',
+            mode === 'dark' ? 'text-newGray-4' : 'text-newBlack-4',
+          )}
+        >
+          {t('proofreading.rewardsText')}
+        </span>
+      )}
     </div>
   );
 };
