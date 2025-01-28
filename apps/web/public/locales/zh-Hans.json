@@ -299,13 +299,13 @@
       "curriculum": "课程表",
       "description": "概述",
       "objectives": "目标",
-      "objectivesTitle": "你将学到什么：",
+      "objectivesTitle": "您将学到以下项目：",
       "startCourse": "开始课程",
       "inPersonAccess": "您需要下载票证以参加当面课程。",
       "buyInPersonCourse": "购买当面课程",
       "buyOnlineCourse": "购买在线课程",
       "paidCourse": "高级",
-      "hasBeenProofreadBy": "本课程由  校对",
+      "hasBeenProofreadBy": "课程校对员：",
       "otherCourses": "其他课程",
       "thanksTipping": "您可以打赏教授以表达您的感谢。",
       "collaborativeEffort": "本课程是共同合作的成果：每一课程、每一翻译项目和修订都离不开贡献者的辛勤付出。因此，我们总在寻找校对员，以评估我们多门语言的内容。如果您想要参加校对的工作，请加入我们的Telegram群并参见我们的教程。\n\n请注意，这些内容都是开源的，拥有<0>CC BY-SA</0> 许可证。只要您著名出处，您可以免费分享和使用。\n\n特别感激以下校对员为本课程的辛勤工作： ",
@@ -814,7 +814,8 @@
     },
     "eventSection": {
       "checkEvents": "查看所有活动",
-      "eventTitle": "一个全球性的比特币教育家网络"
+      "eventTitle": "一个全球性的比特币教育家网络",
+      "hottestEvent": "最热门的比特币活动"
     }
   },
   "imagesAlt": {
