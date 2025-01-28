@@ -4,7 +4,7 @@
     "outDir": "dist",
     "rootDir": ".",
     "baseUrl": ".",
-    "types": ["vite/client", "node"]
+    "types": ["node"]
   },
   "include": [
     "src/**/*.test.ts",

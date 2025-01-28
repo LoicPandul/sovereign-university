@@ -14,7 +14,8 @@ import type { Dependencies } from '#src/dependencies.js';
 import { loadTxtTemplate } from '../../pdf/utils.js';
 
 import { createPdf } from './course-certificate-gen-pdf.js';
-import { createPngFromFirstPage } from './course-certificate-gen-png.js';
+
+import { pdfThumbnail } from '@blms/service-common';
 
 interface TimestampOptions {
   examAttemptId: string;
@@ -270,7 +271,7 @@ export const createExamTimestampService = async (ctx: Dependencies) => {
     }
 
     const fileKey = `certificates/${examAttemptId}.png`;
-    const thumbnail = await createPngFromFirstPage(pdf);
+    const thumbnail = await pdfThumbnail(Buffer.from(pdf));
     if (!thumbnail) {
       console.warn('No thumbnail found for', pdfKey);
       return null;

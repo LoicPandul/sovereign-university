@@ -6,14 +6,16 @@
       "dependsOn": [
         "@blms/types#build-types",
         "@blms/database#build-types",
-        "@blms/opentimestamps#build-types"
+        "@blms/opentimestamps#build-types",
+        "@blms/service-common#build-types"
       ]
     },
     "build-types": {
       "dependsOn": [
         "@blms/types#build-types",
         "@blms/database#build-types",
-        "@blms/opentimestamps#build-types"
+        "@blms/opentimestamps#build-types",
+        "@blms/service-common#build-types"
       ],
       "outputs": ["dist/**"]
     },
@@ -21,7 +23,8 @@
       "dependsOn": [
         "@blms/types#build",
         "@blms/database#build",
-        "@blms/opentimestamps#build"
+        "@blms/opentimestamps#build",
+        "@blms/service-common#build"
       ],
       "outputs": ["dist/**"]
     }

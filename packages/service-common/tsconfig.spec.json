@@ -4,10 +4,7 @@
     "outDir": "dist",
     "rootDir": ".",
     "baseUrl": ".",
-    "types": ["node"],
-    "paths": {
-      "#src/*": ["./src/*"]
-    }
+    "types": ["node", "mocha"]
   },
   "include": [
     "src/**/*.test.ts",
