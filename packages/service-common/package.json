@@ -23,8 +23,6 @@
     "pdfjs-dist": "^4.10.38"
   },
   "devDependencies": {
-    "@blms/types": "workspace:*",
-    "@types/mocha": "^10.0.10",
-    "mocha": "^11.1.0"
+    "@blms/types": "workspace:*"
   }
 }

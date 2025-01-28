@@ -11,6 +11,9 @@ importers:
       '@biomejs/biome':
         specifier: 1.9.4
         version: 1.9.4
+      '@types/mocha':
+        specifier: ^10.0.10
+        version: 10.0.10
       '@types/node':
         specifier: ^22.12.0
         version: 22.12.0
@@ -32,6 +35,9 @@ importers:
       lint-staged:
         specifier: ^15.4.3
         version: 15.4.3
+      mocha:
+        specifier: ^11.1.0
+        version: 11.1.0
       tsx:
         specifier: ^4.19.2
         version: 4.19.2
@@ -415,12 +421,6 @@ importers:
       '@blms/types':
         specifier: workspace:*
         version: link:../types
-      '@types/mocha':
-        specifier: ^10.0.10
-        version: 10.0.10
-      mocha:
-        specifier: ^11.1.0
-        version: 11.1.0
 
   packages/service-content:
     dependencies:
