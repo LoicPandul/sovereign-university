@@ -129,7 +129,7 @@ export const EventCard = ({
               : t('events.card.unlimited')}
           </span>
         )}
-        <span className="sm:hidden capitalize text-[10px] font-medium max-sm:leading-normal">
+        <span className="max-md:hidden capitalize text-[10px] font-medium max-sm:leading-normal">
           {event.type}
         </span>
       </div>
