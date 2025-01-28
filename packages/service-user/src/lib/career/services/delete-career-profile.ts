@@ -16,7 +16,11 @@ export const createDeleteCareerProfile = ({ postgres, s3 }: Dependencies) => {
       .then(firstRow)
       .then((a) => a?.id ?? null);
 
-    if (careerProfileId) {
+    const deletedCareerProfile = await postgres.exec(
+      deleteCareerProfileQuery(uid),
+    );
+
+    if (careerProfileId && deletedCareerProfile.length > 0) {
       try {
         await s3.delete(`cvs/${careerProfileId}`);
       } catch (error) {
@@ -24,6 +28,6 @@ export const createDeleteCareerProfile = ({ postgres, s3 }: Dependencies) => {
       }
     }
 
-    return postgres.exec(deleteCareerProfileQuery(uid));
+    return deletedCareerProfile;
   };
 };
