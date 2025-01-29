@@ -67,9 +67,10 @@ export const MenuDashboard = ({
   const calendarPath = '/dashboard/calendar';
   const careerPortalPath = '/dashboard/career-portal';
   const profilePath = '/dashboard/profile';
+  const adminBookingsPath = '/dashboard/administration/bookings';
+  const adminCareersPath = '/dashboard/administration/careers';
   const adminRolePath = '/dashboard/administration/role';
   const adminTutorialsPath = '/dashboard/administration/tutorials';
-  const adminBookingsPath = '/dashboard/administration/bookings';
   const professorProfilePath = '/dashboard/professor/profile';
   const professorCoursesPath = '/dashboard/professor/courses';
   const professorTutorialsPath = '/dashboard/professor/tutorials';
@@ -247,6 +248,14 @@ export const MenuDashboard = ({
                 text={t('dashboard.adminPanel.bookings')}
                 icon={<IoTicketOutline size={24} />}
                 active={pathname.includes(adminBookingsPath)}
+                onClick={toggleMobileMenu}
+              />
+            </Link>
+            <Link to={adminCareersPath}>
+              <MenuItem
+                text={t('dashboard.adminPanel.careers.careers')}
+                icon={<TbBriefcase2 size={24} />}
+                active={pathname.includes(adminCareersPath)}
                 onClick={toggleMobileMenu}
               />
             </Link>

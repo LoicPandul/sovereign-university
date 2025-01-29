@@ -1,5 +1,5 @@
 import { z } from 'zod';
-import { studentProcedure } from '#src/procedures/protected.js';
+import { adminProcedure, studentProcedure } from '#src/procedures/protected.js';
 import { createTRPCRouter } from '#src/trpc/index.js';
 
 import {
@@ -16,6 +16,7 @@ import {
 import {
   createDeleteCareerProfile,
   createGetCareerProfile,
+  createGetCareerProfiles,
   createGetJobTitles,
   createGetLanguages,
   createInsertCareerProfile,
@@ -43,6 +44,13 @@ const getCareerProfileProcedure = studentProcedure
       uid: ctx.user.uid,
     }),
   );
+
+const getCareerProfilesProcedure = adminProcedure
+  .input(z.void())
+  .output<Parser<JoinedCareerProfile[] | null>>(
+    joinedCareerProfileSchema.array().nullable(),
+  )
+  .query(({ ctx }) => createGetCareerProfiles(ctx.dependencies)());
 
 const getJobTitlesProcedure = studentProcedure
   .input(z.void())
@@ -112,6 +120,7 @@ const updateCareerProfileProcedure = studentProcedure
 export const userCareerRouter = createTRPCRouter({
   deleteCareerProfile: deleteCareerProfileProcedure,
   getCareerProfile: getCareerProfileProcedure,
+  getCareerProfiles: getCareerProfilesProcedure,
   getJobTitles: getJobTitlesProcedure,
   getLanguages: getLanguagesProcedure,
   insertCareerProfile: insertCareerProfileProcedure,
