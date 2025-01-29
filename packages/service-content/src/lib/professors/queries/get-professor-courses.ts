@@ -28,6 +28,9 @@ export const getProfessorCoursesQuery = ({
   if (language !== undefined) {
     whereClauses.push(sql`cl.language = LOWER(${language})`);
   }
+
+  whereClauses.push(sql`c.is_archived = false`);
+
   const whereStatement = sql`WHERE ${whereClauses.reduce(
     (acc, clause) => sql`${acc} AND ${clause}`,
   )}`;
@@ -35,6 +38,7 @@ export const getProfessorCoursesQuery = ({
   return sql<JoinedCourseWithProfessorsContributorIds[]>`
     SELECT
       c.id,
+      c.is_archived,
       cl.language,
       c.level,
       c.hours,
@@ -42,6 +46,7 @@ export const getProfessorCoursesQuery = ({
       c.subtopic,
       c.original_language,
       c.requires_payment,
+      c.payment_expiration_date,
       c.format,
       c.online_price_dollars,
       c.inperson_price_dollars,

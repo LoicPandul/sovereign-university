@@ -20,6 +20,15 @@ function DashboardCourses() {
 
   const { data: progress } = trpc.user.courses.getProgress.useQuery();
 
+  const filteredCourses = courses
+    ? courses.filter((course) => {
+        const inProgress = (progress ?? []).some(
+          (p) => p.courseId === course.id,
+        );
+        return course.isArchived === false || inProgress;
+      })
+    : [];
+
   useEffect(() => {
     if (session === null) {
       navigate({ to: '/' });
@@ -30,7 +39,7 @@ function DashboardCourses() {
     return <Loader />;
   }
 
-  if (!courses) {
+  if (!filteredCourses) {
     return <div>{t('dashboard.myCourses.noCoursesAvailable')}</div>;
   }
 
@@ -39,8 +48,8 @@ function DashboardCourses() {
       <h1 className="title-large-24px md:display-small-32px text-dashboardSectionText mb-[15px] md:mb-[21px] xl:mb-[42px]">
         {t('dashboard.myCourses.courseDashboard')}
       </h1>
-      <CourseTable courses={courses} progress={progress || []} />
-      <CourseTableMobile courses={courses} progress={progress || []} />
+      <CourseTable courses={filteredCourses} progress={progress || []} />
+      <CourseTableMobile courses={filteredCourses} progress={progress || []} />
     </div>
   );
 }

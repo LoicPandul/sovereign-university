@@ -212,18 +212,12 @@ function Home() {
   };
 
   const CourseSection = () => {
-    const { data: courses, isFetched } = trpc.content.getCourses.useQuery(
-      {
-        language: 'en',
-      },
-      {
-        staleTime: 300_000, // 5 minutes
-      },
-    );
+    const { courses } = useContext(AppContext);
 
-    const filteredCourses = isFetched
+    const filteredCourses = courses
       ? courses
-          ?.filter((course) =>
+          ?.filter((course) => course.isArchived === false)
+          .filter((course) =>
             ['min302', 'btc402', 'eco102'].includes(course.id),
           )
           .sort((a, b) => {
