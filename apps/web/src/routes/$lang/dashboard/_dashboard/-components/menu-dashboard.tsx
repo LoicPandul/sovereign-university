@@ -24,6 +24,7 @@ import { logout } from '#src/utils/session-utils.js';
 import { trpc } from '#src/utils/trpc.ts';
 
 import { TbBriefcase2 } from 'react-icons/tb';
+import { isTestnetOrDevelopmentEnvironment } from '#src/utils/misc.ts';
 import { MenuItem } from './menu-item.tsx';
 
 export const MenuDashboard = ({
@@ -158,14 +159,16 @@ export const MenuDashboard = ({
             onClick={toggleMobileMenu}
           />
         </Link>
-        <Link to={careerPortalPath}>
-          <MenuItem
-            text={t('words.careerPortal')}
-            icon={<TbBriefcase2 size={24} />}
-            active={pathname.includes(careerPortalPath)}
-            onClick={toggleMobileMenu}
-          />
-        </Link>
+        {isTestnetOrDevelopmentEnvironment() ? (
+          <Link to={careerPortalPath}>
+            <MenuItem
+              text={t('words.careerPortal')}
+              icon={<TbBriefcase2 size={24} />}
+              active={pathname.includes(careerPortalPath)}
+              onClick={toggleMobileMenu}
+            />
+          </Link>
+        ) : null}
         <Link to={profilePath}>
           <MenuItem
             text={t('dashboard.account')}

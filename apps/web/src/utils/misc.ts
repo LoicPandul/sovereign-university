@@ -4,3 +4,6 @@ export const getDomain = () => {
 
 export const isDevelopmentEnvironment = () =>
   window.location.hostname.startsWith('localhost');
+
+export const isTestnetOrDevelopmentEnvironment = () =>
+  isDevelopmentEnvironment || window.location.hostname.startsWith('testnet');
