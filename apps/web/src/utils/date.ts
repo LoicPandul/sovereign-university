@@ -75,42 +75,19 @@ export function addMinutesToDate(originalDate: Date, minutes: number) {
 export const getDateString = (
   startDate: Date,
   endDate: Date,
-  timezone: string | undefined,
+  timezone?: string,
 ) => {
   if (!(startDate instanceof Date) || !(endDate instanceof Date)) {
     return '';
   }
 
-  if (
-    startDate.getDate() === endDate.getDate() &&
-    startDate.getMonth() === endDate.getMonth() &&
-    startDate.getFullYear() === endDate.getFullYear()
-  ) {
-    return formatDate(startDate, timezone, true, true);
-  }
+  const sameDay = startDate.toDateString() === endDate.toDateString();
+  const sameMonth = startDate.getMonth() === endDate.getMonth();
+  const sameYear = startDate.getFullYear() === endDate.getFullYear();
 
-  if (
-    startDate.getMonth() === endDate.getMonth() &&
-    startDate.getFullYear() === endDate.getFullYear()
-  ) {
-    return `${formatDate(startDate, timezone, false, false)} to ${formatDate(
-      endDate,
-      timezone,
-      true,
-      true,
-    )}`;
-  }
+  if (sameDay) return formatDate(startDate, timezone, true, true);
 
-  if (startDate.getFullYear() === endDate.getFullYear()) {
-    return `${formatDate(startDate, timezone, true, false)} to ${formatDate(
-      endDate,
-      timezone,
-      true,
-      true,
-    )}`;
-  }
-
-  return `${formatDate(startDate, timezone, true, true)} to ${formatDate(
+  return `${formatDate(startDate, timezone, true, !sameMonth && !sameYear)} to ${formatDate(
     endDate,
     timezone,
     true,
