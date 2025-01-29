@@ -155,6 +155,13 @@ export const createProcessMainFile = (transaction: TransactionSql) => {
         `;
       }
 
+      if (result) {
+        await transaction`
+        DELETE FROM content.event_languages
+        WHERE event_id = ${result.id}
+      `;
+      }
+
       if (result && parsedEvent.language && parsedEvent.language?.length > 0) {
         for (const language of parsedEvent.language) {
           await transaction`
