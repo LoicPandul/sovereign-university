@@ -638,7 +638,7 @@ const EventsMap = ({
 
         <div className="flex flex-wrap gap-5 justify-center">
           {cards?.length ? (
-            cards.map((event) => (
+            cards.map((event, index) => (
               <EventCard
                 event={event}
                 eventPayments={eventPayments}
@@ -648,7 +648,8 @@ const EventsMap = ({
                 setIsPaymentModalOpen={setIsPaymentModalOpen}
                 setPaymentModalData={setPaymentModalData}
                 conversionRate={conversionRate}
-                key={event.name}
+                // biome-ignore lint/suspicious/noArrayIndexKey: <explanation>
+                key={index}
               />
             ))
           ) : (
