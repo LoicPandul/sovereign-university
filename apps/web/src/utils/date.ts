@@ -36,12 +36,10 @@ export function formatDate(
     timeZone: timezone,
   });
 
-  // Get the day of the month. It needs to consider the timezone if provided.
   const day = timezone
     ? new Date(date.toLocaleString('en-US', { timeZone: timezone })).getDate()
     : date.getDate();
   if (Number.isNaN(day)) {
-    // Additional check if getDate does not return a valid number
     return '';
   }
 
@@ -55,7 +53,6 @@ export function formatDate(
 }
 
 export function formatTime(date: Date, timezone?: string): string {
-  // Check if 'date' is an instance of Date and represents a valid date
   if (!(date instanceof Date) || Number.isNaN(date.getTime())) {
     return '';
   }
@@ -78,36 +75,24 @@ export function addMinutesToDate(originalDate: Date, minutes: number) {
 export const getDateString = (
   startDate: Date,
   endDate: Date,
-  timezone: string | undefined,
+  timezone?: string,
 ) => {
-  let dateString: string;
-
-  switch (true) {
-    case startDate.getDate() === endDate.getDate(): {
-      dateString = formatDate(startDate, timezone, true, true);
-      break;
-    }
-    case startDate.getFullYear() === endDate.getFullYear() &&
-      startDate.getMonth() === endDate.getMonth() &&
-      startDate.getDay() !== endDate.getDay(): {
-      dateString = formatDate(startDate, timezone, false, false);
-      break;
-    }
-    case startDate.getFullYear() === endDate.getFullYear() &&
-      startDate.getMonth() !== endDate.getMonth(): {
-      dateString = formatDate(startDate, timezone, true, false);
-      break;
-    }
-    default: {
-      dateString = formatDate(startDate, timezone, true, true);
-    }
+  if (!(startDate instanceof Date) || !(endDate instanceof Date)) {
+    return '';
   }
 
-  if (startDate.getDate() !== endDate.getDate()) {
-    dateString += ` to ${formatDate(endDate, timezone)}`;
-  }
+  const sameDay = startDate.toDateString() === endDate.toDateString();
+  const sameMonth = startDate.getMonth() === endDate.getMonth();
+  const sameYear = startDate.getFullYear() === endDate.getFullYear();
 
-  return dateString;
+  if (sameDay) return formatDate(startDate, timezone, true, true);
+
+  return `${formatDate(startDate, timezone, !sameMonth, !sameYear)} to ${formatDate(
+    endDate,
+    timezone,
+    true,
+    true,
+  )}`;
 };
 
 export const getTimeString = (
