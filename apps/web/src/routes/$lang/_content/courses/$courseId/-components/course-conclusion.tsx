@@ -449,16 +449,18 @@ export const CourseConclusion = ({ chapter }: CourseConclusionProps) => {
                     {t('courses.review.feedback')}
                   </span>
                   <div>
-                    <CourseReviewComponent
-                      courseId={course?.id}
-                      chapterId={reviewChapterId}
-                      isConclusionReview
-                      onReviewSuccess={() => setIsCourseReviewSubmitted(true)}
-                      onSkip={() => {
-                        scrollToHeader();
-                        setIsCourseReviewSkipped(true);
-                      }}
-                    />
+                    {course && reviewChapterId ? (
+                      <CourseReviewComponent
+                        courseId={course?.id}
+                        chapterId={reviewChapterId}
+                        isConclusionReview
+                        onReviewSuccess={() => setIsCourseReviewSubmitted(true)}
+                        onSkip={() => {
+                          scrollToHeader();
+                          setIsCourseReviewSkipped(true);
+                        }}
+                      />
+                    ) : null}
                   </div>
                 </section>
               )

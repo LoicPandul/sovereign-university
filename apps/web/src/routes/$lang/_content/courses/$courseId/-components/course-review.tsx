@@ -172,8 +172,8 @@ export function CourseReviewComponent({
   onSkip,
 }: {
   chapter?: CourseChapterResponse;
-  courseId?: string;
-  chapterId?: string;
+  courseId: string;
+  chapterId: string;
   existingReview?: CourseReview;
   formDisabled?: boolean;
   isDashboardReview?: boolean;
@@ -274,14 +274,14 @@ export function CourseReviewComponent({
     chapter.part.partIndex === chapter.course.parts.length;
 
   async function onSubmit() {
-    if (!chapter && !courseId) {
+    if (!chapterId || !courseId) {
       return;
     }
 
     await saveCourseReview.mutateAsync({
       ...form.getValues(),
       courseId: chapter?.courseId || courseId || '',
-      chapterId: chapter?.chapterId || chapterId || '',
+      chapterId: chapterId || '',
     });
 
     navigateToNextChapter();

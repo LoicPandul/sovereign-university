@@ -843,7 +843,9 @@ function CourseChapter() {
                   {chapter.isCourseReview && (
                     <div className="mx-4">
                       <CourseReviewComponent
+                        courseId={chapter.courseId}
                         chapter={chapter}
+                        chapterId={chapter.chapterId}
                         formDisabled={!isLoggedIn}
                       />
                     </div>

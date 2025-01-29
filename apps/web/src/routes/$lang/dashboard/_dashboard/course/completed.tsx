@@ -127,6 +127,11 @@ const CompletedCourseDetails = ({
     },
   );
 
+  const reviewChapterId =
+    course?.parts
+      .flatMap((part) => part.chapters)
+      ?.find((c) => c?.isCourseReview)?.chapterId ?? null;
+
   const { data: examResults, isFetched: isExamResultsFetched } =
     trpc.user.courses.getAllUserCourseExamResults.useQuery({
       courseId,
@@ -186,7 +191,12 @@ const CompletedCourseDetails = ({
             mode="light"
           />
 
-          <CourseRatings courseId={courseId} />
+          {reviewChapterId ? (
+            <CourseRatings
+              courseId={courseId}
+              reviewChapterId={reviewChapterId}
+            />
+          ) : null}
 
           <Divider
             className="mt-10 max-w-[948px]"

@@ -71,6 +71,11 @@ function DashboardStudentCourse() {
     },
   );
 
+  const reviewChapterId =
+    course?.parts
+      .flatMap((part) => part.chapters)
+      ?.find((c) => c?.isCourseReview)?.chapterId ?? null;
+
   const courseHaveExam = course?.parts.some((p) =>
     p.chapters.some((c) => c?.isCourseExam),
   );
@@ -152,9 +157,14 @@ function DashboardStudentCourse() {
               </TabsContent>
             ) : null}
 
-            <TabsContent value="ratings">
-              <CourseRatings courseId={course.id} />
-            </TabsContent>
+            {reviewChapterId ? (
+              <TabsContent value="ratings">
+                <CourseRatings
+                  courseId={course.id}
+                  reviewChapterId={reviewChapterId}
+                />
+              </TabsContent>
+            ) : null}
           </Tabs>
         </div>
       )}
@@ -601,7 +611,10 @@ const CourseExamsTable = ({
   );
 };
 
-export const CourseRatings = ({ courseId }: { courseId: string }) => {
+export const CourseRatings = ({
+  courseId,
+  reviewChapterId,
+}: { courseId: string; reviewChapterId: string }) => {
   const { data: previousCourseReview, isFetched: isReviewFetched } =
     trpc.user.courses.getCourseReview.useQuery({
       courseId: courseId,
@@ -628,12 +641,17 @@ export const CourseRatings = ({ courseId }: { courseId: string }) => {
       <div className="w-full mt-5 md:mt-10">
         <div className="w-full max-w-[716px]">
           {isReviewFetched && !previousCourseReview && (
-            <CourseReviewComponent courseId={courseId} isLockedReview />
+            <CourseReviewComponent
+              courseId={courseId}
+              chapterId={reviewChapterId}
+              isLockedReview
+            />
           )}
 
           {previousCourseReview && (
             <CourseReviewComponent
               courseId={courseId}
+              chapterId={reviewChapterId}
               existingReview={previousCourseReview}
               isDashboardReview
             />
