@@ -87,7 +87,7 @@ export const getDateString = (
 
   if (sameDay) return formatDate(startDate, timezone, true, true);
 
-  return `${formatDate(startDate, timezone, true, !sameMonth && !sameYear)} to ${formatDate(
+  return `${formatDate(startDate, timezone, !sameMonth, !sameYear)} to ${formatDate(
     endDate,
     timezone,
     true,
