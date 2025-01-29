@@ -177,6 +177,11 @@ const CourseOverview = ({ course }: { course: JoinedCourseWithAll }) => {
     courseId: course.id,
   });
 
+  let chapters = courseProgress?.[0]?.chapters;
+  if (!chapters) {
+    chapters = [];
+  }
+
   return (
     <div className="flex flex-col w-fit">
       {courseProgress &&
@@ -193,10 +198,8 @@ const CourseOverview = ({ course }: { course: JoinedCourseWithAll }) => {
 
       <CourseCurriculum
         course={course}
-        completedChapters={courseProgress?.[0].chapters.map(
-          (chapter) => chapter.chapterId,
-        )}
-        nextChapter={courseProgress?.[0].nextChapter?.chapterId}
+        completedChapters={chapters.map((chapter) => chapter.chapterId)}
+        nextChapter={courseProgress?.[0]?.nextChapter?.chapterId}
         hideGithubLink
         className="self-start mt-7 md:mt-10 w-full"
       >
