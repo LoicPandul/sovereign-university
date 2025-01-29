@@ -33,10 +33,12 @@ export const getProfessorsQuery = ({
     -- Lateral join for courses
     LEFT JOIN LATERAL (
       SELECT
-        COUNT(cp) AS courses_count,
-        ARRAY_AGG(course_id) as courses_ids
+        COUNT(cp.*) AS courses_count,
+        ARRAY_AGG(cp.course_id) AS courses_ids
       FROM content.course_professors cp
+      JOIN content.courses c ON c.id = cp.course_id
       WHERE cp.contributor_id = p.contributor_id
+        AND c.is_archived = false
     ) ca ON TRUE
 
     -- Lateral join for tutorials
