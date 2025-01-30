@@ -215,18 +215,10 @@ const Buttons = ({
 
         {ticket.isOnline && (
           <Link
-            to={
-              ticket.type === 'course'
-                ? '/courses/$courseId/$chapterId'
-                : '/events/$eventId'
-            }
-            params={
-              ticket.type === 'course'
-                ? { courseId: 'biz102', chapterId: ticket.eventId }
-                : {
-                    eventId: ticket.eventId,
-                  }
-            }
+            to={'/events/$eventId'}
+            params={{
+              eventId: ticket.eventId,
+            }}
             disabled={ticket.date.getTime() > Date.now()}
           >
             <Button
