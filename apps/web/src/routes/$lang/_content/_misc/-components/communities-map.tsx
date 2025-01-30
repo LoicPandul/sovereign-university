@@ -115,12 +115,10 @@ export const CommunitiesMap = ({ communities }: CommunitiesMapProps) => {
         const communityId = feature.get('communityId');
         const communityName = feature.get('communityName');
         if (communityId) {
+          const builderId = communityId.toString();
+          const builderName = formatNameForURL(communityName);
           navigate({
-            to: '/resources/builders/$builderName-$builderId',
-            params: {
-              builderId: communityId.toString(),
-              builderName: formatNameForURL(communityName),
-            },
+            to: `/resources/builders/${builderName}-${builderId}`,
           });
         }
       }
