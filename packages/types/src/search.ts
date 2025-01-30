@@ -3,8 +3,20 @@ import type {
   SearchResponseHit,
 } from 'typesense/lib/Typesense/Documents.js';
 
+export interface Searchable<L = string> extends Record<string, unknown> {
+  language: L;
+  premium?: boolean;
+  title: string;
+  body: string;
+  link: string;
+}
+
+// Re-export types from typesense
+export type SearchResultItem<T extends DocumentSchema = DocumentSchema> =
+  SearchResponseHit<T>;
+
 export interface SearchResult<T extends DocumentSchema = DocumentSchema> {
-  results: Array<SearchResponseHit<T>>;
+  results: Array<SearchResultItem<T>>;
   language: string;
   query: string;
   found: number;

@@ -1,5 +1,4 @@
 import { createFileRoute } from '@tanstack/react-router';
-import { default as DOMPurify } from 'dompurify';
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
@@ -14,8 +13,8 @@ import { MdKeyboardArrowDown, MdKeyboardArrowUp } from 'react-icons/md';
 import SearchErrorIcon from '#src/assets/icons/search-error.svg';
 import SearchIcon from '#src/assets/icons/search.svg';
 
-import './style.css';
 import { getLanguageName } from '#src/utils/i18n.ts';
+import { SearchResult } from './-components/search-result.tsx';
 
 export const Route = createFileRoute('/$lang/_content/search/')({
   component: SearchPage,
@@ -90,7 +89,7 @@ function SearchPage() {
       title={t('search.explorer.title')}
       subtitle={' '}
     >
-      <div className="max-w-6xl pb-8 text-white min-h-[calc(100vh-64px)] mx-2 sm:mx-auto ">
+      <div className="max-w-6xl pb-8 text-white mx-2 sm:mx-auto ">
         <h2 className="text-orange-500 text-center text-xl mt-16">
           {t('search.explorer.subtitle')}
         </h2>
@@ -105,7 +104,7 @@ function SearchPage() {
 
             <input
               id="search"
-              className="absolute text-newOrange-1 ps-16 p-4 bg-transparent focus:outline outline-newOrange-1 w-full rounded-lg"
+              className="absolute outline-1 text-newOrange-1 ps-16 p-4 bg-transparent focus:outline outline-newOrange-1 w-full rounded-lg"
               type="text"
               placeholder={`${t('search.search')}...`}
               autoComplete="off"
@@ -148,7 +147,7 @@ function SearchPage() {
                 <div className="flex flex-col space-y-4 text-base mb-4">
                   <div className={cn(query.length > 0 ? '' : 'hidden')}>
                     <Button
-                      className="flex justify-start items-center gap-2 p-0"
+                      className="flex justify-start items-center gap-2 -ms-4 focus-visible:ring-0 focus-visible:ring-offset-0 focus-visible:outline-offset-0 focus-visible:outline-1 focus-visible:outline-newOrange-1"
                       variant="ghost"
                       onClick={() => setFiltersOpen(!filtersOpen)}
                     >
@@ -228,43 +227,7 @@ function SearchPage() {
                   .map((item, index) => (
                     // biome-ignore lint/suspicious/noArrayIndexKey: react complains otherwise
                     <li key={index} className="mt-2">
-                      <a
-                        className="block bg-white/5 rounded p-2 hover:bg-white/10"
-                        href={item.document.link}
-                        target="_blank"
-                        rel="noreferrer"
-                      >
-                        <div className="flex gap-4 items-center">
-                          <span className="bg-tertiary-10 px-2 py-1 rounded">
-                            {t(`search.${item.document.type}`)}
-                          </span>
-
-                          {item.highlight.title ? (
-                            <div
-                              // biome-ignore lint/security/noDangerouslySetInnerHtml: html is sanitized
-                              dangerouslySetInnerHTML={{
-                                __html: DOMPurify.sanitize(
-                                  item.highlight.title?.snippet ?? '',
-                                ),
-                              }}
-                            />
-                          ) : (
-                            <div>{item.document.title}</div>
-                          )}
-                        </div>
-
-                        {item.highlight.body && (
-                          <div
-                            className="ps-2 pt-2"
-                            // biome-ignore lint/security/noDangerouslySetInnerHtml: html is sanitized
-                            dangerouslySetInnerHTML={{
-                              __html: DOMPurify.sanitize(
-                                item.highlight.body?.snippet ?? '',
-                              ),
-                            }}
-                          />
-                        )}
-                      </a>
+                      <SearchResult item={item} index={index} />
                     </li>
                   ))}
               </ul>

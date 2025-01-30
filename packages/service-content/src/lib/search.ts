@@ -4,19 +4,11 @@ import type { CollectionCreateSchema } from 'typesense/lib/Typesense/Collections
 
 import { sql } from '@blms/database';
 
+import type { Searchable } from '@blms/types';
 import { ISO_639_LANGUAGES, type Language } from './const.js';
 import type { Dependencies } from './dependencies.js';
 
-export interface Searchable extends Record<string, unknown> {
-  language: Language;
-  premium?: boolean;
-  title: string;
-  body: string;
-  link: string;
-  // Pagination
-}
-
-const getCoursesQuery = () => sql<Searchable[]>`
+const getCoursesQuery = () => sql<Searchable<Language>[]>`
  SELECT
     'course' as type,
     course_id,
@@ -32,7 +24,7 @@ const getCoursesQuery = () => sql<Searchable[]>`
  FROM content.courses_localized ;
 `;
 
-const getCoursePartsQuery = () => sql<Searchable[]>`
+const getCoursePartsQuery = () => sql<Searchable<Language>[]>`
   SELECT
     'course_part' as type,
     cp.course_id,
@@ -56,7 +48,7 @@ const getCoursePartsQuery = () => sql<Searchable[]>`
     AND first_chapter.chapter_index = 1 ;
 `;
 
-const getCourseChaptersQuery = () => sql<Searchable[]>`
+const getCourseChaptersQuery = () => sql<Searchable<Language>[]>`
   SELECT
     'course_chapter' as type,
     LOWER(language) as language,
@@ -74,7 +66,7 @@ const getCourseChaptersQuery = () => sql<Searchable[]>`
   WHERE LENGTH(raw_content) > 0
 `;
 
-const getProfessorsQuery = () => sql<Searchable[]>`
+const getProfessorsQuery = () => sql<Searchable<Language>[]>`
   SELECT
     'professor' as type,
     p.name as title,
@@ -93,7 +85,7 @@ const getProfessorsQuery = () => sql<Searchable[]>`
     JOIN content.professors p ON p.id = professor_id
 `;
 
-const getTutorialsQuery = () => sql<Searchable[]>`
+const getTutorialsQuery = () => sql<Searchable<Language>[]>`
  SELECT
     'tutorial' as type,
     category,
@@ -116,7 +108,7 @@ const getTutorialsQuery = () => sql<Searchable[]>`
   JOIN content.tutorials t ON t.id = tutorial_id
 `;
 
-const getBooksQuery = () => sql<Searchable[]>`
+const getBooksQuery = () => sql<Searchable<Language>[]>`
   SELECT
       'book' as type,
       book_id,
@@ -134,7 +126,7 @@ const getBooksQuery = () => sql<Searchable[]>`
     JOIN content.books b ON b.resource_id = book_id
   `;
 
-const getPodcastsQuery = () => sql<Searchable[]>`
+const getPodcastsQuery = () => sql<Searchable<Language>[]>`
   SELECT
       'podcast' as type,
       LOWER(language) as language,
@@ -151,7 +143,7 @@ const getPodcastsQuery = () => sql<Searchable[]>`
     FROM content.podcasts
   `;
 
-const getGlossaryQuery = () => sql<Searchable[]>`
+const getGlossaryQuery = () => sql<Searchable<Language>[]>`
   SELECT
     'glossary_word' as type,
     LOWER(language) as language,
@@ -197,19 +189,20 @@ const createDeleteIndexes = (client: TypesenseClient) => () => {
     });
 };
 
-const createIngestData = (client: TypesenseClient) => (data: Searchable[]) => {
-  return client
-    .collections('searchable')
-    .documents()
-    .import(
-      data.map((part) => ({
-        ...part,
-        // https://typesense.org/docs/guide/locale.html#best-practices
-        locale: ISO_639_LANGUAGES[part.language],
-      })),
-    )
-    .catch((error) => console.error('[SEARCH] Import failed:', error));
-};
+const createIngestData =
+  (client: TypesenseClient) => (data: Searchable<Language>[]) => {
+    return client
+      .collections('searchable')
+      .documents()
+      .import(
+        data.map((part) => ({
+          ...part,
+          // https://typesense.org/docs/guide/locale.html#best-practices
+          locale: ISO_639_LANGUAGES[part.language],
+        })),
+      )
+      .catch((error) => console.error('[SEARCH] Import failed:', error));
+  };
 
 export const createIndexContent = ({ postgres, typesense }: Dependencies) => {
   const deleteIndexes = createDeleteIndexes(typesense);
@@ -225,7 +218,7 @@ export const createIndexContent = ({ postgres, typesense }: Dependencies) => {
     await deleteIndexes();
     await createIndexes();
 
-    const data: Searchable[] = [
+    const data: Searchable<Language>[] = [
       ...(await postgres.exec(getCoursePartsQuery())),
       ...(await postgres.exec(getCourseChaptersQuery())),
       ...(await postgres.exec(getProfessorsQuery())),
