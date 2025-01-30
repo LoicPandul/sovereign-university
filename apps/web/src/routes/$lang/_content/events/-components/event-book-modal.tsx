@@ -42,7 +42,13 @@ export const EventBookModal = ({
   }, [event.id, saveUserEventRequest]);
 
   return (
-    <Dialog open={isOpen} onOpenChange={onClose}>
+    <Dialog
+      open={isOpen}
+      onOpenChange={() => {
+        onClose();
+        setIsEventBooked(false);
+      }}
+    >
       <DialogContent className="max-w-4xl p-6 w-[90%] lg:w-full lg:p-0 overflow-auto">
         <DialogTitle className="hidden">Booking Modal</DialogTitle>
         <DialogDescription className="hidden">Booking Modal</DialogDescription>
