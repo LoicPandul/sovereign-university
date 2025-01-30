@@ -32,7 +32,6 @@ import SponsorMobile from '#src/assets/home/mobile-logos.webp';
 import Sponsor from '#src/assets/home/sponsor-images.webp';
 import WorldMap from '#src/assets/home/world-map.webp';
 import { MainLayout } from '../../components/main-layout.tsx';
-import { NotFound } from '../../components/not-found.tsx';
 import { AboutUs } from '../../molecules/about-us.tsx';
 import { CourseCard } from '../../organisms/course-card.tsx';
 
@@ -46,7 +45,6 @@ const paragraphCss = 'text-sm text-gray-400 sm:text-sm lg:text-base';
 
 export const Route = createFileRoute('/$lang/')({
   component: Home,
-  notFoundComponent: NotFound,
 });
 
 function Home() {
