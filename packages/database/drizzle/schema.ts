@@ -597,6 +597,7 @@ export const contentBooksLocalized = content.table(
 // BUILDERS
 
 export const contentBuilders = content.table('builders', (t) => ({
+  id: t.uuid().unique(), // TODO add not null and PK
   resourceId: t
     .integer()
     .primaryKey()
@@ -620,6 +621,7 @@ export const contentBuilders = content.table('builders', (t) => ({
 export const contentBuildersLocalized = content.table(
   'builders_localized',
   (t) => ({
+    id: t.uuid().references(() => contentBuilders.id, { onDelete: 'cascade' }),
     builderId: t
       .integer()
       .notNull()

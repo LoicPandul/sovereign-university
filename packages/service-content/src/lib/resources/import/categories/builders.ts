@@ -11,6 +11,7 @@ import { createProcessMainFile } from '../main.js';
 /** Base builder information, same for all translations */
 interface BuilderMain {
   /** Name of the project or company */
+  id: string;
   name: string;
   links: {
     website: string;
@@ -51,13 +52,13 @@ export const createProcessChangedBuilder = (
           return;
         }
 
-        const id = await transaction<Resource[]>`
+        const resourceId = await transaction<Resource[]>`
           SELECT id FROM content.resources WHERE path = ${resource.path}
         `
           .then(firstRow)
           .then((row) => row?.id);
 
-        if (!id) {
+        if (!resourceId) {
           throw new Error(`Resource not found for path ${resource.path}`);
         }
 
@@ -69,13 +70,14 @@ export const createProcessChangedBuilder = (
           }
 
           const result = await transaction<Builder[]>`
-              INSERT INTO content.builders (resource_id, name, category, languages, website_url, twitter_url, github_url, nostr, address_line_1, address_line_2, address_line_3, original_language)
+              INSERT INTO content.builders (id, resource_id, name, category, languages, website_url, twitter_url, github_url, nostr, address_line_1, address_line_2, address_line_3, original_language)
               VALUES (
-                ${id}, ${parsedBuilder.name}, ${parsedBuilder.category.toLowerCase()}, ${parsedBuilder.language},
+                ${parsedBuilder.id},${resourceId}, ${parsedBuilder.name}, ${parsedBuilder.category.toLowerCase()}, ${parsedBuilder.language},
                 ${parsedBuilder.links.website}, ${parsedBuilder.links.twitter},
                 ${parsedBuilder.links.github}, ${parsedBuilder.links.nostr}, ${parsedBuilder.address_line_1}, ${parsedBuilder.address_line_2}, ${parsedBuilder.address_line_3}, ${parsedBuilder.original_language}
               )
               ON CONFLICT (resource_id) DO UPDATE SET
+                id = EXCLUDED.id,
                 name = EXCLUDED.name,
                 category = EXCLUDED.category,
                 languages = EXCLUDED.languages,
@@ -110,28 +112,30 @@ export const createProcessChangedBuilder = (
               }
             }
           }
+
+          for (const file of files) {
+            try {
+              const parsed = await yamlToObject<BuilderLocal>(file);
+
+              await transaction`
+              INSERT INTO content.builders_localized (id, builder_id, language, description)
+              VALUES (
+                ${parsedBuilder.id}, ${resourceId}, ${file.language}, ${parsed.description.trim()})
+              ON CONFLICT (builder_id, language) DO UPDATE SET
+                id = EXCLUDED.id,
+                description = EXCLUDED.description
+            `.then(firstRow);
+            } catch (error) {
+              errors.push(
+                `Error processing file ${file?.path} (${resource.fullPath}): ${error}`,
+              );
+            }
+          }
         } catch (error) {
           errors.push(
             `Error processing file ${main?.path} ((${resource.fullPath})): ${error}`,
           );
           return;
-        }
-
-        for (const file of files) {
-          try {
-            const parsed = await yamlToObject<BuilderLocal>(file);
-
-            await transaction`
-          INSERT INTO content.builders_localized (builder_id, language, description)
-          VALUES (${id}, ${file.language}, ${parsed.description.trim()})
-          ON CONFLICT (builder_id, language) DO UPDATE SET
-            description = EXCLUDED.description
-        `.then(firstRow);
-          } catch (error) {
-            errors.push(
-              `Error processing file ${file?.path} (${resource.fullPath}): ${error}`,
-            );
-          }
         }
       })
       .catch(() => {

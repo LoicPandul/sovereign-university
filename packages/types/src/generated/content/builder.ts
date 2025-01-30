@@ -9,6 +9,7 @@ export interface BuilderLocation {
 }
 
 export interface Builder {
+  id: string | null;
   resourceId: number;
   name: string;
   category: string;
@@ -24,6 +25,7 @@ export interface Builder {
 }
 
 export interface BuilderLocalized {
+  id: string | null;
   builderId: number;
   language: string;
   description: string | null;
