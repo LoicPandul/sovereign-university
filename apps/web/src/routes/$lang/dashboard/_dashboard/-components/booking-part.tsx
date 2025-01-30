@@ -227,6 +227,7 @@ const Buttons = ({
                     eventId: ticket.eventId,
                   }
             }
+            disabled={ticket.date.getTime() > Date.now()}
           >
             <Button
               variant="primary"
