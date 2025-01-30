@@ -36,38 +36,24 @@ const fetchBuilderLocation = async (query: string) => {
 };
 
 export const createSyncBuildersLocations = ({ postgres }: Dependencies) => {
-  return async () => {
+  return async (syncWarnings: string[]) => {
     try {
       const locations = await postgres.exec(getBuildersWithoutLocationQuery());
 
-      if (locations.length === 0) {
-        console.log('-- No builders found without locations');
-        return;
-      }
-
       for (const { name } of locations) {
-        try {
-          const result = await fetchBuilderLocation(name).catch(() => null);
-          if (!result) {
-            console.log(
-              '-- Sync procedure: Could not find location for builder:',
-              name,
-            );
-            continue;
-          }
-          console.log('-- Sync procedure: Found location for', name, result);
-
-          await postgres.exec(setBuilderLocationQuery({ ...result, name }));
-        } catch (error) {
-          console.error(
-            '-- Error during location fetch or insert for builder:',
-            name,
-            error,
-          );
+        const result = await fetchBuilderLocation(name).catch(() => null);
+        if (!result) {
+          const warn = `-- Sync procedure: Could not find builder location: ${name}`;
+          syncWarnings.push(warn);
+          continue;
         }
+
+        await postgres.exec(setBuilderLocationQuery({ ...result, name }));
       }
     } catch (error) {
-      console.error('-- Error during builders sync:', error);
+      const errMsg = `'-- Error during builders locations sync: ${error}`;
+      syncWarnings.push(errMsg);
+      console.error(errMsg);
     }
   };
 };

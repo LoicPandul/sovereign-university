@@ -67,9 +67,9 @@ export function createSyncGithubRepositories(dependencies: Dependencies) {
     await calculateCourseChapterSeats();
     await calculateEventSeats();
 
-    await syncEventsLocations().catch((error) => console.error(error));
+    await syncEventsLocations(syncWarnings);
 
-    await syncBuildersLocations().catch((error) => console.error(error));
+    await syncBuildersLocations(syncWarnings);
 
     if (syncErrors.length > 0) {
       console.error(

@@ -36,17 +36,25 @@ const fetchEventLocation = async (query: string) => {
 };
 
 export const createSyncEventsLocations = ({ postgres }: Dependencies) => {
-  return async () => {
-    const locations = await postgres.exec(getEventsWithoutLocationQuery());
+  return async (syncWarnings: string[]) => {
+    try {
+      const locations = await postgres.exec(getEventsWithoutLocationQuery());
 
-    for (const { name } of locations) {
-      const result = await fetchEventLocation(name).catch(() => null);
-      if (!result) {
-        console.log('-- Sync procedure: Could not find location', name);
-        continue;
+      for (const { name } of locations) {
+        const result = await fetchEventLocation(name).catch(() => null);
+        if (!result) {
+          const warn = `-- Sync procedure: Could not find event location ${name}`;
+          syncWarnings.push(warn);
+          console.log(warn);
+          continue;
+        }
+
+        await postgres.exec(setEventLocationQuery({ ...result, name }));
       }
-
-      await postgres.exec(setEventLocationQuery({ ...result, name }));
+    } catch (error) {
+      const errMsg = `'-- Error during events locations sync: ${error}`;
+      syncWarnings.push(errMsg);
+      console.error(errMsg);
     }
   };
 };
