@@ -7,16 +7,18 @@ import SeparatorIcon from '#src/assets/icons/separator-likes.svg';
 
 export const TutorialLikes = ({
   tutorial,
+  className,
 }: {
   tutorial: JoinedTutorialLight;
+  className?: string;
 }) => {
   return (
-    <span className="flex gap-1 md:gap-3 items-center my-1">
+    <span className={cn('flex gap-1 md:gap-3 items-center my-1', className)}>
       <span className="text-black text-base md:label-large-20px">
         {tutorial.likeCount}
       </span>
       <span className="flex items-center">
-        <MdThumbUp className="text-darkGreen-1 size-[18px] lg:size-[21px]" />
+        <MdThumbUp className="text-brightGreen-5 size-[18px] lg:size-[21px]" />
         <span
           className={cn(
             'w-[70px] rounded-full h-2 mx-2 max-md:hidden',
@@ -27,7 +29,7 @@ export const TutorialLikes = ({
           style={
             tutorial.likeCount > 0 || tutorial.dislikeCount > 0
               ? {
-                  background: `linear-gradient(to right, #42a86b ${(tutorial.likeCount / (tutorial.likeCount + tutorial.dislikeCount)) * 100}%, #e00000 ${(tutorial.likeCount / (tutorial.likeCount + tutorial.dislikeCount)) * 100}%)`,
+                  background: `linear-gradient(to right, #19c315 ${(tutorial.likeCount / (tutorial.likeCount + tutorial.dislikeCount)) * 100}%, #ff0000 ${(tutorial.likeCount / (tutorial.likeCount + tutorial.dislikeCount)) * 100}%)`,
                 }
               : {}
           }

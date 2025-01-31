@@ -1104,10 +1104,10 @@
     "approvedByCreator": "Approved by the creator",
     "backTutorials": "Back to all tutorials",
     "details": {
-      "author": "Author : ",
+      "author": "Author:",
       "didHelp": "Did this help ?",
       "ratingSuccess": "Thanks for your rating!",
-      "source": "Original source :",
+      "source": "Original source:",
       "tutorialName": "Tutorial name",
       "writtenBy": "This tutorial was written by :"
     },
@@ -1127,6 +1127,8 @@
       "didYouKnow": "Did you know ?",
       "exploreAllTutorials": "Explore all tutorials"
     },
+    "hasBeenProofreadBy": "This tutorial has been proofread by",
+    "hasNotBeenProofread": "This tutorial has not been proofread yet",
     "merchant": {
       "description": "Ever wonder how to easily accept bitcoin for a business? Explore our various solutions to become an expert and easily set up a merchant solution for the shops around you. The Point of Sale solution varies based on the merchant's needs (physical or online), their volume, and the complexity of their operations. A generally good proxy is to simply start with a basic LN wallet, move to an easy, efficient solution (such as mobile PoS), and finally explore BTC Pay Server for advanced, complex, professional solutions.",
       "shortDescription": "Solutions for businesses to accept Bitcoin",
@@ -1196,7 +1198,8 @@
       },
       "shortDescription": "Security solutions and usage of your bitcoins",
       "title": "Wallet"
-    }
+    },
+    "writtenBy": "This tutorial has been written by"
   },
   "underConstruction": {
     "github": "GitHub",
