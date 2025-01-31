@@ -10,7 +10,6 @@ export const getBuilderQuery = (id: number, language?: string) => {
       b.name,
       b.category,
       COALESCE(b.languages, ARRAY[]::text[]) AS languages,
-      b.id,
       b.website_url,
       b.twitter_url,
       b.github_url,
@@ -33,7 +32,6 @@ export const getBuilderQuery = (id: number, language?: string) => {
     GROUP BY
       r.id,
       bl.language,
-      b.id,
       b.name,
       b.category,
       b.languages,

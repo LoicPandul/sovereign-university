@@ -7,7 +7,6 @@ export const getBuildersQuery = (language?: string) => {
       r.id,
       r.path,
       bl.language,
-      b.id,
       b.name,
       b.category,
       COALESCE(b.languages, '{}') AS languages,
@@ -32,7 +31,6 @@ export const getBuildersQuery = (language?: string) => {
     GROUP BY
       r.id,
       bl.language,
-      b.id,
       b.name,
       b.category,
       b.languages,
