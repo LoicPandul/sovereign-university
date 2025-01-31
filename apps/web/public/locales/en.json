@@ -353,6 +353,19 @@
     "adminPanel": {
       "bookings": "Bookings",
       "bookingsPanel": "Bookings panel",
+      "careers": {
+        "careers": "Careers",
+        "careersSubtitle": "Here you can view the list of participants who have completed their applications. You can find all the applications information inside the spreadsheet.",
+        "cv": "CV",
+        "downloadProfiles": "Download spreadsheet",
+        "downloadSpreadsheet": "Download spreadsheet",
+        "lastUpdate": "Last update",
+        "lastUpdated": "Last updated",
+        "profession": "Profession",
+        "resultsRemaining": "{{results}} results remaining",
+        "seeMore": "See more",
+        "viewCV": "View CV"
+      },
       "confirmRemoval": "Confirm removal",
       "coursesIds": "Courses IDs",
       "date": "Date",
@@ -1282,6 +1295,7 @@
     "members": " Members",
     "mining": "Mining",
     "movie": "Movie",
+    "name": "Name",
     "network": "Network",
     "newsletter": "Newsletter",
     "next": "Next",

@@ -54,6 +54,7 @@ import { Route as LangDashboardDashboardCourseCompletedImport } from './routes/$
 import { Route as LangDashboardDashboardCourseCourseIdImport } from './routes/$lang/dashboard/_dashboard/course/$courseId';
 import { Route as LangDashboardDashboardAdministrationTutorialsImport } from './routes/$lang/dashboard/_dashboard/administration/tutorials';
 import { Route as LangDashboardDashboardAdministrationRoleImport } from './routes/$lang/dashboard/_dashboard/administration/role';
+import { Route as LangDashboardDashboardAdministrationCareersImport } from './routes/$lang/dashboard/_dashboard/administration/careers';
 import { Route as LangDashboardDashboardAdministrationBookingsImport } from './routes/$lang/dashboard/_dashboard/administration/bookings';
 import { Route as LangContentResourcesPodcastsPodcastNamePodcastIdImport } from './routes/$lang/_content/resources/podcasts/$podcastName-$podcastId';
 import { Route as LangContentResourcesNewslettersNewsletterNameNewsletterIdImport } from './routes/$lang/_content/resources/newsletters/$newsletterName-$newsletterId';
@@ -365,6 +366,13 @@ const LangDashboardDashboardAdministrationRoleRoute =
   LangDashboardDashboardAdministrationRoleImport.update({
     id: '/administration/role',
     path: '/administration/role',
+    getParentRoute: () => LangDashboardDashboardRoute,
+  } as any);
+
+const LangDashboardDashboardAdministrationCareersRoute =
+  LangDashboardDashboardAdministrationCareersImport.update({
+    id: '/administration/careers',
+    path: '/administration/careers',
     getParentRoute: () => LangDashboardDashboardRoute,
   } as any);
 
@@ -806,6 +814,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof LangDashboardDashboardAdministrationBookingsImport;
       parentRoute: typeof LangDashboardDashboardImport;
     };
+    '/$lang/dashboard/_dashboard/administration/careers': {
+      id: '/$lang/dashboard/_dashboard/administration/careers';
+      path: '/administration/careers';
+      fullPath: '/$lang/dashboard/administration/careers';
+      preLoaderRoute: typeof LangDashboardDashboardAdministrationCareersImport;
+      parentRoute: typeof LangDashboardDashboardImport;
+    };
     '/$lang/dashboard/_dashboard/administration/role': {
       id: '/$lang/dashboard/_dashboard/administration/role';
       path: '/administration/role';
@@ -1015,6 +1030,7 @@ interface LangDashboardDashboardRouteChildren {
   LangDashboardDashboardCredentialsRoute: typeof LangDashboardDashboardCredentialsRoute;
   LangDashboardDashboardProfileRoute: typeof LangDashboardDashboardProfileRoute;
   LangDashboardDashboardAdministrationBookingsRoute: typeof LangDashboardDashboardAdministrationBookingsRoute;
+  LangDashboardDashboardAdministrationCareersRoute: typeof LangDashboardDashboardAdministrationCareersRoute;
   LangDashboardDashboardAdministrationRoleRoute: typeof LangDashboardDashboardAdministrationRoleRoute;
   LangDashboardDashboardAdministrationTutorialsRoute: typeof LangDashboardDashboardAdministrationTutorialsRoute;
   LangDashboardDashboardCourseCourseIdRoute: typeof LangDashboardDashboardCourseCourseIdRoute;
@@ -1036,6 +1052,8 @@ const LangDashboardDashboardRouteChildren: LangDashboardDashboardRouteChildren =
     LangDashboardDashboardProfileRoute: LangDashboardDashboardProfileRoute,
     LangDashboardDashboardAdministrationBookingsRoute:
       LangDashboardDashboardAdministrationBookingsRoute,
+    LangDashboardDashboardAdministrationCareersRoute:
+      LangDashboardDashboardAdministrationCareersRoute,
     LangDashboardDashboardAdministrationRoleRoute:
       LangDashboardDashboardAdministrationRoleRoute,
     LangDashboardDashboardAdministrationTutorialsRoute:
@@ -1125,6 +1143,7 @@ export interface FileRoutesByFullPath {
   '/$lang/resources/newsletters/$newsletterName-$newsletterId': typeof LangContentResourcesNewslettersNewsletterNameNewsletterIdRoute;
   '/$lang/resources/podcasts/$podcastName-$podcastId': typeof LangContentResourcesPodcastsPodcastNamePodcastIdRoute;
   '/$lang/dashboard/administration/bookings': typeof LangDashboardDashboardAdministrationBookingsRoute;
+  '/$lang/dashboard/administration/careers': typeof LangDashboardDashboardAdministrationCareersRoute;
   '/$lang/dashboard/administration/role': typeof LangDashboardDashboardAdministrationRoleRoute;
   '/$lang/dashboard/administration/tutorials': typeof LangDashboardDashboardAdministrationTutorialsRoute;
   '/$lang/dashboard/course/$courseId': typeof LangDashboardDashboardCourseCourseIdRoute;
@@ -1192,6 +1211,7 @@ export interface FileRoutesByTo {
   '/$lang/resources/newsletters/$newsletterName-$newsletterId': typeof LangContentResourcesNewslettersNewsletterNameNewsletterIdRoute;
   '/$lang/resources/podcasts/$podcastName-$podcastId': typeof LangContentResourcesPodcastsPodcastNamePodcastIdRoute;
   '/$lang/dashboard/administration/bookings': typeof LangDashboardDashboardAdministrationBookingsRoute;
+  '/$lang/dashboard/administration/careers': typeof LangDashboardDashboardAdministrationCareersRoute;
   '/$lang/dashboard/administration/role': typeof LangDashboardDashboardAdministrationRoleRoute;
   '/$lang/dashboard/administration/tutorials': typeof LangDashboardDashboardAdministrationTutorialsRoute;
   '/$lang/dashboard/course/$courseId': typeof LangDashboardDashboardCourseCourseIdRoute;
@@ -1262,6 +1282,7 @@ export interface FileRoutesById {
   '/$lang/_content/resources/newsletters/$newsletterName-$newsletterId': typeof LangContentResourcesNewslettersNewsletterNameNewsletterIdRoute;
   '/$lang/_content/resources/podcasts/$podcastName-$podcastId': typeof LangContentResourcesPodcastsPodcastNamePodcastIdRoute;
   '/$lang/dashboard/_dashboard/administration/bookings': typeof LangDashboardDashboardAdministrationBookingsRoute;
+  '/$lang/dashboard/_dashboard/administration/careers': typeof LangDashboardDashboardAdministrationCareersRoute;
   '/$lang/dashboard/_dashboard/administration/role': typeof LangDashboardDashboardAdministrationRoleRoute;
   '/$lang/dashboard/_dashboard/administration/tutorials': typeof LangDashboardDashboardAdministrationTutorialsRoute;
   '/$lang/dashboard/_dashboard/course/$courseId': typeof LangDashboardDashboardCourseCourseIdRoute;
@@ -1332,6 +1353,7 @@ export interface FileRouteTypes {
     | '/$lang/resources/newsletters/$newsletterName-$newsletterId'
     | '/$lang/resources/podcasts/$podcastName-$podcastId'
     | '/$lang/dashboard/administration/bookings'
+    | '/$lang/dashboard/administration/careers'
     | '/$lang/dashboard/administration/role'
     | '/$lang/dashboard/administration/tutorials'
     | '/$lang/dashboard/course/$courseId'
@@ -1398,6 +1420,7 @@ export interface FileRouteTypes {
     | '/$lang/resources/newsletters/$newsletterName-$newsletterId'
     | '/$lang/resources/podcasts/$podcastName-$podcastId'
     | '/$lang/dashboard/administration/bookings'
+    | '/$lang/dashboard/administration/careers'
     | '/$lang/dashboard/administration/role'
     | '/$lang/dashboard/administration/tutorials'
     | '/$lang/dashboard/course/$courseId'
@@ -1466,6 +1489,7 @@ export interface FileRouteTypes {
     | '/$lang/_content/resources/newsletters/$newsletterName-$newsletterId'
     | '/$lang/_content/resources/podcasts/$podcastName-$podcastId'
     | '/$lang/dashboard/_dashboard/administration/bookings'
+    | '/$lang/dashboard/_dashboard/administration/careers'
     | '/$lang/dashboard/_dashboard/administration/role'
     | '/$lang/dashboard/_dashboard/administration/tutorials'
     | '/$lang/dashboard/_dashboard/course/$courseId'
@@ -1713,6 +1737,7 @@ export const routeTree = rootRoute
         "/$lang/dashboard/_dashboard/credentials",
         "/$lang/dashboard/_dashboard/profile",
         "/$lang/dashboard/_dashboard/administration/bookings",
+        "/$lang/dashboard/_dashboard/administration/careers",
         "/$lang/dashboard/_dashboard/administration/role",
         "/$lang/dashboard/_dashboard/administration/tutorials",
         "/$lang/dashboard/_dashboard/course/$courseId",
@@ -1836,6 +1861,10 @@ export const routeTree = rootRoute
     },
     "/$lang/dashboard/_dashboard/administration/bookings": {
       "filePath": "$lang/dashboard/_dashboard/administration/bookings.tsx",
+      "parent": "/$lang/dashboard/_dashboard"
+    },
+    "/$lang/dashboard/_dashboard/administration/careers": {
+      "filePath": "$lang/dashboard/_dashboard/administration/careers.tsx",
       "parent": "/$lang/dashboard/_dashboard"
     },
     "/$lang/dashboard/_dashboard/administration/role": {
