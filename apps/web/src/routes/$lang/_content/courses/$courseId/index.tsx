@@ -686,9 +686,8 @@ function CourseDetails() {
               await startCourse({ courseId });
               if (
                 userCourseProgress &&
-                (userCourseProgress.length === 0 ||
-                  (course?.requiresPayment &&
-                    userCourseProgress[0].completedChaptersCount === 0))
+                userCourseProgress.length === 0 &&
+                !course?.requiresPayment
               ) {
                 customToast(t('courses.details.courseAddedToDashboard'), {
                   color: 'primary',

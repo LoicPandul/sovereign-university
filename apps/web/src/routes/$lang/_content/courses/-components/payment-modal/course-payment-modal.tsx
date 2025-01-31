@@ -6,6 +6,8 @@ import { loadStripe } from '@stripe/stripe-js';
 import { useCallback, useEffect, useState } from 'react';
 import { Trans, useTranslation } from 'react-i18next';
 
+import SignInIconLight from '#src/assets/icons/profile_log_in_light.svg';
+
 import type {
   CheckoutData,
   CouponCode,
@@ -17,6 +19,7 @@ import {
   DialogContent,
   DialogDescription,
   DialogTitle,
+  customToast,
 } from '@blms/ui';
 
 import { PaymentDescription } from '#src/components/payment-description.js';
@@ -161,6 +164,17 @@ export const CoursePaymentModal = ({
       setValidatedCoupon(null);
     }
   }
+
+  useEffect(() => {
+    if (isPaymentSuccess) {
+      customToast(t('courses.details.courseAddedToDashboard'), {
+        color: 'primary',
+        mode: 'light',
+        imgSrc: SignInIconLight,
+        closeButton: true,
+      });
+    }
+  }, [isPaymentSuccess]);
 
   const courseName = `${addSpaceToCourseId(course?.id)} - ${course?.name}`;
 
