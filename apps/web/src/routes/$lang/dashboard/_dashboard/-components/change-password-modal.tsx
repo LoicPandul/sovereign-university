@@ -20,8 +20,10 @@ import {
   FormLabel,
   FormMessage,
   Input,
+  customToast,
 } from '@blms/ui';
 
+import { ImCheckmark } from 'react-icons/im';
 import { trpc } from '#src/utils/trpc.js';
 
 const password = new PasswordValidator().is().min(10);
@@ -37,7 +39,15 @@ export const ChangePasswordModal = ({
 }: ChangePasswordModalProps) => {
   const { t } = useTranslation();
   const changePassword = trpc.user.changePassword.useMutation({
-    onSuccess: onClose,
+    onSuccess: () => {
+      customToast(t('auth.passwordChangedSuccess'), {
+        mode: 'light',
+        color: 'success',
+        icon: ImCheckmark,
+        closeButton: true,
+      });
+      onClose();
+    },
   });
   const passwordsDontMatchMessage = t('auth.passwordsDontMatch');
 
