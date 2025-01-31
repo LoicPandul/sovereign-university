@@ -60,6 +60,7 @@
     "noAccountNeeded": "No need for an account to start learning at Plan ₿ Network!",
     "noAccountYet": "Don't have an account?",
     "passwordChanged": "Password changed",
+    "passwordChangedSuccess": "Password changed successfully",
     "passwordMinLength": "Password must be at least {{len}} characters",
     "passwordRequired": "Password is required",
     "passwordResetError": "Password reset error",
