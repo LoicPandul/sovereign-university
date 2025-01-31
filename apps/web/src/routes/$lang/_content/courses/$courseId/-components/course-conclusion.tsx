@@ -33,7 +33,7 @@ interface CourseConclusionProps {
   chapter: CourseChapterResponse;
 }
 
-const STEP_DURATION = 2500;
+const STEP_DURATION = 2100;
 
 export const CourseConclusion = ({ chapter }: CourseConclusionProps) => {
   const { i18n } = useTranslation();
@@ -130,7 +130,7 @@ export const CourseConclusion = ({ chapter }: CourseConclusionProps) => {
 
   useEffect(() => {
     if (step === 0 && session?.user) {
-      setTimeout(() => updateStep(1, false), STEP_DURATION);
+      setTimeout(() => updateStep(1, false), 1000);
     }
   }, [step, session]);
 
@@ -260,7 +260,9 @@ export const CourseConclusion = ({ chapter }: CourseConclusionProps) => {
               )}
             >
               <div className={cn(linkMainClass, 'w-full shrink-0')}>
-                {step >= 0 ? <div className={linkSubClass} /> : null}
+                {step >= 0 ? (
+                  <div className={cn(linkSubClass, '!duration-1000')} />
+                ) : null}
               </div>
             </div>
 
