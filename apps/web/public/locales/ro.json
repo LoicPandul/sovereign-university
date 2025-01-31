@@ -153,7 +153,9 @@
       "paidCourse": "Plătit",
       "premiumContentNeedsLogin": "Trebuie să fiți autentificat pentru a accesa acest curs.",
       "premiumContentNeedsPayment": "Acest curs face parte dintr-un program premium.",
-      "premiumContentNeedsPaymentAction": "Mergi la pagina principală a cursului"
+      "premiumContentNeedsPaymentAction": "Mergi la pagina principală a cursului",
+      "thanksTipping": "Poți mulțumi dând un bacșiș profesorului.",
+      "otherCoursesInterest": "Alte cursuri care ar putea să vă intereseze"
     },
     "chapter": {
       "thanksTip": "Doriți să vă arătați aprecierea?\nPuteți susține autorul cu un bacșiș.",
@@ -319,13 +321,24 @@
       "noGoBack": "Nu, întoarce-te înapoi",
       "testKnowledge": "Acum că ai terminat acest curs, să îți testăm cunoștințele.",
       "testResults": "Rezultatele testului",
-      "timeStampBenefits": "De ce este important:"
+      "timeStampBenefits": "De ce este important:",
+      "bCertificateCompletionText": "Plan ₿ Network are plăcerea să îl felicite pe {{username}} pentru primirea Certificatului ₿.",
+      "buttonTextBCert": "Aflați mai multe",
+      "certificatePageOtherCourses": "Alte cursuri conexe",
+      "courseDiploma": "Diplomă de curs",
+      "courseNotFound": "Cursul nu a fost găsit",
+      "dontWorryRetake": "Nu-ți face griji, poți da din nou examenul după 24 de ore."
     },
     "conclusion": {
       "completedFeedbackHeadline": "Vă mulțumim pentru feedback!\nEste foarte important pentru noi, așa că îl apreciem cu adevărat.",
       "completedFeedbackSubHeadline": "Puteți edita oricând evaluările și comentariile în dashboardul dvs.",
       "completedChaptersHeadline": "Toate capitolele sunt acum finalizate!",
-      "congratulationsEnd": "Felicitări, ai ajuns la sfârșitul cursului"
+      "congratulationsEnd": "Felicitări, ai ajuns la sfârșitul cursului",
+      "takeFinalExam": "Acum că ai terminat toate capitolele, este timpul să dai examenul final pentru a-ți testa cunoștințele.",
+      "finalStep": "Acesta a fost ultimul pas pentru a marca acest curs ca fiind finalizat în dashboardul tău, înainte de a-ți continua călătoria!",
+      "unlockFeatures1": "Pentru a debloca toate funcțiile și a urmări progresul tău, ai nevoie de un cont.",
+      "stepsToComplete": "Aceștia sunt pașii pentru a marca acest curs ca fiind finalizat în dashboardul tău, înainte de a-ți continua călătoria!",
+      "unlockFeatures2": "Vă rugăm să fiți conștienți că nu colectăm nicio dată personală și nici nu folosim cookie-uri."
     }
   },
   "dashboard": {
