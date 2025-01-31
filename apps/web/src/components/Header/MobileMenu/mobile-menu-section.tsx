@@ -1,5 +1,5 @@
 import { Link } from '@tanstack/react-router';
-import { useMemo } from 'react';
+import { useContext, useMemo } from 'react';
 import { FiChevronDown } from 'react-icons/fi';
 
 import { cn } from '@blms/ui';
@@ -8,6 +8,7 @@ import { useDisclosure } from '../../../hooks/use-disclosure.ts';
 import { compose } from '../../../utils/index.ts';
 import type { NavigationSectionMobile } from '../props.ts';
 
+import { AppContext } from '#src/providers/context.js';
 import { MobileMenuSectionElement } from './mobile-menu-section-elements.tsx';
 
 export interface MobileMenuSectionProps {
@@ -16,7 +17,10 @@ export interface MobileMenuSectionProps {
 
 export const MobileMenuSection = ({ section }: MobileMenuSectionProps) => {
   const { toggle, isOpen } = useDisclosure();
+  const { session } = useContext(AppContext);
 
+  const isLoggedIn = !!session;
+  const titleClass = isLoggedIn ? '' : 'italic';
   const sectionTitle = useMemo(() => {
     if ('path' in section) {
       return (
@@ -60,7 +64,9 @@ export const MobileMenuSection = ({ section }: MobileMenuSectionProps) => {
               )}
             />
           )}
-          <span className="truncate">{section.title}</span>
+          <span className={cn('truncate', titleClass)}>
+            {section.title}
+          </span>{' '}
         </button>
       );
     }
