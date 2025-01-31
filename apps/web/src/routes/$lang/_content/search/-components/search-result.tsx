@@ -1,5 +1,6 @@
 import type { SearchResultItem } from '@blms/types';
 import type { Searchable } from '@blms/types';
+import { Tag } from '@blms/ui';
 import { default as DOMPurify } from 'dompurify';
 
 import { useTranslation } from 'react-i18next';
@@ -14,15 +15,15 @@ export const SearchResult = ({ item, index }: SearchResultProps) => {
 
   return (
     <a
-      className="block rounded-lg p-2 hover:bg-tertiary-10 focus:border focus:border-newOrange-1 focus:outline-none"
-      href={item.document.link}
+      className="block rounded-lg p-2 hover:bg-tertiary-10 border border-transparent focus:border-newOrange-1 focus:outline-none"
+      href={`${item.document.link}#:~:text=${item.highlight.body?.matched_tokens?.[0] ?? item.document.title}`}
       target="_blank"
       rel="noreferrer"
     >
       <div className="flex gap-4 items-center">
-        <span className="bg-tertiary-9 px-2 py-1 rounded">
+        <Tag className="bg-tertiary-9 text-base border-0 p-2 py-1 text-white font-thin">
           {t(`search.${item.document.type}`)}
-        </span>
+        </Tag>
 
         {item.highlight.title ? (
           <div

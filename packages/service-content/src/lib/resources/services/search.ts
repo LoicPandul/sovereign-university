@@ -1,7 +1,7 @@
 import type { SearchResult } from '@blms/types';
 
+import type { Searchable } from '@blms/types';
 import type { Dependencies } from '#src/lib/dependencies.js';
-import type { Searchable } from '#src/lib/search.js';
 
 interface SearchInput {
   categories?: string[];

@@ -1,18 +1,26 @@
 import { useEffect, useRef, useState } from 'react';
-import { HiSearch } from 'react-icons/hi';
+
 import { IoMdClose } from 'react-icons/io';
 import { MdOutlineClear } from 'react-icons/md';
 
 import { TextTag, cn } from '@blms/ui';
 
 import FilterIcon from '#src/assets/icons/Filter.svg';
+import SearchIcon from '#src/assets/icons/search.svg';
 
 interface FilterDropdownProps {
-  filters: Record<string, string[]>;
-  selectedFilters: Record<string, string[]>;
+  filters?: null;
+  selectedFilters?: null;
   searchQuery: string;
   setSearchQuery: (query: string) => void;
-  onChange: (category: string, option: string) => void;
+  onChange?: (category: string, option: string) => void;
+  onClear?: () => void;
+}
+
+interface FilterDropdownPropsWithFilters
+  extends Omit<FilterDropdownProps, 'filters' | 'selectedFilters'> {
+  filters: Record<string, string[]>;
+  selectedFilters: Record<string, Set<string>>;
 }
 
 export const FilterDropdown = ({
@@ -20,19 +28,21 @@ export const FilterDropdown = ({
   selectedFilters,
   searchQuery,
   setSearchQuery,
-  onChange,
-}: FilterDropdownProps) => {
+  ...props
+}: FilterDropdownProps | FilterDropdownPropsWithFilters) => {
   const [isOpen, setIsOpen] = useState(false);
   const [activeCategory, setActiveCategory] = useState<string | null>(null);
   const [isFocused, setIsFocused] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
 
-  useEffect(() => {
-    if (!activeCategory) {
-      const firstCategory = Object.keys(filters)[0] || null;
-      setActiveCategory(firstCategory);
-    }
-  }, [filters, activeCategory]);
+  if (filters) {
+    useEffect(() => {
+      if (!activeCategory) {
+        const firstCategory = Object.keys(filters)[0] || null;
+        setActiveCategory(firstCategory);
+      }
+    }, [filters, activeCategory]);
+  }
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
@@ -89,51 +99,31 @@ export const FilterDropdown = ({
     }
   };
 
-  const clearSearch = () => {
-    setSearchQuery('');
-  };
-
   return (
     <section
-      className="mx-auto rounded-[10px] bg-tertiary-11"
+      className="mx-auto max-w-2xl rounded-lg bg-tertiary-11"
       ref={dropdownRef}
     >
       <div className="relative">
         <div
           className={cn(
-            'w-full flex items-center gap-2.5 overflow-x-scroll bg-tertiary-10 pl-[10px] py-[10px] pr-14 rounded-[10px] no-scrollbar',
-            isFocused && 'border border-darkOrange-7',
-            isOpen ? 'rounded-b-0' : 'rounded-b-[10px]',
+            'relative w-full flex items-center gap-2.5 border border-tertiary-10 overflow-x-scroll bg-tertiary-10 no-scrollbar',
+            isFocused && 'border-darkOrange-7',
+            isOpen ? 'rounded-b-0 rounded-t-lg' : 'rounded-lg',
+            filters && 'pr-14',
           )}
-          style={{
-            borderBottomLeftRadius: isOpen ? '0' : '10px',
-            borderBottomRightRadius: isOpen ? '0' : '10px',
-          }}
-          onClick={() =>
-            (
-              document.querySelector('#searchInput') as HTMLInputElement
-            )?.focus()
-          }
-          // biome-ignore lint/a11y/useSemanticElements: <explanation>
-          role="button"
-          tabIndex={0}
-          onKeyDown={(e) => {
-            if (e.key === 'Enter' || e.key === ' ') {
-              (
-                document.querySelector('#searchInput') as HTMLInputElement
-              )?.focus();
-            }
-          }}
         >
-          <HiSearch size={18} className="text-darkOrange-0 shrink-0" />
+          <img src={SearchIcon} alt="search" className="absolute size-6 mx-2" />
+
           <input
             id="searchInput"
             type="text"
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
+            autoComplete="off"
             placeholder="Search..."
             className={cn(
-              'w-full body-16px placeholder:body-16px !bg-transparent text-darkOrange-6 placeholder:text-tertiary-6 focus:ring-0 focus:outline-none',
+              'relative ps-10 px-2.5 py-2.5 peer w-full body-16px placeholder:body-16px !bg-transparent text-darkOrange-6 placeholder:text-tertiary-6 focus:ring-0 focus:outline-none',
             )}
             onFocus={() => {
               setIsFocused(true);
@@ -143,47 +133,55 @@ export const FilterDropdown = ({
             }}
             onBlur={() => setIsFocused(false)}
           />
+
           <button
             type="button"
-            onClick={clearSearch}
-            className="text-darkOrange-0 flex items-center shrink-0"
+            onClick={() => {
+              props.onClear?.();
+              document.querySelector<HTMLInputElement>('#searchInput')?.focus();
+            }}
+            className={cn(
+              'text-darkOrange-0 flex items-center shrink-0',
+              !searchQuery && 'hidden',
+            )}
           >
             <MdOutlineClear size={18} />
           </button>
         </div>
 
-        <button
-          type="button"
-          onClick={toggleDropdown}
-          className={`absolute text-darkOrange-0 inset-y-0 right-0 flex items-center rounded-tr-[10px]
-            ${
+        {filters && (
+          <button
+            type="button"
+            onClick={toggleDropdown}
+            className={cn(
+              'absolute text-darkOrange-0 inset-y-0 right-0 flex items-center rounded-tr-lg border border-l-0 border-darkOrange-6',
               isFocused
-                ? 'bg-tertiary-8 border-y border-r border-darkOrange-7'
-                : 'bg-darkOrange-6'
-            }
-            ${isOpen ? 'rounded-br-0 border-b-0' : 'rounded-br-[10px]'}
-            border-l-0
-          `}
-        >
-          <span>
-            <img className="p-[10px]" src={FilterIcon} sizes="20" alt="" />
-          </span>
-        </button>
+                ? 'bg-tertiary-8 border-darkOrange-7'
+                : 'bg-darkOrange-6 ',
+              isOpen ? 'rounded-br-0' : 'rounded-br-lg',
+            )}
+          >
+            <span>
+              <img className="p-2.5" src={FilterIcon} sizes="20" alt="" />
+            </span>
+          </button>
+        )}
       </div>
 
-      {isOpen && (
-        <div className="bg-tertiary-10 p-[10px] rounded-b-[10px] border-t border-tertiary-9">
+      {filters && isOpen && (
+        <div className="bg-tertiary-10 p-2.5 rounded-b-lg border-t border-tertiary-9">
           <div className="flex gap-1 mb-[15px]">
             {Object.keys(filters).map((category) => (
               <button
                 key={category}
                 type="button"
                 onClick={() => selectCategory(category)}
-                className={`px-[10px] py-1.5 body-16px ${
+                className={cn(
+                  'px-2.5 py-1.5 body-16px',
                   category === activeCategory
                     ? 'text-white underline'
-                    : 'text-newBlack-4 no-underline'
-                }`}
+                    : 'text-newBlack-4 no-underline',
+                )}
               >
                 {category}
               </button>
@@ -198,10 +196,9 @@ export const FilterDropdown = ({
                     <input
                       type="checkbox"
                       checked={
-                        selectedFilters[activeCategory]?.includes(option) ||
-                        false
+                        selectedFilters[activeCategory]?.has(option) || false
                       }
-                      onChange={() => onChange(activeCategory, option)}
+                      onChange={() => props.onChange?.(activeCategory, option)}
                       className="peer size-5 shrink-0 cursor-pointer transition-all appearance-none rounded shadow hover:shadow-md border-2 border-gray-200 checked:bg-transparent checked:border-gray-200"
                       id={`check-${option}`}
                     />
@@ -233,32 +230,33 @@ export const FilterDropdown = ({
           )}
         </div>
       )}
-      {Object.values(selectedFilters).some(
-        (options) => options.length > 0 && !options.includes('all'),
-      ) && (
-        <div className="flex flex-wrap items-center gap-[5px] px-2.5 py-2">
-          {Object.entries(selectedFilters).map(([category, options]) =>
-            options
-              .filter((option) => option !== 'all')
-              .map((option) => (
-                <TextTag
-                  key={`${category}-${option}`}
-                  variant="lightMaroon"
-                  mode="dark"
-                  size="verySmall"
-                  className="text-nowrap capitalize"
-                >
-                  <span>{option}</span>
-                  <IoMdClose
-                    className="text-tertiary-4 cursor-pointer"
-                    size={16}
-                    onClick={() => onChange(category, option)}
-                  />
-                </TextTag>
-              )),
-          )}
-        </div>
-      )}
+      {selectedFilters &&
+        Object.values(selectedFilters).some(
+          (options) => options.size > 0 && !options.has('all'),
+        ) && (
+          <div className="flex flex-wrap items-center gap-[5px] px-2.5 py-2">
+            {Object.entries(selectedFilters).map(([category, options]) =>
+              [...options]
+                .filter((option) => option !== 'all')
+                .map((option) => (
+                  <TextTag
+                    key={`${category}-${option}`}
+                    variant="lightMaroon"
+                    mode="dark"
+                    size="verySmall"
+                    className="text-nowrap capitalize"
+                  >
+                    <span>{option}</span>
+                    <IoMdClose
+                      className="text-tertiary-4 cursor-pointer"
+                      size={16}
+                      onClick={() => props.onChange?.(category, option)}
+                    />
+                  </TextTag>
+                )),
+            )}
+          </div>
+        )}
     </section>
   );
 };

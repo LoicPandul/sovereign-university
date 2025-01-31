@@ -11,10 +11,20 @@
   "search.exclude": {
     "**/tsconfig.*.tsbuildinfo": true
   },
+  "files.associations": {
+    "*.css": "tailwindcss"
+  },
   "files.insertFinalNewline": true,
   "files.trimTrailingWhitespace": true,
+  "editor.inlineSuggest.enabled": true,
+  "editor.quickSuggestions": {
+    "comments": true,
+    "strings": true
+  },
+  "css.validate": false,
   "typescript.tsdk": "node_modules/typescript/lib",
   "typescript.enablePromptUseWorkspaceTsdk": true,
+  "tailwindCSS.emmetCompletions": true,
   "tailwindCSS.classAttributes": [
     "class",
     "className",

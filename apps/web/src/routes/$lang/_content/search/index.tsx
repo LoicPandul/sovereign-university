@@ -8,12 +8,13 @@ import { PageLayout } from '#src/components/page-layout.tsx';
 import { trpc } from '#src/utils/trpc.ts';
 
 import { HiOutlineAdjustmentsHorizontal } from 'react-icons/hi2';
-import { IoMdClose } from 'react-icons/io';
 import { MdKeyboardArrowDown, MdKeyboardArrowUp } from 'react-icons/md';
 import SearchErrorIcon from '#src/assets/icons/search-error.svg';
-import SearchIcon from '#src/assets/icons/search.svg';
 
+import { FilterDropdown } from '#src/organisms/filter-dropdown.tsx';
 import { getLanguageName } from '#src/utils/i18n.ts';
+import { useDebounce } from '#src/utils/search.ts';
+import { toggleSelection } from '#src/utils/toggle.ts';
 import { SearchResult } from './-components/search-result.tsx';
 
 export const Route = createFileRoute('/$lang/_content/search/')({
@@ -23,21 +24,23 @@ export const Route = createFileRoute('/$lang/_content/search/')({
 function SearchPage() {
   const { t, i18n } = useTranslation();
 
-  const [filtersOpen, setFiltersOpen] = useState(false);
+  const [filtersOpen, setFiltersOpen] = useState(true);
   const [categories, setCategories] = useState<Set<string>>(new Set(['all']));
+  const [resources, setResources] = useState<Set<string>>(new Set(['all']));
 
   const [query, setQuery] = useState('');
+  const debouncedQuery = useDebounce(query, 200);
   const search = trpc.content.search.useInfiniteQuery(
     {
-      query,
+      query: debouncedQuery,
       language: i18n.language,
-      categories: [...categories],
+      categories: [...categories, ...resources],
       limit: 10,
     },
     {
       initialCursor: 1,
       getNextPageParam: (lastPage) => lastPage.nextCursor,
-      enabled: query.length > 0, // Only fetch when query has input
+      enabled: debouncedQuery.length > 0, // Only fetch when query has input
     },
   );
 
@@ -46,41 +49,29 @@ function SearchPage() {
   const clearSearch = () => {
     setQuery('');
     setCategories(new Set(['all']));
+    setResources(new Set(['all']));
   };
 
-  const filters = [
-    'all', //
-    'courses',
+  const handleFilterChange = (category: string, option: string) => {
+    if (category === 'Categories') {
+      toggleSelection(option, categories, setCategories);
+    } else if (category === 'Resources') {
+      toggleSelection(option, resources, setResources);
+    }
+  };
+
+  const availableCategories = ['courses', 'events', 'tutorials', 'professors'];
+
+  const availableResources = [
     'books',
-    'words',
+    'newsletters',
     'podcasts',
-    'tutorials',
-    'professors',
+    'youtube_channels',
+    'conference_replays',
+    'glossary',
+    'projects',
+    'lecture_replays',
   ];
-
-  const createSetToggle = (
-    target: Set<string>,
-    dispatch: React.Dispatch<React.SetStateAction<Set<string>>>,
-  ) => {
-    return (filter: string) => {
-      if (filter === 'all') {
-        dispatch(new Set(['all']));
-      } else {
-        const isSelected = target.has(filter);
-        let newSelection = isSelected
-          ? new Set([...target].filter((i) => i !== filter))
-          : new Set([...target].filter((i) => i !== 'all')).add(filter);
-
-        if (newSelection.size === 0) {
-          newSelection = new Set(['all']);
-        }
-
-        dispatch(newSelection);
-      }
-    };
-  };
-
-  const toggleFilter = createSetToggle(categories, setCategories);
 
   return (
     <PageLayout
@@ -89,45 +80,35 @@ function SearchPage() {
       title={t('search.explorer.title')}
       subtitle={' '}
     >
-      <div className="max-w-6xl pb-8 text-white mx-2 sm:mx-auto ">
+      <div className="max-w-6xl pb-8 text-white sm:mx-auto">
         <h2 className="text-orange-500 text-center text-xl mt-16">
           {t('search.explorer.subtitle')}
         </h2>
 
-        <search className="flex flex-col space-y-4 max-w-2xl mx-auto sm:mb-16">
-          <div className="flex items-center gap-4 relative bg-tertiary-10 my-8 h-14 rounded-lg">
-            <img
-              src={SearchIcon}
-              alt="search"
-              className="absolute size-6 mx-4"
-            />
+        <div className="mx-2 sm:mb-16 my-8">
+          <FilterDropdown
+            searchQuery={query}
+            setSearchQuery={setQuery}
+            onClear={clearSearch}
+            onChange={handleFilterChange}
+            filters={{
+              Categories: availableCategories,
+              Resources: availableResources,
+            }}
+            selectedFilters={{
+              Categories: categories,
+              Resources: resources,
+            }}
+          />
+        </div>
 
-            <input
-              id="search"
-              className="absolute outline-1 text-newOrange-1 ps-16 p-4 bg-transparent focus:outline outline-newOrange-1 w-full rounded-lg"
-              type="text"
-              placeholder={`${t('search.search')}...`}
-              autoComplete="off"
-              value={query}
-              onChange={(e) => setQuery(e.target.value)}
-            />
-
-            {query.length > 0 && (
-              <IoMdClose
-                className="absolute right-4 size-6 cursor-pointer"
-                onClick={() => clearSearch()}
-              />
-            )}
+        {query.length === 0 && (
+          <div>
+            <p className="text-center text-xl mt-16">
+              {t('search.startSearch')}
+            </p>
           </div>
-
-          {query.length === 0 && (
-            <div>
-              <p className="text-center text-xl mt-16">
-                {t('search.startSearch')}
-              </p>
-            </div>
-          )}
-        </search>
+        )}
 
         <div>
           {search.isLoading && <p>Loading...</p>}
@@ -135,7 +116,7 @@ function SearchPage() {
             <p className="text-red-500">{t('search.resultError')}</p>
           )}
           {lastPage && (
-            <div>
+            <div className="mx-auto max-w-2xl md:mx-8 xl:mx-auto md:max-w-none">
               <div
                 className={cn(
                   'mb-4 ps-2',
@@ -144,7 +125,7 @@ function SearchPage() {
                     : '',
                 )}
               >
-                <div className="flex flex-col space-y-4 text-base mb-4">
+                <div className="hidden md:flex flex-col space-y-4 text-base mb-4">
                   <div className={cn(query.length > 0 ? '' : 'hidden')}>
                     <Button
                       className="flex justify-start items-center gap-2 -ms-4 focus-visible:ring-0 focus-visible:ring-offset-0 focus-visible:outline-offset-0 focus-visible:outline-1 focus-visible:outline-newOrange-1"
@@ -172,31 +153,53 @@ function SearchPage() {
                     )}
                   >
                     <div className="flex flex-wrap gap-2">
-                      <Button
-                        variant={
-                          categories.has('all') ? 'primary' : 'outlineWhite'
-                        }
-                        size="s"
-                        onClick={() => setCategories(new Set(['all']))}
-                      >
-                        {t('search.all')}
-                      </Button>
+                      <div className="flex flex-col gap-2">
+                        {Object.entries({
+                          Categories: availableCategories,
+                          Resources: availableResources,
+                        }).map(([groupname, group], index) => (
+                          <div
+                            // biome-ignore lint/suspicious/noArrayIndexKey: <explanation>
+                            key={`group-${index}`}
+                            className="flex flex-wrap gap-2"
+                          >
+                            {group.map((cat) => {
+                              const target =
+                                groupname === 'Categories'
+                                  ? {
+                                      value: categories,
+                                      dispatch: setCategories,
+                                    }
+                                  : {
+                                      value: resources,
+                                      dispatch: setResources,
+                                    };
 
-                      {filters.slice(1).map((filter) => (
-                        <Button
-                          key={filter}
-                          variant={
-                            categories.has(filter) ? 'primary' : 'outlineWhite'
-                          }
-                          size="s"
-                          onClick={() => {
-                            toggleFilter(filter);
-                          }}
-                          className="capitalize"
-                        >
-                          {`${t(`search.${filter}`)}`}
-                        </Button>
-                      ))}
+                              return (
+                                <Button
+                                  key={cat}
+                                  variant={
+                                    target.value.has(cat)
+                                      ? 'primary'
+                                      : 'outlineWhite'
+                                  }
+                                  size="s"
+                                  onClick={() => {
+                                    toggleSelection(
+                                      cat,
+                                      target.value,
+                                      target.dispatch,
+                                    );
+                                  }}
+                                  className="focus-visible:border-newOrange-1"
+                                >
+                                  {`${t(`search.${cat}`)}`}
+                                </Button>
+                              );
+                            })}
+                          </div>
+                        ))}
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -251,11 +254,9 @@ function SearchPage() {
                   </Button>
 
                   <div>
-                    (
                     {t('search.resultsRemaining', {
                       count: lastPage.remaining,
                     })}
-                    )
                   </div>
                 </div>
               )}
