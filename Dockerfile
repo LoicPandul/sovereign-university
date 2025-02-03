@@ -23,6 +23,9 @@ RUN --mount=type=cache,target=/var/cache/apt,sharing=locked \
   git \
   curl
 
+# To fix a bug with the default version of corepack
+RUN npm i -g corepack@latest
+
 # https://nodejs.org/api/corepack.html
 RUN corepack enable \
   && mkdir -p $PNPM_HOME \

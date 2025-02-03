@@ -14,7 +14,7 @@ WORKDIR /app
 ENV PNPM_HOME="/pnpm"
 ENV PATH="$PNPM_HOME:$PATH"
 
-RUN npm install --location=global pnpm@9
+RUN npm install --location=global pnpm@10
 RUN pnpm add --global turbo@2
 
 COPY . .
@@ -34,7 +34,7 @@ RUN apk add --no-cache -U \
     cairo-dev \
     pango-dev \
     shadow
-RUN npm install --location=global pnpm@9
+RUN npm install --location=global pnpm@10
 WORKDIR /app
 
 # First install dependencies (as they change less often)
