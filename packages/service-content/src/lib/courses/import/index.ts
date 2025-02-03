@@ -319,7 +319,6 @@ export const createUpdateCourses = ({ postgres }: Dependencies) => {
                 WHERE course_id = ${course.id}
               `;
 
-          // Only get the tags from the main resource file
           const parsedCourse = await yamlToObject<CourseMain>(main);
           if (parsedCourse.requires_payment === null) {
             parsedCourse.requires_payment = false;

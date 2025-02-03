@@ -37,7 +37,6 @@ interface TutorialMain {
 export const createProcessMainFile = (transaction: TransactionSql) => {
   return async (tutorial: ChangedTutorial, file?: ChangedFile) => {
     if (!file) return;
-    // Only get the tags from the main tutorial file
     const parsedTutorial = await yamlToObject<TutorialMain>(file);
 
     // TODO remove this when data is fixed

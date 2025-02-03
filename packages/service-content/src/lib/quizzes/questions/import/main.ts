@@ -19,7 +19,6 @@ export const createProcessMainFile = (transaction: TransactionSql) => {
   return async (quizQuestion: ChangedQuizQuestion, file?: ChangedFile) => {
     if (!file) return;
 
-    // Only get the tags from the main quiz file
     const parsedQuizQuestion = await yamlToObject<QuizQuestionMain>(file);
 
     const lastUpdated = quizQuestion.files.sort((a, b) => b.time - a.time)[0];
