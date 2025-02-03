@@ -155,7 +155,11 @@
       "premiumContentNeedsPayment": "Acest curs face parte dintr-un program premium.",
       "premiumContentNeedsPaymentAction": "Mergi la pagina principală a cursului",
       "thanksTipping": "Poți mulțumi dând un bacșiș profesorului.",
-      "otherCoursesInterest": "Alte cursuri care ar putea să vă intereseze"
+      "otherCoursesInterest": "Alte cursuri care ar putea să vă intereseze",
+      "hasNotBeenProofread": "Acest curs încă nu a fost corectat",
+      "hasBeenProofreadBy": "Acest curs a fost corectat de",
+      "otherCourses": "Alte cursuri",
+      "courseAddedToDashboard": "Acest curs a fost adăugat la dashboardul al studentului dumneavoastră"
     },
     "chapter": {
       "thanksTip": "Doriți să vă arătați aprecierea?\nPuteți susține autorul cu un bacșiș.",
@@ -265,7 +269,8 @@
       "editReview": "Recenzie de editare",
       "feedbackDescription2": "Rețineți că profesorii nu vor avea acces la evaluările individuale.",
       "saveReview": "Salvează recenzia",
-      "thankYou": "Mulțumesc pentru recenzia ta! A fost luată în considerare."
+      "thankYou": "Mulțumesc pentru recenzia ta! A fost luată în considerare.",
+      "feedback": "Feedback"
     },
     "exam": {
       "dontGiveUpTryAgain": "Nu renunța!\nPoți încerca din nou după 24 de ore.",
@@ -479,6 +484,30 @@
       "seatBooked": "Locul tău la sesiunea de examen este rezervat",
       "takePlaceAt": "Sesiunea va avea loc la",
       "yourCertificate": "Certificatul tău"
+    },
+    "adminPanel": {
+      "tutorialAnalytics": "Analiza tutorialului",
+      "bookings": "Rezervări",
+      "bookingsPanel": "Panou de rezervări",
+      "confirmRemoval": "Confirmați eliminarea",
+      "coursesIds": "ID-uri cursuri",
+      "date": "Dată",
+      "downloadList": "Descarcă lista",
+      "githubLink": "Link Github",
+      "listOfParticipants": "Lista participanților",
+      "makeProfessor": "Fă-te profesor",
+      "nameOfEvent": "Numele evenimentului",
+      "participants": "Participanți",
+      "professorName": "Numele profesorului",
+      "removeTeacherDescription": "Ești sigur că vrei să înlături acest profesor?",
+      "searchByNameOrCategory": "Caută după nume sau categorie",
+      "seeOrEdit": "Vezi sau editează",
+      "selectProfessor": "Selectați profesorul",
+      "tutorialAnalyticsDescription": "Aici puteți verifica și compara toate tutorialele de pe platformă.",
+      "tutorialsManagementPanel": "Panoul de administrare al tutorialelor",
+      "type": "Tip",
+      "upcomingBookings": "Rezervările viitoare",
+      "upcomingBookingsSubtitle": "Aici puteți descărca lista de participanți pentru toate evenimentele în persoană."
     }
   },
   "events": {
