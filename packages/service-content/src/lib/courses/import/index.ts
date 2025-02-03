@@ -454,7 +454,7 @@ export const createUpdateCourses = ({ postgres }: Dependencies) => {
             for (const p of parsedCourse.proofreading) {
               const proofreadResult = await transaction<Proofreading[]>`
                   INSERT INTO content.proofreading (course_id, language, last_contribution_date, urgency, reward)
-                  VALUES (${course.id}, ${p.language.toLowerCase()}, ${p.last_contribution_date}, ${p.urgency}, ${p.reward})
+                  VALUES (${course.id}, ${p.language.toLowerCase()}, ${p.last_contribution_date}, ${p.urgency}, ${Math.round(p.reward * 100)})
                   RETURNING *;
                 `.then(firstRow);
 

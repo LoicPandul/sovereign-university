@@ -148,7 +148,7 @@ export const createProcessChangedConference = (
             for (const p of parsedConference.proofreading) {
               const proofreadResult = await transaction<Proofreading[]>`
                   INSERT INTO content.proofreading (resource_id, language, last_contribution_date, urgency, reward)
-                  VALUES (${result?.resourceId}, ${p.language.toLowerCase()}, ${p.last_contribution_date}, ${p.urgency}, ${p.reward})
+                  VALUES (${result?.resourceId}, ${p.language.toLowerCase()}, ${p.last_contribution_date}, ${p.urgency}, ${Math.round(p.reward * 100)})
                   RETURNING *;
                 `.then(firstRow);
 
