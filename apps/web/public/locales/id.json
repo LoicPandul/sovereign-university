@@ -28,8 +28,8 @@
       "displayNameTooShort": "Nama tampilan harus mengandung setidaknya 2 karakter.",
       "usernameRequired": "Nama pengguna diperlukan.",
       "usernameTooShort": "Nama pengguna harus mengandung setidaknya lima karakter.",
-      "invalidCredentials": "",
-      "emailInvalid": ""
+      "invalidCredentials": "Informasi login tidak valid",
+      "emailInvalid": "Email tidak valid"
     },
     "noAccountNeeded": "Tidak perlu akun untuk mulai belajar di Plan B Network !",
     "passwordSuccessfullyChanged": "Kata sandi Anda telah berhasil diubah. Anda dapat masuk sekarang dengan kata sandi baru Anda.",
@@ -66,8 +66,12 @@
     "tryAgain": "Coba lagi",
     "signIn": "Masuk",
     "confirmation": "Konfirmasi",
-    "displayName": "",
-    "emailTip": ""
+    "displayName": "Tampilan Nama",
+    "emailTip": "Email tidak wajib, tetapi bisa berguna jika anda lupa kata sandi!",
+    "dashboardUnlocked": "Dasbor siswa anda terbuka !",
+    "didYouKnow": "Tahu kah anda ?",
+    "passwordChangedSuccess": "Kata sandi berhasil diubah",
+    "trackProgress": "Buat akun atau masuk untuk tetap mengikuti progres anda"
   },
   "bCertificate": {
     "bCertificateDescription": "Sertifikat ₿ merupakan ujian yang diakui secara internasional untuk mengukur tingkat pemahaman Anda tentang Bitcoin dan topik-topik yang berkaitan. Sertifikat ini dapat berfungsi sebagai bukti atas kemampuan dan pengetahuan Anda dalam industri Bitcoin, dapat memberi Anda peluang untuk masuk ke perusahaan dan jabatan tertentu dalam industri tersebut.",
@@ -83,7 +87,9 @@
     "pageSubtitle": "Adopsi skala besar melalui edukasi bersumber terbuka yang tersentralisasi",
     "pageTitle": "Lulus sertifikasi ₿",
     "readChart": "Silakan baca diagram",
-    "tweetText": ""
+    "tweetText": "",
+    "download": "Unduh sertifikat",
+    "verify": "Verifikasi keaslian sertifikat Anda"
   },
   "bet": {
     "contributeButton": "Bantu & kontribusi",
@@ -155,10 +161,20 @@
       "objectivesTitle": "Yang akan Anda pelajari:",
       "startCourse": "Mulai kursus",
       "taughtBy": "Kursus ini diajarkan oleh:",
-      "buyInPersonCourse": "",
-      "buyOnlineCourse": "",
-      "inPersonAccess": "",
-      "paidCourse": ""
+      "buyInPersonCourse": "Beli kursus tatap muka",
+      "buyOnlineCourse": "Beli kursus online",
+      "inPersonAccess": "Anda perlu mengunduh tiket anda untuk mengakses kelas tatap muka.",
+      "paidCourse": "Premium",
+      "collaborativeEffort": "Setiap konten di platform ini merupakan hasil dari upaya kolaboratif: setiap pelajaran, terjemahan, dan revisi dimungkinkan oleh hasil kerja para kontributor. Oleh karena itu, kami selalu mencari korektor yang dapat meninjau konten kami dalam berbagai bahasa. Jika Anda ingin berpartisipasi dalam proses proofreading, silakan hubungi grup <0>Telegram</0> kami dan baca <1>tutorial</1> kami.\n\nKami ingatkan anda bahwa konten ini adalah bersifat open source - berlisensi <2>CC BY-SA</2> - sehingga dapat dibagikan dan digunakan secara bebas, d engan catatan mencantumkan sumber aslinya.",
+      "premiumContentNeedsPayment": "Kursus ini merupakan bagian dari program premium.",
+      "courseAddedToDashboard": "Kursus ini telah ditambahkan ke dasbor siswa anda",
+      "hasBeenProofreadBy": "Kursus ini telah dikoreksi oleh",
+      "hasNotBeenProofread": "Kursus ini belum dikoreksi",
+      "otherCourses": "Kursus lainnya",
+      "otherCoursesInterest": "Kursus lain yang mungkin anda tertarik",
+      "premiumContentNeedsLogin": "Anda harus login untuk mengakses kursus ini.",
+      "premiumContentNeedsPaymentAction": "Pergi ke beranda kursus",
+      "thanksTipping": "Anda dapat mengucapkan terima kasih dengan memberikan tip kepada profesor."
     },
     "explorer": {
       "pageDescription": "Akademi Plan B bertujuan untuk menyederhanakan edukasi Bitcoin secara global. Disusun oleh para ahli dari berbagai disiplin ilmu, akademi ini menawarkan berbagai macam kursus yang dirancang untuk memaparkan tiap aspek Bitcoin dengan jelas. Dari pemula hingga ahli, baik dengan ritme Anda sendiri atau mengikuti jadwal mingguan dari profesor, kami berharap akademi ini dapat membantu Anda untuk memahami lebih baik topik-topik luas tentang Bitcoin. Sebagian besar dari kursus kami bersifat gratis, sehingga siapapun, dimanapun dapat mengakses pendidikan.",
@@ -208,20 +224,20 @@
       "resultPerfect": "Luar biasa sempurna! Selamat ya!"
     },
     "exam": {
-      "congratulationsPassed": "",
-      "dontGiveUpTryAgain": "",
+      "congratulationsPassed": "Selamat, Anda <0>lulus</0> ujian akhir!",
+      "dontGiveUpTryAgain": "Jangan menyerah!\nAnda dapat mencoba lagi setelah 24 jam.",
       "goodLuck": "",
       "tryOneMoreTime": "",
-      "certificateAvailable": "",
+      "certificateAvailable": "Ini akan tersedia sekitar 10 jam setelah pengajuan.",
       "timeStampHow": "",
-      "answersReview": "",
-      "availableDashboard": "",
-      "certificateGeneration": "",
-      "congratulations": "",
-      "dontWorry": "",
-      "examAndDiploma": "",
-      "examDetails": "",
-      "explanations": "",
+      "answersReview": "Ulasan jawaban",
+      "availableDashboard": "Ini akan tersedia di dasbor anda dalam waktu sekitar 10 jam.",
+      "certificateGeneration": "Sertifikat Anda sedang. ",
+      "congratulations": "Selamat, anda telah mencapai akhir dari kursus ini!",
+      "dontWorry": "Jangan khawatir tentang kesalahan; tes ini membantu memperkuat pembelajaran Anda. Jika Anda tidak lulus, Anda dapat mengulang tes ini setelah 24 jam.",
+      "examAndDiploma": "Ujian & Diploma",
+      "examDetails": "Ujian ini terdiri dari 40 pertanyaan pilihan ganda, masing-masing dengan satu jawaban yang benar. Anda dapat mengubah jawaban Anda kapan saja sebelum mengirimkannya, selama pengatur waktu masih berjalan.",
+      "explanations": "Penjelasan:",
       "failed": "",
       "finalExam": "",
       "findInformationChapter": "",
@@ -261,7 +277,14 @@
       "verifyDisplayName": "",
       "whyTimeStamp": "",
       "wishTryAgain": "",
-      "yesSubmit": ""
+      "yesSubmit": "",
+      "bCertificateCompletionText": "Plan ₿ Network dengan bangga mengucapkan selamat kepada {{username}} karena telah dianugerahi ₿-Sertifikat.",
+      "buttonTextBCert": "Pelajari lebih lanjut",
+      "certificatePageOtherCourses": "Mata kuliah terkait lainnya",
+      "courseDiploma": "Kursus diploma",
+      "courseNotFound": "Kursus tidak ditemukan",
+      "dontWorryRetake": "Jangan khawatir, Anda dapat mengikuti ujian ulang setelah 24 jam.",
+      "examCertificateCompletionText": "Plan ₿ Network dengan senang hati mengucapkan selamat kepada {{username}} karena telah mendapatkan ijazah kursus \"{{courseName}}\"."
     },
     "review": {
       "asExpected": "",
@@ -295,6 +318,17 @@
       "faithful": "",
       "yesOfCourse": "",
       "recommend": ""
+    },
+    "conclusion": {
+      "completedFeedbackHeadline": "Terima kasih atas feedback anda\nfeedback anda sangat penting bagi kami, jadi kami sangat menghargainya.",
+      "stepsToComplete": "Berikut ini adalah langkah-langkah untuk menandai kursus ini telah selesai di dasbor Anda, sebelum melanjutkan petualangan anda!",
+      "completedChaptersHeadline": "Semua bab sekarang sudah selesai!",
+      "completedFeedbackSubHeadline": "Anda dapat mengedit penilaian dan komentar Anda kapan saja di dasbor.",
+      "congratulationsEnd": "Selamat, anda telah mencapai akhir dari kursus ini",
+      "finalStep": "Ini adalah langkah terakhir untuk menandai kursus ini telah selesai di dasbor Anda, sebelum melanjutkan petualangan anda!",
+      "takeFinalExam": "Sekarang setelah anda menyelesaikan semua bab, saatnya untuk mengikuti ujian akhir untuk menguji pengetahuan Anda.",
+      "unlockFeatures1": "Untuk membuka semua fitur dan melacak progres anda, anda memerlukan akun.",
+      "unlockFeatures2": "Perlu diketahui bahwa kami tidak mengumpulkan data pribadi apa pun dan tidak menggunakan cookie."
     }
   },
   "dashboard": {
