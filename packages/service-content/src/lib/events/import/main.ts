@@ -38,17 +38,15 @@ export const createProcessMainFile = (transaction: TransactionSql) => {
   return async (event: ChangedEvent, file?: ChangedFile) => {
     if (!file) return;
 
-    // Only get the tags from the main tutorial file
-    const parsedEvents = await yamlToObject<EventMain[]>(file);
+    const parsedEvent = await yamlToObject<EventMain>(file);
 
     const lastUpdated = event.files.sort((a, b) => b.time - a.time)[0];
 
-    for (const parsedEvent of parsedEvents) {
-      parsedEvent.book_online = parsedEvent.book_online
-        ? parsedEvent.book_online
-        : false;
+    parsedEvent.book_online = parsedEvent.book_online
+      ? parsedEvent.book_online
+      : false;
 
-      const result = await transaction<Event[]>`
+    const result = await transaction<Event[]>`
         INSERT INTO content.events
           ( id,
             path,
@@ -134,37 +132,37 @@ export const createProcessMainFile = (transaction: TransactionSql) => {
         RETURNING *
       `.then(firstRow);
 
-      if (!result) {
-        throw new Error('Could not insert events');
-      }
+    if (!result) {
+      throw new Error('Could not insert events');
+    }
 
-      if (result && parsedEvent.tags && parsedEvent.tags?.length > 0) {
-        await transaction`
+    if (result && parsedEvent.tags && parsedEvent.tags?.length > 0) {
+      await transaction`
           INSERT INTO content.tags ${transaction(
             parsedEvent.tags.map((tag) => ({ name: tag.toLowerCase() })),
           )}
           ON CONFLICT (name) DO NOTHING
         `;
 
-        await transaction`
+      await transaction`
           INSERT INTO content.event_tags (event_id, tag_id)
           SELECT
             ${result.id},
             id FROM content.tags WHERE name = ANY(${parsedEvent.tags})
           ON CONFLICT DO NOTHING
         `;
-      }
+    }
 
-      if (result) {
-        await transaction`
+    if (result) {
+      await transaction`
         DELETE FROM content.event_languages
         WHERE event_id = ${result.id}
       `;
-      }
+    }
 
-      if (result && parsedEvent.language && parsedEvent.language?.length > 0) {
-        for (const language of parsedEvent.language) {
-          await transaction`
+    if (result && parsedEvent.language && parsedEvent.language?.length > 0) {
+      for (const language of parsedEvent.language) {
+        await transaction`
             INSERT INTO content.event_languages (event_id, language)
             VALUES(
               ${result.id},
@@ -172,7 +170,6 @@ export const createProcessMainFile = (transaction: TransactionSql) => {
             )
             ON CONFLICT DO NOTHING
           `;
-        }
       }
     }
   };

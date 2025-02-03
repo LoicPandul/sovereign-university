@@ -31,7 +31,6 @@ export const createProcessMainFile = (transaction: TransactionSql) => {
   return async (professor: ChangedProfessor, file?: ChangedFile) => {
     if (!file) return;
 
-    // Only get the tags from the main professor file
     const parsedProfessor = await yamlToObject<ProfessorMain>(file);
 
     const lastUpdated = professor.files.sort((a, b) => b.time - a.time)[0];

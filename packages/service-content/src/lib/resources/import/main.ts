@@ -10,7 +10,6 @@ export const createProcessMainFile = (transaction: TransactionSql) => {
   return async (resource: ChangedResource, file?: ChangedFile) => {
     if (!file) return;
 
-    // Only get the tags from the main resource file
     const parsedResource = await yamlToObject<{
       tags?: string[];
     }>(file);
