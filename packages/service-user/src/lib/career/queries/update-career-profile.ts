@@ -1,9 +1,9 @@
 import { sql } from '@blms/database';
 import type {
+  CareerCompanySize,
   CareerLanguageLevel,
+  CareerRemote,
   CareerRoleLevel,
-  CompanySize,
-  RemoteWork,
 } from '@blms/types';
 
 interface UpdateCareerProfileOptions {
@@ -22,9 +22,9 @@ interface UpdateCareerProfileOptions {
   isBitcoinProjectParticipant: boolean;
   bitcoinProjectText?: string;
   roles: { roleId: string; level: CareerRoleLevel }[];
-  companySizes: CompanySize[];
+  companySizes: CareerCompanySize[];
   isAvailableFullTime: boolean;
-  remoteWorkPreference: RemoteWork;
+  remoteWorkPreference: CareerRemote;
   expectedSalary?: string;
   availabilityStart?: string;
   cvUrl?: string;
@@ -101,7 +101,9 @@ export const updateCareerProfileLanguagesQuery = ({
     INSERT INTO users.career_languages (
       career_profile_id, language_code, level
     )
-    VALUES ${sql(languages.map((l) => [careerProfileId, l.languageCode, l.level]))}
+    VALUES ${sql(
+      languages.map((l) => [careerProfileId, l.languageCode, l.level]),
+    )}
     ON CONFLICT DO NOTHING;
   `;
 };

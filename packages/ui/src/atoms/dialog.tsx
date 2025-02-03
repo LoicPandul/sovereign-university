@@ -2,7 +2,7 @@ import * as DialogPrimitive from '@radix-ui/react-dialog';
 import * as React from 'react';
 import { IoMdClose } from 'react-icons/io';
 
-import { cn } from '@blms/ui';
+import { cn } from '#src/lib/utils.ts';
 
 interface DialogTitleProps
   extends React.ComponentPropsWithoutRef<typeof DialogPrimitive.Title> {

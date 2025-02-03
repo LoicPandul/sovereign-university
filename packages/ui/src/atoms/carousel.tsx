@@ -4,8 +4,7 @@ import useEmblaCarousel, {
 import * as React from 'react';
 import { RiArrowLeftSLine, RiArrowRightSLine } from 'react-icons/ri';
 
-import { cn } from '@blms/ui';
-
+import { cn } from '#src/index.ts';
 import { Button } from './button.tsx';
 
 type CarouselApi = UseEmblaCarouselType[1];

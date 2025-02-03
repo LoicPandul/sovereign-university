@@ -1,8 +1,7 @@
 import * as React from 'react';
 import { useMemo, useState } from 'react';
 import { BsExclamationTriangle, BsEye, BsEyeSlash } from 'react-icons/bs';
-
-import { cn } from '@blms/ui';
+import { cn } from '#src/lib/utils.ts';
 
 export interface InputProps
   extends React.InputHTMLAttributes<HTMLInputElement> {

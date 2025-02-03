@@ -1,8 +1,8 @@
 import type {
+  CareerCompanySize,
   CareerLanguageLevel,
+  CareerRemote,
   CareerRoleLevel,
-  CompanySize,
-  RemoteWork,
 } from '@blms/types';
 
 import { firstRow } from '@blms/database';
@@ -36,9 +36,9 @@ interface Options {
     isBitcoinProjectParticipant: boolean;
     bitcoinProjectText?: string;
     roles: { roleId: string; level: CareerRoleLevel }[];
-    companySizes: CompanySize[];
+    companySizes: CareerCompanySize[];
     isAvailableFullTime: boolean;
-    remoteWorkPreference: RemoteWork;
+    remoteWorkPreference: CareerRemote;
     expectedSalary?: string;
     availabilityStart?: string;
     cvUrl?: string;

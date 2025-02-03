@@ -1,7 +1,7 @@
 import { cva } from 'class-variance-authority';
 import type { ReactNode } from 'react';
 
-import { cn, isString } from '@blms/ui';
+import { cn, isString } from '#src/lib/utils.ts';
 
 const cardStyles = cva('flex flex-col rounded-[10px] lg:rounded-3xl border', {
   variants: {
