@@ -149,7 +149,7 @@ const generateFileContent = (
     const { node } = zodToTs(schema);
 
     // Append a custom getType function to the schema once it have been processed
-    schema._def.getType = (ts) => {
+    schema._def.getType = (ts: any) => {
       // Do not return self-references (otherwise you end up with export A = A)
       if (currentlyProcessedType === typeName) {
         console.debug(`Skipping self-reference for type "${typeName}"`);

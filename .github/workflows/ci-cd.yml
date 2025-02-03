@@ -53,6 +53,8 @@ jobs:
       - name: Lint Code
         run: pnpm lint
 
+      # // TODO Add pnpm check-boundaries ?
+
       - name: Run tests
         run: pnpm test
 
