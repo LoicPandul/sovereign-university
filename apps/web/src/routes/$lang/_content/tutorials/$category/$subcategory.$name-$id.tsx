@@ -2,13 +2,12 @@ import { Link, createFileRoute, useNavigate } from '@tanstack/react-router';
 import { t } from 'i18next';
 import { capitalize } from 'lodash-es';
 import React, { Suspense, useContext, useEffect, useState } from 'react';
-import { useTranslation } from 'react-i18next';
+import { Trans, useTranslation } from 'react-i18next';
 import { IoCheckmark } from 'react-icons/io5';
 import { z } from 'zod';
 
-import { Loader, cn, customToast } from '@blms/ui';
+import { DividerSimple, Loader, cn, customToast } from '@blms/ui';
 
-import DonateLightning from '#src/assets/icons/donate_lightning.svg?react';
 import ThumbDown from '#src/assets/icons/thumb_down.svg';
 import ThumbUp from '#src/assets/icons/thumb_up.svg';
 // import ApprovedBadge from '#src/assets/tutorials/approved.svg?react';
@@ -16,8 +15,10 @@ import { AuthModal } from '#src/components/AuthModals/auth-modal.js';
 import { AuthModalState } from '#src/components/AuthModals/props.js';
 import PageMeta from '#src/components/Head/PageMeta/index.js';
 import { MainLayout } from '#src/components/main-layout.tsx';
-import { ProfessorCardReduced } from '#src/components/professor-card.tsx';
-import { ProofreadingProgress } from '#src/components/proofreading-progress.js';
+import {
+  ProofreadingDesktop,
+  ProofreadingProgress,
+} from '#src/components/proofreading-progress.js';
 import { TipModal } from '#src/components/tip-modal.js';
 import { useDisclosure } from '#src/hooks/use-disclosure.js';
 import { useNavigateMisc } from '#src/hooks/use-navigate-misc.ts';
@@ -27,6 +28,8 @@ import { SITE_NAME } from '#src/utils/meta.js';
 import { formatNameForURL } from '#src/utils/string.js';
 import { type TRPCRouterOutput, trpc } from '#src/utils/trpc.js';
 
+import type { JoinedProofreading } from '@blms/types';
+import { AuthorCard } from '#src/components/author-card.tsx';
 import { TutorialLayout } from '../-components/tutorial-layout.tsx';
 import { TutorialLikes } from '../-components/tutorial-likes.tsx';
 
@@ -70,42 +73,46 @@ const Header = ({
 }) => {
   return (
     <div>
-      <h1 className="border-b-2 border-newBlack-3 py-2.5 text-left text-2xl font-bold uppercase text-newBlack-1 md:text-5xl leading-[116%] stroke-[#D9D9D9] stroke-1">
-        {tutorial.title}
-      </h1>
+      <section className="flex justify-between items-end gap-4 w-full border-b md:border-b-2 border-newBlack-3 py-1 md:py-2.5">
+        <h1 className="text-black md:text-5xl md:font-bold md:leading-[116%] display-small-bold-caps-22px md:stroke-gray-200 md:stroke-1">
+          {tutorial.title}
+        </h1>
+        <TutorialLikes tutorial={tutorial} className="max-md:hidden shrink-0" />
+      </section>
 
-      <section className="flex flex-col gap-1 bg-newGray-6 rounded-lg p-2.5 w-full border-b border-newGray-4 shadow-course-navigation mt-5 break-words">
+      <section className="flex justify-between items-center w-full mt-1 md:mt-5 gap-4">
         {tutorial.credits?.link && (
-          <span className="body-16px text-black">
-            {t('tutorials.details.source')}
+          <span className="flex items-center gap-1.5 subtitle-small-14px text-newBlack-5 max-md:hidden w-full">
+            <span className="shrink-0">
+              {t('tutorials.details.source').toUpperCase()}
+            </span>
             <a
               href={tutorial.credits.link}
               target="_blank"
               rel="noreferrer"
-              className="leading-snug tracking-015px underline text-newBlue-1"
+              className="max-w-[350px] leading-snug tracking-015px underline text-newBlue-1 truncate lowercase"
             >
               {tutorial.credits.link}
             </a>
           </span>
         )}
         {tutorial.credits?.professor?.name && (
-          <span className="body-16px text-black">
-            {t('tutorials.details.author')}
+          <span className="flex items-center gap-1.5 text-newBlack-5">
+            <span className="max-md:hidden subtitle-small-caps-14px">
+              {t('tutorials.details.author').toUpperCase()}
+            </span>
             <a
               href={`/professor/${formatNameForURL(tutorial.credits.professor.name)}-${tutorial.credits.professor.id}`}
-              className="title-small-med-16px hover:underline"
+              className="text-newBlack-1 subtitle-medium-16px md:title-small-med-16px hover:underline"
             >
               {tutorial.credits.professor.name}
             </a>
           </span>
         )}
-        <div className="flex max-md:flex-wrap justify-center md:justify-between py-2.5 items-center gap-2">
-          <TutorialLikes tutorial={tutorial} />
-          {/* <p className="flex items-center gap-2 text-xs italic font-poppins text-right text-darkGreen-1">
-            {t('tutorials.approvedByCreator')}{' '}
-            <ApprovedBadge className="size-[18px]" />
-          </p> */}
-        </div>
+        <TutorialLikes
+          tutorial={tutorial}
+          className="md:hidden shrink-0 ml-auto"
+        />
       </section>
     </div>
   );
@@ -118,33 +125,132 @@ const AuthorDetails = ({
   tutorial: NonNullable<TRPCRouterOutput['content']['getTutorial']>;
   openTipModal: () => void;
 }) => {
-  const professor = tutorial?.credits?.professor;
+  const author = tutorial?.credits?.professor;
 
   return (
-    <article className="flex flex-col p-2 md:p-7 gap-5 rounded-2xl border-t border-t-newGray-4 bg-newGray-6 shadow-course-navigation mt-8">
-      <span className="label-normal-16px md:label-large-20px font-medium text-newBlack-1 w-full max-md:text-center">
-        {t('tutorials.details.writtenBy')}
-      </span>
-      <div className="flex max-md:flex-col max-md:gap-4 md:items-end gap-7">
-        {professor && <ProfessorCardReduced professor={professor} />}
-        <div className="flex items-center gap-4">
-          <button
-            type="button"
-            onClick={(e) => {
-              e.preventDefault();
-              e.stopPropagation();
-              openTipModal();
-            }}
-            className="flex items-center justify-center p-1 rounded-2xl bg-white shadow-course-navigation border border-darkOrange-2 overflow-hidden size-16 hover:bg-darkOrange-0 shrink-0"
-          >
-            <DonateLightning className="size-16" />
-          </button>
-          <div className="title-small-med-16px text-black whitespace-pre-line">
-            {t('courses.chapter.thanksTip')}
+    <>
+      <DividerSimple />
+      <section className="w-full flex flex-col">
+        <h4 className="subtitle-medium-caps-18px text-darkOrange-5">
+          {t('words.author')}
+        </h4>
+        <p className="mt-[15px] md:mt-6 label-large-20px md:display-small-32px text-black">
+          {t('tutorials.writtenBy')}{' '}
+          <span className="text-darkOrange-5 label-large-20px md:display-small-32px">
+            <Link
+              to={`/professor/${formatNameForURL(author?.name || '')}-${author?.id}`}
+              className="hover:text-darkOrange-5 hover:font-medium"
+            >
+              {author?.name}
+            </Link>
+          </span>
+        </p>
+        <p className="md:mt-6 text-newBlack-1 md:text-justify body-16px md:label-large-20px max-md:hidden">
+          {t('courses.details.thanksTipping')}
+        </p>
+        {author && (
+          <div className="flex h-fit flex-col max-md:gap-4">
+            <AuthorCard
+              key={author?.id}
+              professor={author}
+              hasDonateButton
+              centeredContent={true}
+              mobileSize="medium"
+            />
           </div>
+        )}
+      </section>
+    </>
+  );
+};
+
+const Credits = ({
+  tutorial,
+  proofreading,
+}: {
+  tutorial: NonNullable<TRPCRouterOutput['content']['getTutorial']>;
+  proofreading: JoinedProofreading | null | undefined;
+}) => {
+  const { i18n } = useTranslation();
+
+  const isOriginalLanguage = i18n.language === tutorial.originalLanguage;
+  if (!proofreading) {
+    return null;
+  }
+
+  return (
+    <>
+      <DividerSimple />
+      <section className="w-full flex flex-col">
+        <h4 className="subtitle-medium-caps-18px text-darkOrange-5">
+          {t('words.credits')}
+        </h4>
+
+        <p className="mt-[15px] md:mt-6 label-large-20px md:display-small-32px text-black">
+          {proofreading?.contributorsId?.length > 0
+            ? t('tutorials.hasBeenProofreadBy')
+            : t('tutorials.hasNotBeenProofread')}
+        </p>
+
+        <span className="text-darkOrange-5 label-large-20px md:display-small-32px">
+          {proofreading?.contributorsId?.length > 0
+            ? proofreading.contributorsId.map((proofreader, index) => (
+                <React.Fragment key={proofreader}>
+                  <span>{proofreader}</span>
+                  {index < proofreading.contributorsId.length - 2
+                    ? ', '
+                    : index === proofreading.contributorsId.length - 2
+                      ? ' & '
+                      : ''}
+                </React.Fragment>
+              ))
+            : ''}
+        </span>
+
+        <div className="flex flex-col md:flex-row gap-6 lg:gap-[50px] mt-6 md:mt-[30px]">
+          <div className="max-md:mx-auto shrink-0">
+            <ProofreadingDesktop
+              isOriginalLanguage={isOriginalLanguage}
+              mode="light"
+              proofreadingData={{
+                contributors: proofreading?.contributorsId || [],
+                reward: proofreading?.reward,
+              }}
+              standalone
+              variant="vertical"
+            />
+          </div>
+          <p className="md:mb-8 text-newBlack-1 md:text-justify body-16px md:subtitle-medium-16px whitespace-pre-line">
+            <Trans i18nKey={'courses.details.collaborativeEffort'}>
+              <a
+                className="hover:text-darkOrange-5 font-medium"
+                href="https://t.me/PlanBNetwork_ContentBuilder"
+                target="_blank"
+                rel="noreferrer"
+              >
+                telegram
+              </a>
+              <a
+                className="hover:text-darkOrange-5 font-medium"
+                href="/tutorials/others/contribution/content-review-tutorial-1ee068ca-ddaf-4bec-b44e-b41a9abfdef6"
+                target="_blank"
+                rel="noreferrer"
+              >
+                tutorial
+              </a>
+              <a
+                className="hover:text-darkOrange-5 font-medium"
+                href="https://creativecommons.org/licenses/by-sa/4.0/deed.en"
+                target="_blank"
+                rel="noreferrer"
+              >
+                CC BY-SA
+              </a>
+            </Trans>
+          </p>
         </div>
-      </div>
-    </article>
+      </section>
+    </>
   );
 };
 
@@ -301,11 +407,11 @@ function TutorialDetails() {
     };
 
     return (
-      <div className="flex flex-col items-center gap-4 bg-newGray-6 w-fit rounded-[30px] px-7 pt-5 pb-4 border border-newGray-5 shadow-course-navigation-sm text-black mx-auto my-7">
-        <span className="title-large-sb-24px">
+      <div className="flex flex-col items-center justify-center gap-2 md:gap-4 bg-newGray-6 w-[290px] md:w-fit rounded-[15px] md:rounded-[30px] px-[30px] py-5 md:pb-4 border border-newGray-5 shadow-course-navigation-sm-accent text-black mx-auto md:my-[30px]">
+        <span className="title-medium-sb-18px md:title-large-sb-24px text-center text-newBlack-1">
           {t('tutorials.details.didHelp')}
         </span>
-        <div className="flex items-center justify-between py-2.5 gap-10">
+        <div className="flex items-center justify-between py-2.5 gap-6 md:gap-10">
           {isFetched && tutorial && (
             <button
               type="button"
@@ -313,11 +419,13 @@ function TutorialDetails() {
                 isLoggedIn ? handleLike() : openAuthModal();
               }}
               className={cn(
-                'py-3 px-4 rounded-[20px] border shadow-course-navigation border-darkGreen-4',
-                isLiked.liked ? 'bg-darkGreen-6' : 'hover:bg-darkGreen-6',
+                'py-3.5 px-[18px] rounded-lg md:rounded-[12px] border shadow-course-navigation border-brightGreen-6 focus:border-brightGreen-8',
+                isLiked.liked
+                  ? 'bg-brightGreen-1'
+                  : 'hover:bg-brightGreen-1 bg-white',
               )}
             >
-              <img src={ThumbUp} alt="" className="size-12" />
+              <img src={ThumbUp} alt="" className="size-9 md:size-12" />
             </button>
           )}
           {isFetched && tutorial && (
@@ -327,11 +435,11 @@ function TutorialDetails() {
                 isLoggedIn ? handleDislike() : openAuthModal();
               }}
               className={cn(
-                'py-3 px-4 rounded-[20px] border shadow-course-navigation border-red-2',
-                isLiked.disliked ? 'bg-red-1' : 'hover:bg-red-1',
+                'py-3 md:py-3.5 px-3.5 md:px-[18px] rounded-lg md:rounded-[12px] border shadow-course-navigation border-red-5 focus:border-red-7',
+                isLiked.disliked ? 'bg-red-1' : 'hover:bg-red-1 bg-white',
               )}
             >
-              <img src={ThumbDown} alt="" className="size-12" />
+              <img src={ThumbDown} alt="" className="size-9 md:size-12" />
             </button>
           )}
         </div>
@@ -373,8 +481,8 @@ function TutorialDetails() {
                 title={`${SITE_NAME} - ${tutorial?.title}`}
                 description={capitalize(tutorial?.description || '')}
               />
-              <div className="-mt-4 w-full max-w-5xl lg:hidden">
-                <span className="mb-2 w-full text-left text-lg font-normal leading-6 text-darkOrange-5">
+              <div className="-mt-4 mb-4 w-full max-w-5xl md:hidden">
+                <span className="w-full desktop-typo1 text-darkOrange-5">
                   <Link to="/tutorials">{`${t('words.tutorials')} > `}</Link>
                   <Link
                     to={'/tutorials/$category'}
@@ -387,7 +495,7 @@ function TutorialDetails() {
                 </span>
               </div>
               <div className="flex w-full flex-col items-center justify-center">
-                <div className="w-full flex flex-col gap-6 text-blue-900 md:max-w-3xl">
+                <div className="w-full flex flex-col gap-5 md:gap-[30px] text-newBlack-1 md:max-w-[800px]">
                   <Header
                     tutorial={{
                       ...tutorial,
@@ -407,26 +515,26 @@ function TutorialDetails() {
                   </div>
                   <LikeDislikeButtons />
                   {tutorial.credits?.link && (
-                    <span className="body-16px text-black mx-auto w-full">
+                    <span className="w-full flex flex-col gap-4 subtitle-medium-caps-18px subtitle-small-caps-14px text-darkOrange-5 mx-auto">
                       {t('tutorials.details.source')}
                       <a
                         href={tutorial.credits.link}
                         target="_blank"
                         rel="noreferrer"
-                        className="leading-snug tracking-015px underline text-newBlue-1 break-words"
+                        className="leading-snug tracking-015px underline text-newBlue-1 break-words lowercase max-w-full truncate"
                       >
                         {tutorial.credits.link}
                       </a>
                     </span>
                   )}
+                  {tutorial.credits?.professor?.id && (
+                    <AuthorDetails
+                      tutorial={tutorial}
+                      openTipModal={openTipModal}
+                    />
+                  )}
+                  <Credits tutorial={tutorial} proofreading={proofreading} />
                 </div>
-
-                {tutorial.credits?.professor?.id && (
-                  <AuthorDetails
-                    tutorial={tutorial}
-                    openTipModal={openTipModal}
-                  />
-                )}
               </div>
 
               {isTipModalOpen && (
