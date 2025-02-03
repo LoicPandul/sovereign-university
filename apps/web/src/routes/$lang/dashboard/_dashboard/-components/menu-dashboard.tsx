@@ -160,10 +160,11 @@ export const MenuDashboard = ({
             onClick={toggleMobileMenu}
           />
         </Link>
-        {isTestnetOrDevelopmentEnvironment() ? (
+        {isTestnetOrDevelopmentEnvironment() ||
+        user?.boughtCourses.includes('btc402') ? (
           <Link to={careerPortalPath}>
             <MenuItem
-              text={t('words.careerPortal')}
+              text={t('dashboard.adminPanel.careers.careers')}
               icon={<TbBriefcase2 size={24} />}
               active={pathname.includes(careerPortalPath)}
               onClick={toggleMobileMenu}

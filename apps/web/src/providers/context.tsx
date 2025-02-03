@@ -20,6 +20,7 @@ interface AppContext {
   // User
   user: UserDetails | null | undefined;
   setUser: (user: UserDetails | null) => void;
+  refetchUserDetails: () => Promise<void>;
 
   // Session
   session: Session | null | undefined;
@@ -46,6 +47,7 @@ export const AppContext = createContext<AppContext>({
   // User
   user: undefined,
   setUser: () => {},
+  refetchUserDetails: async () => {},
 
   // Session
   session: undefined,
@@ -82,17 +84,17 @@ export const AppContextProvider = ({ children }: PropsWithChildren) => {
   const [hasSeenRegisterToast, setHasSeenRegisterToast] =
     useState<boolean>(false);
 
+  const refetchUserDetails = async () => {
+    try {
+      const data = await trpcClient.user.getDetails.query();
+      setUser(data ?? null);
+    } catch {
+      setUser(null);
+    }
+  };
+
   useEffect(() => {
-    trpcClient.user.getDetails
-      .query()
-      .then((data) => data ?? null)
-      .then((user) => {
-        if (user) {
-          return setUser(user);
-        }
-        return setUser(null);
-      })
-      .catch(() => null);
+    refetchUserDetails();
 
     trpcClient.user.getSession
       .query()
@@ -136,6 +138,7 @@ export const AppContextProvider = ({ children }: PropsWithChildren) => {
   const appContext: AppContext = {
     user,
     setUser,
+    refetchUserDetails,
     session,
     setSession,
     tutorials,

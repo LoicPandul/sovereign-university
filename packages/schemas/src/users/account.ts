@@ -28,6 +28,7 @@ export const userDetailsSchema = userAccountSchema
     z.object({
       professorCourses: z.string().array(),
       professorTutorials: z.string().array(),
+      boughtCourses: z.string().array(),
     }),
   );
 

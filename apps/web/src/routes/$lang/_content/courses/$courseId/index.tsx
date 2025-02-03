@@ -55,8 +55,12 @@ export const Route = createFileRoute('/$lang/_content/courses/$courseId/')({
 });
 
 function CourseDetails() {
-  const { session, hasSeenRegisterToast, setHasSeenRegisterToast } =
-    useContext(AppContext);
+  const {
+    session,
+    refetchUserDetails,
+    hasSeenRegisterToast,
+    setHasSeenRegisterToast,
+  } = useContext(AppContext);
   const isLoggedIn = !!session;
 
   // TODO Refactor this auth stuff
@@ -797,6 +801,7 @@ function CourseDetails() {
               onClose={() => {
                 setIsPaymentModalOpen(false);
                 refetchPayment();
+                refetchUserDetails();
               }}
             />
           </div>
