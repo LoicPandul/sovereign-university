@@ -16,7 +16,7 @@ export interface MobileMenuSectionProps {
 
 export const MobileMenuSection = ({ section }: MobileMenuSectionProps) => {
   const { toggle, isOpen } = useDisclosure();
-
+  const titleClass = section.title === 'login' ? '' : 'italic';
   const sectionTitle = useMemo(() => {
     if ('path' in section) {
       return (
@@ -60,7 +60,7 @@ export const MobileMenuSection = ({ section }: MobileMenuSectionProps) => {
               )}
             />
           )}
-          <span className="truncate">{section.title}</span>
+          <span className={cn('truncate', titleClass)}>{section.title}</span>
         </button>
       );
     }
