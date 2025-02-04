@@ -597,10 +597,9 @@ export const contentBooksLocalized = content.table(
 // BUILDERS
 
 export const contentBuilders = content.table('builders', (t) => ({
-  id: t.uuid().unique(), // TODO add not null and PK
+  id: t.uuid().primaryKey().unique(),
   resourceId: t
     .integer()
-    .primaryKey()
     .notNull()
     .references(() => contentResources.id, { onDelete: 'cascade' }),
   name: t.text().notNull(),
@@ -622,10 +621,6 @@ export const contentBuildersLocalized = content.table(
   'builders_localized',
   (t) => ({
     id: t.uuid().references(() => contentBuilders.id, { onDelete: 'cascade' }),
-    builderId: t
-      .integer()
-      .notNull()
-      .references(() => contentBuilders.resourceId, { onDelete: 'cascade' }),
     language: t.varchar({ length: 10 }).notNull(),
 
     // Per translation
@@ -633,7 +628,7 @@ export const contentBuildersLocalized = content.table(
   }),
   (table) => ({
     pk: primaryKey({
-      columns: [table.builderId, table.language],
+      columns: [table.id, table.language],
     }),
   }),
 );
