@@ -15,6 +15,7 @@ import {
   cn,
 } from '@blms/ui';
 
+import { useContext } from 'react';
 import largeCircleProgress0 from '#src/assets/proofreading/large_circle_progress_0.webp';
 import largeCircleProgress1 from '#src/assets/proofreading/large_circle_progress_1.webp';
 import largeCircleProgress2 from '#src/assets/proofreading/large_circle_progress_2.webp';
@@ -23,6 +24,7 @@ import smallCircleProgress0 from '#src/assets/proofreading/small_circle_progress
 import smallCircleProgress1 from '#src/assets/proofreading/small_circle_progress_1.webp';
 import smallCircleProgress2 from '#src/assets/proofreading/small_circle_progress_2.webp';
 import smallCircleProgress3 from '#src/assets/proofreading/small_circle_progress_3.webp';
+import { ConversionRateContext } from '#src/providers/conversionRateContext.tsx';
 
 const SmallProgressImage = ({ progress }: { progress: number }) => {
   let imgSrc: any;
@@ -211,6 +213,17 @@ export const ProofreadingProgress = ({
   proofreadingData: ProofreadingData;
   isOriginalLanguage: boolean;
 }) => {
+  const { conversionRate } = useContext(ConversionRateContext);
+
+  const dollarPrice = proofreadingData.reward
+    ? proofreadingData.reward / 100
+    : null;
+
+  const satsReward =
+    conversionRate && dollarPrice !== null
+      ? Math.round((dollarPrice * 100_000_000) / conversionRate)
+      : 0;
+
   const contributorsLength = proofreadingData.contributors.length;
   return (
     <div className="z-30">
@@ -251,7 +264,7 @@ export const ProofreadingProgress = ({
               <LargeProgressImage progress={contributorsLength} />
               <ContributorsNames
                 contributors={proofreadingData.contributors}
-                reward={proofreadingData.reward ? proofreadingData.reward : 0}
+                reward={satsReward}
                 mode={mode}
               />
             </div>
@@ -359,6 +372,17 @@ export const ProofreadingDesktop = ({
   className?: string;
 }) => {
   const contributorsLength = proofreadingData.contributors.length;
+
+  const { conversionRate } = useContext(ConversionRateContext);
+
+  const dollarPrice = proofreadingData.reward
+    ? proofreadingData.reward / 100
+    : null;
+
+  const satsReward =
+    conversionRate && dollarPrice !== null
+      ? Math.round((dollarPrice * 100_000_000) / conversionRate)
+      : 0;
 
   return (
     <div
@@ -475,7 +499,7 @@ export const ProofreadingDesktop = ({
         <LargeProgressImage progress={contributorsLength} />
         <ContributorsNames
           contributors={proofreadingData.contributors}
-          reward={proofreadingData.reward ? proofreadingData.reward : 0}
+          reward={satsReward}
           mode={mode}
           standalone={standalone}
         />

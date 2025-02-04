@@ -151,7 +151,7 @@ export const createProcessMainFile = (transaction: TransactionSql) => {
       for (const p of parsedTutorial.proofreading) {
         const proofreadResult = await transaction<Proofreading[]>`
           INSERT INTO content.proofreading (tutorial_id, language, last_contribution_date, urgency, reward)
-          VALUES (${result.id}, ${p.language.toLowerCase()}, ${p.last_contribution_date}, ${p.urgency}, ${p.reward})
+          VALUES (${result.id}, ${p.language.toLowerCase()}, ${p.last_contribution_date}, ${p.urgency}, ${Math.round(p.reward * 100)})
           RETURNING *;
         `.then(firstRow);
 
