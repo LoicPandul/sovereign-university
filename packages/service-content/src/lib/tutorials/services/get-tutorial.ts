@@ -23,7 +23,7 @@ export const createGetTutorial = ({ postgres }: Dependencies) => {
     }
 
     const credits = await postgres
-      .exec(getCreditsQuery(tutorial.id))
+      .exec(getCreditsQuery(tutorial.id, language))
       .then(firstRow);
 
     if (!credits) {

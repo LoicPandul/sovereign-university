@@ -19,7 +19,6 @@ import {
   ProofreadingDesktop,
   ProofreadingProgress,
 } from '#src/components/proofreading-progress.js';
-import { TipModal } from '#src/components/tip-modal.js';
 import { useDisclosure } from '#src/hooks/use-disclosure.js';
 import { useNavigateMisc } from '#src/hooks/use-navigate-misc.ts';
 import { AppContext } from '#src/providers/context.js';
@@ -97,7 +96,7 @@ const Header = ({
           </span>
         )}
         {tutorial.credits?.professor?.name && (
-          <span className="flex items-center gap-1.5 text-newBlack-5">
+          <span className="flex items-center gap-1.5 text-newBlack-5 shrink-0">
             <span className="max-md:hidden subtitle-small-caps-14px">
               {t('tutorials.details.author').toUpperCase()}
             </span>
@@ -120,10 +119,8 @@ const Header = ({
 
 const AuthorDetails = ({
   tutorial,
-  openTipModal,
 }: {
   tutorial: NonNullable<TRPCRouterOutput['content']['getTutorial']>;
-  openTipModal: () => void;
 }) => {
   const author = tutorial?.credits?.professor;
 
@@ -268,13 +265,6 @@ function TutorialDetails() {
     likeCount: 0,
     dislikeCount: 0,
   });
-
-  // Disclosure (modals)
-  const {
-    open: openTipModal,
-    isOpen: isTipModalOpen,
-    close: closeTipModal,
-  } = useDisclosure();
 
   const {
     open: openAuthModal,
@@ -528,25 +518,11 @@ function TutorialDetails() {
                     </span>
                   )}
                   {tutorial.credits?.professor?.id && (
-                    <AuthorDetails
-                      tutorial={tutorial}
-                      openTipModal={openTipModal}
-                    />
+                    <AuthorDetails tutorial={tutorial} />
                   )}
                   <Credits tutorial={tutorial} proofreading={proofreading} />
                 </div>
               </div>
-
-              {isTipModalOpen && (
-                <TipModal
-                  isOpen={isTipModalOpen}
-                  onClose={closeTipModal}
-                  lightningAddress={
-                    tutorial.credits?.professor?.tips.lightningAddress as string
-                  }
-                  userName={tutorial.credits?.professor?.name as string}
-                />
-              )}
 
               {isAuthModalOpen && (
                 <AuthModal
