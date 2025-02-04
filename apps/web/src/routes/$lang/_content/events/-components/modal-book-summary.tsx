@@ -58,7 +58,7 @@ export const ModalBookSummary = ({
           {event.name}
         </span>
         <span className="text-sm lg:text-base text-black lg:text-white font-medium mt-1">
-          {event.builder}
+          {event.projectName}
         </span>
         <div className="flex flex-col gap-1 lg:gap-2 mt-1 lg:mt-4">
           <PaymentRow label={t('events.payment.date')} value={dateString} />

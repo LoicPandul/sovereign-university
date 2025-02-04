@@ -94,7 +94,7 @@ function Builder() {
   const filteredEvents = events
     ? events.filter(
         (event) =>
-          event.builder === builder?.name && event.startDate > new Date(),
+          event.projectName === builder?.name && event.startDate > new Date(),
       )
     : [];
 

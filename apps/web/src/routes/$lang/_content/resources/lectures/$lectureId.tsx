@@ -164,7 +164,7 @@ function Lecture() {
                     </div>
 
                     <span className="text-white subtitle-large-18px lg:title-large-24px">
-                      {lecture.professor || lecture.builder}
+                      {lecture.professor || lecture.projectName}
                     </span>
 
                     <div className="flex max-md:flex-col gap-[5px] md:gap-12">

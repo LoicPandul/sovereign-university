@@ -80,7 +80,7 @@ export const EventCard = ({
           {event.name}
         </h3>
         <span className="font-medium text-xs sm:text-sm md:text-base max-sm:hidden">
-          {event.builder}
+          {event.projectName}
         </span>
         <div className="flex flex-col gap-1 text-white/75 text-[10px] sm:text-xs lg:text-sm">
           <div className="flex flex-col gap-1">

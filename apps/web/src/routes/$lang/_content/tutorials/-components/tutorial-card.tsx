@@ -19,9 +19,10 @@ export const TutorialCard = ({
   href: string;
   dark?: boolean;
 }) => {
-  const [logoSrc, setLogoSrc] = useState(assetUrl(tutorial.path, 'logo.webp'));
+  const [logoSrc] = useState(assetUrl(tutorial.path, 'logo.webp'));
 
-  const fallbackSrc = assetUrl(tutorial.builder?.path ?? '', 'logo.webp');
+  // TODO TRIGGER INVESTIGATE
+  // const fallbackSrc = assetUrl(tutorial.builder?.path ?? '', 'logo.webp');
 
   return (
     <Link
@@ -38,7 +39,7 @@ export const TutorialCard = ({
         src={logoSrc}
         alt={tutorial.name}
         className="size-[60px] md:size-20 rounded-full"
-        onError={() => setLogoSrc(fallbackSrc)}
+        // onError={() => setLogoSrc(fallbackSrc)}
       />
       <span className="flex flex-col">
         <span className="max-md:mobile-subtitle1 capitalize text-xl font-semibold text-darkOrange-5 md:mb-1">

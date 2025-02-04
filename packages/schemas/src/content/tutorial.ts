@@ -8,7 +8,6 @@ import {
   contentTutorialsLocalized,
 } from '@blms/database';
 
-import { joinedBuilderSchema } from './builder.js';
 import {
   formattedProfessorSchema,
   joinedProfessorSchema,
@@ -48,13 +47,6 @@ export const joinedTutorialLightSchema = tutorialSchema
       likeCount: z.number(),
       dislikeCount: z.number(),
       tags: z.array(z.string()),
-      builder: joinedBuilderSchema
-        .pick({
-          lastCommit: true,
-          path: true,
-        })
-        .optional()
-        .nullable(),
     }),
   );
 

@@ -36,9 +36,7 @@ function Conferences() {
 
   useEffect(() => {
     const sortedConferences = conferences
-      ? (conferences.sort((a, b) =>
-          a.name.localeCompare(b.name),
-        ) as JoinedConference[]) // Todo remove this as
+      ? conferences.sort((a, b) => a.name.localeCompare(b.name))
       : [];
 
     setFilteredConferences(
@@ -49,19 +47,17 @@ function Conferences() {
 
     setLatestConferences(
       conferences
-        ? (conferences.sort((a, b) =>
-            b.year.localeCompare(a.year),
-          ) as JoinedConference[]) // Todo remove this as
+        ? conferences.sort((a, b) => b.year.localeCompare(a.year))
         : [],
     );
 
     setLatestPlanBConferences(
       conferences
-        ? (conferences
+        ? conferences
             .filter((conference) =>
-              conference.builder?.toLowerCase().includes('plan'),
+              conference.projectName?.toLowerCase().includes('plan'),
             )
-            .sort((a, b) => b.year.localeCompare(a.year)) as JoinedConference[]) // Todo remove this as
+            .sort((a, b) => b.year.localeCompare(a.year))
         : [],
     );
   }, [conferences, activeYear]);

@@ -33,11 +33,15 @@ export const joinedConferenceSchema = resourceSchema
     lastCommit: true,
   })
   .merge(
+    z.object({
+      projectName: z.string().optional(),
+    }),
+  )
+  .merge(
     conferenceSchema.pick({
       name: true,
       description: true,
       year: true,
-      builder: true,
       languages: true,
       location: true,
       websiteUrl: true,

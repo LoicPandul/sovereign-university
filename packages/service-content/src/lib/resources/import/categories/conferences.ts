@@ -124,11 +124,11 @@ export const createProcessChangedConference = (
 
           const result = await transaction<Conference[]>`
               INSERT INTO content.conferences (
-                resource_id, project_id, languages, name, year, location, original_language, description, builder, website_url, twitter_url
+                resource_id, project_id, languages, name, year, location, original_language, description, website_url, twitter_url
               )
               VALUES (
                 ${id}, ${parsedConference.project_id}, ${parsedConference.language}, '', ${parsedConference.year.toString().trim()}, ${parsedConference.location.trim()},  ${parsedConference.original_language},
-                '', ${parsedConference.builder?.trim()}, ${parsedConference.links?.website?.trim()},
+                '', ${parsedConference.links?.website?.trim()},
                 ${parsedConference.links?.twitter?.trim()}
               )
               ON CONFLICT (resource_id) DO UPDATE SET
@@ -139,7 +139,6 @@ export const createProcessChangedConference = (
                 location = EXCLUDED.location,
                 original_language = EXCLUDED.original_language,
                 description = EXCLUDED.description,
-                builder = EXCLUDED.builder,
                 website_url = EXCLUDED.website_url,
                 twitter_url = EXCLUDED.twitter_url
               RETURNING *
