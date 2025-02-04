@@ -76,8 +76,8 @@ export const createProcessChangedBuilder = (
                 ${parsedBuilder.links.website}, ${parsedBuilder.links.twitter},
                 ${parsedBuilder.links.github}, ${parsedBuilder.links.nostr}, ${parsedBuilder.address_line_1}, ${parsedBuilder.address_line_2}, ${parsedBuilder.address_line_3}, ${parsedBuilder.original_language}
               )
-              ON CONFLICT (resource_id) DO UPDATE SET
-                id = EXCLUDED.id,
+              ON CONFLICT (id) DO UPDATE SET
+                resource_id = EXCLUDED.resource_id,
                 name = EXCLUDED.name,
                 category = EXCLUDED.category,
                 languages = EXCLUDED.languages,
@@ -118,11 +118,10 @@ export const createProcessChangedBuilder = (
               const parsed = await yamlToObject<BuilderLocal>(file);
 
               await transaction`
-              INSERT INTO content.builders_localized (id, builder_id, language, description)
+              INSERT INTO content.builders_localized (id, language, description)
               VALUES (
-                ${parsedBuilder.id}, ${resourceId}, ${file.language}, ${parsed.description.trim()})
-              ON CONFLICT (builder_id, language) DO UPDATE SET
-                id = EXCLUDED.id,
+                ${parsedBuilder.id},  ${file.language}, ${parsed.description.trim()})
+              ON CONFLICT (id, language) DO UPDATE SET
                 description = EXCLUDED.description
             `.then(firstRow);
             } catch (error) {

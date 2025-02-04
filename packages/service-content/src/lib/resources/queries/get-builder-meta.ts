@@ -17,7 +17,7 @@ export const getBuilderMetaQuery = (id: number, language?: string) => {
       r.last_commit
     FROM content.builders b
     JOIN content.resources r ON r.id = b.resource_id
-    JOIN content.builders_localized bl ON bl.builder_id = b.resource_id
+    JOIN content.builders_localized bl ON bl.id = b.id
     WHERE r.id = ${id}
     ${language ? sql`AND bl.language = LOWER(${language})` : sql``}
   `;

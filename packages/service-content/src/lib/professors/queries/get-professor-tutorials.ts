@@ -116,7 +116,7 @@ export const getProfessorTutorialsQuery = ({
         r.last_commit
       FROM content.builders b
       JOIN content.resources r ON r.id = b.resource_id
-      JOIN content.builders_localized bl ON bl.builder_id = b.resource_id
+      JOIN content.builders_localized bl ON bl.id = b.id
       WHERE b.name = tutorial.builder AND bl.language = tutorial.language
     ) AS builders ON TRUE
   `;

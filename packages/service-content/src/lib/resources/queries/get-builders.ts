@@ -24,7 +24,7 @@ export const getBuildersQuery = (language?: string) => {
       ARRAY_AGG(t.name) AS tags
     FROM content.builders b
     JOIN content.resources r ON r.id = b.resource_id
-    JOIN content.builders_localized bl ON bl.builder_id = b.resource_id
+    JOIN content.builders_localized bl ON bl.id = b.id
     LEFT JOIN content.resource_tags rt ON rt.resource_id = r.id
     LEFT JOIN content.tags t ON t.id = rt.tag_id
     ${language ? sql`WHERE bl.language = LOWER(${language})` : sql``}
