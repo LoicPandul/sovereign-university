@@ -2,10 +2,10 @@ import { createGetCourseChapterMeta } from './courses/services/get-course-chapte
 import { createGetCourseMeta } from './courses/services/get-course-meta.js';
 import type { Dependencies } from './dependencies.js';
 import { createGetBook } from './resources/services/get-book.js';
-import { createGetBuilderMeta } from './resources/services/get-builder-meta.js';
 import { createGetConferenceMeta } from './resources/services/get-conference-meta.js';
 import { createGetGlossaryWord } from './resources/services/get-glossary-word.js';
 import { createGetPodcast } from './resources/services/get-podcast.js';
+import { createGetProjectMeta } from './resources/services/get-project-meta.js';
 import { createGetTutorialMeta } from './tutorials/services/get-tutorial-meta.js';
 
 const cdn = (
@@ -67,7 +67,7 @@ export const createGetMetadata = (dependencies: Dependencies) => {
   // Resources
   const getBook = createGetBook(dependencies);
   const getPodcast = createGetPodcast(dependencies);
-  const getBuilder = createGetBuilderMeta(dependencies);
+  const getBuilder = createGetProjectMeta(dependencies);
   const getGlossaryWord = createGetGlossaryWord(dependencies);
   const getConferenceMeta = createGetConferenceMeta(dependencies);
 

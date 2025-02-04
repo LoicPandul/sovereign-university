@@ -10,18 +10,18 @@ import { assetUrl } from '#src/utils/index.ts';
 import { formatNameForURL } from '#src/utils/string.ts';
 import { trpc } from '#src/utils/trpc.js';
 
-import { BuilderCard } from '../-components/cards/builder-card.js';
+import { ProjectCard } from '../-components/cards/project-card.js';
 import { ResourceLayout } from '../-components/resource-layout.js';
 
 export const Route = createFileRoute('/$lang/_content/resources/projects/')({
-  component: Builders,
+  component: Projects,
 });
 
-function Builders() {
+function Projects() {
   const { t, i18n } = useTranslation();
   const [searchTerm, setSearchTerm] = useState('');
 
-  const { data: builders, isFetched } = trpc.content.getBuilders.useQuery(
+  const { data: projects, isFetched } = trpc.content.getProjects.useQuery(
     {
       language: i18n.language ?? 'en',
     },
@@ -30,20 +30,20 @@ function Builders() {
     },
   );
 
-  const sortedBuilders = builders
-    ? builders.sort((a, b) => a.name.localeCompare(b.name))
+  const sortedProjects = projects
+    ? projects.sort((a, b) => a.name.localeCompare(b.name))
     : [];
 
-  const categorizedBuilders = {} as Record<string, typeof sortedBuilders>;
-  for (const builder of sortedBuilders) {
-    if (!categorizedBuilders[builder.category]) {
-      categorizedBuilders[builder.category] = [];
+  const categorizedProjects = {} as Record<string, typeof sortedProjects>;
+  for (const project of sortedProjects) {
+    if (!categorizedProjects[project.category]) {
+      categorizedProjects[project.category] = [];
     }
-    categorizedBuilders[builder.category].push(builder);
+    categorizedProjects[project.category].push(project);
   }
 
   const categories = [
-    ...new Set(sortedBuilders.map((builder) => builder.category)),
+    ...new Set(sortedProjects.map((project) => project.category)),
   ].sort((a, b) => a.localeCompare(b));
 
   return (
@@ -57,12 +57,12 @@ function Builders() {
       {!isFetched && <Loader size={'s'} />}
       <div className="flex flex-col gap-5 p-4 pt-0 md:p-10 md:pt-0">
         {categories.map((category) => {
-          const filteredBuilders = categorizedBuilders[category].filter(
-            (builder) =>
-              builder.name.toLowerCase().includes(searchTerm.toLowerCase()),
+          const filteredProjects = categorizedProjects[category].filter(
+            (project) =>
+              project.name.toLowerCase().includes(searchTerm.toLowerCase()),
           );
 
-          if (filteredBuilders.length === 0) {
+          if (filteredProjects.length === 0) {
             return null;
           }
 
@@ -78,7 +78,7 @@ function Builders() {
                 </h3>
               </summary>
               <div className="mt-5 flex flex-row flex-wrap justify-center items-center gap-4 md:gap-11">
-                {filteredBuilders.map((project) => (
+                {filteredProjects.map((project) => (
                   <Link
                     to={`/resources/projects/${formatNameForURL(project.name)}-${project.id}`}
                     params={{
@@ -86,7 +86,7 @@ function Builders() {
                     }}
                     key={project.id}
                   >
-                    <BuilderCard
+                    <ProjectCard
                       name={project.name}
                       logo={assetUrl(project.path, 'logo.webp')}
                     />

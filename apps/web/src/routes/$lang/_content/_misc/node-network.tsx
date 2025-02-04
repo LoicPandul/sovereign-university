@@ -7,7 +7,7 @@ import { PageLayout } from '#src/components/page-layout.js';
 import { assetUrl, trpc } from '#src/utils/index.ts';
 import { formatNameForURL } from '#src/utils/string.ts';
 
-import { BuilderCard } from '../resources/-components/cards/builder-card.tsx';
+import { ProjectCard } from '../resources/-components/cards/project-card.js';
 
 import { CommunitiesMap } from './-components/communities-map.tsx';
 import { NodeLocationSelector } from './-components/node-buttons.tsx';
@@ -26,7 +26,7 @@ const normalizeText = (text: string): string => {
 function NodeNetwork() {
   const { t, i18n } = useTranslation();
 
-  const { data: communities, isFetched } = trpc.content.getBuilders.useQuery(
+  const { data: communities, isFetched } = trpc.content.getProjects.useQuery(
     {
       language: i18n.language ?? 'en',
     },
@@ -92,7 +92,7 @@ function NodeNetwork() {
                 key={community.id}
                 className="flex flex-col items-center"
               >
-                <BuilderCard
+                <ProjectCard
                   name={community.name}
                   logo={assetUrl(community.path, 'logo.webp')}
                   cardWidth="size-[70px] sm:size-[90px]"

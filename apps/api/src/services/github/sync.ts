@@ -26,7 +26,7 @@ export function createSyncGithubRepositories(dependencies: Dependencies) {
     createCalculateCourseChapterSeats(dependencies);
   const calculateEventSeats = createCalculateEventSeats(dependencies);
   const syncEventsLocations = createSyncEventsLocations(dependencies);
-  const syncBuildersLocations = createSyncBuildersLocations(dependencies);
+  const syncProjectsLocations = createSyncBuildersLocations(dependencies);
   const processContentFiles = createProcessContentFiles(dependencies);
   const processDeleteOldEntities = createProcessDeleteOldEntities(dependencies);
   const processDisableOldEntities =
@@ -69,7 +69,7 @@ export function createSyncGithubRepositories(dependencies: Dependencies) {
 
     await syncEventsLocations(syncWarnings);
 
-    await syncBuildersLocations(syncWarnings);
+    await syncProjectsLocations(syncWarnings);
 
     if (syncErrors.length > 0) {
       console.error(

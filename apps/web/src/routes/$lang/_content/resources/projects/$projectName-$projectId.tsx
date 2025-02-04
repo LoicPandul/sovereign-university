@@ -17,8 +17,8 @@ import { assetUrl } from '#src/utils/index.ts';
 import { formatNameForURL } from '#src/utils/string.ts';
 import { trpc } from '#src/utils/trpc.js';
 
-import { BuilderEvents } from '../-components/builder-events.js';
-import { BuilderCard } from '../-components/cards/builder-card.js';
+import { ProjectCard } from '../-components/cards/project-card.js';
+import { ProjectEvents } from '../-components/project-events.js';
 import { ResourceLayout } from '../-components/resource-layout.js';
 
 export const Route = createFileRoute(
@@ -55,7 +55,7 @@ function Project() {
   const { navigateTo404 } = useNavigateMisc();
 
   const isScreenMd = useGreater('sm');
-  const { data: project, isFetched } = trpc.content.getBuilder.useQuery(
+  const { data: project, isFetched } = trpc.content.getProject.useQuery(
     {
       id: params.projectId,
       language: i18n.language ?? 'en',
@@ -65,7 +65,7 @@ function Project() {
     },
   );
 
-  const { data: communities } = trpc.content.getBuilders.useQuery(
+  const { data: communities } = trpc.content.getProjects.useQuery(
     {
       language: i18n.language ?? 'en',
     },
@@ -248,7 +248,7 @@ function Project() {
             </p>
           </article>
           {project.category === 'communities' && (
-            <BuilderEvents events={filteredEvents} />
+            <ProjectEvents events={filteredEvents} />
           )}
         </>
       )}
@@ -272,7 +272,7 @@ function Project() {
                 }}
                 key={community.id}
               >
-                <BuilderCard
+                <ProjectCard
                   name={community.name}
                   logo={assetUrl(community.path, 'logo.webp')}
                   cardWidth="w-[50px] md:w-[90px]"

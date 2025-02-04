@@ -6,7 +6,7 @@ type BuilderMeta = Pick<
   'id' | 'path' | 'name' | 'language' | 'description' | 'lastCommit'
 >;
 
-export const getBuilderMetaQuery = (id: number, language?: string) => {
+export const getProjectMetaQuery = (id: number, language?: string) => {
   return sql<BuilderMeta[]>`
     SELECT
       r.id,

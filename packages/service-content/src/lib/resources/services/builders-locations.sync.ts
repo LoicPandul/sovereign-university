@@ -23,7 +23,7 @@ const expectedResponseSchema = z.array(
     })),
 );
 
-const fetchBuilderLocation = async (query: string) => {
+const fetchProjectLocation = async (query: string) => {
   const q = encodeURIComponent(query);
 
   const res = await fetch(
@@ -35,13 +35,13 @@ const fetchBuilderLocation = async (query: string) => {
   return expectedResponseSchema.parse(data)?.[0];
 };
 
-export const createSyncBuildersLocations = ({ postgres }: Dependencies) => {
+export const createSyncProjectsLocations = ({ postgres }: Dependencies) => {
   return async (syncWarnings: string[]) => {
     try {
       const locations = await postgres.exec(getBuildersWithoutLocationQuery());
 
       for (const { name } of locations) {
-        const result = await fetchBuilderLocation(name).catch(() => null);
+        const result = await fetchProjectLocation(name).catch(() => null);
         if (!result) {
           const warn = `-- Sync procedure: Could not find builder location: ${name}`;
           syncWarnings.push(warn);

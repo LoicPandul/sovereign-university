@@ -11,15 +11,15 @@ import type { PaymentModalDataModel } from '#src/services/utils.tsx';
 import { trpc } from '#src/utils/trpc.js';
 
 import { ConversionRateContext } from '#src/providers/conversionRateContext.tsx';
-import { EventBookModal } from '../../events/-components/event-book-modal.tsx';
-import { EventCard } from '../../events/-components/event-card.tsx';
-import { EventPaymentModal } from '../../events/-components/event-payment-modal.tsx';
+import { EventBookModal } from '../../events/-components/event-book-modal.js';
+import { EventCard } from '../../events/-components/event-card.js';
+import { EventPaymentModal } from '../../events/-components/event-payment-modal.js';
 
-interface BuilderEventsProps {
+interface ProjectEventsProps {
   events: JoinedEvent[];
 }
 
-export const BuilderEvents = ({ events }: BuilderEventsProps) => {
+export const ProjectEvents = ({ events }: ProjectEventsProps) => {
   const { session } = useContext(AppContext);
   const { conversionRate } = useContext(ConversionRateContext);
 

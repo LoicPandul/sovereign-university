@@ -1,16 +1,16 @@
 export { createGetBets } from './get-bets.js';
 export { createGetBook } from './get-book.js';
 export { createGetBooks } from './get-books.js';
-export { createGetBuilder } from './get-builder.js';
-export { createGetBuilders } from './get-builders.js';
 export { createGetConference } from './get-conference.js';
 export { createGetConferences } from './get-conferences.js';
 export { createGetGlossaryWord } from './get-glossary-word.js';
 export { createGetGlossaryWords } from './get-glossary-words.js';
 export { createGetPodcast } from './get-podcast.js';
 export { createGetPodcasts } from './get-podcasts.js';
+export { createGetProject } from './get-project.js';
+export { createGetProjects } from './get-projects.js';
 export { createGetBuildersLocations } from './builders-locations.get.js';
-export { createSyncBuildersLocations } from './builders-locations.sync.js';
+export { createSyncProjectsLocations as createSyncBuildersLocations } from './builders-locations.sync.js';
 export { createGetLectures } from './get-lectures.js';
 export { createGetLecture } from './get-lecture.js';
 export { createGetMovie } from './get-movie.js';
@@ -21,7 +21,7 @@ export { createGetYoutubeChannel } from './get-youtube-channel.js';
 export { createGetYoutubeChannels } from './get-youtube-channels.js';
 
 // Metadata requests
-export { createGetBuilderMeta } from './get-builder-meta.js';
+export { createGetProjectMeta } from './get-project-meta.js';
 export { createGetConferenceMeta } from './get-conference-meta.js';
 
 // Search

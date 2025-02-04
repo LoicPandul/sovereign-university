@@ -1,12 +1,12 @@
 import { cn } from '@blms/ui';
 
-interface BuilderCardProps {
+interface ProjectCardProps {
   name: string;
   logo: string;
   cardWidth?: string;
 }
 
-export const BuilderCard = (props: BuilderCardProps) => {
+export const ProjectCard = (props: ProjectCardProps) => {
   return (
     <div className="group/builder relative flex flex-col items-center justify-center">
       <div className="relative flex flex-col items-center justify-center">

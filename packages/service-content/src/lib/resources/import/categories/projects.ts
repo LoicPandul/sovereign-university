@@ -8,8 +8,8 @@ import { separateContentFiles, yamlToObject } from '../../../utils.js';
 import type { BaseResource, ChangedResource } from '../index.js';
 import { createProcessMainFile } from '../main.js';
 
-/** Base builder information, same for all translations */
-interface BuilderMain {
+/** Base project information, same for all translations */
+interface ProjectMain {
   /** Name of the project or company */
   id: string;
   name: string;
@@ -28,11 +28,11 @@ interface BuilderMain {
   proofreading: ProofreadingEntry[];
 }
 
-interface BuilderLocal extends BaseResource {
+interface ProjectLocal extends BaseResource {
   description: string;
 }
 
-export const createProcessChangedBuilder = (
+export const createProcessChangedProject = (
   { postgres }: Dependencies,
   errors: string[],
 ) => {
@@ -63,18 +63,18 @@ export const createProcessChangedBuilder = (
         }
 
         try {
-          const parsedBuilder = await yamlToObject<BuilderMain>(main);
+          const parsedProject = await yamlToObject<ProjectMain>(main);
           // TODO remove when correct data
-          if (parsedBuilder.original_language === undefined) {
-            parsedBuilder.original_language = '';
+          if (parsedProject.original_language === undefined) {
+            parsedProject.original_language = '';
           }
 
           const result = await transaction<Builder[]>`
               INSERT INTO content.builders (id, resource_id, name, category, languages, website_url, twitter_url, github_url, nostr, address_line_1, address_line_2, address_line_3, original_language)
               VALUES (
-                ${parsedBuilder.id},${resourceId}, ${parsedBuilder.name}, ${parsedBuilder.category.toLowerCase()}, ${parsedBuilder.language},
-                ${parsedBuilder.links.website}, ${parsedBuilder.links.twitter},
-                ${parsedBuilder.links.github}, ${parsedBuilder.links.nostr}, ${parsedBuilder.address_line_1}, ${parsedBuilder.address_line_2}, ${parsedBuilder.address_line_3}, ${parsedBuilder.original_language}
+                ${parsedProject.id},${resourceId}, ${parsedProject.name}, ${parsedProject.category.toLowerCase()}, ${parsedProject.language},
+                ${parsedProject.links.website}, ${parsedProject.links.twitter},
+                ${parsedProject.links.github}, ${parsedProject.links.nostr}, ${parsedProject.address_line_1}, ${parsedProject.address_line_2}, ${parsedProject.address_line_3}, ${parsedProject.original_language}
               )
               ON CONFLICT (id) DO UPDATE SET
                 resource_id = EXCLUDED.resource_id,
@@ -93,8 +93,8 @@ export const createProcessChangedBuilder = (
             `.then(firstRow);
 
           // If the resource has proofreads
-          if (parsedBuilder.proofreading) {
-            for (const p of parsedBuilder.proofreading) {
+          if (parsedProject.proofreading) {
+            for (const p of parsedProject.proofreading) {
               const proofreadResult = await transaction<Proofreading[]>`
                   INSERT INTO content.proofreading (resource_id, language, last_contribution_date, urgency, reward)
                   VALUES (${result?.resourceId}, ${p.language.toLowerCase()}, ${p.last_contribution_date}, ${p.urgency}, ${Math.round(p.reward * 100)})
@@ -115,12 +115,12 @@ export const createProcessChangedBuilder = (
 
           for (const file of files) {
             try {
-              const parsed = await yamlToObject<BuilderLocal>(file);
+              const parsed = await yamlToObject<ProjectLocal>(file);
 
               await transaction`
               INSERT INTO content.builders_localized (id, language, description)
               VALUES (
-                ${parsedBuilder.id},  ${file.language}, ${parsed.description.trim()})
+                ${parsedProject.id},  ${file.language}, ${parsed.description.trim()})
               ON CONFLICT (id, language) DO UPDATE SET
                 description = EXCLUDED.description
             `.then(firstRow);

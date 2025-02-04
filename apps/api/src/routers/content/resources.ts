@@ -16,8 +16,6 @@ import {
   createGetBets,
   createGetBook,
   createGetBooks,
-  createGetBuilder,
-  createGetBuilders,
   createGetConference,
   createGetConferences,
   createGetGlossaryWord,
@@ -30,6 +28,8 @@ import {
   createGetNewsletters,
   createGetPodcast,
   createGetPodcasts,
+  createGetProject,
+  createGetProjects,
   createGetYoutubeChannel,
   createGetYoutubeChannels,
   createSearch,
@@ -102,16 +102,16 @@ export const resourcesRouter = createTRPCRouter({
     .query(({ ctx, input }) => {
       return createGetBook(ctx.dependencies)(input.id, input.language);
     }),
-  // Builders
-  getBuilders: createGetResourcesProcedure()
+  // Projects
+  getProjects: createGetResourcesProcedure()
     .output<Parser<JoinedBuilder[]>>(joinedBuilderSchema.array())
     .query(({ ctx, input }) => {
-      return createGetBuilders(ctx.dependencies)(input?.language);
+      return createGetProjects(ctx.dependencies)(input?.language);
     }),
-  getBuilder: createGetResourceProcedure()
+  getProject: createGetResourceProcedure()
     .output<Parser<JoinedBuilder>>(joinedBuilderSchema)
     .query(({ ctx, input }) => {
-      return createGetBuilder(ctx.dependencies)(input.id, input.language);
+      return createGetProject(ctx.dependencies)(input.id, input.language);
     }),
   // Conferences
   getConferences: createGetResourcesProcedure()
