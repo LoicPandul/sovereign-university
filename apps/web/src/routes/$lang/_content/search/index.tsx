@@ -68,7 +68,7 @@ function SearchPage() {
     'podcasts',
     // 'youtube_channels',
     // 'conference_replays',
-    'glossary',
+    'glossary_words',
     // 'projects',
     // 'lecture_replays',
   ];
@@ -80,7 +80,7 @@ function SearchPage() {
       title={t('search.explorer.title')}
       subtitle={' '}
     >
-      <div className="max-w-6xl pb-8 text-white sm:mx-auto">
+      <div className="max-w-6xl pb-8 text-white sm:mx-auto min-h-80">
         <h2 className="text-orange-500 text-center text-xl mt-16">
           {t('search.explorer.subtitle')}
         </h2>

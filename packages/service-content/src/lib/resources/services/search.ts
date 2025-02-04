@@ -15,10 +15,16 @@ interface SearchInput {
 const searchCategoryMap: Record<string, string[] | null> = {
   courses: ['course', 'course_part', 'course_chapter'],
   books: ['book'],
-  words: ['glossary_word'],
+  events: ['event'],
+  glossary_words: ['glossary_word'],
   podcasts: ['podcast'],
   tutorials: ['tutorial'],
   professors: ['professor'],
+  newsletters: ['newsletter'],
+  youtube_channels: ['youtube_channel'],
+  conference_replays: ['conference_replay'],
+  lecture_replays: ['lecture_replay'],
+  projects: ['project'],
   all: null,
   '': null,
 };
