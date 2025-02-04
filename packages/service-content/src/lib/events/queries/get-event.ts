@@ -3,8 +3,12 @@ import type { JoinedEvent } from '@blms/types';
 
 export const getEventQuery = (id: string) => {
   return sql<JoinedEvent[]>`
-    SELECT 
+    SELECT
       e.*,
+      COALESCE(
+        (SELECT bu.name FROM content.builders bu WHERE bu.id = e.project_id LIMIT 1),
+        ''
+        ) AS project_name,
       COALESCE(ta.tags, ARRAY[]::text[]) AS tags,
       COALESCE(la.languages, ARRAY[]::text[]) AS languages
     FROM content.events e
@@ -23,7 +27,7 @@ export const getEventQuery = (id: string) => {
       FROM content.event_languages el
       WHERE el.event_id = e.id
     ) la ON TRUE
-    
-    WHERE id = ${id} 
+
+    WHERE id = ${id}
   `;
 };

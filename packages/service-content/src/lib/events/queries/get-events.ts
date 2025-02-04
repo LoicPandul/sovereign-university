@@ -5,6 +5,10 @@ export const getRecentEventsQuery = () => {
   return sql<JoinedEvent[]>`
     SELECT
       e.*,
+      COALESCE(
+        (SELECT bu.name FROM content.builders bu WHERE bu.id = e.project_id LIMIT 1),
+        ''
+        ) AS project_name,
       COALESCE(ta.tags, ARRAY[]::text[]) AS tags,
       COALESCE(la.languages, ARRAY[]::text[]) AS languages
     FROM content.events e

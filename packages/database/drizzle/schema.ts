@@ -509,7 +509,6 @@ export const contentBet = content.table('bet', (t) => ({
   projectId: t
     .uuid()
     .references(() => contentBuilders.id, { onDelete: 'set null' }),
-  builder: t.text(),
   type: betTypeEnum().notNull(),
   downloadUrl: t.text().notNull(),
   originalLanguage: t.varchar({ length: 10 }).notNull().default('en'),
@@ -650,7 +649,6 @@ export const contentConferences = content.table('conferences', (t) => ({
   projectId: t
     .uuid()
     .references(() => contentBuilders.id, { onDelete: 'set null' }),
-  builder: t.varchar({ length: 255 }),
   name: t.text().notNull(),
   description: t.text(),
   year: t.text().notNull(),
@@ -1252,7 +1250,6 @@ export const contentEvents = content.table('events', (t) => ({
   projectId: t
     .uuid()
     .references(() => contentBuilders.id, { onDelete: 'set null' }),
-  builder: t.varchar({ length: 255 }),
   path: t.varchar({ length: 255 }).unique().notNull(),
   type: eventTypeEnum(),
   name: t.text(),
@@ -1393,7 +1390,6 @@ export const contentTutorials = content.table(
     projectId: t
       .uuid()
       .references(() => contentBuilders.id, { onDelete: 'set null' }),
-    builder: t.varchar({ length: 255 }),
     path: t.varchar({ length: 255 }).unique().notNull(),
 
     name: t.varchar({ length: 255 }).notNull(),

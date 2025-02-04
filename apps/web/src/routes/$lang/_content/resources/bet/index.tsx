@@ -18,85 +18,6 @@ export const Route = createFileRoute('/$lang/_content/resources/bet/')({
   component: BET,
 });
 
-const Section = ({ children }: { children: React.ReactNode }) => {
-  return <div className="flex flex-col">{children}</div>;
-};
-
-const SectionTitle = ({ children }: { children: string }) => {
-  return (
-    <h2 className="mobile-h3 max-md:text-darkOrange-5 md:desktop-h3 md:text-center mb-2">
-      {children}
-    </h2>
-  );
-};
-
-const SectionDescription = ({ children }: { children: string }) => {
-  return (
-    <p className="max-md:hidden text-center mb-2 md:mb-12 desktop-body1">
-      {children}
-    </p>
-  );
-};
-
-const SectionGrid = ({
-  elements,
-  cardColor,
-}: {
-  elements: Array<{
-    name: string;
-    builder: string;
-    downloadUrl: string;
-    viewurls: BetViewUrl[];
-    logo: string;
-  }>;
-  cardColor: VerticalCardProps['cardColor'];
-}) => {
-  const { t, i18n } = useTranslation();
-
-  const language = i18n.language;
-
-  const isScreenMd = useGreater('md');
-
-  return (
-    <div className="flex flex-wrap justify-center gap-4">
-      {elements.map((item, index) => {
-        const currentLanguageViewUrl =
-          item.viewurls.find((el) => el.language === language)?.viewUrl ||
-          item.viewurls[0]?.viewUrl;
-
-        return (
-          <VerticalCard
-            key={item.name}
-            title={item.name}
-            subtitle={item.builder}
-            imageSrc={item.logo}
-            languages={[]}
-            buttonLink={currentLanguageViewUrl}
-            buttonText={t('words.view')}
-            buttonIcon={<IoIosSearch size={isScreenMd ? 24 : 16} />}
-            buttonVariant="transparent"
-            buttonMode="dark"
-            secondaryLink={item.viewurls[0]?.viewUrl}
-            secondaryButtonText={t('words.edit')}
-            secondaryButtonIcon={<FiEdit size={isScreenMd ? 24 : 16} />}
-            secondaryButtonVariant="secondary"
-            secondaryButtonMode="dark"
-            tertiaryLink={item.downloadUrl}
-            tertiaryButtonIcon={<FiDownload size={isScreenMd ? 24 : 16} />}
-            tertiaryButtonVariant="outlineWhite"
-            tertiaryButtonMode="dark"
-            externalLink
-            onHoverArrow={false}
-            cardColor={cardColor}
-            onHoverCardColorChange
-            className="max-w-[137px] md:max-w-80"
-          />
-        );
-      })}
-    </div>
-  );
-};
-
 function BET() {
   const { t, i18n } = useTranslation();
 
@@ -139,7 +60,7 @@ function BET() {
                   .map((bet) => {
                     return {
                       name: bet.name,
-                      builder: bet.builder || '',
+                      projectName: bet.projectName || '',
                       downloadUrl: bet.downloadUrl,
                       viewurls: bet.viewurls,
                       logo: assetUrl(bet.path, 'logo.webp'),
@@ -166,7 +87,7 @@ function BET() {
                   .map((bet) => {
                     return {
                       name: bet.name,
-                      builder: bet.builder || '',
+                      projectName: bet.projectName || '',
                       downloadUrl: bet.downloadUrl,
                       viewurls: bet.viewurls,
                       logo: assetUrl(bet.path, 'logo.webp'),
@@ -210,3 +131,82 @@ function BET() {
     </ResourceLayout>
   );
 }
+
+const Section = ({ children }: { children: React.ReactNode }) => {
+  return <div className="flex flex-col">{children}</div>;
+};
+
+const SectionTitle = ({ children }: { children: string }) => {
+  return (
+    <h2 className="mobile-h3 max-md:text-darkOrange-5 md:desktop-h3 md:text-center mb-2">
+      {children}
+    </h2>
+  );
+};
+
+const SectionDescription = ({ children }: { children: string }) => {
+  return (
+    <p className="max-md:hidden text-center mb-2 md:mb-12 desktop-body1">
+      {children}
+    </p>
+  );
+};
+
+const SectionGrid = ({
+  elements,
+  cardColor,
+}: {
+  elements: Array<{
+    name: string;
+    projectName: string;
+    downloadUrl: string;
+    viewurls: BetViewUrl[];
+    logo: string;
+  }>;
+  cardColor: VerticalCardProps['cardColor'];
+}) => {
+  const { t, i18n } = useTranslation();
+
+  const language = i18n.language;
+
+  const isScreenMd = useGreater('md');
+
+  return (
+    <div className="flex flex-wrap justify-center gap-4">
+      {elements.map((item, index) => {
+        const currentLanguageViewUrl =
+          item.viewurls.find((el) => el.language === language)?.viewUrl ||
+          item.viewurls[0]?.viewUrl;
+
+        return (
+          <VerticalCard
+            key={item.name}
+            title={item.name}
+            subtitle={item.projectName}
+            imageSrc={item.logo}
+            languages={[]}
+            buttonLink={currentLanguageViewUrl}
+            buttonText={t('words.view')}
+            buttonIcon={<IoIosSearch size={isScreenMd ? 24 : 16} />}
+            buttonVariant="transparent"
+            buttonMode="dark"
+            secondaryLink={item.viewurls[0]?.viewUrl}
+            secondaryButtonText={t('words.edit')}
+            secondaryButtonIcon={<FiEdit size={isScreenMd ? 24 : 16} />}
+            secondaryButtonVariant="secondary"
+            secondaryButtonMode="dark"
+            tertiaryLink={item.downloadUrl}
+            tertiaryButtonIcon={<FiDownload size={isScreenMd ? 24 : 16} />}
+            tertiaryButtonVariant="outlineWhite"
+            tertiaryButtonMode="dark"
+            externalLink
+            onHoverArrow={false}
+            cardColor={cardColor}
+            onHoverCardColorChange
+            className="max-w-[137px] md:max-w-80"
+          />
+        );
+      })}
+    </div>
+  );
+};

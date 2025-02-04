@@ -33,7 +33,7 @@ export const LectureCard = ({ lecture }: LectureCardProps) => {
           {lecture.name}
         </h3>
         <span className="text-newGray-4 md:text-white text-xs md:text-sm md:font-medium leading-normal">
-          {lecture.professor || lecture.builder}
+          {lecture.professor || lecture.projectName}
         </span>
       </div>
     );

@@ -3,23 +3,26 @@ import type { JoinedConference } from '@blms/types';
 
 export const getConferenceQuery = (resourceId: number) => {
   return sql<JoinedConference[]>`
-    SELECT 
-      r.id, 
-      r.path, 
-      c.name, 
-      c.description, 
-      c.year, 
-      c.builder, 
-      c.languages, 
-      c.location, 
-      c.website_url, 
-      c.twitter_url, 
-      r.last_updated, 
+    SELECT
+      r.id,
+      r.path,
+      c.name,
+      c.description,
+      c.year,
+      c.languages,
+      c.location,
+      c.website_url,
+      c.twitter_url,
+      COALESCE(
+        (SELECT bu.name FROM content.builders bu WHERE bu.id = c.project_id LIMIT 1),
+        ''
+        ) AS project_name,
+      r.last_updated,
       r.last_commit,
       json_agg(json_build_object(
         'stageId', cs.stage_id,
-        'conferenceId', cs.conference_id, 
-        'name', cs.name, 
+        'conferenceId', cs.conference_id,
+        'name', cs.name,
         'videos', (
           SELECT json_agg(json_build_object(
             'videoId', csv.video_id,
@@ -27,7 +30,7 @@ export const getConferenceQuery = (resourceId: number) => {
             'name', csv.name,
             'rawContent', csv.raw_content
           ))
-          FROM content.conferences_stages_videos csv 
+          FROM content.conferences_stages_videos csv
           WHERE csv.stage_id = cs.stage_id
         )
       )) AS stages,
@@ -39,6 +42,15 @@ export const getConferenceQuery = (resourceId: number) => {
     JOIN content.resources r ON r.id = c.resource_id
     JOIN content.conferences_stages cs ON cs.conference_id = c.resource_id
     WHERE r.id = ${resourceId}
-    GROUP BY r.id, c.name, c.description, c.year, c.builder, c.languages, c.location, c.website_url, c.twitter_url
+    GROUP BY
+    r.id,
+    c.name,
+    c.description,
+    c.year,
+    c.languages,
+    c.location,
+    c.website_url,
+    c.twitter_url,
+    c.project_id
   `;
 };

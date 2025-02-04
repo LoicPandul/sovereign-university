@@ -27,33 +27,37 @@ export const getBetsQuery = (language?: string) => {
       b.download_url,
       b.original_language,
       b.type,
-      b.builder,
+      COALESCE(
+        (SELECT bu.name FROM content.builders bu WHERE bu.id = b.project_id LIMIT 1),
+        ''
+        ) AS project_name,
       r.last_updated,
       r.last_commit,
       COALESCE(
         json_agg(
-            json_build_object(
-              'betId', bvu.bet_id,
-              'language', bvu.language,
-              'viewUrl', bvu.view_url
-            )
+          json_build_object(
+            'betId', bvu.bet_id,
+            'language', bvu.language,
+            'viewUrl', bvu.view_url
+          )
         ) FILTER (WHERE bvu.bet_id IS NOT NULL), '[]'::json
       ) AS viewurls,
-      COALESCE((SELECT ARRAY_AGG(DISTINCT t.name)
-        FROM content.resource_tags rt
-        JOIN content.tags t ON t.id = rt.tag_id
-        WHERE rt.resource_id = r.id), ARRAY[]::text[]) AS tags
+      COALESCE(
+        (SELECT ARRAY_AGG(DISTINCT t.name)
+           FROM content.resource_tags rt
+           JOIN content.tags t ON t.id = rt.tag_id
+          WHERE rt.resource_id = r.id
+        ),
+        ARRAY[]::text[]
+      ) AS tags
     FROM
       content.bet b
     JOIN
-      content.resources r
-      ON r.id = b.resource_id
+      content.resources r ON r.id = b.resource_id
     JOIN
-      prioritized_bets pb
-      ON pb.resource_id = b.resource_id AND pb.row_num = 1
+      prioritized_bets pb ON pb.resource_id = b.resource_id AND pb.row_num = 1
     LEFT JOIN
-      content.bet_view_url bvu
-      ON bvu.bet_id = b.resource_id
+      content.bet_view_url bvu ON bvu.bet_id = b.resource_id
     GROUP BY
       r.id,
       r.path,
@@ -63,7 +67,7 @@ export const getBetsQuery = (language?: string) => {
       b.download_url,
       b.original_language,
       b.type,
-      b.builder,
+      b.project_id,
       r.last_updated,
       r.last_commit
   `;

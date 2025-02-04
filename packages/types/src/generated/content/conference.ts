@@ -4,7 +4,6 @@
 export interface Conference {
   resourceId: number;
   projectId: string | null;
-  builder: string | null;
   name: string;
   description: string | null;
   year: string;
@@ -40,10 +39,10 @@ export interface JoinedConference {
   path: string;
   lastUpdated: Date;
   lastCommit: string;
+  projectName?: string | undefined;
   name: string;
   description: string | null;
   year: string;
-  builder: string | null;
   languages: string[];
   location: string;
   websiteUrl: string | null;

@@ -48,7 +48,7 @@ export const createProcessMainFile = (transaction: TransactionSql) => {
     const lastUpdated = tutorial.files.sort((a, b) => b.time - a.time)[0];
 
     const result = await transaction<Tutorial[]>`
-        INSERT INTO content.tutorials (id, project_id, path, name, category, subcategory, original_language, level, builder, last_updated, last_commit, last_sync)
+        INSERT INTO content.tutorials (id, project_id, path, name, category, subcategory, original_language, level, last_updated, last_commit, last_sync)
         VALUES (
           ${parsedTutorial.id},
           ${parsedTutorial.project_id},
@@ -58,7 +58,6 @@ export const createProcessMainFile = (transaction: TransactionSql) => {
           ${parsedTutorial.category},
           ${parsedTutorial.original_language},
           ${parsedTutorial.level},
-          ${parsedTutorial.builder},
           ${lastUpdated.time},
           ${lastUpdated.commit},
           NOW()
@@ -71,7 +70,6 @@ export const createProcessMainFile = (transaction: TransactionSql) => {
           subcategory = EXCLUDED.subcategory,
           original_language = EXCLUDED.original_language,
           level = EXCLUDED.level,
-          builder = EXCLUDED.builder,
           last_updated = EXCLUDED.last_updated,
           last_commit = EXCLUDED.last_commit,
           last_sync = NOW()

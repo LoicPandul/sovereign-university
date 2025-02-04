@@ -12,7 +12,6 @@ export type EventType =
 export interface Event {
   id: string;
   projectId: string | null;
-  builder: string | null;
   path: string;
   type: EventType | null;
   name: string | null;
@@ -44,7 +43,6 @@ export interface Event {
 export interface JoinedEvent {
   id: string;
   projectId: string | null;
-  builder: string | null;
   path: string;
   type: EventType | null;
   name: string | null;
@@ -73,6 +71,7 @@ export interface JoinedEvent {
   lastSync: Date;
   tags: string[];
   languages: string[];
+  projectName?: string | undefined;
 }
 
 export interface EventPayment {

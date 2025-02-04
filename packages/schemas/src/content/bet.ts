@@ -28,7 +28,11 @@ export const joinedBetSchema = resourceSchema
       type: true,
       downloadUrl: true,
       originalLanguage: true,
-      builder: true,
+    }),
+  )
+  .merge(
+    z.object({
+      projectName: z.string().optional(),
     }),
   )
   .merge(

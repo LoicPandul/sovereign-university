@@ -6,7 +6,6 @@ import { FormattedProfessor } from './professor.js';
 export interface Tutorial {
   id: string;
   projectId: string | null;
-  builder: string | null;
   path: string;
   name: string;
   category: string;
@@ -60,15 +59,6 @@ export interface JoinedTutorialLight {
   likeCount: number;
   dislikeCount: number;
   tags: string[];
-  builder?:
-    | (
-        | {
-            lastCommit: string;
-            path: string;
-          }
-        | undefined
-      )
-    | null;
 }
 
 export interface JoinedTutorial {
@@ -87,15 +77,6 @@ export interface JoinedTutorial {
   likeCount: number;
   dislikeCount: number;
   tags: string[];
-  builder?:
-    | (
-        | {
-            lastCommit: string;
-            path: string;
-          }
-        | undefined
-      )
-    | null;
   rawContent: string;
 }
 
@@ -142,15 +123,6 @@ export interface GetTutorialResponse {
   likeCount: number;
   dislikeCount: number;
   tags: string[];
-  builder?:
-    | (
-        | {
-            lastCommit: string;
-            path: string;
-          }
-        | undefined
-      )
-    | null;
   rawContent: string;
   credits?:
     | {

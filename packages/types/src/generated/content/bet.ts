@@ -6,7 +6,6 @@ export type BetType = 'visual content' | 'educational content';
 export interface Bet {
   resourceId: number;
   projectId: string | null;
-  builder: string | null;
   type: BetType;
   downloadUrl: string;
   originalLanguage: string;
@@ -33,7 +32,7 @@ export interface JoinedBet {
   type: BetType;
   downloadUrl: string;
   originalLanguage: string;
-  builder: string | null;
+  projectName?: string | undefined;
   language: string;
   name: string;
   description: string;

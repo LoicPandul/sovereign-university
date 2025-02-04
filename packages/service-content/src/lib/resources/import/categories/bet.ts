@@ -60,11 +60,10 @@ export const createProcessChangedBet = (
           parsedBet = await yamlToObject<BetMain>(main);
 
           const result = await transaction<Bet[]>`
-              INSERT INTO content.bet (resource_id, project_id, builder, type, download_url, original_language)
-              VALUES (${id}, ${parsedBet.project_id}, ${parsedBet.builder}, ${parsedBet.type.toLowerCase()}, ${parsedBet.links?.download}, ${parsedBet.original_language})
+              INSERT INTO content.bet (resource_id, project_id, type, download_url, original_language)
+              VALUES (${id}, ${parsedBet.project_id}, ${parsedBet.type.toLowerCase()}, ${parsedBet.links?.download}, ${parsedBet.original_language})
               ON CONFLICT (resource_id) DO UPDATE SET
                 project_id = EXCLUDED.project_id,
-                builder = EXCLUDED.builder,
                 type = EXCLUDED.type,
                 download_url = EXCLUDED.download_url,
                 original_language = EXCLUDED.original_language
