@@ -29,6 +29,7 @@
     "type-check": "turbo run type-check",
     "build-types": "turbo run build-types",
     "check-types": "turbo run check-types",
+    "check-boundaries": "turbo boundaries",
     "generate-types": "turbo run generate-types",
     "trace-performance": "turbo run trace-performance",
     "clear": "turbo run clear"
@@ -37,7 +38,6 @@
     "@biomejs/biome": "1.9.4",
     "@types/mocha": "^10.0.10",
     "@types/node": "^22.12.0",
-    "@vitejs/plugin-react": "^4.3.4",
     "dotenv-cli": "^8.0.0",
     "husky": "^9.1.7",
     "jsonc-parser": "^3.3.1",
@@ -46,9 +46,7 @@
     "mocha": "^11.1.0",
     "tsx": "^4.19.2",
     "turbo": "^2.4.0",
-    "typescript": "5.7.3",
-    "vite": "~6.0.11",
-    "vite-tsconfig-paths": "^5.1.4"
+    "typescript": "5.7.3"
   },
   "lint-staged": {
     "*": [

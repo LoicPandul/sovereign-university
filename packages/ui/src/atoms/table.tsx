@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import { cn } from '@blms/ui';
+import { cn } from '#src/lib/utils.ts';
 
 interface TableProps extends React.HTMLAttributes<HTMLTableElement> {
   maxHeightClass?: string;

@@ -1,7 +1,7 @@
 import * as TabsPrimitive from '@radix-ui/react-tabs';
 import * as React from 'react';
 
-import { cn } from '@blms/ui';
+import { cn } from '#src/lib/utils.ts';
 
 const Tabs = TabsPrimitive.Root;
 
@@ -36,9 +36,9 @@ const TabsTrigger = React.forwardRef<
       removeClasses
         ? ''
         : `inline-flex items-center justify-center whitespace-nowrap
-      py-1 font-medium ring-offset-background transition-all 
-      focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 
-      disabled:pointer-events-none disabled:opacity-50 
+      py-1 font-medium ring-offset-background transition-all
+      focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2
+      disabled:pointer-events-none disabled:opacity-50
       data-[state=active]:border-b-2 data-[state=active]:border-darkOrange-5 text-gray-500 data-[state=active]:text-white data-[state=inactive]:hover:text-white`,
       className,
     )}

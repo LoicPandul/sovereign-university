@@ -5,7 +5,7 @@ import { MdOutlineClear } from 'react-icons/md';
 
 import { TextTag, cn } from '@blms/ui';
 
-import FilterIcon from '../../../../apps/web/src/assets/icons/Filter.svg';
+import FilterIcon from '#src/assets/icons/Filter.svg';
 
 interface FilterDropdownProps {
   filters: Record<string, string[]>;
@@ -156,7 +156,11 @@ export const FilterDropdown = ({
           type="button"
           onClick={toggleDropdown}
           className={`absolute text-darkOrange-0 inset-y-0 right-0 flex items-center rounded-tr-[10px]
-            ${isFocused ? 'bg-tertiary-8 border-y border-r border-darkOrange-7' : 'bg-darkOrange-6'}
+            ${
+              isFocused
+                ? 'bg-tertiary-8 border-y border-r border-darkOrange-7'
+                : 'bg-darkOrange-6'
+            }
             ${isOpen ? 'rounded-br-0 border-b-0' : 'rounded-br-[10px]'}
             border-l-0
           `}
