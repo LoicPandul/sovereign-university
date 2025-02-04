@@ -8,6 +8,7 @@ import type { Searchable } from '@blms/types';
 import { ISO_639_LANGUAGES, type Language } from './const.js';
 import type { Dependencies } from './dependencies.js';
 
+// Category - Course
 const getCoursesQuery = () => sql<Searchable<Language>[]>`
  SELECT
     'course' as type,
@@ -24,6 +25,7 @@ const getCoursesQuery = () => sql<Searchable<Language>[]>`
  FROM content.courses_localized ;
 `;
 
+// Category - Course
 const getCoursePartsQuery = () => sql<Searchable<Language>[]>`
   SELECT
     'course_part' as type,
@@ -48,6 +50,7 @@ const getCoursePartsQuery = () => sql<Searchable<Language>[]>`
     AND first_chapter.chapter_index = 1 ;
 `;
 
+// Category - Course
 const getCourseChaptersQuery = () => sql<Searchable<Language>[]>`
   SELECT
     'course_chapter' as type,
@@ -66,6 +69,7 @@ const getCourseChaptersQuery = () => sql<Searchable<Language>[]>`
   WHERE LENGTH(raw_content) > 0
 `;
 
+// Category - Professor
 const getProfessorsQuery = () => sql<Searchable<Language>[]>`
   SELECT
     'professor' as type,
@@ -85,6 +89,7 @@ const getProfessorsQuery = () => sql<Searchable<Language>[]>`
     JOIN content.professors p ON p.id = professor_id
 `;
 
+// Category - Tutorial
 const getTutorialsQuery = () => sql<Searchable<Language>[]>`
  SELECT
     'tutorial' as type,
@@ -108,6 +113,7 @@ const getTutorialsQuery = () => sql<Searchable<Language>[]>`
   JOIN content.tutorials t ON t.id = tutorial_id
 `;
 
+// Resource - Book
 const getBooksQuery = () => sql<Searchable<Language>[]>`
   SELECT
       'book' as type,
@@ -126,6 +132,7 @@ const getBooksQuery = () => sql<Searchable<Language>[]>`
     JOIN content.books b ON b.resource_id = book_id
   `;
 
+// Resource - Podcast
 const getPodcastsQuery = () => sql<Searchable<Language>[]>`
   SELECT
       'podcast' as type,
@@ -143,6 +150,7 @@ const getPodcastsQuery = () => sql<Searchable<Language>[]>`
     FROM content.podcasts
   `;
 
+// Resource - Glossary
 const getGlossaryQuery = () => sql<Searchable<Language>[]>`
   SELECT
     'glossary_word' as type,
@@ -156,6 +164,35 @@ const getGlossaryQuery = () => sql<Searchable<Language>[]>`
       LOWER(REPLACE(term, ' ', '-'))
     ) as link
   FROM content.glossary_words_localized
+`;
+
+// Resource - newsletters
+const getNewslettersQuery = () => sql<Searchable<Language>[]>`
+  SELECT
+    'newsletter' as type,
+    title,
+    LOWER(language) as language,
+    COALESCE(description, '') as body,
+    CONCAT(
+      '/',
+      language,
+      '/resources/newsletters/',
+      LOWER(REPLACE(REPLACE(title, '.', '-'), ' ', '-')),
+      '-',
+      resource_id
+    ) as link
+  FROM content.newsletters
+`;
+
+// Category - Events (not multilingual)
+const getEventsQuery = () => sql<Searchable<Language>[]>`
+  SELECT
+    'event' as type,
+    'en' as language,
+    name as title,
+    description as body,
+    website_url as link
+  FROM content.events
 `;
 
 const createInitIndexes = (client: TypesenseClient) => () => {
@@ -227,6 +264,8 @@ export const createIndexContent = ({ postgres, typesense }: Dependencies) => {
       ...(await postgres.exec(getBooksQuery())),
       ...(await postgres.exec(getPodcastsQuery())),
       ...(await postgres.exec(getGlossaryQuery())),
+      ...(await postgres.exec(getNewslettersQuery())),
+      ...(await postgres.exec(getEventsQuery())),
     ];
 
     await ingestData(data);

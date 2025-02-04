@@ -5,6 +5,7 @@ import { MdOutlineClear } from 'react-icons/md';
 
 import { TextTag, cn } from '@blms/ui';
 
+import { t } from 'i18next';
 import FilterIcon from '#src/assets/icons/Filter.svg';
 import SearchIcon from '#src/assets/icons/search.svg';
 
@@ -121,7 +122,7 @@ export const FilterDropdown = ({
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
             autoComplete="off"
-            placeholder="Search..."
+            placeholder={`${t('search.search')}...`}
             className={cn(
               'relative ps-10 px-2.5 py-2.5 peer w-full body-16px placeholder:body-16px !bg-transparent text-darkOrange-6 placeholder:text-tertiary-6 focus:ring-0 focus:outline-none',
             )}

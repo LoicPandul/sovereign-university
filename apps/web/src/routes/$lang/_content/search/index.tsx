@@ -66,11 +66,11 @@ function SearchPage() {
     'books',
     'newsletters',
     'podcasts',
-    'youtube_channels',
-    'conference_replays',
+    // 'youtube_channels',
+    // 'conference_replays',
     'glossary',
-    'projects',
-    'lecture_replays',
+    // 'projects',
+    // 'lecture_replays',
   ];
 
   return (
