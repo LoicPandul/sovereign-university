@@ -1011,9 +1011,6 @@
       "author": "Author : ",
       "title": "Library"
     },
-    "builders": {
-      "title": "Projects"
-    },
     "channels": {
       "noYoutubeChannels": "There are currently no Youtube Channels for selected language.",
       "title": "Youtube Channels"
@@ -1024,6 +1021,9 @@
     "github": "All this data is managed via one open-source <0>Github</0> repository. Feel free to contribute and add any missing content.",
     "glossary": {
       "title": "Glossary"
+    },
+    "projects": {
+      "title": "Projects"
     },
     "lectures": {
       "noLectures": "There are currently no Lecture Replays for selected language.",
@@ -1229,8 +1229,6 @@
     "book": "Book",
     "booked": "Booked",
     "bookings": "Bookings",
-    "builder": "Project",
-    "builders": "Projects",
     "business": "Business",
     "cancel": "Cancel",
     "careerPortal": "Career Portal",
@@ -1323,6 +1321,8 @@
     "professor": "Professor",
     "professors": "Professors",
     "progress": "Progress",
+    "project": "Project",
+    "projects": "Projects",
     "protocol": "Protocol",
     "public": "Public communication",
     "publicationDate": "Publication date:",

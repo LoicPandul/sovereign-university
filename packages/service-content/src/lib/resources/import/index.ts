@@ -101,10 +101,10 @@ export const groupByResource = (files: ChangedFile[], errors: string[]) => {
   // Return builders first
   return [
     ...groupedResourceValues.filter((resource) =>
-      resource.path.startsWith('resources/builders'),
+      resource.path.startsWith('resources/projects'),
     ),
     ...groupedResourceValues.filter(
-      (resource) => !resource.path.startsWith('resources/builders'),
+      (resource) => !resource.path.startsWith('resources/projects'),
     ),
   ];
 };

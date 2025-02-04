@@ -155,10 +155,10 @@ export const Header = ({ variant = 'dark' }: HeaderProps) => {
               icon: eventsSvg,
             },
             {
-              id: 'builders',
-              title: t('words.builders'),
+              id: 'projects',
+              title: t('words.projects'),
               description: t('menu.buildersDescription'),
-              path: '/resources/builders',
+              path: '/resources/projects',
               icon: resourcesSvg,
             },
             {

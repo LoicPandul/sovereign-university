@@ -6,16 +6,16 @@ import { capitalizeFirstWord } from '#src/utils/string.js';
 
 interface ResourcesDropdownItemProps {
   name:
-    | 'books'
-    | 'podcasts'
-    | 'builders'
-    | 'conferences'
     | 'bet'
-    | 'glossary'
-    | 'newsletters'
+    | 'books'
     | 'channels'
+    | 'conferences'
+    | 'glossary'
     | 'lectures'
-    | 'movies';
+    | 'movies'
+    | 'newsletters'
+    | 'podcasts'
+    | 'projects';
   imageSrc: string;
 }
 

@@ -83,12 +83,12 @@ function NodeNetwork() {
         <div className="max-w-[1017px] mt-8 sm:mt-14 flex flex-wrap justify-center items-center gap-4 sm:gap-11">
           {!isFetched && <Loader size={'s'} />}
           {filteredCommunities.map((community) => {
-            const builderName = formatNameForURL(community.name);
-            const builderId = community.id.toString();
+            const projectName = formatNameForURL(community.name);
+            const projectId = community.id.toString();
 
             return (
               <Link
-                to={`/resources/builders/${builderName}-${builderId}`}
+                to={`/resources/projects/${projectName}-${projectId}`}
                 key={community.id}
                 className="flex flex-col items-center"
               >

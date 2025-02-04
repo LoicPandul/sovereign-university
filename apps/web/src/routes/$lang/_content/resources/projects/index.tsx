@@ -10,10 +10,10 @@ import { assetUrl } from '#src/utils/index.ts';
 import { formatNameForURL } from '#src/utils/string.ts';
 import { trpc } from '#src/utils/trpc.js';
 
-import { BuilderCard } from '../-components/cards/builder-card.tsx';
-import { ResourceLayout } from '../-components/resource-layout.tsx';
+import { BuilderCard } from '../-components/cards/builder-card.js';
+import { ResourceLayout } from '../-components/resource-layout.js';
 
-export const Route = createFileRoute('/$lang/_content/resources/builders/')({
+export const Route = createFileRoute('/$lang/_content/resources/projects/')({
   component: Builders,
 });
 
@@ -78,17 +78,17 @@ function Builders() {
                 </h3>
               </summary>
               <div className="mt-5 flex flex-row flex-wrap justify-center items-center gap-4 md:gap-11">
-                {filteredBuilders.map((builder) => (
+                {filteredBuilders.map((project) => (
                   <Link
-                    to={`/resources/builders/${formatNameForURL(builder.name)}-${builder.id}`}
+                    to={`/resources/projects/${formatNameForURL(project.name)}-${project.id}`}
                     params={{
-                      builderId: builder.id.toString(),
+                      projectId: project.id.toString(),
                     }}
-                    key={builder.id}
+                    key={project.id}
                   >
                     <BuilderCard
-                      name={builder.name}
-                      logo={assetUrl(builder.path, 'logo.webp')}
+                      name={project.name}
+                      logo={assetUrl(project.path, 'logo.webp')}
                     />
                   </Link>
                 ))}

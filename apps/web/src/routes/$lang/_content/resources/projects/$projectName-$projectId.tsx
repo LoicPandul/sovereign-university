@@ -17,47 +17,47 @@ import { assetUrl } from '#src/utils/index.ts';
 import { formatNameForURL } from '#src/utils/string.ts';
 import { trpc } from '#src/utils/trpc.js';
 
-import { BuilderEvents } from '../-components/builder-events.tsx';
-import { BuilderCard } from '../-components/cards/builder-card.tsx';
-import { ResourceLayout } from '../-components/resource-layout.tsx';
+import { BuilderEvents } from '../-components/builder-events.js';
+import { BuilderCard } from '../-components/cards/builder-card.js';
+import { ResourceLayout } from '../-components/resource-layout.js';
 
 export const Route = createFileRoute(
-  '/$lang/_content/resources/builders/$builderName-$builderId',
+  '/$lang/_content/resources/projects/$projectName-$projectId',
 )({
   params: {
     parse: (params) => {
-      const builderNameId = params['builderName-$builderId'];
-      const builderId = builderNameId.split('-').pop();
-      const builderName = builderNameId.slice(
+      const projectNameId = params['projectName-$projectId'];
+      const projectId = projectNameId.split('-').pop();
+      const projectName = projectNameId.slice(
         0,
-        Math.max(0, builderNameId.lastIndexOf('-')),
+        Math.max(0, projectNameId.lastIndexOf('-')),
       );
 
       return {
         lang: z.string().parse(params.lang),
-        'builderName-$builderId': `${builderName}-${builderId}`,
-        builderName: z.string().parse(builderName),
-        builderId: z.number().int().parse(Number(builderId)),
+        'projectName-$projectId': `${projectName}-${projectId}`,
+        projectName: z.string().parse(projectName),
+        projectId: z.number().int().parse(Number(projectId)),
       };
     },
-    stringify: ({ lang, builderName, builderId }) => ({
+    stringify: ({ lang, projectName, projectId }) => ({
       lang: lang,
-      'builderName-$builderId': `${builderName}-${builderId}`,
+      'projectName-$projectId': `${projectName}-${projectId}`,
     }),
   },
-  component: Builder,
+  component: Project,
 });
 
-function Builder() {
+function Project() {
   const { t, i18n } = useTranslation();
   const params = Route.useParams();
   const navigate = useNavigate();
   const { navigateTo404 } = useNavigateMisc();
 
   const isScreenMd = useGreater('sm');
-  const { data: builder, isFetched } = trpc.content.getBuilder.useQuery(
+  const { data: project, isFetched } = trpc.content.getBuilder.useQuery(
     {
-      id: params.builderId,
+      id: params.projectId,
       language: i18n.language ?? 'en',
     },
     {
@@ -78,7 +78,7 @@ function Builder() {
 
   const { data: proofreading } = trpc.content.getProofreading.useQuery({
     language: i18n.language,
-    resourceId: params.builderId,
+    resourceId: params.projectId,
   });
 
   const filteredCommunities = communities
@@ -86,7 +86,7 @@ function Builder() {
         .filter(
           (el) =>
             el.category.toLowerCase() === 'communities' &&
-            el.name !== builder?.name,
+            el.name !== project?.name,
         )
         .sort((a, b) => a.name.localeCompare(b.name))
     : [];
@@ -94,37 +94,37 @@ function Builder() {
   const filteredEvents = events
     ? events.filter(
         (event) =>
-          event.projectName === builder?.name && event.startDate > new Date(),
+          event.projectName === project?.name && event.startDate > new Date(),
       )
     : [];
 
   useEffect(() => {
-    if (builder && params.builderName !== formatNameForURL(builder.name)) {
+    if (project && params.projectName !== formatNameForURL(project.name)) {
       navigate({
-        to: `/resources/builders/${formatNameForURL(builder.name)}-${builder.id}`,
+        to: `/resources/projects/${formatNameForURL(project.name)}-${project.id}`,
       });
     }
-  }, [builder, isFetched, navigateTo404, navigate, params.builderName]);
-  const isOriginalLanguage = builder?.language === builder?.originalLanguage;
+  }, [project, isFetched, navigateTo404, navigate, params.projectName]);
+  const isOriginalLanguage = project?.language === project?.originalLanguage;
   return (
     <ResourceLayout
-      link={'/resources/builders'}
-      activeCategory="builders"
+      link={'/resources/projects'}
+      activeCategory="projects"
       showPageHeader={false}
       backToCategoryButton
       showResourcesDropdownMenu={false}
     >
       {!isFetched && <Loader size={'s'} />}
-      {isFetched && !builder && (
+      {isFetched && !project && (
         <div className="max-w-[768px] mx-auto text-white">
           {t('underConstruction.itemNotFoundOrTranslated', {
-            item: t('words.builder'),
+            item: t('words.project'),
           })}
         </div>
       )}
-      {builder && (
+      {project && (
         <>
-          <BackLink to={'/resources/builders'} label={t('words.builders')} />
+          <BackLink to={'/resources/projects'} label={t('words.projects')} />
           <article className="w-full border-2 border-darkOrange-5 bg-darkOrange-10 rounded-[1.25rem] mb-7 md:mb-24">
             {proofreading ? (
               <ProofreadingProgress
@@ -141,12 +141,12 @@ function Builder() {
             <section className="flex p-2 md:p-[30px]">
               <div className="flex flex-col gap-3">
                 <img
-                  src={assetUrl(builder.path, 'logo.webp')}
+                  src={assetUrl(project.path, 'logo.webp')}
                   className="rounded-2xl md:rounded-3xl size-[84px] md:size-[276px] shadow-card-items-dark"
                   alt={t('imagesAlt.sthRepresentingCompany')}
                 />
                 <div className="flex justify-center gap-2.5 md:hidden">
-                  {builder.languages?.slice(0, 2).map((language) => (
+                  {project.languages?.slice(0, 2).map((language) => (
                     <Flag
                       code={language}
                       key={language}
@@ -157,23 +157,23 @@ function Builder() {
               </div>
               <div className="flex flex-col md:gap-6 ml-4 md:ml-10">
                 <h2 className="text-2xl md:text-5xl md:font-medium leading-none md:leading-[116%] text-white">
-                  {builder.name}
+                  {project.name}
                 </h2>
 
                 {/* Links */}
                 <div className="flex gap-4 md:gap-5 text-white max-md:mt-2">
-                  {builder.twitterUrl && (
+                  {project.twitterUrl && (
                     <a
-                      href={builder.twitterUrl}
+                      href={project.twitterUrl}
                       target="_blank"
                       rel="noopener noreferrer"
                     >
                       <BsTwitterX size={isScreenMd ? 32 : 16} />
                     </a>
                   )}
-                  {builder.nostr && (
+                  {project.nostr && (
                     <a
-                      href={builder.nostr}
+                      href={project.nostr}
                       target="_blank"
                       rel="noopener noreferrer"
                     >
@@ -185,18 +185,18 @@ function Builder() {
                       />
                     </a>
                   )}
-                  {builder.githubUrl && (
+                  {project.githubUrl && (
                     <a
-                      href={builder.githubUrl}
+                      href={project.githubUrl}
                       target="_blank"
                       rel="noopener noreferrer"
                     >
                       <BsGithub size={isScreenMd ? 32 : 16} />
                     </a>
                   )}
-                  {builder.websiteUrl && (
+                  {project.websiteUrl && (
                     <a
-                      href={builder.websiteUrl}
+                      href={project.websiteUrl}
                       target="_blank"
                       rel="noopener noreferrer"
                     >
@@ -204,15 +204,15 @@ function Builder() {
                     </a>
                   )}
                 </div>
-                {(builder.addressLine1 ||
-                  builder.addressLine2 ||
-                  builder.addressLine3) && (
+                {(project.addressLine1 ||
+                  project.addressLine2 ||
+                  project.addressLine3) && (
                   <div className="flex flex-col mobile-caption1 max-md:leading-tight md:desktop-h6 text-white max-md:mt-2 !font-normal">
-                    <span>{builder.addressLine1}</span>
+                    <span>{project.addressLine1}</span>
                   </div>
                 )}
                 <div className="flex gap-2.5 md:gap-4 items-center flex-wrap max-md:mt-1.5">
-                  {builder.tags?.map((tag) => (
+                  {project.tags?.map((tag) => (
                     <Button
                       variant="transparent"
                       key={tag}
@@ -225,13 +225,13 @@ function Builder() {
                 </div>
               </div>
               <div className="ml-auto flex flex-col gap-3 max-md:hidden">
-                {builder.category === 'communities' && (
+                {project.category === 'communities' && (
                   <>
                     <span className="text-xs font-medium text-white text-center mb-1">
                       {t('builders.languages')}
                     </span>
                     <div className="flex justify-center flex-col gap-2.5 ">
-                      {builder.languages?.slice(0, 3).map((language) => (
+                      {project.languages?.slice(0, 3).map((language) => (
                         <Flag
                           code={language}
                           key={language}
@@ -244,15 +244,15 @@ function Builder() {
               </div>
             </section>
             <p className="mobile-body2 md:desktop-h8 whitespace-pre-line text-white p-2.5 md:p-5 break-words">
-              {builder.description}
+              {project.description}
             </p>
           </article>
-          {builder.category === 'communities' && (
+          {project.category === 'communities' && (
             <BuilderEvents events={filteredEvents} />
           )}
         </>
       )}
-      {builder?.category === 'communities' && (
+      {project?.category === 'communities' && (
         <div className="flex flex-col items-center gap-4 md:gap-14">
           <div className="max-md:hidden h-px bg-newGray-1 w-full" />
           <div className="text-center">
@@ -266,7 +266,7 @@ function Builder() {
           <div className="max-w-[1017px] flex flex-row flex-wrap justify-center items-center gap-4 md:gap-11">
             {filteredCommunities.map((community) => (
               <Link
-                to={`/resources/builders/${formatNameForURL(community.name)}-${community.id}`}
+                to={`/resources/projects/${formatNameForURL(community.name)}-${community.id}`}
                 params={{
                   builderId: community.id.toString(),
                 }}

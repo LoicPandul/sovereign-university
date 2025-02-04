@@ -34,6 +34,7 @@ import { Route as LangContentMiscManifestoImport } from './routes/$lang/_content
 import { Route as LangContentMiscBCertificateImport } from './routes/$lang/_content/_misc/b-certificate';
 import { Route as LangContentMiscAboutImport } from './routes/$lang/_content/_misc/about';
 import { Route as LangContentTutorialsCategoryIndexImport } from './routes/$lang/_content/tutorials/$category/index';
+import { Route as LangContentResourcesProjectsIndexImport } from './routes/$lang/_content/resources/projects/index';
 import { Route as LangContentResourcesPodcastsIndexImport } from './routes/$lang/_content/resources/podcasts/index';
 import { Route as LangContentResourcesNewslettersIndexImport } from './routes/$lang/_content/resources/newsletters/index';
 import { Route as LangContentResourcesMoviesIndexImport } from './routes/$lang/_content/resources/movies/index';
@@ -41,7 +42,6 @@ import { Route as LangContentResourcesLecturesIndexImport } from './routes/$lang
 import { Route as LangContentResourcesGlossaryIndexImport } from './routes/$lang/_content/resources/glossary/index';
 import { Route as LangContentResourcesConferencesIndexImport } from './routes/$lang/_content/resources/conferences/index';
 import { Route as LangContentResourcesChannelsIndexImport } from './routes/$lang/_content/resources/channels/index';
-import { Route as LangContentResourcesBuildersIndexImport } from './routes/$lang/_content/resources/builders/index';
 import { Route as LangContentResourcesBooksIndexImport } from './routes/$lang/_content/resources/books/index';
 import { Route as LangContentResourcesBetIndexImport } from './routes/$lang/_content/resources/bet/index';
 import { Route as LangContentCoursesCourseIdIndexImport } from './routes/$lang/_content/courses/$courseId/index';
@@ -56,6 +56,7 @@ import { Route as LangDashboardDashboardAdministrationTutorialsImport } from './
 import { Route as LangDashboardDashboardAdministrationRoleImport } from './routes/$lang/dashboard/_dashboard/administration/role';
 import { Route as LangDashboardDashboardAdministrationCareersImport } from './routes/$lang/dashboard/_dashboard/administration/careers';
 import { Route as LangDashboardDashboardAdministrationBookingsImport } from './routes/$lang/dashboard/_dashboard/administration/bookings';
+import { Route as LangContentResourcesProjectsProjectNameProjectIdImport } from './routes/$lang/_content/resources/projects/$projectName-$projectId';
 import { Route as LangContentResourcesPodcastsPodcastNamePodcastIdImport } from './routes/$lang/_content/resources/podcasts/$podcastName-$podcastId';
 import { Route as LangContentResourcesNewslettersNewsletterNameNewsletterIdImport } from './routes/$lang/_content/resources/newsletters/$newsletterName-$newsletterId';
 import { Route as LangContentResourcesMoviesMovieTitleMovieIdImport } from './routes/$lang/_content/resources/movies/$movieTitle-$movieId';
@@ -63,7 +64,6 @@ import { Route as LangContentResourcesLecturesLectureIdImport } from './routes/$
 import { Route as LangContentResourcesGlossaryWordIdImport } from './routes/$lang/_content/resources/glossary/$wordId';
 import { Route as LangContentResourcesConferencesConferenceNameConferenceIdImport } from './routes/$lang/_content/resources/conferences/$conferenceName-$conferenceId';
 import { Route as LangContentResourcesChannelsChannelNameChannelIdImport } from './routes/$lang/_content/resources/channels/$channelName-$channelId';
-import { Route as LangContentResourcesBuildersBuilderNameBuilderIdImport } from './routes/$lang/_content/resources/builders/$builderName-$builderId';
 import { Route as LangContentResourcesBooksBookNameBookIdImport } from './routes/$lang/_content/resources/books/$bookName-$bookId';
 import { Route as LangContentCoursesCourseIdChapterIdImport } from './routes/$lang/_content/courses/$courseId/$chapterId';
 import { Route as LangContentMiscValidateEmailTokenImport } from './routes/$lang/_content/_misc/validate-email.$token';
@@ -229,6 +229,13 @@ const LangContentTutorialsCategoryIndexRoute =
     getParentRoute: () => rootRoute,
   } as any);
 
+const LangContentResourcesProjectsIndexRoute =
+  LangContentResourcesProjectsIndexImport.update({
+    id: '/$lang/_content/resources/projects/',
+    path: '/$lang/resources/projects/',
+    getParentRoute: () => rootRoute,
+  } as any);
+
 const LangContentResourcesPodcastsIndexRoute =
   LangContentResourcesPodcastsIndexImport.update({
     id: '/$lang/_content/resources/podcasts/',
@@ -275,13 +282,6 @@ const LangContentResourcesChannelsIndexRoute =
   LangContentResourcesChannelsIndexImport.update({
     id: '/$lang/_content/resources/channels/',
     path: '/$lang/resources/channels/',
-    getParentRoute: () => rootRoute,
-  } as any);
-
-const LangContentResourcesBuildersIndexRoute =
-  LangContentResourcesBuildersIndexImport.update({
-    id: '/$lang/_content/resources/builders/',
-    path: '/$lang/resources/builders/',
     getParentRoute: () => rootRoute,
   } as any);
 
@@ -383,6 +383,13 @@ const LangDashboardDashboardAdministrationBookingsRoute =
     getParentRoute: () => LangDashboardDashboardRoute,
   } as any);
 
+const LangContentResourcesProjectsProjectNameProjectIdRoute =
+  LangContentResourcesProjectsProjectNameProjectIdImport.update({
+    id: '/$lang/_content/resources/projects/$projectName-$projectId',
+    path: '/$lang/resources/projects/$projectName-$projectId',
+    getParentRoute: () => rootRoute,
+  } as any);
+
 const LangContentResourcesPodcastsPodcastNamePodcastIdRoute =
   LangContentResourcesPodcastsPodcastNamePodcastIdImport.update({
     id: '/$lang/_content/resources/podcasts/$podcastName-$podcastId',
@@ -429,13 +436,6 @@ const LangContentResourcesChannelsChannelNameChannelIdRoute =
   LangContentResourcesChannelsChannelNameChannelIdImport.update({
     id: '/$lang/_content/resources/channels/$channelName-$channelId',
     path: '/$lang/resources/channels/$channelName-$channelId',
-    getParentRoute: () => rootRoute,
-  } as any);
-
-const LangContentResourcesBuildersBuilderNameBuilderIdRoute =
-  LangContentResourcesBuildersBuilderNameBuilderIdImport.update({
-    id: '/$lang/_content/resources/builders/$builderName-$builderId',
-    path: '/$lang/resources/builders/$builderName-$builderId',
     getParentRoute: () => rootRoute,
   } as any);
 
@@ -751,13 +751,6 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof LangContentResourcesBooksBookNameBookIdImport;
       parentRoute: typeof rootRoute;
     };
-    '/$lang/_content/resources/builders/$builderName-$builderId': {
-      id: '/$lang/_content/resources/builders/$builderName-$builderId';
-      path: '/$lang/resources/builders/$builderName-$builderId';
-      fullPath: '/$lang/resources/builders/$builderName-$builderId';
-      preLoaderRoute: typeof LangContentResourcesBuildersBuilderNameBuilderIdImport;
-      parentRoute: typeof rootRoute;
-    };
     '/$lang/_content/resources/channels/$channelName-$channelId': {
       id: '/$lang/_content/resources/channels/$channelName-$channelId';
       path: '/$lang/resources/channels/$channelName-$channelId';
@@ -805,6 +798,13 @@ declare module '@tanstack/react-router' {
       path: '/$lang/resources/podcasts/$podcastName-$podcastId';
       fullPath: '/$lang/resources/podcasts/$podcastName-$podcastId';
       preLoaderRoute: typeof LangContentResourcesPodcastsPodcastNamePodcastIdImport;
+      parentRoute: typeof rootRoute;
+    };
+    '/$lang/_content/resources/projects/$projectName-$projectId': {
+      id: '/$lang/_content/resources/projects/$projectName-$projectId';
+      path: '/$lang/resources/projects/$projectName-$projectId';
+      fullPath: '/$lang/resources/projects/$projectName-$projectId';
+      preLoaderRoute: typeof LangContentResourcesProjectsProjectNameProjectIdImport;
       parentRoute: typeof rootRoute;
     };
     '/$lang/dashboard/_dashboard/administration/bookings': {
@@ -905,13 +905,6 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof LangContentResourcesBooksIndexImport;
       parentRoute: typeof rootRoute;
     };
-    '/$lang/_content/resources/builders/': {
-      id: '/$lang/_content/resources/builders/';
-      path: '/$lang/resources/builders';
-      fullPath: '/$lang/resources/builders';
-      preLoaderRoute: typeof LangContentResourcesBuildersIndexImport;
-      parentRoute: typeof rootRoute;
-    };
     '/$lang/_content/resources/channels/': {
       id: '/$lang/_content/resources/channels/';
       path: '/$lang/resources/channels';
@@ -959,6 +952,13 @@ declare module '@tanstack/react-router' {
       path: '/$lang/resources/podcasts';
       fullPath: '/$lang/resources/podcasts';
       preLoaderRoute: typeof LangContentResourcesPodcastsIndexImport;
+      parentRoute: typeof rootRoute;
+    };
+    '/$lang/_content/resources/projects/': {
+      id: '/$lang/_content/resources/projects/';
+      path: '/$lang/resources/projects';
+      fullPath: '/$lang/resources/projects';
+      preLoaderRoute: typeof LangContentResourcesProjectsIndexImport;
       parentRoute: typeof rootRoute;
     };
     '/$lang/_content/tutorials/$category/': {
@@ -1134,7 +1134,6 @@ export interface FileRoutesByFullPath {
   '/$lang/validate-email/$token': typeof LangContentMiscValidateEmailTokenRoute;
   '/$lang/courses/$courseId/$chapterId': typeof LangContentCoursesCourseIdChapterIdRoute;
   '/$lang/resources/books/$bookName-$bookId': typeof LangContentResourcesBooksBookNameBookIdRoute;
-  '/$lang/resources/builders/$builderName-$builderId': typeof LangContentResourcesBuildersBuilderNameBuilderIdRoute;
   '/$lang/resources/channels/$channelName-$channelId': typeof LangContentResourcesChannelsChannelNameChannelIdRoute;
   '/$lang/resources/conferences/$conferenceName-$conferenceId': typeof LangContentResourcesConferencesConferenceNameConferenceIdRoute;
   '/$lang/resources/glossary/$wordId': typeof LangContentResourcesGlossaryWordIdRoute;
@@ -1142,6 +1141,7 @@ export interface FileRoutesByFullPath {
   '/$lang/resources/movies/$movieTitle-$movieId': typeof LangContentResourcesMoviesMovieTitleMovieIdRoute;
   '/$lang/resources/newsletters/$newsletterName-$newsletterId': typeof LangContentResourcesNewslettersNewsletterNameNewsletterIdRoute;
   '/$lang/resources/podcasts/$podcastName-$podcastId': typeof LangContentResourcesPodcastsPodcastNamePodcastIdRoute;
+  '/$lang/resources/projects/$projectName-$projectId': typeof LangContentResourcesProjectsProjectNameProjectIdRoute;
   '/$lang/dashboard/administration/bookings': typeof LangDashboardDashboardAdministrationBookingsRoute;
   '/$lang/dashboard/administration/careers': typeof LangDashboardDashboardAdministrationCareersRoute;
   '/$lang/dashboard/administration/role': typeof LangDashboardDashboardAdministrationRoleRoute;
@@ -1156,7 +1156,6 @@ export interface FileRoutesByFullPath {
   '/$lang/courses/$courseId': typeof LangContentCoursesCourseIdIndexRoute;
   '/$lang/resources/bet': typeof LangContentResourcesBetIndexRoute;
   '/$lang/resources/books': typeof LangContentResourcesBooksIndexRoute;
-  '/$lang/resources/builders': typeof LangContentResourcesBuildersIndexRoute;
   '/$lang/resources/channels': typeof LangContentResourcesChannelsIndexRoute;
   '/$lang/resources/conferences': typeof LangContentResourcesConferencesIndexRoute;
   '/$lang/resources/glossary': typeof LangContentResourcesGlossaryIndexRoute;
@@ -1164,6 +1163,7 @@ export interface FileRoutesByFullPath {
   '/$lang/resources/movies': typeof LangContentResourcesMoviesIndexRoute;
   '/$lang/resources/newsletters': typeof LangContentResourcesNewslettersIndexRoute;
   '/$lang/resources/podcasts': typeof LangContentResourcesPodcastsIndexRoute;
+  '/$lang/resources/projects': typeof LangContentResourcesProjectsIndexRoute;
   '/$lang/tutorials/$category': typeof LangContentTutorialsCategoryIndexRoute;
   '/$lang/public-communication/legals/$name': typeof LangContentMiscPublicCommunicationLegalsNameRoute;
   '/$lang/tutorials/$category/$subcategory/$name-$id': typeof LangContentTutorialsCategorySubcategoryNameIdRoute;
@@ -1202,7 +1202,6 @@ export interface FileRoutesByTo {
   '/$lang/validate-email/$token': typeof LangContentMiscValidateEmailTokenRoute;
   '/$lang/courses/$courseId/$chapterId': typeof LangContentCoursesCourseIdChapterIdRoute;
   '/$lang/resources/books/$bookName-$bookId': typeof LangContentResourcesBooksBookNameBookIdRoute;
-  '/$lang/resources/builders/$builderName-$builderId': typeof LangContentResourcesBuildersBuilderNameBuilderIdRoute;
   '/$lang/resources/channels/$channelName-$channelId': typeof LangContentResourcesChannelsChannelNameChannelIdRoute;
   '/$lang/resources/conferences/$conferenceName-$conferenceId': typeof LangContentResourcesConferencesConferenceNameConferenceIdRoute;
   '/$lang/resources/glossary/$wordId': typeof LangContentResourcesGlossaryWordIdRoute;
@@ -1210,6 +1209,7 @@ export interface FileRoutesByTo {
   '/$lang/resources/movies/$movieTitle-$movieId': typeof LangContentResourcesMoviesMovieTitleMovieIdRoute;
   '/$lang/resources/newsletters/$newsletterName-$newsletterId': typeof LangContentResourcesNewslettersNewsletterNameNewsletterIdRoute;
   '/$lang/resources/podcasts/$podcastName-$podcastId': typeof LangContentResourcesPodcastsPodcastNamePodcastIdRoute;
+  '/$lang/resources/projects/$projectName-$projectId': typeof LangContentResourcesProjectsProjectNameProjectIdRoute;
   '/$lang/dashboard/administration/bookings': typeof LangDashboardDashboardAdministrationBookingsRoute;
   '/$lang/dashboard/administration/careers': typeof LangDashboardDashboardAdministrationCareersRoute;
   '/$lang/dashboard/administration/role': typeof LangDashboardDashboardAdministrationRoleRoute;
@@ -1224,7 +1224,6 @@ export interface FileRoutesByTo {
   '/$lang/courses/$courseId': typeof LangContentCoursesCourseIdIndexRoute;
   '/$lang/resources/bet': typeof LangContentResourcesBetIndexRoute;
   '/$lang/resources/books': typeof LangContentResourcesBooksIndexRoute;
-  '/$lang/resources/builders': typeof LangContentResourcesBuildersIndexRoute;
   '/$lang/resources/channels': typeof LangContentResourcesChannelsIndexRoute;
   '/$lang/resources/conferences': typeof LangContentResourcesConferencesIndexRoute;
   '/$lang/resources/glossary': typeof LangContentResourcesGlossaryIndexRoute;
@@ -1232,6 +1231,7 @@ export interface FileRoutesByTo {
   '/$lang/resources/movies': typeof LangContentResourcesMoviesIndexRoute;
   '/$lang/resources/newsletters': typeof LangContentResourcesNewslettersIndexRoute;
   '/$lang/resources/podcasts': typeof LangContentResourcesPodcastsIndexRoute;
+  '/$lang/resources/projects': typeof LangContentResourcesProjectsIndexRoute;
   '/$lang/tutorials/$category': typeof LangContentTutorialsCategoryIndexRoute;
   '/$lang/public-communication/legals/$name': typeof LangContentMiscPublicCommunicationLegalsNameRoute;
   '/$lang/tutorials/$category/$subcategory/$name-$id': typeof LangContentTutorialsCategorySubcategoryNameIdRoute;
@@ -1273,7 +1273,6 @@ export interface FileRoutesById {
   '/$lang/_content/_misc/validate-email/$token': typeof LangContentMiscValidateEmailTokenRoute;
   '/$lang/_content/courses/$courseId/$chapterId': typeof LangContentCoursesCourseIdChapterIdRoute;
   '/$lang/_content/resources/books/$bookName-$bookId': typeof LangContentResourcesBooksBookNameBookIdRoute;
-  '/$lang/_content/resources/builders/$builderName-$builderId': typeof LangContentResourcesBuildersBuilderNameBuilderIdRoute;
   '/$lang/_content/resources/channels/$channelName-$channelId': typeof LangContentResourcesChannelsChannelNameChannelIdRoute;
   '/$lang/_content/resources/conferences/$conferenceName-$conferenceId': typeof LangContentResourcesConferencesConferenceNameConferenceIdRoute;
   '/$lang/_content/resources/glossary/$wordId': typeof LangContentResourcesGlossaryWordIdRoute;
@@ -1281,6 +1280,7 @@ export interface FileRoutesById {
   '/$lang/_content/resources/movies/$movieTitle-$movieId': typeof LangContentResourcesMoviesMovieTitleMovieIdRoute;
   '/$lang/_content/resources/newsletters/$newsletterName-$newsletterId': typeof LangContentResourcesNewslettersNewsletterNameNewsletterIdRoute;
   '/$lang/_content/resources/podcasts/$podcastName-$podcastId': typeof LangContentResourcesPodcastsPodcastNamePodcastIdRoute;
+  '/$lang/_content/resources/projects/$projectName-$projectId': typeof LangContentResourcesProjectsProjectNameProjectIdRoute;
   '/$lang/dashboard/_dashboard/administration/bookings': typeof LangDashboardDashboardAdministrationBookingsRoute;
   '/$lang/dashboard/_dashboard/administration/careers': typeof LangDashboardDashboardAdministrationCareersRoute;
   '/$lang/dashboard/_dashboard/administration/role': typeof LangDashboardDashboardAdministrationRoleRoute;
@@ -1295,7 +1295,6 @@ export interface FileRoutesById {
   '/$lang/_content/courses/$courseId/': typeof LangContentCoursesCourseIdIndexRoute;
   '/$lang/_content/resources/bet/': typeof LangContentResourcesBetIndexRoute;
   '/$lang/_content/resources/books/': typeof LangContentResourcesBooksIndexRoute;
-  '/$lang/_content/resources/builders/': typeof LangContentResourcesBuildersIndexRoute;
   '/$lang/_content/resources/channels/': typeof LangContentResourcesChannelsIndexRoute;
   '/$lang/_content/resources/conferences/': typeof LangContentResourcesConferencesIndexRoute;
   '/$lang/_content/resources/glossary/': typeof LangContentResourcesGlossaryIndexRoute;
@@ -1303,6 +1302,7 @@ export interface FileRoutesById {
   '/$lang/_content/resources/movies/': typeof LangContentResourcesMoviesIndexRoute;
   '/$lang/_content/resources/newsletters/': typeof LangContentResourcesNewslettersIndexRoute;
   '/$lang/_content/resources/podcasts/': typeof LangContentResourcesPodcastsIndexRoute;
+  '/$lang/_content/resources/projects/': typeof LangContentResourcesProjectsIndexRoute;
   '/$lang/_content/tutorials/$category/': typeof LangContentTutorialsCategoryIndexRoute;
   '/$lang/_content/_misc/public-communication/legals/$name': typeof LangContentMiscPublicCommunicationLegalsNameRoute;
   '/$lang/_content/tutorials/$category/$subcategory/$name-$id': typeof LangContentTutorialsCategorySubcategoryNameIdRoute;
@@ -1344,7 +1344,6 @@ export interface FileRouteTypes {
     | '/$lang/validate-email/$token'
     | '/$lang/courses/$courseId/$chapterId'
     | '/$lang/resources/books/$bookName-$bookId'
-    | '/$lang/resources/builders/$builderName-$builderId'
     | '/$lang/resources/channels/$channelName-$channelId'
     | '/$lang/resources/conferences/$conferenceName-$conferenceId'
     | '/$lang/resources/glossary/$wordId'
@@ -1352,6 +1351,7 @@ export interface FileRouteTypes {
     | '/$lang/resources/movies/$movieTitle-$movieId'
     | '/$lang/resources/newsletters/$newsletterName-$newsletterId'
     | '/$lang/resources/podcasts/$podcastName-$podcastId'
+    | '/$lang/resources/projects/$projectName-$projectId'
     | '/$lang/dashboard/administration/bookings'
     | '/$lang/dashboard/administration/careers'
     | '/$lang/dashboard/administration/role'
@@ -1366,7 +1366,6 @@ export interface FileRouteTypes {
     | '/$lang/courses/$courseId'
     | '/$lang/resources/bet'
     | '/$lang/resources/books'
-    | '/$lang/resources/builders'
     | '/$lang/resources/channels'
     | '/$lang/resources/conferences'
     | '/$lang/resources/glossary'
@@ -1374,6 +1373,7 @@ export interface FileRouteTypes {
     | '/$lang/resources/movies'
     | '/$lang/resources/newsletters'
     | '/$lang/resources/podcasts'
+    | '/$lang/resources/projects'
     | '/$lang/tutorials/$category'
     | '/$lang/public-communication/legals/$name'
     | '/$lang/tutorials/$category/$subcategory/$name-$id'
@@ -1411,7 +1411,6 @@ export interface FileRouteTypes {
     | '/$lang/validate-email/$token'
     | '/$lang/courses/$courseId/$chapterId'
     | '/$lang/resources/books/$bookName-$bookId'
-    | '/$lang/resources/builders/$builderName-$builderId'
     | '/$lang/resources/channels/$channelName-$channelId'
     | '/$lang/resources/conferences/$conferenceName-$conferenceId'
     | '/$lang/resources/glossary/$wordId'
@@ -1419,6 +1418,7 @@ export interface FileRouteTypes {
     | '/$lang/resources/movies/$movieTitle-$movieId'
     | '/$lang/resources/newsletters/$newsletterName-$newsletterId'
     | '/$lang/resources/podcasts/$podcastName-$podcastId'
+    | '/$lang/resources/projects/$projectName-$projectId'
     | '/$lang/dashboard/administration/bookings'
     | '/$lang/dashboard/administration/careers'
     | '/$lang/dashboard/administration/role'
@@ -1433,7 +1433,6 @@ export interface FileRouteTypes {
     | '/$lang/courses/$courseId'
     | '/$lang/resources/bet'
     | '/$lang/resources/books'
-    | '/$lang/resources/builders'
     | '/$lang/resources/channels'
     | '/$lang/resources/conferences'
     | '/$lang/resources/glossary'
@@ -1441,6 +1440,7 @@ export interface FileRouteTypes {
     | '/$lang/resources/movies'
     | '/$lang/resources/newsletters'
     | '/$lang/resources/podcasts'
+    | '/$lang/resources/projects'
     | '/$lang/tutorials/$category'
     | '/$lang/public-communication/legals/$name'
     | '/$lang/tutorials/$category/$subcategory/$name-$id'
@@ -1480,7 +1480,6 @@ export interface FileRouteTypes {
     | '/$lang/_content/_misc/validate-email/$token'
     | '/$lang/_content/courses/$courseId/$chapterId'
     | '/$lang/_content/resources/books/$bookName-$bookId'
-    | '/$lang/_content/resources/builders/$builderName-$builderId'
     | '/$lang/_content/resources/channels/$channelName-$channelId'
     | '/$lang/_content/resources/conferences/$conferenceName-$conferenceId'
     | '/$lang/_content/resources/glossary/$wordId'
@@ -1488,6 +1487,7 @@ export interface FileRouteTypes {
     | '/$lang/_content/resources/movies/$movieTitle-$movieId'
     | '/$lang/_content/resources/newsletters/$newsletterName-$newsletterId'
     | '/$lang/_content/resources/podcasts/$podcastName-$podcastId'
+    | '/$lang/_content/resources/projects/$projectName-$projectId'
     | '/$lang/dashboard/_dashboard/administration/bookings'
     | '/$lang/dashboard/_dashboard/administration/careers'
     | '/$lang/dashboard/_dashboard/administration/role'
@@ -1502,7 +1502,6 @@ export interface FileRouteTypes {
     | '/$lang/_content/courses/$courseId/'
     | '/$lang/_content/resources/bet/'
     | '/$lang/_content/resources/books/'
-    | '/$lang/_content/resources/builders/'
     | '/$lang/_content/resources/channels/'
     | '/$lang/_content/resources/conferences/'
     | '/$lang/_content/resources/glossary/'
@@ -1510,6 +1509,7 @@ export interface FileRouteTypes {
     | '/$lang/_content/resources/movies/'
     | '/$lang/_content/resources/newsletters/'
     | '/$lang/_content/resources/podcasts/'
+    | '/$lang/_content/resources/projects/'
     | '/$lang/_content/tutorials/$category/'
     | '/$lang/_content/_misc/public-communication/legals/$name'
     | '/$lang/_content/tutorials/$category/$subcategory/$name-$id'
@@ -1544,7 +1544,6 @@ export interface RootRouteChildren {
   LangContentMiscValidateEmailTokenRoute: typeof LangContentMiscValidateEmailTokenRoute;
   LangContentCoursesCourseIdChapterIdRoute: typeof LangContentCoursesCourseIdChapterIdRoute;
   LangContentResourcesBooksBookNameBookIdRoute: typeof LangContentResourcesBooksBookNameBookIdRoute;
-  LangContentResourcesBuildersBuilderNameBuilderIdRoute: typeof LangContentResourcesBuildersBuilderNameBuilderIdRoute;
   LangContentResourcesChannelsChannelNameChannelIdRoute: typeof LangContentResourcesChannelsChannelNameChannelIdRoute;
   LangContentResourcesConferencesConferenceNameConferenceIdRoute: typeof LangContentResourcesConferencesConferenceNameConferenceIdRoute;
   LangContentResourcesGlossaryWordIdRoute: typeof LangContentResourcesGlossaryWordIdRoute;
@@ -1552,12 +1551,12 @@ export interface RootRouteChildren {
   LangContentResourcesMoviesMovieTitleMovieIdRoute: typeof LangContentResourcesMoviesMovieTitleMovieIdRoute;
   LangContentResourcesNewslettersNewsletterNameNewsletterIdRoute: typeof LangContentResourcesNewslettersNewsletterNameNewsletterIdRoute;
   LangContentResourcesPodcastsPodcastNamePodcastIdRoute: typeof LangContentResourcesPodcastsPodcastNamePodcastIdRoute;
+  LangContentResourcesProjectsProjectNameProjectIdRoute: typeof LangContentResourcesProjectsProjectNameProjectIdRoute;
   LangContentMiscProfessorsIndexRoute: typeof LangContentMiscProfessorsIndexRoute;
   LangContentMiscPublicCommunicationIndexRoute: typeof LangContentMiscPublicCommunicationIndexRoute;
   LangContentCoursesCourseIdIndexRoute: typeof LangContentCoursesCourseIdIndexRoute;
   LangContentResourcesBetIndexRoute: typeof LangContentResourcesBetIndexRoute;
   LangContentResourcesBooksIndexRoute: typeof LangContentResourcesBooksIndexRoute;
-  LangContentResourcesBuildersIndexRoute: typeof LangContentResourcesBuildersIndexRoute;
   LangContentResourcesChannelsIndexRoute: typeof LangContentResourcesChannelsIndexRoute;
   LangContentResourcesConferencesIndexRoute: typeof LangContentResourcesConferencesIndexRoute;
   LangContentResourcesGlossaryIndexRoute: typeof LangContentResourcesGlossaryIndexRoute;
@@ -1565,6 +1564,7 @@ export interface RootRouteChildren {
   LangContentResourcesMoviesIndexRoute: typeof LangContentResourcesMoviesIndexRoute;
   LangContentResourcesNewslettersIndexRoute: typeof LangContentResourcesNewslettersIndexRoute;
   LangContentResourcesPodcastsIndexRoute: typeof LangContentResourcesPodcastsIndexRoute;
+  LangContentResourcesProjectsIndexRoute: typeof LangContentResourcesProjectsIndexRoute;
   LangContentTutorialsCategoryIndexRoute: typeof LangContentTutorialsCategoryIndexRoute;
   LangContentTutorialsCategorySubcategoryNameIdRoute: typeof LangContentTutorialsCategorySubcategoryNameIdRoute;
   LangContentMiscProfessorsCategoryIndexRoute: typeof LangContentMiscProfessorsCategoryIndexRoute;
@@ -1605,8 +1605,6 @@ const rootRouteChildren: RootRouteChildren = {
     LangContentCoursesCourseIdChapterIdRoute,
   LangContentResourcesBooksBookNameBookIdRoute:
     LangContentResourcesBooksBookNameBookIdRoute,
-  LangContentResourcesBuildersBuilderNameBuilderIdRoute:
-    LangContentResourcesBuildersBuilderNameBuilderIdRoute,
   LangContentResourcesChannelsChannelNameChannelIdRoute:
     LangContentResourcesChannelsChannelNameChannelIdRoute,
   LangContentResourcesConferencesConferenceNameConferenceIdRoute:
@@ -1621,14 +1619,14 @@ const rootRouteChildren: RootRouteChildren = {
     LangContentResourcesNewslettersNewsletterNameNewsletterIdRoute,
   LangContentResourcesPodcastsPodcastNamePodcastIdRoute:
     LangContentResourcesPodcastsPodcastNamePodcastIdRoute,
+  LangContentResourcesProjectsProjectNameProjectIdRoute:
+    LangContentResourcesProjectsProjectNameProjectIdRoute,
   LangContentMiscProfessorsIndexRoute: LangContentMiscProfessorsIndexRoute,
   LangContentMiscPublicCommunicationIndexRoute:
     LangContentMiscPublicCommunicationIndexRoute,
   LangContentCoursesCourseIdIndexRoute: LangContentCoursesCourseIdIndexRoute,
   LangContentResourcesBetIndexRoute: LangContentResourcesBetIndexRoute,
   LangContentResourcesBooksIndexRoute: LangContentResourcesBooksIndexRoute,
-  LangContentResourcesBuildersIndexRoute:
-    LangContentResourcesBuildersIndexRoute,
   LangContentResourcesChannelsIndexRoute:
     LangContentResourcesChannelsIndexRoute,
   LangContentResourcesConferencesIndexRoute:
@@ -1642,6 +1640,8 @@ const rootRouteChildren: RootRouteChildren = {
     LangContentResourcesNewslettersIndexRoute,
   LangContentResourcesPodcastsIndexRoute:
     LangContentResourcesPodcastsIndexRoute,
+  LangContentResourcesProjectsIndexRoute:
+    LangContentResourcesProjectsIndexRoute,
   LangContentTutorialsCategoryIndexRoute:
     LangContentTutorialsCategoryIndexRoute,
   LangContentTutorialsCategorySubcategoryNameIdRoute:
@@ -1688,7 +1688,6 @@ export const routeTree = rootRoute
         "/$lang/_content/_misc/validate-email/$token",
         "/$lang/_content/courses/$courseId/$chapterId",
         "/$lang/_content/resources/books/$bookName-$bookId",
-        "/$lang/_content/resources/builders/$builderName-$builderId",
         "/$lang/_content/resources/channels/$channelName-$channelId",
         "/$lang/_content/resources/conferences/$conferenceName-$conferenceId",
         "/$lang/_content/resources/glossary/$wordId",
@@ -1696,12 +1695,12 @@ export const routeTree = rootRoute
         "/$lang/_content/resources/movies/$movieTitle-$movieId",
         "/$lang/_content/resources/newsletters/$newsletterName-$newsletterId",
         "/$lang/_content/resources/podcasts/$podcastName-$podcastId",
+        "/$lang/_content/resources/projects/$projectName-$projectId",
         "/$lang/_content/_misc/professors/",
         "/$lang/_content/_misc/public-communication/",
         "/$lang/_content/courses/$courseId/",
         "/$lang/_content/resources/bet/",
         "/$lang/_content/resources/books/",
-        "/$lang/_content/resources/builders/",
         "/$lang/_content/resources/channels/",
         "/$lang/_content/resources/conferences/",
         "/$lang/_content/resources/glossary/",
@@ -1709,6 +1708,7 @@ export const routeTree = rootRoute
         "/$lang/_content/resources/movies/",
         "/$lang/_content/resources/newsletters/",
         "/$lang/_content/resources/podcasts/",
+        "/$lang/_content/resources/projects/",
         "/$lang/_content/tutorials/$category/",
         "/$lang/_content/tutorials/$category/$subcategory/$name-$id",
         "/$lang/_content/_misc/professors/$category/",
@@ -1835,9 +1835,6 @@ export const routeTree = rootRoute
     "/$lang/_content/resources/books/$bookName-$bookId": {
       "filePath": "$lang/_content/resources/books/$bookName-$bookId.tsx"
     },
-    "/$lang/_content/resources/builders/$builderName-$builderId": {
-      "filePath": "$lang/_content/resources/builders/$builderName-$builderId.tsx"
-    },
     "/$lang/_content/resources/channels/$channelName-$channelId": {
       "filePath": "$lang/_content/resources/channels/$channelName-$channelId.tsx"
     },
@@ -1858,6 +1855,9 @@ export const routeTree = rootRoute
     },
     "/$lang/_content/resources/podcasts/$podcastName-$podcastId": {
       "filePath": "$lang/_content/resources/podcasts/$podcastName-$podcastId.tsx"
+    },
+    "/$lang/_content/resources/projects/$projectName-$projectId": {
+      "filePath": "$lang/_content/resources/projects/$projectName-$projectId.tsx"
     },
     "/$lang/dashboard/_dashboard/administration/bookings": {
       "filePath": "$lang/dashboard/_dashboard/administration/bookings.tsx",
@@ -1910,9 +1910,6 @@ export const routeTree = rootRoute
     "/$lang/_content/resources/books/": {
       "filePath": "$lang/_content/resources/books/index.tsx"
     },
-    "/$lang/_content/resources/builders/": {
-      "filePath": "$lang/_content/resources/builders/index.tsx"
-    },
     "/$lang/_content/resources/channels/": {
       "filePath": "$lang/_content/resources/channels/index.tsx"
     },
@@ -1933,6 +1930,9 @@ export const routeTree = rootRoute
     },
     "/$lang/_content/resources/podcasts/": {
       "filePath": "$lang/_content/resources/podcasts/index.tsx"
+    },
+    "/$lang/_content/resources/projects/": {
+      "filePath": "$lang/_content/resources/projects/index.tsx"
     },
     "/$lang/_content/tutorials/$category/": {
       "filePath": "$lang/_content/tutorials/$category/index.tsx"

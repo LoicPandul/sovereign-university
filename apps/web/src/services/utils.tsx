@@ -73,7 +73,7 @@ export const RESOURCES_CATEGORIES = [
     unreleased: false,
   },
   {
-    name: 'builders',
+    name: 'projects',
     image: builderSvg,
     unreleased: false,
   },
