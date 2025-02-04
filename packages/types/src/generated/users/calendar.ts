@@ -6,11 +6,10 @@ export interface CalendarEvent {
   subId: string | null;
   type: string;
   name: string;
-  organiser: string | null;
+  organizer: string | null;
   startDate: Date | null;
   endDate: Date | null;
   timezone: string | null;
-  builder: string;
   isOnline: boolean;
   addressLine1: string | null;
   addressLine2: string | null;

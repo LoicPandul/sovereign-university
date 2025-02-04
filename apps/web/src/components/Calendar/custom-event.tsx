@@ -64,7 +64,7 @@ export const CustomEvent = ({ event }: CustomEventProps) => {
         )}
       </div>
       <div className="font-semibold text-sm">{event.title}</div>
-      <div className="text-sm">{event.organiser}</div>
+      <div className="text-sm">{event.organizer}</div>
       <div className="text-sm">{event.addressLine1}</div>
     </div>
   );

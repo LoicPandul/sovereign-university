@@ -66,7 +66,7 @@ export const CustomEventMonth = ({ event }: CustomEventProps) => {
       <div className="font-semibold text-sm whitespace-normal w-full">
         {event.title}
       </div>
-      <div className="text-sm whitespace-normal w-full">{event.organiser}</div>
+      <div className="text-sm whitespace-normal w-full">{event.organizer}</div>
       <div className="text-sm whitespace-normal w-full">
         {event.addressLine1}
       </div>

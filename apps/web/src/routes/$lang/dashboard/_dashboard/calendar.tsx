@@ -70,7 +70,7 @@ function DashboardCalendar() {
         id: e.id,
         subId: e.subId,
         addressLine1: e.addressLine1,
-        organiser: e.organiser,
+        organizer: e.organizer,
         start: e.startDate!,
         end: e.endDate!,
         isOnline: e.isOnline,

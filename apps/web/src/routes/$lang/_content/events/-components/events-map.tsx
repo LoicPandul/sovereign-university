@@ -386,7 +386,7 @@ const EventsMap = ({
         id: data.id,
         subId: null,
         addressLine1: data.addressLine1,
-        organiser: null,
+        organizer: null,
         start: data.startDate,
         end: data.endDate,
         isOnline: false,

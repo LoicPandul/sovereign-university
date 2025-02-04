@@ -4,7 +4,7 @@ export interface CalendarEvent {
   id: string;
   subId: string | null;
   addressLine1: string | null;
-  organiser: string | null;
+  organizer: string | null;
   start: Date;
   end: Date;
   isOnline: boolean;
