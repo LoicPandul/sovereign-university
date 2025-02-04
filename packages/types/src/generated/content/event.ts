@@ -11,6 +11,8 @@ export type EventType =
 
 export interface Event {
   id: string;
+  projectId: string | null;
+  builder: string | null;
   path: string;
   type: EventType | null;
   name: string | null;
@@ -26,7 +28,6 @@ export interface Event {
   addressLine1: string | null;
   addressLine2: string | null;
   addressLine3: string | null;
-  builder: string | null;
   professor: string | null;
   courseRelated: string | null;
   websiteUrl: string | null;
@@ -42,6 +43,8 @@ export interface Event {
 
 export interface JoinedEvent {
   id: string;
+  projectId: string | null;
+  builder: string | null;
   path: string;
   type: EventType | null;
   name: string | null;
@@ -57,7 +60,6 @@ export interface JoinedEvent {
   addressLine1: string | null;
   addressLine2: string | null;
   addressLine3: string | null;
-  builder: string | null;
   professor: string | null;
   courseRelated: string | null;
   websiteUrl: string | null;

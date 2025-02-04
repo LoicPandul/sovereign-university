@@ -12,6 +12,7 @@ import type { ChangedResource } from '../index.js';
 import { createProcessMainFile } from '../main.js';
 
 interface ConferenceMain {
+  project_id?: string;
   year: string;
   location: string;
   original_language: string;
@@ -123,14 +124,15 @@ export const createProcessChangedConference = (
 
           const result = await transaction<Conference[]>`
               INSERT INTO content.conferences (
-                resource_id, languages, name, year, location, original_language, description, builder, website_url, twitter_url
+                resource_id, project_id, languages, name, year, location, original_language, description, builder, website_url, twitter_url
               )
               VALUES (
-                ${id}, ${parsedConference.language}, '', ${parsedConference.year.toString().trim()}, ${parsedConference.location.trim()},  ${parsedConference.original_language},
+                ${id}, ${parsedConference.project_id}, ${parsedConference.language}, '', ${parsedConference.year.toString().trim()}, ${parsedConference.location.trim()},  ${parsedConference.original_language},
                 '', ${parsedConference.builder?.trim()}, ${parsedConference.links?.website?.trim()},
                 ${parsedConference.links?.twitter?.trim()}
               )
               ON CONFLICT (resource_id) DO UPDATE SET
+                project_id = EXCLUDED.project_id,
                 languages = EXCLUDED.languages,
                 name = EXCLUDED.name,
                 year = EXCLUDED.year,

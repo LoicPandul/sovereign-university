@@ -506,8 +506,11 @@ export const contentBet = content.table('bet', (t) => ({
     .primaryKey()
     .notNull()
     .references(() => contentResources.id, { onDelete: 'cascade' }),
-  type: betTypeEnum().notNull(),
+  projectId: t
+    .uuid()
+    .references(() => contentBuilders.id, { onDelete: 'set null' }),
   builder: t.text(),
+  type: betTypeEnum().notNull(),
   downloadUrl: t.text().notNull(),
   originalLanguage: t.varchar({ length: 10 }).notNull().default('en'),
 }));
@@ -620,7 +623,10 @@ export const contentBuilders = content.table('builders', (t) => ({
 export const contentBuildersLocalized = content.table(
   'builders_localized',
   (t) => ({
-    id: t.uuid().references(() => contentBuilders.id, { onDelete: 'cascade' }),
+    id: t
+      .uuid()
+      .references(() => contentBuilders.id, { onDelete: 'cascade' })
+      .notNull(),
     language: t.varchar({ length: 10 }).notNull(),
 
     // Per translation
@@ -641,10 +647,13 @@ export const contentConferences = content.table('conferences', (t) => ({
     .primaryKey()
     .notNull()
     .references(() => contentResources.id, { onDelete: 'cascade' }),
+  projectId: t
+    .uuid()
+    .references(() => contentBuilders.id, { onDelete: 'set null' }),
+  builder: t.varchar({ length: 255 }),
   name: t.text().notNull(),
   description: t.text(),
   year: t.text().notNull(),
-  builder: t.varchar({ length: 255 }),
   languages: t.varchar({ length: 255 }).array(),
   location: t.text().notNull(),
   originalLanguage: t.varchar({ length: 10 }).notNull().default('en'),
@@ -1240,6 +1249,10 @@ export const eventTypeEnum = pgEnum('event_type', [
 
 export const contentEvents = content.table('events', (t) => ({
   id: t.varchar({ length: 100 }).primaryKey().notNull(),
+  projectId: t
+    .uuid()
+    .references(() => contentBuilders.id, { onDelete: 'set null' }),
+  builder: t.varchar({ length: 255 }),
   path: t.varchar({ length: 255 }).unique().notNull(),
   type: eventTypeEnum(),
   name: t.text(),
@@ -1255,7 +1268,6 @@ export const contentEvents = content.table('events', (t) => ({
   addressLine1: t.text('address_line_1'),
   addressLine2: t.text('address_line_2'),
   addressLine3: t.text('address_line_3'),
-  builder: t.varchar({ length: 255 }),
   professor: t.text(),
   courseRelated: t.text(),
   websiteUrl: t.text(),
@@ -1378,6 +1390,10 @@ export const contentTutorials = content.table(
   'tutorials',
   (t) => ({
     id: t.uuid().primaryKey().notNull(),
+    projectId: t
+      .uuid()
+      .references(() => contentBuilders.id, { onDelete: 'set null' }),
+    builder: t.varchar({ length: 255 }),
     path: t.varchar({ length: 255 }).unique().notNull(),
 
     name: t.varchar({ length: 255 }).notNull(),
@@ -1386,7 +1402,6 @@ export const contentTutorials = content.table(
     originalLanguage: t.varchar({ length: 10 }).notNull().default('en'),
 
     level: t.varchar({ length: 255 }).notNull(),
-    builder: t.varchar({ length: 255 }),
 
     lastUpdated: t
       .timestamp({

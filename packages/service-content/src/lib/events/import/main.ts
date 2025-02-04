@@ -7,6 +7,7 @@ import { yamlToObject } from '../../utils.js';
 import type { ChangedEvent } from './index.js';
 
 interface EventMain {
+  project_id?: string;
   name: string;
   description: string;
   start_date: string;
@@ -49,6 +50,7 @@ export const createProcessMainFile = (transaction: TransactionSql) => {
     const result = await transaction<Event[]>`
         INSERT INTO content.events
           ( id,
+            project_id,
             path,
             name,
             description,
@@ -77,6 +79,7 @@ export const createProcessMainFile = (transaction: TransactionSql) => {
           )
         VALUES (
           ${`${event.id}-${parsedEvent.name.replaceAll(/\W/g, '')}`},
+          ${parsedEvent.project_id},
           ${event.path},
           ${parsedEvent.name},
           ${parsedEvent.description},
@@ -105,6 +108,7 @@ export const createProcessMainFile = (transaction: TransactionSql) => {
         )
         ON CONFLICT (path) DO UPDATE SET
           id = EXCLUDED.id,
+          project_id = EXCLUDED.project_id,
           name = EXCLUDED.name,
           description = EXCLUDED.description,
           start_date = EXCLUDED.start_date,

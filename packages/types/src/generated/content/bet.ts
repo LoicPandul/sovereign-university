@@ -5,8 +5,9 @@ export type BetType = 'visual content' | 'educational content';
 
 export interface Bet {
   resourceId: number;
-  type: BetType;
+  projectId: string | null;
   builder: string | null;
+  type: BetType;
   downloadUrl: string;
   originalLanguage: string;
 }

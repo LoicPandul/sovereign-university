@@ -10,6 +10,7 @@ import type { ChangedTutorial } from './index.js';
 
 interface TutorialMain {
   id: string;
+  project_id?: string;
   level: string;
   category?: string;
   original_language: string;
@@ -47,9 +48,10 @@ export const createProcessMainFile = (transaction: TransactionSql) => {
     const lastUpdated = tutorial.files.sort((a, b) => b.time - a.time)[0];
 
     const result = await transaction<Tutorial[]>`
-        INSERT INTO content.tutorials (id, path, name, category, subcategory, original_language, level, builder, last_updated, last_commit, last_sync)
+        INSERT INTO content.tutorials (id, project_id, path, name, category, subcategory, original_language, level, builder, last_updated, last_commit, last_sync)
         VALUES (
           ${parsedTutorial.id},
+          ${parsedTutorial.project_id},
           ${tutorial.path},
           ${tutorial.name},
           ${tutorial.category},
@@ -62,6 +64,7 @@ export const createProcessMainFile = (transaction: TransactionSql) => {
           NOW()
         )
         ON CONFLICT (id) DO UPDATE SET
+          project_id = EXCLUDED.project_id,
           path = EXCLUDED.path,
           name = EXCLUDED.name,
           category = EXCLUDED.category,

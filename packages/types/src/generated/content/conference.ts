@@ -3,10 +3,11 @@
 
 export interface Conference {
   resourceId: number;
+  projectId: string | null;
+  builder: string | null;
   name: string;
   description: string | null;
   year: string;
-  builder: string | null;
   languages: string[];
   location: string;
   originalLanguage: string;

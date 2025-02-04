@@ -5,13 +5,14 @@ import { JoinedProfessor } from './professor.js';
 import { FormattedProfessor } from './professor.js';
 export interface Tutorial {
   id: string;
+  projectId: string | null;
+  builder: string | null;
   path: string;
   name: string;
   category: string;
   subcategory: string | null;
   originalLanguage: string;
   level: string;
-  builder: string | null;
   lastUpdated: Date;
   lastCommit: string;
   lastSync: Date;
