@@ -1291,3 +1291,8 @@
     transform: rotate(360deg);
   }
 }
+
+/* Search result highlight */
+.search-results mark {
+  @apply bg-newOrange-1 text-black;
+}

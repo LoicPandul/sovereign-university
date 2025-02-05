@@ -8,7 +8,7 @@ import { Button } from '@blms/ui';
 import { CourseCard } from '#src/organisms/course-card.tsx';
 import { FilterDropdown } from '#src/organisms/filter-dropdown.tsx';
 
-import { toggleSelection } from '../-utils/course-utils.tsx';
+import { toggleSelection } from '#src/utils/toggle.ts';
 
 export const CoursesGallery = ({ courses }: { courses: JoinedCourse[] }) => {
   const location = useLocation();
@@ -28,7 +28,9 @@ export const CoursesGallery = ({ courses }: { courses: JoinedCourse[] }) => {
     'intermediate',
   ];
 
-  const [activeLevels, setActiveLevels] = useState<string[]>(['all']);
+  const [activeLevels, setActiveLevels] = useState<Set<string>>(
+    new Set(['all']),
+  );
   const [filteredCourses, setFilteredCourses] = useState<JoinedCourse[]>([]);
   const [searchQuery, setSearchQuery] = useState('');
   const featuredCourseId = 'btc101';
@@ -39,22 +41,22 @@ export const CoursesGallery = ({ courses }: { courses: JoinedCourse[] }) => {
     return validTopics.includes(hash) ? hash : topics[0];
   };
 
-  const [activeTopics, setActiveTopics] = useState<string[]>([
-    getDefaultTopic(),
-  ]);
+  const [activeTopics, setActiveTopics] = useState<Set<string>>(
+    new Set([getDefaultTopic()]),
+  );
 
   // Sync topic with URL hash changes
   useEffect(() => {
     const hash = location.hash.replace('#', '');
     if (topics.includes(hash)) {
-      setActiveTopics([hash]);
+      setActiveTopics(new Set([hash]));
     }
   }, [location.hash]);
 
   useEffect(() => {
     window.location.hash =
-      activeTopics.length === 1 && activeTopics[0] !== 'all'
-        ? activeTopics[0]
+      activeTopics.size === 1 && !activeTopics.has('all')
+        ? activeTopics.values().next().value!
         : '';
   }, [activeTopics]);
 
@@ -67,10 +69,8 @@ export const CoursesGallery = ({ courses }: { courses: JoinedCourse[] }) => {
     setFilteredCourses(
       reorderedCourses.filter(
         (course) =>
-          (activeTopics.includes('all') ||
-            activeTopics.includes(course.topic)) &&
-          (activeLevels.includes('all') ||
-            activeLevels.includes(course.level)) &&
+          (activeTopics.has('all') || activeTopics.has(course.topic)) &&
+          (activeLevels.has('all') || activeLevels.has(course.level)) &&
           course.name.toLowerCase().includes(searchQuery.toLowerCase()),
       ),
     );
@@ -100,9 +100,7 @@ export const CoursesGallery = ({ courses }: { courses: JoinedCourse[] }) => {
             <p>{t('words.topics')}</p>
             <div className="flex flex-wrap gap-2">
               <Button
-                variant={
-                  activeTopics.includes('all') ? 'primary' : 'outlineWhite'
-                }
+                variant={activeTopics.has('all') ? 'primary' : 'outlineWhite'}
                 size="s"
                 onClick={() =>
                   toggleSelection('all', activeTopics, setActiveTopics)
@@ -113,9 +111,7 @@ export const CoursesGallery = ({ courses }: { courses: JoinedCourse[] }) => {
               {topics.slice(1).map((topic) => (
                 <Button
                   key={topic}
-                  variant={
-                    activeTopics.includes(topic) ? 'primary' : 'outlineWhite'
-                  }
+                  variant={activeTopics.has(topic) ? 'primary' : 'outlineWhite'}
                   size="s"
                   onClick={() =>
                     toggleSelection(topic, activeTopics, setActiveTopics)
@@ -132,9 +128,7 @@ export const CoursesGallery = ({ courses }: { courses: JoinedCourse[] }) => {
             <p>{t('words.level.levels')}</p>
             <div className="flex flex-wrap gap-2">
               <Button
-                variant={
-                  activeLevels.includes('all') ? 'primary' : 'outlineWhite'
-                }
+                variant={activeLevels.has('all') ? 'primary' : 'outlineWhite'}
                 size="s"
                 onClick={() =>
                   toggleSelection('all', activeLevels, setActiveLevels)
@@ -145,9 +139,7 @@ export const CoursesGallery = ({ courses }: { courses: JoinedCourse[] }) => {
               {levels.slice(1).map((level) => (
                 <Button
                   key={level}
-                  variant={
-                    activeLevels.includes(level) ? 'primary' : 'outlineWhite'
-                  }
+                  variant={activeLevels.has(level) ? 'primary' : 'outlineWhite'}
                   size="s"
                   onClick={() =>
                     toggleSelection(level, activeLevels, setActiveLevels)
@@ -175,6 +167,7 @@ export const CoursesGallery = ({ courses }: { courses: JoinedCourse[] }) => {
           searchQuery={searchQuery}
           setSearchQuery={setSearchQuery}
           onChange={handleFilterChange}
+          onClear={() => setSearchQuery('')}
         />
       </div>
 

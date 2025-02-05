@@ -1022,9 +1022,6 @@
     "glossary": {
       "title": "Glossary"
     },
-    "projects": {
-      "title": "Projects"
-    },
     "lectures": {
       "noLectures": "There are currently no Lecture Replays for selected language.",
       "title": "Lecture Replays"
@@ -1054,6 +1051,9 @@
       "noPodcasts": "There are currently no podcasts for selected language.",
       "title": "Podcasts"
     },
+    "projects": {
+      "title": "Projects"
+    },
     "searchFilterName": "Search by name",
     "toggleFreeOnly": "Free only",
     "toggleLabelAll": "All",
@@ -1068,15 +1068,19 @@
     "course_chapter": "Course chapter",
     "course_part": "Course part",
     "courses": "Courses",
+    "event": "Event",
     "events": "Events",
     "explorer": {
       "subtitle": "What are you looking for?",
       "title": "Search Portal"
     },
     "filterByType": "Filter by type",
-    "glossary_word": "Word",
+    "glossary_word": "Glossary word",
+    "glossary_words": "Glossary word",
     "languageSelected": "Language selected: {{language}}",
     "loadMoreResults": "See more results",
+    "newsletter": "Newsletter",
+    "newsletters": "Newsletters",
     "podcast": "Podcast",
     "podcasts": "Podcasts",
     "professor": "Professor",
@@ -1090,9 +1094,7 @@
     "searchResult": "Search results",
     "startSearch": "Start your search to see results here",
     "tutorial": "Tutorial",
-    "tutorials": "Tutorials",
-    "word": "Word",
-    "words": "Words"
+    "tutorials": "Tutorials"
   },
   "settings": {
     "changeDisplayName": "Change display name",
