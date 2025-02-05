@@ -57,7 +57,10 @@ export function createSyncGithubRepositories(dependencies: Dependencies) {
     // Process content files
     {
       const timeProcessContentFiles = timeLog('Processing content files');
-      const { errors, warnings } = await processContentFiles(context.files);
+      const { errors, warnings } = await processContentFiles(
+        context.files,
+        context.assets,
+      );
       syncErrors.push(...errors);
       syncWarnings.push(...warnings);
       timeProcessContentFiles();

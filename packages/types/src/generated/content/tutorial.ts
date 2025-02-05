@@ -7,6 +7,7 @@ export interface Tutorial {
   id: string;
   projectId: string | null;
   path: string;
+  logoUrl: string;
   name: string;
   category: string;
   subcategory: string | null;
@@ -46,6 +47,7 @@ export interface TutorialLikeDislike {
 export interface JoinedTutorialLight {
   id: string;
   path: string;
+  logoUrl: string;
   name: string;
   level: string;
   category: string;
@@ -64,6 +66,7 @@ export interface JoinedTutorialLight {
 export interface JoinedTutorial {
   id: string;
   path: string;
+  logoUrl: string;
   name: string;
   level: string;
   category: string;
@@ -96,6 +99,7 @@ export interface JoinedTutorialCredit {
 export interface TutorialWithProfessorName {
   id: string;
   path: string;
+  logoUrl: string;
   name: string;
   category: string;
   subcategory: string | null;
@@ -110,6 +114,7 @@ export interface TutorialWithProfessorName {
 export interface GetTutorialResponse {
   id: string;
   path: string;
+  logoUrl: string;
   name: string;
   level: string;
   category: string;

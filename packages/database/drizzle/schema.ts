@@ -1394,6 +1394,7 @@ export const contentTutorials = content.table(
       .uuid()
       .references(() => contentBuilders.id, { onDelete: 'set null' }),
     path: t.varchar({ length: 255 }).unique().notNull(),
+    logoUrl: t.text().notNull(),
 
     name: t.varchar({ length: 255 }).notNull(),
     category: t.varchar({ length: 255 }).notNull(),

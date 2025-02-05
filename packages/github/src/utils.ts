@@ -5,7 +5,7 @@ import path from 'node:path';
 import type { SimpleGit } from 'simple-git';
 import { ResetMode, simpleGit } from 'simple-git';
 
-import type { ChangedFile, GitHubSyncConfig } from '@blms/types';
+import type { ChangedAsset, ChangedFile, GitHubSyncConfig } from '@blms/types';
 
 export const timeLog = (str: string) => {
   const key = `-- Sync procedure: ${str}`;
@@ -176,13 +176,13 @@ async function loadRepoContentFiles(
   repoDir: string,
   git: SimpleGit,
 ): Promise<ChangedFile[]> {
-  const timeReadFilesTotal = timeLog(`Reading files in ${repoDir}`);
+  const timeReadFilesTotal = timeLog(`Reading content files in ${repoDir}`);
 
-  const timeListFiles = timeLog(`Listing files in ${repoDir}`);
+  const timeListFiles = timeLog(`Listing content files in ${repoDir}`);
   const fileList = await listFiles(git, [':!.*', ':!:*assets*']);
   timeListFiles();
 
-  const timeRead = timeLog(`Reading ${fileList.length} files`);
+  const timeReadFiles = timeLog(`Reading ${fileList.length} content files`);
 
   const files = fileList.map((file) => {
     const filePath = path.join(repoDir, file.path);
@@ -195,17 +195,45 @@ async function loadRepoContentFiles(
     };
   });
 
-  timeRead();
+  timeReadFiles();
   timeReadFilesTotal();
 
   return files;
 }
 
 /**
- * Factory to sync the repositories (clone or pull) and reads all content (non-assets) files
+ * List all assets files in a repository
+ */
+async function listRepoAssetFiles(
+  repoDir: string,
+  git: SimpleGit,
+): Promise<ChangedAsset[]> {
+  const timeListAssetsTotal = timeLog(`Reading asset files in ${repoDir}`);
+
+  const timeListAssets = timeLog(`Listing asset files in ${repoDir}`);
+  const assetList = await listFiles(git, [':*assets*']);
+
+  const assets = assetList.map((asset) => {
+    const assetPath = path.join(repoDir, asset.path);
+
+    return {
+      path: asset.path,
+      commit: asset.hash,
+      time: statSync(assetPath).mtimeMs,
+    };
+  });
+
+  timeListAssets();
+  timeListAssetsTotal();
+
+  return assets;
+}
+
+/**
+ * Factory to sync the repositories (clone or pull), reads all content (non-assets) files, list all assets files
  *
  * @param options - Configuration options
- * @returns a function that syncs the repository and reads all content files
+ * @returns a function that syncs the repository, reads all content files and list all assets files
  */
 export const createSyncRepositories = (options: GitHubSyncConfig) => {
   return async () => {
@@ -228,6 +256,9 @@ export const createSyncRepositories = (options: GitHubSyncConfig) => {
 
       // Read all the files
       const publicFiles = await loadRepoContentFiles(publicRepoDir, publicGit);
+
+      // List all the assets
+      const publicAssets = await listRepoAssetFiles(publicRepoDir, publicGit);
 
       if (options.privateRepositoryUrl && options.githubAccessToken) {
         console.log(
@@ -253,8 +284,15 @@ export const createSyncRepositories = (options: GitHubSyncConfig) => {
           privateGit,
         );
 
+        // List all the asset files
+        const privateAssets = await listRepoAssetFiles(
+          privateRepoDir,
+          privateGit,
+        );
+
         return {
           files: [...publicFiles, ...privateFiles],
+          assets: [...publicAssets, ...privateAssets],
           publicGit,
           publicRepoDir,
           privateGit,
@@ -264,6 +302,7 @@ export const createSyncRepositories = (options: GitHubSyncConfig) => {
 
       return {
         files: publicFiles,
+        assets: publicAssets,
         publicGit,
         publicRepoDir,
       };

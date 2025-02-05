@@ -1,4 +1,4 @@
-import type { ChangedFile } from '@blms/types';
+import type { ChangedAsset, ChangedFile } from '@blms/types';
 
 import {
   createDeleteBCertificateExams,
@@ -81,10 +81,17 @@ export const createProcessContentFiles = (dependencies: Dependencies) => {
   const updateLegals = createUpdateLegals(dependencies);
   const indexContent = createIndexContent(dependencies);
 
-  return async (files: ChangedFile[]): Promise<SyncResult> => {
+  return async (
+    files: ChangedFile[],
+    assets: ChangedAsset[],
+  ): Promise<SyncResult> => {
     const filteredFiles = files.filter((file) =>
       supportedContentTypes.some((value) => file.path.startsWith(value)),
     );
+    const filteredAssets = assets.filter((asset) =>
+      supportedContentTypes.some((value) => asset.path.startsWith(value)),
+    );
+
     const errors: string[] = [];
     const warnings: string[] = [];
     console.log('-- Sync procedure: Deleting proofreadings');
@@ -122,7 +129,7 @@ export const createProcessContentFiles = (dependencies: Dependencies) => {
 
     // Sync tutorials
     {
-      const tutorials = groupByTutorial(filteredFiles, errors);
+      const tutorials = groupByTutorial(filteredFiles, filteredAssets, errors);
       const time = timeLog(tutorials.length, 'tutorial');
       for (const tutorial of tutorials) {
         await updateTutorials(tutorial, errors);
