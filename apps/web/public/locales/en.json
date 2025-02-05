@@ -1022,9 +1022,6 @@
     "glossary": {
       "title": "Glossary"
     },
-    "projects": {
-      "title": "Projects"
-    },
     "lectures": {
       "noLectures": "There are currently no Lecture Replays for selected language.",
       "title": "Lecture Replays"
@@ -1054,6 +1051,9 @@
       "noPodcasts": "There are currently no podcasts for selected language.",
       "title": "Podcasts"
     },
+    "projects": {
+      "title": "Projects"
+    },
     "searchFilterName": "Search by name",
     "toggleFreeOnly": "Free only",
     "toggleLabelAll": "All",
@@ -1061,40 +1061,40 @@
   },
   "search": {
     "all": "All",
-    "categories": "Categories",
-    "courses": "Courses",
     "book": "Book",
     "books": "Books",
+    "categories": "Categories",
+    "course": "Course",
+    "course_chapter": "Course chapter",
+    "course_part": "Course part",
+    "courses": "Courses",
     "event": "Event",
     "events": "Events",
+    "explorer": {
+      "subtitle": "What are you looking for?",
+      "title": "Search Portal"
+    },
+    "filterByType": "Filter by type",
+    "glossary_word": "Glossary word",
+    "glossary_words": "Glossary word",
+    "languageSelected": "Language selected: {{language}}",
+    "loadMoreResults": "See more results",
     "newsletter": "Newsletter",
     "newsletters": "Newsletters",
     "podcast": "Podcast",
     "podcasts": "Podcasts",
     "professor": "Professor",
     "professors": "Professors",
-    "tutorial": "Tutorial",
-    "tutorials": "Tutorials",
-    "search": "Search",
-    "results": "Results",
-    "glossary_word": "Glossary word",
-    "glossary_words": "Glossary word",
-    "course": "Course",
-    "course_chapter": "Course chapter",
-    "course_part": "Course part",
-    "filterByType": "Filter by type",
-    "languageSelected": "Language selected: {{language}}",
-    "startSearch": "Start your search to see results here",
-    "searchResult": "Search results",
-    "resultInfo": "Found {{count}} results in {{time}}ms",
-    "resultError": "Something went wrong. Please try again.",
     "resultEmpty": "Oops! We couldn’t find anything matching your search. Check your spelling, try different keywords, or select another category.",
+    "resultError": "Something went wrong. Please try again.",
+    "resultInfo": "Found {{count}} results in {{time}}ms",
+    "results": "Results",
     "resultsRemaining": "{{count}} results remaining",
-    "loadMoreResults": "See more results",
-    "explorer": {
-      "title": "Search Portal",
-      "subtitle": "What are you looking for?"
-    }
+    "search": "Search",
+    "searchResult": "Search results",
+    "startSearch": "Start your search to see results here",
+    "tutorial": "Tutorial",
+    "tutorials": "Tutorials"
   },
   "settings": {
     "changeDisplayName": "Change display name",
