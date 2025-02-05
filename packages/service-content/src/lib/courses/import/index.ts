@@ -110,6 +110,7 @@ interface CourseMain {
   contact?: string;
   available_seats: number;
   proofreading: ProofreadingEntry[];
+  is_planb_school?: boolean;
 }
 
 interface CourseLocalized {
@@ -305,6 +306,14 @@ export const createUpdateCourses = ({ postgres }: Dependencies) => {
     const { main, files } = separateContentFiles(course, 'course.yml');
     if (!main) return;
 
+    let schoolMarkdown = null;
+    const schoolIndex = files.findIndex((file) => file.language === 'school');
+    if (schoolIndex !== -1) {
+      const schoolFile = files.splice(schoolIndex, 1)[0];
+      const header = matter(await schoolFile.load(), { excerpt: false });
+      schoolMarkdown = header.content.trim();
+    }
+
     return postgres
       .begin(async (transaction) => {
         try {
@@ -325,6 +334,9 @@ export const createUpdateCourses = ({ postgres }: Dependencies) => {
           }
           if (parsedCourse.is_archived === null) {
             parsedCourse.is_archived = false;
+          }
+          if (parsedCourse.is_planb_school == null) {
+            parsedCourse.is_planb_school = false;
           }
 
           const startDateTimestamp = convertStringToTimestamp(
@@ -356,7 +368,7 @@ export const createUpdateCourses = ({ postgres }: Dependencies) => {
                   (id, is_archived, level, hours, topic, subtopic, original_language, requires_payment,
                   payment_expiration_date, format, online_price_dollars, inperson_price_dollars,
                   paid_description, paid_video_link, start_date, end_date, contact, available_seats,
-                  remaining_seats,last_updated, last_commit, last_sync)
+                  remaining_seats, is_planb_school, planb_school_markdown, last_updated, last_commit, last_sync)
                 VALUES (
                   ${course.id},
                   ${parsedCourse.is_archived === true},
@@ -377,6 +389,8 @@ export const createUpdateCourses = ({ postgres }: Dependencies) => {
                   ${parsedCourse.contact},
                   ${parsedCourse.available_seats},
                   ${parsedCourse.available_seats},
+                  ${parsedCourse.is_planb_school},
+                  ${schoolMarkdown},
                   ${lastUpdated.time},
                   ${lastUpdated.commit},
                   NOW()
@@ -400,6 +414,8 @@ export const createUpdateCourses = ({ postgres }: Dependencies) => {
                   contact = EXCLUDED.contact,
                   available_seats = EXCLUDED.available_seats,
                   remaining_seats = EXCLUDED.remaining_seats,
+                  is_planb_school = EXCLUDED.is_planb_school,
+                  planb_school_markdown = EXCLUDED.planb_school_markdown,
                   last_updated = EXCLUDED.last_updated,
                   last_commit = EXCLUDED.last_commit,
                   last_sync = NOW()
@@ -538,11 +554,11 @@ export const createUpdateCourses = ({ postgres }: Dependencies) => {
                   }),
                 )}
                 ON CONFLICT (course_id, part_id) DO UPDATE SET
-                part_index = EXCLUDED.part_index,
+                  part_index = EXCLUDED.part_index,
                   last_sync = NOW()
                 RETURNING *
               `;
-              /// TODO change to part_id (here and everywhere on ON CONFLICTS)
+
               await transaction`
                 INSERT INTO content.course_parts_localized ${transaction(
                   parts.map((part) => ({

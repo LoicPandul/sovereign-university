@@ -106,6 +106,8 @@ export const minimalJoinedCourseSchema = courseSchema
     lastCommit: true,
     numberOfRating: true,
     sumOfAllRating: true,
+    isPlanbSchool: true,
+    planbSchoolMarkdown: true,
   })
   .merge(
     courseLocalizedSchema.pick({

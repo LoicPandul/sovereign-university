@@ -1,6 +1,7 @@
 import { Link, createFileRoute, useNavigate } from '@tanstack/react-router';
 import { last } from 'lodash-es';
 import React, {
+  Suspense,
   useContext,
   useEffect,
   useMemo,
@@ -31,11 +32,12 @@ import { CourseCurriculum } from '#src/organisms/course-curriculum.tsx';
 import { useAuthModal } from '#src/providers/auth.tsx';
 import { AppContext } from '#src/providers/context.js';
 import { formatDate } from '#src/utils/date.ts';
-import { assetUrl } from '#src/utils/index.js';
+import { assetUrl, cdnUrl } from '#src/utils/index.js';
 import { SITE_NAME } from '#src/utils/meta.js';
 import { formatNameForURL } from '#src/utils/string.ts';
 import { trpc } from '#src/utils/trpc.js';
 
+import CoursesMarkdownBody from '#src/components/Markdown/courses-markdown-body.tsx';
 import { ConversionRateContext } from '#src/providers/conversionRateContext.tsx';
 import { CourseLayout } from '../-components/course-layout.tsx';
 import { CoursePaymentModal } from '../-components/payment-modal/course-payment-modal.tsx';
@@ -366,46 +368,68 @@ function CourseDetails() {
     course: JoinedCourseWithAll;
   }) => {
     return (
-      <section className="flex flex-col w-full md:grid md:grid-cols-2 gap-6 md:gap-12">
-        <div className="flex flex-col gap-4 md:gap-6">
-          <h4 className="subtitle-small-caps-14px md:subtitle-medium-caps-18px text-darkOrange-5">
-            {t('courses.details.description')}
-          </h4>
-          <ReactMarkdown
-            components={{
-              h1: ({ children }) => (
-                <h3 className="label-large-20px md:display-small-32px text-newBlack-1">
-                  {children}
-                </h3>
-              ),
-              p: ({ children }) => (
-                <p className="body-14px md:subtitle-medium-med-16px text-newBlack-1 text-justify">
-                  {children}
-                </p>
-              ),
-            }}
-          >
-            {course.rawDescription}
-          </ReactMarkdown>
-        </div>
-        <Divider width="w-full" className="md:hidden" />
-        <div className="flex w-full flex-col gap-4 md:gap-6">
-          <h4 className="subtitle-small-caps-14px md:subtitle-medium-caps-18px text-darkOrange-5">
-            {t('courses.details.objectives')}
-          </h4>
-          <h3 className="label-large-20px md:display-small-32px text-newBlack-1">
-            {t('courses.details.objectivesTitle')}
-          </h3>
-          <ul className="flex flex-col gap-4 md:gap-6">
-            {course.objectives?.map((goal) => (
-              <li className="flex gap-2.5 text-newBlack-1" key={goal}>
-                <IoCheckmark size={isMobile ? 18 : 24} className="shrink-0" />
-                <span className="body-16px md:label-large-20px">{goal}</span>
-              </li>
-            ))}
-          </ul>
-        </div>
-      </section>
+      <>
+        {course.planbSchoolMarkdown ? (
+          <section className="flex flex-col w-full gap-6 md:gap-12">
+            <Suspense fallback={<Loader size={'s'} />}>
+              <CoursesMarkdownBody
+                content={course.planbSchoolMarkdown}
+                assetPrefix={cdnUrl(`courses/${course.id}`)}
+                tutorials={[]}
+                courses={[course]}
+                supportInlineLatex={false}
+              />
+            </Suspense>
+          </section>
+        ) : (
+          <section className="flex flex-col w-full md:grid md:grid-cols-2 gap-6 md:gap-12">
+            <div className="flex flex-col gap-4 md:gap-6">
+              <h4 className="subtitle-small-caps-14px md:subtitle-medium-caps-18px text-darkOrange-5">
+                {t('courses.details.description')}
+              </h4>
+              <ReactMarkdown
+                components={{
+                  h1: ({ children }) => (
+                    <h3 className="label-large-20px md:display-small-32px text-newBlack-1">
+                      {children}
+                    </h3>
+                  ),
+                  p: ({ children }) => (
+                    <p className="body-14px md:subtitle-medium-med-16px text-newBlack-1 text-justify">
+                      {children}
+                    </p>
+                  ),
+                }}
+              >
+                {course.rawDescription}
+              </ReactMarkdown>
+            </div>
+
+            <Divider width="w-full" className="md:hidden" />
+            <div className="flex w-full flex-col gap-4 md:gap-6">
+              <h4 className="subtitle-small-caps-14px md:subtitle-medium-caps-18px text-darkOrange-5">
+                {t('courses.details.objectives')}
+              </h4>
+              <h3 className="label-large-20px md:display-small-32px text-newBlack-1">
+                {t('courses.details.objectivesTitle')}
+              </h3>
+              <ul className="flex flex-col gap-4 md:gap-6">
+                {course.objectives?.map((goal) => (
+                  <li className="flex gap-2.5 text-newBlack-1" key={goal}>
+                    <IoCheckmark
+                      size={isMobile ? 18 : 24}
+                      className="shrink-0"
+                    />
+                    <span className="body-16px md:label-large-20px">
+                      {goal}
+                    </span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </section>
+        )}
+      </>
     );
   };
 

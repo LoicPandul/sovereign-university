@@ -2,7 +2,9 @@ import type { ChangedFile } from '@blms/types';
 
 import type { ContentType, Language } from './const.js';
 
-export type ChangedFileWithLanguage = ChangedFile & { language?: Language };
+export type ChangedFileWithLanguage = ChangedFile & {
+  language?: Language | 'school';
+};
 
 export interface ChangedContent {
   type: ContentType;

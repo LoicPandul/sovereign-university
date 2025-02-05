@@ -23,6 +23,8 @@ export interface Course {
   contact: string | null;
   availableSeats: number | null;
   remainingSeats: number | null;
+  isPlanbSchool: boolean;
+  planbSchoolMarkdown: string | null;
   lastUpdated: Date;
   lastCommit: string;
   lastSync: Date;
@@ -149,6 +151,8 @@ export interface MinimalJoinedCourse {
   lastCommit: string;
   numberOfRating: number;
   sumOfAllRating: number;
+  isPlanbSchool: boolean;
+  planbSchoolMarkdown: string | null;
   language: string;
   name: string;
   goal: string;
@@ -182,6 +186,8 @@ export interface JoinedCourse {
   lastCommit: string;
   numberOfRating: number;
   sumOfAllRating: number;
+  isPlanbSchool: boolean;
+  planbSchoolMarkdown: string | null;
   language: string;
   name: string;
   goal: string;
@@ -216,6 +222,8 @@ export interface JoinedCourseWithProfessorsContributorIds {
   lastCommit: string;
   numberOfRating: number;
   sumOfAllRating: number;
+  isPlanbSchool: boolean;
+  planbSchoolMarkdown: string | null;
   language: string;
   name: string;
   goal: string;
@@ -250,6 +258,8 @@ export interface JoinedCourseWithAll {
   lastCommit: string;
   numberOfRating: number;
   sumOfAllRating: number;
+  isPlanbSchool: boolean;
+  planbSchoolMarkdown: string | null;
   language: string;
   name: string;
   goal: string;
@@ -332,6 +342,8 @@ export interface CourseResponse {
   lastCommit: string;
   numberOfRating: number;
   sumOfAllRating: number;
+  isPlanbSchool: boolean;
+  planbSchoolMarkdown: string | null;
   language: string;
   name: string;
   goal: string;
