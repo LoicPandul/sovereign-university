@@ -57,7 +57,7 @@ export const registerCronTasks = async (ctx: Dependencies) => {
         const payments = await getPendingEventsPayments();
 
         for (const payment of payments) {
-          console.log('Refreshing event payment', payment.paymentId);
+          console.log('[Cron] Refreshing event payment', payment.paymentId);
           const status = await getCheckout(payment.paymentId);
           if (!status.isPaid && !status.isExpired) {
             continue;
@@ -77,7 +77,7 @@ export const registerCronTasks = async (ctx: Dependencies) => {
         const payments = await getPendingCoursePayments();
 
         for (const payment of payments) {
-          console.log('Refreshing course payment', payment.paymentId);
+          console.log('[Cron] Refreshing course payment', payment.paymentId);
           const status = await getCheckout(payment.paymentId);
           if (!status.isPaid && !status.isExpired) {
             continue;

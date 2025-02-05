@@ -361,7 +361,7 @@ export const createExamTimestampService = async (ctx: Dependencies) => {
         `,
       );
 
-      console.log('Timestamp all exams', exams);
+      console.log('[Cron] Timestamp all exams', exams);
 
       for (const { id } of exams) {
         await timestampExamAttempt({ examAttemptId: id });
@@ -370,7 +370,7 @@ export const createExamTimestampService = async (ctx: Dependencies) => {
     upgradeAllTimeStamps: async () => {
       const timestamps = await getAllPendingTimestamps();
 
-      console.log('Upgrade all timestamps', timestamps);
+      console.log('[Cron] Upgrade all timestamps', timestamps);
 
       for (const { examAttemptId } of timestamps) {
         await upgradeExamTimestamp(examAttemptId);
@@ -379,7 +379,7 @@ export const createExamTimestampService = async (ctx: Dependencies) => {
     validateAllTimeStamps: async () => {
       const timestamps = await getAllPendingTimestamps();
 
-      console.log('Validate all timestamps', timestamps);
+      console.log('[Cron] Validate all timestamps', timestamps);
 
       for (const { examAttemptId } of timestamps) {
         await validateExamTimestamp(examAttemptId);
@@ -395,7 +395,7 @@ export const createExamTimestampService = async (ctx: Dependencies) => {
         `,
       );
 
-      console.log('Generate all certificates', timestamps);
+      console.log('[Cron] Generate all certificates', timestamps);
 
       for (const { examAttemptId } of timestamps) {
         await generatePdfCertificate(examAttemptId);
@@ -411,7 +411,7 @@ export const createExamTimestampService = async (ctx: Dependencies) => {
         `,
       );
 
-      console.log('Generate all certificates thumbnails', docs);
+      console.log('[Cron] Generate all certificates thumbnails', docs);
 
       for (const { examAttemptId, pdfKey } of docs) {
         await generateCertificateThumbnail(examAttemptId, pdfKey);

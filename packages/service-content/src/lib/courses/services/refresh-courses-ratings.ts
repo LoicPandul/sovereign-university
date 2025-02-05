@@ -17,7 +17,7 @@ export const createRefreshCoursesRatings = (ctx: Dependencies) => {
   `;
 
   return () => {
-    console.log('Refreshing courses ratings');
+    console.log('[Cron] Refreshing courses ratings');
 
     return ctx.postgres.exec(query).then(() => true);
   };
