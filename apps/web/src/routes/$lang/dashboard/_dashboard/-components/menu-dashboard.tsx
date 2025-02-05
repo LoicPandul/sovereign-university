@@ -160,7 +160,7 @@ export const MenuDashboard = ({
             onClick={toggleMobileMenu}
           />
         </Link>
-        {isTestnetOrDevelopmentEnvironment() ||
+        {isTestnetOrDevelopmentEnvironment() &&
         user?.boughtCourses.includes('btc402') ? (
           <Link to={careerPortalPath}>
             <MenuItem

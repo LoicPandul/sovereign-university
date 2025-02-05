@@ -69,7 +69,7 @@ function CareerPortal() {
   const [cvErrorMessage, setCvErrorMessage] = useState('');
 
   const navigate = useNavigate();
-  const { session } = useContext(AppContext);
+  const { user } = useContext(AppContext);
 
   const Step1FormSchema = z.object({
     firstName: z
@@ -329,10 +329,10 @@ function CareerPortal() {
   });
 
   useEffect(() => {
-    if (session === null) {
+    if (user !== undefined && !user?.boughtCourses.includes('btc402')) {
       navigate({ to: '/' });
     }
-  }, [session]);
+  }, [user]);
 
   useEffect(() => {
     form.reset({
