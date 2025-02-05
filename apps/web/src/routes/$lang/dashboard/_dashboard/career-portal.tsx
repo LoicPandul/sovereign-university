@@ -28,9 +28,9 @@ import {
   customToast,
 } from '@blms/ui';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { createFileRoute } from '@tanstack/react-router';
+import { createFileRoute, useNavigate } from '@tanstack/react-router';
 import { t } from 'i18next';
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { useFieldArray, useForm } from 'react-hook-form';
 import { Trans } from 'react-i18next';
 import { BiPlus } from 'react-icons/bi';
@@ -52,6 +52,7 @@ import {
 } from '../../../../../../../packages/database/dist/drizzle/schema.js';
 
 import PlanBLogoBlack from '#src/assets/logo/planb_logo_horizontal_black.svg';
+import { AppContext } from '#src/providers/context.tsx';
 
 export const Route = createFileRoute(
   '/$lang/dashboard/_dashboard/career-portal',
@@ -66,6 +67,9 @@ function CareerPortal() {
   const [selectedRole, setSelectedRole] = useState('');
 
   const [cvErrorMessage, setCvErrorMessage] = useState('');
+
+  const navigate = useNavigate();
+  const { user } = useContext(AppContext);
 
   const Step1FormSchema = z.object({
     firstName: z
@@ -236,6 +240,7 @@ function CareerPortal() {
 
       if (response.status === 200) {
         form.setValue('cvUrl', `/api/files/cvs/${careerProfile?.id}`);
+        setCvErrorMessage('');
         customToast(t('dashboard.careerPortal.fileUploaded'), {
           mode: 'light',
           color: 'success',
@@ -324,6 +329,12 @@ function CareerPortal() {
   });
 
   useEffect(() => {
+    if (user !== undefined && !user?.boughtCourses.includes('btc402')) {
+      navigate({ to: '/' });
+    }
+  }, [user]);
+
+  useEffect(() => {
     form.reset({
       firstName: careerProfile?.firstName ?? '',
       lastName: careerProfile?.lastName ?? '',
@@ -401,13 +412,27 @@ function CareerPortal() {
               <p className="text-black body-14px md:label-medium-16px mb-[25px] md:mb-[60px]">
                 {t('dashboard.careerPortal.description')}
               </p>
-              <p className="w-full text-center text-black body-16px-medium md:label-medium-med-16px mb-[25px] md:mb-[60px] whitespace-pre-line">
-                {existingCareerProfile
-                  ? validatedSteps === 4
-                    ? t('dashboard.careerPortal.applicationComplete')
-                    : t('dashboard.careerPortal.applicationIncomplete')
-                  : t('dashboard.careerPortal.followProcess')}
-              </p>
+              {existingCareerProfile ? (
+                <>
+                  <p className="bg-newGray-6 text-center text-lg font-medium text-newBlack-1 px-4 py-2 md:px-8 md:py-4 rounded-[16px] border-b border-b-newGray-4 uppercase w-fit mx-auto mb-2">
+                    {t('dashboard.careerPortal.applicationStatus')}{' '}
+                    <span className="text-darkOrange-5">
+                      {validatedSteps === 4
+                        ? t('words.complete')
+                        : t('words.incomplete')}
+                    </span>
+                  </p>
+                  <p className="w-full text-center text-newBlack-5 body-16px md:label-medium-16px mb-[25px] md:mb-[60px] whitespace-pre-line">
+                    {validatedSteps === 4
+                      ? t('dashboard.careerPortal.lookingForJob')
+                      : t('dashboard.careerPortal.followProcess')}
+                  </p>
+                </>
+              ) : (
+                <p className="w-full text-center text-black body-16px-medium md:label-medium-med-16px mb-[25px] md:mb-[60px] whitespace-pre-line">
+                  {t('dashboard.careerPortal.followProcess')}
+                </p>
+              )}
 
               <StepsProcess
                 currentStep={step}
@@ -658,7 +683,7 @@ function CareerPortal() {
                           <Button
                             className="md:self-end max-md:mt-[11px] md:ml-auto flex gap-2.5 shrink-0"
                             type="button"
-                            variant="primary"
+                            variant="outline"
                             mode="light"
                             size="s"
                             onClick={() => languageSkillsRemove(index)}
@@ -690,7 +715,6 @@ function CareerPortal() {
                   )}
                   trueText={t('words.yes')}
                   falseText={t('words.no')}
-                  mandatory
                 />
                 <FormText
                   id="bitcoinCommunityText"
@@ -705,7 +729,6 @@ function CareerPortal() {
                   label={t('dashboard.careerPortal.bitcoinProjectParticipant')}
                   trueText={t('words.yes')}
                   falseText={t('words.no')}
-                  mandatory
                 />
                 <FormText
                   id="bitcoinProjectText"
@@ -865,7 +888,7 @@ function CareerPortal() {
                           <Button
                             className="md:self-end max-md:mt-[11px] md:ml-auto flex gap-2.5 shrink-0"
                             type="button"
-                            variant="primary"
+                            variant="outline"
                             mode="light"
                             size="s"
                             onClick={() => rolesRemove(index)}
@@ -935,7 +958,7 @@ function CareerPortal() {
                     'dashboard.careerPortal.expectedSalaryPlaceholder',
                   )}
                   type="text"
-                  hasMaxWidth={false}
+                  hasMaxWidth={true}
                 />
                 <FormText
                   id="availabilityStart"
@@ -945,7 +968,7 @@ function CareerPortal() {
                     'dashboard.careerPortal.availabilityStartPlaceholder',
                   )}
                   type="text"
-                  hasMaxWidth={false}
+                  hasMaxWidth={true}
                 />
               </div>
 
@@ -984,7 +1007,7 @@ function CareerPortal() {
                 <input
                   type="file"
                   accept=".pdf"
-                  className="w-full max-w-[614px] rounded-[10px] overflow-hidden body-16px md:label-medium-16px text-newBlack-5 border border-newBlack-4 file:p-3.5 file:mr-3.5 file:rounded-none file:border-0 file:border-r file:border-newBlack-4 md:file:text-lg file:leading-normal file:font-medium file:bg-darkOrange-5 file:text-white hover:file:cursor-pointer"
+                  className="w-full max-w-[614px] rounded-[10px] overflow-hidden body-16px md:label-medium-16px text-newBlack-5 border border-newBlack-4 file:p-3.5 file:mr-3.5 file:rounded-none file:border-0 file:border-r file:border-newBlack-4 md:file:text-lg file:leading-normal file:font-medium file:bg-darkOrange-5 file:text-white hover:file:cursor-pointer appearance-none"
                   onChange={handleCVUpload}
                 />
                 <p className="body-14px text-newGray-1">
@@ -1139,6 +1162,10 @@ const StepsProcess = ({
               (currentStep === 0 && step.stepNumber <= validatedSteps) ||
               step.stepNumber <= currentStep
             }
+            validated={
+              step.stepNumber <= validatedSteps &&
+              currentStep !== step.stepNumber
+            }
             {...step}
           />
           {step.stepNumber !== 4 && (
@@ -1187,10 +1214,12 @@ const StepIndicator = ({
   stepNumber,
   label,
   highlighted,
+  validated,
 }: {
   stepNumber: number;
   label: string;
   highlighted: boolean;
+  validated: boolean;
 }) => {
   return (
     <div className="flex justify-center items-center w-full md:max-w-[95px] md:flex-col gap-4 md:gap-3 max-md:p-2 md:px-2.5">
@@ -1208,7 +1237,7 @@ const StepIndicator = ({
           highlighted ? 'bg-darkOrange-5' : 'bg-newGray-3',
         )}
       >
-        {stepNumber}
+        {validated ? <ImCheckmark /> : stepNumber}
       </div>
     </div>
   );
@@ -1346,7 +1375,11 @@ const FormText = ({
           <FormControl
             className={cn(
               'w-full',
-              type === 'text' ? 'max-w-[450px]' : 'max-w-[596px]',
+              hasMaxWidth
+                ? type === 'text'
+                  ? 'max-w-[450px]'
+                  : 'max-w-[596px]'
+                : '',
             )}
           >
             {type === 'text' ? (

@@ -37,6 +37,7 @@ export interface UserDetails {
   contributorId: string;
   professorCourses: string[];
   professorTutorials: string[];
+  boughtCourses: string[];
 }
 
 export interface UserRoles {
