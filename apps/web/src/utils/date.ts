@@ -114,6 +114,17 @@ export const getTimeString = (
   return timeString;
 };
 
+export const getTimeStringWithOnlyMonths = (
+  startDate: Date | null,
+  endDate: Date | null,
+) => {
+  if (!startDate || !endDate) {
+    return '';
+  }
+
+  return `${getMonthName(startDate)} to ${getMonthName(endDate)} ${getYear(startDate)}`;
+};
+
 export function formatFullDateWithDay(date: Date, timezone?: string): string {
   if (!(date instanceof Date) || Number.isNaN(date.getTime())) {
     return '';
@@ -146,3 +157,28 @@ export function formatDateWithoutTime(date: Date, timezone?: string): string {
 
   return new Intl.DateTimeFormat(undefined, options).format(date);
 }
+
+export const getMonthName = (
+  date: Date,
+  locale = 'en-US',
+  timezone?: string,
+): string => {
+  if (!(date instanceof Date) || Number.isNaN(date.getTime())) {
+    return '';
+  }
+
+  return new Intl.DateTimeFormat(locale, {
+    month: 'long',
+    timeZone: timezone,
+  }).format(date);
+};
+
+export const getYear = (date: Date, locale = 'en-US'): string => {
+  if (!(date instanceof Date) || Number.isNaN(date.getTime())) {
+    return '';
+  }
+
+  return new Intl.DateTimeFormat(locale, {
+    year: 'numeric',
+  }).format(date);
+};

@@ -180,6 +180,7 @@
       "hasBeenProofreadBy": "This course has been proofread by",
       "hasNotBeenProofread": "This course has not been proofread yet",
       "inPersonAccess": "You need to download your ticket to access the in-person class.",
+      "ledBy": "This course is led by",
       "mobile": {
         "hours": "{{hours}} hours"
       },
@@ -188,6 +189,7 @@
       "otherCourses": "Other courses",
       "otherCoursesInterest": "Other courses you may be interested in",
       "paidCourse": "Premium",
+      "pastEditionsRatings": "Past Editions Ratings",
       "premiumContentNeedsLogin": "You need to be logged in to access this course.",
       "premiumContentNeedsPayment": "This course is part of a premium program.",
       "premiumContentNeedsPaymentAction": "Go to course homepage",
@@ -344,6 +346,7 @@
       "veryBad": "very bad",
       "veryGood": "very good",
       "whatStudentsSay": "What students say about this course",
+      "whatStudentsSayPasEdition": "What students say about past editions",
       "writeThoughts": "Here you can write your thoughts",
       "yesOfCourse": "yes, of course",
       "yesVeryMuch": "yes, very much"

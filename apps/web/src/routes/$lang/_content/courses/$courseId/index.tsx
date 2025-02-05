@@ -31,12 +31,13 @@ import { ButtonWithArrow } from '#src/molecules/button-arrow.tsx';
 import { CourseCurriculum } from '#src/organisms/course-curriculum.tsx';
 import { useAuthModal } from '#src/providers/auth.tsx';
 import { AppContext } from '#src/providers/context.js';
-import { formatDate } from '#src/utils/date.ts';
+import { formatDate, getTimeStringWithOnlyMonths } from '#src/utils/date.ts';
 import { assetUrl, cdnUrl } from '#src/utils/index.js';
 import { SITE_NAME } from '#src/utils/meta.js';
 import { formatNameForURL } from '#src/utils/string.ts';
 import { trpc } from '#src/utils/trpc.js';
 
+import PlanbSchoolLogo from '#src/assets/courses/planb_school_logo.svg';
 import CoursesMarkdownBody from '#src/components/Markdown/courses-markdown-body.tsx';
 import { ConversionRateContext } from '#src/providers/conversionRateContext.tsx';
 import { CourseLayout } from '../-components/course-layout.tsx';
@@ -192,9 +193,12 @@ function CourseDetails() {
 
     return (
       <section className="flex flex-col self-start w-full">
-        <h1 className="text-newBlack-1 max-md:text-center title-large-sb-24px md:display-large-med-48px">
-          {course.name}
-        </h1>
+        <div className="md:flex md:flex-row md:justify-between items-center">
+          <h1 className="text-newBlack-1 max-md:text-center title-large-sb-24px md:display-large-med-48px">
+            {course.name}
+          </h1>
+          <img className="max-md:hidden mr-9" src={PlanbSchoolLogo} alt="" />
+        </div>
         <div className="mt-6 md:mt-4 flex flex-wrap gap-2 items-center">
           <TextTag
             size={isMobile ? 'verySmall' : 'small'}
@@ -262,7 +266,22 @@ function CourseDetails() {
           />
           <ListItem
             leftText={t('words.duration')}
-            rightText={`${course.hours} ${t('words.hours')}`}
+            rightText={
+              <div className="flex flex-col md:flex-row">
+                <span>{`${course.hours} ${t('words.hours')}`}</span>
+                {course.isPlanbSchool ? (
+                  <>
+                    <span className="font-light mx-2 max-md:hidden"> | </span>
+                    {getTimeStringWithOnlyMonths(
+                      course.startDate,
+                      course.endDate,
+                    )}
+                  </>
+                ) : (
+                  ''
+                )}
+              </div>
+            }
             variant="light"
             hasIncreasedPadding
           />
@@ -324,7 +343,11 @@ function CourseDetails() {
             hasIncreasedPadding
           />
           <ListItem
-            leftText={t('words.ratings')}
+            leftText={
+              course.isPlanbSchool
+                ? t('courses.details.pastEditionsRatings')
+                : t('words.ratings')
+            }
             rightText={
               <div className="flex gap-2.5 items-center">
                 <StarRating
@@ -373,7 +396,7 @@ function CourseDetails() {
   }) => {
     return (
       <>
-        {course.planbSchoolMarkdown ? (
+        {course.isPlanbSchool && course.planbSchoolMarkdown ? (
           <section className="flex flex-col w-full gap-6 md:gap-12">
             <Suspense fallback={<Loader size={'s'} />}>
               <CoursesMarkdownBody
@@ -444,7 +467,12 @@ function CourseDetails() {
           {t('words.professor')}
         </span>
         <h4 className="mt-4 md:mt-6 label-large-20px md:display-small-32px text-black">
-          {t('courses.details.taughtBy')}{' '}
+          <span>
+            {course.isPlanbSchool
+              ? t('courses.details.ledBy')
+              : t('courses.details.taughtBy')}{' '}
+          </span>
+
           <span className="text-darkOrange-5 label-large-20px md:display-small-32px hover:!font-medium">
             {course.professors.map((professor, index) => (
               <React.Fragment key={professor.id}>
@@ -504,7 +532,9 @@ function CourseDetails() {
           {t('courses.review.ratingsAndReviews')}
         </h4>
         <h3 className="label-large-20px md:display-small-32px text-newBlack-1">
-          {t('courses.review.whatStudentsSay')}
+          {course?.isPlanbSchool
+            ? t('courses.review.whatStudentsSayPasEdition')
+            : t('courses.review.whatStudentsSay')}
         </h3>
         <div className="flex flex-col w-full md:items-center">
           <h3 className="lg:text-center subtitle-large-med-20px text-dashboardSectionTitle">
@@ -756,7 +786,7 @@ function CourseDetails() {
         mode="dark"
         variant={variant}
         disabled={isStartOrBuyButtonDisabled}
-        className="max-lg:my-6 max-lg:!m-2 lg:mt-5 w-full max-lg:max-w-[290px] md:w-fit self-center lg:self-end"
+        className="max-lg:my-6 max-lg:!m-2 lg:mt-5 w-full md:w-fit self-center lg:self-end"
         onClick={onClick}
       >
         {children}
@@ -767,7 +797,7 @@ function CourseDetails() {
         mode="dark"
         variant={variant}
         disabled={isStartOrBuyButtonDisabled}
-        className="max-lg:my-6 max-lg:!m-2 lg:mt-5 w-full max-lg:max-w-[290px] md:w-fit self-center lg:self-end"
+        className="max-lg:my-6 max-lg:!m-2 lg:mt-5 w-full md:w-fit self-center lg:self-end"
         onClick={onClick}
       >
         {children}
