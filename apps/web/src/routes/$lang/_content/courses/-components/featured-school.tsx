@@ -29,19 +29,13 @@ export const FeaturedSchool = ({ course }: { course: JoinedCourse }) => {
               </span>
             </div>
             <span className="text-newGray-5 leading-[160%] italic text-xs md:text-lg tracking-015px max-md:self-end shrink-0">
-              coming soon
+              {t('courses.explorer.comingSoon')}
             </span>
           </div>
         </div>
       </div>
       <p className="label-medium-16px md:subtitle-large-18px text-newGray-4 whitespace-pre-line px-1">
-        The Plan ₿ School, led by Giacomo Zucco, offers an intensive three-month
-        educational program designed to bridge the gap between learning and
-        real-world application. Beyond traditional classes, students engage in
-        company-led practical projects and a high-stakes bootcamp for top
-        performers. With two competitive selection rounds, only the best
-        advance, ensuring that the final top students emerge fully equipped to
-        launch their careers in the Bitcoin industry.
+        {t('courses.explorer.planbSchoolHeadline')}
       </p>
       <SchoolCard course={course} />
       <DividerSimple
@@ -56,7 +50,7 @@ const SchoolCard = ({ course }: { course: JoinedCourse }) => {
   return (
     <article className="relative w-full flex flex-col md:flex-row gap-2.5 md:gap-5 bg-darkOrange-9 border border-darkOrange-5 shadow-sm-section p-2.5 rounded-[10px] md:rounded-[20px] overflow-hidden">
       <span className="absolute uppercase -top-px -left-px bg-white border border-white text-black body-semibold-12px md:title-medium-sb-18px rounded-br-[10px] py-[5px] px-2.5 md:py-2.5 md:px-[15px] md:rounded-br-[20px] z-10">
-        PLAN ₿ SCHOOL
+        {t('courses.explorer.planbSchool')}
       </span>
       <img
         src={assetUrl(`courses/${course.id}`, 'thumbnail.webp')}
