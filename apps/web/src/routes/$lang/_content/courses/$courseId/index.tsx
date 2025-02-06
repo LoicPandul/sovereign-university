@@ -197,7 +197,9 @@ function CourseDetails() {
           <h1 className="text-newBlack-1 max-md:text-center title-large-sb-24px md:display-large-med-48px">
             {course.name}
           </h1>
-          <img className="max-md:hidden mr-9" src={PlanbSchoolLogo} alt="" />
+          {course.isPlanbSchool ? (
+            <img className="max-md:hidden mr-9" src={PlanbSchoolLogo} alt="" />
+          ) : null}
         </div>
         <div className="mt-6 md:mt-4 flex flex-wrap gap-2 items-center">
           <TextTag
