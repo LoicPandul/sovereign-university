@@ -47,12 +47,27 @@ export const createProcessMainFile = (transaction: TransactionSql) => {
 
     const lastUpdated = tutorial.files.sort((a, b) => b.time - a.time)[0];
 
+    // If tutorial has no logo, replace it with project logo
+    let logoUrl = tutorial.hasLogo ? tutorial.path : undefined;
+
+    if (!logoUrl) {
+      logoUrl = await transaction`
+        SELECT r.path
+        FROM content.builders b
+        JOIN content.resources r ON b.resource_id = r.id
+        WHERE b.id = ${parsedTutorial.project_id}
+      `
+        .then(firstRow)
+        .then((row) => row?.path);
+    }
+
     const result = await transaction<Tutorial[]>`
-        INSERT INTO content.tutorials (id, project_id, path, name, category, subcategory, original_language, level, last_updated, last_commit, last_sync)
+        INSERT INTO content.tutorials (id, project_id, path, logo_url, name, category, subcategory, original_language, level, last_updated, last_commit, last_sync)
         VALUES (
           ${parsedTutorial.id},
           ${parsedTutorial.project_id},
           ${tutorial.path},
+          ${logoUrl},
           ${tutorial.name},
           ${tutorial.category},
           ${parsedTutorial.category},
@@ -65,6 +80,7 @@ export const createProcessMainFile = (transaction: TransactionSql) => {
         ON CONFLICT (id) DO UPDATE SET
           project_id = EXCLUDED.project_id,
           path = EXCLUDED.path,
+          logo_url = EXCLUDED.logo_url,
           name = EXCLUDED.name,
           category = EXCLUDED.category,
           subcategory = EXCLUDED.subcategory,

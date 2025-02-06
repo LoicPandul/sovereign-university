@@ -27,6 +27,7 @@ export const joinedTutorialLightSchema = tutorialSchema
   .pick({
     id: true,
     path: true,
+    logoUrl: true,
     name: true,
     level: true,
     category: true,
@@ -66,6 +67,7 @@ export const tutorialWithProfessorNameSchema = tutorialSchema
   .pick({
     id: true,
     path: true,
+    logoUrl: true,
     name: true,
     category: true,
     subcategory: true,

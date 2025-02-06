@@ -1,11 +1,7 @@
-// import { t } from 'i18next';
-
 import { Link } from '@tanstack/react-router';
-import { useState } from 'react';
 import { MdThumbDown, MdThumbUp } from 'react-icons/md';
 
 import type { JoinedTutorialLight } from '@blms/types';
-// import ApprovedBadge from '#src/assets/tutorials/approved.svg?react';
 import { cn } from '@blms/ui';
 
 import { assetUrl } from '#src/utils/index.js';
@@ -19,11 +15,6 @@ export const TutorialCard = ({
   href: string;
   dark?: boolean;
 }) => {
-  const [logoSrc] = useState(assetUrl(tutorial.path, 'logo.webp'));
-
-  // TODO TRIGGER INVESTIGATE
-  // const fallbackSrc = assetUrl(tutorial.builder?.path ?? '', 'logo.webp');
-
   return (
     <Link
       to={href}
@@ -36,10 +27,9 @@ export const TutorialCard = ({
       )}
     >
       <img
-        src={logoSrc}
+        src={assetUrl(tutorial.logoUrl, 'logo.webp')}
         alt={tutorial.name}
         className="size-[60px] md:size-20 rounded-full"
-        // onError={() => setLogoSrc(fallbackSrc)}
       />
       <span className="flex flex-col">
         <span className="max-md:mobile-subtitle1 capitalize text-xl font-semibold text-darkOrange-5 md:mb-1">

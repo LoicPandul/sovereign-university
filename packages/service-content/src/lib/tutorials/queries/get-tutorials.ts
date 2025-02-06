@@ -16,6 +16,7 @@ export const getTutorialsQuery = (category?: string, language?: string) => {
       SELECT
           t.id,
           t.path,
+          t.logo_url,
           t.name,
           tl.language,
           t.level,
@@ -60,6 +61,7 @@ export const getTutorialsQuery = (category?: string, language?: string) => {
 
       GROUP BY
           t.id,
+          t.logo_url,
           tl.language,
           t.level,
           t.category,
@@ -116,6 +118,7 @@ export const getSortedTutorialsWithProfessorNameQuery = (
     WITH tutorials_with_professor AS (
       SELECT
         t.id,
+        t.logo_url,
         t.path,
         t.name,
         tl.title,
@@ -156,6 +159,7 @@ export const getSortedTutorialsWithProfessorNameQuery = (
           OR t.subcategory ILIKE ${searchPattern})
       GROUP BY
           t.id,
+          t.logo_url,
           t.name,
           tl.language,
           t.category,

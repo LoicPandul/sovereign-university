@@ -6,6 +6,7 @@ export const getTutorialQuery = (id: string, language?: string) => {
     SELECT
         t.id,
         t.path,
+        t.logo_url,
         t.name,
         tl.language,
         t.level,
@@ -39,6 +40,7 @@ export const getTutorialQuery = (id: string, language?: string) => {
     ${language ? sql`AND tl.language = LOWER(${language})` : sql``}
     GROUP BY
         t.id,
+        t.logo_url,
         tl.language,
         t.level,
         t.category,

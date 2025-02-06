@@ -37,6 +37,7 @@ export const getProfessorTutorialsQuery = ({
     SELECT
       t.id,
       t.path,
+      t.logo_url,
       t.name,
       tl.language,
       t.level,
@@ -77,6 +78,7 @@ export const getProfessorTutorialsQuery = ({
 
     GROUP BY
       t.id,
+      t.logo_url,
       tl.language,
       t.level,
       t.category,

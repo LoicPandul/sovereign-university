@@ -1,7 +1,7 @@
 import matter from 'gray-matter';
 
 import { firstRow, sql } from '@blms/database';
-import type { ChangedFile, Tutorial } from '@blms/types';
+import type { ChangedAsset, ChangedFile, Tutorial } from '@blms/types';
 
 import type { Language } from '../../const.js';
 import type { Dependencies } from '../../dependencies.js';
@@ -24,6 +24,7 @@ interface TutorialDetails {
 export interface ChangedTutorial extends ChangedContent {
   name: string;
   category: string;
+  hasLogo: boolean;
 }
 
 /**
@@ -57,9 +58,19 @@ export const parseDetailsFromPath = (path: string): TutorialDetails => {
   };
 };
 
-export const groupByTutorial = (files: ChangedFile[], errors: string[]) => {
+export const groupByTutorial = (
+  files: ChangedFile[],
+  assets: ChangedAsset[],
+  errors: string[],
+) => {
   const tutorialsFiles = files.filter(
     (item) => getContentType(item.path) === 'tutorials',
+  );
+
+  const tutorialsLogos = assets.filter(
+    (item) =>
+      getContentType(item.path) === 'tutorials' &&
+      item.path.includes('logo.webp'),
   );
 
   const groupedTutorials = new Map<string, ChangedTutorial>();
@@ -73,22 +84,25 @@ export const groupByTutorial = (files: ChangedFile[], errors: string[]) => {
         language,
       } = parseDetailsFromPath(file.path);
 
-      const course: ChangedTutorial = groupedTutorials.get(tutorialPath) || {
+      const tutorial: ChangedTutorial = groupedTutorials.get(tutorialPath) || {
         type: 'tutorials',
         name: tutorialPath.split('/').at(-1) as string,
         category,
         path: tutorialPath,
         fullPath,
         files: [],
+        hasLogo: tutorialsLogos.some(
+          (logo) => logo.path === `${tutorialPath}/assets/logo.webp`,
+        ),
       };
 
-      course.files.push({
+      tutorial.files.push({
         ...file,
         path: getRelativePath(file.path, tutorialPath),
         language,
       });
 
-      groupedTutorials.set(tutorialPath, course);
+      groupedTutorials.set(tutorialPath, tutorial);
     } catch {
       errors.push(`Unsupported path ${file.path}, skipping file...`);
     }
