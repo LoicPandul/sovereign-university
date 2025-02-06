@@ -121,7 +121,6 @@
     "beginner": "初学者",
     "billing": "计费",
     "book": "书籍",
-    "builders": "项目",
     "conference": "会议",
     "content": "内容",
     "course": "课程",
@@ -180,7 +179,6 @@
     "update": "更新",
     "view": "视图",
     "bookings": "预订",
-    "builder": "项目",
     "credentials": "证件",
     "admins": "管理员",
     "booked": "已预订",
@@ -879,9 +877,6 @@
     "books": {
       "author": "作者： ",
       "title": "资料库"
-    },
-    "builders": {
-      "title": "项目"
     },
     "channels": {
       "noYoutubeChannels": "目前没有所选语言的YouTube频道。",

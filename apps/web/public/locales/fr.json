@@ -728,9 +728,6 @@
     "bet": {
       "title": "Boîte à outils Éducative"
     },
-    "builders": {
-      "title": "Bâtisseurs"
-    },
     "conferences": {
       "title": "Rediffusion de conférences"
     },
@@ -895,7 +892,6 @@
     "back": "Précédent",
     "beginner": "Débutant",
     "book": "Réserver",
-    "builders": "Bâtisseurs",
     "conference": "Conférence",
     "content": "Contenus",
     "course": "Cours",
@@ -954,7 +950,6 @@
     "amount": "Montant",
     "booked": "Réservé",
     "bookings": "Réservations",
-    "builder": "Bâtisseur",
     "chapter": "Chapitre",
     "communities": "Communautés",
     "credentials": "Identifiants",

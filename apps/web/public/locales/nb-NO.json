@@ -70,7 +70,8 @@
     "emailTip": "E-post er ikke obligatorisk, men det kan være nyttig i tilfelle du glemmer passordet ditt!",
     "dashboardUnlocked": "Studentdashbordet ditt er låst opp!",
     "didYouKnow": "Visste du det?",
-    "trackProgress": "Opprett en konto eller logg inn for å holde oversikt over fremdriften din"
+    "trackProgress": "Opprett en konto eller logg inn for å holde oversikt over fremdriften din",
+    "passwordChangedSuccess": "Passordet ble endret"
   },
   "bCertificate": {
     "checkout": "Sjekk ut ₿-sertifikatet",
@@ -180,7 +181,8 @@
       "hasBeenProofreadBy": "Dette kurset har blitt korrekturlest av",
       "otherCourses": "Andre kurs",
       "otherCoursesInterest": "Andre kurs du kan være interessert i",
-      "thanksTipping": "Du kan si takk ved å gi professoren et tips."
+      "thanksTipping": "Du kan si takk ved å gi professoren et tips.",
+      "hasNotBeenProofread": "Dette kurset er ikke korrekturlest ennå"
     },
     "explorer": {
       "buildPath": "Lag din egen sti ned i kaninhullet",
@@ -381,7 +383,6 @@
     "beginner": "Nybegynner",
     "billing": "Fakturering",
     "book": "Bok",
-    "builders": "Bidragsytere",
     "conference": "Konferanse",
     "content": "Innhold",
     "course": "Kurs",
@@ -426,7 +427,6 @@
     "tutorial": "Veiledning",
     "tutorials": "Veiledninger",
     "chapter": "Kapittel",
-    "builder": "Bidragsyter",
     "hours": "timer",
     "lectures": "Forelesninger",
     "communities": "Fellesskap",
@@ -671,10 +671,64 @@
       "tutorialsManagementPanel": "Veiledningsstyringspanel",
       "type": "Skriv",
       "upcomingBookingsSubtitle": "Her kan du laste ned listen over deltakere for alle arrangementer med fysisk tilstedeværelse.",
-      "userRolesAllocation": "Tildeling av brukerroller"
+      "userRolesAllocation": "Tildeling av brukerroller",
+      "careers": {
+        "careers": "Karrierer",
+        "careersSubtitle": "Her kan du se listen over deltakere som har fullført søknadene sine. Du kan finne all informasjon om søknadene inne i regnearket.",
+        "cv": "CV",
+        "downloadProfiles": "Last ned regneark",
+        "downloadSpreadsheet": "Last ned regneark",
+        "lastUpdate": "Siste oppdatering",
+        "lastUpdated": "Sist oppdatert",
+        "profession": "Yrke",
+        "resultsRemaining": "{{results}} resultater gjenstår",
+        "seeMore": "Se mer",
+        "viewCV": "Se CV"
+      }
     },
     "studentDashboard": "Studentdashbord",
-    "backToDashboard": "Tilbake til dashbordet"
+    "backToDashboard": "Tilbake til dashbordet",
+    "careerPortal": {
+      "beAware": "Vær oppmerksom på at Plan ₿ Network vil samle inn og lagre dataene dine kun for rekrutteringsformål. Dataene behandles og deles med våre forretningspartnere i samsvar med bestemmelsene i EU's generelle databeskyttelsesforordning (GDPR). Klikk <0>her</0> for å vite mer om vår personvernerklæring for kandidater.",
+      "companySizes": {
+        "41To100": "41 til 100 ansatte",
+        "100More": "100 og flere ansatte",
+        "11To40": "11 til 40 ansatte",
+        "1To10": "1 til 10 ansatte",
+        "noPreference": "Ingen preferanse"
+      },
+      "contactInformationSubtitle": "Vennligst oppgi e-postadressen din og andre kontaktmetoder.",
+      "deleteCareerProfileTitle": "Er du sikker på at du vil slette karriereprofilen din?",
+      "acceptTermsAndConditions": "Jeg har lest og jeg aksepterer vilkårene og betingelsene",
+      "acceptedFormat": "Akseptert filformat: pdf / Maksimal filstørrelse: 10 MB.",
+      "add": "Legg til",
+      "allowReceivingEmails": "Jeg samtykker i å motta e-poster fra Plan ₿ Network om potensielle jobbmuligheter",
+      "applicationSaved": "Søknaden din er lagret!",
+      "availability": "Din tilgjengelighet",
+      "availabilityStart": "Når kan du begynne?",
+      "availabilityStartPlaceholder": "Dato",
+      "bitcoinCommunityParticipant": "Er du en del av et lokalt Bitcoin-miljø?",
+      "bitcoinCommunityText": "Hvis ja, hvilket og hva er ditt nivå av involvering? \nEr dette miljøet en del av Plan ₿ Network?",
+      "bitcoinProjectParticipant": "Har du aktivt bidratt til noen Bitcoin-prosjekter? \n(i fortiden eller for øyeblikket)",
+      "bitcoinProjectPlaceholder": "Eksempler: Samfunnsprosjekt, åpen kildekode-prosjekt, osv...",
+      "bitcoinProjectSubLabel": "Beskriv prosjektet ditt nedenfor.",
+      "bitcoinProjectText": "Hvilket?",
+      "bitcoinRelatedExperience": "Erfaring relatert til Bitcoin",
+      "bitcoinRelatedExperienceSubtitle": "Vennligst del litt informasjon om din involvering i Bitcoin-initiativer.",
+      "cannotUndo": "Denne handlingen kan ikke angres.",
+      "companySizePreference": "Hvilken bedriftsstørrelse foretrekker du?",
+      "companySizePreferenceSubLabel": "Du kan velge flere svar.",
+      "companySizeRequired": "Velg minst én bedriftsstørrelse.",
+      "completeApplication": "Fullfør søknad",
+      "confirmDelete": "Bekreft sletting",
+      "contactInformation": "Kontaktinformasjon",
+      "countryResidence": "Bosted (land)",
+      "cvRequired": "Opplasting av CV-en din er nødvendig.",
+      "cvUpload": "Last opp CV-en din",
+      "cvUploadLabel": "Last opp CV",
+      "cvUploadSubtitle": "Last opp CV-en din for å vise frem ferdighetene og erfaringene dine til potensielle arbeidsgivere.",
+      "deleteCareerProfile": "Slett karriereprofil"
+    }
   },
   "events": {
     "card": {
@@ -948,9 +1002,6 @@
     },
     "bet": {
       "title": "Utdanningsverktøy"
-    },
-    "builders": {
-      "title": "Prosjekter"
     },
     "conferences": {
       "title": "Konferanseopptak"

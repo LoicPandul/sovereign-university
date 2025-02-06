@@ -1,26 +1,26 @@
 {
   "about": {
-    "activeContributors": "Aktiva medverkande",
+    "activeContributors": "Aktiva bidragsgivare",
     "missionTitle": "Vårt uppdrag",
-    "missionContent1": "Vårt mål är att stödja lokala Bitcoin-communities genom utbildning och nätverkande baserat på open source. Vi samlar in, organiserar och skapar de resurser (kurser, böcker, affischer, flygblad, videor) som behövs för att Bitcoin-industrin ska kunna gå framåt.",
+    "missionContent1": "Vårt uppdrag är att stödja lokala Bitcoin-communities genom utbildning och nätverkande baserat på open source. Vi samlar in, organiserar och skapar de resurser (kurser, böcker, affischer, flygblad, videor) som behövs för att Bitcoin-industrin ska kunna gå framåt.",
     "missionContent2": "Vi centraliserar kunskap för att det ska kunna förmedlas på bästa möjliga sätt, genom att använda ett enkelt, flerspråkigt GitHub-repo och en E-lärplattform. Vi hjälper även lokala Bitcoin-hubbar i deras utveckling genom att bidra med rätt verktyg för att deras talanger ska kunna växa.",
-    "commitmentTitle": "Vårt engagemang",
-    "commitmentContent": "Vi har följande åtaganden gentemot bitcoin-communityn:\n • Förbli open source\n • Bidra med högkvalitativt utbildningsinnehåll\n • Översätta vårt innehåll till så många språk som möjligt\n • Stödja Bitcoin-utvecklare på deras entreprenörsresa",
-    "coreTeamTitle": "Huvudteamet",
-    "coreTeamContent": "Plan ₿ Network är en gemenskap av hundratals medverkande, lärare, community-ledare, designers, utvecklare och organisatörer. Ett särskilt tack går till alla människor som har gjort Plan ₿ till verklighet och fortsätter att göra det varje dag. (Vägg med medverkande kommer snart)",
-    "coreTeamGiacomoRole": "Direktör och Medgrundare",
-    "coreTeamRogzyRole": "Produktchef & Medgrundare",
-    "coreTeamAsioRole": "Utbildningskoordinator",
-    "coreTeamAjelexRole": "Nodkoordinator",
+    "commitmentTitle": "Våra åtaganden",
+    "commitmentContent": "Vi har följande åtaganden gentemot bitcoin-communityn:\n • Förbli open source\n • Bidra med högkvalitativt utbildningsinnehåll\n • Översätta vårt innehåll till så många språk som möjligt\n • Stödja Bitcoin-entreprenörer på deras resa",
+    "coreTeamTitle": "Kärnteamet",
+    "coreTeamContent": "Plan ₿ Network är ett kollektiv av hundratals bidragsgivare, lärare, community-ledare, designers, utvecklare och organisatörer. Ett särskilt tack går till alla människor som har gjort Plan ₿ till verklighet och fortsätter att göra det varje dag. (Vägg med bidragsgivare kommer snart)",
+    "coreTeamGiacomoRole": "Direktör och medgrundare",
+    "coreTeamRogzyRole": "Produktchef och medgrundare",
+    "coreTeamAsioRole": "Utbildningssamordnare",
+    "coreTeamAjelexRole": "Nodsamordnare",
     "corporateTitle": "Företag bakom projektet",
-    "corporateContent": "Plan ₿ Network är ett samarbetsprojekt mellan tre enheter fokuserade på Bitcoin-utveckling. I syfte att få Bitcoin-utbildning att växa, beslutade de att samarbeta för att skapa Plan ₿ Network. Sedan dess har många andra enheter valt att bidra och gå samman för att hjälpa oss att förmedla Bitcoin-utbildning runt om i världen. Därför förtjänar de ett stort tack.",
+    "corporateContent": "Plan ₿ Network är ett samarbetsprojekt mellan tre aktörer fokuserade på Bitcoin-utveckling. I syfte att få Bitcoin-utbildning att växa, beslutade de att samarbeta för att skapa Plan ₿ Network. Sedan dess har många andra aktörer valt att bidra och gå samman för att hjälpa oss att förmedla Bitcoin-utbildning runt om i världen. Av denna anledning förtjänar de ett stort tack.",
     "coportateContact": "Kontaktuppgifter:",
     "storyTitle": "Vår historia",
-    "storyContent": "Plan ₿ Network är ett initiativ som stödjer Bitcoin-utbildning runt om i världen. Det är en samverkan av olika entusiastiska Bitcoin-företag med fokus på utbildning, open source-software, peer-to-peer-nätverk, samt känslan av gemenskap. Tillsammans har de bestämt sig för att bygga upp Plan ₿ Network och erbjuda Bitcoin-ekosystemet de rätta verktygen för att växa. Vår presentation år 2023 är tillgänglig här.",
+    "storyContent": "Plan ₿ Network är ett initiativ som stödjer Bitcoin-utbildning runt om i världen. Det är en samverkan av olika entusiastiska Bitcoin-företag med fokus på utbildning, open source-software, peer-to-peer-nätverk, samt känslan av gemenskap. Tillsammans har de bestämt sig för att bygga upp Plan ₿ Network och erbjuda Bitcoin-ekosystemet de rätta verktygen för att växa. Vår lanseringspresentation år 2023 är tillgänglig här.",
     "title": "Om Plan ₿ Network",
     "subtitle": "Vill du \"orange-pilla\" världen? Gå med i Plan ₿ Network.",
-    "manifesto": "Vi tror på den decentraliserade framtid som Bitcoin erbjuder.\n\nVårt uppdrag är att introducera Bitcoin för en miljard människor inom ett decennium. Våra verktyg är utbildning och information.\n\nVi stödjer lokala Bitcoin-communities genom att bidra med utbildningsinnehåll som är open source samt erbjuda ett nätverk av Bitcoin-mentorer.\n\nVår filosofi är inspirerad av cypherpunk-manifestet. Precis som de förespråkade sekretess, förespråkar vi utbildning. Vi tror verkligen på att kunskap är grunden för frihet och förändring.\n\nVi är Bitcoin-only.\n\nVi förespråkar individuellt ansvar och den självständighet som förekommer genom att ha kontroll över sina egna nycklar.\n\nVi tror på verifiering, inte blind tillit.\n\nVi tror på att vi kan fixa många av världens problem om vi kan fixa det monetära systemet.\n\nVi är decentraliserade och open source, vilket undviker ett totalt driftstopp (Single point of failure).\n\nVi uppmuntrar till fri spridning av vårt innehåll.\n\nVi strävar efter en värld som förespråkar en bottom up-strategi, där individen är i centrum.\n\nVi förenklar, vi utbildar, vi förmedlar\n\nFölj med oss i vårt uppdrag att orange-pilla världen.\n",
-    "description": "Plan ₿ Network hjälper communities världen över att organiseras för att kunna bidra med bättre utbildning. Plattformen utvecklar de nödvändiga verktygen för det målet, genom onlineakademin, tutorial-portalen, Bitcoin-utbildningsverktyget och resursportalen."
+    "manifesto": "Vi tror på den decentraliserade framtid som Bitcoin erbjuder.\n\nVårt uppdrag är att introducera Bitcoin för en miljard människor inom ett decennium. Våra verktyg är utbildning och information.\n\nVi stödjer lokala Bitcoin-communities genom att bidra med utbildningsinnehåll som är open source samt erbjuda ett nätverk av Bitcoin-mentorer.\n\nVår filosofi är inspirerad av cypherpunk-manifestet. Precis som de förespråkade integritet, förespråkar vi utbildning. Vi tror verkligen på att kunskap är grunden för frihet och förändring.\n\nVi är Bitcoin-only.\n\nVi förespråkar individuellt ansvar och den självständighet som förekommer genom att ha kontroll över sina egna nycklar.\n\nVi tror på verifiering, inte blind tillit.\n\nVi tror på att vi kan fixa många av världens problem om vi kan fixa det monetära systemet.\n\nVi är decentraliserade och open source, vilket undviker ett totalt driftstopp (Single point of failure).\n\nVi uppmuntrar till fri spridning av vårt innehåll.\n\nVi strävar efter en värld som förespråkar en bottom up-strategi, där individen är i centrum.\n\nVi förenklar, vi utbildar, vi förmedlar\n\nFölj med oss i vårt uppdrag att orange-pilla världen.\n",
+    "description": "Plan ₿ Network hjälper communities världen över att organisera sig för att kunna bidra med bättre utbildning. Plattformen utvecklar de nödvändiga verktygen för det målet, genom onlineakademin, tutorial-portalen, Bitcoin-utbildningsverktyget och resursportalen."
   },
   "auth": {
     "accountCreated": "Ditt konto har skapats, {{userName}}!",
@@ -32,13 +32,13 @@
     "errors": {
       "usernameRegex": "Användarnamnet kan endast innehålla bokstäver, siffror, understreck (_), punkter (.) och bindestreck (-).",
       "usernameRequired": "Användarnamn är obligatoriskt.",
-      "usernameTooShort": "Användarnamnet måste innehålla minst 2 tecken.",
+      "usernameTooShort": "Användarnamnet måste innehålla minst 5 tecken.",
       "displayNameTooShort": "Visningsnamnet måste innehålla minst 2 tecken.",
       "invalidCredentials": "Ogiltigt lösenord",
       "emailInvalid": "Ogiltig e-post"
     },
     "forgottenPassword": "Har du glömt ditt lösenord?",
-    "headerAccountCreated": "Konto har skapats",
+    "headerAccountCreated": "Kontot har skapats",
     "lnurlAuthDescription": "Skanna denna QR-kod med din Lightning-plånbok för att logga in!",
     "noAccountNeeded": "Du behöver inte ett konto för att börja lära dig på Plan ₿ Network!",
     "noAccountYet": "Har du inte ett konto?",
@@ -51,7 +51,7 @@
     "passwordResetSent": "Ett e-postmeddelande för återställning av lösenord har skickats till din inkorg (om e-postadressen finns i vår databas).",
     "invalidTokenExplain": {
       "consumed": "Token har redan använts",
-      "expired": "Token har upphört",
+      "expired": "Token har utgått",
       "invalid": "Token är ogiltig",
       "notFound": "Token hittades inte"
     },
@@ -63,40 +63,44 @@
     "backToHome": "Tillbaka till startsidan",
     "invalidToken": "Ogiltig token",
     "checkingToken": "Kontrollerar token",
-    "emailTip": "E-post är inte obligatoriskt, men det kan vara användbart i fall av ett glömt lösenord :)",
+    "emailTip": "E-post är inte obligatoriskt, men det kan vara användbart i fall av ett glömt lösenord!",
     "passwordMinLength": "Lösenordet måste vara minst {{len}} tecken",
     "passwordChanged": "Lösenord ändrat",
     "passwordSuccessfullyChanged": "Din ändring av lösenordet har lyckats. Du kan nu logga in med ditt nya lösenord.",
-    "passwordResetError": "Fel vid återställning av lösenord"
+    "passwordResetError": "Fel vid återställning av lösenord",
+    "passwordChangedSuccess": "Ändring av lösenord lyckades",
+    "dashboardUnlocked": "Din studentpanel är upplåst!",
+    "didYouKnow": "Visste du det?",
+    "trackProgress": "Skapa ett konto eller logga in för att hålla koll på dina framsteg"
   },
   "bet": {
     "educationalContent": {
       "description": "Objekten nedan kan användas för events och ändamål för utbildning.",
       "title": "Utbildningsinnehåll"
     },
-    "pageDescription": "Massadoption är inte lätt. För att röra sig snabbare och närmare mot det målet har vi utvecklat en utbyggbar databas för utbildningsinnehåll. Här kan Bitcoin-utbildare fritt lägga till och få tillgång till innehåll efter behov. Vi behöver inte uppfinna hjulet på nytt varje gång, så låt oss samarbeta för att centralisera de användbara resurserna i ett enda verktygskit!",
-    "pageTitle": "Bitcoin Utbildningskit",
+    "pageDescription": "Massadoption är inte lätt. För att röra sig snabbare och närmare mot det målet har vi utvecklat en utbyggbar databas för utbildningsinnehåll. Här kan Bitcoin-utbildare fritt lägga till och få tillgång till innehåll efter behov. Vi behöver inte uppfinna hjulet på nytt varje gång, så låt oss samarbeta för att centralisera de användbara resurserna i ett enda verktygspaket!",
+    "pageTitle": "Utbildningspaket för Bitcoin",
     "visualContent": {
       "description": "Bilderna nedan kan du använda för dina egna skapelser.",
       "title": "Visuellt Innehåll"
     },
-    "contributeButton": "Hjälp & Bidra",
+    "contributeButton": "Hjälp och bidra",
     "contributeDescription": "Om du vill lägga till, redigera eller översätta något innehåll, din hjälp kommer att vara uppskattad!",
     "contributeTitle": "Vill du bidra?"
   },
   "builders": {
-    "pageTitle": "Bitcoin-skapare",
-    "noRelatedEvents": "Det finns inga kommande händelser relaterade till denna skapare för tillfället.",
+    "pageTitle": "Bitcoin-projekt",
+    "noRelatedEvents": "Det finns inga kommande händelser relaterade till denna utbildare för tillfället.",
     "networkStrength": "Styrkan av ett nätverk ligger hos dess medlemmar",
-    "otherCommunities": "Utforska Plan ₿ Communities",
+    "otherCommunities": "Utforska Plan ₿ communities",
     "languages": "Språk",
-    "relatedEvents": "Relaterade kommande händelser"
+    "relatedEvents": "Relaterade kommande events"
   },
   "courses": {
     "chapter": {
       "finishCourse": "Slutför kursen",
-      "next": "Slutfört, gå vidare till nästa kapitel.",
-      "thanksTip": "Vill du visa din uppskattning?\nDu kan stödja skribenten med dricks.",
+      "next": "Slutför kapitel",
+      "thanksTip": "Vill du visa din uppskattning?\nDu kan stödja författaren med dricks.",
       "detail": {
         "title": "Detaljer av lektionen",
         "p1heading": "Planerar du att delta i denna lektion fysiskt?",
@@ -105,7 +109,7 @@
         "p2content": "Inga problem! Lektionen kommer att sändas live på denna sida och kommer att vara tillgänglig för uppspelning efteråt.",
         "bookSeat": "Boka din plats",
         "classIsFull": "Lektionen är redan full",
-        "cancelBooking": "Avboka din bokning",
+        "cancelBooking": "Avbryt din bokning",
         "ticketDownload": "Ladda ner din biljett"
       },
       "live": {
@@ -116,22 +120,32 @@
     },
     "details": {
       "buyCourse": "Köp kursen",
-      "curriculum": "Läroplan",
+      "curriculum": "Kursplan",
       "description": "Beskrivning",
       "mobile": {
         "hours": "{{hours}} timmar"
       },
-      "objectives": "Objektiv",
+      "objectives": "Mål",
       "objectivesTitle": "Vad du kommer att lära dig:",
       "startCourse": "Starta kursen",
       "taughtBy": "Denna kurs undervisas av",
       "inPersonAccess": "Du behöver ladda ner din biljett för att få tillgång till lektionen med fysiskt närvarande.",
       "buyOnlineCourse": "Köp onlinekurs",
       "buyInPersonCourse": "Köp kurs med fysiskt närvarande",
-      "paidCourse": "Betald"
+      "paidCourse": "Premium",
+      "collaborativeEffort": "Allt innehåll på plattformen är resultatet av en gemensam insats: varje lektion, översättning och revision görs möjlig genom bidragsgivares arbete. Av denna anledning söker vi alltid efter korrekturläsare med olika språk som kan granska vårt innehåll. Om du vill delta i korrekturläsningen, vänligen kontakta oss i vår <0>Telegram</0>-grupp och läs vår <1>tutorial</1>.\n\nVi påminner dig om att detta innehåll är open source-licensierat under <2>CC BY-SA</2> - så att det fritt kan delas och användas, så länge den ursprungliga källan anges.",
+      "courseAddedToDashboard": "Denna kurs har lagts till på din studentpanel",
+      "hasBeenProofreadBy": "Denna kurs har korrekturlästs av",
+      "hasNotBeenProofread": "Denna kurs har ännu inte korrekturlästs",
+      "otherCourses": "Andra kurser",
+      "otherCoursesInterest": "Andra kurser du kanske kan vara intresserad av",
+      "premiumContentNeedsLogin": "Du måste vara inloggad för att få tillgång till denna kurs.",
+      "premiumContentNeedsPayment": "Denna kurs är en del av ett premiumprogram.",
+      "premiumContentNeedsPaymentAction": "Gå till kursens startsida",
+      "thanksTipping": "Du kan säga tack genom att ge läraren dricks."
     },
     "explorer": {
-      "pageDescription": "Plan ₿ Academy strävar efter att göra Bitcoin-utbildning världen över enklare. Skapad av experter från olika områden, vår akademi erbjuder ett omfattande utbud av kurser utformade för att skapa klarhet kring alla delar av Bitcoin.\nFrån nybörjare till expert, oavsett i din egen takt eller följt veckovis av en lärare, vi hoppas att akademin kan hjälpa dig att få en djupare förståelse för den expansiva världen av Bitcoin. Många av våra kurser är helt gratis så att vem som helst, var som helst, kan få tillgång till kvalitetsutbildning.",
+      "pageDescription": "Plan ₿ Academy strävar efter att förenkla Bitcoin-utbildning världen över. Skapad av experter från olika områden, vår akademi erbjuder ett omfattande utbud av kurser utformade för att skapa klarhet kring alla delar av Bitcoin.\nFrån nybörjare till expert, oavsett i din egen takt eller följt veckovis av en lärare, vi hoppas att akademin kan hjälpa dig att få en djupare förståelse för den expansiva världen av Bitcoin. Många av våra kurser är helt gratis så att vem som helst, var som helst, kan få tillgång till kvalitetsutbildning.",
       "seeCourse": "Utforska kursen",
       "findCourses": "Hitta den perfekta kursen för dina behov tack vare verktyget för kursval",
       "buildPath": "Skapa din egen väg ner i kaninhålet",
@@ -147,7 +161,7 @@
       "accessibility_forever": "Evigt",
       "amount": "Belopp",
       "date": "Datum",
-      "downloadCurriculum": "Ladda ner läroplan",
+      "downloadCurriculum": "Ladda ner kursplan",
       "duration": "Varaktighet",
       "invoiceId": "Transaktions-ID",
       "numberOfChapters": "Antal kapitel",
@@ -162,13 +176,14 @@
       "inPersonCallout": "Du är på väg att köpa <strong>fysisk</strong> tillgång till denna kurs.",
       "onlineCallout": "Du är på väg att köpa <strong>online-</strong>-tillgång till denna kurs.",
       "onlineDescription": "Varje föreläsnings-session sänds live på plattformen.\nDetta köp ger dig tillgång till live-sändningar och inspelade videor.",
-      "inPersonDescription": "Varje föreläsnings-session äger rum på plats på de angivna datumen och lokalerna och sänds även live på plattformen. \nDetta köp ger dig tillgång till lektioner både online och på plats.\nGlöm inte att reservera din plats för de lektioner du vill delta i fysiskt."
+      "inPersonDescription": "Varje föreläsnings-session äger rum på plats på de angivna datumen och lokalerna och sänds även live på plattformen. \nDetta köp ger dig tillgång till lektioner både online och på plats.\nGlöm inte att reservera din plats för de lektioner du vill delta i fysiskt.",
+      "checkoutError": "Ett fel inträffade under betalningsprocessen.\nVänligen försök igen."
     },
     "preview": {
       "letsgo": "Nu kör vi"
     },
     "quizz": {
-      "clickOnPie": "Klicka för att granska",
+      "clickOnPie": "Klicka på cirkeldiagrammet för att kontrollera det rätta svaret",
       "quizz": "Quiz",
       "quizzResults": "Resultat av quizet",
       "quizzReview": "Översikt av quizet",
@@ -179,7 +194,7 @@
     },
     "review": {
       "yesOfCourse": "ja, självklart",
-      "faithful": "Stämmer överens med objektivet?",
+      "faithful": "Stämmer överens med målet?",
       "recommend": "Skulle du rekommendera den?",
       "asExpected": "som förväntat",
       "commentAdmin": "Kommentar till administratörsteamet (privat)",
@@ -187,7 +202,7 @@
       "commentTeacher": "Kommentar till läraren (privat)",
       "difficulty": "Svårighet",
       "displayOutOf": "visas ur",
-      "feedbackSessionTitle": "Feedback-session",
+      "feedbackSessionTitle": "Var vänlig och hjälp oss att förbättra våra kurser genom att lämna din återkoppling.",
       "fieldRequired": "Detta fält är obligatoriskt",
       "generalGrade": "Generellt betyg",
       "length": "Längd",
@@ -196,19 +211,28 @@
       "no": "nej",
       "notReally": "nej, inte riktigt",
       "quality": "Kvalitet",
-      "ratingsAndReviews": "Betyg & recensioner",
+      "ratingsAndReviews": "Betyg och recensioner",
       "skip": "Hoppa över recension",
       "soAndSo": "mer eller mindre",
-      "submitReview": "Skicka recension",
-      "tooEasy": "för enkelt",
-      "tooHard": "för svårt",
+      "submitReview": "Skicka in recension",
+      "tooEasy": "för enkel",
+      "tooHard": "för svår",
       "tooLong": "för lång",
       "tooShort": "för kort",
       "veryBad": "mycket dålig",
       "veryGood": "mycket bra",
       "whatStudentsSay": "Vad studenter säger om den här kursen",
-      "writeThoughts": "Här kan du skriva dina komentarer",
-      "yesVeryMuch": "ja, väldigt mycket"
+      "writeThoughts": "Här kan du skriva dina kommentarer",
+      "yesVeryMuch": "ja, väldigt mycket",
+      "commentAdminMobile": "Privat kommentar till administratörsteamet",
+      "feedback": "Återkoppling",
+      "feedbackDescription2": "Notera att lärare inte kommer att ha tillgång till individuella utvärderingar.",
+      "commentPublicMobile": "Offentlig kommentar",
+      "commentTeacherMobile": "Privat kommentar till läraren",
+      "editReview": "Redigera recension",
+      "feedbackDescription1": "Vänligen betygsätt din upplevelse av kursen nedan.",
+      "saveReview": "Spara recension",
+      "thankYou": "Tack för din recension! Den kommer att tas i åtanke"
     },
     "exam": {
       "congratulationsPassed": "Grattis, du <0>klarade</0> slutprovet!",
@@ -218,22 +242,22 @@
       "quitWithoutSubmitting": "Oj, det verkar som att du lämnade sidan utan att skicka in dina svar. Detta avbryter testet.",
       "retakeExam": "Gör om provet",
       "retakeInstructions": "Du har 20 minuter på dig att svara på 40 frågor, där varje fråga endast har ett rätt svar. Du kan navigera mellan frågorna och lämna in dina svar i slutet av provet.",
-      "score": "Poäng",
-      "answersReview": "Granskning av svar",
+      "score": "Ditt resultat är",
+      "answersReview": "Genomgång av svar",
       "availableDashboard": "Det kommer att finnas tillgängligt på din kontrollpanel om cirka 10 timmar.",
-      "certificateAvailable": "Det kommer att vara tillgängligt cirka 8 timmar efter inlämning.",
+      "certificateAvailable": "Det kommer att vara tillgängligt cirka 10 timmar efter inlämning.",
       "certificateGeneration": "Ditt certifikat genereras ",
       "congratulations": "Grattis, du har nått slutet av denna kurs!",
-      "dontWorry": "Oroa dig inte över misstag; detta test hjälper till att förbättra ditt lärande. Om du inte blir godkänd kan du göra om det efter 24 timmar.",
-      "examAndDiploma": "Prov & Diplom",
-      "examDetails": "Provet har 40 flervalsfrågor, där varje har ett korrekt svar. Du kan ändra dina svar när som helst innan du skickar in, så länge timern är igång.",
+      "dontWorry": "Oroa dig inte över misstag; detta test hjälper till att förbättra dina kunskaper. Om du inte blir godkänd kan du göra om det efter 24 timmar.",
+      "examAndDiploma": "Prov och diplom",
+      "examDetails": "Provet har 40 flervalsfrågor, där varje har ett enda korrekt svar. Du kan ändra dina svar när som helst innan du skickar in, så länge timern är igång.",
       "explanations": "Förklaringar:",
       "failed": "Underkänd",
       "finalExam": "Slutprov",
       "findInformationChapter": "Hitta mer information i detta kapitel:",
       "futureProof": "Framtidsäkrad: Din examen är permanent skyddad och alltid giltig.",
       "getCertificate": "Hämta mitt certifikat",
-      "globallyRecognized": "Globalt Erkända: Intyg som stöds av blockchain är betrodda över hela världen.",
+      "globallyRecognized": "Globalt erkända: Meriter som stöds av blockchain är betrodda över hela världen.",
       "goBack": "Gå tillbaka",
       "instantVerification": "Omedelbar verifiering: Arbetsgivare kan enkelt verifiera äktheten och utfärdandedatumet för din examen.",
       "instructions": "Instruktioner:",
@@ -247,48 +271,81 @@
       "planBTimeStamp": "På Plan ₿ Network säkrar vi din examen med tidsstämpel som stöds av blockchain-teknik.",
       "sameRules": "Du är på väg att göra om slutprovet. Samma regler kvarstår.",
       "skipExam": "Hoppa över provet",
-      "skipExamGoConclusion": "Hoppa över provet, gå till resultatet",
-      "skipExamDescription": "Du kan även hoppa över provet och gå direkt till resultatet genom att klicka på knappen nedan.",
+      "skipExamGoConclusion": "Hoppa över provet, gå till slutsatsen",
+      "skipExamDescription": "Du kan även hoppa över provet och gå direkt till slutsatsen genom att klicka på knappen nedan.",
       "startExam": "Starta provet",
       "submit": "Skicka in",
       "sureSubmit": "Är du säker på att du vill lämna in ditt prov?",
-      "tamperProof": "Manipuleringssäker: Blockchain säkerställer att ingen kan ändra eller förfalska ditt intyg.",
+      "tamperProof": "Manipuleringssäker: Blockchain säkerställer att ingen kan ändra eller förfalska dina meriter.",
       "testKnowledge": "Nu när du har slutfört denna kurs, låt oss testa dina kunskaper.",
       "testResults": "Provresultat",
-      "timeStampBenefits": "Varför det är viktigt :",
+      "timeStampBenefits": "Varför det är viktigt:",
       "timeStamped": "tidsstämplad.",
       "timeStampHow": "Hur det fungerar:",
-      "timeStampHowDescription": "När din examen utfärdas skapas ett unikt digitalt 'fingeravtryck' som lagras på blockkedjan. Detta gör registret permanent och skyddat mot manipulation. Alla försök att ändra ditt examensbevis kommer att bryta kedjan, vilket avslöjar ändringen.",
-      "timerStart": "När du klickar på Start börjar en 20-minuters timer.",
+      "timeStampHowDescription": "När din examen utfärdas skapas ett unikt digitalt 'fingeravtryck' som lagras på blockkedjan. Detta gör registret permanent och skyddat mot manipulation. Alla försök att ändra ditt examensintyg kommer att bryta kedjan, vilket avslöjar ändringen.",
+      "timerStart": "När du klickar på start börjar en 20-minuters timer.",
       "tryAgain": "Försök igen",
       "verifyDisplayName": "Innan du börjar, vänligen verifiera ditt visningsnamn nedan, eftersom det kommer att användas för att skapa ditt diplom.",
       "whyTimeStamp": "Tidsstämpla din examen:\nVarför det är viktigt",
-      "wishTryAgain": "Om du vill försöka igen kommer provet att vara tillgängligt om 24 timmar.",
-      "yesSubmit": "Ja, skicka in"
+      "wishTryAgain": "Du kan göra om provet efter 24 timmar.",
+      "yesSubmit": "Ja, skicka in",
+      "bCertificateCompletionText": "Plan ₿ Network är glada att gratulera {{username}} för att ha tilldelats ₿-certifikatet.",
+      "buttonTextBCert": "Läs mer",
+      "certificatePageOtherCourses": "Andra relaterade kurser",
+      "courseDiploma": "Kursdiplom",
+      "courseNotFound": "Kursen hittades inte",
+      "dontWorryRetake": "Oroa dig inte, du kan göra om provet efter 24 timmar.",
+      "examCertificateCompletionText": "Plan ₿ Network är glada att gratulera {{username}} för att ha tilldelats ett diplom för kursen \"{{courseName}}\"."
+    },
+    "conclusion": {
+      "completedChaptersHeadline": "Alla kapitel är nu klara!",
+      "completedFeedbackHeadline": "Tack för din feedback!\nDen är mycket viktig för oss, så vi uppskattar den verkligen.",
+      "stepsToComplete": "Detta är stegen för att markera denna kurs som slutförd i din kontrollpanel, innan du fortsätter din resa!",
+      "completedFeedbackSubHeadline": "Du kan redigera dina betygsättningar och kommentarer när som helst på din kontrollpanel.",
+      "congratulationsEnd": "Grattis, du har nått slutet av denna kurs",
+      "finalStep": "Detta var det sista steget för att markera denna kurs som slutförd i din kontrollpanel, innan du fortsätter din resa!",
+      "takeFinalExam": "Nu när du har slutfört alla kapitel är det dags att göra slutprovet för att testa dina kunskaper.",
+      "unlockFeatures1": "Du behöver ett konto för att låsa upp alla funktioner och hålla koll på dina framsteg.",
+      "unlockFeatures2": "Notera att vi inte samlar in några personuppgifter och vi använder inte heller cookies."
     }
   },
   "dashboard": {
     "myCourses": {
       "resumeLesson": "Fortsätt",
-      "completed": "Slutförd",
+      "completed": "Slutförda",
       "inprogress": "Pågående",
       "whereYouAre": "Låt oss se hur långt du har kommit!",
       "inprogressCoursesDescription": "Här kan du se dina framsteg i de kurser du har påbörjat.",
-      "done": "Klar",
+      "done": "Klara",
       "completedCoursesTitle": "Slutförda kurser",
       "completedCoursesDescription": "Här kan du se dina slutförda kurser.",
       "inprogressCoursesTitle": "Pågående kurser",
       "seeProgress": "för att se dina framsteg här.",
       "startCourse": "Starta eller slutför en kurs",
       "viewDetails": "Visa detaljer",
-      "yourCertificate": "Ditt certifikat"
+      "yourCertificate": "Ditt certifikat",
+      "newCourses": "Nya kurser läggs till varje månad",
+      "completeAll": "Slutför alla",
+      "courseDashboard": "Kursöversikt",
+      "detailsAndCertificate": "Detaljer och certifikat",
+      "download": "Ladda ner diplom",
+      "duration": "Varaktighet:",
+      "noCoursesAvailable": "Inga kurser tillgängliga.",
+      "notStarted": "Ej påbörjad",
+      "notValidated": "Inte validerad",
+      "price": "Pris:",
+      "professor": "Lärare:",
+      "seeDetails": "Se detaljer",
+      "seeTheCourse": "Visa kursen",
+      "verify": "Verifiera äktheten av ditt diplom",
+      "yourProgress": "Dina framsteg:"
     },
     "account": "Konto",
     "courses": "Kurser",
     "logout": "Logga ut",
     "booking": {
       "accessLive": "Tillgång till det livesända provet",
-      "billingTitle": "Faktureringshistorik",
+      "billingTitle": "Betalningshistorik",
       "billingSubtitle": "Ladda ner fakturorna från dina bokningar här.",
       "invoiceDate": "Datum",
       "invoiceTitle": "Titel",
@@ -323,7 +380,7 @@
       "username": "Användarnamn"
     },
     "bCertificate": {
-      "noResults": "Det finns inga betyg eller certifikat kopplade till detta konto ännu.\nOm du har klarat ett prov och dina resultat inte är tillgängliga efter en längre period, vänligen kontakta oss för att få hjälp.",
+      "noResults": "Det finns ännu inga betyg eller certifikat kopplade till detta konto.\nOm du har klarat ett prov och dina resultat inte syns efter en längre tid, vänligen <0>hör av dig till oss</0> för att få hjälp.",
       "grade": "Betyg"
     },
     "teacher": {
@@ -335,7 +392,7 @@
         "privateComment": "Privat kommentar",
         "publicComment": "Offentlig kommentar",
         "reviews": "Recensioner",
-        "reviewsAndGrading": "Recensioner & betyg",
+        "reviewsAndGrading": "Recensioner och betygsättning",
         "seeStatistics": "Se statistik",
         "viewDetails": "Visa detaljer",
         "writtenFeedbacks": "Skriftlig feedback"
@@ -352,18 +409,18 @@
         "editOnGithub": "Redigera på Github",
         "examResults": "Provresultat",
         "makeModifications": "Behöver du göra ändringar?",
-        "objectives": "Objektiv",
+        "objectives": "Mål",
         "proposeNewCourse": "Föreslå en ny kurs",
         "quickRecap": "Här kan du hitta allmän information om denna kurs.",
-        "reviewInfos": "Här kan du kontrollera och granska all information som rör varje kurs du har koordinerat.",
+        "reviewInfos": "Här kan du kontrollera och granska all information som rör varje kurs som du har samordnat.",
         "reviews": "Recensioner"
       },
       "menu": "Meny för lärare",
       "profile": {
-        "account": "Lärares konto",
-        "billingInformations": "Information om fakturering",
+        "account": "Konto för lärare",
+        "billingInformations": "Betalningsinformation",
         "description": "Din beskrivning",
-        "enterTipsInformations": "Plan ₿ Network uppmuntrar användare att ge dricks till lärare. Ange dina uppgifter så att folk kan ge dig dricks när de önskar.",
+        "enterTipsInformations": "Plan ₿ Network uppmuntrar användare att ge dricks till lärare. Vänligen ange dina uppgifter så att personer kan ge dig dricks när de önskar.",
         "lightningAddress": "Lightning-adress",
         "makeModifications": "Behöver du göra ändringar?",
         "noLightningAddress": "Ingen lightning-adress har lagts till ännu.",
@@ -376,6 +433,10 @@
         "teacher": "Lärare",
         "teacherProfile": "Lärarprofil",
         "tutorialModification": "Om du behöver hjälp med att redigera något, vänligen titta på denna <0>tutorial</0>."
+      },
+      "tutorials": {
+        "tutorialAnalyticsDescription": "Här kan du hitta statistik på de tutorials som du har skapat och publicerat på plattformen.",
+        "yourTutorials": "Dina tutorials"
       }
     },
     "calendar": {
@@ -384,28 +445,244 @@
     },
     "course": {
       "checkDetailsCompleted": "Här kan du se alla detaljer angående denna kurs som du har slutfört.",
-      "completionDiploma": "Examensdiplom",
+      "completionDiploma": "Slutdiplom",
       "completionExamInfo": "Här kan du hitta information angående slutprovet vid kursen slut.",
       "coursesCompleted": "Slutförda kurser",
       "feedbacks": "Ett kapitel i slutet av kursen är ägnat åt feedback. Om du vill ge din feedback nu kan du göra det här.",
-      "ratingsAndFeedbacks": "Betyg & Feedback",
+      "ratingsAndFeedbacks": "Betyg och återkoppling",
       "shareOnSocials": "Dela på sociala medier:",
-      "tweetText": "Överlycklig över att ha slutfört {{courseId}} kursen på @planb_network och tjänat mitt certifikat med ett resultat på {{score}}/100 på slutprovet! {{emoji}}\n\n{{certificateUrl}}"
+      "tweetText": "Överlycklig över att ha slutfört {{courseId}} kursen på @planb_network och tjänat mitt certifikat med ett resultat på {{score}}/100 på slutprovet! {{emoji}}\n\n{{certificateUrl}}",
+      "conclusionHeadline": "Här är en sammanfattning av vad du har lärt dig. Om vissa kapitel har missats eller inte har validerats ordentligt, är det nu dags att göra det, antingen genom att gå tillbaka för att lära dig, eller genom att klicka på slutför-knappen.",
+      "submitReviewInfo": "Du måste skicka in en recension för att få tillgång till denna funktion."
     },
     "credentials": {
-      "bCertificate": "₿-Certifikat",
-      "bCertificateSubtitle": "Här kan du se detaljerna angående dina bokningar samt betyg för dina tidigare och framtida ₿-Certifikat.\n₿-Certifikatet är ett prov organiserat av Plan ₿ Network för att fastställa din kunskapsnivå i Bitcoin och dess relaterade ämnen.",
+      "bCertificate": "₿-certifikat",
+      "bCertificateSubtitle": "Här kan du se detaljerna angående dina bokningar samt betyg för dina tidigare och framtida ₿-certifikat.\n₿-certifikatet är ett prov organiserat av Plan ₿ Network för att fastställa din kunskapsnivå i Bitcoin och dess relaterade ämnen.",
       "beingGraded": "Ditt prov är under betygsättning. Resultatet bör vara tillgängligt om 1 eller 2 veckor.",
       "courseDiplomas": "Kursdiplom",
       "courseDiplomasSubtitle": "Här kan du se detaljerna angående alla prov du har tagit efter att ha slutfört en kurs på plattformen.",
-      "completionDiplomas": "Examensdiplom",
+      "completionDiplomas": "Slutdiplom",
       "downloadTicket": "Ladda ner biljett",
       "globalCertifications": "Globala certifieringar",
       "retakeExam": "Gör om provet",
-      "seatBooked": "Din plats vid provsessionen är bokad",
+      "seatBooked": "Din plats vid provtillfället är bokad",
       "takePlaceAt": "Sessionen kommer att äga rum vid",
       "yourCertificate": "Ditt certifikat"
-    }
+    },
+    "adminPanel": {
+      "careers": {
+        "careersSubtitle": "Här kan du se listan över deltagare som har slutfört sina ansökningar. Du hittar all information om ansökningarna i kalkylbladet.",
+        "careers": "Karriärer",
+        "cv": "CV",
+        "downloadProfiles": "Ladda ner kalkylblad",
+        "downloadSpreadsheet": "Ladda ner kalkylblad",
+        "lastUpdate": "Senaste uppdatering",
+        "lastUpdated": "Senast uppdaterad",
+        "profession": "Yrke",
+        "resultsRemaining": "{{results}} återstående resultat",
+        "seeMore": "Se mer",
+        "viewCV": "Visa CV"
+      },
+      "bookings": "Bokningar",
+      "bookingsPanel": "Bokningspanel",
+      "confirmRemoval": "Bekräfta borttagning",
+      "coursesIds": "Kurs-ID",
+      "date": "Datum",
+      "downloadList": "Ladda ner lista",
+      "githubLink": "Github-länk",
+      "listOfParticipants": "Deltagarlista",
+      "makeProfessor": "Gör till lärare",
+      "nameOfEvent": "Namn på event",
+      "participants": "Deltagare",
+      "professorName": "Lärarens namn",
+      "removeTeacherDescription": "Är du säker på att du vill ta bort den här läraren?",
+      "searchByNameOrCategory": "Sök per namn eller kategori",
+      "seeOrEdit": "Visa eller redigera",
+      "selectProfessor": "Välj lärare",
+      "tutorialAnalytics": "Analys av tutorials",
+      "tutorialAnalyticsDescription": "Här kan du se och jämföra alla tutorials på plattformen.",
+      "tutorialsManagementPanel": "Panel för hantering av tutorials",
+      "type": "Typ",
+      "upcomingBookings": "Kommande bokningar",
+      "upcomingBookingsSubtitle": "Här kan du ladda ner listan över deltagare för alla fysiska events.",
+      "userRolesAllocation": "Tilldelning av användarroller"
+    },
+    "careerPortal": {
+      "acceptTermsAndConditions": "Jag har läst och jag accepterar de allmänna villkoren",
+      "allowReceivingEmails": "Jag godkänner att ta emot e-post från Plan ₿ Network om potentiella jobbmöjligheter",
+      "acceptedFormat": "Accepterat filformat: pdf / Maximal filstorlek: 10 MB.",
+      "add": "Lägg till",
+      "beAware": "Notera att Plan ₿ Network kommer att samla in och lagra dina uppgifter endast för rekryteringsändamål. Uppgifterna behandlas och delas med våra affärspartners i enlighet med bestämmelserna i EU:s allmänna dataskyddsförordning (GDPR). Klicka <0>här</0> för att läsa mer om vår integritetspolicy för kandidater.",
+      "contactInformationSubtitle": "Vänligen ange din e-postadress och andra metoder för att kontakta dig.",
+      "deleteCareerProfileTitle": "Är du säker på att du vill radera din karriärprofil?",
+      "description": "Som student på Plan ₿ Network är du en del av en bred community som kan stödja din karriärutveckling. I den här sektionen kan du skicka in ditt CV och dela dina karriärambitioner. Vi kommer att arbeta nära våra branschpartners för att matcha din profil med potentiella jobbmöjligheter, vilket hjälper dig att ta nästa steg i din professionella resa.",
+      "jobSearchSubtitle": "Välj dina jobbpreferenser för att hjälpa oss att anpassa de bästa möjligheterna till din profil.",
+      "jobTitles": {
+        "communityManager": "Community-manager",
+        "economicAnalyst": "Ekonomisk analytiker",
+        "miningEngineer": "Mining-ingenjör",
+        "seoSpecialist": "SEO-specialist",
+        "accountingManager": "Redovisningschef",
+        "amlKycSpecialist": "AML/KYC-specialist",
+        "backendEngineer": "Backend-ingenjör",
+        "bitcoinInvestmentAnalyst": "Bitcoin-investeringsanalytiker",
+        "brandStrategist": "Varumärkesstrateg",
+        "businessAnalyst": "Företagsanalytiker",
+        "businessDevelopmentManager": "Chef inom företagsutveckling",
+        "cloudInfrastructureEngineer": "Ingenjör inom moln-infrastruktur",
+        "complianceOfficer": "Compliance officer",
+        "contentWriter": "Skribent av innehåll",
+        "cryptographer": "Kryptograf",
+        "customerSuccessManager": "Chef inom kundsupport",
+        "customerSupportSpecialist": "Kundsupportspecialist",
+        "cybersecurity": "Cybersäkerhet",
+        "dataEngineer": "Dataingenjör",
+        "devOpsEngineer": "DevOps-ingenjör",
+        "educator": "Utbildare",
+        "eventCoordinator": "Eventkoordinator",
+        "frontendEngineer": "Frontend-ingenjör",
+        "fullStackDeveloper": "Full Stack-utvecklare",
+        "graphicDesigner": "Grafisk designer",
+        "hrSpecialist": "HR-specialist",
+        "legalContractSpecialist": "Juridisk avtalsspecialist",
+        "logisticManager": "Logistikchef",
+        "marketingManager": "Marknadsföringschef",
+        "miningOperationsManager": "Chef för mining-verksamhet",
+        "mobileAppDeveloper": "Mobilapputvecklare",
+        "operationsManager": "Verksamhetschef",
+        "productManager": "Produktchef",
+        "protocolEngineer": "Protokoll-ingenjör",
+        "publicRelationsManager": "Kommunikationschef",
+        "researcher": "Forskare",
+        "revenueManager": "Intäktschef",
+        "riskAnalyst": "Riskanalytiker",
+        "sales": "Försäljning",
+        "socialMediaManager": "Chef för sociala medier",
+        "technicalProductManager": "Teknisk produktchef",
+        "technicalSupportEngineer": "Teknisk supportingenjör",
+        "technicalWriter": "Teknisk skribent",
+        "uiUxDesigner": "UI/UX-designer",
+        "uxResearcher": "UX-forskare"
+      },
+      "languageLevelSubLabel": "Välj den nivå som bäst motsvarar dina färdigheter.",
+      "languageLevels": {
+        "fluent": "Flytande (På modersmålsnivå)",
+        "advanced": "Avancerad (självsäkerhet och noggrannhet)",
+        "beginner": "Nybörjare (begränsad förståelse)",
+        "elementary": "Elementär (grundläggande konversation och skrivande)",
+        "intermediate": "Medel (bekväm kommunikation)"
+      },
+      "languageSkillsSubtitle": "Berätta vilka språk du talar och skriver, samt deras motsvarande kompetensnivå.",
+      "legalInformationSubtitle": "Vänligen acceptera villkoren nedan, så att vi kan matcha dina färdigheter och erfarenheter med jobbmöjligheter från våra affärspartners.",
+      "remoteWorkPreference": "Är du villig att jobba på distans?",
+      "roleLevels": {
+        "student": "Student (0 år)",
+        "junior": "Junior (1 till 3 år)",
+        "mid": "Medel-nivå (3 till 5 år)",
+        "senior": "Senior (5+ år)"
+      },
+      "selectRoleSubLabel": "Vänligen välj den jobbtitel som bäst motsvarar din jobbsökning.",
+      "termsAndConditions": "Regler och villkor",
+      "uploadCVSubLabel": "Ladda upp ditt CV för att visa dina färdigheter och erfarenheter för potentiella arbetsgivare.",
+      "applicationSaved": "Din ansökan är sparad!",
+      "availability": "Din tillgänglighet",
+      "availabilityStart": "När kan du börja?",
+      "availabilityStartPlaceholder": "Datum",
+      "bitcoinCommunityParticipant": "Är du en del av en lokal Bitcoin-community?",
+      "bitcoinCommunityText": "Om ja, vilken och vad är din nivå av engagemang? \nÄr denna community en del av Plan ₿ Network?",
+      "bitcoinProjectParticipant": "Har du aktivt bidragit till några Bitcoin-projekt? \n(tidigare eller för närvarande)",
+      "bitcoinProjectPlaceholder": "Exempel: community-projekt, open source-projekt, etc...",
+      "bitcoinProjectSubLabel": "Beskriv ditt projekt nedan.",
+      "bitcoinProjectText": "Vilket?",
+      "bitcoinRelatedExperience": "Erfarenhet relaterad till Bitcoin",
+      "bitcoinRelatedExperienceSubtitle": "Vänligen dela lite information om ditt engagemang inom Bitcoin-initiativ.",
+      "cannotUndo": "Denna åtgärd kan inte ångras.",
+      "companySizePreference": "Vilken företagsstorlek föredrar du?",
+      "companySizePreferenceSubLabel": "Du kan välja flera svar.",
+      "companySizeRequired": "Välj minst en företagsstorlek.",
+      "companySizes": {
+        "100More": "100 eller fler anställda",
+        "11To40": "11 till 40 anställda",
+        "1To10": "1 till 10 anställda",
+        "41To100": "41 till 100 anställda",
+        "noPreference": "Ingen preferens"
+      },
+      "completeApplication": "Slutför ansökan",
+      "confirmDelete": "Bekräfta radering",
+      "contactInformation": "Kontaktuppgifter",
+      "countryResidence": "Bosättningsland",
+      "cvRequired": "Att ladda upp ditt CV är obligatoriskt.",
+      "cvUpload": "Ladda upp ditt CV",
+      "cvUploadLabel": "Ladda upp CV",
+      "cvUploadSubtitle": "Ladda upp ditt CV för att visa dina färdigheter och erfarenheter för potentiella arbetsgivare.",
+      "deleteCareerProfile": "Radera karriärprofil",
+      "emailAddress": "E-postadress",
+      "emailPlaceholder": "mail@mail.com",
+      "expectedSalary": "Förväntad lön",
+      "expectedSalaryPlaceholder": "Månadslön: 2,5K netto",
+      "expectedSalarySubLabel": "Beroende på din profil, berätta dina förväntningar på timlön eller månadslön. Ange om det är netto eller brutto.",
+      "fileTooLarge": "Vald fil är för stor",
+      "fileUploadError": "Det uppstod ett fel vid uppladdningen av din fil. Vänligen försök igen.",
+      "fileUploaded": "Uppladdning av CV lyckades!",
+      "firstName": "Förnamn (eller pseudonym)",
+      "followProcess": "Följ denna steg-för-steg-process för att skicka in ditt CV och jobbinformation.",
+      "fullTime": "Heltid",
+      "invalidFile": "Ogiltigt filformat",
+      "jobCategories": {
+        "financeCompliance": "Ekonomi och efterlevnadspolicy",
+        "marketingCommunity": "Marknadsföring och community",
+        "more": "Mer",
+        "operationsSupport": "Verksamhet och support",
+        "productDesign": "Produkt och design",
+        "researchEducation": "Forskning och utbildning",
+        "technicalRoles": "Tekniska yrken",
+        "businessRoles": "Affärsroller"
+      },
+      "jobSearch": "Jobbsökning",
+      "languageLevel": "Kompetensnivå",
+      "languageRequired": "Lägg till minst ett språk.",
+      "languageSkills": "Språkkunskaper",
+      "lastName": "Efternamn",
+      "legalInformation": "Juridisk information",
+      "legalTerms": "Juridiska villkor",
+      "maxCharacters": "Max {{characters}} tecken",
+      "maxRoles": "Du kan välja upp till max 3 jobbtitlar.",
+      "motivation": "Motivation",
+      "motivationLetter": "Personligt brev",
+      "motivationLetterPlaceholder": "Vad är din motivation?",
+      "motivationLetterSubLabel": "Du kan skriva några ord nedan för att beskriva din erfarenhet och motivation.",
+      "motivationSubtitle": "Du kan berika din ansökan med ett presentationsbrev, för att ge oss mer sammanhang om dig och din jobbsökning.",
+      "other": "Annat",
+      "partTime": "Deltid",
+      "personalInformation": "Personliga uppgifter",
+      "personalInformationSubtitle": "Vänligen ange ditt fullständiga namn och bostadsort.",
+      "provideValidEmail": "Vänligen ange en giltig e-postadress.",
+      "remoteWorkPreferences": {
+        "no": "Helst inte",
+        "sometimes": "Då och då, varför inte",
+        "yes": "Ja, med nöje"
+      },
+      "roleLevel": "Erfarenhetsnivå",
+      "roleLevelSubLabel": "Välj den nivå som bäst motsvarar dina färdigheter.",
+      "roleRequired": "Lägg till minst ett yrke.",
+      "seeOrEditProfile": "Visa eller redigera profil",
+      "selectJobTitle": "Välj en jobbtitel",
+      "selectLanguage": "Välj ett språk",
+      "selectRole": "Vilken/vilka position(er) söker du efter?",
+      "startApplication": "Starta ansökan",
+      "steps": {
+        "step1": "Personliga uppgifter",
+        "step2": "Jobbsökning",
+        "step3": "Ladda upp CV",
+        "step4": "Juridiska villkor"
+      },
+      "uploadCV": "Ladda upp ditt CV",
+      "welcome": "Välkommen till din karriärportal",
+      "yourLanguages": "Dina språk",
+      "yourRoles": "Dina jobbpositioner"
+    },
+    "backToDashboard": "Tillbaka till kontrollpanelen",
+    "studentDashboard": "Studentpanel"
   },
   "events": {
     "main": {
@@ -421,7 +698,7 @@
       "free": "gratis",
       "online": "online",
       "limited": "begränsad till",
-      "unlimited": "obegränsad",
+      "unlimited": "obegränsat",
       "people": "personer",
       "watchLive": "Se live",
       "watchReplay": "Titta på inspelning",
@@ -430,7 +707,9 @@
       "visitWebsite": "Besök hemsida",
       "buyReplay": "Köp inspelning",
       "eventFull": "Eventet är fullt",
-      "seatBooked": "Plats bokad"
+      "seatBooked": "Plats bokad",
+      "buyVideo": "Köp video",
+      "purchased": "Köpt"
     },
     "payment": {
       "limitation": "Begränsning",
@@ -444,26 +723,37 @@
       "date": "Datum",
       "description_free_physical": "Vänligen granska de angivna detaljerna för lokalen.\nNär bokningen är bekräftad kommer vi att utfärda en bekräftelsebiljett och en QR-kod att presentera vid eventet.",
       "download_ticket": "Ladda ner din biljett",
-      "enjoy": "Vi hoppas att du kommer ha nöje av det :)",
+      "enjoy": "Vi hoppas att du kommer njuta av det :)",
       "language": "Språk",
       "max_capacity": "Maximal kapacitet av",
       "payment_successful": "Bokningen lyckades!",
-      "time": "Tid"
+      "time": "Tid",
+      "access_online_successful": "När eventet startar, logga in på plattformen för att få tillgång till live-sändningen på eventsidan.",
+      "description_online": "Vänligen granska datum och tid för eventet som hålls.\nNär det är dags, logga in på plattformen för att få tillgång till live-sändningen via eventsidan.",
+      "access_physical_successful": "Du kan ladda ner din biljett här, eller ladda ner den senare i kontrollpanelen.",
+      "callout_online": "Du är på väg att boka online-åtkomst till detta event.",
+      "callout_replay": "Du är på väg att boka tillgång till den inspelade videon av detta event.",
+      "description_physical": "Vänligen granska de angivna detaljerna för lokalen.\nNär din bokning är bekräftad kommer vi att utfärda en biljett att presentera vid eventet. Denna biljett ger dig också tillgång till live-sändningen och den inspelade videon, om tillgänglig."
     },
     "newEvent": {
       "button": "Lägg till mitt event",
-      "description": "Självklart! Alla Bitcoin-event kan öka sin synlighet här, så varje initiativ till att skapa ett nytt event är mer än välkommet :)",
+      "description": "Självklart! Alla Bitcoin-events kan öka sin synlighet här, så varje initiativ till att skapa ett nytt event är mer än välkommet :)",
       "subtitle": "Att orange-pilla en miljard människor är inte enkelt",
       "title": "Vill du lägga till ditt event?"
     },
     "pageDescription": "Vill du prata om Bitcoin i realtid? Här kan du hitta alla events som stöds av Plan ₿ Network-communityn. Oavsett om du vill lyssna på en föreläsning, diskutera Bitcoin över en drink, eller ta ett prov för att bedöma din kunskap, här kommer du att hitta rätt evenemang genom Plan ₿ Network.",
-    "pageSubtitle": "Bottom-up-adoption förbättras av ett starkt nätverk",
-    "pageTitle": "Letar du efter ett Bitcoin-event att delta i?"
+    "pageSubtitle": "Adoption med en bottom-up-strategi förbättras av ett starkt nätverk",
+    "pageTitle": "Letar du efter ett Bitcoin-event att delta i?",
+    "errors": {
+      "premiumContentNeedsLogin": "Du måste vara inloggad för att få tillgång till detta event.",
+      "premiumContentNeedsPayment": "Detta event är en del av ett premiumprogram.",
+      "premiumContentNeedsPaymentAction": "Gå till eventsidan"
+    }
   },
   "home": {
     "header": {
       "content": "Plan ₿ Networks plattform strävar efter att erbjuda de bästa verktygen och utbildningsinnehållet globalt, vilket ger människor möjlighet att återta sin suveränitet. Från individer till communities, vi är här för att hjälpa dig genom din Bitcoin-resa.",
-      "forEducators": "För utbildare och skapare",
+      "forEducators": "För utbildare och entreprenörer",
       "globalNetwork": "Ett globalt Bitcoin-nätverk",
       "welcome": "Välkommen till Plan ₿ Network",
       "link": "Bli en del av nätverket",
@@ -472,22 +762,22 @@
     "tutorialSection": {
       "title": "Centralisera kunskap för att bättre förmedla den",
       "subtitle1": "Bitcoin-utbildning förenklad.",
-      "content1": "Bitcoin är i ständig utveckling med nya aktörer, lösningar, protokoll och tekniska genombrott som ständigt dyker upp. Det kan därför vara en utmaning att upprätthålla en korrekt och aktuell databas av tutorials med hög kvalitet. Här på Plan ₿ har vi lyckats med just det. Oavsett om du är en nybörjare eller en avancerad användare, kan du navigera genom hundratals tutorials för att utforska vår industri enligt dina behov.",
+      "content1": "Bitcoin är i ständig utveckling med nya aktörer, lösningar, protokoll och tekniska genombrott. Det kan därför vara en utmaning att upprätthålla en korrekt och aktuell databas av tutorials med hög kvalitet. Här på Plan ₿ har vi lyckats med just det. Oavsett om du är nybörjare eller en avancerad användare, kan du navigera genom hundratals tutorials för att utforska vår industri enligt dina behov.",
       "link": "Visa alla tutorials",
       "link2": "Se alla resurser"
     },
     "aboutUsSection": {
       "title": "Vilka är vi?",
       "subtitle": "Lite om oss",
-      "content": "Plan ₿ Network främjar Bitcoin-utbildning globalt. Det symboliserar ett samarbete mellan engagerade Bitcoin-företag inriktade på utbildning, open source-mjukvara, peer-to-peer-nätverk och skapande av community. Tillsammans har de startat detta initiativ för att bidra med de väsentliga verktygen för tillväxt av Bitcoin-ekosystemet.",
-      "bitcoinFocusTitle": "Bitcoin i fokus",
+      "content": "Plan ₿ Network främjar Bitcoin-utbildning globalt. Det representerar ett samarbete mellan engagerade Bitcoin-företag inriktade på utbildning, open source-mjukvara, peer-to-peer-nätverk och skapande av community. Tillsammans har de startat detta initiativ för att bidra med de väsentliga verktygen för tillväxt av Bitcoin-ekosystemet.",
+      "bitcoinFocusTitle": "Fokus på Bitcoin",
       "bitcoinFocusContent": "Vi utforskar Bitcoin-revolutionen från grunden till peer-to-peer-kommunikationerna runt omkring.",
       "openSourceTitle": "Open source",
       "openSourceContent": "Vi arbetar för att främja det fria flödet av kunskap och stödja open source-lösningar",
       "communityTitle": "Community",
       "communityContent": "Vi är i framförallt en grupp entusiaster som stöttar varandra på Bitcoin-resan",
-      "privacyTitle": "Sekretess",
-      "privacyContent": "Vi anser att sekretess är en av de mest grundläggande mänskliga rättigheterna och är avgörande för framgång"
+      "privacyTitle": "Integritet",
+      "privacyContent": "Vi anser att integritet är en av de mest grundläggande mänskliga rättigheterna och är avgörande för framgång"
     },
     "languageSection": {
       "title": "Här finns ingen språkbarriär.",
@@ -504,14 +794,31 @@
     "wallOfLoveSection": {
       "title": "Kärlekens vägg",
       "subtitle": "Vad bitcoiners säger om oss"
+    },
+    "blogSection": {
+      "blogTitle": "Vad är nytt på Plan ₿ Network?",
+      "description": "Vi fortsätter att förbättra plattformen, innehållet och nätverket - kolla in det!",
+      "noBlogsAvailable": "Inga bloggar tillgängliga.",
+      "noDateAvailable": "Inget datum tillgängligt",
+      "seeAll": "Se alla"
+    },
+    "courseSection": {
+      "upcomingCourseDescription": "Utforska de senaste kurserna som släppts på plattformen. Kunskap tar aldrig slut!",
+      "checkAllCourses": "Visa alla kurser",
+      "upcomingCourseTitle": "Kommande och nya kurser"
+    },
+    "eventSection": {
+      "checkEvents": "Visa alla events",
+      "eventTitle": "Ett globalt nätverk av Bitcoin-utbildare",
+      "hottestEvent": "Hetaste bitcoin-eventet"
     }
   },
   "imagesAlt": {
     "bookCover": "ett bokomslag",
-    "contributorHeart": "ett hjärta till en trevlig medverkande",
+    "contributorHeart": "ett hjärta till en vänlig bidragsgivare",
     "orangePill": "ett orange piller",
-    "printedCircuits": "en utskriven krets",
-    "rabbit404": "En kanin som lyser med en ficklampa på en 404-skylt",
+    "printedCircuits": "tryckta kretskort",
+    "rabbit404": "en kanin som lyser med en ficklampa på en 404-skylt",
     "sthRepresentingCompany": "något som representerar företaget",
     "underConstructionImage": "Illustration av flera kaniner som arbetar på en byggarbetsplats"
   },
@@ -524,18 +831,29 @@
     "libraryDescription": "Utforska ett stort antal böcker för att förbättra din kunskap",
     "nodeNetworkDescription": "Bli en del av det globala nätverket för Plan ₿-communities",
     "podcastsDescription": "Utforska bitcoin-ekosystemet genom podcasts",
-    "teachersDescription": "Lär känna våra akademilärare",
-    "conferencesDescription": "Samling av inspelningar från Bitcoin-konferenser sedan Genesis Block",
-    "bCertificateDescription": "Klara ₿-certifikatprovet för att visa din Bitcoin-nivå",
+    "teachersDescription": "Lär känna våra lärare på akademin",
+    "conferencesDescription": "Samling av inspelningar från Bitcoin-konferenser sedan genesisblocket",
+    "bCertificateDescription": "Klara ₿-certifikatprovet för att bedöma din Bitcoin-nivå",
     "glossaryDescription": "Förstå Bitcoins språk",
     "login": "Logga in",
-    "publicDescription": "Utforska artiklar om offentlig kommunikation"
+    "publicDescription": "Utforska artiklar om offentlig kommunikation",
+    "channelsDescription": "Få tillgång till vårt exklusiva urval av Youtube-kanaler för att lära dig om Bitcoin",
+    "newsletterDescription": "Samling av innehåll som kan användas för dina utbildningsprojekt",
+    "bitcoinDescription": "Lär dig om Bitcoin från grunden till avancerad användning.",
+    "businessDescription": "Utforska Bitcoin-användning inom handel.",
+    "chooseLanguage": "Välj ett språk",
+    "lecturesDescription": "Titta igen på inspelade föreläsningar från Bitcoin-experter",
+    "miningCourseDescription": "Förstå processerna, verktygen och industrin bakom Bitcoin-mining.",
+    "moviesDescription": "Upptäck fängslande berättelser och djupgående utforskningar av Bitcoins evolution och påverkan",
+    "protocolDescription": "Upptäck de grundläggande reglerna som driver Bitcoin-nätverket.",
+    "securityDescription": "Bemästra teknikerna för att skydda dina Bitcoin-tillgångar.",
+    "socialStudiesDescription": "Studera Bitcoins effekt på samhället."
   },
   "nodeNetwork": {
     "apply": "Ansök om att starta en nod",
-    "description1": "Vi tror på att utbildning inte enbart borde ske online utan också i fysiska utrymmen. För att uppnå detta hanterar Plan ₿ Network ett nätverk av hubbar runt om i världen för att välkomna filosofer, skapare och utbildare som främjar utvecklingen av Bitcoin och frihetsteknologier.",
-    "pageSubtitle": "Vill du \"orange-pilla\" världen? Gå med i Plan ₿ Network.",
-    "pageTitle": "Utforska Plan ₿ Nod-nätverk",
+    "description1": "Vi tror på att utbildning inte enbart borde ske online utan också i fysiska utrymmen. För att uppnå detta hanterar Plan ₿ Network ett nätverk av hubbar runt om i världen för att välkomna tänkare, entreprenörer och utbildare som främjar utvecklingen av Bitcoin och frihetsteknologier.",
+    "pageSubtitle": "Vill du orange-pilla världen? Gå med i Plan ₿ Network.",
+    "pageTitle": "Utforska Plan ₿ Nodnätverk",
     "applyhelp": "*Välj nodens plats",
     "descriptionextend": "Vårt första steg är att bjuda in communities som har fysiska platser, vilka vi refererar till som \"fulla noder\" i vårt nätverk, att ansluta till oss. I framtiden, när vårt nätverk stärks, kommer vi att utöka denna inbjudan till fler initiativ världen över. Om du delar våra värderingar, vänligen kontakta våra representanter för att ansluta till vårt nätverk och hjälpa till att bygga den bästa möjliga Bitcoin-utbildningen."
   },
@@ -554,7 +872,7 @@
       "noTipsYet": "Den här läraren tar inte emot donationer för tillfället.",
       "thanks": "Tack för att du stödjer {{name}}s arbete!",
       "thanksNoName": "Tack för att du stödjer mitt arbete!",
-      "authorSupport": "Stöd skribenten med dricks"
+      "authorSupport": "Stöd författaren med dricks"
     },
     "navigationTitles": {
       "all": "Alla",
@@ -565,18 +883,62 @@
   },
   "resources": {
     "newsletters": {
-      "title": "Nyhetsbrev"
+      "title": "Nyhetsbrev",
+      "author": "Författare: ",
+      "level": "Nivå:",
+      "noNewsletters": "Det finns för närvarande inga nyhetsbrev för det valda språket.",
+      "subtitle": "<0>Andra nyhetsbrev</0> som du kanske gillar"
     },
     "pageDescription": "Att försöka förstå Bitcoin är som att navigera i en ständigt växande labyrint. För att hjälpa dig på din resa har vi samlat en omfattande samling resurser, inklusive böcker, podcasts, videor och inspelningar av konferenser. All denna information finns samlad i ett Github-repo för att hjälpa dig att bättre förstå Bitcoin-ekosystemet.",
     "pageSubtitle": "Centralisera kunskap för att sprida det på ett bättre sätt",
-    "pageTitle": "Välkommen till Resursportalen",
+    "pageTitle": "Välkommen till resursportalen",
     "podcasts": {
-      "title": "Podcasts"
+      "title": "Podcasts",
+      "noPodcasts": "Det finns för närvarande inga podcasts för det valda språket."
     },
     "github": "All data hanteras via ett open source <0>Github</0>-repo. Bidra gärna och lägg till eventuellt saknat innehåll.",
     "searchFilterName": "Sök via namn",
-    "pageSubtitleBooks": "",
-    "pageSubtitlePodcast": ""
+    "pageSubtitleBooks": "<0>Andra böcker</0> som du kanske gillar",
+    "pageSubtitlePodcast": "<0>Andra podcasts</0> som du kanske gillar",
+    "articles": {
+      "title": "Artiklar"
+    },
+    "channels": {
+      "noYoutubeChannels": "Det finns för närvarande inga Youtube-kanaler för det valda språket.",
+      "title": "Youtube-kanaler"
+    },
+    "movies": {
+      "noMovies": "Det finns för närvarande inga filmer eller dokumentärer för det valda språket.",
+      "title": "Filmer och dokumentärer"
+    },
+    "pageSubtitleChannels": "<0>Andra Youtube-kanaler</0> som du kanske gillar",
+    "bet": {
+      "title": "Utbildningskit"
+    },
+    "books": {
+      "author": "Författare: ",
+      "title": "Bibliotek"
+    },
+    "conferences": {
+      "title": "Inspelningar av konferenser"
+    },
+    "glossary": {
+      "title": "Ordlista"
+    },
+    "lectures": {
+      "noLectures": "Det finns för närvarande inga inspelningar av föreläsningar för det valda språket.",
+      "title": "Inspelningar av föreläsningar"
+    },
+    "newsletter": {
+      "check": "Se nyhetsbrevet"
+    },
+    "pageSubtitleLectures": "<0>Andra inspelningar av föreläsningar</0> som du kanske gillar",
+    "toggleFreeOnly": "Endast gratis",
+    "toggleLabelAll": "Alla",
+    "toggleLabelSelectedLanguage": "Valt språk",
+    "projects": {
+      "title": "Projekt"
+    }
   },
   "settings": {
     "changePassword": "Ändra lösenord",
@@ -587,24 +949,26 @@
   "tutorials": {
     "details": {
       "source": "Ursprunglig källa:",
-      "author": "Skribent: ",
+      "author": "Författare:",
       "didHelp": "Hjälpte detta?",
-      "writtenBy": "Denna tutorial skrevs av:"
+      "writtenBy": "Denna tutorial skrevs av:",
+      "ratingSuccess": "Tack för ditt betyg!",
+      "tutorialName": "Namn på tutorial"
     },
     "exchange": {
       "centralized": {
         "description": "Centraliserade börser är vanligtvis reglerade enheter som fungerar som mellanhänder mellan banksystemet och bitcoin-ekosystemet. De låter dig köpa och sälja stora belopp av bitcoins och sedan sätta in det på din digitala plånbok eller bankkonto. De kräver vanligtvis KYC, och övervakar därför din aktivitet och rapporterar till finansiella övervakninginstitutioner för att följa lokala lagar."
       },
-      "description": "Börser är en av ingångs- och utgångsvägarna mellan din traditionella valuta (euro, dollar) och bitcoin-världen. Börser kan vara reglerade och följa KYC (Know Your Customer), eller vara peer-to-peer och anonyma. Varje börs kommer att erbjuda olika funktioner, avgifter, likviditet och kundsupport. Varje bitcoiner kommer att använda olika börser baserat på sina behov och övertygelser.",
+      "description": "Börser är en av ingångs- och utgångsvägarna mellan din traditionella valuta (euro, dollar) och bitcoin-världen. Börser kan vara reglerade och följa KYC (Know Your Customer), eller vara peer-to-peer och anonyma. Varje börs kommer att erbjuda olika funktioner, avgifter, likviditet och kundsupport. Varje bitcoiner kommer att använda olika börser baserat på sina behov och preferenser.",
       "peer-to-peer": {
         "description": "Peer-to-peer börser är marknadsplatser där individer växlar bitcoin mot andra valutor mellan varandra. Dessa börser kan vara reglerade eller inte och de frågar vanligtvis inte efter mycket information (om något alls) om dig. De underlättar helt enkelt relationen mellan användare. Deras avgifter kan vara högre än traditionella börser och deras likviditet något lägre. Det här alternativet föredras av bitcoiners som försöker undvika KYC."
       },
-      "shortDescription": "Lösningar för köp och sälj av Bitcoin, KYC och icke-KYC",
+      "shortDescription": "Lösningar för köp och sälj av bitcoin, KYC och icke-KYC",
       "title": "Börser"
     },
     "explorer": {
       "description": "Alla dessa tutorials har skrivits av passionerade och engagerade bitcoiners, som önskar sprida bitcoin-utbildning världen över. Glöm inte att gilla, recensera och skicka dem sats!",
-      "didYouKnow": "VIsste du?",
+      "didYouKnow": "Visste du?",
       "exploreAllTutorials": "Utforska alla tutorials"
     },
     "merchant": {
@@ -623,11 +987,11 @@
       },
       "description": "Noder fungerar som dina personliga servrar. I Bitcoin är det programvaran som gör att du kan köra nätverket, inhämta transaktioner, verifiera reglerna och vara fullständigt suverän. Inom vårt ekosystem existerar olika noder, från Bitcoin Core till Lightning-implementeringar, RGB eller andra mer avancerade lösningar för integritet.",
       "lightning-network": {
-        "description": "En Lightning-nod ger dig möjlighet att delta i Bitcoin-protokollet på layer 2, kallat Lightning. Du kommer att kunna öppna kanaler, hantera dess likviditet, delta i nätverket och bli non-custodial gällande till Lightning-plånbok.",
+        "description": "En Lightning-nod ger dig möjlighet att delta i Bitcoin-protokollet på layer 2, kallat Lightning. Du kommer att kunna öppna kanaler, hantera dess likviditet, delta i nätverket och bli non-custodial gällande din Lightning-plånbok.",
         "name": "Lightning Network"
       },
       "rgb": {
-        "description": "RGB är ett skalbart och konfidentiellt system av smarta kontrakt för Bitcoin och Lightning Network. Det är ett programmeringslager för Bitcoin, med koncept av privat och gemensamt ägande, abstraktion och separation av bekymmer och representerar \"post-blockchain\"."
+        "description": "RGB är ett skalbart och konfidentiellt system av smarta kontrakt för Bitcoin och Lightning Network. Det är ett programmeringslager för Bitcoin, med koncept av privat och ömsesidig äganderätt, abstraktion och uppdelning av ansvar och representerar \"post-blockchain\"."
       },
       "shortDescription": "Lösningar för att köra en bitcoin-nod och ansluta till nätverket",
       "title": "Nod"
@@ -637,19 +1001,19 @@
     "pageTitle": "Utforska våra tutorials",
     "privacy": {
       "bitcoin": {
-        "description": "Bitcoin är inte sekretesslagt från början, utan det är avsiktligt designat för att vara pseudonymt, och varje transaktion är offentlig och lagras permanent. För att återfå en viss grad av sekretess, måste vi använda bästa praxis för användning samt specifika verktyg som är integrerade i vår mjukvara. Från att undvika återanvändning av adresser till CoinJoin, genom att mixa dina coins och ansluta till din egen nod; vi kommer att stödja dig på din väg till sekretess."
+        "description": "Bitcoin är inte sekretesslagt från början, utan det är avsiktligt designat för att vara pseudonymt, och varje transaktion är offentlig och lagras permanent. För att återfå en viss grad av integritet, måste vi använda bästa praxis för användning samt specifika verktyg som är integrerade i vår mjukvara. Från att undvika återanvändning av adresser till CoinJoin, genom att mixa dina coins och ansluta till din egen nod; vi kommer att stödja dig på din väg till integritet."
       },
-      "description": "Sekretess är en grundläggande rättighet. Även om vi hoppas på en värld där sekretess är standard, är det inte den verklighet vi lever i. Vi kommer att försöka förklara bästa praxis för dig, assistera dig med tutorials och leda dig in på en mer suverän bana angående din information.",
+      "description": "Integritet är en grundläggande rättighet. Även om vi hoppas på en värld där integritet är standard, är det inte den verklighet vi lever i. Vi kommer att försöka förklara bästa praxis för dig, assistera dig med tutorials och leda dig in på en mer suverän bana angående din information.",
       "general": {
-        "description": "I eran av massövervakning är det nödvändigt att återfå en viss nivå av sekretess och integritet i ditt dagliga liv. Med tanke på att varje användare kommer att ha en viss grad av paranoia och teknisk kunskap, är det helt normalt att använda vissa verktyg och anpassa dem till dina behov. Här kommer vi att utforska olika skyddslösningar som VPN:er, Tor, Tails OS, PGP, krypterade meddelanden och mycket mer."
+        "description": "I eran av massövervakning är det nödvändigt att återfå en viss nivå av integritet i ditt dagliga liv. Med tanke på att varje användare kommer att ha en viss grad av paranoia och teknisk kunskap, är det helt normalt att använda vissa verktyg och anpassa dem till dina behov. Här kommer vi att utforska olika skyddslösningar som VPN:er, Tor, Tails OS, PGP, krypterade meddelanden och mycket mer."
       },
-      "shortDescription": "Verktyg för backup och för att behålla sekretess",
-      "title": "Sekretess"
+      "shortDescription": "Verktyg för backup och för att behålla integritet",
+      "title": "Integritet"
     },
     "wallet": {
       "description": "En Bitcoin-plånbok är som din nyckelknippa. Den möjliggör för dig att spendera och ta emot bitcoin. Det finns ett stort antal olika plånböcker, alla med olika användningsområden, funktioner, kostnader och användarupplevelser. Varje bitcoiner kommer att välja en plånbok baserat på sina behov, krav och erfarenhet.",
       "desktop": {
-        "description": "Desktop-plånböcker brukar vara för mer avancerade användare då de kombinerar användandet av hårdvaruenheter och mjukvaran av desktop-plånboken. Det är som att ha ett nytt, mer skräddarsytt och funktionsrikt gränssnitt för din hårdvaruenhet att använda. Dessa plånböcker erbjuder multisig-alternativ, sekretessfunktioner, integrationer för arv och mycket mer."
+        "description": "Desktop-plånböcker brukar vara för mer avancerade användare då de kombinerar användandet av hårdvaruenheter och mjukvaran av desktop-plånboken. Det är som att ha ett nytt, mer skräddarsytt och funktionsrikt gränssnitt för din hårdvaruenhet att använda. Dessa plånböcker erbjuder multisig-alternativ, integritetsfunktioner, integrationer för arv och mycket mer."
       },
       "hardware": {
         "description": "Hårdvaruplånböcker används vanligen för att förvara ditt långsiktiga bitcoin-sparande. Dessa är fysiska enheter som inte är anslutna till internet (ofta kallade \"kalla plånböcker\") och är oftast mycket säkra. Även om dessa enheter vanligtvis är open source gällande dess programvara, kostar hårdvaran mellan 50 till 300 euro. Tänk på dessa enheter som ett bankkonto för större sparbelopp som du skulle använda då och då."
@@ -662,8 +1026,8 @@
     },
     "others": {
       "title": "Andra",
-      "shortDescription": "Utforska diverse lektioner om bitcoins nära relaterade ämnen",
-      "description": "Dyk ner i en expansiv samling av tutorials som är nära kopplade till Bitcoin-etos. Från gör-det-själv till open source-tutorials, upptäck nya kunskapsområden för att bli ännu mer suverän.",
+      "shortDescription": "Utforska diverse lektioner om Bitcoins nära relaterade ämnen",
+      "description": "Dyk ner i en expansiv samling av tutorials som är nära relaterade till Bitcoin-etos. Från DIY till open source-tutorials, upptäck nya kunskapsområden för att bli ännu mer suverän.",
       "DIY": {
         "description": "Upptäck våra DIY-tutorials för att lära dig hur du själv skapar saker relaterade till Bitcoin, datorer och individuell suveränitet!"
       },
@@ -678,11 +1042,14 @@
       }
     },
     "approvedByCreator": "Godkänd av skaparen",
-    "backTutorials": "Tillbaka till alla tutorials"
+    "backTutorials": "Tillbaka till alla tutorials",
+    "hasBeenProofreadBy": "Denna tutorial har korrekturlästs av",
+    "hasNotBeenProofread": "Denna tutorial har ännu inte korrekturlästs",
+    "writtenBy": "Denna tutorial har skrivits av"
   },
   "underConstruction": {
     "github": "GitHub",
-    "p1": "En kanin har ramlat ner i ett hål. På grund av detta oväntade äventyr är denna sida för närvarande under konstruktion. Vi ber om ursäkt för eventuella besvär. Vårt team är i full gång med att slutföra denna sida. Om du är intresserad av att bidra, tveka inte att besöka vår",
+    "p1": "En kanin har ramlat ner i ett hål. På grund av detta oväntade äventyr är denna sida för närvarande under konstruktion. Vi ber om ursäkt för eventuella besvär. Vårt team är i full gång med att slutföra denna sidan. Om du är intresserad av att bidra med en hjälpande hand, tveka inte att besöka vår",
     "p2": "och fundera på att gå med i vår community!",
     "pageTitle": "Hoppsan.",
     "itemNotFound": "{{item}} hittades inte",
@@ -695,7 +1062,6 @@
     "back": "Tillbaka",
     "beginner": "Nybörjare",
     "book": "Bok",
-    "builders": "Skapare",
     "conference": "Konferens",
     "content": "Innehåll",
     "course": "Kurs",
@@ -727,7 +1093,7 @@
     "podcasts": "Podcasts",
     "professors": "Lärare",
     "register": "Registrera",
-    "resources": "Resursmaterial",
+    "resources": "Resurser",
     "termsAndConditions": "Regler och villkor",
     "tutorial": "Tutorial",
     "tutorials": "Tutorials",
@@ -736,7 +1102,7 @@
     "date": "Datum",
     "time": "Tid",
     "to": "till",
-    "billing": "Räkningar",
+    "billing": "Betalningar",
     "download": "Ladda ner",
     "invoice": "Faktura",
     "on": "på",
@@ -749,13 +1115,12 @@
     "admins": "Admins",
     "all": "Alla",
     "amount": "Belopp",
-    "bCertificate": "₿-Certifikat",
+    "bCertificate": "₿-certifikat",
     "booked": "Bokad",
-    "builder": "Skapare",
     "chapter": "Kapitel",
     "communities": "Communities",
     "courseId": "Kurs-ID",
-    "credentials": "Intyg",
+    "credentials": "Meriter",
     "diploma": "Diplom",
     "duration": "Varaktighet",
     "edit": "Redigera",
@@ -773,14 +1138,14 @@
     "location": "Plats",
     "onChainAddress": "On chain-adress",
     "overview": "Översikt",
-    "paid": "Betald",
+    "paid": "Premium",
     "part": "Del",
     "passed": "Godkänd",
     "professor": "Lärare",
     "progress": "Framsteg",
     "publicationDate": "Publiceringsdatum:",
     "public": "Offentlig kommunikation",
-    "ratings": "Betyg",
+    "ratings": "Betygsättning",
     "required": "Obligatorisk",
     "start": "Starta",
     "status": "Status",
@@ -790,15 +1155,67 @@
     "topics": "Ämnen",
     "unified": "Förenad",
     "users": "Användare",
-    "view": "Visa"
+    "view": "Visa",
+    "action": "Åtgärd",
+    "admin": "Admin",
+    "author": "Författare",
+    "bitcoin": "Bitcoin",
+    "business": "Företag",
+    "cancel": "Avbryt",
+    "careerPortal": "Karriärportal",
+    "category": "Kategori",
+    "channel": "Kanal",
+    "channels": "Kanaler",
+    "chapters": "Kapitel",
+    "close": "Stäng",
+    "country": "Land",
+    "credits": "Credits",
+    "delete": "Radera",
+    "dislikes": "Ogilla-markeringar",
+    "displayName": "Visningsnamn",
+    "finish": "Slut",
+    "github": "Github",
+    "inperson": "Fysiskt närvarande",
+    "language": "Språk",
+    "lecture": "Föreläsning",
+    "likes": "Gilla-markeringar",
+    "linkedin": "LinkedIn",
+    "movie": "Film",
+    "name": "Namn",
+    "producer": "Producent",
+    "protocol": "Protokoll",
+    "role": "Roll",
+    "search": "Sök",
+    "security": "Säkerhet",
+    "skip": "Hoppa över",
+    "socialStudies": "Samhällskunskap",
+    "startHere": "Starta här!",
+    "student": "Student",
+    "submit": "Skicka in",
+    "unavailable": "Otillgänglig",
+    "username": "Användarnamn",
+    "viewMore": "Visa mer",
+    "yes": "Ja",
+    "congrats": "Grattis!",
+    "exam": "Prov",
+    "hybrid": "Hybrid",
+    "next": "Nästa",
+    "previous": "Föregående",
+    "telegram": "Telegram",
+    "no": "Nej",
+    "access": "Få tillgång",
+    "user": "Användare",
+    "abstract": "Abstrakt",
+    "projects": "Projekt",
+    "project": "Projekt"
   },
   "conferences": {
     "location": "Plats",
-    "addConferences": "Lägg gärna till konferenser som eventuellt fattas via detta <0>Github</0> repo.",
+    "addConferences": "Lägg gärna till konferenser som eventuellt fattas via detta <0>Github</0>-repo.",
     "backConferences": "Tillbaka till konferenser",
     "conferenceName": "Namn på konferensen",
-    "conferencesSinceGenesis": "Arkiv över Bitcoin-konferenser sedan Genesis Block",
-    "description": "Konferenser spelar en avgörande roll inom Bitcoin-industrin och utgör en väsentlig del av varje bitcoiners utbildningsresa. Av den anledningen skapade vi detta verktyg för att hjälpa dig att enkelt navigera genom hundratals Bitcoin-evenemang.",
+    "conferencesSinceGenesis": "Arkiv över Bitcoin-konferenser sedan genesisblocket",
+    "description": "Konferenser spelar en avgörande roll inom Bitcoin-industrin och utgör en väsentlig del av varje bitcoiners utbildningsresa. Av den anledningen skapade vi detta verktyg för att hjälpa dig att enkelt navigera genom hundratals Bitcoin-events.",
     "details": {
       "findReplay": "Hitta en inspelning",
       "nextVideo": "Nästa video",
@@ -816,28 +1233,32 @@
   },
   "payment": {
     "terms": "Se våra <0>allmänna villkor</0> för detaljer om återbetalning",
-    "total": "Totalt"
+    "total": "Totalt",
+    "payByCard": "Betala med kort",
+    "payWithBitcoin": "Betala med Bitcoin"
   },
   "bCertificate": {
-    "challengeYourself": "Utmana dig själv & testa din nivå!",
-    "organizeDescription": "Inga problem! Om din community är en del av nätverket kan du arrangera en provsession vid din hub. Läs igenom föreskriften för att försäkra dig om att du kan uppfylla de obligatoriska villkoren för att hålla ett prov. Om du kan uppfylla dem kan du schemalägga din session och lägga till den på plattformen.",
+    "challengeYourself": "Utmana dig själv och testa din nivå!",
+    "organizeDescription": "Inga problem! Om din community är en del av nätverket kan du arrangera ett provtillfälle vid din hubb. Läs igenom föreskriften för att försäkra dig om att du kan uppfylla de obligatoriska villkoren för att hålla ett prov. Om du kan uppfylla dem kan du schemalägga din session och lägga till den på plattformen.",
     "readChart": "Läs föreskriften",
-    "bCertificateDescription": "₿-certifikatet är ett internationellt erkänt prov för att bedöma din kunskapsnivå inom Bitcoin och dess relaterade ämnen. Detta certifikat kommer att göra det möjligt för dig att bevisa dina färdigheter och kunskaper inom Bitcoin-industrin, vilket ger dig tillgång till företag och positioner inom den industrin.",
+    "bCertificateDescription": "₿-certifikatet är ett internationellt erkänt prov för att bedöma din kunskapsnivå inom Bitcoin och dess relaterade ämnen. Detta certifikat kommer att göra det möjligt för dig att bevisa dina färdigheter och kunskaper inom Bitcoin-industrin.",
     "tweetText": "Överlycklig över att ha klarat ₿-certifikatet på @planb_network med ett resultat på {{score}}/100! {{emoji}}\n\n{{certificateUrl}}",
-    "bookExam": "Boka en provsession",
+    "bookExam": "Boka ett provtillfälle",
     "checkout": "Kolla in ₿-certifikatet",
     "knowledgeableBitcoin": "Kunnig inom Bitcoin?",
-    "noBookExam": "Det finns ingen provsession planerad ännu.",
+    "noBookExam": "Det finns inget provtillfälle planerat ännu.",
     "organizeExam": "Arrangera ett prov",
     "organizeSubtitle": "Att orange-pilla en miljard människor är inte lätt",
     "organizeTitle": "Vill du arrangera ett ₿-certifikatprov hos din hubb?",
     "pageSubtitle": "Massadoption genom centraliserad open source-utbildning",
-    "pageTitle": "Bli godkänd på ₿-Certifikatet"
+    "pageTitle": "Bli godkänd på ₿-Certifikatet",
+    "verify": "Verifiera äktheten av ditt certifikat",
+    "download": "Ladda ner certifikat"
   },
   "glossary": {
     "filterBar": "Hitta ordet du behöver precis här",
-    "creditsLoic": "<0>Creds</0>: Bitcoin-ordboken skriven av <1>Loïc Morel (Pandul)</1>, tillgänglig på detta <2>Github-repo</2>.",
-    "needHelp": "Behöver hjälp med att definiera ett tekniskt ord?",
+    "creditsLoic": "<0>Credits</0>: Bitcoin-ordboken skriven av <1>Loïc Morel (Pandul)</1>, tillgänglig på detta <2>Github-repo</2>.",
+    "needHelp": "Behöver du hjälp med att definiera ett tekniskt ord?",
     "keepLooking": "Vill du fortsätta söka?",
     "notTranslated": "Uppgifterna i ordlistan har ännu inte översatts.\nOm du vill hjälpa till är du välkommen att bidra på vår",
     "placeHolder": "Vad är det här?",
@@ -855,7 +1276,9 @@
     "description": "Det ursprungliga innehållet har översatts av AI, men mänsklig granskning är nödvändig för att säkerställa korrektheten.",
     "inProgress": "Korrekturläsning pågående",
     "reviewEarn": "Granska och tjäna sats",
-    "status": "Status på korrekturläsning"
+    "status": "Status på korrekturläsning",
+    "descriptionOriginalLanguage": "Även om denna sida är på sitt ursprungliga språk, är mänsklig granskning fortfarande nödvändig för att säkerställa dess korrekthet.",
+    "rewardsText": "Belöningar kan variera beroende på $-växelkursen"
   },
   "publicCommunication": {
     "description": "Plan ₿ Network är stolta över att följa open source-standard och bibehålla transparens genom hela sin resa",
@@ -868,11 +1291,11 @@
     "legalSections": {
       "contact": "Kontakt",
       "legalNotice": "Juridiska notiser",
-      "privacyPolicy": "Sekretesspolicy",
+      "privacyPolicy": "Integritetspolicy",
       "termsOfSale": "Köpvillkor"
     },
     "title": "Offentlig kommunikation",
-    "blogPost": "Bloggar & Nyheter",
+    "blogPost": "Bloggar och nyheter",
     "legal": "Juridisk information",
     "goBackButtons": {
       "simpleGoBack": "Tillbaka till alla artiklar"
@@ -882,9 +1305,63 @@
       "pastArticleSubtitleText": "Tidigare artiklar",
       "noArticlesText": "Det finns inga blogginlägg just nu.",
       "errorMessageNotFound": "Bloggen hittades inte.",
-      "blogSidebarTitle": "Tidigare inlägg i nätverket",
+      "blogSidebarTitle": "Tidigare {{category}}-inlägg",
       "blogListButtonText": "Läs",
       "filterText": "Filtrera efter ämne:"
     }
+  },
+  "youtubeChannels": {
+    "pageTitle": "Youtube-kanaler",
+    "view": "Visa Youtube-kanal",
+    "watchTrailer": "Titta på trailern"
+  },
+  "lectures": {
+    "buyVideoToUnlock": "Köp videon för att låsa upp den",
+    "lecturePartCourse": "Denna inspelning är en del av <0>{{courseTitle}}</0>-kursen.\nUtforska hela kursen för att bemästra alla delar av ämnet och lås upp din fulla potential!",
+    "checkFullCourse": "Utforska hela kursen",
+    "pageTitle": "Inspelningar av föreläsningar",
+    "partCourse": "Denna föreläsning är en del av kursen:",
+    "watchLecture": "Titta på inspelningen av föreläsningen"
+  },
+  "search": {
+    "categories": "Kategorier",
+    "all": "Alla",
+    "book": "Bok",
+    "books": "Böcker",
+    "course": "Kurs",
+    "course_chapter": "Kurskapitel",
+    "course_part": "Kursdel",
+    "courses": "Kurser",
+    "events": "Events",
+    "explorer": {
+      "subtitle": "Vad letar du efter?",
+      "title": "Sökportal"
+    },
+    "filterByType": "Filtrera efter typ",
+    "glossary_word": "Ord",
+    "languageSelected": "Valt språk: {{language}}",
+    "loadMoreResults": "Se fler resultat",
+    "podcast": "Podcast",
+    "podcasts": "Podcasts",
+    "professor": "Lärare",
+    "professors": "Lärare",
+    "resultEmpty": "Oj! Vi kunde inte hitta något som matchade din sökning. Kontrollera din stavning, prova med andra sökord eller välj en annan kategori.",
+    "resultError": "Något gick fel. Försök igen.",
+    "resultInfo": "Hittade {{count}} resultat på {{time}}ms",
+    "results": "Resultat",
+    "resultsRemaining": "{{count}} resultat kvar",
+    "search": "Sök",
+    "searchResult": "Sökresultat",
+    "startSearch": "Starta din sökning för att se resultaten här",
+    "tutorial": "Tutorial",
+    "tutorials": "Tutorials"
+  },
+  "movies": {
+    "goToMovie": "Gå till filmen",
+    "pageTitle": "Filmer och dokumentärer",
+    "watchTrailer": "Titta på trailern"
+  },
+  "podcast": {
+    "check": "Se podcasten"
   }
 }
