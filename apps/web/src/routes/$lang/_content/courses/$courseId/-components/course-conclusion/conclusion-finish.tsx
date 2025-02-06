@@ -24,7 +24,6 @@ export const ConclusionFinish = ({ course }: ConclusionFinishProps) => {
 
   return (
     <>
-      <DividerSimple className="mb-5 md:mb-8" />
       <Professor course={course} addThanksTipping />
       <Credits course={course} />
       <OtherCourses course={course} />
@@ -49,7 +48,7 @@ const Professor = ({
   addThanksTipping?: boolean;
 }) => {
   return (
-    <section className="w-full flex flex-col">
+    <section className="w-full flex flex-col mt-5 md:mt-8">
       <h4 className="subtitle-medium-caps-18px text-darkOrange-5">
         {t('words.professor')}
       </h4>
@@ -115,22 +114,22 @@ const Credits = ({ course }: { course: JoinedCourseWithAll }) => {
           {proofreading?.contributorsId?.length > 0
             ? t('courses.details.hasBeenProofreadBy')
             : t('courses.details.hasNotBeenProofread')}
+          <span className="text-darkOrange-5 label-large-20px md:display-small-32px">
+            {' '}
+            {proofreading?.contributorsId?.length > 0
+              ? proofreading.contributorsId.map((proofreader, index) => (
+                  <React.Fragment key={proofreader}>
+                    <span>{proofreader}</span>
+                    {index < proofreading.contributorsId.length - 2
+                      ? ', '
+                      : index === proofreading.contributorsId.length - 2
+                        ? ' & '
+                        : ''}
+                  </React.Fragment>
+                ))
+              : ''}
+          </span>
         </p>
-
-        <span className="text-darkOrange-5 label-large-20px md:display-small-32px">
-          {proofreading?.contributorsId?.length > 0
-            ? proofreading.contributorsId.map((proofreader, index) => (
-                <React.Fragment key={proofreader}>
-                  <span>{proofreader}</span>
-                  {index < proofreading.contributorsId.length - 2
-                    ? ', '
-                    : index === proofreading.contributorsId.length - 2
-                      ? ' & '
-                      : ''}
-                </React.Fragment>
-              ))
-            : ''}
-        </span>
 
         <div className="flex flex-col md:flex-row gap-6 lg:gap-[50px] mt-6 md:mt-[30px]">
           <div className="max-md:mx-auto shrink-0">
