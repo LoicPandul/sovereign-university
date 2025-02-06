@@ -497,7 +497,6 @@
     "backToDashboard": "Torna alla dashboard",
     "careerPortal": {
       "acceptTermsAndConditions": "Ho letto e accetto i termini e le condizioni",
-      "applicationComplete": "La tua candidatura è completa\nStiamo cercando opportunità di lavoro per te.",
       "beAware": "Siate consapevoli che Plan ₿ Network raccoglierà e conserverà i vostri dati solo per scopi di reclutamento. I dati vengono elaborati e condivisi con i nostri partner commerciali in conformità con le disposizioni del Regolamento Generale sulla Protezione dei Dati dell'UE (GDPR). Clicca <0>qui</0> per saperne di più sulla nostra Informativa sulla Privacy dei Candidati.",
       "jobTitles": {
         "uiUxDesigner": "Designer UI/UX",
@@ -552,7 +551,6 @@
       "acceptedFormat": "Formato file: pdf / Dimensione massima: 10 MB.",
       "add": "Aggiungi",
       "allowReceivingEmails": "Accetto di ricevere email da Plan ₿ Network riguardo a potenziali opportunità di lavoro",
-      "applicationIncomplete": "La tua candidatura è incompleta.\nSegui questo processo passo dopo passo per inviare il tuo CV e le informazioni lavorative.",
       "applicationSaved": "La tua candidatura è stata salvata!",
       "availability": "La tua disponibilità",
       "availabilityStart": "Quando puoi iniziare?",
@@ -918,9 +916,6 @@
       "title": "Film & Documentari",
       "noMovies": "Al momento non ci sono Film o Documentari per la lingua selezionata."
     },
-    "builders": {
-      "title": "Progetti"
-    },
     "conferences": {
       "title": "Replay di conferenze"
     },
@@ -1048,7 +1043,6 @@
     "back": "Indietro",
     "beginner": "Principiante",
     "book": "Libro",
-    "builders": "Progetti",
     "conference": "Conferenza",
     "content": "Contenuto",
     "course": "Corso",
@@ -1115,7 +1109,6 @@
     "onChainAddress": "Indirizzo on chain",
     "chapter": "Capitolo",
     "admins": "Amministratori",
-    "builder": "Ideatori di progetti",
     "communities": "Le comunità",
     "free": "Gratuito",
     "goal": "Obiettivo",
@@ -1321,8 +1314,6 @@
     "courses": "Corsi",
     "events": "Eventi",
     "podcast": "Podcast",
-    "word": "Parola",
-    "words": "Parole",
     "course": "Corso",
     "course_chapter": "Capitolo",
     "course_part": "Sezione del corso",
