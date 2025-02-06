@@ -247,7 +247,7 @@ export const createIndexContent = ({ postgres, typesense }: Dependencies) => {
   const ingestData = createIngestData(typesense);
 
   return async (_errors: string[]) => {
-    const timeKey = '-- Sync procedure: indexing content';
+    const timeKey = '-- Sync: indexing content';
     console.time(timeKey);
     console.log(`${timeKey}...`);
 

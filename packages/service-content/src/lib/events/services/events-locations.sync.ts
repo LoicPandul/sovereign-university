@@ -43,7 +43,7 @@ export const createSyncEventsLocations = ({ postgres }: Dependencies) => {
       for (const { name } of locations) {
         const result = await fetchEventLocation(name).catch(() => null);
         if (!result) {
-          const warn = `-- Sync procedure: Could not find event location ${name}`;
+          const warn = `-- Sync: Could not find event location ${name}`;
           syncWarnings.push(warn);
           console.log(warn);
           continue;

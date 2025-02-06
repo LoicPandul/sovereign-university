@@ -31,7 +31,8 @@ export const createGenerateLnurlAuth = ({ redis }: Dependencies) => {
       .digest('hex');
 
     const host =
-      process.env.NODE_ENV === 'production'
+      process.env.NODE_ENV === 'production' ||
+      process.env.NODE_ENV === 'testnet'
         ? `https://api.${process.env.DOMAIN}`
         : 'http://localhost:3000/api';
 

@@ -43,7 +43,7 @@ export const createSyncProjectsLocations = ({ postgres }: Dependencies) => {
       for (const { name } of locations) {
         const result = await fetchProjectLocation(name).catch(() => null);
         if (!result) {
-          const warn = `-- Sync procedure: Could not find builder location: ${name}`;
+          const warn = `-- Sync: Could not find builder location: ${name}`;
           syncWarnings.push(warn);
           continue;
         }

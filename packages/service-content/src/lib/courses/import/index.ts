@@ -111,6 +111,7 @@ interface CourseMain {
   available_seats: number;
   proofreading: ProofreadingEntry[];
   is_planb_school?: boolean;
+  test_only?: boolean;
 }
 
 interface CourseLocalized {
@@ -317,18 +318,16 @@ export const createUpdateCourses = ({ postgres }: Dependencies) => {
     return postgres
       .begin(async (transaction) => {
         try {
-          // Remove all professors, reinsert them just after
-          await transaction`
-                DELETE FROM content.course_professors
-                WHERE course_id = ${course.id}
-              `;
-
-          await transaction`
-                DELETE FROM content.course_chapters_localized_professors
-                WHERE course_id = ${course.id}
-              `;
-
           const parsedCourse = await yamlToObject<CourseMain>(main);
+
+          if (
+            parsedCourse.test_only === true &&
+            process.env.NODE_ENV === 'production'
+          ) {
+            console.log('-- Sync: Ignore course', course.id);
+            return;
+          }
+
           if (parsedCourse.requires_payment === null) {
             parsedCourse.requires_payment = false;
           }
@@ -362,6 +361,17 @@ export const createUpdateCourses = ({ postgres }: Dependencies) => {
           if (!parsedCourse.format) {
             parsedCourse.format = 'online';
           }
+
+          // Remove all professors, reinsert them just after
+          await transaction`
+                    DELETE FROM content.course_professors
+                    WHERE course_id = ${course.id}
+                  `;
+
+          await transaction`
+                    DELETE FROM content.course_chapters_localized_professors
+                    WHERE course_id = ${course.id}
+                  `;
 
           const result = await transaction<Course[]>`
                 INSERT INTO content.courses

@@ -38,8 +38,8 @@ export function createSyncGithubRepositories(dependencies: Dependencies) {
       return { success: false };
     }
 
-    console.time('-- Sync procedure');
-    console.log('-- Sync procedure: START ===================================');
+    console.time('-- Sync');
+    console.log('-- Sync: START ===================================');
 
     if (!config.publicRepositoryUrl) {
       throw new Error('DATA_REPOSITORY_URL is not defined');
@@ -49,7 +49,7 @@ export function createSyncGithubRepositories(dependencies: Dependencies) {
     const context = await syncRepositories();
     timeGetAllRepoFiles();
 
-    console.log('-- Sync procedure: UPDATE DATABASE =========================');
+    console.log('-- Sync: UPDATE DATABASE =========================');
 
     const syncErrors: string[] = [];
     const syncWarnings: string[] = [];
@@ -66,7 +66,7 @@ export function createSyncGithubRepositories(dependencies: Dependencies) {
       timeProcessContentFiles();
     }
 
-    console.log('-- Sync procedure: Calculate remaining seats');
+    console.log('-- Sync: Calculate remaining seats');
     await calculateCourseChapterSeats();
     await calculateEventSeats();
 
@@ -81,7 +81,7 @@ export function createSyncGithubRepositories(dependencies: Dependencies) {
       console.error(syncErrors.join('\n'));
     }
 
-    console.log('-- Sync procedure: UPDATE ASSETS ===========================');
+    console.log('-- Sync: UPDATE ASSETS ===========================');
 
     let privateCdnError: any;
     if (context.privateGit) {
@@ -109,15 +109,15 @@ export function createSyncGithubRepositories(dependencies: Dependencies) {
       timeSync();
     }
 
-    console.log('-- Sync procedure: CLEAR ==================================');
+    console.log('-- Sync: CLEAR ==================================');
 
     if (syncErrors.length === 0) {
       await processDeleteOldEntities(databaseTime.now, syncErrors);
       await processDisableOldEntities(databaseTime.now, syncErrors);
     }
 
-    console.timeEnd('-- Sync procedure');
-    console.log('-- Sync procedure: END ====================================');
+    console.timeEnd('-- Sync');
+    console.log('-- Sync: END ====================================');
 
     return {
       success: syncErrors.length === 0,

@@ -51,7 +51,7 @@ import {
 } from './tutorials/import/index.js';
 
 export const timeLog = (len: number, name: string) => {
-  const key = `-- Sync procedure: Syncing ${len} ${name}${len > 1 ? 's' : ''}`;
+  const key = `-- Sync: Syncing ${len} ${name}${len > 1 ? 's' : ''}`;
   console.log(`${key}...`);
   console.time(key);
 
@@ -94,7 +94,7 @@ export const createProcessContentFiles = (dependencies: Dependencies) => {
 
     const errors: string[] = [];
     const warnings: string[] = [];
-    console.log('-- Sync procedure: Deleting proofreadings');
+    console.log('-- Sync: Deleting proofreadings');
     await deleteProofreadings(errors);
 
     // Sync resources
@@ -205,7 +205,7 @@ export const createProcessDeleteOldEntities = (dependencies: Dependencies) => {
   const deleteLegals = createDeleteLegals(dependencies);
 
   return async (sync_date: number, errors: string[]) => {
-    const timeKey = '-- Sync procedure: Removing old entities';
+    const timeKey = '-- Sync: Removing old entities';
     console.log(`${timeKey}...`);
     console.time(timeKey);
 
@@ -226,7 +226,7 @@ export const createProcessDisableOldEntities = (dependencies: Dependencies) => {
   const disableQuizQuestions = createDisableQuizQuestions(dependencies);
 
   return async (sync_date: number, errors: string[]) => {
-    const timeKey = '-- Sync procedure: Disabling old entities';
+    const timeKey = '-- Sync: Disabling old entities';
     console.log(`${timeKey}...`);
     console.time(timeKey);
 
