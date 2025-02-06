@@ -93,9 +93,9 @@ export const CoursesGallery = ({ courses }: { courses: JoinedCourse[] }) => {
 
   return (
     <>
-      <div className="max-md:hidden mt-12 max-w-[730px] xl:max-w-[1126px] mx-auto">
-        <p className="desktop-h6">{t('courses.explorer.buildPath')}</p>
-        <div className="flex flex-col p-5 gap-8 bg-tertiary-10 mt-5 rounded-[20px] max-w-[1126px] mx-auto">
+      <div className="md:mt-12 max-w-[730px] lg:max-w-[1126px] mx-auto">
+        <p className="desktop-h6 mb-5">{t('courses.explorer.buildPath')}</p>
+        <div className="max-md:hidden flex flex-col p-5 gap-8 bg-tertiary-10 rounded-[20px] max-w-[1126px] mx-auto">
           <div className="flex items-center gap-8 font-medium">
             <p>{t('words.topics')}</p>
             <div className="flex flex-wrap gap-2">

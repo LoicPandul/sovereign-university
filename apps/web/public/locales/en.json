@@ -195,6 +195,7 @@
       "premiumContentNeedsPaymentAction": "Go to course homepage",
       "startCourse": "Start the course",
       "taughtBy": "This course is being taught by",
+      "teacherLed": "Teached-led",
       "thanksTipping": "You can say thanks by tipping the professor."
     },
     "exam": {
@@ -261,12 +262,12 @@
       "yesSubmit": "Yes, submit"
     },
     "explorer": {
-      "buildPath": "Build your own path down the rabbit hole",
+      "buildPath": "Build your own journey",
       "exploreCourses": "Explore all Plan ₿ Courses",
       "findCourses": "Find the perfect course for your needs thanks to the Course Selection Tool",
       "journey": "Bitcoin is a journey, not a destination",
       "pageDescription": "The Plan ₿ Academy aims at simplifying Bitcoin education worldwide. Curated by experts from various fields, our academy provides a comprehensive range of courses designed to clarify every aspect of Bitcoin.\nFrom beginner to expert, whether at your own pace or followed weekly by a professor, we hope the academy can help you gain a deeper understanding of the expansive world of Bitcoin. Many of our courses are completely free so that anyone, anywhere, can access quality education.",
-      "seeCourse": "Discover the Course"
+      "seeCourse": "Discover the course"
     },
     "part": {
       "count": "Part {{count}}"
