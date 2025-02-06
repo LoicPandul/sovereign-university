@@ -38,7 +38,7 @@ import { formatNameForURL } from '#src/utils/string.ts';
 import { trpc } from '#src/utils/trpc.js';
 
 import PlanbSchoolLogo from '#src/assets/courses/planb_school_logo.svg';
-import CoursesMarkdownBody from '#src/components/Markdown/courses-markdown-body.tsx';
+import PresentationMarkdownBody from '#src/components/Markdown/presentation-markdown-body.tsx';
 import { ConversionRateContext } from '#src/providers/conversionRateContext.tsx';
 import { CourseLayout } from '../-components/course-layout.tsx';
 import { CoursePaymentModal } from '../-components/payment-modal/course-payment-modal.tsx';
@@ -397,14 +397,11 @@ function CourseDetails() {
     return (
       <>
         {course.isPlanbSchool && course.planbSchoolMarkdown ? (
-          <section className="flex flex-col w-full gap-6 md:gap-12">
+          <section className="text-blue-1000 flex flex-col w-full gap-5 break-words px-[15px] md:px-2 md:mt-8 md:grow md:gap-[18px] md:overflow-hidden pb-2">
             <Suspense fallback={<Loader size={'s'} />}>
-              <CoursesMarkdownBody
+              <PresentationMarkdownBody
                 content={course.planbSchoolMarkdown}
                 assetPrefix={cdnUrl(`courses/${course.id}`)}
-                tutorials={[]}
-                courses={[course]}
-                supportInlineLatex={false}
               />
             </Suspense>
           </section>
