@@ -13,6 +13,7 @@ export interface Course {
   originalLanguage: string;
   requiresPayment: boolean;
   paymentExpirationDate: Date | null;
+  publishedAt: Date | null;
   format: 'online' | 'inperson' | 'hybrid';
   onlinePriceDollars: number | null;
   inpersonPriceDollars: number | null;
@@ -137,6 +138,7 @@ export interface MinimalJoinedCourse {
   originalLanguage: string;
   requiresPayment: boolean;
   paymentExpirationDate: Date | null;
+  publishedAt: Date | null;
   format: 'online' | 'inperson' | 'hybrid';
   onlinePriceDollars: number | null;
   inpersonPriceDollars: number | null;
@@ -172,6 +174,7 @@ export interface JoinedCourse {
   originalLanguage: string;
   requiresPayment: boolean;
   paymentExpirationDate: Date | null;
+  publishedAt: Date | null;
   format: 'online' | 'inperson' | 'hybrid';
   onlinePriceDollars: number | null;
   inpersonPriceDollars: number | null;
@@ -208,6 +211,7 @@ export interface JoinedCourseWithProfessorsContributorIds {
   originalLanguage: string;
   requiresPayment: boolean;
   paymentExpirationDate: Date | null;
+  publishedAt: Date | null;
   format: 'online' | 'inperson' | 'hybrid';
   onlinePriceDollars: number | null;
   inpersonPriceDollars: number | null;
@@ -244,6 +248,7 @@ export interface JoinedCourseWithAll {
   originalLanguage: string;
   requiresPayment: boolean;
   paymentExpirationDate: Date | null;
+  publishedAt: Date | null;
   format: 'online' | 'inperson' | 'hybrid';
   onlinePriceDollars: number | null;
   inpersonPriceDollars: number | null;
@@ -328,6 +333,7 @@ export interface CourseResponse {
   originalLanguage: string;
   requiresPayment: boolean;
   paymentExpirationDate: Date | null;
+  publishedAt: Date | null;
   format: 'online' | 'inperson' | 'hybrid';
   onlinePriceDollars: number | null;
   inpersonPriceDollars: number | null;

@@ -100,6 +100,7 @@ interface CourseMain {
   tags?: string[];
   requires_payment: boolean;
   payment_expiration_date?: string;
+  published_at?: string;
   format: string;
   online_price_dollars?: number;
   inperson_price_dollars?: number;
@@ -376,7 +377,7 @@ export const createUpdateCourses = ({ postgres }: Dependencies) => {
           const result = await transaction<Course[]>`
                 INSERT INTO content.courses
                   (id, is_archived, level, hours, topic, subtopic, original_language, requires_payment,
-                  payment_expiration_date, format, online_price_dollars, inperson_price_dollars,
+                  payment_expiration_date, published_at, format, online_price_dollars, inperson_price_dollars,
                   paid_description, paid_video_link, start_date, end_date, contact, available_seats,
                   remaining_seats, is_planb_school, planb_school_markdown, last_updated, last_commit, last_sync)
                 VALUES (
@@ -389,6 +390,7 @@ export const createUpdateCourses = ({ postgres }: Dependencies) => {
                   ${parsedCourse.original_language},
                   ${parsedCourse.requires_payment === true},
                   ${paymentExpirationDate},
+                  ${parsedCourse.published_at},
                   ${parsedCourse.format},
                   ${parsedCourse.online_price_dollars},
                   ${parsedCourse.inperson_price_dollars},
@@ -414,6 +416,7 @@ export const createUpdateCourses = ({ postgres }: Dependencies) => {
                   original_language = EXCLUDED.original_language,
                   requires_payment = EXCLUDED.requires_payment,
                   payment_expiration_date = EXCLUDED.payment_expiration_date,
+                  published_at = EXCLUDED.published_at,
                   format = EXCLUDED.format,
                   online_price_dollars = EXCLUDED.online_price_dollars,
                   inperson_price_dollars = EXCLUDED.inperson_price_dollars,

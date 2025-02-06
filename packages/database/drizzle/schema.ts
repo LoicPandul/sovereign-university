@@ -875,6 +875,7 @@ export const contentCourses = content.table('courses', (t) => ({
 
   requiresPayment: t.boolean().default(false).notNull(),
   paymentExpirationDate: t.timestamp(),
+  publishedAt: t.timestamp(),
   format: courseFormatEnum().default('online').notNull(),
   onlinePriceDollars: t.integer(),
   inpersonPriceDollars: t.integer(),

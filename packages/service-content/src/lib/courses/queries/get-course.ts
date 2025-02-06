@@ -14,6 +14,7 @@ export const getCourseQuery = (id: string, language?: string) => {
       c.original_language,
       c.requires_payment,
       c.payment_expiration_date,
+      c.published_at,
       c.format,
       c.online_price_dollars,
       c.inperson_price_dollars,
