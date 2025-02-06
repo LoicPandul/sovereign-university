@@ -60,7 +60,7 @@ const CoursesMarkdownBody = ({
         a: ({ children, href = '' }) => {
           const tutorial = getTutorial(href, tutorials);
           if (tutorial) {
-            return <TutorialCard tutorial={tutorial} href={href} />;
+            return <TutorialCard tutorial={tutorial} href={href} addMargin />;
           }
 
           const course = getCourse(href, courses);
