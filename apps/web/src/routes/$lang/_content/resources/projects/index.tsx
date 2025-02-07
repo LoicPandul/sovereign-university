@@ -52,7 +52,7 @@ function Projects() {
       filterBar={{
         onChange: setSearchTerm,
       }}
-      activeCategory="builders"
+      activeCategory="projects"
     >
       {!isFetched && <Loader size={'s'} />}
       <div className="flex flex-col gap-5 p-4 pt-0 md:p-10 md:pt-0">

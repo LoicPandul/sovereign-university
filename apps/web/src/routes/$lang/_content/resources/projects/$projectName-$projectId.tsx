@@ -267,9 +267,6 @@ function Project() {
             {filteredCommunities.map((community) => (
               <Link
                 to={`/resources/projects/${formatNameForURL(community.name)}-${community.id}`}
-                params={{
-                  builderId: community.id.toString(),
-                }}
                 key={community.id}
               >
                 <ProjectCard

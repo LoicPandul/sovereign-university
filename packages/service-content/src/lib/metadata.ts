@@ -67,7 +67,7 @@ export const createGetMetadata = (dependencies: Dependencies) => {
   // Resources
   const getBook = createGetBook(dependencies);
   const getPodcast = createGetPodcast(dependencies);
-  const getBuilder = createGetProjectMeta(dependencies);
+  const getProject = createGetProjectMeta(dependencies);
   const getGlossaryWord = createGetGlossaryWord(dependencies);
   const getConferenceMeta = createGetConferenceMeta(dependencies);
 
@@ -145,13 +145,13 @@ export const createGetMetadata = (dependencies: Dependencies) => {
           cdn(conf.lastCommit, conf.path, 'thumbnail.webp'),
         );
       }
-      case 'builders': {
-        const builder = await getBuilder(+resourceId, lang);
+      case 'projects': {
+        const project = await getProject(+resourceId, lang);
         return meta(
-          builder.name,
-          builder.description,
-          cdn(builder.lastCommit, builder.path, 'logo.webp'),
-          builder.language,
+          project.name,
+          project.description,
+          cdn(project.lastCommit, project.path, 'logo.webp'),
+          project.language,
         );
       }
       case 'glossary': {

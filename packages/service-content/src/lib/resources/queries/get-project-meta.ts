@@ -1,13 +1,13 @@
 import { sql } from '@blms/database';
 import type { JoinedProject } from '@blms/types';
 
-type BuilderMeta = Pick<
+type ProjectMeta = Pick<
   JoinedProject,
   'id' | 'path' | 'name' | 'language' | 'description' | 'lastCommit'
 >;
 
 export const getProjectMetaQuery = (id: number, language?: string) => {
-  return sql<BuilderMeta[]>`
+  return sql<ProjectMeta[]>`
     SELECT
       r.id,
       r.path,

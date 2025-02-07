@@ -35,7 +35,7 @@ function NodeNetwork() {
     },
   );
 
-  const { data: builderLocations } =
+  const { data: projectLocations } =
     trpc.content.getProjectsLocations.useQuery();
   const filteredCommunities = communities
     ? communities
@@ -45,7 +45,7 @@ function NodeNetwork() {
             community.addressLine1 ?? '',
           );
 
-          const location = builderLocations?.find((loc: { name: string }) => {
+          const location = projectLocations?.find((loc: { name: string }) => {
             const normalizedLocationName = normalizeText(loc.name);
             return normalizedLocationName === normalizedCommunityAddress;
           });

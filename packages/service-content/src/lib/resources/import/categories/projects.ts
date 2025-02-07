@@ -47,7 +47,7 @@ export const createProcessChangedProject = (
           await processMainFile(resource, main);
         } catch (error) {
           errors.push(
-            `Error processing file(builders) ${resource?.fullPath}: ${error}`,
+            `Error processing file(projects) ${resource?.fullPath}: ${error}`,
           );
           return;
         }

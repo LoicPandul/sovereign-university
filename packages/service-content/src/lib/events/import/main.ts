@@ -21,7 +21,6 @@ interface EventMain {
   address_line_1: string;
   address_line_2: string;
   address_line_3: string;
-  builder: string;
   professor: string;
   course_related: string;
   type: string;

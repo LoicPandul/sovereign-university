@@ -10,7 +10,7 @@ export const createGetProjectMeta = ({ postgres }: Dependencies) => {
       .then(firstRow);
 
     if (!project) {
-      throw new Error('Builder not found');
+      throw new Error('Project not found');
     }
 
     return project;
