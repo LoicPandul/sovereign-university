@@ -48,14 +48,14 @@ export const FeaturedSchool = ({ course }: { course: JoinedCourse }) => {
 
 const SchoolCard = ({ course }: { course: JoinedCourse }) => {
   return (
-    <article className="relative w-full flex flex-col md:flex-row gap-2.5 md:gap-5 bg-darkOrange-9 border border-darkOrange-5 shadow-sm-section p-2.5 rounded-[10px] md:rounded-[20px] overflow-hidden">
+    <article className="relative max-md:max-w-[500px] w-full flex flex-col md:flex-row gap-2.5 md:gap-5 bg-darkOrange-9 border border-darkOrange-5 shadow-sm-section p-2.5 rounded-[10px] md:rounded-[20px] overflow-hidden max-md:mx-auto">
       <span className="absolute uppercase -top-px -left-px bg-white border border-white text-black body-semibold-12px md:title-medium-sb-18px rounded-br-[10px] py-[5px] px-2.5 md:py-2.5 md:px-[15px] md:rounded-br-[20px] z-10">
         {t('courses.explorer.planbSchool')}
       </span>
       <img
         src={assetUrl(`courses/${course.id}`, 'thumbnail.webp')}
         alt={course.name}
-        className="rounded-lg object-cover object-center [overflow-clip-margin:_unset] max-w-[490px] max-h-[203px] md:max-h-[288px] w-full mx-auto"
+        className="rounded-lg object-cover object-center [overflow-clip-margin:_unset] md:max-w-[490px] md:max-h-[288px] w-full mx-auto max-md:aspect-[270/203]"
       />
       <section className="flex flex-col gap-2.5 w-full shrink">
         <span className="text-white truncate subtitle-large-med-20px md:title-large-sb-24px">
@@ -82,7 +82,7 @@ const SchoolCard = ({ course }: { course: JoinedCourse }) => {
         <p className="max-w-full text-tertiary-1 line-clamp-3 text-sm leading-snug tracking-015px md:text-base md:leading-relaxed md:tracking-[0.08px]">
           {course.goal}
         </p>
-        <div className="flex flex-col">
+        <div className="flex flex-col mt-auto">
           <ListItem
             leftText={t('dashboard.calendar.calendar')}
             rightText={getTimeStringWithOnlyMonths(
