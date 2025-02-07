@@ -5,7 +5,7 @@
     "commitmentTitle": "我们的承诺",
     "commitmentContent": "我们对比特币社区的承诺如下：\n • 保持开源\n • 提供高质量的教育内容\n • 用尽可能多的语言翻译我们的内容\n • 支持比特币建设者的创业之旅",
     "coreTeamTitle": "核心团队",
-    "coreTeamContent": "PlanB网络是由数百名贡献者、教师、社区领导者、设计师、开发者和组织者组成的集体。感谢众多使PlanB成真并每天持续付出使之成真的人们。 （贡献者墙即将上线）",
+    "coreTeamContent": "Plan ₿网络是由数百名贡献者、教师、社区领导者、设计师、开发者和组织者组成的集体。感谢众多使Plan ₿成真并每天持续付出使之成真的人们。 （贡献者墙即将上线）",
     "coreTeamAsioRole": "教育协调员",
     "missionTitle": "我们的任务",
     "coreTeamGiacomoRole": "经理和联合创始人",
@@ -15,11 +15,11 @@
     "missionContent2": "我们将知识集中化，通过简单的、多语言的GitHub仓库和电子学习平台更好地分发。我们为本地比特币中心提供发展所需的合适工具，以帮助发展它们的才能。",
     "corporateTitle": "公司背后",
     "storyTitle": "我们的故事",
-    "description": "Plan B Network帮助全球社区组织起来以提供更好的教育。该平台通过在线学院、教程门户、比特币教育工具包和资源门户，开发实现该目标所需的工具。",
-    "storyContent": "PlanB网络是一个旨在全球范围内支持比特币教育的倡议。它是各种热衷于比特币的公司的相遇之处。这些公司专注于教育、开源软件、点对点网络和社区意识。他们共同决定建立PlanB网络，并为比特币生态系统提供适合的工具以助其成长。在这里你可以找到我们2023年的演示报告。",
-    "subtitle": "想要让全世界接受橙色药丸吗？加入PlanB网络。",
-    "title": "关于Plan B网络",
-    "corporateContent": "PlanB Network是专注于比特币发展的三个实体联合开发的项目。致力于扩展比特币教育，他们决定合作建立PlanB Network。为了实现我们的目标，将比特币教育推广到全世界，许多其他实体也决定联合起来并贡献他们的力量。非常感谢他们",
+    "description": "Plan ₿网络帮助全球社区组织起来以提供更好的教育。该平台通过在线学院、教程门户、比特币教育工具包和资源门户，开发实现该目标所需的工具。",
+    "storyContent": "Plan ₿网络是一个旨在全球范围内支持比特币教育的倡议。它是各种热衷于比特币的公司的相遇之处。这些公司专注于教育、开源软件、点对点网络和社区意识。他们共同决定建立Plan ₿网络，并为比特币生态系统提供适合的工具以助其成长。在这里你可以找到我们2023年的演示报告。",
+    "subtitle": "想要让全世界接受橙色药丸吗？加入Plan ₿网络。",
+    "title": "关于Plan ₿网络",
+    "corporateContent": "Plan ₿网络是专注于比特币发展的三个实体联合开发的项目。致力于扩展比特币教育，他们决定合作建立Plan ₿网络。为了实现我们的目标，将比特币教育推广到全世界，许多其他实体也决定联合起来并贡献他们的力量。非常感谢他们",
     "manifesto": "我们相信比特币提供的去中心化的未来。\n\n我们的使命是在十年内向十亿人介绍比特币。我们的工具是教育和信息。\n\n我们以提供开源教育内容和比特币导师网络，来支持本地的比特币社区。\n\n我们的哲学受《密码朋克宣言》启发。正如他们提倡隐私，我们倡导教育。我们相信知识是自由和变革的基础。\n\n我们只支持比特币。\n\n我们倡导个人责任和拥有自己的密钥所提供的独立性。\n\n我们鼓励验证，而非盲目的信任。\n\n我们相信，通过搞定货币，我们可以修复世界。\n\n我们是去中心化和开源的，避免任何单点故障。\n\n我们鼓励自由传播我们的内容。\n\n我们渴望一个从底层向上运作的世界，那里个人处于中心位置。\n\n我们简化，我们教育，我们分享。\n\n加入我们的任务，让世界接受比特币。\n"
   },
   "auth": {
@@ -43,7 +43,7 @@
     "forgottenPassword": "忘记了您的密码？",
     "headerAccountCreated": "创建的账户",
     "lnurlAuthDescription": "用您的Lightning钱包扫描这个二维码以登录！",
-    "noAccountNeeded": "在Plan B Network开始学习无需账户！",
+    "noAccountNeeded": "在Plan ₿网路开始学习无需账户！",
     "noAccountYet": "没有账户？",
     "passwordRequired": "需要密码",
     "passwordsDontMatch": "密码不匹配",
@@ -70,7 +70,8 @@
     "displayName": "显示名",
     "trackProgress": "创造账户或登录以跟踪您的进展",
     "dashboardUnlocked": "您的学生仪表板已解锁！",
-    "didYouKnow": "您知道吗?"
+    "didYouKnow": "您知道吗?",
+    "passwordChangedSuccess": "已成功更改密码"
   },
   "bCertificate": {
     "bCertificateDescription": "₿-证书是一项国际认证的考试，用于评估您对比特币及其衍生主题的了解程度。这个证书将使您能够在比特币行业中证明自己的技能和知识，是进入该行业公司和职位的准入证。",
@@ -79,7 +80,7 @@
     "knowledgeableBitcoin": "熟悉比特币吗？",
     "challengeYourself": "让我们挑战自己并证明您的水平！",
     "noBookExam": "目前还没有已排程的考试期。",
-    "organizeDescription": "没问题！如果您的社区是B Plan Network的一部分，那么在您可以在您的中心组织考试。请阅读图表，确保您满足举办考试的必要条件。如果您能满足这些条件，您就可以安排考试并将其添加到平台上。",
+    "organizeDescription": "没问题！如果您的社区是网络的一部分，那么在您可以在您的中心组织考试。请阅读图表，确保您满足举办考试的必要条件。如果您能满足这些条件，您就可以安排考试并将其添加到平台上。",
     "organizeExam": "组织一场考试",
     "organizeSubtitle": "给十亿人提供比特币这种“橙色药丸”并不容易",
     "organizeTitle": "想在您的中心组织₿证书考试吗？",
@@ -242,7 +243,24 @@
     "close": "关闭",
     "hybrid": "混合",
     "user": "用户",
-    "username": "用户名"
+    "username": "用户名",
+    "yes": "是",
+    "language": "语言",
+    "previous": "上一个",
+    "telegram": "Telegram",
+    "careerPortal": "职业生涯门户",
+    "complete": "完成",
+    "country": "国家",
+    "delete": "删除",
+    "github": "Github",
+    "incomplete": "未完成",
+    "linkedin": "领英",
+    "name": "名称",
+    "next": "下一个",
+    "no": "否",
+    "project": "项目",
+    "projects": "项目",
+    "submit": "提交"
   },
   "conferences": {
     "description": "会议是比特币行业的关键元素。它们是每个比特币用户教育旅程的一部分。我们构建了这个工具，帮助您在数百个会议中浏览。",
@@ -263,7 +281,7 @@
     "latestConferences": "最新的会议",
     "location": "位置",
     "pageTitle": "会议重播",
-    "planBConferences": "B Plan会议",
+    "planBConferences": "Plan ₿会议",
     "topics": "话题"
   },
   "courses": {
@@ -311,15 +329,22 @@
       "courseAddedToDashboard": "本课程已被添加到您的学生仪表板",
       "premiumContentNeedsLogin": "您需要登录以参加这门课程。",
       "premiumContentNeedsPayment": "本课程是高级计划的一部分。",
-      "premiumContentNeedsPaymentAction": "前往课程主页"
+      "premiumContentNeedsPaymentAction": "前往课程主页",
+      "hasNotBeenProofread": "此课程尚未校对",
+      "teacherLed": "由教师指导",
+      "ledBy": "课程领导者：",
+      "pastEditionsRatings": "往前版本评价"
     },
     "explorer": {
       "buildPath": "進入兔子洞時建造你自己的道路",
-      "exploreCourses": "探索所有B计划课程",
+      "exploreCourses": "探索所有Plan ₿课程",
       "findCourses": "借助于课程选择器，找到最适合您需求的完美课程",
       "journey": "比特币是一场旅行，而不是一个目的地",
-      "pageDescription": "Plan B学院致力于在全球范围内简化比特币教育。由各领域的专家精心策划，学院提供了丰富的课程，旨在揭示比特币的各个方面。从初学者到专家，无论是按照你自己的节奏学习，还是每周由教授指导，我们希望学院能帮助你更好理解比特币这个广泛的主题。我们的大部分课程都是完全免费的，以便任何人，任何地方，都可以接受教育。",
-      "seeCourse": "查看课程"
+      "pageDescription": "Plan ₿学院致力于在全球范围内简化比特币教育。由各领域的专家精心策划，学院提供了丰富的课程，旨在揭示比特币的各个方面。从初学者到专家，无论是按照你自己的节奏学习，还是每周由教授指导，我们希望学院能帮助你更好理解比特币这个广泛的主题。我们的大部分课程都是完全免费的，以便任何人，任何地方，都可以接受教育。",
+      "seeCourse": "查看课程",
+      "planbSchoolHeadline": "Plan ₿学校，由Giacomo Zucco带领，提供三个月的密集教育项目，作为学习和实际应用差距的桥梁。超越了常规的课堂，学生们将参与由公司主导的实践项目，并且为表现最优的学生们提供高级训练营。学生们需要通过两轮竞争性选拔，以便确保最优秀的人才具备充分的能力，使他们能够顺利开始追求在比特币行业的职业生涯。",
+      "comingSoon": "马上就来",
+      "planbSchool": "PLAN ₿学校"
     },
     "payment": {
       "accessibility_forever": "永远",
@@ -328,7 +353,7 @@
       "amount": "金额",
       "back_course": "回到课程",
       "date": "日期",
-      "downloadCurriculum": "下载课程大纲",
+      "downloadCurriculum": "下载课程课表",
       "book_description": "请查场地详情。\n一旦预订处理完毕，我们将为您提供确认票据和二维码，以在活动现场出示。",
       "duration": "持续时间",
       "invoiceId": "交易ID",
@@ -401,7 +426,8 @@
       "editReview": "编辑回顾",
       "feedback": "反馈",
       "feedbackDescription1": "请在下面评价您的课程体验。",
-      "feedbackDescription2": "请注意，教师们无法查看个人评估。"
+      "feedbackDescription2": "请注意，教师们无法查看个人评估。",
+      "whatStudentsSayPasEdition": "学生们对往前版本的评论"
     },
     "exam": {
       "congratulationsPassed": "恭喜，您已<0>通过</0>期末考试！",
@@ -441,7 +467,7 @@
       "oopsFailed": "哎哟，您<0>未通过/0>期末考试。",
       "passed": "合格",
       "passRate": "合格率为80%。",
-      "planBTimeStamp": "在Plan ₿ Network中，我们通过使用区块链支持的时间戳技术来保障您的学位安全。",
+      "planBTimeStamp": "在Plan ₿网络中，我们通过使用区块链支持的时间戳技术来保障您的学位安全。",
       "quitWithoutSubmitting": "哎哟，似乎您在未提交答案的情况下离开了页面。这会导致考试被取消。",
       "retakeExam": "重新参加考试",
       "retakeInstructions": "考试由40道题组成，考试时间为20分钟，每题只有一项正确答案。您可以在题目之间进行切换并在考试结束后提交答案。",
@@ -458,11 +484,11 @@
       "whyTimeStamp": "为您的学位进行时间戳：\n为何这很重要",
       "wishTryAgain": "24小时后，您可以重新参加考试。",
       "yesSubmit": "是，提交",
-      "bCertificateCompletionText": "Plan ₿ Network很高兴祝贺 {{username}} 获得₿证书。",
+      "bCertificateCompletionText": "Plan ₿网络很高兴祝贺 {{username}} 获得₿证书。",
       "buttonTextBCert": "进一步学习",
       "certificatePageOtherCourses": "其他相关课程",
       "dontWorryRetake": "不要担心，24小时后，您可以重新参加考试。",
-      "examCertificateCompletionText": "Plan ₿ Network很高兴祝贺 {{username}} 获得“{{courseName}}”的课程文凭。",
+      "examCertificateCompletionText": "Plan ₿网络很高兴祝贺 {{username}} 获得“{{courseName}}”的课程文凭。",
       "courseDiploma": "课程文凭",
       "courseNotFound": "未找到课程"
     },
@@ -481,7 +507,7 @@
   "builders": {
     "networkStrength": "网络的力量在于其成员",
     "noRelatedEvents": "这个建设者近期没有相关活动举办。",
-    "otherCommunities": "探索计划B社区",
+    "otherCommunities": "探索Plan ₿社区",
     "pageTitle": "比特币建设者",
     "languages": "语言",
     "relatedEvents": "即将举办的相关活动"
@@ -616,7 +642,7 @@
         "account": "教师账户",
         "billingInformations": "账单信息",
         "description": "您的描述",
-        "enterTipsInformations": "Plan ₿ Network鼓励用户打赏教师。请填写您的消息，以便用户可为您提供小费。",
+        "enterTipsInformations": "Plan ₿网络鼓励用户打赏教师。请填写您的消息，以便用户可为您提供小费。",
         "lightningAddress": "闪电地址",
         "makeModifications": "需要进行修改？",
         "noLightningAddress": "未添加闪电地址。",
@@ -625,7 +651,7 @@
         "notifications": "通知",
         "publicDescription": "该描述将显示在平台上的教师信息卡中。",
         "publicProfile": "公开简介",
-        "publicProfileDescription": "在这里，您可以填写或编辑您作为Plan ₿ Network教师的所有活动的相关信息。",
+        "publicProfileDescription": "在这里，您可以填写或编辑您作为Plan ₿网络教师的所有活动的相关信息。",
         "teacher": "教师",
         "teacherProfile": "教师简介",
         "tutorialModification": "如果您需要帮助来编辑某些内容，请查看这个<0>教程</0>。"
@@ -649,7 +675,7 @@
     },
     "credentials": {
       "bCertificate": "₿证书",
-      "bCertificateSubtitle": "在这里，您可以找到关于您的过去和未来₿证书的预订和成绩细节。\n₿证书是一个由Plan ₿ Network组织的考试，用于证明您在比特币与其相关题目的知识水平。",
+      "bCertificateSubtitle": "在这里，您可以找到关于您的过去和未来₿证书的预订和成绩细节。\n₿证书是一个由Plan ₿网络组织的考试，用于证明您在比特币与其相关题目的知识水平。",
       "beingGraded": "您的考试正在被评分。结果将在1到2周内公布。",
       "courseDiplomas": "课程文凭",
       "courseDiplomasSubtitle": "在这里，您可以查看自己在平台上完成课程后参加的所有考试的相关详情。",
@@ -684,10 +710,199 @@
       "tutorialAnalyticsDescription": "在这里，您可以查看并比较平台上的所有教程。",
       "tutorialsManagementPanel": "教程管理面板",
       "type": "类型",
-      "upcomingBookings": "即将到来的预订"
+      "upcomingBookings": "即将到来的预订",
+      "careers": {
+        "careersSubtitle": "在这里，您可以查看已完成申请的参与者名单。您可以在电子表格中找到所有申请信息。",
+        "careers": "职业生涯",
+        "cv": "简历",
+        "downloadProfiles": "下载电子表格",
+        "downloadSpreadsheet": "下载电子表格",
+        "lastUpdate": "最后更新",
+        "lastUpdated": "最后更新",
+        "profession": "职业",
+        "resultsRemaining": "还有{{results}}个结果",
+        "seeMore": "查看更多",
+        "viewCV": "查看简历"
+      }
     },
     "studentDashboard": "学生仪表板",
-    "backToDashboard": "返回仪表板"
+    "backToDashboard": "返回仪表板",
+    "careerPortal": {
+      "acceptTermsAndConditions": "我已经阅读并同意条款和条件",
+      "acceptedFormat": "可接收文件格式：pdf/最大文件大小：10 MB。",
+      "beAware": "请注意，Plan ₿仅为招聘目的收集并存储您的数据。这些数据将通过处理，根据欧盟通用数据保护条例（GDPR）的规定，您的数据将被处理并与我们的商业合作伙伴共享。点击 <0>这里</0> 以了解更多关于我们候选人隐私声明的信息。",
+      "description": "作为Plan ₿网络的学生，您是一个广阔社区的一部分，该社区可支持您的职业发展。在这个部分，您可以提交您的简历并分享您的事业意愿。我们将和行业伙伴紧密合作以帮助您找到合适的工作机会，使您能够迈出职业生涯的下一步。",
+      "emailAddress": "电子邮箱",
+      "expectedSalaryPlaceholder": "月薪：2.5千（净收入）",
+      "expectedSalarySubLabel": "根据您的个人资料，请告知我们您的小时费率或月薪预期。请明确说明这是净收入还是税前收入。",
+      "jobSearchSubtitle": "请描述您的职位偏好，使我们能够为您匹配最合适的工作机会。",
+      "jobTitles": {
+        "cloudInfrastructureEngineer": "云网基础设施工程师",
+        "fullStackDeveloper": "全栈开发人员",
+        "publicRelationsManager": "公关经理",
+        "revenueManager": "收入经理",
+        "backendEngineer": "后端工程师",
+        "bitcoinInvestmentAnalyst": "比特币投资分析师",
+        "frontendEngineer": "前台工程师",
+        "brandStrategist": "品牌策略师",
+        "accountingManager": "会计经理",
+        "amlKycSpecialist": "反洗钱/了解你的客户专员",
+        "businessAnalyst": "商业分析师",
+        "businessDevelopmentManager": "商业发展经理",
+        "communityManager": "社区经理",
+        "complianceOfficer": "合规官员",
+        "contentWriter": "内容作家",
+        "cryptographer": "密码员",
+        "customerSuccessManager": "客户成功经理",
+        "customerSupportSpecialist": "客户支持专员",
+        "cybersecurity": "网络安全",
+        "dataEngineer": "数据工程师",
+        "devOpsEngineer": "开发运维工程师",
+        "economicAnalyst": "经济分析师",
+        "educator": "教育家",
+        "eventCoordinator": "活动协调员",
+        "graphicDesigner": "平面设计师",
+        "hrSpecialist": "人事专员",
+        "legalContractSpecialist": "法律契约专员",
+        "logisticManager": "物流经理",
+        "marketingManager": "营销经理",
+        "miningEngineer": "挖矿工程师",
+        "miningOperationsManager": "挖矿运营经理",
+        "mobileAppDeveloper": "手机应用开发人员",
+        "operationsManager": "运营经理",
+        "productManager": "产品经理",
+        "protocolEngineer": "协议工程师",
+        "researcher": "研究家",
+        "riskAnalyst": "风险分析师",
+        "sales": "销售员",
+        "seoSpecialist": "搜索引擎优化专员",
+        "socialMediaManager": "社交媒体经理",
+        "technicalProductManager": "技术性产品经理",
+        "technicalSupportEngineer": "技术支持工程师",
+        "technicalWriter": "技术写作人员",
+        "uiUxDesigner": "用户界面/用户体验设计师",
+        "uxResearcher": "用户体验研究家"
+      },
+      "languageLevel": "熟练程度",
+      "languageLevels": {
+        "intermediate": "中级（自如交流）",
+        "beginner": "初级（理解有限）",
+        "advanced": "高级（自信与准确性）",
+        "elementary": "基础（基础对话与写作）",
+        "fluent": "流利（母语水平）"
+      },
+      "legalInformationSubtitle": "请同意以下条款和条件，以便我们能够将您的技能和经验与我们的商业伙伴的工作机会进行匹配。",
+      "personalInformationSubtitle": "请添加您的全名和居住地。",
+      "applicationStatus": "您的申请正在",
+      "cannotUndo": "此操作无法撤销。",
+      "bitcoinRelatedExperience": "比特币相关经验",
+      "companySizePreferenceSubLabel": "您可以选出多项选项。",
+      "companySizeRequired": "请选择至少一项公司规模选项。",
+      "companySizes": {
+        "100More": "100名及以上员工",
+        "11To40": "11到40名员工",
+        "1To10": "1到10名员工",
+        "41To100": "41到100名员工",
+        "noPreference": "没有公司规模偏好"
+      },
+      "countryResidence": "居住国家",
+      "languageRequired": "请添加至少一门语言。",
+      "languageSkills": "语言能力",
+      "lastName": "姓氏",
+      "add": "添加",
+      "allowReceivingEmails": "我同意接收来自Plan ₿网络关于工作机会的电子邮件",
+      "applicationSaved": "已保存您的申请信息！",
+      "availability": "您的空闲时间",
+      "availabilityStart": "您能什么时候开始？",
+      "availabilityStartPlaceholder": "日期",
+      "bitcoinRelatedExperienceSubtitle": "请分享关于您参与比特币倡议的信息。",
+      "companySizePreference": "请选择您的公司规模偏好",
+      "completeApplication": "完成申请",
+      "confirmDelete": "确认删除",
+      "contactInformation": "联系人信息",
+      "contactInformationSubtitle": "请提供您的电子邮件及其他联系方式。",
+      "cvRequired": "您需要上传您的简历。",
+      "emailPlaceholder": "mail@mail.com",
+      "expectedSalary": "期望薪资",
+      "fileTooLarge": "所选文件大小太大",
+      "fileUploadError": "上传文件时发生错误。请再试一次。",
+      "fileUploaded": "已成功上传简历！",
+      "firstName": "本名（或化名）",
+      "followProcess": "请按照以下步骤流程提交您的简历和职业信息。",
+      "fullTime": "全职",
+      "invalidFile": "文件格式无效",
+      "jobCategories": {
+        "businessRoles": "商业职位",
+        "financeCompliance": "金融与合规",
+        "marketingCommunity": "营销与社区",
+        "more": "更多",
+        "operationsSupport": "运营于支持",
+        "productDesign": "产品与设计",
+        "researchEducation": "研究与教育",
+        "technicalRoles": "技术性职位"
+      },
+      "jobSearch": "职位搜索",
+      "languageLevelSubLabel": "请选择对应于您技能水平的级别。",
+      "languageSkillsSubtitle": "请告知我们您会沟通和写作的语言，以及对应的熟练水平。",
+      "legalInformation": "法律信息",
+      "legalTerms": "法律条款",
+      "lookingForJob": "我们正在为您寻找工作机会。",
+      "other": "其他",
+      "partTime": "兼职",
+      "personalInformation": "个人信息",
+      "provideValidEmail": "请添加有效的电子邮箱。",
+      "remoteWorkPreference": "您愿意远程工作吗？",
+      "remoteWorkPreferences": {
+        "no": "我宁愿不做远程工作",
+        "sometimes": "我愿意偶尔做远程工作",
+        "yes": "当然，我愿意做远程工作"
+      },
+      "bitcoinCommunityParticipant": "您是比特币本地社区的一员吗？",
+      "bitcoinCommunityText": "如果您是社区的一员，请说明是哪个社区，以及您参与的程度\n这个社区是Plan ₿网络的一部分吗？",
+      "bitcoinProjectParticipant": "你是否曾积极为任何比特币项目做出过贡献？\n（过去或当前项目不限）",
+      "bitcoinProjectPlaceholder": "例如：社区项目、开源项目等",
+      "bitcoinProjectSubLabel": "请在下面描述您的项目。",
+      "bitcoinProjectText": "是哪一个？",
+      "cvUpload": "上传您的简历",
+      "cvUploadLabel": "上传简历",
+      "cvUploadSubtitle": "上传您的简历，向雇主展示您的技能和经验。",
+      "deleteCareerProfile": "删除职业生涯档案",
+      "deleteCareerProfileTitle": "您确定删除您的生涯职业档案吗？",
+      "maxCharacters": "最多{{characters}}个字符",
+      "maxRoles": "您最多可以选出3个职位名称。",
+      "motivation": "动力",
+      "motivationLetter": "动机信",
+      "motivationLetterPlaceholder": "您的动机是什么？",
+      "motivationLetterSubLabel": "您可以在下面简短地描述您的经验和动机。",
+      "motivationSubtitle": "您可以附上一封求职信来丰富您的申请详情，为我们提供更多关于您自己和求职过程的背景信息。",
+      "selectRoleSubLabel": "请选择最适合您的职位搜索的职位名称。",
+      "steps": {
+        "step4": "法律条款",
+        "step1": "个人信息",
+        "step2": "职位搜索",
+        "step3": "上传简历"
+      },
+      "uploadCVSubLabel": "上传您的简历，向雇主展示您的技能和经验。",
+      "welcome": "欢迎来到您的职业生涯门户",
+      "roleLevel": "经验水平",
+      "roleLevelSubLabel": "请选择对应于您技能水平的级别。",
+      "roleLevels": {
+        "junior": "初级（1到3年）",
+        "mid": "中级（3到5年）",
+        "senior": "高级（超过5年）",
+        "student": "学生（0年）"
+      },
+      "roleRequired": "请添加至少一个职位。",
+      "seeOrEditProfile": "查看或编辑个人资料",
+      "selectJobTitle": "请选择一个职位名称",
+      "selectLanguage": "请选择一门语言",
+      "selectRole": "您正在寻找什么职位？",
+      "startApplication": "开始申请",
+      "termsAndConditions": "条款与条件",
+      "uploadCV": "上传您的简历",
+      "yourLanguages": "您的语言",
+      "yourRoles": "您的职位"
+    }
   },
   "events": {
     "card": {
@@ -712,7 +927,7 @@
       "missedp2": "我们在此储存了所有过去活动的重播，以便人人都可以自由了解错过的内容。",
       "missedp1": "你错过了一个活动吗？"
     },
-    "pageDescription": "想要实时讨论比特币吗？在这里，您可以找到Plan B Network社区支持的所有活动。无论您是想听讲座，手持饮料讨论比特币，还是想通过考试评估您的知识，您都能通过Plan B Network找到适合的活动。",
+    "pageDescription": "想要实时讨论比特币吗？在这里，您可以找到Plan ₿网络社区支持的所有活动。无论您是想听讲座，手持饮料讨论比特币，还是想通过考试评估您的知识，您都能通过Plan ₿网络找到适合的活动。",
     "payment": {
       "callout_physical": "您即将预订此活动的实体入场权限。",
       "description_free_physical": "请查场地详情。\n一旦预订处理完毕，我们将为您提供确认票和二维码，以在活动现场出示。",
@@ -757,22 +972,22 @@
   },
   "home": {
     "header": {
-      "content": "PlanB平台旨在向全球提供最佳工具和教育内容，帮助人们重获他们的自主权。从个人到社区，我们在此帮助您走过比特币旅程。",
+      "content": "Plan ₿平台旨在向全球提供最佳工具和教育内容，帮助人们重获他们的自主权。从个人到社区，我们在此帮助您走过比特币旅程。",
       "forEducators": "给教育者和建设者",
       "globalNetwork": "全球比特币网络",
-      "welcome": "欢迎来到PlanB网络",
+      "welcome": "欢迎来到Plan ₿网络",
       "link": "成为网络的一部分",
       "startLink": "开始学习"
     },
     "tutorialSection": {
       "title": "我们的目标是简化比特币教育。",
-      "content1": "比特币正在不断发展，新的参与者、解决方案、协议和技术突破不断涌现。维护一个单一、准确的、更新的教程数据库往往很难。但在PlanB，我们已经实现了这一目标。从初学者到高级用户，你可以浏览数百个教程，根据你的需求探索我们的行业。",
+      "content1": "比特币正在不断发展，新的参与者、解决方案、协议和技术突破不断涌现。维护一个单一、准确的、更新的教程数据库往往很难。但在Plan ₿，我们已经实现了这一目标。从初学者到高级用户，你可以浏览数百个教程，根据你的需求探索我们的行业。",
       "subtitle1": "我们通过大量深入的教程帮助您掌握这项技术！",
       "link": "查看所有教程",
       "link2": "查看所有资料"
     },
     "aboutUsSection": {
-      "content": "PlanB网络是一个旨在全球范围内支持比特币教育的倡议。它是各种热衷于比特币的公司的交叉点，这些公司专注于教育、开源软件、点对点网络和社区意识。他们共同决定建立PlanB网络，并为比特币生态系统提供合适的工具以实现增长。",
+      "content": "Plan ₿网络是一个旨在全球范围内支持比特币教育的倡议。它是各种热衷于比特币的公司的交叉点，这些公司专注于教育、开源软件、点对点网络和社区意识。他们共同决定建立PlanB网络，并为比特币生态系统提供合适的工具以实现增长。",
       "title": "我们是谁？",
       "subtitle": "关于我们的一些情况",
       "bitcoinFocusTitle": "比特币关注",
@@ -787,14 +1002,14 @@
     "languageSection": {
       "availableLanguages": "可用语言",
       "title": "这里没有语言障碍。",
-      "content1": "在PlanB，我们坚信比特币是一场涉及所有人的国际革命。为了赋予数十亿人权力，我们正在设计这个平台，使其支持多种语言，对所有人开放。该平台目前支持7种语言，每个月都会增加更多。为了实现这一目标，我们使用了AI和全球比特币爱好者的热情相结合的方式。",
+      "content1": "在Plan ₿网络，我们坚信比特币是一场涉及所有人的国际革命。为了赋予数十亿人权力，我们正在设计这个平台，使其支持多种语言，对所有人开放。该平台目前支持7种语言，每个月都会增加更多。为了实现这一目标，我们使用了AI和全球比特币爱好者的热情相结合的方式。",
       "subtitle": "一切都被翻译成了当地语言",
       "link": "帮助我们翻译学院",
       "availableLanguagesVariation": "支持的语言： "
     },
     "patreonSection": {
       "title": "让我们一起让比特币教育变得更好！",
-      "content": "PlanB网络很荣幸能与世界各地的许多比特币公司合作，以最大可能提供最佳教育资源！"
+      "content": "Plan ₿网络很荣幸能与世界各地的许多比特币公司合作，以最大可能提供最佳教育资源！"
     },
     "wallOfLoveSection": {
       "title": "爱之墙",
@@ -802,8 +1017,10 @@
     },
     "blogSection": {
       "description": "我们一直在改善平台、内容和网络——快来看看吧！",
-      "blogTitle": "Plan ₿ Network的新动态",
-      "seeAll": "查看全部"
+      "blogTitle": "Plan ₿网络的新动态",
+      "seeAll": "查看全部",
+      "noBlogsAvailable": "暂无博客可用。",
+      "noDateAvailable": "暂无日期可用"
     },
     "courseSection": {
       "checkAllCourses": "查看所有课程",
@@ -828,7 +1045,7 @@
   "menu": {
     "betDescription": "您可以用于教育项目的内容收集",
     "conferencesDescription": "自创世区块以来的比特币会议重播集锦",
-    "nodeNetworkDescription": "加入Plan B全球社区网络",
+    "nodeNetworkDescription": "加入Plan ₿的全球社区网络",
     "login": "登录",
     "bCertificateDescription": "通过₿证书考试来证明您的比特币水平",
     "buildersDescription": "了解那些致力于改善比特币并增长其应用的公司和项目",
@@ -902,7 +1119,11 @@
     },
     "newsletter": {
       "check": "查看电子报"
-    }
+    },
+    "projects": {
+      "title": "项目"
+    },
+    "toggleFreeOnly": "仅限免费"
   },
   "tutorials": {
     "details": {
@@ -955,7 +1176,7 @@
     },
     "others": {
       "contribution": {
-        "description": "通过我们的详细教程，学习如何为PlanB网络做出贡献，并掌握我们内部使用的开源工具！"
+        "description": "通过我们的详细教程，学习如何为Plan ₿网络做出贡献，并掌握我们内部使用的开源工具！"
       },
       "title": "其他",
       "shortDescription": "探索与比特币主题密切相关的多样化教程",
@@ -1000,7 +1221,10 @@
     "pageSubtitle": "通过探索其庞大的生态系统，揭开比特币的神秘面纱",
     "pageTitle": "探索我们的教程",
     "approvedByCreator": "已受到创作者的认可",
-    "backTutorials": "返回到其他教程"
+    "backTutorials": "返回到其他教程",
+    "hasBeenProofreadBy": "教程校对员：",
+    "hasNotBeenProofread": "此教程尚未校对",
+    "writtenBy": "本教程作者："
   },
   "library": {
     "pageTitle": "比特币图书馆"
@@ -1012,10 +1236,10 @@
     "changeEmail": "更改电子邮件"
   },
   "nodeNetwork": {
-    "description1": "Plan B网络支持全球的教育倡议。我们通过我们的平台和实体空间共同创建这些项目的最佳工具。我们一直在寻找新的节点加入我们。如果你想一起创建一个关于比特币的全球分散的教育网络，请联系我们！",
+    "description1": "Plan ₿网络支持全球的教育倡议。我们通过我们的平台和实体空间共同创建这些项目的最佳工具。我们一直在寻找新的节点加入我们。如果你想一起创建一个关于比特币的全球分散的教育网络，请联系我们！",
     "apply": "申请成为一个节点",
-    "pageSubtitle": "想让全世界接受比特币这枚橙色良药吗？加入PlanB网络。",
-    "pageTitle": "探索计划B节点网络",
+    "pageSubtitle": "想让全世界接受比特币这枚橙色良药吗？加入Plan ₿网络。",
+    "pageTitle": "探索Plan ₿节点网络",
     "applyhelp": "*选择节点位置",
     "descriptionextend": "我们的第一步骤是邀请拥有实体空间的社区加入我们的团队，我们将其称为网络中的“全节点”。随着我们网络的不断增强，往后我们将会邀请世界上的更多倡议项目来加入。如果您认同我们的价值，请联系我们的代表以加入我们的网路，协助我们打造并实现最佳的比特币教育。"
   },
@@ -1068,7 +1292,7 @@
     "rewardsText": "*奖励可能会根据美元汇率的变化而有所不同"
   },
   "publicCommunication": {
-    "description": "Plan ₿ Network遵循开源标准，并在整个过程中保持透明",
+    "description": "Plan ₿网络遵循开源标准，并在整个过程中保持透明",
     "title": "公共传播",
     "blogPost": "博客与新闻",
     "legal": "法律信息",
@@ -1117,5 +1341,42 @@
     "pageTitle": "YouTube频道",
     "view": "查看YouTube频道",
     "watchTrailer": "查看预告片"
+  },
+  "search": {
+    "event": "活动",
+    "events": "活动",
+    "explorer": {
+      "subtitle": "您在寻找什么？",
+      "title": "搜索门户"
+    },
+    "all": "所有",
+    "book": "书籍",
+    "books": "书籍",
+    "categories": "类型",
+    "course": "课程",
+    "course_chapter": "课程章节",
+    "course_part": "课程部分",
+    "courses": "课程",
+    "filterByType": "按类型筛选",
+    "glossary_word": "词汇表单词",
+    "glossary_words": "词汇表单词",
+    "languageSelected": "所选语言：{{language}}",
+    "loadMoreResults": "查看更多结果",
+    "newsletter": "电子报",
+    "newsletters": "电子报",
+    "podcast": "播客",
+    "podcasts": "播客",
+    "professor": "教授",
+    "professors": "教授",
+    "resultEmpty": "哎呀！我们未找到与您的搜索匹配的内容。请检查拼写、尝试其他的关键词，或者选择其他类型。",
+    "resultError": "出现了问题。请再试一次。",
+    "resultInfo": "在{{time}}毫秒内找到了{{count}}个结果",
+    "results": "结果",
+    "resultsRemaining": "还剩余{{count}}个结果",
+    "search": "搜素",
+    "searchResult": "搜索结果",
+    "startSearch": "开始搜索以在这里查看结果",
+    "tutorial": "教程",
+    "tutorials": "教程"
   }
 }

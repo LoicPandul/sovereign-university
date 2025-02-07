@@ -70,7 +70,8 @@
     "emailTip": "Dodavanje korisničkog email-a nije obavezno, ali može biti korisno u slučaju zaboravljene lozinke :)",
     "dashboardUnlocked": "Vaša studentska kontrolna tabla je otključana !",
     "didYouKnow": "Da li ste znali ?",
-    "trackProgress": "Kreirajte nalog ili se prijavite da biste pratili svoj napredak"
+    "trackProgress": "Kreirajte nalog ili se prijavite da biste pratili svoj napredak",
+    "passwordChangedSuccess": "Lozinka je uspešno promenjena"
   },
   "bCertificate": {
     "bCertificateDescription": "₿ -sertifikat je međunarodno priznat ispit za procenu Vašeg nivoa znanja o Bitcoinu i tema koje iz njega proizlaze. Ovaj sertifikat će Vam omogućiti da dokažete svoje veštine i znanje u industriji Bitcoina, pružajući Vam pristup kompanijama i pozicijama u toj industriji.",
@@ -141,7 +142,7 @@
         "ticketDownload": "Preuzmite svoju kartu"
       },
       "finishCourse": "Završite kurs",
-      "next": "Završeno, pređite na sledeće poglavlje.",
+      "next": "Završi poglavlje",
       "thanksTip": "Želite da izrazite zahvalnost? \nMožete podržati autora napojnicom.",
       "nextLesson": "Sledeći čas će biti",
       "live": {
@@ -308,6 +309,14 @@
       "commentAdminMobile": "Privatni komentar za administrativni tim",
       "commentPublicMobile": "Javni komentar",
       "commentTeacherMobile": "Privatni komentar za nastavnika"
+    },
+    "conclusion": {
+      "completedChaptersHeadline": "Sva poglavlja su sad završena!",
+      "completedFeedbackHeadline": "Hvala Vam na povratnim informacijama\nZa nas je to veoma važno, tako da mi to zaista cenimo.",
+      "completedFeedbackSubHeadline": "Možete da izmenite svoje ocene i komentare u bilo kom trenutku na kontrolnoj tabli.",
+      "congratulationsEnd": "Čestitamo, stigli ste do kraja kursa",
+      "finalStep": "Ovo je bio poslednji korak da označite ovaj kurs kao završen na vašoj kontrolnoj tabli, pre nego što nastavite putovanje!",
+      "stepsToComplete": "Ovo su koraci za označavanje ovog kursa kao završenog na vašoj kontrolnoj tabli, pre nego što nastavite svoje putovanje!"
     }
   },
   "builders": {

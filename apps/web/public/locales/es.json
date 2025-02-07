@@ -70,7 +70,8 @@
     "emailTip": "El correo electrónico no es obligatorio, pero puede ser útil en caso de olvidar la contraseña :)",
     "dashboardUnlocked": "¡Tu panel de control del estudiante está desbloqueado!",
     "didYouKnow": "¿Lo sabías?",
-    "trackProgress": "Crea una cuenta o inicia sesión para llevar un seguimiento de tu progreso."
+    "trackProgress": "Crea una cuenta o inicia sesión para llevar un seguimiento de tu progreso.",
+    "passwordChangedSuccess": "Contraseña cambiada correctamente"
   },
   "bet": {
     "educationalContent": {
@@ -140,7 +141,8 @@
       "otherCourses": "Otros cursos",
       "otherCoursesInterest": "Otros cursos que te pueden interesar",
       "premiumContentNeedsLogin": "Debes iniciar sesión para acceder a este curso.",
-      "thanksTipping": "Puedes mostrar tu agradecimiento dándole una propina al profesor."
+      "thanksTipping": "Puedes mostrar tu agradecimiento dándole una propina al profesor.",
+      "hasNotBeenProofread": "Este curso aún no ha sido revisado"
     },
     "explorer": {
       "pageDescription": "La Academia Plan ₿ tiene como objetivo simplificar la educación sobre Bitcoin a nivel mundial. Curada por expertos de diversos campos, nuestra academia ofrece una amplia gama de cursos diseñados para aclarar cada aspecto de Bitcoin.\nDesde principiante hasta experto, ya sea a tu propio ritmo o seguido semanalmente por un profesor, esperamos que la academia pueda ayudarte a obtener una comprensión más profunda del extenso mundo de Bitcoin. Muchos de nuestros cursos son completamente gratuitos para que cualquier persona, en cualquier lugar, pueda acceder a una educación de calidad.",

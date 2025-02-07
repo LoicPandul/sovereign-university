@@ -70,7 +70,8 @@
     "emailTip": "L'email non è obbligatoria, ma può essere utile in caso in cui la password venga dimenticata",
     "dashboardUnlocked": "La tua bacheca studente è sbloccata!",
     "trackProgress": "Crea un account o accedi per tenere traccia dei tuoi progressi",
-    "didYouKnow": "Lo sapevi?"
+    "didYouKnow": "Lo sapevi?",
+    "passwordChangedSuccess": "La password è stata cambiata con successo"
   },
   "bet": {
     "educationalContent": {
@@ -141,7 +142,9 @@
       "otherCourses": "Altri corsi",
       "otherCoursesInterest": "Altri corsi che potrebbero interessarti",
       "thanksTipping": "Puoi dire grazie lasciando una mancia al professore.",
-      "hasNotBeenProofread": "Questo corso non è stato ancora revisionato"
+      "hasNotBeenProofread": "Questo corso non è stato ancora revisionato",
+      "ledBy": "Questo corso è tenuto da",
+      "pastEditionsRatings": "Valutazioni delle Edizioni Precedenti"
     },
     "explorer": {
       "pageDescription": "La Plan ₿ Academy è dedicata a semplificare l'educazione Bitcoin nel mondo. Curata da esperti di molti campi, la nostra accademia fornisce un ventaglio esaustivo di corsi progettati per chiarificare ogni aspetto di Bitcoin. Dal principiante all'esperto, seguendo il tuo ritmo o insieme a un professore, speriamo che l'accademia possa aiutarti a comprendere meglio il vasto tema di Bitcoin. Una larga parte dei nostri corsi sono interamente gratuiti in modo che chiunque, da qualsiasi luogo, possa avere accesso all'educazione.",
@@ -231,7 +234,8 @@
       "feedbackDescription1": "Ti chiediamo gentilmente di valutare qui sotto la tua esperienza con il corso.",
       "feedbackDescription2": "Ricorda che gli insegnanti non avranno accesso alle valutazioni individuali.",
       "saveReview": "Salva recensione",
-      "thankYou": "Grazie per la tua recensione! È stata presa in considerazione"
+      "thankYou": "Grazie per la tua recensione! È stata presa in considerazione",
+      "whatStudentsSayPasEdition": "Cosa dicono gli studenti delle edizioni passate"
     },
     "exam": {
       "answersReview": "Revisione delle risposte",
@@ -491,7 +495,20 @@
       "userRolesAllocation": "Assegnazione dei ruoli utente",
       "tutorialAnalyticsDescription": "Qui puoi vedere e confrontare tutti i tutorial sulla piattaforma.",
       "tutorialsManagementPanel": "Pannello di gestione dei tutorial",
-      "makeProfessor": "Diventa professore"
+      "makeProfessor": "Diventa professore",
+      "careers": {
+        "careers": "Carriere",
+        "cv": "Curriculum Vitae",
+        "downloadProfiles": "Scarica il foglio di calcolo",
+        "profession": "Professione",
+        "seeMore": "Vedi di più",
+        "viewCV": "Visualizza CV",
+        "downloadSpreadsheet": "Scarica il foglio di calcolo",
+        "lastUpdate": "Ultimo aggiornamento",
+        "lastUpdated": "Ultimo aggiornamento",
+        "resultsRemaining": "{{results}} risultati rimasti",
+        "careersSubtitle": "Qui puoi visualizzare l'elenco dei partecipanti che hanno completato le loro domande. Puoi trovare tutte le informazioni sulle domande all'interno del foglio di calcolo."
+      }
     },
     "studentDashboard": "Pannello dello studente",
     "backToDashboard": "Torna alla dashboard",
@@ -667,7 +684,9 @@
       "uploadCV": "Carica il tuo CV",
       "uploadCVSubLabel": "Carica il tuo CV per mostrare le tue competenze ed esperienze alle aziende.",
       "welcome": "Benvenuto nel tuo Portale Carriera",
-      "yourLanguages": "Le tue lingue"
+      "yourLanguages": "Le tue lingue",
+      "applicationStatus": "La tua domanda è",
+      "lookingForJob": "Stiamo attualmente cercando opportunità di lavoro per te."
     }
   },
   "events": {
@@ -789,7 +808,9 @@
     "blogSection": {
       "blogTitle": "Cosa c'è di nuovo su Plan ₿ Network?",
       "description": "Stiamo lavorando per migliorare i contenuti e la rete di Plan ₿ - dai un'occhiata!",
-      "seeAll": "Vedi tutto"
+      "seeAll": "Vedi tutto",
+      "noBlogsAvailable": "Nessun blog disponibile.",
+      "noDateAvailable": "Nessuna data disponibile"
     },
     "eventSection": {
       "checkEvents": "Esplora tutti gli eventi",
@@ -922,7 +943,10 @@
     "glossary": {
       "title": "Glossario"
     },
-    "toggleFreeOnly": "Gratis"
+    "toggleFreeOnly": "Gratis",
+    "projects": {
+      "title": "Progetti"
+    }
   },
   "settings": {
     "changePassword": "Cambia password",
@@ -1026,7 +1050,10 @@
       }
     },
     "approvedByCreator": "Approvato dal creatore",
-    "backTutorials": "Torna a tutti i tutorial"
+    "backTutorials": "Torna a tutti i tutorial",
+    "hasNotBeenProofread": "Questo tutorial non è stato ancora revisionato",
+    "hasBeenProofreadBy": "Questo tutorial è stato revisionato da",
+    "writtenBy": "Questo tutorial è stato realizzato da"
   },
   "underConstruction": {
     "github": "GitHub",
@@ -1185,7 +1212,12 @@
     "previous": "Indietro",
     "submit": "Invia",
     "telegram": "Telegram",
-    "yes": "Sì"
+    "yes": "Sì",
+    "projects": "Progetti",
+    "complete": "Completo",
+    "incomplete": "Incompleto",
+    "name": "Nome",
+    "project": "Progetto"
   },
   "conferences": {
     "addConferences": "Aggiungi pure qualsiasi conferenza mancante tramite questo repository <0>Github</0>.",
@@ -1337,6 +1369,10 @@
     "searchResult": "Risultati della ricerca",
     "startSearch": "Inizia la tua ricerca per vedere i risultati qui",
     "tutorial": "Tutorial",
-    "tutorials": "Tutorial"
+    "tutorials": "Tutorial",
+    "newsletter": "Newsletter",
+    "newsletters": "Newsletter",
+    "event": "Evento",
+    "glossary_words": "Glossario"
   }
 }
