@@ -79,11 +79,8 @@ const SchoolCard = ({ course }: { course: JoinedCourse }) => {
             {t('courses.details.teacherLed')}
           </TextTag>
         </div>
-        {/* TODO : use something appropriate from the course */}
         <p className="max-w-full text-tertiary-1 line-clamp-3 text-sm leading-snug tracking-015px md:text-base md:leading-relaxed md:tracking-[0.08px]">
-          From May to July, follow weekly classes led by Giacomo Zucco, learn
-          the ways of the industry, get selected to participate in a Bitcoin
-          company led project, and ....
+          {course.goal}
         </p>
         <div className="flex flex-col">
           <ListItem
