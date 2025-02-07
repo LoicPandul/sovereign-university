@@ -68,7 +68,7 @@ const TutorialsMarkdownBody = ({
           const course = getCourse(href, courses);
           if (course) {
             return (
-              <div className="w-full max-w-[500px] md:max-w-[340px] mx-auto">
+              <div className="w-full max-w-[500px] md:max-w-[340px] max-md:mx-auto py-2 md:px-2">
                 <CourseCard course={course} />
               </div>
             );
