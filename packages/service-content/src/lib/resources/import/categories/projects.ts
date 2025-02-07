@@ -64,10 +64,6 @@ export const createProcessChangedProject = (
 
         try {
           const parsedProject = await yamlToObject<ProjectMain>(main);
-          // TODO remove when correct data
-          if (parsedProject.original_language === undefined) {
-            parsedProject.original_language = '';
-          }
 
           const result = await transaction<Builder[]>`
               INSERT INTO content.builders (id, resource_id, name, category, languages, website_url, twitter_url, github_url, nostr, address_line_1, address_line_2, address_line_3, original_language)

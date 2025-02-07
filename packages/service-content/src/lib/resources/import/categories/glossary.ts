@@ -50,10 +50,6 @@ export const createProcessChangedGlossaryWord = (
 
         try {
           const parsedWord = await yamlToObject<GlossaryWordMain>(main);
-          // TODO remove when data fixed
-          if (parsedWord.original_language === undefined) {
-            parsedWord.original_language = '';
-          }
 
           const fileName = resource.path.split('/').slice(-1);
 

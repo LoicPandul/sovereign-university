@@ -40,11 +40,6 @@ export const createProcessMainFile = (transaction: TransactionSql) => {
     if (!file) return;
     const parsedTutorial = await yamlToObject<TutorialMain>(file);
 
-    // TODO remove this when data is fixed
-    if (parsedTutorial.original_language === undefined) {
-      parsedTutorial.original_language = '';
-    }
-
     const lastUpdated = tutorial.files.sort((a, b) => b.time - a.time)[0];
 
     // If tutorial has no logo, replace it with project logo
