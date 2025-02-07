@@ -33,7 +33,6 @@ const convertToCSV = (data: CalendarEventParticipant[]) => {
   return [header, ...rows].join('\n');
 };
 
-// TODO: Improve notification system when there are not participants
 const handleDownload = (
   participants: CalendarEventParticipant[],
   eventName: string,
@@ -146,7 +145,6 @@ const BookingTable = () => {
   );
 };
 
-// TODO: Add counter to how many participants are on one event so we know there are participants there or find some other solution with Muriel and team
 const EventRow = ({ event, participants }: EventProps) => {
   const { t } = useTranslation();
   const startDate = event.startDate || new Date();

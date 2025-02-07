@@ -255,3 +255,15 @@ export const courseReviewsExtendedSchema = z.object({
     }),
   ),
 });
+
+export const courseMetaSchema = minimalJoinedCourseSchema.pick({
+  id: true,
+  topic: true,
+  subtopic: true,
+  contact: true,
+  lastCommit: true,
+  language: true,
+  name: true,
+  goal: true,
+  objectives: true,
+});

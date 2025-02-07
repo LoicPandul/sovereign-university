@@ -7,7 +7,6 @@ import { App } from './app.tsx';
 import { AppProvider } from './providers/app.tsx';
 import './utils/i18n';
 
-// TODO TRIGGER
 import '../../../packages/ui/src/styles/global.css';
 
 const root = ReactDOM.createRoot(

@@ -30,7 +30,7 @@ function Books() {
   );
 
   const sortedBooks: JoinedBook[] = books
-    ? (books.sort((a, b) => a.title.localeCompare(b.title)) as JoinedBook[]) // Todo remove this as
+    ? books.sort((a, b) => a.title.localeCompare(b.title))
     : [];
 
   return (

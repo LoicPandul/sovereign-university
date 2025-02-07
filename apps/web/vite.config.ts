@@ -35,8 +35,6 @@ export default defineConfig({
         host: '0.0.0.0',
         port: 8181,
         strictPort: true,
-        // TODO: check if hmr configuration is needed
-        // hmr: {},
         proxy: {
           '/api': 'http://api:3000',
           '/cdn': {

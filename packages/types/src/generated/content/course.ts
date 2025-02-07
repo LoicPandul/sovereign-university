@@ -413,3 +413,15 @@ export interface CourseReviewsExtended {
     adminComment: string | null;
   }[];
 }
+
+export interface CourseMeta {
+  id: string;
+  topic: string;
+  subtopic: string;
+  contact: string | null;
+  lastCommit: string;
+  language: string;
+  name: string;
+  goal: string;
+  objectives: string[];
+}

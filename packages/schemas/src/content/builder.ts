@@ -23,8 +23,6 @@ export const joinedBuilderSchema = resourceSchema
   .pick({
     id: true,
     path: true,
-    // Todo fix validation
-    // lastUpdated: true,
     lastCommit: true,
   })
   .merge(

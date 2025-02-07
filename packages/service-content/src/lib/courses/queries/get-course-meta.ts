@@ -1,18 +1,5 @@
 import { sql } from '@blms/database';
-import type { MinimalJoinedCourse } from '@blms/types';
-
-type CourseMeta = Pick<
-  MinimalJoinedCourse,
-  | 'id'
-  | 'language'
-  | 'topic'
-  | 'subtopic'
-  | 'contact'
-  | 'name'
-  | 'goal'
-  | 'objectives'
-  | 'lastCommit'
->;
+import type { CourseMeta } from '@blms/types';
 
 export const getCourseMetaQuery = (id: string, language?: string) => {
   return sql<CourseMeta[]>`
@@ -22,10 +9,10 @@ export const getCourseMetaQuery = (id: string, language?: string) => {
       c.topic,
       c.subtopic,
       c.contact,
+      c.last_commit,
       cl.name,
       cl.goal,
-      cl.objectives,
-      c.last_commit
+      cl.objectives
     FROM content.courses c
     JOIN content.courses_localized cl ON c.id = cl.course_id
 

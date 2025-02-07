@@ -413,7 +413,6 @@ export const CourseConclusion = ({ chapter }: CourseConclusionProps) => {
                     className="self-start w-full md:mt-2.5"
                   />
                   {step > 1 ? null : (
-                    // TODO CHECK IF TRANSITIONING
                     <Button
                       className="ml-auto mr-6"
                       onClick={() => {
