@@ -40,7 +40,7 @@ export const createProcessChangedProject = (
     return postgres
       .begin(async (transaction) => {
         const processMainFile = createProcessMainFile(transaction);
-        const { main, files } = separateContentFiles(resource, 'builder.yml'); // TODOOOOO
+        const { main, files } = separateContentFiles(resource, 'project.yml');
         if (!main) return;
 
         try {
