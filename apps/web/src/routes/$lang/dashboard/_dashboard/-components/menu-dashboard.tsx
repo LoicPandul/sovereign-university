@@ -89,7 +89,7 @@ export const MenuDashboard = ({
   );
 
   return (
-    <div className="relative bg-[#1c0a00] flex w-full lg:w-64 min-[1750px]:w-80 flex-col lg:rounded-2xl overflow-hidden shrink-0 max-lg:min-h-full lg:max-h-fit">
+    <div className="relative bg-[#1c0a00] flex w-full lg:w-64 min-[1750px]:w-80 flex-col lg:rounded-2xl overflow-hidden shrink-0 min-h-full">
       <img
         src={pill}
         alt="Orange pill"
@@ -135,6 +135,7 @@ export const MenuDashboard = ({
                 ]
               : []),
           ]}
+          storageKey="isDashboardCoursesMenuOpen"
         />
         <Link to={calendarPath}>
           <MenuItem
