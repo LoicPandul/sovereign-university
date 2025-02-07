@@ -33,10 +33,10 @@ function Dashboard() {
       </div>
     </MainLayout>
   ) : (
-    <MainLayout variant="light" headerVariant="light">
-      <div className="flex flex-row text-white min-h-[1012px] mt-3 mx-4">
+    <MainLayout variant="gray" headerVariant="light">
+      <div className="flex flex-row text-white mt-3 mx-4">
         <MenuDashboard location={location} />
-        <div className="bg-white grow rounded-xl ml-3 p-8 text-black">
+        <div className="bg-white rounded-xl lg:ml-4 p-8 text-black lg:min-h-full w-fit">
           <Outlet />
         </div>
       </div>

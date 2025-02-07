@@ -11,6 +11,7 @@ export const MenuItem = ({
   onClick,
   dropdown,
   showOnMobileOnly,
+  storageKey,
 }: {
   text: string;
   icon: React.ReactNode;
@@ -18,20 +19,40 @@ export const MenuItem = ({
   onClick?: () => void;
   dropdown?: Array<{ text: string; to: string; onClick?: () => void }>;
   showOnMobileOnly?: boolean;
+  storageKey?: string;
 }) => {
-  const [isOpen, setIsOpen] = useState(true);
+  const [isOpen, setIsOpen] = useState(() => {
+    if (storageKey) {
+      return sessionStorage.getItem(storageKey) === 'true';
+    }
+    return true;
+  });
 
   const location = useLocation();
+
+  const toggleDropdown = () => {
+    setIsOpen((prev) => {
+      const newState = !prev;
+      if (storageKey) {
+        sessionStorage.setItem(storageKey, String(newState));
+      }
+      return newState;
+    });
+  };
 
   return (
     <div className={cn('w-full', showOnMobileOnly && 'lg:hidden')}>
       <button
         type="button"
-        onClick={dropdown ? () => setIsOpen(!isOpen) : onClick}
+        onClick={dropdown ? toggleDropdown : onClick}
         tabIndex={0}
         onKeyDown={(e) => {
           if (e.key === 'Enter' || e.key === ' ') {
-            dropdown ? setIsOpen(!isOpen) : onClick?.();
+            if (dropdown) {
+              toggleDropdown();
+            } else {
+              onClick?.();
+            }
           }
         }}
         className={cn(
