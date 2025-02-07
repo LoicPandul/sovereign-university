@@ -78,8 +78,6 @@ const syncRepository = async (
       options['--config'] = `http.${repository}.extraheader=${header}`;
     }
 
-    const timeClone = timeLog(`Cloning repository on branch ${branch}`);
-
     // If the directory already exists, remove it (should not happen in production)
     if (directoryBranch || existsSync(directory)) {
       console.warn(
@@ -88,6 +86,7 @@ const syncRepository = async (
       await rm(directory, { recursive: true });
     }
 
+    const timeClone = timeLog(`Cloning repository on branch ${branch}`);
     try {
       const git = simpleGit();
       await git.clone(repository, directory, options);

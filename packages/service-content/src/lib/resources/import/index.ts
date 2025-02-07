@@ -98,7 +98,7 @@ export const groupByResource = (files: ChangedFile[], errors: string[]) => {
 
   const groupedResourceValues = [...groupedResources.values()];
 
-  // Return builders first
+  // Return projects first
   return [
     ...groupedResourceValues.filter((resource) =>
       resource.path.startsWith('resources/projects'),
@@ -114,13 +114,13 @@ export const createUpdateResources = (dependencies: Dependencies) => {
     const mapHandlers = {
       bet: createProcessChangedBet,
       books: createProcessChangedBook,
-      builders: createProcessChangedProject,
+      channels: createProcessChangedYoutubeChannel,
       conferences: createProcessChangedConference,
-      podcasts: createProcessChangedPodcast,
       glossary: createProcessChangedGlossaryWord,
       movies: createProcessChangedMovie,
       newsletters: createProcessChangedNewsletter,
-      channels: createProcessChangedYoutubeChannel,
+      podcasts: createProcessChangedPodcast,
+      projects: createProcessChangedProject,
     } as const;
 
     const handler = mapHandlers[resource.category];

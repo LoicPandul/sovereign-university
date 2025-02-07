@@ -188,6 +188,7 @@ export const createProcessContentFiles = (dependencies: Dependencies) => {
     }
 
     // Index content
+    console.log('-- Sync procedure: indexing content');
     await indexContent(errors);
 
     return { errors, warnings };
