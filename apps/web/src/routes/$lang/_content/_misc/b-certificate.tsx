@@ -95,7 +95,7 @@ function BCertificate() {
       footerVariant="dark"
       maxWidth="max-w-[1380px]"
     >
-      <div className="flex max-lg:flex-col justify-center items-center gap-6 lg:gap-[111px] mb-6 lg:mb-32">
+      <div className="flex max-lg:flex-col justify-center items-center gap-6 lg:gap-[111px] my-6 md:mt-14 lg:mb-32">
         <img
           src={bCertificatesImage}
           alt="₿ Certificates"

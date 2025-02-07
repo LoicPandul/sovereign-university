@@ -405,7 +405,7 @@ const CourseExamsTable = ({
                 <button
                   type="button"
                   onClick={() => toggleCollapse(index)}
-                  className="cursor-pointer hover:font-medium body-14px md:body-16px text-newBlack-1 flex md:justify-between items-center px-2.5"
+                  className="cursor-pointer hover:font-medium body-14px md:body-16px text-newBlack-1 flex md:justify-between items-center px-2.5 text-start"
                   tabIndex={0}
                   onKeyDown={(e) => {
                     if (e.key === 'Enter' || e.key === ' ') {
@@ -413,7 +413,7 @@ const CourseExamsTable = ({
                     }
                   }}
                 >
-                  <span className="pl-1 w-fit max-md:mr-auto">
+                  <span className="pl-1 w-fit md:w-[180px] max-md:mr-auto">
                     {new Date(exam.startedAt).toLocaleDateString(undefined, {
                       year: 'numeric',
                       month: 'numeric',
@@ -425,7 +425,7 @@ const CourseExamsTable = ({
                   </span>
                   <span
                     className={cn(
-                      'md:text-center font-medium w-[52px] md:w-[130px]',
+                      'md:text-center font-medium w-[70px] md:w-[130px]',
                       exam.succeeded ? 'text-brightGreen-6' : 'text-red-5',
                     )}
                   >
@@ -617,7 +617,10 @@ const CourseExamsTable = ({
 export const CourseRatings = ({
   courseId,
   reviewChapterId,
-}: { courseId: string; reviewChapterId: string }) => {
+}: {
+  courseId: string;
+  reviewChapterId: string;
+}) => {
   const { data: previousCourseReview, isFetched: isReviewFetched } =
     trpc.user.courses.getCourseReview.useQuery({
       courseId: courseId,

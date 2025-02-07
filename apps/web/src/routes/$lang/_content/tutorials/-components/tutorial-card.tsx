@@ -10,10 +10,12 @@ export const TutorialCard = ({
   tutorial,
   href,
   dark = false,
+  addMargin,
 }: {
   tutorial: JoinedTutorialLight;
   href: string;
   dark?: boolean;
+  addMargin?: boolean;
 }) => {
   return (
     <Link
@@ -24,6 +26,7 @@ export const TutorialCard = ({
         dark
           ? 'bg-darkOrange-10 text-white'
           : 'bg-newGray-6 text-newBlack-3 md:shadow-course-navigation shadow-course-navigation-sm md:border',
+        addMargin && 'my-2',
       )}
     >
       <img

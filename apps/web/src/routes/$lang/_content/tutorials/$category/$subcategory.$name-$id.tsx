@@ -187,22 +187,22 @@ const Credits = ({
           {proofreading?.contributorsId?.length > 0
             ? t('tutorials.hasBeenProofreadBy')
             : t('tutorials.hasNotBeenProofread')}
+          <span className="text-darkOrange-5 label-large-20px md:display-small-32px">
+            {' '}
+            {proofreading?.contributorsId?.length > 0
+              ? proofreading.contributorsId.map((proofreader, index) => (
+                  <React.Fragment key={proofreader}>
+                    <span>{proofreader}</span>
+                    {index < proofreading.contributorsId.length - 2
+                      ? ', '
+                      : index === proofreading.contributorsId.length - 2
+                        ? ' & '
+                        : ''}
+                  </React.Fragment>
+                ))
+              : ''}
+          </span>
         </p>
-
-        <span className="text-darkOrange-5 label-large-20px md:display-small-32px">
-          {proofreading?.contributorsId?.length > 0
-            ? proofreading.contributorsId.map((proofreader, index) => (
-                <React.Fragment key={proofreader}>
-                  <span>{proofreader}</span>
-                  {index < proofreading.contributorsId.length - 2
-                    ? ', '
-                    : index === proofreading.contributorsId.length - 2
-                      ? ' & '
-                      : ''}
-                </React.Fragment>
-              ))
-            : ''}
-        </span>
 
         <div className="flex flex-col md:flex-row gap-6 lg:gap-[50px] mt-6 md:mt-[30px]">
           <div className="max-md:mx-auto shrink-0">
