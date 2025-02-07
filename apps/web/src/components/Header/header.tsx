@@ -8,13 +8,13 @@ import { cn } from '@blms/ui';
 
 import profileLogInBlack from '#src/assets/icons/profile_log_in_black.svg';
 import profileLogInWhite from '#src/assets/icons/profile_log_in_white.svg';
-import resourcesSvg from '#src/assets/resources/builder.svg';
 import eventsSvg from '#src/assets/resources/conference.svg';
 import glossarySvg from '#src/assets/resources/glossary.svg';
 import lecturesSvg from '#src/assets/resources/lecture.svg';
 import coursesSvg from '#src/assets/resources/library.svg';
 import moviesSvg from '#src/assets/resources/movie.svg';
 import podcastSvg from '#src/assets/resources/podcast.svg';
+import projectSvg from '#src/assets/resources/project.svg';
 import tutorialsSvg from '#src/assets/resources/toolkit.svg';
 import aboutSvg from '#src/assets/resources/world.svg';
 import youtubeChannelsSvg from '#src/assets/resources/youtube.svg';
@@ -157,9 +157,9 @@ export const Header = ({ variant = 'dark' }: HeaderProps) => {
             {
               id: 'projects',
               title: t('words.projects'),
-              description: t('menu.buildersDescription'),
+              description: t('menu.projectsDescription'),
               path: '/resources/projects',
-              icon: resourcesSvg,
+              icon: projectSvg,
             },
             {
               id: 'bet',
@@ -284,7 +284,7 @@ export const Header = ({ variant = 'dark' }: HeaderProps) => {
       id: 'resources',
       title: t('words.resources'),
       path: '/resources',
-      mobileIcon: resourcesSvg,
+      mobileIcon: projectSvg,
     },
     {
       id: 'tutorials',

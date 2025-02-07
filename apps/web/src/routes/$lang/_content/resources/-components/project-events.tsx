@@ -118,7 +118,7 @@ export const ProjectEvents = ({ events }: ProjectEventsProps) => {
 
       <div className="flex flex-col">
         <h3 className="mobile-h3 md:desktop-h4 text-center mb-2.5 md:mb-9">
-          {t('builders.relatedEvents')}
+          {t('projects.relatedEvents')}
         </h3>
 
         {sortedEvents.length > 0 && (
@@ -140,7 +140,7 @@ export const ProjectEvents = ({ events }: ProjectEventsProps) => {
         )}
         {sortedEvents.length === 0 && (
           <p className="mobile-h4 md:desktop-h5 text-center">
-            {t('builders.noRelatedEvents')}
+            {t('projects.noRelatedEvents')}
           </p>
         )}
       </div>

@@ -10,8 +10,8 @@ import {
   createProcessContentFiles,
   createProcessDeleteOldEntities,
   createProcessDisableOldEntities,
-  createSyncBuildersLocations,
   createSyncEventsLocations,
+  createSyncProjectsLocations,
 } from '@blms/service-content';
 
 import type { Dependencies } from '#src/dependencies.js';
@@ -26,7 +26,7 @@ export function createSyncGithubRepositories(dependencies: Dependencies) {
     createCalculateCourseChapterSeats(dependencies);
   const calculateEventSeats = createCalculateEventSeats(dependencies);
   const syncEventsLocations = createSyncEventsLocations(dependencies);
-  const syncProjectsLocations = createSyncBuildersLocations(dependencies);
+  const syncProjectsLocations = createSyncProjectsLocations(dependencies);
   const processContentFiles = createProcessContentFiles(dependencies);
   const processDeleteOldEntities = createProcessDeleteOldEntities(dependencies);
   const processDisableOldEntities =

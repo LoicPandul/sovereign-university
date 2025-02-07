@@ -1,5 +1,5 @@
 import { firstRow } from '@blms/database';
-import type { Builder, Proofreading, Resource } from '@blms/types';
+import type { Project, Proofreading, Resource } from '@blms/types';
 
 import type { ProofreadingEntry } from '#src/lib/types.js';
 
@@ -65,7 +65,7 @@ export const createProcessChangedProject = (
         try {
           const parsedProject = await yamlToObject<ProjectMain>(main);
 
-          const result = await transaction<Builder[]>`
+          const result = await transaction<Project[]>`
               INSERT INTO content.builders (id, resource_id, name, category, languages, website_url, twitter_url, github_url, nostr, address_line_1, address_line_2, address_line_3, original_language)
               VALUES (
                 ${parsedProject.id},${resourceId}, ${parsedProject.name}, ${parsedProject.category.toLowerCase()}, ${parsedProject.language},

@@ -16,7 +16,6 @@ interface ConferenceMain {
   year: string;
   location: string;
   original_language: string;
-  builder?: string;
   language: string[];
   links?: {
     website?: string;

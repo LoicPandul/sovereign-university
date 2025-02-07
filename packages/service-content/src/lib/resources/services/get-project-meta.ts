@@ -5,14 +5,14 @@ import { getProjectMetaQuery } from '../queries/get-project-meta.js';
 
 export const createGetProjectMeta = ({ postgres }: Dependencies) => {
   return async (id: number, language?: string) => {
-    const builder = await postgres
+    const project = await postgres
       .exec(getProjectMetaQuery(id, language))
       .then(firstRow);
 
-    if (!builder) {
+    if (!project) {
       throw new Error('Builder not found');
     }
 
-    return builder;
+    return project;
   };
 };

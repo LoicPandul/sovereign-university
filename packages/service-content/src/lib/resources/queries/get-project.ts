@@ -1,8 +1,8 @@
 import { sql } from '@blms/database';
-import type { JoinedBuilder } from '@blms/types';
+import type { JoinedProject } from '@blms/types';
 
 export const getProjectQuery = (id: number, language?: string) => {
-  return sql<JoinedBuilder[]>`
+  return sql<JoinedProject[]>`
     SELECT
       r.id,
       r.path,

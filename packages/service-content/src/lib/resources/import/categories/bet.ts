@@ -11,7 +11,6 @@ import { createProcessMainFile } from '../main.js';
 interface BetMain {
   type: string;
   project_id?: string;
-  builder?: string;
   original_language: string;
   links?: {
     download?: string;

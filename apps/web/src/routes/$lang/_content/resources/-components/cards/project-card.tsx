@@ -8,17 +8,17 @@ interface ProjectCardProps {
 
 export const ProjectCard = (props: ProjectCardProps) => {
   return (
-    <div className="group/builder relative flex flex-col items-center justify-center">
+    <div className="group/project relative flex flex-col items-center justify-center">
       <div className="relative flex flex-col items-center justify-center">
         <img
           className={cn(
-            'size-[50px] md:size-20 rounded-full group-hover/builder:blur-sm group-hover/builder:brightness-[0.30] group-focus/builder:blur-sm group-focus/builder:brightness-[0.30] transition-all',
+            'size-[50px] md:size-20 rounded-full group-hover/project:blur-sm group-hover/project:brightness-[0.30] group-focus/project:blur-sm group-focus/project:brightness-[0.30] transition-all',
             props.cardWidth ? props.cardWidth : '',
           )}
           src={props.logo}
           alt={props.name}
         />
-        <p className="absolute text-center text-xs md:text-sm font-bold text-white opacity-0 group-hover/builder:opacity-100 group-focus/builder:opacity-100 transition-all">
+        <p className="absolute text-center text-xs md:text-sm font-bold text-white opacity-0 group-hover/project:opacity-100 group-focus/project:opacity-100 transition-all">
           {props.name}
         </p>
       </div>

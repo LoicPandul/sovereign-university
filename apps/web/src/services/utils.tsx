@@ -1,13 +1,13 @@
 import type { JoinedTutorialLight } from '@blms/types';
 
 import webSvg from '#src/assets/icons/world-pixelated.svg';
-import builderSvg from '#src/assets/resources/builder.svg';
 import conferenceSvg from '#src/assets/resources/conference.svg';
 import glossarySvg from '#src/assets/resources/glossary.svg';
 import lectureSvg from '#src/assets/resources/lecture.svg';
 import librarySvg from '#src/assets/resources/library.svg';
 import movieSvg from '#src/assets/resources/movie.svg';
 import podcastSvg from '#src/assets/resources/podcast.svg';
+import projectSvg from '#src/assets/resources/project.svg';
 import toolkitSvg from '#src/assets/resources/toolkit.svg';
 import youtubeSvg from '#src/assets/resources/youtube.svg';
 import exchangeSvg from '#src/assets/tutorials/exchange.svg';
@@ -74,7 +74,7 @@ export const RESOURCES_CATEGORIES = [
   },
   {
     name: 'projects',
-    image: builderSvg,
+    image: projectSvg,
     unreleased: false,
   },
   {

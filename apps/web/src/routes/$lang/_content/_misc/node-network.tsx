@@ -36,7 +36,7 @@ function NodeNetwork() {
   );
 
   const { data: builderLocations } =
-    trpc.content.getBuildersLocations.useQuery();
+    trpc.content.getProjectsLocations.useQuery();
   const filteredCommunities = communities
     ? communities
         .filter((el) => el.category.toLowerCase() === 'communities')

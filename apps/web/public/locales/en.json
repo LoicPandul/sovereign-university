@@ -65,8 +65,8 @@
     "passwordRequired": "Password is required",
     "passwordResetError": "Password reset error",
     "passwordResetSent": "Password reset email has been sent to your inbox (if the email address exists in our database).",
-    "passwordSuccessfullyChanged": "Your password has been successfully changed. You can now log in with your new password.",
     "passwordsDontMatch": "Passwords don't match",
+    "passwordSuccessfullyChanged": "Your password has been successfully changed. You can now log in with your new password.",
     "resetPassword": "Reset your password",
     "sendLink": "Send me a link",
     "signIn": "Sign In",
@@ -105,14 +105,6 @@
       "description": "The images below can be used for your own creations.",
       "title": "Visual Content"
     }
-  },
-  "builders": {
-    "languages": "Languages",
-    "networkStrength": "The strength of a network lies in its members",
-    "noRelatedEvents": "There are no upcoming events related to this educator at the moment.",
-    "otherCommunities": "Explore Plan ₿ Communities",
-    "pageTitle": "Bitcoin Projects",
-    "relatedEvents": "Related upcoming events"
   },
   "conferences": {
     "addConferences": "Feel free to add any missing conferences via this <0>Github</0> repository.",
@@ -232,8 +224,8 @@
       "notTranslatedYet": "We're sorry, but the final exam feature is not yet available in your selected language. You may choose to switch to another language to continue.",
       "oneMinuteLeft": "You only have 1 minute left",
       "oopsFailed": "Oops, it seems that you <0>failed</0> the final exam.",
-      "passRate": "The pass rate is 80%.",
       "passed": "Passed",
+      "passRate": "The pass rate is 80%.",
       "planBTimeStamp": "At Plan ₿ Network, we secure your degree using time-stamping technology backed by blockchain.",
       "quitWithoutSubmitting": "Oups, it seems that you left the page without submitting your answers. This cancels the test.",
       "retakeExam": "Retake the exam",
@@ -249,11 +241,11 @@
       "tamperProof": "Tamper-Proof: Blockchain ensures no one can alter or fake your credential.",
       "testKnowledge": "Now that you’ve completed this course, let’s test your knowledge.",
       "testResults": "Test results",
+      "timerStart": "Once you click Start, a 20-minute timer will begin.",
       "timeStampBenefits": "Why it’s important :",
+      "timeStamped": "time-stamped.",
       "timeStampHow": "How it works :",
       "timeStampHowDescription": "When your degree is issued, a unique digital 'fingerprint' is created and stored on the blockchain. This makes the record permanent and tamper-proof. Any attempt to alter your degree will break the link, revealing the change.",
-      "timeStamped": "time-stamped.",
-      "timerStart": "Once you click Start, a 20-minute timer will begin.",
       "tryAgain": "Try again",
       "tryOneMoreTime": "Let's try one more time!",
       "verifyDisplayName": "Before starting, please verify your display name below, as it will be used to generate your diploma.",
@@ -396,11 +388,11 @@
       "upcomingBookingsSubtitle": "Here you can download the list of participants for all in-person events.",
       "userRolesAllocation": "User roles allocation"
     },
+    "backToDashboard": "Back to dashboard",
     "bCertificate": {
       "grade": "Grade",
       "noResults": "There are no grades or certificates associated with this account yet.\nIf you passed an exam and your results are not available after an extended period, please <0>reach out to us</0> for assistance."
     },
-    "backToDashboard": "Back to dashboard",
     "booking": {
       "accessLive": "Access the live",
       "billingSubtitle": "Download the invoices from your bookings here.",
@@ -423,8 +415,8 @@
       "personalCalendar": "Personal calendar"
     },
     "careerPortal": {
-      "acceptTermsAndConditions": "I have read and I accept the terms and conditions",
       "acceptedFormat": "File format accepted: pdf / Maximum file size: 10 MB.",
+      "acceptTermsAndConditions": "I have read and I accept the terms and conditions",
       "add": "Add",
       "allowReceivingEmails": "I agree to receive emails from Plan ₿ Network about potential job opportunities",
       "applicationSaved": "Your application is saved!",
@@ -470,8 +462,8 @@
       "expectedSalaryPlaceholder": "Monthly salary: 2.5K net",
       "expectedSalarySubLabel": "Depending on your profile, tell us your hourly rate or month salary expectations. Please specify if it's net or gross.",
       "fileTooLarge": "Selected file is too large",
-      "fileUploadError": "There was an error while uploading your file. Please try again.",
       "fileUploaded": "CV uploaded successfully!",
+      "fileUploadError": "There was an error while uploading your file. Please try again.",
       "firstName": "First name (or pseudo)",
       "followProcess": "Follow this step-by-step process to submit your CV and job information.",
       "fullTime": "Full time",
@@ -536,7 +528,6 @@
         "uxResearcher": "UX Researcher"
       },
       "languageLevel": "Level of proficiency",
-      "languageLevelSubLabel": "Select the level that best corresponds to your skills.",
       "languageLevels": {
         "advanced": "Advanced (Confidence & accuracy)",
         "beginner": "Beginner (Limited understanding)",
@@ -544,6 +535,7 @@
         "fluent": "Fluent (Native-level)",
         "intermediate": "Intermediate (Comfortable communication)"
       },
+      "languageLevelSubLabel": "Select the level that best corresponds to your skills.",
       "languageRequired": "Add at least one language.",
       "languageSkills": "Language skills",
       "languageSkillsSubtitle": "Let us know what languages you speak and write, and their corresponding level of proficiency.",
@@ -571,13 +563,13 @@
         "yes": "Yes, with pleasure"
       },
       "roleLevel": "Level of experience",
-      "roleLevelSubLabel": "Select the level that best corresponds to your skills.",
       "roleLevels": {
         "junior": "Junior (1 to 3 years)",
         "mid": "Mid-level (3 to 5 years)",
         "senior": "Senior (5+ years)",
         "student": "Student (0 year)"
       },
+      "roleLevelSubLabel": "Select the level that best corresponds to your skills.",
       "roleRequired": "Add at least one role.",
       "seeOrEditProfile": "See or edit profile",
       "selectJobTitle": "Select a job title",
@@ -901,7 +893,6 @@
     "bCertificateDescription": "Pass the ₿-Certificate exam to assess your Bitcoin level",
     "betDescription": "Collection of content that you can use for your educational projects",
     "bitcoinDescription": "Learn Bitcoin from fundamentals to advanced applications.",
-    "buildersDescription": "Learn about the companies and projects that contribute to improving Bitcoin and increasing its adoption",
     "businessDescription": "Uncover Bitcoin usage in commerce.",
     "channelsDescription": "Access our exclusive selection of Youtube channels to learn about Bitcoin",
     "chooseLanguage": "Choose a language",
@@ -915,6 +906,7 @@
     "newsletterDescription": "Collection of content that you can use for your educational projects",
     "nodeNetworkDescription": "Join the Plan ₿ global community network",
     "podcastsDescription": "Explore the bitcoin ecosystem through podcasts",
+    "projectsDescription": "Learn about the companies and projects that contribute to improving Bitcoin and increasing its adoption",
     "protocolDescription": "Discover the core rules that power the Bitcoin network.",
     "publicDescription": "Explore public communication articles",
     "securityDescription": "Master the techniques for safeguarding your Bitcoin assets.",
@@ -966,6 +958,14 @@
       "thanks": "Thank you for supporting {{name}}'s work!",
       "thanksNoName": "Thank you for supporting my work!"
     }
+  },
+  "projects": {
+    "languages": "Languages",
+    "networkStrength": "The strength of a network lies in its members",
+    "noRelatedEvents": "There are no upcoming events related to this educator at the moment.",
+    "otherCommunities": "Explore Plan ₿ Communities",
+    "pageTitle": "Bitcoin Projects",
+    "relatedEvents": "Related upcoming events"
   },
   "proofreading": {
     "completed": "Proofreading completed",
@@ -1164,18 +1164,18 @@
       "title": "Node"
     },
     "others": {
-      "DIY": {
-        "description": "Discover our DIY tutorials to learn how to create things related to Bitcoin, computing, and individual sovereignty by yourself!"
-      },
-      "OpenSource": {
-        "description": "Explore our tutorials dedicated to the use of open-source tools!"
-      },
       "contribution": {
         "description": "Learn how to contribute to Plan ₿ Network and master the open-source tools we use internally through our detailed tutorials!"
       },
       "description": "Dive into a large collection of tutorials that are closely related to Bitcoin ethos. From DIY to open-source tutorial, discover new areas of knowledge to become even more sovereign.",
+      "DIY": {
+        "description": "Discover our DIY tutorials to learn how to create things related to Bitcoin, computing, and individual sovereignty by yourself!"
+      },
       "general": {
         "description": "Browse our general tutorials to enrich your knowledge in computing and other subjects related to individual sovereignty!"
+      },
+      "OpenSource": {
+        "description": "Explore our tutorials dedicated to the use of open-source tools!"
       },
       "shortDescription": "Explore diverse tutorials on closely related topics of bitcoin",
       "title": "Others"
@@ -1230,8 +1230,8 @@
     "all": "All",
     "amount": "Amount",
     "author": "Author",
-    "bCertificate": "₿-Certificate",
     "back": "Back",
+    "bCertificate": "₿-Certificate",
     "beginner": "Beginner",
     "billing": "Billing",
     "bitcoin": "Bitcoin",
@@ -1283,9 +1283,9 @@
     "hours": "hours",
     "hybrid": "Hybrid",
     "id": "ID",
-    "inReview": "In review",
     "incomplete": "Incomplete",
     "inperson": "In-person",
+    "inReview": "In review",
     "intermediate": "Intermediate",
     "invoice": "Invoice",
     "language": "Language",

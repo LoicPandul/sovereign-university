@@ -228,7 +228,7 @@ function Project() {
                 {project.category === 'communities' && (
                   <>
                     <span className="text-xs font-medium text-white text-center mb-1">
-                      {t('builders.languages')}
+                      {t('projects.languages')}
                     </span>
                     <div className="flex justify-center flex-col gap-2.5 ">
                       {project.languages?.slice(0, 3).map((language) => (
@@ -257,10 +257,10 @@ function Project() {
           <div className="max-md:hidden h-px bg-newGray-1 w-full" />
           <div className="text-center">
             <span className="text-darkOrange-5 max-md:text-xs max-md:font-medium max-md:leading-normal md:desktop-h7">
-              {t('builders.networkStrength')}
+              {t('projects.networkStrength')}
             </span>
             <h3 className="text-white mobile-h3 md:desktop-h3">
-              {t('builders.otherCommunities')}
+              {t('projects.otherCommunities')}
             </h3>
           </div>
           <div className="max-w-[1017px] flex flex-row flex-wrap justify-center items-center gap-4 md:gap-11">

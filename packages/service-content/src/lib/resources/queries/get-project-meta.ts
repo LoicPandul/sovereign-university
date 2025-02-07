@@ -1,8 +1,8 @@
 import { sql } from '@blms/database';
-import type { JoinedBuilder } from '@blms/types';
+import type { JoinedProject } from '@blms/types';
 
 type BuilderMeta = Pick<
-  JoinedBuilder,
+  JoinedProject,
   'id' | 'path' | 'name' | 'language' | 'description' | 'lastCommit'
 >;
 

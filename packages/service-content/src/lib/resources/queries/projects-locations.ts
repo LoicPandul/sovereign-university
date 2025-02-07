@@ -1,7 +1,7 @@
 import { sql } from '@blms/database';
-import type { BuilderLocation } from '@blms/types';
+import type { ProjectLocation } from '@blms/types';
 
-export const getBuildersWithoutLocationQuery = () => {
+export const getProjectsWithoutLocationQuery = () => {
   return sql<Array<{ name: string }>>`
     SELECT b.address_line_1 as name
     FROM content.builders b
@@ -12,15 +12,15 @@ export const getBuildersWithoutLocationQuery = () => {
   `;
 };
 
-export const setBuilderLocationQuery = (input: BuilderLocation) => {
+export const setProjectLocationQuery = (input: ProjectLocation) => {
   return sql`
     INSERT INTO content.builders_locations (place_id, name, lat, lng)
     VALUES (${input.placeId}, ${input.name}, ${input.lat}, ${input.lng})
   `;
 };
 
-export const getBuildersLocationsQuery = () => {
-  return sql<BuilderLocation[]>`
+export const getProjectsLocationsQuery = () => {
+  return sql<ProjectLocation[]>`
     SELECT *
     FROM content.builders_locations
   `;

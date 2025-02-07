@@ -48,7 +48,7 @@ function Projects() {
 
   return (
     <ResourceLayout
-      title={t('builders.pageTitle')}
+      title={t('projects.pageTitle')}
       filterBar={{
         onChange: setSearchTerm,
       }}

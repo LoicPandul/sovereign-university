@@ -3,13 +3,13 @@ import { z } from 'zod';
 import {
   joinedBetSchema,
   joinedBookSchema,
-  joinedBuilderSchema,
   joinedConferenceSchema,
   joinedEventSchema,
   joinedGlossaryWordSchema,
   joinedMovieSchema,
   joinedNewsletterSchema,
   joinedPodcastSchema,
+  joinedProjectSchema,
   joinedYoutubeChannelSchema,
 } from '@blms/schemas';
 import {
@@ -37,13 +37,13 @@ import {
 import type {
   JoinedBet,
   JoinedBook,
-  JoinedBuilder,
   JoinedConference,
   JoinedEvent,
   JoinedGlossaryWord,
   JoinedMovie,
   JoinedNewsletter,
   JoinedPodcast,
+  JoinedProject,
   JoinedYoutubeChannel,
 } from '@blms/types';
 
@@ -104,12 +104,12 @@ export const resourcesRouter = createTRPCRouter({
     }),
   // Projects
   getProjects: createGetResourcesProcedure()
-    .output<Parser<JoinedBuilder[]>>(joinedBuilderSchema.array())
+    .output<Parser<JoinedProject[]>>(joinedProjectSchema.array())
     .query(({ ctx, input }) => {
       return createGetProjects(ctx.dependencies)(input?.language);
     }),
   getProject: createGetResourceProcedure()
-    .output<Parser<JoinedBuilder>>(joinedBuilderSchema)
+    .output<Parser<JoinedProject>>(joinedProjectSchema)
     .query(({ ctx, input }) => {
       return createGetProject(ctx.dependencies)(input.id, input.language);
     }),

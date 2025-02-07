@@ -14,7 +14,6 @@ interface TutorialMain {
   level: string;
   category?: string;
   original_language: string;
-  builder?: string;
   credits?:
     | {
         professor: string;

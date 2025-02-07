@@ -1,19 +1,19 @@
 import { firstRow } from '@blms/database';
-import type { JoinedBuilder } from '@blms/types';
+import type { JoinedProject } from '@blms/types';
 
 import type { Dependencies } from '../../dependencies.js';
 import { getProjectQuery } from '../queries/get-project.js';
 
 export const createGetProject = ({ postgres }: Dependencies) => {
-  return async (id: number, language?: string): Promise<JoinedBuilder> => {
-    const builder = await postgres
+  return async (id: number, language?: string): Promise<JoinedProject> => {
+    const project = await postgres
       .exec(getProjectQuery(id, language))
       .then(firstRow);
 
-    if (!builder) {
-      throw new Error('Builder not found');
+    if (!project) {
+      throw new Error('Project not found');
     }
 
-    return builder;
+    return project;
   };
 };

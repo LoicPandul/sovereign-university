@@ -20,14 +20,14 @@ export const TutorialTile = ({
           category: tutorial.category,
           subcategory: tutorial.subcategory,
         }}
-        className="group/builder relative flex flex-col items-center justify-center"
+        className="group/project relative flex flex-col items-center justify-center"
       >
         <img
-          className="size-12 sm:size-14 md:size-16 lg:size-20 rounded-full group-hover/builder:blur-sm group-focus/builder:blur-sm group-focus/builder:brightness-[30%] transition-all bg-white/20"
+          className="size-12 sm:size-14 md:size-16 lg:size-20 rounded-full group-hover/project:blur-sm group-focus/project:blur-sm group-focus/project:brightness-[30%] transition-all bg-white/20"
           src={assetUrl(tutorial.logoUrl, 'logo.webp')}
           alt={tutorial.title}
         />
-        <p className="absolute flex justify-center items-center size-full p-1 rounded-full text-center text-xs font-bold text-white group-hover/builder:bg-black/60 opacity-0 group-hover/builder:opacity-100 group-focus/builder:opacity-100 transition-all">
+        <p className="absolute flex justify-center items-center size-full p-1 rounded-full text-center text-xs font-bold text-white group-hover/project:bg-black/60 opacity-0 group-hover/project:opacity-100 group-focus/project:opacity-100 transition-all">
           {tutorial.title.slice(0, 18)}
         </p>
       </Link>

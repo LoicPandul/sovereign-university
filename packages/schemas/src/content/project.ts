@@ -9,24 +9,24 @@ import {
 
 import { resourceSchema } from './resource.js';
 
-export const builderLocationSchema = createSelectSchema(contentBuilderLocation);
+export const projectLocationSchema = createSelectSchema(contentBuilderLocation);
 
-export const builderSchema = createSelectSchema(contentBuilders, {
+export const projectSchema = createSelectSchema(contentBuilders, {
   languages: z.array(z.string()),
 });
 
-export const builderLocalizedSchema = createSelectSchema(
+export const projectLocalizedSchema = createSelectSchema(
   contentBuildersLocalized,
 );
 
-export const joinedBuilderSchema = resourceSchema
+export const joinedProjectSchema = resourceSchema
   .pick({
     id: true,
     path: true,
     lastCommit: true,
   })
   .merge(
-    builderSchema.pick({
+    projectSchema.pick({
       name: true,
       category: true,
       languages: true,
@@ -41,7 +41,7 @@ export const joinedBuilderSchema = resourceSchema
     }),
   )
   .merge(
-    builderLocalizedSchema.pick({
+    projectLocalizedSchema.pick({
       language: true,
       description: true,
     }),

@@ -4,7 +4,7 @@
 export type * from './bcertificate.js';
 export type * from './bet.js';
 export type * from './book.js';
-export type * from './builder.js';
+export type * from './project.js';
 export type * from './channels.js';
 export type * from './conference.js';
 export type * from './coupon.js';

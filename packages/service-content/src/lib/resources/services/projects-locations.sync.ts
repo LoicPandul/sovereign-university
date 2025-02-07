@@ -2,9 +2,9 @@ import { z } from 'zod';
 
 import type { Dependencies } from '../../dependencies.js';
 import {
-  getBuildersWithoutLocationQuery,
-  setBuilderLocationQuery,
-} from '../queries/builders-locations.js';
+  getProjectsWithoutLocationQuery,
+  setProjectLocationQuery,
+} from '../queries/projects-locations.js';
 
 const expectedResponseSchema = z.array(
   z
@@ -38,20 +38,20 @@ const fetchProjectLocation = async (query: string) => {
 export const createSyncProjectsLocations = ({ postgres }: Dependencies) => {
   return async (syncWarnings: string[]) => {
     try {
-      const locations = await postgres.exec(getBuildersWithoutLocationQuery());
+      const locations = await postgres.exec(getProjectsWithoutLocationQuery());
 
       for (const { name } of locations) {
         const result = await fetchProjectLocation(name).catch(() => null);
         if (!result) {
-          const warn = `-- Sync: Could not find builder location: ${name}`;
+          const warn = `-- Sync: Could not find project location: ${name}`;
           syncWarnings.push(warn);
           continue;
         }
 
-        await postgres.exec(setBuilderLocationQuery({ ...result, name }));
+        await postgres.exec(setProjectLocationQuery({ ...result, name }));
       }
     } catch (error) {
-      const errMsg = `'-- Error during builders locations sync: ${error}`;
+      const errMsg = `'-- Error during project locations sync: ${error}`;
       syncWarnings.push(errMsg);
       console.error(errMsg);
     }
