@@ -1,13 +1,13 @@
 export const supportedCategories = [
   'bet',
   'books',
-  'podcasts',
-  'builders',
+  'channels',
   'conferences',
   'glossary',
   'movies',
   'newsletters',
-  'channels',
+  'podcasts',
+  'projects',
 ] as const;
 
 export type ResourceCategory = (typeof supportedCategories)[number];
