@@ -2,21 +2,21 @@ import { createSelectSchema } from 'drizzle-zod';
 import { z } from 'zod';
 
 import {
-  contentBuilderLocation,
-  contentBuilders,
-  contentBuildersLocalized,
+  contentProjectLocation,
+  contentProjects,
+  contentProjectsLocalized,
 } from '@blms/database';
 
 import { resourceSchema } from './resource.js';
 
-export const projectLocationSchema = createSelectSchema(contentBuilderLocation);
+export const projectLocationSchema = createSelectSchema(contentProjectLocation);
 
-export const projectSchema = createSelectSchema(contentBuilders, {
+export const projectSchema = createSelectSchema(contentProjects, {
   languages: z.array(z.string()),
 });
 
 export const projectLocalizedSchema = createSelectSchema(
-  contentBuildersLocalized,
+  contentProjectsLocalized,
 );
 
 export const joinedProjectSchema = resourceSchema

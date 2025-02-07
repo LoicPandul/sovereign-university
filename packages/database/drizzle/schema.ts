@@ -508,7 +508,7 @@ export const contentBet = content.table('bet', (t) => ({
     .references(() => contentResources.id, { onDelete: 'cascade' }),
   projectId: t
     .uuid()
-    .references(() => contentBuilders.id, { onDelete: 'set null' }),
+    .references(() => contentProjects.id, { onDelete: 'set null' }),
   type: betTypeEnum().notNull(),
   downloadUrl: t.text().notNull(),
   originalLanguage: t.varchar({ length: 10 }).notNull().default('en'),
@@ -596,9 +596,9 @@ export const contentBooksLocalized = content.table(
   }),
 );
 
-// BUILDERS
+// PROJECTS
 
-export const contentBuilders = content.table('builders', (t) => ({
+export const contentProjects = content.table('builders', (t) => ({
   id: t.uuid().primaryKey().unique(),
   resourceId: t
     .integer()
@@ -619,12 +619,12 @@ export const contentBuilders = content.table('builders', (t) => ({
   nostr: t.text(),
 }));
 
-export const contentBuildersLocalized = content.table(
+export const contentProjectsLocalized = content.table(
   'builders_localized',
   (t) => ({
     id: t
       .uuid()
-      .references(() => contentBuilders.id, { onDelete: 'cascade' })
+      .references(() => contentProjects.id, { onDelete: 'cascade' })
       .notNull(),
     language: t.varchar({ length: 10 }).notNull(),
 
@@ -648,7 +648,7 @@ export const contentConferences = content.table('conferences', (t) => ({
     .references(() => contentResources.id, { onDelete: 'cascade' }),
   projectId: t
     .uuid()
-    .references(() => contentBuilders.id, { onDelete: 'set null' }),
+    .references(() => contentProjects.id, { onDelete: 'set null' }),
   name: t.text().notNull(),
   description: t.text(),
   year: t.text().notNull(),
@@ -1253,7 +1253,7 @@ export const contentEvents = content.table('events', (t) => ({
   id: t.varchar({ length: 100 }).primaryKey().notNull(),
   projectId: t
     .uuid()
-    .references(() => contentBuilders.id, { onDelete: 'set null' }),
+    .references(() => contentProjects.id, { onDelete: 'set null' }),
   path: t.varchar({ length: 255 }).unique().notNull(),
   type: eventTypeEnum(),
   name: t.text(),
@@ -1393,7 +1393,7 @@ export const contentTutorials = content.table(
     id: t.uuid().primaryKey().notNull(),
     projectId: t
       .uuid()
-      .references(() => contentBuilders.id, { onDelete: 'set null' }),
+      .references(() => contentProjects.id, { onDelete: 'set null' }),
     path: t.varchar({ length: 255 }).unique().notNull(),
     logoUrl: t.text().notNull().default(''),
 
@@ -1948,13 +1948,13 @@ export const contentProofreading = content.table(
 );
 
 /**
- * Table to store coordinates for builders (bound by address_line_1).
+ * Coordinates for projects, bound by address_line_1
  */
-export const contentBuilderLocation = content.table(
+export const contentProjectLocation = content.table(
   'builders_locations',
   (t) => ({
     placeId: t.integer().notNull(), // OSM place_id
-    name: t.text().primaryKey(), // address_line_1 in the builders table
+    name: t.text().primaryKey(), // address_line_1 in the projects table
     lat: t.doublePrecision().notNull(),
     lng: t.doublePrecision().notNull(),
   }),
