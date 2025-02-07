@@ -53,5 +53,5 @@
       "biome check --no-errors-on-unmatched --files-ignore-unknown=true --diagnostic-level=warn"
     ]
   },
-  "packageManager": "pnpm@10.2.0"
+  "packageManager": "pnpm@10.2.1"
 }
